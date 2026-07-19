@@ -1,30 +1,38 @@
 # Agy CLI Docs Mirror
 
-Local mirror for official Agy CLI Markdown docs.
-
-> ⚠️ **待确认**：`config/sources.json` 中的来源站点（`llms_txt` / `allowed_host`）目前为占位值
-> `https://agycli.com/llms.txt`。请替换为 Agy CLI 官方文档站真实的 `llms.txt` 地址后再运行同步。
+Local mirror for official **Google Antigravity** ("agy") docs, including the Antigravity CLI.
 
 ## Open-Source Positioning
 
-This repository is an open mirror of publicly available Agy CLI documentation,
+This repository is an open mirror of publicly available Antigravity documentation,
 designed to make agent-oriented document ingestion and retrieval easier.
 
-- Canonical source remains the official Agy CLI docs site.
+- Canonical source remains the official Antigravity docs site (`https://antigravity.google/docs`).
 - This mirror does not redefine or replace official documentation.
-- We only mirror documentation discovered from official `llms.txt` indexes.
-- Each mirrored file keeps source metadata (`url`, `sha256`, `fetched_at`) in `docs/docs_manifest.json`.
+- We only mirror documentation the site itself publishes as Markdown.
+- Each mirrored file keeps source metadata (`section`, `slug`, `url`, `sha256`, `fetched_at`) in `docs/docs_manifest.json`.
 
-This repository is designed for automation-first ingestion:
-- Periodically fetches `llms.txt` indexes from Agy CLI docs
-- Resolves linked docs Markdown pages
-- Stores mirrored files under `docs/`
-- Writes `docs/docs_manifest.json` with hashes and source metadata
+## How discovery works
+
+`antigravity.google` is a single-page app, so it works differently from a plain `llms.txt`
+mirror:
+
+- `/docs/<slug>` routes all return the same JavaScript shell (content is rendered client-side),
+  so there is no server-rendered HTML or `<slug>.md` endpoint to scrape.
+- The real Markdown lives at `/assets/docs/<path>/<filename>.md` (with YAML frontmatter).
+- The `slug -> (path, filename)` mapping only exists inside the hashed `main-*.js` bundle.
+
+`scripts/fetch_agy_docs.py` therefore:
+
+1. loads the index HTML and discovers the current `main-*.js` bundle (auto-adapts to redeploys),
+2. extracts the doc page table (`{section, path, slug, filename}`) from the bundle,
+3. downloads each `/assets/docs/<path>/<filename>.md` (responses are gzip-encoded and decompressed),
+4. mirrors them under `docs/<output_subdir>/<slug>.md` and writes `docs/docs_manifest.json`.
 
 ## Sources
 
 Configured in `config/sources.json`:
-- `https://agycli.com/llms.txt` (占位，待替换为官方地址)
+- `https://antigravity.google` (docs assets under `/assets/docs`)
 
 ## Layout
 
@@ -58,7 +66,7 @@ This repository supports both CNB and GitHub Actions automation:
 
 ## Notes
 
-- Source content remains property of its respective owner.
+- Source content remains property of Google.
 - This repository stores mirrored copies to support machine-readable indexing and agent retrieval workflows.
 - Official docs should always be treated as the source of truth when discrepancies appear.
 

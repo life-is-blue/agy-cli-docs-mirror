@@ -1,12 +1,11 @@
 {
   "sources": [
     {
-      "id": "agy-cli",
-      "llms_txt": "https://agycli.com/llms.txt",
-      "allowed_host": "agycli.com",
-      "docs_path_prefix": "/docs/",
-      "root_docs_path": "/docs.md",
-      "output_subdir": "agy-cli"
+      "id": "antigravity",
+      "site_root": "https://antigravity.google",
+      "index_path": "/",
+      "docs_asset_prefix": "/assets/docs",
+      "output_subdir": "antigravity"
     }
   ]
 }

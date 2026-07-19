@@ -1,20 +1,37 @@
 #!/usr/bin/env python3
-"""Fetch Agy CLI markdown docs listed in llms.txt indexes."""
+"""Fetch Antigravity (agy) CLI markdown docs.
+
+Unlike a plain llms.txt mirror, antigravity.google is a single-page app:
+- `/docs/<slug>` routes all return the same JS shell (content is rendered client-side).
+- The real markdown lives at `/assets/docs/<path>/<filename>.md`.
+- The slug -> (path, filename) mapping only exists inside the hashed `main-*.js` bundle.
+
+So this fetcher:
+  1. loads the index HTML and discovers the current `main-*.js` bundle,
+  2. extracts the doc page table ({section, path, slug, filename}) from the bundle,
+  3. downloads each `/assets/docs/<path>/<filename>.md`,
+  4. mirrors them under docs/<output_subdir>/<slug>.md and writes a manifest.
+
+The site serves every asset gzip-encoded regardless of Accept-Encoding, so responses
+are decompressed explicitly.
+"""
 
 from __future__ import annotations
 
+import gzip
 import hashlib
 import json
 import os
 import re
 import ssl
 import time
+import zlib
 from dataclasses import dataclass
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Dict, List, Set, Tuple
 from urllib.error import HTTPError, URLError
-from urllib.parse import unquote, urlparse
+from urllib.parse import urljoin
 from urllib.request import Request, urlopen
 
 import certifi
@@ -26,9 +43,13 @@ MANIFEST_PATH = DOCS_ROOT / "docs_manifest.json"
 
 USER_AGENT = "agy-cli-docs-mirror/1.0"
 
-# Capture markdown links and bare URLs from llms.txt.
-MARKDOWN_LINK_REGEX = re.compile(r"\[[^\]]+\]\((https?://[^)\s]+)\)")
-BARE_URL_REGEX = re.compile(r"(?<!\()https?://[^\s<>()\"'`]+")
+# `main-THARYY64.js` style bundle reference in index.html.
+BUNDLE_REGEX = re.compile(r"main-[A-Za-z0-9]+\.js")
+# Minified page table entries: {section:"...",path:"...",slug:"...",filename:"..."}
+PAGE_ENTRY_REGEX = re.compile(
+    r'\{section:"(?P<section>[^"]*)",path:"(?P<path>[^"]*)",'
+    r'slug:"(?P<slug>[^"]*)",filename:"(?P<filename>[^"]*)"\}'
+)
 
 REQUEST_TIMEOUT_SECONDS = 30
 MAX_RETRIES = 4
@@ -39,11 +60,18 @@ SSL_CONTEXT = ssl.create_default_context(cafile=certifi.where())
 @dataclass(frozen=True)
 class Source:
     source_id: str
-    llms_txt: str
-    allowed_host: str
-    docs_path_prefix: str
-    root_docs_path: str
+    site_root: str
+    index_path: str
+    docs_asset_prefix: str
     output_subdir: str
+
+
+@dataclass(frozen=True)
+class DocPage:
+    section: str
+    slug: str
+    url: str
+    rel_path: str
 
 
 def now_iso() -> str:
@@ -59,49 +87,56 @@ def load_sources(config_path: Path) -> List[Source]:
     result: List[Source] = []
     for raw in raw_sources:
         source_id = raw.get("id")
-        llms_txt = raw.get("llms_txt")
-        allowed_host = raw.get("allowed_host")
-        docs_path_prefix = raw.get("docs_path_prefix")
-        root_docs_path = raw.get("root_docs_path")
+        site_root = raw.get("site_root")
+        index_path = raw.get("index_path", "/")
+        docs_asset_prefix = raw.get("docs_asset_prefix")
         output_subdir = raw.get("output_subdir")
 
-        if (
-            not source_id
-            or not llms_txt
-            or not allowed_host
-            or not docs_path_prefix
-            or not root_docs_path
-            or not output_subdir
-        ):
+        if not source_id or not site_root or not docs_asset_prefix or not output_subdir:
             raise RuntimeError(f"Invalid source entry: {raw}")
 
-        if not docs_path_prefix.startswith("/") or not docs_path_prefix.endswith("/"):
-            raise RuntimeError(f"docs_path_prefix must look like '/docs/': {docs_path_prefix}")
-
-        if not root_docs_path.startswith("/"):
-            raise RuntimeError(f"root_docs_path must start with '/': {root_docs_path}")
+        if not docs_asset_prefix.startswith("/"):
+            raise RuntimeError(f"docs_asset_prefix must start with '/': {docs_asset_prefix}")
 
         result.append(
             Source(
                 source_id=source_id,
-                llms_txt=llms_txt,
-                allowed_host=allowed_host,
-                docs_path_prefix=docs_path_prefix,
-                root_docs_path=root_docs_path,
+                site_root=site_root.rstrip("/"),
+                index_path=index_path,
+                docs_asset_prefix="/" + docs_asset_prefix.strip("/"),
                 output_subdir=output_subdir,
             )
         )
     return result
 
 
+def _decode_body(raw: bytes, content_encoding: str | None) -> str:
+    encoding = (content_encoding or "").lower()
+    if encoding == "gzip":
+        raw = gzip.decompress(raw)
+    elif encoding == "deflate":
+        raw = zlib.decompress(raw)
+    elif encoding and encoding != "identity":
+        raise RuntimeError(f"Unsupported content-encoding: {encoding}")
+    return raw.decode("utf-8")
+
+
 def fetch_text(url: str) -> str:
     last_error: Exception | None = None
     for attempt in range(1, MAX_RETRIES + 1):
-        req = Request(url, headers={"User-Agent": USER_AGENT, "Accept": "text/markdown,text/plain,*/*"})
+        req = Request(
+            url,
+            headers={
+                "User-Agent": USER_AGENT,
+                "Accept": "text/markdown,text/html,text/plain,*/*",
+                "Accept-Encoding": "gzip",
+            },
+        )
         try:
             with urlopen(req, timeout=REQUEST_TIMEOUT_SECONDS, context=SSL_CONTEXT) as response:
                 raw = response.read()
-            return raw.decode("utf-8")
+                content_encoding = response.headers.get("Content-Encoding")
+            return _decode_body(raw, content_encoding)
         except (HTTPError, URLError, TimeoutError) as exc:
             last_error = exc
             if attempt == MAX_RETRIES:
@@ -111,71 +146,44 @@ def fetch_text(url: str) -> str:
     raise RuntimeError(f"Failed to fetch {url}: {last_error}")
 
 
-def canonicalize_candidate_url(raw_url: str, source: Source) -> str | None:
-    # Trim common punctuation around copied markdown links.
-    candidate = raw_url.strip().lstrip("(<").rstrip(".,;:!?)]}>\"'`")
-
-    try:
-        parsed = urlparse(candidate)
-    except ValueError:
-        return None
-    if parsed.scheme not in {"http", "https"}:
-        return None
-
-    if parsed.netloc != source.allowed_host:
-        return None
-
-    path = parsed.path
-    if not (path == source.root_docs_path or path.startswith(source.docs_path_prefix)):
-        return None
-
-    if not path.endswith(".md"):
-        return None
-
-    # Normalize to https and strip query/fragment for stable manifest keys.
-    normalized = parsed._replace(scheme="https", query="", fragment="")
-    return normalized.geturl()
+def discover_bundle_url(source: Source) -> str:
+    index_url = urljoin(source.site_root + "/", source.index_path.lstrip("/"))
+    html = fetch_text(index_url)
+    match = BUNDLE_REGEX.search(html)
+    if not match:
+        raise RuntimeError(f"Could not find main-*.js bundle in {index_url}")
+    return urljoin(source.site_root + "/", match.group(0))
 
 
-def parse_markdown_urls(llms_text: str, source: Source) -> List[str]:
-    candidates = set(MARKDOWN_LINK_REGEX.findall(llms_text))
-    candidates.update(BARE_URL_REGEX.findall(llms_text))
-
-    urls: Set[str] = set()
-    for raw in candidates:
-        normalized = canonicalize_candidate_url(raw, source)
-        if normalized:
-            urls.add(normalized)
-
-    return sorted(urls)
+def safe_rel_path(slug: str) -> str:
+    slug = slug.strip().strip("/")
+    if not slug:
+        raise RuntimeError("Empty slug")
+    parts = slug.split("/")
+    if any(part in {"", ".", ".."} for part in parts):
+        raise RuntimeError(f"Unsafe slug: {slug}")
+    return "/".join(parts) + ".md"
 
 
-def normalized_relative_path(url: str, source: Source) -> Path:
-    parsed_url = urlparse(url)
+def extract_doc_pages(bundle_js: str, source: Source) -> List[DocPage]:
+    pages: Dict[str, DocPage] = {}
+    for match in PAGE_ENTRY_REGEX.finditer(bundle_js):
+        section = match.group("section")
+        path = match.group("path").strip("/")
+        slug = match.group("slug")
+        filename = match.group("filename")
+        if not path or not slug or not filename:
+            continue
 
-    if parsed_url.netloc != source.allowed_host:
-        raise RuntimeError(f"Disallowed host for url={url}")
+        url = f"{source.site_root}{source.docs_asset_prefix}/{path}/{filename}.md"
+        rel_path = safe_rel_path(slug)
 
-    if parsed_url.path == source.root_docs_path:
-        return Path("index.md")
+        # Same slug may appear under multiple sections (e.g. shared "mcp" page);
+        # keep the first occurrence for a stable, deduplicated set.
+        if slug not in pages:
+            pages[slug] = DocPage(section=section, slug=slug, url=url, rel_path=rel_path)
 
-    if not parsed_url.path.startswith(source.docs_path_prefix):
-        raise RuntimeError(
-            f"URL path does not match allowed docs prefix: url={url} prefix={source.docs_path_prefix}"
-        )
-
-    relative = unquote(parsed_url.path[len(source.docs_path_prefix) :]).lstrip("/")
-    if not relative:
-        relative = "index.md"
-
-    rel_path = Path(relative)
-    if any(part in {"", ".", ".."} for part in rel_path.parts):
-        raise RuntimeError(f"Unsafe relative path derived from {url}: {relative}")
-
-    if rel_path.suffix != ".md":
-        raise RuntimeError(f"Expected .md path, got {relative}")
-
-    return rel_path
+    return [pages[slug] for slug in sorted(pages.keys())]
 
 
 def sha256_text(content: str) -> str:
@@ -208,50 +216,53 @@ def main() -> int:
     new_files: Dict[str, Dict] = {}
 
     fetch_started_at = now_iso()
-    total_urls = 0
-    successful_urls = 0
-    failed_urls: List[Tuple[str, str]] = []
+    total_pages = 0
+    successful_pages = 0
+    failed_pages: List[Tuple[str, str]] = []
 
     for source in sources:
-        print(f"[INFO] Source={source.source_id} index={source.llms_txt}")
-        llms_text = fetch_text(source.llms_txt)
-        urls = parse_markdown_urls(llms_text, source)
-        if not urls:
-            raise RuntimeError(f"No markdown URLs discovered from {source.llms_txt}")
+        print(f"[INFO] Source={source.source_id} site={source.site_root}")
+        bundle_url = discover_bundle_url(source)
+        print(f"[INFO] Source={source.source_id} bundle={bundle_url}")
+        bundle_js = fetch_text(bundle_url)
 
-        print(f"[INFO] Source={source.source_id} discovered={len(urls)}")
-        total_urls += len(urls)
+        pages = extract_doc_pages(bundle_js, source)
+        if not pages:
+            raise RuntimeError(f"No doc pages discovered in bundle {bundle_url}")
+
+        print(f"[INFO] Source={source.source_id} discovered={len(pages)}")
+        total_pages += len(pages)
 
         source_root = DOCS_ROOT / source.output_subdir
         source_root.mkdir(parents=True, exist_ok=True)
 
-        for url in urls:
+        for page in pages:
+            manifest_key = f"{source.output_subdir}/{page.rel_path}"
             try:
-                rel = normalized_relative_path(url, source)
-                dest = source_root / rel
+                dest = source_root / page.rel_path
                 dest.parent.mkdir(parents=True, exist_ok=True)
 
-                content = fetch_text(url)
+                content = fetch_text(page.url)
                 digest = sha256_text(content)
 
-                manifest_key = f"{source.output_subdir}/{rel.as_posix()}"
                 existing = existing_files.get(manifest_key, {})
-                existing_digest = existing.get("sha256")
-                if existing_digest != digest or not dest.exists():
+                if existing.get("sha256") != digest or not dest.exists():
                     dest.write_text(content, encoding="utf-8")
 
                 new_files[manifest_key] = {
                     "source": source.source_id,
-                    "url": url,
+                    "section": page.section,
+                    "slug": page.slug,
+                    "url": page.url,
                     "sha256": digest,
                     "bytes": len(content.encode("utf-8")),
                     "fetched_at": fetch_started_at,
                 }
-                successful_urls += 1
+                successful_pages += 1
                 print(f"[OK] {manifest_key}")
             except Exception as exc:  # noqa: BLE001
-                print(f"[WARN] failed url={url} err={exc}")
-                failed_urls.append((url, str(exc)))
+                print(f"[WARN] failed url={page.url} err={exc}")
+                failed_pages.append((page.url, str(exc)))
 
     previous_paths = set(existing_files.keys())
     current_paths = set(new_files.keys())
@@ -270,37 +281,36 @@ def main() -> int:
         "sources": [
             {
                 "id": s.source_id,
-                "llms_txt": s.llms_txt,
-                "allowed_host": s.allowed_host,
-                "docs_path_prefix": s.docs_path_prefix,
-                "root_docs_path": s.root_docs_path,
+                "site_root": s.site_root,
+                "index_path": s.index_path,
+                "docs_asset_prefix": s.docs_asset_prefix,
                 "output_subdir": s.output_subdir,
             }
             for s in sources
         ],
         "stats": {
-            "total_urls": total_urls,
-            "successful_urls": successful_urls,
-            "failed_urls": len(failed_urls),
+            "total_pages": total_pages,
+            "successful_pages": successful_pages,
+            "failed_pages": len(failed_pages),
             "removed_files": len(removed_paths),
         },
-        "failed": [{"url": url, "error": err} for url, err in failed_urls],
+        "failed": [{"url": url, "error": err} for url, err in failed_pages],
         "files": {k: new_files[k] for k in sorted(new_files.keys())},
     }
 
     MANIFEST_PATH.write_text(json.dumps(manifest, indent=2) + "\n", encoding="utf-8")
 
     print("\n[SUMMARY]")
-    print(f"total_urls={total_urls}")
-    print(f"successful_urls={successful_urls}")
-    print(f"failed_urls={len(failed_urls)}")
+    print(f"total_pages={total_pages}")
+    print(f"successful_pages={successful_pages}")
+    print(f"failed_pages={len(failed_pages)}")
     print(f"removed_files={len(removed_paths)}")
 
-    if failed_urls and strict_fetch:
+    if failed_pages and strict_fetch:
         print("[ERROR] STRICT_FETCH=1 and failures detected")
         return 1
 
-    if successful_urls == 0:
+    if successful_pages == 0:
         print("[ERROR] No documents fetched successfully")
         return 1
 
