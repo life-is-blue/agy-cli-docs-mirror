@@ -1,0 +1,12 @@
+{
+  "sources": [
+    {
+      "id": "agy-cli",
+      "llms_txt": "https://agycli.com/llms.txt",
+      "allowed_host": "agycli.com",
+      "docs_path_prefix": "/docs/",
+      "root_docs_path": "/docs.md",
+      "output_subdir": "agy-cli"
+    }
+  ]
+}
