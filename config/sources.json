@@ -3,8 +3,8 @@
     {
       "id": "antigravity",
       "site_root": "https://antigravity.google",
-      "index_path": "/",
-      "docs_asset_prefix": "/assets/docs",
+      "llms_path": "/llms.txt",
+      "docs_path_prefix": "/docs/",
       "output_subdir": "antigravity"
     }
   ]

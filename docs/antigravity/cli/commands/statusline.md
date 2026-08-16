@@ -1,13 +1,3 @@
----
-slug: cli/commands/statusline
-section: Antigravity CLI
-title: Status Line Command (/statusline)
-path:
-    - Antigravity CLI
-    - Commands
-    - Status Line (/statusline)
----
-
 # Status Line Command (/statusline)
 
 Toggle the TUI status line or configure a custom rendering command.
@@ -26,7 +16,7 @@ Run the `/statusline` command with the following arguments to control its behavi
 
 Type `/statusline` with no arguments to toggle the status line on and off:
 
-```text
+```
 /statusline
 ```
 
@@ -34,10 +24,10 @@ Type `/statusline` with no arguments to toggle the status line on and off:
 
 You can explicitly enable or disable the status line:
 
-- **Enable**: `/statusline on` or `/statusline enable`
-- **Disable**: `/statusline off` or `/statusline disable`
+*   **Enable**: `/statusline on` or `/statusline enable`
+*   **Disable**: `/statusline off` or `/statusline disable`
 
-```bash
+```
 /statusline off
 ```
 
@@ -45,7 +35,7 @@ You can explicitly enable or disable the status line:
 
 To route the agent state JSON payload to a custom script and render its output in the status line, pass the command as an argument:
 
-```bash
+```
 /statusline ~/.gemini/antigravity-cli/statusline.sh
 ```
 
@@ -55,7 +45,7 @@ This immediately updates your settings and starts running the script to render t
 
 To delete your custom command configuration and revert to the built-in default status line:
 
-```bash
+```
 /statusline delete
 ```
 
@@ -65,12 +55,12 @@ _(Note: `/statusline reset` is also supported)._
 
 To view the quick command reference:
 
-```bash
+```
 /statusline help
 ```
 
 ## Next steps
 
-- **[Status Line Guide](/docs/cli/statusline)**: Learn how to write custom scripts and handle the JSON payload.
-- **[Window Title Command](/docs/cli/commands/title)**: Configure dynamic terminal window titles.
-- **[CLI Reference](/docs/cli/reference)**: See all available slash commands.
+*   **[Status Line Guide](/docs/cli/statusline)**: Learn how to write custom scripts and handle the JSON payload.
+*   **[Window Title Command](/docs/cli/commands/title)**: Configure dynamic terminal window titles.
+*   **[CLI Reference](/docs/cli/reference)**: See all available slash commands.

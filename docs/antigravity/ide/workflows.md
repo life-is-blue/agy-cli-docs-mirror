@@ -1,13 +1,3 @@
----
-slug: ide/workflows
-section: Antigravity IDE
-title: Workflows
-path:
-  - Antigravity IDE
-  - Customizations
-  - Workflows
----
-
 # Workflows
 
 Workflows enable you to define a series of steps to guide the Agent through a repetitive set of tasks, such as deploying a service or responding to PR comments. These Workflows are saved as markdown files, allowing you to have an easy repeatable way to run key processes. Once saved, Workflows can be invoked in Agent via a slash command with the format /workflow-name.
@@ -16,9 +6,9 @@ While Rules provide models with guidance by providing persistent, reusable conte
 
 To create a workflow:
 
-1. Open the Customizations panel via the "..." dropdown at the top of the editor's agent panel.
-2. Navigate to the Workflows panel.
-3. Click the **+ Global** button to create a new global workflow that can be accessed across all your workspaces, or click the **+ Workspace** button to create a workflow specific to your current workspace.
+1.  Open the Customizations panel via the “…” dropdown at the top of the editor’s agent panel.
+2.  Navigate to the Workflows panel.
+3.  Click the **\+ Global** button to create a new global workflow that can be accessed across all your workspaces, or click the **\+ Workspace** button to create a workflow specific to your current workspace.
 
 To execute a workflow, simply invoke it in Agent using the /workflow-name command. You can call other Workflows from within a workflow! For example, /workflow-1 can include instructions like “Call /workflow-2” and “Call /workflow-3”. Upon invocation, Agent sequentially processes each step defined in the workflow, performing actions or generating responses as specified.
 
