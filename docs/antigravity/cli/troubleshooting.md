@@ -1,12 +1,3 @@
----
-slug: cli/troubleshooting
-section: Antigravity CLI
-title: Troubleshooting
-path:
-    - Antigravity CLI
-    - Troubleshooting
----
-
 # Troubleshooting
 
 Diagnose and resolve common anomalies with installation PATHs, local self-updating locks, keyring access permissions, and SSH clipboard forwarding.
@@ -15,14 +6,14 @@ Diagnose and resolve common anomalies with installation PATHs, local self-updati
 
 Scan the lookup table below to identify symptoms and access immediate solutions:
 
-| Error Symptom                         | Potential Cause                                             | Target Resolution                                                                   |
-| :------------------------------------ | :---------------------------------------------------------- | :---------------------------------------------------------------------------------- |
-| **`agy: command not found`**          | Binary directory missing from shell environments.           | [Configure your shell PATH](#configure-your-shell-path)                             |
-| **`keyring: secure lock out`**        | Missing system service permissions or active lockouts.      | [Authorize keyring permissions](#authorize-keyring-permissions)                     |
-| **`SSH Clipboard paste failures`**    | Protocol streams blocked or missing forward configurations. | [Enable emulator clipboard forwarding](#enable-emulator-clipboard-forwarding)       |
-| **`Advisory lock / update failures`** | Locked self-updater thread or read-only directory paths.    | [Resolve self-updater locks and failures](#resolve-self-updater-locks-and-failures) |
+| Error Symptom | Potential Cause | Target Resolution |
+| --- | --- | --- |
+| **`agy: command not found`** | Binary directory missing from shell environments. | [Configure your shell PATH](#configure-your-shell-path) |
+| **`keyring: secure lock out`** | Missing system service permissions or active lockouts. | [Authorize keyring permissions](#authorize-keyring-permissions) |
+| **`SSH Clipboard paste failures`** | Protocol streams blocked or missing forward configurations. | [Enable emulator clipboard forwarding](#enable-emulator-clipboard-forwarding) |
+| **`Advisory lock / update failures`** | Locked self-updater thread or read-only directory paths. | [Resolve self-updater locks and failures](#resolve-self-updater-locks-and-failures) |
 
----
+* * *
 
 ## Configure your shell PATH
 
@@ -30,13 +21,13 @@ Scan the lookup table below to identify symptoms and access immediate solutions:
 
 Executing `agy` returns a shell terminal error:
 
-```bash
+```
 bash: agy: command not found
 ```
 
 ### Cause
 
-The installation utility downloads the binary to `~/.local/bin` (or `C:\Users\<Username>\AppData\Local\agy\bin`), but your shell's active `$PATH` environment does not index this directory.
+The installation utility downloads the binary to `~/.local/bin` (or `C:\Users\<username>\AppData\Local\agy\bin`), but your shell’s active `$PATH` environment does not index this directory.
 
 ### Resolution
 
@@ -44,25 +35,31 @@ Ensure your terminal session loads the binary path.
 
 **macOS & Linux**:
 
-1. Open your shell configuration file (`~/.bashrc` or `~/.zshrc`).
-2. Verify or append the following line at the end of the file:
-    ```bash
+1.  Open your shell configuration file (`~/.bashrc` or `~/.zshrc`).
+2.  Verify or append the following line at the end of the file:
+    
+    ```
     export PATH="~/.local/bin:$PATH"
     ```
-3. Reload your profile configurations:
-    ```bash
+    
+3.  Reload your profile configurations:
+    
+    ```
     source ~/.zshrc
     ```
+    
 
 **Windows (PowerShell)**:
 
-1. Open a PowerShell terminal as an Administrator and execute:
-    ```powershell
+1.  Open a PowerShell terminal as an Administrator and execute:
+    
+    ```
     [System.Environment]::SetEnvironmentVariable("Path", [System.Environment]::GetEnvironmentVariable("Path", "User") + ";C:\Program Files\Google\antigravity-cli", "User")
     ```
-2. Restart your terminal emulator for the system registry environment to refresh.
+    
+2.  Restart your terminal emulator for the system registry environment to refresh.
 
----
+* * *
 
 ## Authorize keyring permissions
 
@@ -70,7 +67,7 @@ Ensure your terminal session loads the binary path.
 
 When launching, the CLI hangs, prints DBUS warnings, or throws keyring access exceptions:
 
-```text
+```
 Error: failed to retrieve token: secret keyring is locked
 ```
 
@@ -82,13 +79,15 @@ Antigravity CLI utilizes secure keychain libraries (Apple Keychain, Linux secret
 
 **macOS**:
 
-1. Open **Keychain Access** app.
-2. Search for the `Antigravity CLI` security item.
-3. Right-click, select **Get Info**, choose the **Access Control** tab, and verify that `agy` is on the allowed applications list.
-4. If running inside a headless SSH session on Mac, run the following unlock sequence:
-    ```bash
+1.  Open **Keychain Access** app.
+2.  Search for the `Antigravity CLI` security item.
+3.  Right-click, select **Get Info**, choose the **Access Control** tab, and verify that `agy` is on the allowed applications list.
+4.  If running inside a headless SSH session on Mac, run the following unlock sequence:
+    
+    ```
     security unlock-keychain -p "your_keychain_password" login.keychain
     ```
+    
 
 **Linux**:
 
@@ -96,13 +95,13 @@ Ensure your system keyring (such as GNOME Keyring or KWallet) is unlocked and ac
 
 If you are running in a headless environment or over SSH, ensure that a D-Bus session is active and that your keyring daemon is running. You can typically initialize a D-Bus session by running:
 
-```bash
+```
 export $(dbus-launch)
 ```
 
 If you still experience access issues, ensure your user account has the necessary permissions to access the keyring service or reach out to support.
 
----
+* * *
 
 ## Enable emulator clipboard forwarding
 
@@ -110,7 +109,7 @@ If you still experience access issues, ensure your user account has the necessar
 
 Pasting screenshots or media files via `Ctrl+V` within an SSH terminal returns a failure notification:
 
-```text
+```
 Error: local pasteboard is empty or unreachable over SSH connection
 ```
 
@@ -122,17 +121,19 @@ Standard SSH streams do not forward graphical clipboards. Graphic uploads requir
 
 Verify that you are utilizing supported terminal emulators and configurations.
 
-1. **Use iTerm2 or Ghostty**: These emulators support advanced clip channels.
-2. **Configure iTerm2 Forwarding**:
-    - Open iTerm2 Preferences (`Cmd+,`).
-    - Go to the **General** tab, select **Selection** submenu.
-    - Check **Applications in terminal may access clipboard** (enabling OSC 52 write channels).
-3. **Bypass Multiplexers**: If running inside `tmux`, ensure your active configuration maps standard paste clips correctly:
-    ```text
+1.  **Use iTerm2 or Ghostty**: These emulators support advanced clip channels.
+2.  **Configure iTerm2 Forwarding**:
+    *   Open iTerm2 Preferences (`Cmd+,`).
+    *   Go to the **General** tab, select **Selection** submenu.
+    *   Check **Applications in terminal may access clipboard** (enabling OSC 52 write channels).
+3.  **Bypass Multiplexers**: If running inside `tmux`, ensure your active configuration maps standard paste clips correctly:
+    
+    ```
     set -s set-clipboard on
     ```
+    
 
----
+* * *
 
 ## Resolve self-updater locks and failures
 
@@ -140,7 +141,7 @@ Verify that you are utilizing supported terminal emulators and configurations.
 
 Launching `agy` hangs, fails to apply upgrades, or returns an advisory lock warning:
 
-```text
+```
 Warning: another background updater process is already active (update.lock)
 ```
 
@@ -150,23 +151,27 @@ Antigravity CLI contains a native, statically linked self-updater that runs in t
 
 ### Resolution
 
-- **Release the advisory lock**: Purge the background lock file manually:
-    ```bash
+*   **Release the advisory lock**: Purge the background lock file manually:
+    
+    ```
     rm -f ~/.gemini/antigravity-cli/updater/update.lock
     ```
-- **Opt-out/Disable auto-updates**: Set the `AGY_CLI_DISABLE_AUTO_UPDATE` environment variable to `true` inside your shell profile (`~/.bashrc` or `~/.zshrc`):
-    ```bash
+    
+*   **Opt-out/Disable auto-updates**: Set the `AGY_CLI_DISABLE_AUTO_UPDATE` environment variable to `true` inside your shell profile (`~/.bashrc` or `~/.zshrc`):
+    
+    ```
     export AGY_CLI_DISABLE_AUTO_UPDATE=true
     ```
-- **Verify directory write permissions**: Ensure your user profile owns and has write permissions inside the target installation directory (`~/.local/bin/` on Unix, or `%LOCALAPPDATA%\agy\bin` on Windows).
+    
+*   **Verify directory write permissions**: Ensure your user profile owns and has write permissions inside the target installation directory (`~/.local/bin/` on Unix, or `%LOCALAPPDATA%\agy\bin` on Windows).
 
----
+* * *
 
 ## Next steps
 
 Access our quick reference sheets or configure advanced permissions:
 
-- **[CLI Reference](/docs/cli/reference)**: Dense tables listing all slash commands and visual settings keys.
-- **[Permissions](/docs/cli/permissions)**: Configure fine-grained allowed and denied action policies.
-- **[Sandbox](/docs/cli/sandbox)**: Enforce OS-level container isolation boundaries.
-- **[Plugins & Skills](/docs/cli/plugins)**: Create your own custom skills.
+*   **[CLI Reference](/docs/cli/reference)**: Dense tables listing all slash commands and visual settings keys.
+*   **[Permissions](/docs/cli/permissions)**: Configure fine-grained allowed and denied action policies.
+*   **[Sandbox](/docs/cli/sandbox)**: Enforce OS-level container isolation boundaries.
+*   **[Plugins & Skills](/docs/cli/plugins)**: Create your own custom skills.

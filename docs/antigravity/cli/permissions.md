@@ -1,13 +1,3 @@
----
-slug: cli/permissions
-section: Antigravity CLI
-title: Permissions
-path:
-    - Antigravity CLI
-    - Agent Capabilities
-    - Permissions
----
-
 # Permissions
 
 Secure your local workstation, restrict absolute file paths, configure custom allow/deny/ask policies, and manage interactive approvals. You can also manage these rules interactively using the **[Permissions Command](/docs/cli/commands/permissions)**.
@@ -18,40 +8,39 @@ To secure your workstation while enabling autonomous workflows, Antigravity CLI 
 
 Permissions are evaluated across three distinct access lists configured inside your global settings:
 
-```text
+```
 ~/.gemini/antigravity-cli/settings.json
 ```
 
-- **`deny`**: The action is blocked immediately.
-- **`ask`**: The agent pauses and prompts for your explicit approval before proceeding.
-- **`allow`**: The action is auto-approved without prompting.
+*   **`deny`**: The action is blocked immediately.
+*   **`ask`**: The agent pauses and prompts for your explicit approval before proceeding.
+*   **`allow`**: The action is auto-approved without prompting.
 
-<Announcement>
-icon: warning
-iconColor: var(--theme-primary)
-color: var(--theme-surface-surface-container)
-text: **Precedence Rule**: Conflicting rules are strictly evaluated in priority order: **Deny > Ask > Allow**. For example, if you configure `command(*)` in your `ask` list and `command(git)` in your `allow` list, the `ask` rule takes precedence and prompts before every command.
-</Announcement>
+Note
+
+**Precedence Rule**: Conflicting rules are strictly evaluated in priority order: **Deny > Ask > Allow**. For example, if you configure `command(*)` in your `ask` list and `command(git)` in your `allow` list, the `ask` rule takes precedence and prompts before every command.
 
 ## Supported actions & matching rules
 
 Fine-grained permissions follow a standard schema pattern:
 
-```text
+```
 action(target)
 ```
 
 The supported actions, target format specifications, and matching algorithms are:
 
-| Action            | Target Format                                           | Matching Behavior                                                                                                                                                                                                                       | Default Fallback                    |
-| :---------------- | :------------------------------------------------------ | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :---------------------------------- |
-| **`read_file`**   | `read_file(/path)`, `read_file(dir)`, or `read_file(*)` | Matches absolute paths or paths relative to workspace roots. Grants recursive read access to all contained files/folders. `read_file(*)` matches all files on the system.                                                               | **Ask** (Auto-allowed in workspace) |
-| **`write_file`**  | `write_file(/path)` or `write_file(*)`                  | Same as `read_file`. Implicitly grants `read_file` for the exact same target path.                                                                                                                                                      | **Ask** (Auto-allowed in workspace) |
-| **`read_url`**    | `read_url(domain)` or `read_url(*)`                     | Matches hostnames and subdomains (e.g., `google.com` covers `mail.google.com`). Ignores URL path segments. `read_url(*)` matches any domain.                                                                                            | **Ask**                             |
-| **`execute_url`** | `execute_url(domain)` or `execute_url(*)`               | Actuating on web elements (clicking, typing) or driving interactive browser workflows on a domain.                                                                                                                                      | **Ask**                             |
-| **`command`**     | `command(prefix)`, `command(regex)`, or `command(*)`    | Matches commands by exact word/token prefix. Each whitespace-separated token is evaluated as an anchored regular expression (`^(?:pattern)$`). E.g., `command(npm run (build\|lint\|test))` matches `npm run build` and `npm run test`. | **Ask**                             |
-| **`unsandboxed`** | `unsandboxed(prefix)` or `unsandboxed(*)`               | Matches commands by exact word/token prefix. Commands matching this grant will be executed outside of container isolation (only applicable when terminal sandboxing is enabled).                                                        | **Ask**                             |
-| **`mcp`**         | `mcp(server/tool)` or `mcp(*)`                          | Matches exact MCP tools or all tools on a specified server (applies to local `mcpl` servers and remote connections). `mcp(*)` matches any tool.                                                                                         | **Ask**                             |
+| Action | Target Format | Matching Behavior | Default Fallback |
+| --- | --- | --- | --- |
+| **`read_file`** | `read_file(/path)`, `read_file(dir)`, or `read_file(*)` | Matches absolute paths or paths relative to workspace roots. Grants recursive read access to all contained files/folders. `read_file(*)` matches all files on the system. | **Ask** (Auto-allowed in workspace) |
+| **`write_file`** | `write_file(/path)` or `write_file(*)` | Same as `read_file`. Implicitly grants `read_file` for the exact same target path. | **Ask** (Auto-allowed in workspace) |
+| **`read_url`** | `read_url(domain)` or `read_url(*)` | Matches hostnames and subdomains (e.g., `google.com` covers `mail.google.com`). Ignores URL path segments. `read_url(*)` matches any domain. | **Ask** |
+| **`execute_url`** | `execute_url(domain)` or `execute_url(*)` | Actuating on web elements (clicking, typing) or driving interactive browser workflows on a domain. | **Ask** |
+| **`command`** | `command(prefix)`, `command(regex)`, or `command(*)` | Matches commands by exact word/token prefix. Each whitespace-separated token is evaluated as an anchored regular expression (`^(?:pattern)$`).  
+  
+For example, `command(npm run (build|lint|test))` matches `npm run build` and `npm run test`. | **Ask** |
+| **`unsandboxed`** | `unsandboxed(prefix)` or `unsandboxed(*)` | Matches commands by exact word/token prefix. Commands matching this grant will be executed outside of container isolation (only applicable when terminal sandboxing is enabled). | **Ask** |
+| **`mcp`** | `mcp(server/tool)` or `mcp(*)` | Matches exact MCP tools or all tools on a specified server (applies to local `mcp` servers and remote connections). `mcp(*)` matches any tool. | **Ask** |
 
 ### Global wildcard syntax
 
@@ -59,14 +48,14 @@ Across all supported action types, passing the global wildcard `*` (such as `rea
 
 ### Implicit permission rules
 
-- **Write implies Read**: Allowing `write_file` on a path automatically grants `read_file` on that path.
-- **Deny Read implies Deny Write**: Denying `read_file` on a path immediately blocks `write_file` on that path.
+*   **Write implies Read**: Allowing `write_file` on a path automatically grants `read_file` on that path.
+*   **Deny Read implies Deny Write**: Denying `read_file` on a path immediately blocks `write_file` on that path.
 
 ### Cross-platform path normalization
 
 Antigravity ensures your permission rules work flawlessly whether you are developing on macOS, Linux, or Windows. On macOS and Linux, paths use standard forward slashes (`/`). On Windows, Antigravity automatically normalizes paths prior to rule evaluation by stripping drive letters (e.g., `C:`) and converting all backslashes (`\`) to forward slashes (`/`).
 
----
+* * *
 
 ## Default system behaviors & guardrails
 
@@ -76,7 +65,7 @@ When an action is not explicitly listed in your `allow`, `deny`, or `ask` lists,
 2.  **Web Browsing Defaults to Ask**: Actions for `read_url` and `execute_url` default to **Ask**. Before the agent navigates to or actuates on any web page, it will pause and prompt for your approval unless an allow rule is configured.
 3.  **Unconfigured Actions Default to Ask**: All other unconfigured actions (`command`, `mcp`, `execute_url`, non-workspace files) default to **Ask**.
 
----
+* * *
 
 ## Interactive permission prompts
 
@@ -84,13 +73,13 @@ When the agent encounters an operation requiring approval (**Ask** mode), an int
 
 Before confirming **Allow** for file, URL, or MCP permissions, you can directly edit the target string in the prompt card to expand the granted scope (e.g., broadening a single file request like `/project/file.txt` to the parent directory `/project`). The CLI validates that your edited target safely covers the operation and applies the expanded grant for the remainder of the turn, preventing repeated prompts for related operations. _(Note: Scope editing is not supported for terminal commands)._
 
----
+* * *
 
 ## Configuration examples
 
 Add these rules to your `~/.gemini/antigravity-cli/settings.json` file:
 
-```json
+```
 {
     "permissions": {
         "allow": [
@@ -116,7 +105,7 @@ Add these rules to your `~/.gemini/antigravity-cli/settings.json` file:
 
 ## See also
 
-- **[Permissions Command](/docs/cli/commands/permissions)**: Manage rules interactively in the TUI.
-- **[Sandbox Customization](/docs/cli/sandbox)**: Enforce OS-level container isolation boundaries.
-- **[Plugins & Skills](/docs/cli/plugins)**: Create your own custom skills slash commands.
-- **[Settings, Rendering & Keybindings](/docs/cli/settings)**: Customize keyboard hotkeys and buffers.
+*   **[Permissions Command](/docs/cli/commands/permissions)**: Manage rules interactively in the TUI.
+*   **[Sandbox Customization](/docs/cli/sandbox)**: Enforce OS-level container isolation boundaries.
+*   **[Plugins & Skills](/docs/cli/plugins)**: Create your own custom skills slash commands.
+*   **[Settings, Rendering & Keybindings](/docs/cli/settings)**: Customize keyboard hotkeys and buffers.

@@ -1,13 +1,3 @@
----
-slug: cli/commands/title
-section: Antigravity CLI
-title: Window Title Command (/title)
-path:
-    - Antigravity CLI
-    - Commands
-    - Window Title (/title)
----
-
 # Window Title Command (/title)
 
 Configure dynamic terminal window titles interactively.
@@ -24,24 +14,24 @@ You can control the window title feature by running the `/title` command.
 
 To toggle the feature on and off:
 
-```text
+```
 /title
 ```
 
 To enable it explicitly:
 
-```text
+```
 /title on
 ```
 
 To disable it explicitly:
 
-```text
+```
 /title off
 ```
 
 ## Next steps
 
-- **[Terminal Title Guide](/docs/cli/title)**: Learn how to write custom scripts to format the window title.
-- **[Status Line Command](/docs/cli/commands/statusline)**: Customize your TUI status line.
-- **[CLI Reference](/docs/cli/reference)**: See all available slash commands.
+*   **[Terminal Title Guide](/docs/cli/title)**: Learn how to write custom scripts to format the window title.
+*   **[Status Line Command](/docs/cli/commands/statusline)**: Customize your TUI status line.
+*   **[CLI Reference](/docs/cli/reference)**: See all available slash commands.

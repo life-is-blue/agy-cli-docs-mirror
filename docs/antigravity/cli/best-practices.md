@@ -1,12 +1,3 @@
----
-slug: cli/best-practices
-section: Antigravity CLI
-title: Best Practices
-path:
-    - Antigravity CLI
-    - Best Practices
----
-
 # Best practices for Antigravity CLI
 
 Master the workflows, prompt architectures, and local configuration choices to maximize agent velocity while maintaining robust control.
@@ -17,12 +8,12 @@ The single most effective way to ensure reliable, correct modifications from an 
 
 Before asking the agent to implement a code change:
 
-1. Ensure your workspace directory has a test suite ready.
-2. If tests do not exist, direct the agent to write a standard test block _first_.
-3. Once the agent proposes code, instruct it to run the local test command to verify its work.
-4. Watch the agent execute the command and iterate on the test outputs automatically.
+1.  Ensure your workspace directory has a test suite ready.
+2.  If tests do not exist, direct the agent to write a standard test block _first_.
+3.  Once the agent proposes code, instruct it to run the local test command to verify its work.
+4.  Watch the agent execute the command and iterate on the test outputs automatically.
 
-```text
+```
 > Implement feature X in main.py. Run npm test afterward to verify the build.
 ```
 
@@ -30,11 +21,11 @@ Before asking the agent to implement a code change:
 
 Autonomous local agents operate with highest accuracy when complex changes are partitioned into distinct exploration, planning, and execution phases.
 
-- **Exploration**: Ask the agent to explain how the target codebase resolves a particular problem or where an interface is defined before writing any changes.
-- **Planning**: Request an implementation plan. The agent will list targeted files, required dependencies, and logic overrides in an implementation plan artifact.
-- **Execution**: Once you approve the structured plan, direct the agent to apply the edits.
+*   **Exploration**: Ask the agent to explain how the target codebase resolves a particular problem or where an interface is defined before writing any changes.
+*   **Planning**: Request an implementation plan. The agent will list targeted files, required dependencies, and logic overrides in an implementation plan artifact.
+*   **Execution**: Once you approve the structured plan, direct the agent to apply the edits.
 
-```text
+```
 > Explore how our router resolves `/docs/:page`. Write down an implementation plan to add `/docs/best-practices`.
 ```
 
@@ -62,11 +53,11 @@ Create a `GEMINI.md` or `AGENTS.md` file at your workspace root to outline speci
 
 Tune your safety barriers in `~/.gemini/antigravity-cli/settings.json` based on your project risk level:
 
-- **`request-review`** (Default): Prompts you before executing any write operations, bash commands, or remote network calls.
-- **`proceed-in-sandbox`**: Restricts all terminal executions to a secure sandbox containment ring. Safe commands execute autonomously, while risky commands prompt for reviews.
-- **`strict`**: Always prompts for all non-read operations, providing complete line-by-line transparency.
+*   **`request-review`** (Default): Prompts you before executing any write operations, bash commands, or remote network calls.
+*   **`proceed-in-sandbox`**: Restricts all terminal executions to a secure sandbox containment ring. Safe commands execute autonomously, while risky commands prompt for reviews.
+*   **`strict`**: Always prompts for all non-read operations, providing complete line-by-line transparency.
 
-```json
+```
 {
     "toolPermission": "proceed-in-sandbox",
     "enableTerminalSandbox": true
@@ -89,10 +80,10 @@ If an agent has made several successive changes that introduce build errors, you
 
 If you are unsure of the best implementation path:
 
-1. Reach a stable baseline thread.
-2. Type `/fork` to spin up a duplicate parallel session.
-3. Test your speculative code modifications in the branched session.
-4. If the approach fails, run `/resume` to swap back to your stable main branch.
+1.  Reach a stable baseline thread.
+2.  Type `/fork` to spin up a duplicate parallel session.
+3.  Test your speculative code modifications in the branched session.
+4.  If the approach fails, run `/resume` to swap back to your stable main branch.
 
 ## Automate and script
 
@@ -102,7 +93,7 @@ Antigravity CLI is designed to operate seamlessly within standard shell pipeline
 
 To automate quick queries or integrate agents into git hooks, use the one-shot prompt flag `-p`:
 
-```bash
+```
 agy -p "Review this git diff and draft a conventional commit message" --cwd $(pwd)
 ```
 
@@ -114,6 +105,6 @@ For large-scale sweeps or multi-file refactoring, direct the primary agent to sp
 
 Learn how to configure settings and customize visual layouts:
 
-- **[Settings, Rendering & Keybindings](/docs/cli/settings)**: Customize keyboard hotkeys and buffers.
-- **[Permissions & Sandbox](/docs/cli/sandbox)**: Enforce filesystem containment.
-- **[Plugins & Skills](/docs/cli/plugins)**: Create your own custom slash commands.
+*   **[Settings, Rendering & Keybindings](/docs/cli/settings)**: Customize keyboard hotkeys and buffers.
+*   **[Permissions & Sandbox](/docs/cli/sandbox)**: Enforce filesystem containment.
+*   **[Plugins & Skills](/docs/cli/plugins)**: Create your own custom slash commands.
