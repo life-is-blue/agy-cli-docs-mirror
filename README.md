@@ -17,16 +17,13 @@ designed to make agent-oriented document ingestion and retrieval easier.
 `antigravity.google` is an Astro site that publishes docs as Markdown endpoints:
 
 - Doc pages are listed in `/llms.txt` under `## Documentation` (with `###` section headings).
-- The sitemap at `/sitemap.xml` may include a few `/docs/*` URLs not yet listed in `llms.txt`;
-  those are mirrored under section `Unlisted` when `include_sitemap_docs` is enabled.
 - Raw Markdown lives at `/docs/<slug>.md` (`Content-Type: text/markdown`).
 
 `scripts/fetch_agy_docs.py` therefore:
 
 1. loads `/llms.txt` and extracts Documentation entries + sections,
-2. optionally merges missing `/docs/*` URLs from `/sitemap.xml`,
-3. downloads each `/docs/<slug>.md` (gzip responses are decompressed when present),
-4. mirrors them under `docs/<output_subdir>/<slug>.md` and writes `docs/docs_manifest.json`.
+2. downloads each `/docs/<slug>.md` (gzip responses are decompressed when present),
+3. mirrors them under `docs/<output_subdir>/<slug>.md` and writes `docs/docs_manifest.json`.
 
 ## Sources
 
