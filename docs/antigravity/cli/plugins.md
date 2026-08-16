@@ -1,13 +1,3 @@
----
-slug: cli/plugins
-section: Antigravity CLI
-title: Plugins & Skills
-path:
-    - Antigravity CLI
-    - Customizations
-    - Plugins & Skills
----
-
 # Plugins & skills
 
 Extend agent capabilities, install third-party extension bundles, package custom workflow skills, and interface with Model Context Protocol (MCP) servers.
@@ -26,13 +16,13 @@ Plugins are namespaced bundles that package custom skills, background subagents,
 
 When you install or import a plugin, the CLI stages the bundle files within your global configuration path:
 
-```text
+```
 ~/.gemini/antigravity-cli/plugins/<plugin_name>/
 ```
 
 A compliant plugin contains the following layout:
 
-```text
+```
 ~/.gemini/antigravity-cli/plugins/<plugin_name>/
 ├── plugin.json                 # Required package marker file
 ├── mcp_config.json             # Optional Model Context Protocol servers
@@ -44,12 +34,11 @@ A compliant plugin contains the following layout:
 
 ### The plugin manifest (plugin.json)
 
-The `plugin.json` file is a mandatory manifest located at the root of your
-plugin directory. It defines the plugin's identity and metadata.
+The `plugin.json` file is a mandatory manifest located at the root of your plugin directory. It defines the plugin’s identity and metadata.
 
 **Manifest example**
 
-```json
+```
 {
     "$schema": "https://antigravity.google/schemas/v1/plugin.json",
     "name": "my-plugin",
@@ -59,23 +48,22 @@ plugin directory. It defines the plugin's identity and metadata.
 
 **Field reference**
 
-| Field         | Type   | Required | Description                                                                                                                                                                                                      |
-| :------------ | :----- | :------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `name`        | String | **Yes**  | The unique, machine-readable name of the plugin. It must contain only alphanumeric characters, hyphens, and underscores (matches `^[a-zA-Z0-9-_]+$`). This name is used to reference the plugin in CLI commands. |
-| `description` | String | No       | A brief human-readable description of the plugin's purpose, displayed in plugin listings.                                                                                                                        |
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `name` | String | **Yes** | The unique, machine-readable name of the plugin. It must contain only alphanumeric characters, hyphens, and underscores (matches `^[a-zA-Z0-9-_]+$`). This name is used to reference the plugin in CLI commands. |
+| `description` | String | No | A brief human-readable description of the plugin’s purpose, displayed in plugin listings. |
 
 **Automatic validation**
 
-To enable automatic autocomplete and validation in editors like VS Code or
-WebStorm, include the `$schema` key pointing to the official schema URL:
+To enable automatic autocomplete and validation in editors like VS Code or WebStorm, include the `$schema` key pointing to the official schema URL:
 
-```json
+```
 "$schema": "https://antigravity.google/schemas/v1/plugin.json"
 ```
 
 **Full JSON Schema**
 
-```json
+```
 {
     "$schema": "https://antigravity.google/schemas/v1/plugin.json",
     "title": "Antigravity Plugin Manifest",
@@ -101,23 +89,31 @@ WebStorm, include the `$schema` key pointing to the official schema URL:
 
 The CLI exposes a `plugin` (or plural `plugins`) subcommand pipeline to manage your extensions:
 
-- **List installed plugins**: Show active packages and their loaded components.
-    ```bash
+*   **List installed plugins**: Show active packages and their loaded components.
+    
+    ```
     agy plugin list
     ```
-- **Install a local or remote plugin**: Stage a package directory into your local profile.
-    ```bash
+    
+*   **Install a local or remote plugin**: Stage a package directory into your local profile.
+    
+    ```
     agy plugin install /path/to/local/plugin
     ```
-- **Disable/Enable a plugin**: Suspend a plugin's tools without deleting its assets.
-    ```bash
+    
+*   **Disable/Enable a plugin**: Suspend a plugin’s tools without deleting its assets.
+    
+    ```
     agy plugin disable <plugin_name>
     agy plugin enable <plugin_name>
     ```
-- **Uninstall a plugin**: Purge the package directory and clean up registries.
-    ```bash
+    
+*   **Uninstall a plugin**: Purge the package directory and clean up registries.
+    
+    ```
     agy plugin uninstall <plugin_name>
     ```
+    
 
 ## Agent skills
 
@@ -129,14 +125,14 @@ Once registered, **Skills convert automatically into slash commands** inside the
 
 To deploy workspace-specific skills that stay with your git repository:
 
-1. Create a directory named `.agents/skills/` at your project root.
-2. Inside, draft a markdown file with a `.md` extension (such as `format-tests.md`).
-3. Define the skill's Frontmatter metadata (see the example below).
-4. Below the metadata, write explicit instructions for the agent. When you run `agy` in this directory, the skill is compiled, and `/format-tests` becomes available in the prompt box.
+1.  Create a directory named `.agents/skills/` at your project root.
+2.  Inside, draft a markdown file with a `.md` extension (such as `format-tests.md`).
+3.  Define the skill’s Frontmatter metadata (see the example below).
+4.  Below the metadata, write explicit instructions for the agent. When you run `agy` in this directory, the skill is compiled, and `/format-tests` becomes available in the prompt box.
 
 **Frontmatter example:**
 
-```yaml
+```
 ---
 name: format-tests
 description: Standardize and re-format Python unittest assertions
@@ -147,7 +143,7 @@ description: Standardize and re-format Python unittest assertions
 
 To share skills across all workspaces on your workstation, place the target markdown files inside your global configuration path:
 
-```text
+```
 ~/.gemini/antigravity-cli/skills/
 ```
 
@@ -157,9 +153,9 @@ Any markdown skill in this directory is automatically imported as a global slash
 
 Hooks intercept agent actions right before or immediately after execution. They are useful for running automated pre-flight checks or post-generation formats (such as running `prettier` after writing files).
 
-Hooks are defined inside a plugin's `hooks.json` or configured inside your primary `settings.json` file. You can inspect all loaded and active hooks inside the TUI by typing:
+Hooks are defined inside a plugin’s `hooks.json` or configured inside your primary `settings.json` file. You can inspect all loaded and active hooks inside the TUI by typing:
 
-```text
+```
 /hooks
 ```
 
@@ -173,6 +169,6 @@ For comprehensive documentation on configuring local and remote MCP servers in A
 
 Learn how to migrate your existing configurations from Gemini CLI and troubleshoot connection anomalies:
 
-- **[Migration from Gemini CLI](/docs/cli/gcli-migration)**: Fast-track your legacy extensions and config conversions.
-- **[Troubleshooting](/docs/cli/troubleshooting)**: Resolve terminal hook errors, lockouts, or network failures.
-- **[Permissions & Sandbox](/docs/cli/sandbox)**: Configure security containment rings around your custom plugins and MCP servers.
+*   **[Migration from Gemini CLI](/docs/cli/gcli-migration)**: Fast-track your legacy extensions and config conversions.
+*   **[Troubleshooting](/docs/cli/troubleshooting)**: Resolve terminal hook errors, lockouts, or network failures.
+*   **[Permissions & Sandbox](/docs/cli/sandbox)**: Configure security containment rings around your custom plugins and MCP servers.

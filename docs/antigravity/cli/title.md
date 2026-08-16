@@ -1,23 +1,14 @@
----
-slug: cli/title
-section: Antigravity CLI
-title: Terminal Title Customization
-path:
-    - Antigravity CLI
-    - Customizations
-    - Window Title
----
-
 # Terminal title customization
 
 Configure dynamic window titles, map custom scripting configurations, and format JSON state outputs to customize terminal headers.
 
-> [!NOTE]
-> To toggle or set the terminal title interactively, see the **[Window Title Command](/docs/cli/commands/title)**.
+Note
+
+To toggle or set the terminal title interactively, see the **[Window Title Command](/docs/cli/commands/title)**.
 
 ## Overview
 
-The terminal window title feature displays agent details, active workspace basenames, and active conversation parameters inside your terminal emulator's title bar. This lets you monitor agent progress even when the terminal window is minimized or unfocused.
+The terminal window title feature displays agent details, active workspace basenames, and active conversation parameters inside your terminal emulator’s title bar. This lets you monitor agent progress even when the terminal window is minimized or unfocused.
 
 ## Custom title scripting
 
@@ -27,7 +18,7 @@ For customized window title formatting, you can route active TUI state details i
 
 Add a `title` configuration block to your `~/.gemini/antigravity-cli/settings.json` file:
 
-```json
+```
 {
     "title": {
         "type": "command",
@@ -36,7 +27,7 @@ Add a `title` configuration block to your `~/.gemini/antigravity-cli/settings.js
 }
 ```
 
-Whenever the agent state changes, the TUI executes your command script, pipes a detailed state JSON payload directly to the script's `stdin`, reads your formatted string from `stdout`, and updates your terminal window title. Non-printable characters and ANSI escape sequences are automatically stripped before rendering.
+Whenever the agent state changes, the TUI executes your command script, pipes a detailed state JSON payload directly to the script’s `stdin`, reads your formatted string from `stdout`, and updates your terminal window title. Non-printable characters and ANSI escape sequences are automatically stripped before rendering.
 
 ### JSON state payload schema
 
@@ -48,13 +39,13 @@ You can download a complete, layout-adaptive script from the official [title.sh 
 
 Save the script to `~/.gemini/antigravity-cli/title.sh` and make it executable:
 
-```bash
+```
 chmod +x ~/.gemini/antigravity-cli/title.sh
 ```
 
 ## See also
 
-- **[Window Title Command](/docs/cli/commands/title)**: Toggle or set the terminal title interactively.
-- **[Status Line Customization](/docs/cli/statusline)**: Customize dynamic TUI status bars.
-- **[Settings, Rendering & Keybindings](/docs/cli/settings)**: Customize keyboard hotkeys and buffers.
-- **[Permissions & Sandbox](/docs/cli/sandbox)**: Manage secure directory permissions.
+*   **[Window Title Command](/docs/cli/commands/title)**: Toggle or set the terminal title interactively.
+*   **[Status Line Customization](/docs/cli/statusline)**: Customize dynamic TUI status bars.
+*   **[Settings, Rendering & Keybindings](/docs/cli/settings)**: Customize keyboard hotkeys and buffers.
+*   **[Permissions & Sandbox](/docs/cli/sandbox)**: Manage secure directory permissions.

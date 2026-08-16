@@ -1,21 +1,12 @@
----
-slug: ide/rules
-section: Antigravity IDE
-title: Rules
-path:
-  - Antigravity IDE
-  - Customizations
-  - Rules
----
-
 # Rules
 
 Rules are manually defined constraints for the Agent to follow, at both the local and global levels. Rules allow users to guide the agent to follow behaviors particular to their own use cases and style.
 
 To get started with Rules:
-1. Open the Customizations panel via the "..." dropdown at the top of the editor's agent panel.
-2. Navigate to the Rules panel.
-3. Click **+ Global** to create new Global Rules, or **+ Workspace** to create new Workspace-specific rules.
+
+1.  Open the Customizations panel via the “…” dropdown at the top of the editor’s agent panel.
+2.  Navigate to the Rules panel.
+3.  Click **\+ Global** to create new Global Rules, or **\+ Workspace** to create new Workspace-specific rules.
 
 A Rule itself is simply a Markdown file, where you can input the constraints to guide the Agent to your tasks, stack, and style.
 
@@ -31,12 +22,12 @@ Workspace rules live in the .agents/rules folder of your workspace or git root.
 
 At the rule level you can define how a rule should be activated:
 
-- Manual: The rule is manually activated via at mention in Agent’s input box.
-- Always On: The rule is always applied.
-- Model Decision: Based on a natural language description of the rule, the model decides whether to apply the rule.
-- Glob: Based on the glob pattern you define (e.g., *.js, src/**/*.ts), the rule will be applied to all files that match the pattern.
+*   Manual: The rule is manually activated via at mention in Agent’s input box.
+*   Always On: The rule is always applied.
+*   Model Decision: Based on a natural language description of the rule, the model decides whether to apply the rule.
+*   Glob: Based on the glob pattern you define (e.g., _.js, src/\*\*/_.ts), the rule will be applied to all files that match the pattern.
 
-Note: Antigravity now defaults to .agents/rules, but still maintains backward support for .agent/rules. 
+Note: Antigravity now defaults to .agents/rules, but still maintains backward support for .agent/rules.
 
 ## @ Mentions
 
