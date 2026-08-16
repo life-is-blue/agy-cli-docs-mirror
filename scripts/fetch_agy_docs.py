@@ -127,7 +127,7 @@ def fetch_bytes(url: str) -> Tuple[bytes, str | None, str | None]:
             url,
             headers={
                 "User-Agent": USER_AGENT,
-                "Accept": "text/markdown,text/plain,application/xml,text/xml,*/*",
+                "Accept": "text/markdown,text/plain,*/*",
                 "Accept-Encoding": "gzip",
             },
         )
