@@ -4,9 +4,7 @@
       "id": "antigravity",
       "site_root": "https://antigravity.google",
       "llms_path": "/llms.txt",
-      "sitemap_path": "/sitemap.xml",
       "docs_path_prefix": "/docs/",
-      "include_sitemap_docs": true,
       "output_subdir": "antigravity"
     }
   ]

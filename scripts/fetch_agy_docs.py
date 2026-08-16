@@ -1,18 +1,16 @@
 #!/usr/bin/env python3
 """Fetch Antigravity (agy) CLI markdown docs.
 
-antigravity.google now publishes docs as an Astro site with:
+antigravity.google publishes docs as an Astro site:
 
-- an LLM index at `/llms.txt` (sectioned Documentation links),
-- optional completeness via `/sitemap.xml`,
-- raw Markdown at `/docs/<slug>.md` (`Content-Type: text/markdown`).
+- `/llms.txt` lists Documentation entries under section headings,
+- raw Markdown is at `/docs/<slug>.md` (`Content-Type: text/markdown`).
 
 This fetcher:
 
   1. loads `/llms.txt` and extracts Documentation entries + sections,
-  2. optionally merges `/docs/*` URLs from the sitemap that are missing there,
-  3. downloads each `/docs/<slug>.md`,
-  4. mirrors them under docs/<output_subdir>/<slug>.md and writes a manifest.
+  2. downloads each `/docs/<slug>.md`,
+  3. mirrors them under docs/<output_subdir>/<slug>.md and writes a manifest.
 
 Some responses are gzip-encoded; bodies are decompressed from the
 Content-Encoding header or gzip magic bytes.
@@ -35,7 +33,6 @@ from typing import Dict, List, Optional, Tuple
 from urllib.error import HTTPError, URLError
 from urllib.parse import urljoin, urlparse
 from urllib.request import Request, urlopen
-from xml.etree import ElementTree
 
 import certifi
 
@@ -48,7 +45,7 @@ USER_AGENT = "agy-cli-docs-mirror/1.0"
 
 # `- [label](https://antigravity.google/docs/...): description`
 LLMS_DOC_LINK_REGEX = re.compile(
-    r"^- \[([^\]]+)\]\((https?://[^)]+/docs/[^)]+)\):\s*(.*)$"
+    r"^- \[([^\]]+)\]\((https?://[^)]+/docs/[^)]+)\):"
 )
 LLMS_SECTION_REGEX = re.compile(r"^###\s+(.+)$")
 
@@ -56,7 +53,6 @@ REQUEST_TIMEOUT_SECONDS = 30
 MAX_RETRIES = 4
 BASE_BACKOFF_SECONDS = 1.5
 SSL_CONTEXT = ssl.create_default_context(cafile=certifi.where())
-UNLISTED_SECTION = "Unlisted"
 
 
 @dataclass(frozen=True)
@@ -64,9 +60,7 @@ class Source:
     source_id: str
     site_root: str
     llms_path: str
-    sitemap_path: str
     docs_path_prefix: str
-    include_sitemap_docs: bool
     output_subdir: str
 
 
@@ -94,9 +88,7 @@ def load_sources(config_path: Path) -> List[Source]:
         source_id = raw.get("id")
         site_root = raw.get("site_root")
         llms_path = raw.get("llms_path", "/llms.txt")
-        sitemap_path = raw.get("sitemap_path", "/sitemap.xml")
         docs_path_prefix = raw.get("docs_path_prefix", "/docs/")
-        include_sitemap_docs = bool(raw.get("include_sitemap_docs", True))
         output_subdir = raw.get("output_subdir")
 
         if not source_id or not site_root or not output_subdir:
@@ -110,9 +102,7 @@ def load_sources(config_path: Path) -> List[Source]:
                 source_id=source_id,
                 site_root=site_root.rstrip("/"),
                 llms_path=llms_path,
-                sitemap_path=sitemap_path,
                 docs_path_prefix="/" + docs_path_prefix.strip("/") + "/",
-                include_sitemap_docs=include_sitemap_docs,
                 output_subdir=output_subdir,
             )
         )
@@ -125,7 +115,7 @@ def _decode_body(raw: bytes, content_encoding: str | None) -> str:
         raw = gzip.decompress(raw)
     elif encoding == "deflate":
         raw = zlib.decompress(raw)
-    elif encoding and encoding not in {"identity", "gzip"}:
+    elif encoding and encoding != "identity":
         raise RuntimeError(f"Unsupported content-encoding: {encoding}")
     return raw.decode("utf-8")
 
@@ -137,7 +127,7 @@ def fetch_bytes(url: str) -> Tuple[bytes, str | None, str | None]:
             url,
             headers={
                 "User-Agent": USER_AGENT,
-                "Accept": "text/markdown,text/plain,application/xml,text/xml,text/html,*/*",
+                "Accept": "text/markdown,text/plain,application/xml,text/xml,*/*",
                 "Accept-Encoding": "gzip",
             },
         )
@@ -163,10 +153,15 @@ def fetch_text(url: str) -> Tuple[str, str | None]:
 
 def docs_slug_from_url(url: str, source: Source) -> Optional[str]:
     parsed = urlparse(url)
+    expected_host = urlparse(source.site_root).netloc
+    if parsed.netloc and parsed.netloc != expected_host:
+        return None
+
     path = parsed.path or ""
     prefix = source.docs_path_prefix
     if not path.startswith(prefix):
         return None
+
     slug = path[len(prefix) :].strip("/")
     if not slug or slug.endswith(".md"):
         return None
@@ -217,11 +212,11 @@ def parse_llms_doc_pages(llms_text: str, source: Source) -> Dict[str, DocPage]:
         label = link_match.group(1).strip()
         url = link_match.group(2).strip().rstrip("/")
         slug = docs_slug_from_url(url, source)
-        if not slug:
+        if not slug or not section:
             continue
 
         pages[slug] = DocPage(
-            section=section or UNLISTED_SECTION,
+            section=section,
             slug=slug,
             url=markdown_url_for_slug(source, slug),
             rel_path=safe_rel_path(slug),
@@ -231,54 +226,12 @@ def parse_llms_doc_pages(llms_text: str, source: Source) -> Dict[str, DocPage]:
     return pages
 
 
-def parse_sitemap_doc_slugs(sitemap_text: str, source: Source) -> List[str]:
-    # ElementTree tolerates default namespaces via local-name matching below.
-    try:
-        root = ElementTree.fromstring(sitemap_text)
-    except ElementTree.ParseError as exc:
-        raise RuntimeError(f"Failed to parse sitemap XML: {exc}") from exc
-
-    slugs: List[str] = []
-    seen: set[str] = set()
-    for node in root.iter():
-        if not node.tag.endswith("loc") or node.text is None:
-            continue
-        loc = node.text.strip().rstrip("/")
-        slug = docs_slug_from_url(loc, source)
-        if not slug or slug in seen:
-            continue
-        seen.add(slug)
-        slugs.append(slug)
-    return sorted(slugs)
-
-
 def discover_doc_pages(source: Source) -> List[DocPage]:
     llms_url = urljoin(source.site_root + "/", source.llms_path.lstrip("/"))
     llms_text, _ = fetch_text(llms_url)
     pages = parse_llms_doc_pages(llms_text, source)
     if not pages:
         raise RuntimeError(f"No Documentation entries found in {llms_url}")
-
-    sitemap_added = 0
-    if source.include_sitemap_docs:
-        sitemap_url = urljoin(source.site_root + "/", source.sitemap_path.lstrip("/"))
-        sitemap_text, _ = fetch_text(sitemap_url)
-        for slug in parse_sitemap_doc_slugs(sitemap_text, source):
-            if slug in pages:
-                continue
-            pages[slug] = DocPage(
-                section=UNLISTED_SECTION,
-                slug=slug,
-                url=markdown_url_for_slug(source, slug),
-                rel_path=safe_rel_path(slug),
-                label=slug,
-            )
-            sitemap_added += 1
-
-    print(
-        f"[INFO] Source={source.source_id} llms_pages={len(pages) - sitemap_added} "
-        f"sitemap_added={sitemap_added}"
-    )
     return [pages[slug] for slug in sorted(pages.keys())]
 
 
@@ -390,9 +343,7 @@ def main() -> int:
                 "id": s.source_id,
                 "site_root": s.site_root,
                 "llms_path": s.llms_path,
-                "sitemap_path": s.sitemap_path,
                 "docs_path_prefix": s.docs_path_prefix,
-                "include_sitemap_docs": s.include_sitemap_docs,
                 "output_subdir": s.output_subdir,
             }
             for s in sources
