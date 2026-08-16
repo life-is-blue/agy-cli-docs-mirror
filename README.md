@@ -14,25 +14,21 @@ designed to make agent-oriented document ingestion and retrieval easier.
 
 ## How discovery works
 
-`antigravity.google` is a single-page app, so it works differently from a plain `llms.txt`
-mirror:
+`antigravity.google` is an Astro site that publishes docs as Markdown endpoints:
 
-- `/docs/<slug>` routes all return the same JavaScript shell (content is rendered client-side),
-  so there is no server-rendered HTML or `<slug>.md` endpoint to scrape.
-- The real Markdown lives at `/assets/docs/<path>/<filename>.md` (with YAML frontmatter).
-- The `slug -> (path, filename)` mapping only exists inside the hashed `main-*.js` bundle.
+- Doc pages are listed in `/llms.txt` under `## Documentation` (with `###` section headings).
+- Raw Markdown lives at `/docs/<slug>.md` (`Content-Type: text/markdown`).
 
 `scripts/fetch_agy_docs.py` therefore:
 
-1. loads the index HTML and discovers the current `main-*.js` bundle (auto-adapts to redeploys),
-2. extracts the doc page table (`{section, path, slug, filename}`) from the bundle,
-3. downloads each `/assets/docs/<path>/<filename>.md` (responses are gzip-encoded and decompressed),
-4. mirrors them under `docs/<output_subdir>/<slug>.md` and writes `docs/docs_manifest.json`.
+1. loads `/llms.txt` and extracts Documentation entries + sections,
+2. downloads each `/docs/<slug>.md` (gzip responses are decompressed when present),
+3. mirrors them under `docs/<output_subdir>/<slug>.md` and writes `docs/docs_manifest.json`.
 
 ## Sources
 
 Configured in `config/sources.json`:
-- `https://antigravity.google` (docs assets under `/assets/docs`)
+- `https://antigravity.google` (`llms_path=/llms.txt`, markdown under `/docs/*.md`)
 
 ## Layout
 

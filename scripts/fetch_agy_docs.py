@@ -1,19 +1,19 @@
 #!/usr/bin/env python3
 """Fetch Antigravity (agy) CLI markdown docs.
 
-Unlike a plain llms.txt mirror, antigravity.google is a single-page app:
-- `/docs/<slug>` routes all return the same JS shell (content is rendered client-side).
-- The real markdown lives at `/assets/docs/<path>/<filename>.md`.
-- The slug -> (path, filename) mapping only exists inside the hashed `main-*.js` bundle.
+antigravity.google publishes docs as an Astro site:
 
-So this fetcher:
-  1. loads the index HTML and discovers the current `main-*.js` bundle,
-  2. extracts the doc page table ({section, path, slug, filename}) from the bundle,
-  3. downloads each `/assets/docs/<path>/<filename>.md`,
-  4. mirrors them under docs/<output_subdir>/<slug>.md and writes a manifest.
+- `/llms.txt` lists Documentation entries under section headings,
+- raw Markdown is at `/docs/<slug>.md` (`Content-Type: text/markdown`).
 
-The site serves every asset gzip-encoded regardless of Accept-Encoding, so responses
-are decompressed explicitly.
+This fetcher:
+
+  1. loads `/llms.txt` and extracts Documentation entries + sections,
+  2. downloads each `/docs/<slug>.md`,
+  3. mirrors them under docs/<output_subdir>/<slug>.md and writes a manifest.
+
+Some responses are gzip-encoded; bodies are decompressed from the
+Content-Encoding header or gzip magic bytes.
 """
 
 from __future__ import annotations
@@ -29,9 +29,9 @@ import zlib
 from dataclasses import dataclass
 from datetime import datetime, timezone
 from pathlib import Path
-from typing import Dict, List, Set, Tuple
+from typing import Dict, List, Optional, Tuple
 from urllib.error import HTTPError, URLError
-from urllib.parse import urljoin
+from urllib.parse import urljoin, urlparse
 from urllib.request import Request, urlopen
 
 import certifi
@@ -43,13 +43,11 @@ MANIFEST_PATH = DOCS_ROOT / "docs_manifest.json"
 
 USER_AGENT = "agy-cli-docs-mirror/1.0"
 
-# `main-THARYY64.js` style bundle reference in index.html.
-BUNDLE_REGEX = re.compile(r"main-[A-Za-z0-9]+\.js")
-# Minified page table entries: {section:"...",path:"...",slug:"...",filename:"..."}
-PAGE_ENTRY_REGEX = re.compile(
-    r'\{section:"(?P<section>[^"]*)",path:"(?P<path>[^"]*)",'
-    r'slug:"(?P<slug>[^"]*)",filename:"(?P<filename>[^"]*)"\}'
+# `- [label](https://antigravity.google/docs/...): description`
+LLMS_DOC_LINK_REGEX = re.compile(
+    r"^- \[([^\]]+)\]\((https?://[^)]+/docs/[^)]+)\):"
 )
+LLMS_SECTION_REGEX = re.compile(r"^###\s+(.+)$")
 
 REQUEST_TIMEOUT_SECONDS = 30
 MAX_RETRIES = 4
@@ -61,8 +59,8 @@ SSL_CONTEXT = ssl.create_default_context(cafile=certifi.where())
 class Source:
     source_id: str
     site_root: str
-    index_path: str
-    docs_asset_prefix: str
+    llms_path: str
+    docs_path_prefix: str
     output_subdir: str
 
 
@@ -72,6 +70,7 @@ class DocPage:
     slug: str
     url: str
     rel_path: str
+    label: str
 
 
 def now_iso() -> str:
@@ -88,22 +87,22 @@ def load_sources(config_path: Path) -> List[Source]:
     for raw in raw_sources:
         source_id = raw.get("id")
         site_root = raw.get("site_root")
-        index_path = raw.get("index_path", "/")
-        docs_asset_prefix = raw.get("docs_asset_prefix")
+        llms_path = raw.get("llms_path", "/llms.txt")
+        docs_path_prefix = raw.get("docs_path_prefix", "/docs/")
         output_subdir = raw.get("output_subdir")
 
-        if not source_id or not site_root or not docs_asset_prefix or not output_subdir:
+        if not source_id or not site_root or not output_subdir:
             raise RuntimeError(f"Invalid source entry: {raw}")
 
-        if not docs_asset_prefix.startswith("/"):
-            raise RuntimeError(f"docs_asset_prefix must start with '/': {docs_asset_prefix}")
+        if not docs_path_prefix.startswith("/"):
+            raise RuntimeError(f"docs_path_prefix must start with '/': {docs_path_prefix}")
 
         result.append(
             Source(
                 source_id=source_id,
                 site_root=site_root.rstrip("/"),
-                index_path=index_path,
-                docs_asset_prefix="/" + docs_asset_prefix.strip("/"),
+                llms_path=llms_path,
+                docs_path_prefix="/" + docs_path_prefix.strip("/") + "/",
                 output_subdir=output_subdir,
             )
         )
@@ -112,7 +111,7 @@ def load_sources(config_path: Path) -> List[Source]:
 
 def _decode_body(raw: bytes, content_encoding: str | None) -> str:
     encoding = (content_encoding or "").lower()
-    if encoding == "gzip":
+    if encoding == "gzip" or (not encoding and raw[:2] == b"\x1f\x8b"):
         raw = gzip.decompress(raw)
     elif encoding == "deflate":
         raw = zlib.decompress(raw)
@@ -121,14 +120,14 @@ def _decode_body(raw: bytes, content_encoding: str | None) -> str:
     return raw.decode("utf-8")
 
 
-def fetch_text(url: str) -> str:
+def fetch_bytes(url: str) -> Tuple[bytes, str | None, str | None]:
     last_error: Exception | None = None
     for attempt in range(1, MAX_RETRIES + 1):
         req = Request(
             url,
             headers={
                 "User-Agent": USER_AGENT,
-                "Accept": "text/markdown,text/html,text/plain,*/*",
+                "Accept": "text/markdown,text/plain,application/xml,text/xml,*/*",
                 "Accept-Encoding": "gzip",
             },
         )
@@ -136,7 +135,8 @@ def fetch_text(url: str) -> str:
             with urlopen(req, timeout=REQUEST_TIMEOUT_SECONDS, context=SSL_CONTEXT) as response:
                 raw = response.read()
                 content_encoding = response.headers.get("Content-Encoding")
-            return _decode_body(raw, content_encoding)
+                content_type = response.headers.get("Content-Type")
+            return raw, content_encoding, content_type
         except (HTTPError, URLError, TimeoutError) as exc:
             last_error = exc
             if attempt == MAX_RETRIES:
@@ -146,13 +146,30 @@ def fetch_text(url: str) -> str:
     raise RuntimeError(f"Failed to fetch {url}: {last_error}")
 
 
-def discover_bundle_url(source: Source) -> str:
-    index_url = urljoin(source.site_root + "/", source.index_path.lstrip("/"))
-    html = fetch_text(index_url)
-    match = BUNDLE_REGEX.search(html)
-    if not match:
-        raise RuntimeError(f"Could not find main-*.js bundle in {index_url}")
-    return urljoin(source.site_root + "/", match.group(0))
+def fetch_text(url: str) -> Tuple[str, str | None]:
+    raw, content_encoding, content_type = fetch_bytes(url)
+    return _decode_body(raw, content_encoding), content_type
+
+
+def docs_slug_from_url(url: str, source: Source) -> Optional[str]:
+    parsed = urlparse(url)
+    expected_host = urlparse(source.site_root).netloc
+    if parsed.netloc and parsed.netloc != expected_host:
+        return None
+
+    path = parsed.path or ""
+    prefix = source.docs_path_prefix
+    if not path.startswith(prefix):
+        return None
+
+    slug = path[len(prefix) :].strip("/")
+    if not slug or slug.endswith(".md"):
+        return None
+    return slug
+
+
+def markdown_url_for_slug(source: Source, slug: str) -> str:
+    return f"{source.site_root}{source.docs_path_prefix}{slug}.md"
 
 
 def safe_rel_path(slug: str) -> str:
@@ -165,25 +182,69 @@ def safe_rel_path(slug: str) -> str:
     return "/".join(parts) + ".md"
 
 
-def extract_doc_pages(bundle_js: str, source: Source) -> List[DocPage]:
+def parse_llms_doc_pages(llms_text: str, source: Source) -> Dict[str, DocPage]:
     pages: Dict[str, DocPage] = {}
-    for match in PAGE_ENTRY_REGEX.finditer(bundle_js):
-        section = match.group("section")
-        path = match.group("path").strip("/")
-        slug = match.group("slug")
-        filename = match.group("filename")
-        if not path or not slug or not filename:
+    in_documentation = False
+    section: Optional[str] = None
+
+    for raw_line in llms_text.splitlines():
+        line = raw_line.rstrip()
+        if line.strip() == "## Documentation":
+            in_documentation = True
+            section = None
             continue
 
-        url = f"{source.site_root}{source.docs_asset_prefix}/{path}/{filename}.md"
-        rel_path = safe_rel_path(slug)
+        if in_documentation and line.startswith("## ") and not line.startswith("###"):
+            break
 
-        # Same slug may appear under multiple sections (e.g. shared "mcp" page);
-        # keep the first occurrence for a stable, deduplicated set.
-        if slug not in pages:
-            pages[slug] = DocPage(section=section, slug=slug, url=url, rel_path=rel_path)
+        if not in_documentation:
+            continue
 
+        section_match = LLMS_SECTION_REGEX.match(line)
+        if section_match:
+            section = section_match.group(1).strip()
+            continue
+
+        link_match = LLMS_DOC_LINK_REGEX.match(line)
+        if not link_match:
+            continue
+
+        label = link_match.group(1).strip()
+        url = link_match.group(2).strip().rstrip("/")
+        slug = docs_slug_from_url(url, source)
+        if not slug or not section:
+            continue
+
+        pages[slug] = DocPage(
+            section=section,
+            slug=slug,
+            url=markdown_url_for_slug(source, slug),
+            rel_path=safe_rel_path(slug),
+            label=label,
+        )
+
+    return pages
+
+
+def discover_doc_pages(source: Source) -> List[DocPage]:
+    llms_url = urljoin(source.site_root + "/", source.llms_path.lstrip("/"))
+    llms_text, _ = fetch_text(llms_url)
+    pages = parse_llms_doc_pages(llms_text, source)
+    if not pages:
+        raise RuntimeError(f"No Documentation entries found in {llms_url}")
     return [pages[slug] for slug in sorted(pages.keys())]
+
+
+def looks_like_markdown(content: str, content_type: str | None) -> bool:
+    ct = (content_type or "").lower()
+    if "html" in ct:
+        return False
+    stripped = content.lstrip()
+    if stripped.startswith("<!DOCTYPE") or stripped.lower().startswith("<html"):
+        return False
+    if "markdown" in ct or "text/plain" in ct:
+        return True
+    return stripped.startswith("#") or stripped.startswith("---")
 
 
 def sha256_text(content: str) -> str:
@@ -222,14 +283,7 @@ def main() -> int:
 
     for source in sources:
         print(f"[INFO] Source={source.source_id} site={source.site_root}")
-        bundle_url = discover_bundle_url(source)
-        print(f"[INFO] Source={source.source_id} bundle={bundle_url}")
-        bundle_js = fetch_text(bundle_url)
-
-        pages = extract_doc_pages(bundle_js, source)
-        if not pages:
-            raise RuntimeError(f"No doc pages discovered in bundle {bundle_url}")
-
+        pages = discover_doc_pages(source)
         print(f"[INFO] Source={source.source_id} discovered={len(pages)}")
         total_pages += len(pages)
 
@@ -242,7 +296,12 @@ def main() -> int:
                 dest = source_root / page.rel_path
                 dest.parent.mkdir(parents=True, exist_ok=True)
 
-                content = fetch_text(page.url)
+                content, content_type = fetch_text(page.url)
+                if not looks_like_markdown(content, content_type):
+                    raise RuntimeError(
+                        f"Expected markdown from {page.url}, got content-type={content_type!r}"
+                    )
+
                 digest = sha256_text(content)
 
                 existing = existing_files.get(manifest_key, {})
@@ -253,6 +312,7 @@ def main() -> int:
                     "source": source.source_id,
                     "section": page.section,
                     "slug": page.slug,
+                    "label": page.label,
                     "url": page.url,
                     "sha256": digest,
                     "bytes": len(content.encode("utf-8")),
@@ -282,8 +342,8 @@ def main() -> int:
             {
                 "id": s.source_id,
                 "site_root": s.site_root,
-                "index_path": s.index_path,
-                "docs_asset_prefix": s.docs_asset_prefix,
+                "llms_path": s.llms_path,
+                "docs_path_prefix": s.docs_path_prefix,
                 "output_subdir": s.output_subdir,
             }
             for s in sources
