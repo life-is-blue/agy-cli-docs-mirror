@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-19T01:17:44Z",
+  "generated_at": "2026-08-20T01:16:32Z",
   "tool": "scripts/fetch_agy_docs.py",
   "strict_fetch": false,
   "sources": [
@@ -12,8 +12,8 @@
     }
   ],
   "stats": {
-    "total_pages": 82,
-    "successful_pages": 82,
+    "total_pages": 88,
+    "successful_pages": 88,
     "failed_pages": 0,
     "removed_files": 0
   },
@@ -27,7 +27,7 @@
       "url": "https://antigravity.google/docs/agent-settings.md",
       "sha256": "51681c1a92618f93d7854a9a5ec4e2a55af4a6937b8d93ed02438fba8154a973",
       "bytes": 832,
-      "fetched_at": "2026-08-19T01:17:35Z"
+      "fetched_at": "2026-08-20T01:16:22Z"
     },
     "antigravity/artifact-review.md": {
       "source": "antigravity",
@@ -37,7 +37,7 @@
       "url": "https://antigravity.google/docs/artifact-review.md",
       "sha256": "701ec5af1046d58a630b922ea0f6fd88d9546082b29bc4632ac0f8649a3a3185",
       "bytes": 2004,
-      "fetched_at": "2026-08-19T01:17:35Z"
+      "fetched_at": "2026-08-20T01:16:22Z"
     },
     "antigravity/artifacts.md": {
       "source": "antigravity",
@@ -47,7 +47,7 @@
       "url": "https://antigravity.google/docs/artifacts.md",
       "sha256": "60508992a5f8a7a7fc14a2769c4573559872f276911dc051bddec69ab2732091",
       "bytes": 2036,
-      "fetched_at": "2026-08-19T01:17:35Z"
+      "fetched_at": "2026-08-20T01:16:22Z"
     },
     "antigravity/build-with-google.md": {
       "source": "antigravity",
@@ -57,7 +57,7 @@
       "url": "https://antigravity.google/docs/build-with-google.md",
       "sha256": "b93966154a059e265aca7b65c0591dcb94ef6da3a064a73d63e127cd66acbce3",
       "bytes": 7799,
-      "fetched_at": "2026-08-19T01:17:35Z"
+      "fetched_at": "2026-08-20T01:16:22Z"
     },
     "antigravity/cli/artifacts.md": {
       "source": "antigravity",
@@ -67,7 +67,7 @@
       "url": "https://antigravity.google/docs/cli/artifacts.md",
       "sha256": "09f00495e67f2029aec3523942ec08d10e227f9eb8b6ee17de1a85ab43dab032",
       "bytes": 11453,
-      "fetched_at": "2026-08-19T01:17:35Z"
+      "fetched_at": "2026-08-20T01:16:22Z"
     },
     "antigravity/cli/best-practices.md": {
       "source": "antigravity",
@@ -77,7 +77,7 @@
       "url": "https://antigravity.google/docs/cli/best-practices.md",
       "sha256": "3557939e0336c4cd61e884aff8e74ec2a2ae6bd9a24b8e16b3491052f0334bef",
       "bytes": 5372,
-      "fetched_at": "2026-08-19T01:17:35Z"
+      "fetched_at": "2026-08-20T01:16:22Z"
     },
     "antigravity/cli/commands/agents.md": {
       "source": "antigravity",
@@ -87,7 +87,7 @@
       "url": "https://antigravity.google/docs/cli/commands/agents.md",
       "sha256": "e7d2d371338d1df3ee58299e1e00ca3f73a73c736ccf2ab3746f65d2fcd7ef54",
       "bytes": 6519,
-      "fetched_at": "2026-08-19T01:17:35Z"
+      "fetched_at": "2026-08-20T01:16:22Z"
     },
     "antigravity/cli/commands/codesearch.md": {
       "source": "antigravity",
@@ -97,7 +97,7 @@
       "url": "https://antigravity.google/docs/cli/commands/codesearch.md",
       "sha256": "03a705a61dcc9f5c4ef4330c4c36f511f57dfe1fa21c90d17f67e10a079fc9b9",
       "bytes": 4547,
-      "fetched_at": "2026-08-19T01:17:35Z"
+      "fetched_at": "2026-08-20T01:16:22Z"
     },
     "antigravity/cli/commands/credits.md": {
       "source": "antigravity",
@@ -107,7 +107,7 @@
       "url": "https://antigravity.google/docs/cli/commands/credits.md",
       "sha256": "1c6122b249616f09f3df984a446ef29d34281cceda3521274bd3b9ecfe395614",
       "bytes": 1240,
-      "fetched_at": "2026-08-19T01:17:35Z"
+      "fetched_at": "2026-08-20T01:16:22Z"
     },
     "antigravity/cli/commands/diff.md": {
       "source": "antigravity",
@@ -117,7 +117,7 @@
       "url": "https://antigravity.google/docs/cli/commands/diff.md",
       "sha256": "99606924cd146f84b13c377f4a664b4a2ca506b144a583cecc267afc05b63006",
       "bytes": 5347,
-      "fetched_at": "2026-08-19T01:17:35Z"
+      "fetched_at": "2026-08-20T01:16:22Z"
     },
     "antigravity/cli/commands/permissions.md": {
       "source": "antigravity",
@@ -127,7 +127,7 @@
       "url": "https://antigravity.google/docs/cli/commands/permissions.md",
       "sha256": "37f6eced57aba956560ac0e1f485e949472d34bff99ce20ce714c041f2f31c64",
       "bytes": 4027,
-      "fetched_at": "2026-08-19T01:17:35Z"
+      "fetched_at": "2026-08-20T01:16:22Z"
     },
     "antigravity/cli/commands/resume.md": {
       "source": "antigravity",
@@ -137,7 +137,7 @@
       "url": "https://antigravity.google/docs/cli/commands/resume.md",
       "sha256": "6f3a30b4f1cf08d3982f0acb9c4c59d932c76b46f23ec3d418e9c70cd8530a99",
       "bytes": 4486,
-      "fetched_at": "2026-08-19T01:17:35Z"
+      "fetched_at": "2026-08-20T01:16:22Z"
     },
     "antigravity/cli/commands/statusline.md": {
       "source": "antigravity",
@@ -147,7 +147,7 @@
       "url": "https://antigravity.google/docs/cli/commands/statusline.md",
       "sha256": "17d0df548b97feb806408845612f2830d8870adc7d39f74e14e5314948d814a2",
       "bytes": 1859,
-      "fetched_at": "2026-08-19T01:17:35Z"
+      "fetched_at": "2026-08-20T01:16:22Z"
     },
     "antigravity/cli/commands/title.md": {
       "source": "antigravity",
@@ -157,7 +157,7 @@
       "url": "https://antigravity.google/docs/cli/commands/title.md",
       "sha256": "2751e7bdd6b24dae808ad2d7407aad9129491e9d0286bcd34866c86759c80379",
       "bytes": 1024,
-      "fetched_at": "2026-08-19T01:17:35Z"
+      "fetched_at": "2026-08-20T01:16:22Z"
     },
     "antigravity/cli/commands/usage.md": {
       "source": "antigravity",
@@ -167,7 +167,7 @@
       "url": "https://antigravity.google/docs/cli/commands/usage.md",
       "sha256": "c92b679a86e50cbdefd899c573696d33adf7173b8fb67670247ba5ba47288884",
       "bytes": 1465,
-      "fetched_at": "2026-08-19T01:17:35Z"
+      "fetched_at": "2026-08-20T01:16:22Z"
     },
     "antigravity/cli/conversations.md": {
       "source": "antigravity",
@@ -177,7 +177,7 @@
       "url": "https://antigravity.google/docs/cli/conversations.md",
       "sha256": "72edbb8e57c3bf7476cd472fee1e9e71c784fc9a4dbf9d8255a215fa5d185ea8",
       "bytes": 2565,
-      "fetched_at": "2026-08-19T01:17:35Z"
+      "fetched_at": "2026-08-20T01:16:22Z"
     },
     "antigravity/cli/credits.md": {
       "source": "antigravity",
@@ -187,7 +187,7 @@
       "url": "https://antigravity.google/docs/cli/credits.md",
       "sha256": "1b036aa9f9a09cd42bd703ffecab6efd57ff03f6ef65102db8009f65e9699977",
       "bytes": 1905,
-      "fetched_at": "2026-08-19T01:17:35Z"
+      "fetched_at": "2026-08-20T01:16:22Z"
     },
     "antigravity/cli/features.md": {
       "source": "antigravity",
@@ -197,7 +197,7 @@
       "url": "https://antigravity.google/docs/cli/features.md",
       "sha256": "bc26283595a6422529066991a4cb23a1d0c7258f1b13cbee751fc23afb706db4",
       "bytes": 7323,
-      "fetched_at": "2026-08-19T01:17:35Z"
+      "fetched_at": "2026-08-20T01:16:22Z"
     },
     "antigravity/cli/gcli-migration.md": {
       "source": "antigravity",
@@ -207,7 +207,7 @@
       "url": "https://antigravity.google/docs/cli/gcli-migration.md",
       "sha256": "b45e9c8a31a642fc757dbb976a31a1a95d65572bbd73b1bea4a8688912893441",
       "bytes": 4717,
-      "fetched_at": "2026-08-19T01:17:35Z"
+      "fetched_at": "2026-08-20T01:16:22Z"
     },
     "antigravity/cli/getting-started.md": {
       "source": "antigravity",
@@ -217,7 +217,7 @@
       "url": "https://antigravity.google/docs/cli/getting-started.md",
       "sha256": "caef6b29170f156e8ea3b0268e2d9da020071ecce9175258162e4f20e0ebb488",
       "bytes": 3073,
-      "fetched_at": "2026-08-19T01:17:35Z"
+      "fetched_at": "2026-08-20T01:16:22Z"
     },
     "antigravity/cli/headless.md": {
       "source": "antigravity",
@@ -227,7 +227,7 @@
       "url": "https://antigravity.google/docs/cli/headless.md",
       "sha256": "3b12c7d28300853caefc6cbf63f6dc5f4d7f5f6004fded21a2e50984cab2fbe6",
       "bytes": 17263,
-      "fetched_at": "2026-08-19T01:17:35Z"
+      "fetched_at": "2026-08-20T01:16:22Z"
     },
     "antigravity/cli/install.md": {
       "source": "antigravity",
@@ -237,7 +237,7 @@
       "url": "https://antigravity.google/docs/cli/install.md",
       "sha256": "2925436c857069117f0c5f02c9260d83740d6f08f6ed8ec2ed53a15cbd731b2c",
       "bytes": 6561,
-      "fetched_at": "2026-08-19T01:17:35Z"
+      "fetched_at": "2026-08-20T01:16:22Z"
     },
     "antigravity/cli/mcp.md": {
       "source": "antigravity",
@@ -247,7 +247,7 @@
       "url": "https://antigravity.google/docs/cli/mcp.md",
       "sha256": "c0dfe86ee93c6d3b743e9b162332d5f6f9d36578205c4dcb34c576758ad05a33",
       "bytes": 11469,
-      "fetched_at": "2026-08-19T01:17:35Z"
+      "fetched_at": "2026-08-20T01:16:22Z"
     },
     "antigravity/cli/modes.md": {
       "source": "antigravity",
@@ -257,7 +257,7 @@
       "url": "https://antigravity.google/docs/cli/modes.md",
       "sha256": "e72825e24b9c553aff03b4c45fd7055822dd326b04b9c0f29e7f243319fe50e9",
       "bytes": 6849,
-      "fetched_at": "2026-08-19T01:17:35Z"
+      "fetched_at": "2026-08-20T01:16:22Z"
     },
     "antigravity/cli/overview.md": {
       "source": "antigravity",
@@ -267,7 +267,7 @@
       "url": "https://antigravity.google/docs/cli/overview.md",
       "sha256": "386649c9ddb51411d379a0833e58341b4b81b852b200f5cee4d9519b76181be7",
       "bytes": 3482,
-      "fetched_at": "2026-08-19T01:17:35Z"
+      "fetched_at": "2026-08-20T01:16:22Z"
     },
     "antigravity/cli/permissions.md": {
       "source": "antigravity",
@@ -277,7 +277,7 @@
       "url": "https://antigravity.google/docs/cli/permissions.md",
       "sha256": "73387ccda1bc48fe09e10e1ffd2d150964185aea5923317200fbc980c050c15d",
       "bytes": 6500,
-      "fetched_at": "2026-08-19T01:17:35Z"
+      "fetched_at": "2026-08-20T01:16:22Z"
     },
     "antigravity/cli/plugins.md": {
       "source": "antigravity",
@@ -287,7 +287,7 @@
       "url": "https://antigravity.google/docs/cli/plugins.md",
       "sha256": "770ac72c0ea4cb379e59fb0b4cf89ebce23454ae43624b9771fd202fae0353b5",
       "bytes": 6825,
-      "fetched_at": "2026-08-19T01:17:35Z"
+      "fetched_at": "2026-08-20T01:16:22Z"
     },
     "antigravity/cli/projects.md": {
       "source": "antigravity",
@@ -297,7 +297,7 @@
       "url": "https://antigravity.google/docs/cli/projects.md",
       "sha256": "f73261743e2a280627910902e4b17a581fbd7a0e1bb858468c3335cf322af9bd",
       "bytes": 1272,
-      "fetched_at": "2026-08-19T01:17:35Z"
+      "fetched_at": "2026-08-20T01:16:22Z"
     },
     "antigravity/cli/prompting.md": {
       "source": "antigravity",
@@ -307,7 +307,7 @@
       "url": "https://antigravity.google/docs/cli/prompting.md",
       "sha256": "77a6d7aaefb6b5f0b6d90e4f4081f124a5e7a3d950ab7ea32b73fe2e3b54f4a9",
       "bytes": 3493,
-      "fetched_at": "2026-08-19T01:17:35Z"
+      "fetched_at": "2026-08-20T01:16:22Z"
     },
     "antigravity/cli/reference.md": {
       "source": "antigravity",
@@ -317,7 +317,7 @@
       "url": "https://antigravity.google/docs/cli/reference.md",
       "sha256": "4cb19129df3528c647e4962b7d6b83d0d77b20283e21e8e1ef812990e0ae9a93",
       "bytes": 10455,
-      "fetched_at": "2026-08-19T01:17:35Z"
+      "fetched_at": "2026-08-20T01:16:22Z"
     },
     "antigravity/cli/sandbox.md": {
       "source": "antigravity",
@@ -327,7 +327,7 @@
       "url": "https://antigravity.google/docs/cli/sandbox.md",
       "sha256": "8e4b352f14e741fd918f49b53c78111df88cd562568cf3609c6bd75fba5043b6",
       "bytes": 2653,
-      "fetched_at": "2026-08-19T01:17:35Z"
+      "fetched_at": "2026-08-20T01:16:22Z"
     },
     "antigravity/cli/settings.md": {
       "source": "antigravity",
@@ -337,7 +337,7 @@
       "url": "https://antigravity.google/docs/cli/settings.md",
       "sha256": "ef3ca2b3f0401e4e676250ae80e5cdc33e8d9e14ecb9aec20b029eec67de4e00",
       "bytes": 9253,
-      "fetched_at": "2026-08-19T01:17:35Z"
+      "fetched_at": "2026-08-20T01:16:22Z"
     },
     "antigravity/cli/statusline.md": {
       "source": "antigravity",
@@ -347,7 +347,7 @@
       "url": "https://antigravity.google/docs/cli/statusline.md",
       "sha256": "7a1370676044453b1b980dc2c6f03423df958216b168cf2077f68feeb7bc43ff",
       "bytes": 6328,
-      "fetched_at": "2026-08-19T01:17:35Z"
+      "fetched_at": "2026-08-20T01:16:22Z"
     },
     "antigravity/cli/subagents.md": {
       "source": "antigravity",
@@ -357,7 +357,7 @@
       "url": "https://antigravity.google/docs/cli/subagents.md",
       "sha256": "97bf859d5a0ff9a786930192c431296be997cd8ead3e56a27aa2d7a911707388",
       "bytes": 5052,
-      "fetched_at": "2026-08-19T01:17:35Z"
+      "fetched_at": "2026-08-20T01:16:22Z"
     },
     "antigravity/cli/title.md": {
       "source": "antigravity",
@@ -367,7 +367,7 @@
       "url": "https://antigravity.google/docs/cli/title.md",
       "sha256": "c69399c0f89c20d7f4ee616aa00dbc6e51ddf7e5ab97ea2c5e5273867c9b63b9",
       "bytes": 2493,
-      "fetched_at": "2026-08-19T01:17:35Z"
+      "fetched_at": "2026-08-20T01:16:22Z"
     },
     "antigravity/cli/troubleshooting.md": {
       "source": "antigravity",
@@ -377,7 +377,7 @@
       "url": "https://antigravity.google/docs/cli/troubleshooting.md",
       "sha256": "bcca5d72462ff4a3ddab8a592e8a8558fe02a1875c278467ae7c1e02b40ed212",
       "bytes": 6275,
-      "fetched_at": "2026-08-19T01:17:35Z"
+      "fetched_at": "2026-08-20T01:16:22Z"
     },
     "antigravity/cli/tutorial.md": {
       "source": "antigravity",
@@ -387,7 +387,7 @@
       "url": "https://antigravity.google/docs/cli/tutorial.md",
       "sha256": "7293f743ac2e3f32cf8ce4f7ce1c9034ea96d0ee91a68a71aefe456b8bfc5e96",
       "bytes": 2835,
-      "fetched_at": "2026-08-19T01:17:35Z"
+      "fetched_at": "2026-08-20T01:16:22Z"
     },
     "antigravity/cli/using.md": {
       "source": "antigravity",
@@ -397,7 +397,7 @@
       "url": "https://antigravity.google/docs/cli/using.md",
       "sha256": "e8e693e07c37b163138781f25b56a5c4a252a4a1c54284c71e8cb6516d2d8764",
       "bytes": 4350,
-      "fetched_at": "2026-08-19T01:17:35Z"
+      "fetched_at": "2026-08-20T01:16:22Z"
     },
     "antigravity/cli/vim-editor-mode.md": {
       "source": "antigravity",
@@ -407,7 +407,7 @@
       "url": "https://antigravity.google/docs/cli/vim-editor-mode.md",
       "sha256": "418093abaeb520e86a2c794189d860f5e6816fb7deb6d424c6fb3c393c20198b",
       "bytes": 10750,
-      "fetched_at": "2026-08-19T01:17:35Z"
+      "fetched_at": "2026-08-20T01:16:22Z"
     },
     "antigravity/enterprise.md": {
       "source": "antigravity",
@@ -417,7 +417,7 @@
       "url": "https://antigravity.google/docs/enterprise.md",
       "sha256": "5f4e8e48a3a644ca96ce0b0c473c0ac3adadb5626e535c1ba531b04b0cf6123d",
       "bytes": 11843,
-      "fetched_at": "2026-08-19T01:17:35Z"
+      "fetched_at": "2026-08-20T01:16:22Z"
     },
     "antigravity/faq.md": {
       "source": "antigravity",
@@ -427,7 +427,7 @@
       "url": "https://antigravity.google/docs/faq.md",
       "sha256": "aadb066210a1c3d49da6c9d09a5998e72e27939dbd080713eac6bbbb39248203",
       "bytes": 6564,
-      "fetched_at": "2026-08-19T01:17:35Z"
+      "fetched_at": "2026-08-20T01:16:22Z"
     },
     "antigravity/features.md": {
       "source": "antigravity",
@@ -437,7 +437,7 @@
       "url": "https://antigravity.google/docs/features.md",
       "sha256": "c9cef52b008d92ff68ca8cb420f0d07af2910a32d50c6f61770078fdd291dc39",
       "bytes": 4148,
-      "fetched_at": "2026-08-19T01:17:35Z"
+      "fetched_at": "2026-08-20T01:16:22Z"
     },
     "antigravity/firebase-studio-migration.md": {
       "source": "antigravity",
@@ -447,7 +447,7 @@
       "url": "https://antigravity.google/docs/firebase-studio-migration.md",
       "sha256": "b49b61f6a44d8ab73280acd95eef862c32bb6827cb67ca953b9400e85a0fd322",
       "bytes": 6193,
-      "fetched_at": "2026-08-19T01:17:35Z"
+      "fetched_at": "2026-08-20T01:16:22Z"
     },
     "antigravity/getting-started.md": {
       "source": "antigravity",
@@ -457,7 +457,7 @@
       "url": "https://antigravity.google/docs/getting-started.md",
       "sha256": "3696974d2b73302c5d05ec29a2f45a189c5a7920fe2da14e089264bf1b3ac3a8",
       "bytes": 3633,
-      "fetched_at": "2026-08-19T01:17:35Z"
+      "fetched_at": "2026-08-20T01:16:22Z"
     },
     "antigravity/home.md": {
       "source": "antigravity",
@@ -467,7 +467,7 @@
       "url": "https://antigravity.google/docs/home.md",
       "sha256": "8852b92b4477d9247737bd3bdde9bafee254e6f24fc6c410dd01d0b8ac3c2640",
       "bytes": 3248,
-      "fetched_at": "2026-08-19T01:17:35Z"
+      "fetched_at": "2026-08-20T01:16:22Z"
     },
     "antigravity/hooks.md": {
       "source": "antigravity",
@@ -477,7 +477,7 @@
       "url": "https://antigravity.google/docs/hooks.md",
       "sha256": "5fd61038d394efcfbd86584c143fc564f304a3ee539a2364316f343f8b93a379",
       "bytes": 15171,
-      "fetched_at": "2026-08-19T01:17:35Z"
+      "fetched_at": "2026-08-20T01:16:22Z"
     },
     "antigravity/ide/agent-side-panel.md": {
       "source": "antigravity",
@@ -487,7 +487,7 @@
       "url": "https://antigravity.google/docs/ide/agent-side-panel.md",
       "sha256": "0173874020e90ad07bd13fe6b8abd4a52a27907dcf0e929d8bbf8f5800597093",
       "bytes": 560,
-      "fetched_at": "2026-08-19T01:17:35Z"
+      "fetched_at": "2026-08-20T01:16:22Z"
     },
     "antigravity/ide/allowlist-denylist.md": {
       "source": "antigravity",
@@ -497,7 +497,7 @@
       "url": "https://antigravity.google/docs/ide/allowlist-denylist.md",
       "sha256": "591301cfb9181229c1910ec2b558806af1546505e3227edeb73c62f0760be5bb",
       "bytes": 1271,
-      "fetched_at": "2026-08-19T01:17:35Z"
+      "fetched_at": "2026-08-20T01:16:22Z"
     },
     "antigravity/ide/browser-recordings.md": {
       "source": "antigravity",
@@ -507,7 +507,7 @@
       "url": "https://antigravity.google/docs/ide/browser-recordings.md",
       "sha256": "d475a79ca639127395e4e57b68ff4abbcb9d23dd4a4147a2207c3754b5cc3e2f",
       "bytes": 566,
-      "fetched_at": "2026-08-19T01:17:35Z"
+      "fetched_at": "2026-08-20T01:16:22Z"
     },
     "antigravity/ide/browser.md": {
       "source": "antigravity",
@@ -517,7 +517,7 @@
       "url": "https://antigravity.google/docs/ide/browser.md",
       "sha256": "c8a906be5c7ab75112776980d136408698c28e6c62faf4303f4c71fab63c6bf5",
       "bytes": 1026,
-      "fetched_at": "2026-08-19T01:17:35Z"
+      "fetched_at": "2026-08-20T01:16:22Z"
     },
     "antigravity/ide/getting-started.md": {
       "source": "antigravity",
@@ -527,7 +527,7 @@
       "url": "https://antigravity.google/docs/ide/getting-started.md",
       "sha256": "26a6149303ec25959f4595c7522bdd35efc6c2b3b580970be30765428e3081c4",
       "bytes": 611,
-      "fetched_at": "2026-08-19T01:17:35Z"
+      "fetched_at": "2026-08-20T01:16:22Z"
     },
     "antigravity/ide/hooks.md": {
       "source": "antigravity",
@@ -537,7 +537,7 @@
       "url": "https://antigravity.google/docs/ide/hooks.md",
       "sha256": "d5f3cd96117c9e8e6bc92a2d48052e88a266dfdc9581c8d558d1c93b2beb286b",
       "bytes": 14334,
-      "fetched_at": "2026-08-19T01:17:35Z"
+      "fetched_at": "2026-08-20T01:16:22Z"
     },
     "antigravity/ide/implementation-plan.md": {
       "source": "antigravity",
@@ -547,7 +547,7 @@
       "url": "https://antigravity.google/docs/ide/implementation-plan.md",
       "sha256": "c2276cc6ab9f908d60cf779e3ea4740443aaefc9d7136cb767f8c0f3b64061e8",
       "bytes": 2014,
-      "fetched_at": "2026-08-19T01:17:35Z"
+      "fetched_at": "2026-08-20T01:16:22Z"
     },
     "antigravity/ide/mcp.md": {
       "source": "antigravity",
@@ -557,7 +557,7 @@
       "url": "https://antigravity.google/docs/ide/mcp.md",
       "sha256": "c0dfe86ee93c6d3b743e9b162332d5f6f9d36578205c4dcb34c576758ad05a33",
       "bytes": 11469,
-      "fetched_at": "2026-08-19T01:17:35Z"
+      "fetched_at": "2026-08-20T01:16:22Z"
     },
     "antigravity/ide/overview.md": {
       "source": "antigravity",
@@ -567,7 +567,7 @@
       "url": "https://antigravity.google/docs/ide/overview.md",
       "sha256": "9b3e3c6f810e0c2fdfa87235efa317a6765cf4c8b65290806b68b78f20d7804a",
       "bytes": 1919,
-      "fetched_at": "2026-08-19T01:17:35Z"
+      "fetched_at": "2026-08-20T01:16:22Z"
     },
     "antigravity/ide/plugins.md": {
       "source": "antigravity",
@@ -577,7 +577,7 @@
       "url": "https://antigravity.google/docs/ide/plugins.md",
       "sha256": "d449cb332db673e14544ee50089844e05279e3e7d4c482b7a84c6f2a63542ec7",
       "bytes": 2749,
-      "fetched_at": "2026-08-19T01:17:35Z"
+      "fetched_at": "2026-08-20T01:16:22Z"
     },
     "antigravity/ide/review-changes-editor.md": {
       "source": "antigravity",
@@ -587,7 +587,7 @@
       "url": "https://antigravity.google/docs/ide/review-changes-editor.md",
       "sha256": "2184e395e9fd78a511cced738407d7f5b76f2119898744061de825801b07d108",
       "bytes": 517,
-      "fetched_at": "2026-08-19T01:17:35Z"
+      "fetched_at": "2026-08-20T01:16:22Z"
     },
     "antigravity/ide/rules.md": {
       "source": "antigravity",
@@ -597,7 +597,7 @@
       "url": "https://antigravity.google/docs/ide/rules.md",
       "sha256": "6397a423ba194b72cdbbea645903a36596982bde1aca9382803cdfad3b9a86e9",
       "bytes": 1905,
-      "fetched_at": "2026-08-19T01:17:35Z"
+      "fetched_at": "2026-08-20T01:16:22Z"
     },
     "antigravity/ide/screenshots.md": {
       "source": "antigravity",
@@ -607,7 +607,7 @@
       "url": "https://antigravity.google/docs/ide/screenshots.md",
       "sha256": "c628ac5516c9316d57d22729d9a49b020f917a75c456687c4250856b4f57d1b4",
       "bytes": 547,
-      "fetched_at": "2026-08-19T01:17:35Z"
+      "fetched_at": "2026-08-20T01:16:22Z"
     },
     "antigravity/ide/separate-chrome-profile.md": {
       "source": "antigravity",
@@ -617,7 +617,7 @@
       "url": "https://antigravity.google/docs/ide/separate-chrome-profile.md",
       "sha256": "363635a4a066a860da4895dadff62f856287b19139eda1fc359a9555c3c6c125",
       "bytes": 982,
-      "fetched_at": "2026-08-19T01:17:35Z"
+      "fetched_at": "2026-08-20T01:16:22Z"
     },
     "antigravity/ide/settings.md": {
       "source": "antigravity",
@@ -627,7 +627,7 @@
       "url": "https://antigravity.google/docs/ide/settings.md",
       "sha256": "ca274f3e8ce4e5a9fb33e3f3b7ac349af6374babc0edcb8d3894b834bc581e20",
       "bytes": 4725,
-      "fetched_at": "2026-08-19T01:17:35Z"
+      "fetched_at": "2026-08-20T01:16:22Z"
     },
     "antigravity/ide/skills.md": {
       "source": "antigravity",
@@ -637,7 +637,7 @@
       "url": "https://antigravity.google/docs/ide/skills.md",
       "sha256": "c6a3a956ab2a8ad111a6ab91fdda9e02bd4be93d08d3e87d360a469a4c744f36",
       "bytes": 4956,
-      "fetched_at": "2026-08-19T01:17:35Z"
+      "fetched_at": "2026-08-20T01:16:22Z"
     },
     "antigravity/ide/tab.md": {
       "source": "antigravity",
@@ -647,7 +647,7 @@
       "url": "https://antigravity.google/docs/ide/tab.md",
       "sha256": "d0a9d8d3fb160110e45a2936d9be03c4c3a54d2628d31503a1299bbf835d4068",
       "bytes": 2243,
-      "fetched_at": "2026-08-19T01:17:35Z"
+      "fetched_at": "2026-08-20T01:16:22Z"
     },
     "antigravity/ide/walkthrough.md": {
       "source": "antigravity",
@@ -657,7 +657,7 @@
       "url": "https://antigravity.google/docs/ide/walkthrough.md",
       "sha256": "72c4873688cf2fc40ed088979b03c8227f008562b4d343b93a691ab73cbfc5f0",
       "bytes": 699,
-      "fetched_at": "2026-08-19T01:17:35Z"
+      "fetched_at": "2026-08-20T01:16:22Z"
     },
     "antigravity/ide/workflows.md": {
       "source": "antigravity",
@@ -667,7 +667,7 @@
       "url": "https://antigravity.google/docs/ide/workflows.md",
       "sha256": "8fd2601df5911ffc34fe9d078970bd43a4163c8e5ace2d13ceef2bf430ee2d43",
       "bytes": 1836,
-      "fetched_at": "2026-08-19T01:17:35Z"
+      "fetched_at": "2026-08-20T01:16:22Z"
     },
     "antigravity/implementation-plan.md": {
       "source": "antigravity",
@@ -677,7 +677,7 @@
       "url": "https://antigravity.google/docs/implementation-plan.md",
       "sha256": "c2276cc6ab9f908d60cf779e3ea4740443aaefc9d7136cb767f8c0f3b64061e8",
       "bytes": 2014,
-      "fetched_at": "2026-08-19T01:17:35Z"
+      "fetched_at": "2026-08-20T01:16:22Z"
     },
     "antigravity/mcp.md": {
       "source": "antigravity",
@@ -687,7 +687,7 @@
       "url": "https://antigravity.google/docs/mcp.md",
       "sha256": "c0dfe86ee93c6d3b743e9b162332d5f6f9d36578205c4dcb34c576758ad05a33",
       "bytes": 11469,
-      "fetched_at": "2026-08-19T01:17:35Z"
+      "fetched_at": "2026-08-20T01:16:22Z"
     },
     "antigravity/models.md": {
       "source": "antigravity",
@@ -697,7 +697,7 @@
       "url": "https://antigravity.google/docs/models.md",
       "sha256": "ece6cfef6aedcb243901bf45f03cb872b88178a0beabf389204ef74ff268cb42",
       "bytes": 2099,
-      "fetched_at": "2026-08-19T01:17:35Z"
+      "fetched_at": "2026-08-20T01:16:22Z"
     },
     "antigravity/overview.md": {
       "source": "antigravity",
@@ -707,7 +707,7 @@
       "url": "https://antigravity.google/docs/overview.md",
       "sha256": "cce4716ea900d7d56a43500c2f3a3824c478571ebdb9ecdcad17a87bdc078de1",
       "bytes": 1286,
-      "fetched_at": "2026-08-19T01:17:35Z"
+      "fetched_at": "2026-08-20T01:16:22Z"
     },
     "antigravity/permissions.md": {
       "source": "antigravity",
@@ -717,7 +717,7 @@
       "url": "https://antigravity.google/docs/permissions.md",
       "sha256": "3abd6d06acde62c3f3b9a3462598d5fa65f68f4ab88a207a1ecb5db5bfa7127f",
       "bytes": 7261,
-      "fetched_at": "2026-08-19T01:17:35Z"
+      "fetched_at": "2026-08-20T01:16:22Z"
     },
     "antigravity/plans.md": {
       "source": "antigravity",
@@ -727,7 +727,7 @@
       "url": "https://antigravity.google/docs/plans.md",
       "sha256": "dbe08048341ed83a673b98c57353743b0d9fb7e1b11b63031da2e9ebd086242f",
       "bytes": 2771,
-      "fetched_at": "2026-08-19T01:17:35Z"
+      "fetched_at": "2026-08-20T01:16:22Z"
     },
     "antigravity/plugins.md": {
       "source": "antigravity",
@@ -737,7 +737,7 @@
       "url": "https://antigravity.google/docs/plugins.md",
       "sha256": "d449cb332db673e14544ee50089844e05279e3e7d4c482b7a84c6f2a63542ec7",
       "bytes": 2749,
-      "fetched_at": "2026-08-19T01:17:35Z"
+      "fetched_at": "2026-08-20T01:16:22Z"
     },
     "antigravity/projects.md": {
       "source": "antigravity",
@@ -747,7 +747,7 @@
       "url": "https://antigravity.google/docs/projects.md",
       "sha256": "730738e4c6155e18a9d21e91a544e98ef447701d5bb43c135ab3f88d6cfbe6e4",
       "bytes": 4043,
-      "fetched_at": "2026-08-19T01:17:35Z"
+      "fetched_at": "2026-08-20T01:16:22Z"
     },
     "antigravity/rules-workflows.md": {
       "source": "antigravity",
@@ -757,7 +757,7 @@
       "url": "https://antigravity.google/docs/rules-workflows.md",
       "sha256": "91b280cbe1c522c78bcc677fd2e38be9ce10f1f72653cba4e67d3c3288d212c9",
       "bytes": 3801,
-      "fetched_at": "2026-08-19T01:17:35Z"
+      "fetched_at": "2026-08-20T01:16:22Z"
     },
     "antigravity/screenshots.md": {
       "source": "antigravity",
@@ -767,17 +767,27 @@
       "url": "https://antigravity.google/docs/screenshots.md",
       "sha256": "c628ac5516c9316d57d22729d9a49b020f917a75c456687c4250856b4f57d1b4",
       "bytes": 547,
-      "fetched_at": "2026-08-19T01:17:35Z"
+      "fetched_at": "2026-08-20T01:16:22Z"
+    },
+    "antigravity/sdk/lifecycle.md": {
+      "source": "antigravity",
+      "section": "Antigravity SDK",
+      "slug": "sdk/lifecycle",
+      "label": "sdk-lifecycle",
+      "url": "https://antigravity.google/docs/sdk/lifecycle.md",
+      "sha256": "113bfbc74d516a55a4b1ab9031aaa7e6a4e3f1eb90b74bbb54b3ee16d67d5102",
+      "bytes": 2973,
+      "fetched_at": "2026-08-20T01:16:22Z"
     },
     "antigravity/sdk/mcp.md": {
       "source": "antigravity",
       "section": "Antigravity SDK",
       "slug": "sdk/mcp",
-      "label": "mcp",
+      "label": "sdk-mcp",
       "url": "https://antigravity.google/docs/sdk/mcp.md",
-      "sha256": "c0dfe86ee93c6d3b743e9b162332d5f6f9d36578205c4dcb34c576758ad05a33",
-      "bytes": 11469,
-      "fetched_at": "2026-08-19T01:17:35Z"
+      "sha256": "9a64df3adcc8fa47c6350c49f7b1bade6f960331251214bc13e2dec76049d228",
+      "bytes": 1573,
+      "fetched_at": "2026-08-20T01:16:22Z"
     },
     "antigravity/sdk/overview.md": {
       "source": "antigravity",
@@ -785,9 +795,59 @@
       "slug": "sdk/overview",
       "label": "sdk-overview",
       "url": "https://antigravity.google/docs/sdk/overview.md",
-      "sha256": "533c0f1f3e5df7f6876826867f9a507b92840ad4e4cd34d59578333c9b748b26",
-      "bytes": 3497,
-      "fetched_at": "2026-08-19T01:17:35Z"
+      "sha256": "ee96c399317e4066eec85c75fa1be80d258c80edb190e48099a7b03589c37f0f",
+      "bytes": 6198,
+      "fetched_at": "2026-08-20T01:16:22Z"
+    },
+    "antigravity/sdk/personas.md": {
+      "source": "antigravity",
+      "section": "Antigravity SDK",
+      "slug": "sdk/personas",
+      "label": "sdk-personas",
+      "url": "https://antigravity.google/docs/sdk/personas.md",
+      "sha256": "957188c42719f208a567feaad862dc49338a4299fac824e8e88c47d27683e420",
+      "bytes": 2003,
+      "fetched_at": "2026-08-20T01:16:22Z"
+    },
+    "antigravity/sdk/policies.md": {
+      "source": "antigravity",
+      "section": "Antigravity SDK",
+      "slug": "sdk/policies",
+      "label": "sdk-policies",
+      "url": "https://antigravity.google/docs/sdk/policies.md",
+      "sha256": "b9df7fd67358002bd45b2e60531ac0fe41c13058306683a3aa13e84accb02fba",
+      "bytes": 2620,
+      "fetched_at": "2026-08-20T01:16:22Z"
+    },
+    "antigravity/sdk/structured-output.md": {
+      "source": "antigravity",
+      "section": "Antigravity SDK",
+      "slug": "sdk/structured-output",
+      "label": "sdk-structured-output",
+      "url": "https://antigravity.google/docs/sdk/structured-output.md",
+      "sha256": "3d7f331d66b4efcad176ad9558f3ccbb398e18e985e9631a3d6a7f6cd046bf00",
+      "bytes": 2829,
+      "fetched_at": "2026-08-20T01:16:22Z"
+    },
+    "antigravity/sdk/subagents.md": {
+      "source": "antigravity",
+      "section": "Antigravity SDK",
+      "slug": "sdk/subagents",
+      "label": "sdk-subagents",
+      "url": "https://antigravity.google/docs/sdk/subagents.md",
+      "sha256": "ee37e235f41f83632093a5e462a1d709c6c26a8ecd2484fa16a3e41d93d05516",
+      "bytes": 2348,
+      "fetched_at": "2026-08-20T01:16:22Z"
+    },
+    "antigravity/sdk/tools.md": {
+      "source": "antigravity",
+      "section": "Antigravity SDK",
+      "slug": "sdk/tools",
+      "label": "sdk-tools",
+      "url": "https://antigravity.google/docs/sdk/tools.md",
+      "sha256": "d207e27c9118fdecd8bb76045a87f5f720a9141c23bc2d7412fb31615ae38ed4",
+      "bytes": 4284,
+      "fetched_at": "2026-08-20T01:16:22Z"
     },
     "antigravity/settings.md": {
       "source": "antigravity",
@@ -797,7 +857,7 @@
       "url": "https://antigravity.google/docs/settings.md",
       "sha256": "0ba26caedb09f0a3a056dce8a236fd20a059457acb8ef26018731500f471e1ec",
       "bytes": 3895,
-      "fetched_at": "2026-08-19T01:17:35Z"
+      "fetched_at": "2026-08-20T01:16:22Z"
     },
     "antigravity/sidecars.md": {
       "source": "antigravity",
@@ -807,7 +867,7 @@
       "url": "https://antigravity.google/docs/sidecars.md",
       "sha256": "7763d96c8d82a79b426d16f3d18064a6581f3647592863c1133fad28c2c4f817",
       "bytes": 4112,
-      "fetched_at": "2026-08-19T01:17:35Z"
+      "fetched_at": "2026-08-20T01:16:22Z"
     },
     "antigravity/skills.md": {
       "source": "antigravity",
@@ -817,7 +877,7 @@
       "url": "https://antigravity.google/docs/skills.md",
       "sha256": "1b7ad41b732da4760c5c15f8506dd888562944c8d9297304621ff7bcc4696a36",
       "bytes": 4951,
-      "fetched_at": "2026-08-19T01:17:35Z"
+      "fetched_at": "2026-08-20T01:16:22Z"
     },
     "antigravity/subagents.md": {
       "source": "antigravity",
@@ -827,7 +887,7 @@
       "url": "https://antigravity.google/docs/subagents.md",
       "sha256": "262a1211214be53d0c17ed2f276e54b7966853856d48092db88e810cc28f0a73",
       "bytes": 8372,
-      "fetched_at": "2026-08-19T01:17:35Z"
+      "fetched_at": "2026-08-20T01:16:22Z"
     },
     "antigravity/walkthrough.md": {
       "source": "antigravity",
@@ -837,7 +897,7 @@
       "url": "https://antigravity.google/docs/walkthrough.md",
       "sha256": "72c4873688cf2fc40ed088979b03c8227f008562b4d343b93a691ab73cbfc5f0",
       "bytes": 699,
-      "fetched_at": "2026-08-19T01:17:35Z"
+      "fetched_at": "2026-08-20T01:16:22Z"
     }
   }
 }

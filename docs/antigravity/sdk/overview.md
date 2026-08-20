@@ -1,20 +1,24 @@
 # Google Antigravity SDK
 
-The Antigravity SDK is a programmatic Python framework designed to build, test, and run autonomous AI agents. It extends the same core agent harness that powers the Antigravity CLI and Antigravity 2.0, allowing you to integrate advanced agentic capabilities directly into your own applications and workflows.
+The Google Antigravity SDK is a Python SDK for building autonomous AI agents powered by Antigravity and Gemini. It provides a secure, stateful runtime harness that handles tool execution, context management, safety policies, and subagent delegation.
 
-The SDK decouples your agent’s logic from where it runs, allowing you to focus on what the agent does; the SDK handles how and where it executes.
+If you’re looking for the managed cloud REST/gRPC API instead of the local Python SDK runtime, see the [Gemini API Antigravity Agent documentation](https://ai.google.dev/gemini-api/docs/antigravity-agent).
 
-## Quick Start
+## Quickstart
 
-Install the SDK using pip:
+Install the SDK package using `pip` and configure your API key to get started:
 
 ```
 pip install google-antigravity
 ```
 
-### Hello World Example
+Set your Gemini API key in your environment:
 
-A functional agent that can interact with your local environment in under 15 lines of Python:
+```
+export GEMINI_API_KEY="your_api_key_here"
+```
+
+Initialize an `Agent` and start a conversation:
 
 ```
 import asyncio
@@ -30,45 +34,85 @@ if __name__ == "__main__":
     asyncio.run(main())
 ```
 
-## Core Pillars
+## Gemini Enterprise Agent Platform
 
-**1\. Governed Extensibility (Tools)**  
-Every agent starts with a built-in toolset (file I/O, code editing, shell execution, directory search) and can be extended using four types of tools under a unified execution pipeline:
-
-*   **Built-in Tools:** Core file and system manipulation capabilities.
-*   **Custom Python Functions:** Register any Python callable as an agent tool.
-*   **MCP Servers:** Connect any Model Context Protocol (MCP) server (stdio, SSE, or HTTP). See the [MCP Documentation](/docs/mcp).
-*   **Agent Skills:** Load reusable packages of instructions and tools.
-
-**2\. Declarative Safety Policies**  
-Configure agent permissions using a declarative “deny by default” policy system to control when and how tools are executed:
+To connect the SDK to Gemini Enterprise Agent Platform (formerly Vertex AI), set `vertex=True` in `LocalAgentConfig` alongside your GCP `project` and `location`:
 
 ```
-from google.antigravity.hooks.policy import deny, allow, ask_user
+from google.antigravity import Agent, LocalAgentConfig
 
-policies = [
-    deny("*"),                                         # Block all tools by default
-    allow("view_file"),                                # Allow reading files silently
-    ask_user("run_command", handler=my_handler),       # Require human approval for shell execution 
-]
+config = LocalAgentConfig(
+    vertex=True,
+    project="your-gcp-project",
+    location="us-central1",
+)
+
+async with Agent(config) as agent:
+    response = await agent.chat("Hello!")
+    print(await response.text())
 ```
 
-**3\. Lifecycle Hooks**  
-Gain granular control over agent execution with three categories of hooks across nine concrete lifecycle points (e.g., session start, pre/post turn, pre/post tool call):
+Environment variables are also supported:
 
-*   **Inspect** (Read-Only, Non-Blocking): For logging, audit trails, and metrics.
-*   **Decide** (Read-Only, Blocking): For custom approval/denial logic (policies).
-*   **Transform** (Modifying, Blocking): For sanitizing data in transit or recovering from tool errors.
+```
+export GOOGLE_GENAI_USE_VERTEXAI=True
+export GOOGLE_CLOUD_PROJECT="your-gcp-project"
+export GOOGLE_CLOUD_LOCATION="us-central1"
+gcloud auth application-default login
+```
 
-* * *
+## Core agent foundations
 
-### Key Capabilities
+The `Agent` class manages binary discovery, tool execution, and session lifecycles behind an async context manager.
 
-*   **Streaming:** Access live model reasoning and output chunks as they are generated.
-*   **Multimodal Input:** Pass images, PDFs, audio, and video natively using `from_file()`.
-*   **Sub-agents:** Spawn child agents with independent tools and contexts to build multi-agent teams.
-*   **Structured Output:** Define schemas using Pydantic models to return validated, typed data directly.
-*   **Human-in-the-Loop:** Pause execution to ask structured questions and branch based on user input.
-*   **Observability:** Track per-turn and cumulative token usage and access thinking traces.
+For example, you can configure an agent with custom system instructions to interact using a specific persona:
 
-To use the SDK more easily within Antigravity 2.0, use the Antigravity SDK Skill. To learn more about the Antigravity SDK and see more examples of how to use it, visit [**the GitHub repository**](https://github.com/google-antigravity/antigravity-sdk-python)
+```
+import asyncio
+from google.antigravity import Agent, LocalAgentConfig
+
+async def main():
+    config = LocalAgentConfig(
+        system_instructions=(
+            "You are a helpful pirate assistant. Speak like a pirate."
+        ),
+    )
+    async with Agent(config) as agent:
+        response = await agent.chat("Explain the repository layout.")
+        print(await response.text())
+
+if __name__ == "__main__":
+    asyncio.run(main())
+```
+
+## Next steps
+
+Explore the guides below to learn more about building and customizing agents with the Python SDK:
+
+*   **[Personas](/docs/sdk/personas)**: Customize agent identity using templated or custom system instructions.
+*   **[Tools & skills](/docs/sdk/tools)**: Register custom Python functions, use built-in tools, and load skills.
+*   **[MCP](/docs/sdk/mcp)**: Connect external Model Context Protocol (MCP) servers to your agents.
+*   **[Policies](/docs/sdk/policies)**: Enforce explicit tool execution policies and interactive approval flows.
+*   **[Subagents](/docs/sdk/subagents)**: Build multi-agent systems using dynamic self-cloning or static subagents.
+*   **[Structured output](/docs/sdk/structured-output)**: Handle multimodal input, stream model thoughts, and validate output.
+*   **[Lifecycle & hooks](/docs/sdk/lifecycle)**: Manage background event triggers, session persistence, and custom hooks.
+
+## Sample code and examples
+
+You can find full, runnable Python scripts for each SDK feature in the [getting\_started directory](https://github.com/google-antigravity/antigravity-sdk-python/tree/main/examples/getting_started) on GitHub:
+
+*   [`hello_world.py`](https://github.com/google-antigravity/antigravity-sdk-python/blob/main/examples/getting_started/hello_world.py): Basic agent setup and single-turn chat.
+*   [`streaming.py`](https://github.com/google-antigravity/antigravity-sdk-python/blob/main/examples/getting_started/streaming.py): Token streaming and reasoning thoughts.
+*   [`persona_config.py`](https://github.com/google-antigravity/antigravity-sdk-python/blob/main/examples/getting_started/persona_config.py): Templated and custom system instructions.
+*   [`policies.py`](https://github.com/google-antigravity/antigravity-sdk-python/blob/main/examples/getting_started/policies.py): Declarative tool access policies.
+*   [`human_in_the_loop.py`](https://github.com/google-antigravity/antigravity-sdk-python/blob/main/examples/getting_started/human_in_the_loop.py): Interactive user approval.
+*   [`multimodal.py`](https://github.com/google-antigravity/antigravity-sdk-python/blob/main/examples/getting_started/multimodal.py): Image and PDF attachment handling.
+*   [`structured_output.py`](https://github.com/google-antigravity/antigravity-sdk-python/blob/main/examples/getting_started/structured_output.py): Pydantic schema validation.
+*   [`custom_tools.py`](https://github.com/google-antigravity/antigravity-sdk-python/blob/main/examples/getting_started/custom_tools.py): Custom Python function tools.
+*   [`agent_skills.py`](https://github.com/google-antigravity/antigravity-sdk-python/blob/main/examples/getting_started/agent_skills.py): Filesystem SKILL.md integration.
+*   [`mcp_tools.py`](https://github.com/google-antigravity/antigravity-sdk-python/blob/main/examples/getting_started/mcp_tools.py): Model Context Protocol tools.
+*   [`subagents.py`](https://github.com/google-antigravity/antigravity-sdk-python/blob/main/examples/getting_started/subagents.py): Multi-agent delegation and isolation.
+*   [`web_tools.py`](https://github.com/google-antigravity/antigravity-sdk-python/blob/main/examples/getting_started/web_tools.py): Web search and URL context.
+*   [`hooks.py`](https://github.com/google-antigravity/antigravity-sdk-python/blob/main/examples/getting_started/hooks.py): Lifecycle and error handling hooks.
+*   [`triggers.py`](https://github.com/google-antigravity/antigravity-sdk-python/blob/main/examples/getting_started/triggers.py): Background event triggers.
+*   [`persistence.py`](https://github.com/google-antigravity/antigravity-sdk-python/blob/main/examples/getting_started/persistence.py): Saving and restoring session state.
