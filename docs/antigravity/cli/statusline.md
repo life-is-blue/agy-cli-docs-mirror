@@ -36,7 +36,7 @@ The block accepts three more optional keys: `padding` adds blank lines above the
 The JSON payload piped to your script contains the following top-level fields:
 
 | Field | Type | Description |
-| --- | --- | --- |
+| :-- | :-- | :-- |
 | `cwd` | string | Current working directory when the CLI was launched. |
 | `session_id` | string | Backward-compatibility alias for `conversation_id`. |
 | `conversation_id` | string | Current unique conversation ID. |

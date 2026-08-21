@@ -30,7 +30,7 @@ You can define reusable custom subagents in Markdown format (`.md`) with YAML fr
 Antigravity automatically discovers custom subagent `.md` files in the following locations:
 
 | Location | Path | Scope |
-| --- | --- | --- |
+| :-- | :-- | :-- |
 | **Workspace Customizations** | `.agents/agents/<name>.md` or `.agents/agents/<name>/agent.md` | Workspace / Repository Root |
 | **Global Customizations** | `~/.gemini/config/agents/<name>.md` or `.../agents/<name>/agent.md` | Machine-wide / All Projects |
 | **Plugins** | `plugins/<plugin_name>/agents/` | Bundled Plugin Package |
@@ -40,7 +40,7 @@ Antigravity automatically discovers custom subagent `.md` files in the following
 Define agent metadata, capability limits, and execution policies using YAML frontmatter at the top of your `.md` file:
 
 | Property | Type | Default | Description |
-| --- | --- | --- | --- |
+| :-- | :-- | :-- | :-- |
 | `name` | `string` | _(Required)_ | The unique identifier for the custom agent. |
 | `description` | `string` | _(Required)_ | Detailed description used by the planner to determine when to delegate tasks to this agent. |
 | `tools` | `string[]` | `[]` | Explicit list of tools permitted for this subagent (e.g. `view_file`, `replace_file_content`, `grep_search`, `run_command`). |

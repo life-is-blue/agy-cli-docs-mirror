@@ -11,7 +11,7 @@ Because autonomous development agents run local terminal commands, edit source c
 Unlike heavy virtual containers or isolated virtual machines that slow down execution speeds, Antigravity uses lightweight, native operating system kernel utilities to create secure process rings with zero execution overhead:
 
 | Operating System | Sandboxing Utility | Security Characteristics |
-| --- | --- | --- |
+| :-- | :-- | :-- |
 | **Linux** | `nsjail` | Open-source process isolator utilizing kernel namespaces and cgroups to confine CPU, memory, and path visibility. |
 | **macOS** | `sandbox-exec` | Native system tool enforcing policy profiles that restrict absolute filesystem access and raw TCP queries. |
 | **Windows** | `AppContainer` | Desktop security containment ring isolating filesystem permissions and registry visibility. |

@@ -61,3 +61,13 @@ We reworked the browser subagent in Antigravity 2.0.
 *   **On-demand**: Can be invoked through the `/browser` command.
 *   **Chrome DevTools integration**: The browser subagent also integrates natively with Chrome DevTools MCP.
 *   **Video recording**: Now supports recordings as webm videos.
+
+### Remote Control
+
+Antigravity 2.0 Remote Control allows you to drive and monitor your desktop agent sessions across multiple machines from any web browser:
+
+*   **Untethered Mobility**: Launch long-running agent workflows on your desktop workstation and continue monitoring or approving actions from a mobile device or laptop.
+*   **Local Context Retained**: Keep full access to your workstation’s local filesystem, toolchains, credentials, and Git worktrees without duplicating environments.
+*   **Proactive Push Notifications**: Receive browser push notifications when tasks complete or when user input is needed.
+
+[Learn more about Antigravity 2.0 Remote Control](/docs/remote-control)

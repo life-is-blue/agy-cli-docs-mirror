@@ -9,7 +9,7 @@ A **Project** is a configuration of folders defining the environment and the sco
 ### Key Differences: Workspace vs. Projects
 
 | Feature | Original Model (Workspace) | New Model (Project) |
-| --- | --- | --- |
+| :-- | :-- | :-- |
 | **Organization Scope** | Tightly coupled to a single local repository. | Projects are a configuration of all of the context and folders that your agents should work with. |
 | **Directory Boundaries** | Agent is strictly confined to one folder structure. | A single Project can span **multiple folders** at once. |
 | **Settings Isolation** | Settings inherited globally from the machine. | Projects have their own settings. Agents in a project use the project’s settings. |

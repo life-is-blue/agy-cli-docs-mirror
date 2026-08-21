@@ -9,7 +9,7 @@ For Model Context Protocol (MCP) server configuration, see the [MCP Documentatio
 The SDK provides identifiers for built-in system tools through the [`BuiltinTools` enum](https://github.com/google-antigravity/antigravity-sdk-python/blob/main/google/antigravity/types.py#L235-L338) (`google.antigravity.types.BuiltinTools`).
 
 | Identifier | Enum constant | Description |
-| --- | --- | --- |
+| :-- | :-- | :-- |
 | `list_directory` | `BuiltinTools.LIST_DIR` | List directory contents. |
 | `search_directory` | `BuiltinTools.SEARCH_DIR` | Search within files. |
 | `find_file` | `BuiltinTools.FIND_FILE` | Find files by pattern. |

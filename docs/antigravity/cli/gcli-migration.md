@@ -55,7 +55,7 @@ Both CLI platforms utilize identical workspace context rules. No modifications a
 While global shared skills remain in your user home directory, the target folder path for local workspace-specific skills has been updated.
 
 | Configuration | Gemini CLI | Antigravity CLI |
-| --- | --- | --- |
+| :-- | :-- | :-- |
 | **Global shared path** | `~/.gemini/skills/` | `~/.gemini/antigravity-cli/skills/` |
 | **Workspace project path** | `.gemini/skills/` | `.agents/skills/` |
 

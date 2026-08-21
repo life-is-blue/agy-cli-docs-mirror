@@ -35,7 +35,7 @@ You may get a notification asking whether you want to “Keep Both” or “Repl
 
 Agents work within Projects, which define the boundaries of the folders and repositories they can access.
 
-1.  Click the **folder with a “+” icon** in the **left sidebar**.
+1.  Click the **folder with a ”+” icon** in the **left sidebar**.
 2.  Click on **“New Project”**.
 3.  Click **Add Folder** to associate one or more local folders or Git repositories. Adding multiple folders provides your agent with full cross-repository context.
 4.  Click **Create**.
@@ -53,7 +53,7 @@ Once your Project is created, you can spawn an agent to start working on tasks.
 ### Basic Navigation
 
 | Action | macOS | Windows / Linux |
-| --- | --- | --- |
+| :-- | :-- | :-- |
 | **Open Conversation Picker** | ⌘K | Ctrl + K |
 | **Open File Search** | ⌘P | Ctrl + P |
 | **Focus Input** | ⌘L | Ctrl + L |
@@ -63,7 +63,7 @@ Once your Project is created, you can spawn an agent to start working on tasks.
 ### Slash Commands
 
 | Slash Command | Description |
-| --- | --- |
+| :-- | :-- |
 | `/goal` | Run until the specified task is completely finished, not asking for intermediate input from the user. |
 | `/grill-me` | Before starting to implement, ask questions back to align on the specific details of the plan. |
 | `/schedule` | Run an instruction as a one-time timer in the future or on a recurring schedule (via Scheduled Tasks). |

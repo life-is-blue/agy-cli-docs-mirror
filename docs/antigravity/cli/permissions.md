@@ -31,7 +31,7 @@ action(target)
 The supported actions, target format specifications, and matching algorithms are:
 
 | Action | Target Format | Matching Behavior | Default Fallback |
-| --- | --- | --- | --- |
+| :-- | :-- | :-- | :-- |
 | **`read_file`** | `read_file(/path)`, `read_file(dir)`, or `read_file(*)` | Matches absolute paths or paths relative to workspace roots. Grants recursive read access to all contained files/folders. `read_file(*)` matches all files on the system. | **Ask** (Auto-allowed in workspace) |
 | **`write_file`** | `write_file(/path)` or `write_file(*)` | Same as `read_file`. Implicitly grants `read_file` for the exact same target path. | **Ask** (Auto-allowed in workspace) |
 | **`read_url`** | `read_url(domain)` or `read_url(*)` | Matches hostnames and subdomains (e.g., `google.com` covers `mail.google.com`). Ignores URL path segments. `read_url(*)` matches any domain. | **Ask** |

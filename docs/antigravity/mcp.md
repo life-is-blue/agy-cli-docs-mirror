@@ -279,15 +279,17 @@ Databases & Storage (14 servers)
 *   Spanner
 *   Supabase
 
-Developer Tools & CI/CD (11 servers)
+Developer Tools & CI/CD (13 servers)
 
 *   Apigee MCP
 *   Atlassian
+*   Cloud CLI Execution
 *   GitHub
 *   GitLab Orbit
 *   GKE OneMCP
 *   Harness
 *   Heroku
+*   Home Developer MCP
 *   Linear
 *   Netlify
 *   Postman

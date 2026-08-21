@@ -9,7 +9,7 @@ Antigravity CLI brings the reasoning, execution, and orchestration capabilities 
 ### Platform comparison
 
 | Feature | Antigravity CLI | Antigravity 2.0 |
-| --- | --- | --- |
+| :-- | :-- | :-- |
 | **Primary interface** | Keyboard-driven TUI | Visual desktop editor / IDE |
 | **Performance overhead** | Near-zero, extremely lightweight | Standard desktop IDE footprint |
 | **Workflow focus** | Fast local iterations, SSH, headless | Complete project management, visual workspace |
