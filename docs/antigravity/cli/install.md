@@ -94,7 +94,7 @@ To use a Gemini API key, you have to set a provider and an environment variable 
 
 The CLI skips the sign-in screen and opens the main interface directly. The header shows **Gemini API key** instead of your account email:
 
-![Antigravity CLI authenticated with a Gemini API key, with “Gemini API key” shown in the header in place of an account email](/assets/image/docs/cli/install-gemini-api-key.png)
+![Antigravity CLI authenticated with a Gemini API key, with "Gemini API key" shown in the header in place of an account email](/assets/image/docs/cli/install-gemini-api-key.png)
 
 > **Note:** When you use the authentication with a `GEMINI_API_KEY`, `/logout` has no effect because there is no stored session to clear.
 

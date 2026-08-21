@@ -49,7 +49,7 @@ The `plugin.json` file is a mandatory manifest located at the root of your plugi
 **Field reference**
 
 | Field | Type | Required | Description |
-| --- | --- | --- | --- |
+| :-- | :-- | :-- | :-- |
 | `name` | String | **Yes** | The unique, machine-readable name of the plugin. It must contain only alphanumeric characters, hyphens, and underscores (matches `^[a-zA-Z0-9-_]+$`). This name is used to reference the plugin in CLI commands. |
 | `description` | String | No | A brief human-readable description of the plugin’s purpose, displayed in plugin listings. |
 

@@ -12,7 +12,7 @@ Control whether Antigravity CLI pauses to ask before modifying files or executin
 Each execution mode makes a different tradeoff between conversational autonomy and developer oversight. The table below shows how Antigravity CLI handles file operations and planning in each mode.
 
 | Mode | Behavior | Best for |
-| --- | --- | --- |
+| :-- | :-- | :-- |
 | `default` | Pauses for interactive diff review before modifying or creating files. | Standard development, reviewing sensitive code changes, and careful refactoring. |
 | `accept-edits` | Automatically approves file edits and creations (`mkdir`, `touch`, file writes). | Rapid prototyping, iterating on trusted code, and reducing prompt interruptions. |
 | `plan` | Prepends the `/plan` instruction prefix to analyze and outline steps before writing code. | Exploring unfamiliar architecture or designing complex multi-step features. |
@@ -126,7 +126,7 @@ agy --mode=plan
 ## Common mistakes
 
 | Mistake | Why it fails | Fix |
-| --- | --- | --- |
+| :-- | :-- | :-- |
 | Expecting `sandbox` in `Shift+Tab` cycling | `sandbox` is an OS containment permission setting, not an execution mode | Configure sandbox auto-approval rules inside `/permissions` |
 | Using legacy `/planning` or `/fast` commands | These vestigial commands were removed in `1.1.0` | Press `Shift+Tab` to cycle modes or type `/plan` before your prompt |
 | Passing `--permission-mode` | `agy` uses `--mode` (`--mode=accept-edits` or `--mode=plan`) for execution overrides | Run `agy --mode=accept-edits` or check `agy --help` |

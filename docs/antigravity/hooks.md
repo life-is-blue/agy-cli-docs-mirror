@@ -53,7 +53,7 @@ The `hooks.json` file maps hook names to their event configurations.
 ### Hook Definition Fields
 
 | Field | Type | Description |
-| --- | --- | --- |
+| :-- | :-- | :-- |
 | `enabled` | boolean | Optional. Set to `false` to disable the hook without removing it. Defaults to `true`. |
 | `PreToolUse` | array | Handlers that run before a tool is executed. |
 | `PostToolUse` | array | Handlers that run after a tool completes. |
@@ -64,7 +64,7 @@ The `hooks.json` file maps hook names to their event configurations.
 ## Supported Events
 
 | Event | Description | Matcher Target |
-| --- | --- | --- |
+| :-- | :-- | :-- |
 | `PreToolUse` | Fires before a tool is executed. | Tool name (e.g., `run_command`) |
 | `PostToolUse` | Fires after a tool completes. | Tool name |
 | `PreInvocation` | Fires before the model is called. | N/A (matcher ignored) |
@@ -148,7 +148,7 @@ For `PreToolUse` and `PostToolUse` matchers, you can match against standard tool
 Each item in the `hooks` array supports:
 
 | Field | Type | Description |
-| --- | --- | --- |
+| :-- | :-- | :-- |
 | `type` | string | Optional. Currently only `"command"` is supported. Defaults to `"command"`. |
 | `command` | string | Required. The shell command to execute. |
 | `timeout` | integer | Optional. Timeout in seconds. Defaults to `30`. |
@@ -162,7 +162,7 @@ Hooks receive input via **stdin** as JSON and should return output via **stdout*
 All hooks receive the following system metadata fields in their input payload on `stdin`:
 
 | Field | Type | Description |
-| --- | --- | --- |
+| :-- | :-- | :-- |
 | `conversationId` | string | The unique UUID of the active agent conversation. |
 | `workspacePaths` | array of strings | Absolute directory paths representing the user’s mounted workspaces. |
 | `transcriptPath` | string | The absolute path to the persistent `transcript.jsonl` conversation logs.  
@@ -185,7 +185,7 @@ Fires before a tool is executed.
 **Input Fields (stdin)**:
 
 | Field | Type | Description |
-| --- | --- | --- |
+| :-- | :-- | :-- |
 | `toolCall` | object | Details of the proposed tool call. |
 | `toolCall.name` | string | The name of the tool being executed (e.g., `run_command`). |
 | `toolCall.args` | object | Arguments passed to the tool call. |
@@ -195,7 +195,7 @@ Fires before a tool is executed.
 **Output Fields (stdout)**:
 
 | Field | Type | Description |
-| --- | --- | --- |
+| :-- | :-- | :-- |
 | `decision` | string | **Required.** Controls how the tool call is gated:  
 \- `"allow"`: Automatically allows the tool execution.  
 \- `"deny"`: Hard blocks execution immediately.  
@@ -249,7 +249,7 @@ Fires after a tool completes.
 **Input Fields (stdin)**:
 
 | Field | Type | Description |
-| --- | --- | --- |
+| :-- | :-- | :-- |
 | `toolCall` | object | Details of the executed tool call (`name` and `args`). |
 | `stepIdx` | integer | The 0-based index of the completed step. |
 | `error` | string | Optional. The detailed runtime error message if the tool call failed. Empty if successful. |
@@ -294,7 +294,7 @@ Fires before the model is called.
 **Input Fields (stdin)**:
 
 | Field | Type | Description |
-| --- | --- | --- |
+| :-- | :-- | :-- |
 | `invocationNum` | integer | The 0-indexed sequence number of the current model invocation (the first invocation is 0). |
 | `initialNumSteps` | integer | The number of steps currently in the trajectory. |
 | _(Common Fields)_ |  | Includes `conversationId`, `workspacePaths`, `transcriptPath`, `artifactDirectoryPath`, `modelName`. |
@@ -302,7 +302,7 @@ Fires before the model is called.
 **Output Fields (stdout)**:
 
 | Field | Type | Description |
-| --- | --- | --- |
+| :-- | :-- | :-- |
 | `injectSteps` | array of objects | **Optional.** List of steps to inject into the conversation trajectory before the model is called. |
 
 _Injected Step Schema_: Each object in the `injectSteps` array can have one of the following fields:
@@ -348,7 +348,7 @@ Fires immediately after each model invocation completes.
 **Output Fields (stdout)**:
 
 | Field | Type | Description |
-| --- | --- | --- |
+| :-- | :-- | :-- |
 | `injectSteps` | array of objects | **Optional.** List of steps to inject after the invocation completes (same schema as `PreInvocation` inject steps). |
 | `terminationBehavior` | string | **Optional.** Controls the execution flow after injection:  
 \- `"force_continue"`: Forces the loop to continue.  
@@ -378,7 +378,7 @@ Fires when the execution loop terminates.
 **Input Fields (stdin)**:
 
 | Field | Type | Description |
-| --- | --- | --- |
+| :-- | :-- | :-- |
 | `executionNum` | integer | The sequence number of the execution attempt. |
 | `terminationReason` | string | The reason why the execution is stopping (e.g., `"model_stop"`, `"max_steps_exceeded"`, `"error"`). |
 | `error` | string | Optional. The error message if termination was caused by a system error. |
@@ -388,7 +388,7 @@ Fires when the execution loop terminates.
 **Output Fields (stdout)**:
 
 | Field | Type | Description |
-| --- | --- | --- |
+| :-- | :-- | :-- |
 | `decision` | string | **Required.** Set to `"continue"` to prevent the agent from stopping and re-enter the execution loop. Any other value allows the stop. |
 | `reason` | string | **Optional.** If `decision` is `"continue"`, this message is injected as a system message into the conversation. |
 

@@ -53,7 +53,7 @@ The Antigravity CLI supports a variety of slash commands typed directly into the
 ### Core Slash Commands
 
 | Command | Category | Purpose |
-| --- | --- | --- |
+| :-- | :-- | :-- |
 | **`/resume`** _(alias `/switch`)_ | Conversation | Open the conversation picker to resume or switch sessions. |
 | **`/rewind`** _(alias `/undo`)_ | Conversation | Roll back conversation history to a previous checkpoint. |
 | **`/rename <name>`** | Conversation | Rename the active conversation thread for easier tracking. |

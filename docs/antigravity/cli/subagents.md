@@ -78,7 +78,7 @@ When a subagent encounters a tool requiring approval (e.g. writing a file or run
 *   Press Alt + J inside the main prompt panel to instantly “teleport” from your current conversation directly into the Detail View of the next subagent awaiting your approval.
 *   Confirm or reject the action, and press Esc to teleport back to your primary thread.
 
-### “Fast-Path” confirmations (`Ctrl+K`)
+### ”Fast-Path” confirmations (`Ctrl+K`)
 
 To authorize an agent action instantly without leaving your active workspace:
 

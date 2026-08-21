@@ -4,7 +4,7 @@ Rules are manually defined constraints for the Agent to follow, at both the loca
 
 To get started with Rules:
 
-1.  Open the Customizations panel via the “…” dropdown at the top of the editor’s agent panel.
+1.  Open the Customizations panel via the ”…” dropdown at the top of the editor’s agent panel.
 2.  Navigate to the Rules panel.
 3.  Click **\+ Global** to create new Global Rules, or **\+ Workspace** to create new Workspace-specific rules.
 

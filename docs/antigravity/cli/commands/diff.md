@@ -99,7 +99,7 @@ Highlight any commit and press Enter to load and review its diff:
 ### File List View (VCS & Turn Modes)
 
 | Key | Action |
-| --- | --- |
+| :-- | :-- |
 | Tab / → / ← | Cycle modes (VCS → Turn → Commit) |
 | ↑ / ↓ (or J / K) | Navigate file list |
 | Enter | Open selected file’s Detail View |
@@ -108,7 +108,7 @@ Highlight any commit and press Enter to load and review its diff:
 ### File Detail View
 
 | Key | Action |
-| --- | --- |
+| :-- | :-- |
 | ↑ / ↓ | Scroll diff content |
 | PgUp / PgDn | Scroll diff by page |
 | J / K (or → / ←) | Switch to next / previous file |
@@ -120,7 +120,7 @@ Highlight any commit and press Enter to load and review its diff:
 ### Commit Tree View (Commit Mode)
 
 | Key | Action |
-| --- | --- |
+| :-- | :-- |
 | ↑ / ↓ | Navigate commit history |
 | ← / → | Navigate to adjacent branches in the graph |
 | Enter | Load diff for the selected commit |
@@ -129,7 +129,7 @@ Highlight any commit and press Enter to load and review its diff:
 ### Exit Confirmation Screen
 
 | Key | Action |
-| --- | --- |
+| :-- | :-- |
 | Shift + Y | Exit and send comments to the agent |
 | Shift + N | Exit and discard comments |
 | Esc | Return to File List View |

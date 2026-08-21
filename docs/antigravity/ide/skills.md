@@ -17,7 +17,7 @@ When you start a conversation, the agent sees a list of available skills with th
 Antigravity supports two types of skills:
 
 | Location | Scope |
-| --- | --- |
+| :-- | :-- |
 | `<workspace-root>/.agents/skills/<skill-folder>/` | Workspace-specific |
 | `~/.gemini/antigravity/skills/<skill-folder>/` | Global (all workspaces) |
 
@@ -65,7 +65,7 @@ Step-by-step guidance, conventions, and patterns the agent should follow.
 ### Frontmatter fields
 
 | Field | Required | Description |
-| --- | --- | --- |
+| :-- | :-- | :-- |
 | `name` | No | A unique identifier for the skill (lowercase, hyphens for spaces). Defaults to the folder name if not provided. |
 | `description` | Yes | A clear description of what the skill does and when to use it. This is what the agent sees when deciding whether to apply the skill. |
 
