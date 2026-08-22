@@ -236,6 +236,175 @@ agy -p "Now explain your previous answer in more detail" --continue
 agy -p "Summarize what we discussed" --conversation 055a398f-db14-4c5f-abbb-1bf03f8120a7
 ```
 
+Each of these starts a new process. To run multiple turns inside one process, see [Stream prompts from stdin](#stream-prompts-from-stdin).
+
+## Stream prompts from stdin
+
+Use `--input-format stream-json` to maintain a single, continuous conversation process, feeding it prompts one by one on standard input (stdin). Each prompt executes a full turn and emits its own `result` event.
+
+This approach is ideal for applications that dynamically determine the next prompt based on the previous answer. Because the process only starts once, subsequent turns skip startup overhead and reuse the warmed-up conversation. This makes it significantly faster than running repeated commands with `--continue`.
+
+> **Note:** `--input-format stream-json` requires `--output-format stream-json`. In a streaming session, the CLI emits exactly one `result` event per turn.
+
+### Send a prompt
+
+Write one JSON object per line to `stdin`. The `event` key specifies the message type (matching the output stream format). A prompt is represented as a `user` event with a `message`:
+
+```
+{ "event": "user", "message": { "content": "Reply with exactly the word: apple. Nothing else." } }
+```
+
+You can pipe multiple prompts into a single session:
+
+```
+printf '%s\n' \
+  '{"event":"user","message":{"content":"Reply with exactly the word: apple. Nothing else."}}' \
+  '{"event":"user","message":{"content":"What word did I ask you to reply with in my previous message? Answer with just that word."}}' \
+  | agy --input-format stream-json --output-format stream-json
+```
+
+The `content` field accepts either a standard string or a list of text blocks. The following two formats are equivalent:
+
+```
+{ "event": "user", "message": { "content": "Reply with exactly: banana" } }
+{ "event": "user", "message": { "content": [{ "type": "text", "text": "Reply with exactly: banana" }] } }
+```
+
+`text` is the only supported block type. Submitting any other block type ends the session with an error message rather than silently dropping the block. This ensures the agent never answers a prompt you didn’t explicitly send.
+
+### Read the results
+
+The output stream works as follows:
+
+1.  Opens with a single `init` event.
+    
+2.  Emits a series of `step_update` events for the active turn.
+    
+3.  Concludes the turn with a final `result` event.
+    
+
+This example shows the output from the two-prompt bash command above (with the `init` payload abbreviated):
+
+```
+{"event":"init","conversation_id":"9ec58bfd-4d67-4f5e-83a5-9d907e9c6b1f","init":{"cwd":"/home/user/project","tools":["ask_permission","run_command","write_to_file","..."],"permission_mode":"request-review"}}
+{"event":"step_update","step_update":{"conversation_id":"9ec58bfd-4d67-4f5e-83a5-9d907e9c6b1f","step_index":0,"state":"DONE","step_type":"user_input"}}
+{"event":"step_update","step_update":{"conversation_id":"9ec58bfd-4d67-4f5e-83a5-9d907e9c6b1f","step_index":2,"state":"ACTIVE","step_type":"agent_response","text_delta":"apple"}}
+{"event":"step_update","step_update":{"conversation_id":"9ec58bfd-4d67-4f5e-83a5-9d907e9c6b1f","step_index":2,"state":"DONE","step_type":"agent_response","text_delta":"\n","duration_seconds":1.169607627,"usage":{"input_tokens":30384,"output_tokens":4,"thinking_tokens":0,"cache_read_tokens":0,"total_tokens":30388}}}
+{"event":"result","result":{"conversation_id":"9ec58bfd-4d67-4f5e-83a5-9d907e9c6b1f","status":"SUCCESS","response":"apple\n","duration_seconds":1.427806958,"num_turns":1,"usage":{"input_tokens":30384,"output_tokens":4,"thinking_tokens":0,"cache_read_tokens":0,"total_tokens":30388}}}
+{"event":"step_update","step_update":{"conversation_id":"9ec58bfd-4d67-4f5e-83a5-9d907e9c6b1f","step_index":3,"state":"DONE","step_type":"user_input"}}
+{"event":"step_update","step_update":{"conversation_id":"9ec58bfd-4d67-4f5e-83a5-9d907e9c6b1f","step_index":4,"state":"DONE","step_type":"agent_response","text_delta":"apple\n","duration_seconds":0.895679386,"usage":{"input_tokens":278,"output_tokens":4,"thinking_tokens":0,"cache_read_tokens":30214,"total_tokens":282}}}
+{"event":"result","result":{"conversation_id":"9ec58bfd-4d67-4f5e-83a5-9d907e9c6b1f","status":"SUCCESS","response":"apple\n","duration_seconds":2.548755756,"num_turns":2,"usage":{"input_tokens":30662,"output_tokens":8,"thinking_tokens":0,"cache_read_tokens":30214,"total_tokens":30670}}}
+```
+
+The second turn answers `apple` from the first turn’s context. Notice that a single `conversation_id` tracks the entire session, and `init` is only sent once.
+
+When parsing the result object, keep in mind that the response text applies only to the current turn, while metadata counters track the cumulative session:
+
+| Field | Scope |
+| --- | --- |
+| `response` | The turn that emitted it |
+| `num_turns` | Cumulative over the session |
+| `usage` | Cumulative over the session |
+| `duration_seconds` | Cumulative over the session |
+
+To filter and only view the final responses, you can pipe the output through `jq`:
+
+```
+printf '%s\n' \
+  '{"event":"user","message":{"content":"Reply with exactly: one"}}' \
+  '{"event":"user","message":{"content":"Reply with exactly: two"}}' \
+  | agy --input-format stream-json --output-format stream-json \
+  | jq -r 'select(.event=="result") | "\(.result.num_turns): \(.result.response)"'
+```
+
+```
+1: one
+
+2: two
+```
+
+### Drive a session programmatically
+
+Instead of passing all prompts up front, you can hold the `stdin` pipe open in a script. This allows your application to evaluate the model’s answer before submitting the next prompt.
+
+> **Tip:** You can read `stdout` line by line and dispatch logic based on the `event` field. Wait until you receive the `result` event for the current prompt before writing the next one.
+
+For example:
+
+```
+import json
+import subprocess
+
+proc = subprocess.Popen(
+    ["agy", "--input-format", "stream-json", "--output-format", "stream-json"],
+    stdin=subprocess.PIPE,
+    stdout=subprocess.PIPE,
+    text=True,
+    bufsize=1,
+)
+
+
+def ask(prompt):
+    """Send one prompt and return the response for that turn."""
+    message = {"event": "user", "message": {"content": prompt}}
+    proc.stdin.write(json.dumps(message) + "\n")
+    proc.stdin.flush()
+    for line in proc.stdout:
+        event = json.loads(line)
+        if event["event"] == "result":
+            return event["result"]["response"]
+
+
+first = ask("Name one popular version control system. Answer with one word.")
+print(ask(f"Name a competitor to {first.strip()}. Answer with one word."))
+
+proc.stdin.close()
+proc.wait()
+```
+
+### End a session
+
+To close a session gracefully, simply close `stdin`. The process exits after the input pipe is closed and the current turn completes. If an application writes a final prompt and immediately closes the pipe, it still receives the final `result` before the process terminates.
+
+Clean sessions exit with `0`, which matches the standard headless mode behavior.
+
+### Unsupported messages
+
+To prevent unpredictable behavior, the CLI validates inputs. If it encounters a malformed or unsupported message, it responds as described in the following table:
+
+| Input | Result | Exit |
+| --- | --- | --- |
+| Unrecognized `event` name | Skipped: warning logged to `stderr` | — |
+| `control_request` or `control_response` events | `ERROR` result, session ends | `2` |
+| Slash command handled by the CLI such as `/model` | `ERROR` result, session ends | `2` |
+| Message missing the `event` field | `ERROR` result, session ends | `1` |
+| Invalid JSON line | `ERROR` result, session ends | `1` |
+| Content block type other than `text` | `ERROR` result, session ends | `1` |
+
+Unrecognized `event` names are safely skipped with a warning. This ensures that applications built against newer versions of the streaming protocol won’t crash when running on older CLI versions:
+
+```
+warning: ignoring unsupported stream input message event "future_thing"
+```
+
+For all other errors, the session terminates immediately. Any turns that previously completed retain their `result` events, but the malformed input line aborts the remainder of the session.
+
+Slash commands that the CLI can respond to directly (such as `/model` and `/usage`) produce a text report rather than a standard event stream. A streaming session cannot leverage these types of slash commands. For example:
+
+```
+{ "event": "result", "result": { "conversation_id": "4fae3a70-409d-42a4-86ea-9de206a49ff4", "status": "ERROR", "response": "", "error": "/model is answered by the CLI itself and is unavailable with --input-format stream-json; run it as its own --print /model invocation", "duration_seconds": 0, "num_turns": 0, "usage": { "input_tokens": 0, "output_tokens": 0, "thinking_tokens": 0, "cache_read_tokens": 0, "total_tokens": 0 } } }
+```
+
+### Common mistakes
+
+| Mistake | Why it fails | How to fix it |
+| :-- | :-- | :-- |
+| **Pairing with `--output-format json` or `text`** | Those formats only emit a single output envelope when the process exits, causing every turn except the last one to be lost. | Always use `--output-format stream-json` with this input mode. |
+| **Passing a prompt with the `-p` flag** | Streaming mode exclusively listens for prompts on `stdin`. Any prompt passed through a command-line flag is dropped. | Send the prompt into `stdin` as a `user` message instead. |
+| **Sending `/model` or `/usage` into the stream** | The CLI handles these commands internally outside of the event stream, breaking the JSON flow. | Run `agy -p /model` as an entirely separate, standalone command. |
+| **Treating `num_turns` as a per-turn count** | Metadata counters (like turns, duration, and usage) track the entire cumulative session, not just the active turn. | Use the `response` field to get the text for the current turn. |
+| **Waiting for the process to exit before reading `stdout`** | The session stays open indefinitely until `stdin` is closed. If your script waits for an exit signal, it will hang. | Read the events line-by-line as they arrive, and manually close `stdin` when finished. |
+
 ## Select a model, effort, or agent
 
 List the available model slugs, then pin one for the run:
@@ -334,6 +503,7 @@ agy -p "Summarize the design tradeoffs of optimistic locking." --print-timeout 1
 | --- | --- | --- |
 | `-p`, `--print`, `--prompt` | — | Run a single prompt non-interactively and print the response |
 | `--output-format` | `text` | Output format: `text`, `json`, or `stream-json` |
+| `--input-format` | `text` | Input format: `text` or `stream-json`; reads prompts on stdin |
 | `--json-schema` | — | Schema string or file path to enforce structured output |
 | `--model` | — | Model slug for this run (see `agy models`) |
 | `--effort` | — | Reasoning effort: `low`, `medium`, or `high` |
