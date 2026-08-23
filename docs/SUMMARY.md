@@ -1,0 +1,116 @@
+# Antigravity Documentation
+
+- [Home](antigravity/home.md)
+- Antigravity 2.0 `v2.9.1`
+  - [Overview](antigravity/overview.md)
+  - [Getting Started](antigravity/getting-started.md)
+  - [Build with Google](antigravity/build-with-google.md)
+  - [Feature Overview](antigravity/features.md)
+  - [Models](antigravity/models.md)
+  - [Projects](antigravity/projects.md)
+  - [Remote Control](antigravity/remote-control.md)
+  - Settings
+    - [Overview](antigravity/settings.md)
+    - [Agent Settings](antigravity/agent-settings.md)
+    - [Artifact Review](antigravity/artifact-review.md)
+  - Customizations
+    - [MCP](antigravity/mcp.md)
+    - [Skills](antigravity/skills.md)
+    - [Rules](antigravity/rules-workflows.md)
+    - [Plugins](antigravity/plugins.md)
+    - [Hooks](antigravity/hooks.md)
+    - [Sidecars](antigravity/sidecars.md)
+  - Agent Capabilities
+    - [Permissions](antigravity/permissions.md)
+    - [Subagents](antigravity/subagents.md)
+  - Artifacts
+    - [Overview](antigravity/artifacts.md)
+    - [Plan](antigravity/implementation-plan.md)
+    - [Walkthrough](antigravity/walkthrough.md)
+    - [Screenshots](antigravity/screenshots.md)
+- Antigravity CLI `v1.1.17`
+  - [Overview](antigravity/cli/overview.md)
+  - [Getting Started](antigravity/cli/getting-started.md)
+  - [Installation & Auth](antigravity/cli/install.md)
+  - [Tutorial](antigravity/cli/tutorial.md)
+  - [Using AGY CLI](antigravity/cli/using.md)
+  - [Features](antigravity/cli/features.md)
+  - [Migration](antigravity/cli/gcli-migration.md)
+  - [Prompting & Interaction](antigravity/cli/prompting.md)
+  - Artifacts
+    - [Reviewing Artifacts](antigravity/cli/artifacts.md)
+  - [Managing Conversations](antigravity/cli/conversations.md)
+  - Agent Capabilities
+    - [Choose an execution mode](antigravity/cli/modes.md)
+    - [Headless Mode](antigravity/cli/headless.md)
+    - [Background Tasks & Subagents](antigravity/cli/subagents.md)
+    - [Sandbox](antigravity/cli/sandbox.md)
+    - [Permissions](antigravity/cli/permissions.md)
+  - [Projects](antigravity/cli/projects.md)
+  - Settings
+    - [Settings, Rendering & Keybindings](antigravity/cli/settings.md)
+    - [Vim Editor Mode](antigravity/cli/vim-editor-mode.md)
+  - [AI Credits](antigravity/cli/credits.md)
+  - Customizations
+    - [MCP](antigravity/cli/mcp.md)
+    - [Plugins & Skills](antigravity/cli/plugins.md)
+    - [Status Line Customization](antigravity/cli/statusline.md)
+    - [Terminal Title Customization](antigravity/cli/title.md)
+  - Commands
+    - [Agents Command (/agents)](antigravity/cli/commands/agents.md)
+    - [Code Search Command (/codesearch)](antigravity/cli/commands/codesearch.md)
+    - [AI Credits Command (/credits)](antigravity/cli/commands/credits.md)
+    - [Diff Command (/diff)](antigravity/cli/commands/diff.md)
+    - [Permissions Command (/permissions)](antigravity/cli/commands/permissions.md)
+    - [Resume Command (/resume)](antigravity/cli/commands/resume.md)
+    - [Status Line Command (/statusline)](antigravity/cli/commands/statusline.md)
+    - [Window Title Command (/title)](antigravity/cli/commands/title.md)
+    - [Model Quotas (/usage)](antigravity/cli/commands/usage.md)
+  - [Best Practices](antigravity/cli/best-practices.md)
+  - [Troubleshooting](antigravity/cli/troubleshooting.md)
+  - [CLI Reference](antigravity/cli/reference.md)
+- Antigravity SDK `v0.1.13`
+  - [Overview + Quick Start](antigravity/sdk/overview.md)
+  - [Personas](antigravity/sdk/personas.md)
+  - [Tools & Skills](antigravity/sdk/tools.md)
+  - Customizations
+    - [MCP](antigravity/sdk/mcp.md)
+  - [Policies](antigravity/sdk/policies.md)
+  - [Subagents](antigravity/sdk/subagents.md)
+  - [Structured Output](antigravity/sdk/structured-output.md)
+  - [Lifecycle & Hooks](antigravity/sdk/lifecycle.md)
+- Antigravity for IDEs `v2.5.5`
+  - [Overview](antigravity/ide/overview.md)
+  - [Getting Started](antigravity/ide/getting-started.md)
+  - IDE Extensions
+    - [Overview](antigravity/ide/extensions.md)
+    - [Visual Studio Code](antigravity/ide/extensions/vscode.md)
+    - [Visual Studio](antigravity/ide/extensions/visual-studio.md)
+    - [JetBrains](antigravity/ide/extensions/jetbrains.md)
+    - [Zed](antigravity/ide/extensions/zed.md)
+  - Features
+    - [Tab](antigravity/ide/tab.md)
+    - [Side Panel](antigravity/ide/agent-side-panel.md)
+    - [Review Changes](antigravity/ide/review-changes-editor.md)
+  - Artifacts
+    - [Plan](antigravity/ide/implementation-plan.md)
+    - [Walkthrough](antigravity/ide/walkthrough.md)
+    - [Screenshots](antigravity/ide/screenshots.md)
+    - [Browser Recordings](antigravity/ide/browser-recordings.md)
+  - Browser
+    - [Overview](antigravity/ide/browser.md)
+    - [Allowlist / Denylist](antigravity/ide/allowlist-denylist.md)
+    - [Separate Chrome Profile](antigravity/ide/separate-chrome-profile.md)
+  - Customizations
+    - [MCP](antigravity/ide/mcp.md)
+    - [Skills](antigravity/ide/skills.md)
+    - [Rules](antigravity/ide/rules.md)
+    - [Workflows](antigravity/ide/workflows.md)
+    - [Plugins](antigravity/ide/plugins.md)
+    - [Hooks](antigravity/ide/hooks.md)
+  - [Settings](antigravity/ide/settings.md)
+- Migration
+  - [Firebase Studio Migration](antigravity/firebase-studio-migration.md)
+- [Enterprise](antigravity/enterprise.md)
+- [Plans](antigravity/plans.md)
+- [FAQ](antigravity/faq.md)

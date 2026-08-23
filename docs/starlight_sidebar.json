@@ -1,0 +1,514 @@
+[
+  {
+    "label": "Home",
+    "slug": "antigravity/home"
+  },
+  {
+    "label": "Antigravity 2.0",
+    "collapsed": true,
+    "items": [
+      {
+        "label": "Overview",
+        "slug": "antigravity/overview"
+      },
+      {
+        "label": "Getting Started",
+        "slug": "antigravity/getting-started"
+      },
+      {
+        "label": "Build with Google",
+        "slug": "antigravity/build-with-google"
+      },
+      {
+        "label": "Feature Overview",
+        "slug": "antigravity/features"
+      },
+      {
+        "label": "Models",
+        "slug": "antigravity/models"
+      },
+      {
+        "label": "Projects",
+        "slug": "antigravity/projects"
+      },
+      {
+        "label": "Remote Control",
+        "slug": "antigravity/remote-control"
+      },
+      {
+        "label": "Settings",
+        "collapsed": true,
+        "items": [
+          {
+            "label": "Overview",
+            "slug": "antigravity/settings"
+          },
+          {
+            "label": "Agent Settings",
+            "slug": "antigravity/agent-settings"
+          },
+          {
+            "label": "Artifact Review",
+            "slug": "antigravity/artifact-review"
+          }
+        ]
+      },
+      {
+        "label": "Customizations",
+        "collapsed": true,
+        "items": [
+          {
+            "label": "MCP",
+            "slug": "antigravity/mcp"
+          },
+          {
+            "label": "Skills",
+            "slug": "antigravity/skills"
+          },
+          {
+            "label": "Rules",
+            "slug": "antigravity/rules-workflows"
+          },
+          {
+            "label": "Plugins",
+            "slug": "antigravity/plugins"
+          },
+          {
+            "label": "Hooks",
+            "slug": "antigravity/hooks"
+          },
+          {
+            "label": "Sidecars",
+            "slug": "antigravity/sidecars"
+          }
+        ]
+      },
+      {
+        "label": "Agent Capabilities",
+        "collapsed": true,
+        "items": [
+          {
+            "label": "Permissions",
+            "slug": "antigravity/permissions"
+          },
+          {
+            "label": "Subagents",
+            "slug": "antigravity/subagents"
+          }
+        ]
+      },
+      {
+        "label": "Artifacts",
+        "collapsed": true,
+        "items": [
+          {
+            "label": "Overview",
+            "slug": "antigravity/artifacts"
+          },
+          {
+            "label": "Plan",
+            "slug": "antigravity/implementation-plan"
+          },
+          {
+            "label": "Walkthrough",
+            "slug": "antigravity/walkthrough"
+          },
+          {
+            "label": "Screenshots",
+            "slug": "antigravity/screenshots"
+          }
+        ]
+      }
+    ],
+    "badge": {
+      "text": "v2.9.1",
+      "variant": "note"
+    }
+  },
+  {
+    "label": "Antigravity CLI",
+    "collapsed": true,
+    "items": [
+      {
+        "label": "Overview",
+        "slug": "antigravity/cli/overview"
+      },
+      {
+        "label": "Getting Started",
+        "slug": "antigravity/cli/getting-started"
+      },
+      {
+        "label": "Installation & Auth",
+        "slug": "antigravity/cli/install"
+      },
+      {
+        "label": "Tutorial",
+        "slug": "antigravity/cli/tutorial"
+      },
+      {
+        "label": "Using AGY CLI",
+        "slug": "antigravity/cli/using"
+      },
+      {
+        "label": "Features",
+        "slug": "antigravity/cli/features"
+      },
+      {
+        "label": "Migration",
+        "slug": "antigravity/cli/gcli-migration"
+      },
+      {
+        "label": "Prompting & Interaction",
+        "slug": "antigravity/cli/prompting"
+      },
+      {
+        "label": "Artifacts",
+        "collapsed": true,
+        "items": [
+          {
+            "label": "Reviewing Artifacts",
+            "slug": "antigravity/cli/artifacts"
+          }
+        ]
+      },
+      {
+        "label": "Managing Conversations",
+        "slug": "antigravity/cli/conversations"
+      },
+      {
+        "label": "Agent Capabilities",
+        "collapsed": true,
+        "items": [
+          {
+            "label": "Choose an execution mode",
+            "slug": "antigravity/cli/modes"
+          },
+          {
+            "label": "Headless Mode",
+            "slug": "antigravity/cli/headless"
+          },
+          {
+            "label": "Background Tasks & Subagents",
+            "slug": "antigravity/cli/subagents"
+          },
+          {
+            "label": "Sandbox",
+            "slug": "antigravity/cli/sandbox"
+          },
+          {
+            "label": "Permissions",
+            "slug": "antigravity/cli/permissions"
+          }
+        ]
+      },
+      {
+        "label": "Projects",
+        "slug": "antigravity/cli/projects"
+      },
+      {
+        "label": "Settings",
+        "collapsed": true,
+        "items": [
+          {
+            "label": "Settings, Rendering & Keybindings",
+            "slug": "antigravity/cli/settings"
+          },
+          {
+            "label": "Vim Editor Mode",
+            "slug": "antigravity/cli/vim-editor-mode"
+          }
+        ]
+      },
+      {
+        "label": "AI Credits",
+        "slug": "antigravity/cli/credits"
+      },
+      {
+        "label": "Customizations",
+        "collapsed": true,
+        "items": [
+          {
+            "label": "MCP",
+            "slug": "antigravity/cli/mcp"
+          },
+          {
+            "label": "Plugins & Skills",
+            "slug": "antigravity/cli/plugins"
+          },
+          {
+            "label": "Status Line Customization",
+            "slug": "antigravity/cli/statusline"
+          },
+          {
+            "label": "Terminal Title Customization",
+            "slug": "antigravity/cli/title"
+          }
+        ]
+      },
+      {
+        "label": "Commands",
+        "collapsed": true,
+        "items": [
+          {
+            "label": "Agents Command (/agents)",
+            "slug": "antigravity/cli/commands/agents"
+          },
+          {
+            "label": "Code Search Command (/codesearch)",
+            "slug": "antigravity/cli/commands/codesearch"
+          },
+          {
+            "label": "AI Credits Command (/credits)",
+            "slug": "antigravity/cli/commands/credits"
+          },
+          {
+            "label": "Diff Command (/diff)",
+            "slug": "antigravity/cli/commands/diff"
+          },
+          {
+            "label": "Permissions Command (/permissions)",
+            "slug": "antigravity/cli/commands/permissions"
+          },
+          {
+            "label": "Resume Command (/resume)",
+            "slug": "antigravity/cli/commands/resume"
+          },
+          {
+            "label": "Status Line Command (/statusline)",
+            "slug": "antigravity/cli/commands/statusline"
+          },
+          {
+            "label": "Window Title Command (/title)",
+            "slug": "antigravity/cli/commands/title"
+          },
+          {
+            "label": "Model Quotas (/usage)",
+            "slug": "antigravity/cli/commands/usage"
+          }
+        ]
+      },
+      {
+        "label": "Best Practices",
+        "slug": "antigravity/cli/best-practices"
+      },
+      {
+        "label": "Troubleshooting",
+        "slug": "antigravity/cli/troubleshooting"
+      },
+      {
+        "label": "CLI Reference",
+        "slug": "antigravity/cli/reference"
+      }
+    ],
+    "badge": {
+      "text": "v1.1.17",
+      "variant": "note"
+    }
+  },
+  {
+    "label": "Antigravity SDK",
+    "collapsed": true,
+    "items": [
+      {
+        "label": "Overview + Quick Start",
+        "slug": "antigravity/sdk/overview"
+      },
+      {
+        "label": "Personas",
+        "slug": "antigravity/sdk/personas"
+      },
+      {
+        "label": "Tools & Skills",
+        "slug": "antigravity/sdk/tools"
+      },
+      {
+        "label": "Customizations",
+        "collapsed": true,
+        "items": [
+          {
+            "label": "MCP",
+            "slug": "antigravity/sdk/mcp"
+          }
+        ]
+      },
+      {
+        "label": "Policies",
+        "slug": "antigravity/sdk/policies"
+      },
+      {
+        "label": "Subagents",
+        "slug": "antigravity/sdk/subagents"
+      },
+      {
+        "label": "Structured Output",
+        "slug": "antigravity/sdk/structured-output"
+      },
+      {
+        "label": "Lifecycle & Hooks",
+        "slug": "antigravity/sdk/lifecycle"
+      }
+    ],
+    "badge": {
+      "text": "v0.1.13",
+      "variant": "note"
+    }
+  },
+  {
+    "label": "Antigravity for IDEs",
+    "collapsed": true,
+    "items": [
+      {
+        "label": "Overview",
+        "slug": "antigravity/ide/overview"
+      },
+      {
+        "label": "Getting Started",
+        "slug": "antigravity/ide/getting-started"
+      },
+      {
+        "label": "IDE Extensions",
+        "collapsed": true,
+        "items": [
+          {
+            "label": "Overview",
+            "slug": "antigravity/ide/extensions"
+          },
+          {
+            "label": "Visual Studio Code",
+            "slug": "antigravity/ide/extensions/vscode"
+          },
+          {
+            "label": "Visual Studio",
+            "slug": "antigravity/ide/extensions/visual-studio"
+          },
+          {
+            "label": "JetBrains",
+            "slug": "antigravity/ide/extensions/jetbrains"
+          },
+          {
+            "label": "Zed",
+            "slug": "antigravity/ide/extensions/zed"
+          }
+        ]
+      },
+      {
+        "label": "Features",
+        "collapsed": true,
+        "items": [
+          {
+            "label": "Tab",
+            "slug": "antigravity/ide/tab"
+          },
+          {
+            "label": "Side Panel",
+            "slug": "antigravity/ide/agent-side-panel"
+          },
+          {
+            "label": "Review Changes",
+            "slug": "antigravity/ide/review-changes-editor"
+          }
+        ]
+      },
+      {
+        "label": "Artifacts",
+        "collapsed": true,
+        "items": [
+          {
+            "label": "Plan",
+            "slug": "antigravity/ide/implementation-plan"
+          },
+          {
+            "label": "Walkthrough",
+            "slug": "antigravity/ide/walkthrough"
+          },
+          {
+            "label": "Screenshots",
+            "slug": "antigravity/ide/screenshots"
+          },
+          {
+            "label": "Browser Recordings",
+            "slug": "antigravity/ide/browser-recordings"
+          }
+        ]
+      },
+      {
+        "label": "Browser",
+        "collapsed": true,
+        "items": [
+          {
+            "label": "Overview",
+            "slug": "antigravity/ide/browser"
+          },
+          {
+            "label": "Allowlist / Denylist",
+            "slug": "antigravity/ide/allowlist-denylist"
+          },
+          {
+            "label": "Separate Chrome Profile",
+            "slug": "antigravity/ide/separate-chrome-profile"
+          }
+        ]
+      },
+      {
+        "label": "Customizations",
+        "collapsed": true,
+        "items": [
+          {
+            "label": "MCP",
+            "slug": "antigravity/ide/mcp"
+          },
+          {
+            "label": "Skills",
+            "slug": "antigravity/ide/skills"
+          },
+          {
+            "label": "Rules",
+            "slug": "antigravity/ide/rules"
+          },
+          {
+            "label": "Workflows",
+            "slug": "antigravity/ide/workflows"
+          },
+          {
+            "label": "Plugins",
+            "slug": "antigravity/ide/plugins"
+          },
+          {
+            "label": "Hooks",
+            "slug": "antigravity/ide/hooks"
+          }
+        ]
+      },
+      {
+        "label": "Settings",
+        "slug": "antigravity/ide/settings"
+      }
+    ],
+    "badge": {
+      "text": "v2.5.5",
+      "variant": "note"
+    }
+  },
+  {
+    "label": "Migration",
+    "collapsed": true,
+    "items": [
+      {
+        "label": "Firebase Studio Migration",
+        "slug": "antigravity/firebase-studio-migration"
+      }
+    ]
+  },
+  {
+    "label": "Enterprise",
+    "slug": "antigravity/enterprise"
+  },
+  {
+    "label": "Plans",
+    "slug": "antigravity/plans"
+  },
+  {
+    "label": "FAQ",
+    "slug": "antigravity/faq"
+  }
+]

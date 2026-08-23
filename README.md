@@ -14,16 +14,39 @@ designed to make agent-oriented document ingestion and retrieval easier.
 
 ## How discovery works
 
-`antigravity.google` is an Astro site that publishes docs as Markdown endpoints:
+`antigravity.google` is an Astro Starlight site that publishes docs as Markdown endpoints:
 
-- Doc pages are listed in `/llms.txt` under `## Documentation` (with `###` section headings).
+- Official site HTML sidebar exposes the full hierarchical multi-level navigation tree (e.g. `Antigravity CLI` -> `Agent Capabilities` -> `Headless Mode`).
+- Doc pages are additionally listed in `/llms.txt` under `## Documentation`.
 - Raw Markdown lives at `/docs/<slug>.md` (`Content-Type: text/markdown`).
 
 `scripts/fetch_agy_docs.py` therefore:
 
-1. loads `/llms.txt` and extracts Documentation entries + sections,
+1. parses the official Astro Starlight sidebar navigation DOM tree and merges with `/llms.txt`,
 2. downloads each `/docs/<slug>.md` (gzip responses are decompressed when present),
-3. mirrors them under `docs/<output_subdir>/<slug>.md` and writes `docs/docs_manifest.json`.
+3. mirrors them under `docs/<output_subdir>/<slug>.md`,
+4. generates `docs/starlight_sidebar.json` (Astro Starlight compatible sidebar configuration),
+5. generates `docs/SUMMARY.md` (GitBook / standard nested Markdown index),
+6. writes `docs/docs_manifest.json` with full `category_path` and `sidebar_label` metadata.
+
+## Using with Astro Starlight
+
+You can directly consume the auto-generated `starlight_sidebar.json` in your Starlight config (`astro.config.mjs`):
+
+```js
+import { defineConfig } from 'astro/config';
+import starlight from '@astrojs/starlight';
+import agySidebar from './docs/starlight_sidebar.json';
+
+export default defineConfig({
+  integrations: [
+    starlight({
+      title: 'Antigravity Docs Mirror',
+      sidebar: agySidebar,
+    }),
+  ],
+});
+```
 
 ## Sources
 
@@ -32,9 +55,12 @@ Configured in `config/sources.json`:
 
 ## Layout
 
-- `scripts/fetch_agy_docs.py`: fetcher + manifest generator
+- `scripts/fetch_agy_docs.py`: fetcher + Starlight sidebar parser + manifest generator
 - `config/sources.json`: source definitions
-- `docs/`: mirrored markdown content and manifest
+- `docs/`: mirrored markdown content
+- `docs/starlight_sidebar.json`: Starlight sidebar configuration tree
+- `docs/SUMMARY.md`: nested markdown index
+- `docs/docs_manifest.json`: manifest with hashes and category paths
 - `.cnb.yml`: CNB scheduled + manual sync workflow
 - `.cnb/web_trigger.yml`: CNB page button configuration
 

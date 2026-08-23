@@ -5,6 +5,7 @@
     - .cnb/web_trigger.yml
     - config/**
     - scripts/**
+    - tests/**
   docker:
     image: python:3.11
   stages:
@@ -13,6 +14,9 @@
         - python -V
         - pip install --upgrade pip
         - pip install -r scripts/requirements.txt
+    - name: run-unit-tests
+      script:
+        - python -m unittest discover -s tests -v
     - name: strict-fetch-check
       script:
         - STRICT_FETCH=1 python scripts/fetch_agy_docs.py
