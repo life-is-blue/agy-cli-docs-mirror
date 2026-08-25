@@ -1,7 +1,7 @@
 # Antigravity Documentation
 
 - [Home](antigravity/home.md)
-- Antigravity 2.0 `v2.9.1`
+- Antigravity 2.0 `v2.10.0`
   - [Overview](antigravity/overview.md)
   - [Getting Started](antigravity/getting-started.md)
   - [Build with Google](antigravity/build-with-google.md)

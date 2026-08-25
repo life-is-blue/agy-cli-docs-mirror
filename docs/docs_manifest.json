@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-24T01:20:31Z",
+  "generated_at": "2026-08-25T01:18:16Z",
   "tool": "scripts/fetch_agy_docs.py",
   "strict_fetch": false,
   "is_degraded": false,
@@ -626,9 +626,9 @@
       "slug": "features",
       "label": "Feature Overview",
       "url": "https://antigravity.google/docs/features.md",
-      "sha256": "8864eea01cdb6a922708f026860ff13b315f16daad9186fe9149e739e96a36cb",
-      "bytes": 4842,
-      "fetched_at": "2026-08-23T01:22:23Z",
+      "sha256": "18e2e187cb9d2317494aebedc7aef944237155a26f48ca52098266f88923db6b",
+      "bytes": 5797,
+      "fetched_at": "2026-08-25T01:18:01Z",
       "sidebar_label": "Feature Overview"
     },
     "antigravity/firebase-studio-migration.md": {
@@ -1166,9 +1166,9 @@
       "slug": "remote-control",
       "label": "Remote Control",
       "url": "https://antigravity.google/docs/remote-control.md",
-      "sha256": "74e6ea93bfc7c7845fbbcf75324034e950568cf75684d84bb135b641e5c45936",
-      "bytes": 6831,
-      "fetched_at": "2026-08-23T01:22:23Z",
+      "sha256": "42b7a0436069cffe6e2eab644f75398a3e2c097102ad562be2c8320855fc94a2",
+      "bytes": 6711,
+      "fetched_at": "2026-08-25T01:18:01Z",
       "sidebar_label": "Remote Control"
     },
     "antigravity/rules-workflows.md": {

@@ -1,9 +1,5 @@
 # Remote Control
 
-Feature being rolled out
-
-This feature is currently rolling out, with Google AI Ultra plans receiving priority access.
-
 Antigravity Remote Control allows you to securely connect to and drive your Antigravity 2.0 desktop sessions running across your machines from any web browser.
 
 As AI agents take on larger-scope tasks—such as full-subsystem refactorings, extensive test suite runs, and complex dependency migrations—operations can run for extended periods. Remote Control untethers you from your physical desk while preserving your entire local development environment.
