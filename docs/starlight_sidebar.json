@@ -284,6 +284,10 @@
           {
             "label": "Model Quotas (/usage)",
             "slug": "antigravity/cli/commands/usage"
+          },
+          {
+            "label": "Voice Dictation (/voice)",
+            "slug": "antigravity/cli/commands/voice"
           }
         ]
       },
@@ -301,7 +305,7 @@
       }
     ],
     "badge": {
-      "text": "v1.1.17",
+      "text": "v1.1.20",
       "variant": "note"
     }
   },
@@ -349,7 +353,7 @@
       }
     ],
     "badge": {
-      "text": "v0.1.13",
+      "text": "v0.1.14",
       "variant": "note"
     }
   },
@@ -388,6 +392,10 @@
           {
             "label": "Zed",
             "slug": "antigravity/ide/extensions/zed"
+          },
+          {
+            "label": "Xcode",
+            "slug": "antigravity/ide/extensions/xcode"
           }
         ]
       },

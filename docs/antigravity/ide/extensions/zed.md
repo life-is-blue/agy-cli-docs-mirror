@@ -42,7 +42,7 @@ For individual Google AI subscription plans (including Free, Pro, and Ultra):
 }
 ```
 
-Reach out to your cloud administrator for your GCP Project ID and Region (Enterprise support for JetBrains and Zed is currently in Preview):
+Reach out to your cloud administrator for your GCP Project ID and Region (Enterprise support for JetBrains, Zed, and Xcode is currently in Preview):
 
 ```
 {

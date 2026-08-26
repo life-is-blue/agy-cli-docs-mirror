@@ -1,22 +1,23 @@
-Antigravity supports the full suite of **IntelliJ-based IDEs**—including IntelliJ IDEA, PyCharm, WebStorm, GoLand, CLion, Rider, and more—starting with version **2026.2.1+**.
+You can now access Antigravity directly inside Apple’s **Xcode** to build across Apple platforms (including macOS, iOS, iPadOS, watchOS, and visionOS) without leaving your native development environment.
 
 * * *
 
 ## Prerequisites
 
-*   **IntelliJ-based IDE**: Any IntelliJ-based IDE version 2026.2.1 or later on macOS, Linux, or Windows.
+*   **Xcode**: Xcode 27 beta 6 or later on macOS.
 *   **Antigravity Entitlement**: A Google Account with any Antigravity plan (including the free tier) or **Gemini Enterprise** (Enterprise support in Preview).
 
 * * *
 
 ## Installation & Setup
 
-1.  Open your IntelliJ-based IDE.
-2.  Open **JetBrains AI** > **Settings** > **Agents**.
-3.  Search for **Antigravity**.
-4.  Click **Install**.
+1.  Open **Xcode** (Xcode 27 beta 6 or later).
+2.  Navigate to **Xcode** > **Settings** (or press `Cmd+,`).
+3.  Select the **Intelligence** settings panel.
+4.  Install Antigravity by clicking **Get**.
+5.  After Antigravity installs, select **Antigravity** and use the **…** button to start authentication.
 
-![Antigravity in JetBrains IDEs](/assets/image/blog/jetbrains-extension-marketplace.png)
+![Antigravity in Xcode](/assets/image/blog/xcode-extension-marketplace.png)
 
 * * *
 
@@ -24,7 +25,7 @@ Antigravity supports the full suite of **IntelliJ-based IDEs**—including Intel
 
 Note
 
-Gemini Enterprise authentication for JetBrains IDEs is currently in **Preview**.
+Gemini Enterprise authentication for Xcode is currently in **Preview**.
 
 Google AccountsGemini EnterpriseGemini APIAgent Platform
 

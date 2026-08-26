@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-25T01:18:16Z",
+  "generated_at": "2026-08-26T01:21:24Z",
   "tool": "scripts/fetch_agy_docs.py",
   "strict_fetch": false,
   "is_degraded": false,
@@ -15,8 +15,8 @@
   "sidebar_file": "docs/starlight_sidebar.json",
   "summary_file": "docs/SUMMARY.md",
   "stats": {
-    "total_pages": 94,
-    "successful_pages": 94,
+    "total_pages": 96,
+    "successful_pages": 96,
     "failed_pages": 0,
     "removed_files": 0,
     "invariants_passed": true
@@ -246,6 +246,21 @@
       "fetched_at": "2026-08-23T01:22:23Z",
       "sidebar_label": "Model Quotas (/usage)"
     },
+    "antigravity/cli/commands/voice.md": {
+      "source": "antigravity",
+      "section": "Antigravity CLI",
+      "category_path": [
+        "Antigravity CLI",
+        "Commands"
+      ],
+      "slug": "cli/commands/voice",
+      "label": "Voice Dictation (/voice)",
+      "url": "https://antigravity.google/docs/cli/commands/voice.md",
+      "sha256": "bfd409acf9824c51c6db3338938066602c6d17de7c3f7c07f3c67c6d6d3f472c",
+      "bytes": 7530,
+      "fetched_at": "2026-08-26T01:21:09Z",
+      "sidebar_label": "Voice Dictation (/voice)"
+    },
     "antigravity/cli/conversations.md": {
       "source": "antigravity",
       "section": "Antigravity CLI",
@@ -456,9 +471,9 @@
       "slug": "cli/reference",
       "label": "CLI Reference",
       "url": "https://antigravity.google/docs/cli/reference.md",
-      "sha256": "504992d65d0abf328e41477b72c724721b92859ead3bb245d091198412f009c1",
-      "bytes": 10455,
-      "fetched_at": "2026-08-23T01:22:23Z",
+      "sha256": "75c0076005741173415468254487b4a11ffca789ad68c7cd19c8e32dad387437",
+      "bytes": 10668,
+      "fetched_at": "2026-08-26T01:21:09Z",
       "sidebar_label": "CLI Reference"
     },
     "antigravity/cli/sandbox.md": {
@@ -600,9 +615,9 @@
       "slug": "enterprise",
       "label": "Enterprise",
       "url": "https://antigravity.google/docs/enterprise.md",
-      "sha256": "c78211c7c529085eb08f24251817442ac92ebe9775c4f420cb4f38d3b7053fae",
-      "bytes": 9904,
-      "fetched_at": "2026-08-23T01:22:23Z",
+      "sha256": "b9e5c063e64bb317485c1b1170ec4194314d5fccfcb0f990a71f6f4920cebc74",
+      "bytes": 9950,
+      "fetched_at": "2026-08-26T01:21:09Z",
       "sidebar_label": "Enterprise"
     },
     "antigravity/faq.md": {
@@ -756,9 +771,9 @@
       "slug": "ide/extensions",
       "label": "Overview",
       "url": "https://antigravity.google/docs/ide/extensions.md",
-      "sha256": "575580fd65f6755fc84d89b548686a31e6aede1a6cc24ae1ca4208296c0eb01a",
-      "bytes": 3285,
-      "fetched_at": "2026-08-23T16:24:40Z",
+      "sha256": "c0290f45434a921255de81e10ca4a56616d5486f2f0fd680c06cea6a0acc4590",
+      "bytes": 3551,
+      "fetched_at": "2026-08-26T01:21:09Z",
       "sidebar_label": "Overview"
     },
     "antigravity/ide/extensions/jetbrains.md": {
@@ -771,9 +786,9 @@
       "slug": "ide/extensions/jetbrains",
       "label": "JetBrains",
       "url": "https://antigravity.google/docs/ide/extensions/jetbrains.md",
-      "sha256": "5eae1ddbd9125ec98c280ce8581b543faecd6361467a482b6c9b80b3fdb526e1",
-      "bytes": 1918,
-      "fetched_at": "2026-08-23T16:24:40Z",
+      "sha256": "e8307513767868ba994f140417ee812c9a54c46f19195fb75d66f9f93403b28b",
+      "bytes": 1926,
+      "fetched_at": "2026-08-26T01:21:09Z",
       "sidebar_label": "JetBrains"
     },
     "antigravity/ide/extensions/visual-studio.md": {
@@ -806,6 +821,21 @@
       "fetched_at": "2026-08-23T16:24:40Z",
       "sidebar_label": "Visual Studio Code"
     },
+    "antigravity/ide/extensions/xcode.md": {
+      "source": "antigravity",
+      "section": "Antigravity for IDEs",
+      "category_path": [
+        "Antigravity for IDEs",
+        "IDE Extensions"
+      ],
+      "slug": "ide/extensions/xcode",
+      "label": "Xcode",
+      "url": "https://antigravity.google/docs/ide/extensions/xcode.md",
+      "sha256": "efe708e9286c0f8d1db6733384f7616e39fbfea0503d9f5aed2dd66f4d4acfe5",
+      "bytes": 2039,
+      "fetched_at": "2026-08-26T01:21:09Z",
+      "sidebar_label": "Xcode"
+    },
     "antigravity/ide/extensions/zed.md": {
       "source": "antigravity",
       "section": "Antigravity for IDEs",
@@ -816,9 +846,9 @@
       "slug": "ide/extensions/zed",
       "label": "Zed",
       "url": "https://antigravity.google/docs/ide/extensions/zed.md",
-      "sha256": "390ae947a14f548faca13dd417ff033515e6898303fd39b70dc69ac1c6aca0a5",
-      "bytes": 1939,
-      "fetched_at": "2026-08-23T16:24:40Z",
+      "sha256": "ae5fd12f860c08698cff8ad544439b09d2e3c5e308234773e0604dff01f48e91",
+      "bytes": 1947,
+      "fetched_at": "2026-08-26T01:21:09Z",
       "sidebar_label": "Zed"
     },
     "antigravity/ide/getting-started.md": {
@@ -1166,9 +1196,9 @@
       "slug": "remote-control",
       "label": "Remote Control",
       "url": "https://antigravity.google/docs/remote-control.md",
-      "sha256": "42b7a0436069cffe6e2eab644f75398a3e2c097102ad562be2c8320855fc94a2",
-      "bytes": 6711,
-      "fetched_at": "2026-08-25T01:18:01Z",
+      "sha256": "6f87cf91f86399e70d7d6fa12f68936bb323e7f8ad651721adb88a2320747bbb",
+      "bytes": 6703,
+      "fetched_at": "2026-08-26T01:21:09Z",
       "sidebar_label": "Remote Control"
     },
     "antigravity/rules-workflows.md": {

@@ -9,7 +9,7 @@ As AI agents take on larger-scope tasks—such as full-subsystem refactorings, e
 You can enable Remote Control directly from the Antigravity 2.0 Settings:
 
 1.  Open the **Settings** panel by pressing `Cmd + ,` (or `Ctrl + ,` on Linux/Windows), or click **Settings** at the bottom of the left sidebar.
-2.  Navigate to the **Account** section.
+2.  Navigate to the **App** section.
 3.  Toggle **Enable Remote Control** to **On**.
 4.  _(Optional)_ Set a custom **Nickname** (e.g., `workstation-primary` or `server-machine`) to easily identify this machine in your instance list.
 
@@ -84,7 +84,7 @@ For headless daemon instances, the instance name is how the machine appears in R
 
 Note
 
-**Important:** The file has two similar-looking names in it. `cliRemoteControlHostname` is this service — the one you want. `remoteControlHostname` is the Antigravity editor on the same machine; in Antigravity 2.0, you can edit this directly in **Settings > Account**.
+**Important:** The file has two similar-looking names in it. `cliRemoteControlHostname` is this service — the one you want. `remoteControlHostname` is the Antigravity editor on the same machine; in Antigravity 2.0, you can edit this directly in **Settings > App**.
 
 If you installed with `--name`, that name wins over the file every time the service restarts. So if your edit keeps reverting, re-run setup and leave the name question blank — after that, the file is in charge.
 

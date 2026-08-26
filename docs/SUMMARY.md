@@ -28,7 +28,7 @@
     - [Plan](antigravity/implementation-plan.md)
     - [Walkthrough](antigravity/walkthrough.md)
     - [Screenshots](antigravity/screenshots.md)
-- Antigravity CLI `v1.1.17`
+- Antigravity CLI `v1.1.20`
   - [Overview](antigravity/cli/overview.md)
   - [Getting Started](antigravity/cli/getting-started.md)
   - [Installation & Auth](antigravity/cli/install.md)
@@ -66,10 +66,11 @@
     - [Status Line Command (/statusline)](antigravity/cli/commands/statusline.md)
     - [Window Title Command (/title)](antigravity/cli/commands/title.md)
     - [Model Quotas (/usage)](antigravity/cli/commands/usage.md)
+    - [Voice Dictation (/voice)](antigravity/cli/commands/voice.md)
   - [Best Practices](antigravity/cli/best-practices.md)
   - [Troubleshooting](antigravity/cli/troubleshooting.md)
   - [CLI Reference](antigravity/cli/reference.md)
-- Antigravity SDK `v0.1.13`
+- Antigravity SDK `v0.1.14`
   - [Overview + Quick Start](antigravity/sdk/overview.md)
   - [Personas](antigravity/sdk/personas.md)
   - [Tools & Skills](antigravity/sdk/tools.md)
@@ -88,6 +89,7 @@
     - [Visual Studio](antigravity/ide/extensions/visual-studio.md)
     - [JetBrains](antigravity/ide/extensions/jetbrains.md)
     - [Zed](antigravity/ide/extensions/zed.md)
+    - [Xcode](antigravity/ide/extensions/xcode.md)
   - Features
     - [Tab](antigravity/ide/tab.md)
     - [Side Panel](antigravity/ide/agent-side-panel.md)

@@ -4,7 +4,7 @@ Antigravity IDE Extensions bring Google’s agentic development platform directl
 
 ## Supported IDEs & Editors
 
-Visual Studio CodeVisual Studio (Preview)JetBrainsZed
+Visual Studio CodeVisual Studio (Preview)JetBrainsZedXcode
 
 ### Visual Studio Code
 
@@ -37,6 +37,14 @@ High-performance, native agentic editing in the Zed editor (Enterprise support i
 [Install & Zed Guide](/docs/ide/extensions/zed)
 
 ![Antigravity in Zed](/assets/image/blog/zed-extension-marketplace.png)
+
+### Xcode
+
+Native agentic development inside Xcode for macOS, iOS, iPadOS, watchOS, and visionOS (Enterprise support in Preview).
+
+[Install & Xcode Guide](/docs/ide/extensions/xcode)
+
+![Antigravity in Xcode](/assets/image/blog/xcode-extension-marketplace.png)
 
 * * *
 

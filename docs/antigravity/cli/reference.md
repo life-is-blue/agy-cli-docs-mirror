@@ -39,6 +39,7 @@ Type `/` inside the prompt box to open the typeahead command selection menu.
 | **`/tasks`** | Tools & Tasks | — | Open the Task Manager Panel to monitor background shell execution logs. |
 | **[`/title`](/docs/cli/commands/title) \[on/off\]** | Configurations | — | Toggle or set terminal window title updates. |
 | **[`/usage`](/docs/cli/commands/usage)** | Utilities | `/quota` | Display model quota usage. |
+| **[`/voice`](/docs/cli/commands/voice)** | Utilities | `/record` | Dictate a prompt using your microphone. |
 
 ## Default keybindings
 
@@ -74,6 +75,7 @@ These keys are active when writing instructions inside the prompt box.
 | **`Ctrl+Z`** | `prompt.undo_text` | Reverts the last edit. |
 | **`Ctrl+Shift+Z`** | `prompt.redo_text` | Redoes the last undone text operation. |
 | **`Ctrl+D`** | `—` | Forward delete (only when the prompt box is non-empty). |
+| **`F5`** | `voice.start_dictation` | Starts or stops [voice dictation](/docs/cli/commands/voice). |
 
 ### Navigation & scrolling
 
