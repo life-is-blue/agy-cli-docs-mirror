@@ -1,7 +1,7 @@
 # Antigravity Documentation
 
 - [Home](antigravity/home.md)
-- Antigravity 2.0 `v2.10.0`
+- Antigravity 2.0 `v2.11.0`
   - [Overview](antigravity/overview.md)
   - [Getting Started](antigravity/getting-started.md)
   - [Build with Google](antigravity/build-with-google.md)
@@ -28,7 +28,7 @@
     - [Plan](antigravity/implementation-plan.md)
     - [Walkthrough](antigravity/walkthrough.md)
     - [Screenshots](antigravity/screenshots.md)
-- Antigravity CLI `v1.1.20`
+- Antigravity CLI `v1.1.22`
   - [Overview](antigravity/cli/overview.md)
   - [Getting Started](antigravity/cli/getting-started.md)
   - [Installation & Auth](antigravity/cli/install.md)
@@ -70,7 +70,7 @@
   - [Best Practices](antigravity/cli/best-practices.md)
   - [Troubleshooting](antigravity/cli/troubleshooting.md)
   - [CLI Reference](antigravity/cli/reference.md)
-- Antigravity SDK `v0.1.14`
+- Antigravity SDK `v0.1.15`
   - [Overview + Quick Start](antigravity/sdk/overview.md)
   - [Personas](antigravity/sdk/personas.md)
   - [Tools & Skills](antigravity/sdk/tools.md)

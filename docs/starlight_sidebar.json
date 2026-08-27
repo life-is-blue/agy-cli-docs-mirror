@@ -121,7 +121,7 @@
       }
     ],
     "badge": {
-      "text": "v2.10.0",
+      "text": "v2.11.0",
       "variant": "note"
     }
   },
@@ -305,7 +305,7 @@
       }
     ],
     "badge": {
-      "text": "v1.1.20",
+      "text": "v1.1.22",
       "variant": "note"
     }
   },
@@ -353,7 +353,7 @@
       }
     ],
     "badge": {
-      "text": "v0.1.14",
+      "text": "v0.1.15",
       "variant": "note"
     }
   },
