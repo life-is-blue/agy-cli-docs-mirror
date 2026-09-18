@@ -4,7 +4,7 @@ Agent utilizes the implementation plan artifact to architect changes within your
 
 ![Artifact Implementation Plan](/assets/image/docs/artifacts/artifact-implementation-plan.png)
 
-Unless you have you artifact review policy set to “Always Proceed” \[link to docs on this setting\], Agent will typically request your review on the implementation plan before making the changes needed to complete your task. You can click either the in-conversation or artifact header “Proceed” button to instantly continue with Agent’s plan.
+Unless you have your [artifact review policy](/docs/artifact-review) set to [“Always Proceed”](/docs/artifact-review#2-always-proceed), Agent will typically request your review on the implementation plan before making the changes needed to complete your task. You can click either the in-conversation or artifact header “Proceed” button to instantly continue with Agent’s plan.
 
 ![Artifact Implementation Plan Proceed](/assets/image/docs/artifacts/artifact-implementation-plan-proceed.png)
 

@@ -2,7 +2,7 @@
 
 To deploy Google Antigravity using models hosted directly within your organization’s Google Cloud infrastructure, you can integrate with the Gemini Enterprise app and Gemini Enterprise Agent Platform. Every session runs under Google Cloud’s enterprise security controls, data residency guarantees, and the Google Cloud Terms of Service.
 
-Supported products: [Antigravity 2.0](/product/antigravity-2) [Antigravity CLI](/product/antigravity-cli) [Visual Studio Code](/docs/ide/extensions/vscode) [Visual Studio (Preview)](/docs/ide/extensions/visual-studio) [JetBrains (Preview)](/docs/ide/extensions/jetbrains) [Zed (Preview)](/docs/ide/extensions/zed) [Xcode (Preview)](/docs/ide/extensions/xcode)
+Supported products: [Antigravity 2.0](/product/antigravity-2) [Antigravity CLI](/product/antigravity-cli) [Visual Studio Code](/docs/ide/extensions/vscode) [Visual Studio](/docs/ide/extensions/visual-studio) [JetBrains (Preview)](/docs/ide/extensions/jetbrains) [Zed (Preview)](/docs/ide/extensions/zed) [Xcode (Preview)](/docs/ide/extensions/xcode)
 
 Note
 
@@ -83,7 +83,7 @@ Bring Your Own Identity (BYOID) uses Workforce Identity Federation (WIF) to let 
 
 Note
 
-**Note**: If the same email address exists across multiple identity providers, sign in with the identity that matches your Gemini Enterprise license. BYOID does not currently support **Agent Platform on Antigravity 2.0**.
+**Note**: If the same email address exists across multiple identity providers, sign in with the identity that matches your Gemini Enterprise license.
 
 ## Application Default Credentials (ADC) in Antigravity CLI
 
@@ -156,14 +156,6 @@ Enforce private networking security perimeters by adding the Agent Platform API 
 
 *   **No Licenses Appear During Setup**: Licenses are assigned by your organization’s Google Cloud administrator. If the License Selector is empty, contact your administrator to ensure your account has been granted access to a Gemini Enterprise Standard or Plus license.
 *   **Missing BYOID Sign-In Option**: Ensure you are running the latest release of **[Antigravity 2.0](/download)**, the **[Antigravity CLI](/docs/cli/install)**, or your **[IDE Extension](/docs/ide/extensions)**, as enterprise authentication and BYOID support are included natively in all recent releases.
-*   **Browser URL Allowlist Advisory**: When a browser URL allowlist is configured in admin controls, allowlisted URLs may still be blocked in Antigravity. Admin URL allowlists are currently being integrated and are not yet honored.
-
-### Known Limitations
-
-**BYOID / WIF login**:
-
-*   When signing in with the Advanced SSO option (BYOID / Workforce Identity Federation), a small number of users are unexpectedly logged out and must sign in again after restarting Antigravity 2.0 or the Antigravity CLI.
-*   Affected users must re-authenticate on restart.
 
 ### Important API Provisioning Advisory
 

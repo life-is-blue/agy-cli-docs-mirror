@@ -15,7 +15,7 @@ Start quick, one-off conversations outside of any Project. These sessions run in
 
 ### Scheduled tasks
 
-We’re introducing scheduled tasks, allowing users to plan ahead with their projects. Utilizing the newest Gemini 3.5 Flash model, users can schedule messages to be sent to their agents while they’re away.
+We’re introducing scheduled tasks, allowing users to plan ahead with their projects. Utilizing the newest Gemini 3.8 Flash model, users can schedule messages to be sent to their agents while they’re away.
 
 *   **Repeatable**: Set up time-based triggers to start conversations periodically.
 *   Tasks will be set to repeat on the minute you’ve set them.
@@ -24,8 +24,8 @@ We’re introducing scheduled tasks, allowing users to plan ahead with their pro
 
 We put you in the driver’s seat with robust security controls:
 
-*   **Interactive approvals**: By default, agents will request your explicit permission before running any terminal commands.
-*   **Bounded access**: By default, your agent can only read and write within the provided folders of a project. If you change your security preset to “Full machine” or “Unrestricted”, the agent will have read and write access over your full machine.
+*   **Interactive approvals**: By default, agents request your explicit permission before running terminal commands outside the isolated [Terminal Sandbox](/docs/sandbox) (macOS and Linux) or before running any terminal command (Windows).
+*   **Bounded access**: By default, your agent can only read and write within the provided folders of a project. If you broaden your permission settings (for example, the “Turbo” preset on macOS and Linux, or the “Full machine” / “Unrestricted” security presets on Windows), the agent will have read and write access over your full machine.
 
 ### Voice transcription
 

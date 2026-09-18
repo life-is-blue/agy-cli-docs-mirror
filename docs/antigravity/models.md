@@ -6,9 +6,9 @@ For the core reasoning model, Antigravity offers leading frontier models. Availa
 
 | Model | Free & Google AI Plus | Google AI Pro | Google AI Ultra | Enterprise |
 | --- | --- | --- | --- | --- |
+| [Gemini 3.8 Flash](/blog/gemini-3-8-flash-in-google-antigravity) | ✅ | ✅ | ✅ | ✅ |
 | [Gemini 3.7 Flash](/blog/gemini-3-7-flash-in-google-antigravity) | ✅ | ✅ | ✅ | ✅ |
 | [Gemini 3.6 Flash](/blog/gemini-3-6-flash-in-google-antigravity) | ✅ | ✅ | ✅ | ✅ |
-| [Gemini 3.5 Flash](/blog/gemini-3-5-flash-in-google-antigravity) | ✅ | ✅ | ✅ | ✅ |
 | [Gemini 3.1 Pro](/blog/gemini-3-1-pro-in-google-antigravity) | ✅ | ✅ | ✅ | ✅ |
 | Claude Sonnet 4.6 (thinking) | ✅ | ✅ | ✅ | ❌ |
 | Claude Opus 4.6 (thinking) | ✅ | ✅ | ✅ | ❌ |
@@ -18,6 +18,12 @@ Users can select which reasoning model they want to use within the model selecto
 
 Model
 
+Gemini 3.8 FlashMedium
+
+Fast
+
+LowMediumHigh
+
 Gemini 3.7 FlashMedium
 
 Fast
@@ -25,12 +31,6 @@ Fast
 LowMediumHigh
 
 Gemini 3.6 FlashMedium
-
-Fast
-
-LowMediumHigh
-
-Gemini 3.5 FlashMedium
 
 Fast
 

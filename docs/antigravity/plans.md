@@ -8,7 +8,7 @@ Rate limits and model availability differs based on usage of [Google AI](https:/
 
 All plans receive a baseline of:
 
-*   Use of Gemini models including Gemini 3.1 Pro, Gemini 3.5 Flash, and other offered Gemini Enterprise Agent Platform models as the core agent model
+*   Use of Gemini models including Gemini 3.1 Pro, Gemini 3.8 Flash, and other offered Gemini Enterprise Agent Platform models as the core agent model
 *   Unlimited Tab completions
 *   Access to all product features, such as the Scheduled Tasks and the CLI
 

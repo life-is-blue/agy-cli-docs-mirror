@@ -301,6 +301,10 @@ Follow the steps in the [Enterprise Page](/docs/enterprise) to learn how to sign
 
 Check out the communities on our [Support page](/support).
 
+## How do I submit a legal notice or regulatory inquiry?
+
+To submit a legal notice, regulatory inquiry, or report content under applicable local laws, please use Google’s [Legal Troubleshooter](https://support.google.com/legal/troubleshooter/1114905?hl=en#ts=1115658).
+
 ## What are the model rate limits?
 
 Please see more details in the docs on [Plans](/docs/plans).

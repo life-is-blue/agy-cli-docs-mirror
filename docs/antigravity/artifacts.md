@@ -8,13 +8,12 @@ As agents become more autonomous and execute complex tasks over longer periods, 
 
 Artifacts are primarily generated during the agent’s **Planning Mode** and are accessible across both Antigravity 2.0 and the Antigravity CLI.
 
-### Antigravity 2.0
+*   [Antigravity 2.0](#tab-panel-0)
+*   [Antigravity CLI](#tab-panel-1)
 
 The desktop app features a visual sidebar and review pane specifically optimized for displaying, organizing, and managing rich Artifacts.
 
 *   **Capabilities**: You can inspect interactive plans, review visual code diffs, and play back browser recordings of the agent’s UI actions directly within the app interface.
-
-### Antigravity CLI
 
 In the lightweight terminal interface, Artifacts are managed using a fast, keyboard-driven review panel.
 

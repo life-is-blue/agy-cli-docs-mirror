@@ -10,6 +10,7 @@ Type `/` inside the prompt box to open the typeahead command selection menu.
 | :-- | :-- | :-- | :-- |
 | **`/add-dir <path>`** | Utilities | — | Add a directory path to the active workspace. |
 | **[`/agents`](/docs/cli/commands/agents)** | Tools & Tasks | — | Open the [Agent Manager Panel](/docs/cli/commands/agents) to switch custom agents and monitor background subagents. |
+| **[`/boost`](/docs/boost)** `<task>` | Reasoning | — | Run on-demand multi-agent deep reasoning loops. |
 | **`/artifact`** | Tools & Tasks | — | Open the Artifact Review Panel. |
 | **`/btw <query>`** | Utilities | — | Ask a side question in the background without interrupting the main conversation. |
 | **`/clear`** | Utilities | `/new` | Clear the terminal and reset active conversation contexts. |
@@ -32,11 +33,13 @@ Type `/` inside the prompt box to open the typeahead command selection menu.
 | **[`/permissions`](/docs/cli/commands/permissions)** | Configurations | — | Open the interactive tool permissions manager panel. |
 | **`/planning`** | Configurations | — | Enable multi-turn plan generation mode for complex engineering tasks. |
 | **`/rename <name>`** | Conversations | — | Rename the current session thread. |
+| **[`/remote-control`](/docs/remote-control?tab=cli#interactive-mode) \[on/off\]** | Utilities | — | Toggle Remote Control for the active terminal session. |
 | **[`/resume`](/docs/cli/commands/resume)** | Conversations | `/switch`, `/conversation` | Open the [conversation picker overlay](/docs/cli/commands/resume) to select and load previous threads. |
 | **`/rewind`** | Conversations | `/undo` | Roll back your conversation history to a previous message. |
 | **`/skills`** | Tools & Tasks | — | Browse loaded local and global Agent Skills. |
 | **[`/statusline`](/docs/cli/commands/statusline)** | Configurations | — | Open the Status Bar customization overlay. |
 | **`/tasks`** | Tools & Tasks | — | Open the Task Manager Panel to monitor background shell execution logs. |
+| **[`/teamwork-preview`](/docs/teamwork)** `<task>` | Reasoning | `/teamwork` | Launch [collaborative multi-agent teams](/docs/teamwork) for long-horizon projects (paid plans). |
 | **[`/title`](/docs/cli/commands/title) \[on/off\]** | Configurations | — | Toggle or set terminal window title updates. |
 | **[`/usage`](/docs/cli/commands/usage)** | Utilities | `/quota` | Display model quota usage. |
 | **[`/voice`](/docs/cli/commands/voice)** | Utilities | `/record` | Dictate a prompt using your microphone. |

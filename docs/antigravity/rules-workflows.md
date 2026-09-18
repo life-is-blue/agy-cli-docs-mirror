@@ -1,56 +1,73 @@
 # Rules
 
-Rules are manually defined constraints for the Agent to follow, at both the local and global levels. Rules allow users to guide the agent to follow behaviors particular to their own use cases and style.
+Rules provide persistent, manually defined constraints to guide agent behaviors, code style, and architectural patterns.
 
-To get started with Rules:
-
-1.  Open the Customizations panel via the ”…” dropdown at the top of the editor’s agent panel.
-2.  Navigate to the Rules panel.
-3.  Click **\+ Global** to create new Global Rules, or **\+ Workspace** to create new Workspace-specific rules.
-
-A Rule itself is simply a Markdown file, where you can input the constraints to guide the Agent to your tasks, stack, and style.
-
-Rules files are limited to 12,000 characters each.
-
-## Global Rules
-
-Global rules live in `~/.gemini/GEMINI.md` and are applied across all workspaces.
-
-## Workspace Rules
-
-Workspace rules live in the `.agents/rules` folder of your workspace or git root.
-
-At the rule level you can define how a rule should be activated:
-
-*   **Manual**: The rule is manually activated via at mention in Agent’s input box.
-*   **Always On**: The rule is always applied.
-*   **Model Decision**: Based on a natural language description of the rule, the model decides whether to apply the rule.
-*   **Glob**: Based on the glob pattern you define (e.g., `*.js`, `src/**/*.ts`), the rule will be applied to all files that match the pattern.
+A rule is a Markdown file containing constraints that guide the agent’s code generation, tool usage, and testing patterns. Rules files are limited to 12,000 characters each.
 
 Note
 
-**Note**: Antigravity now defaults to `.agents/rules`, but still maintains backward support for `.agent/rules`.
+**Note**: Antigravity defaults to `.agents/rules`, but still maintains backward compatibility for `.agent/rules`.
 
-## @ Mentions
+## Rule activation modes
 
-You can reference other files using `@filename` in a Rules file. If `filename` is a relative path, it will be interpreted relative to the location of the Rules file. If `filename` is an absolute path, it will be resolved as a true absolute path, otherwise it will be resolved relative to the repository. For example, `@/path/to/file.md` will first attempt to be resolved to `/path/to/file.md`, and if that file does not exist, it will be resolved to `workspace/path/to/file.md`.
+At the rule level, you can configure how the agent applies constraints:
 
-# Workflows
+*   **Manual**: explicitly activated via `@mention` in the agent prompt.
+*   **Always on**: continuously active for all agent interactions.
+*   **Model decision**: the model dynamically evaluates the rule’s natural language description to determine relevance.
+*   **Glob pattern**: automatically applied whenever the agent edits files matching specified patterns (such as `*.py` or `src/**/*.ts`).
 
-Workflows enable you to define a series of steps to guide the Agent through a repetitive set of tasks, such as deploying a service or responding to PR comments. These Workflows are saved as markdown files, allowing you to have an easy repeatable way to run key processes. Once saved, Workflows can be invoked in Agent via a slash command with the format `/workflow-name`.
+## @ mentions
 
-While Rules provide models with guidance by providing persistent, reusable context at the prompt level, Workflows provide a structured sequence of steps or prompts at the trajectory level, guiding the model through a series of interconnected tasks or actions.
+You can reference other files using `@filename` in a rules file:
 
-To create a workflow:
+*   **Relative path**: interpreted relative to the location of the rules file.
+*   **Absolute path**: resolved as a true absolute path first; if that file does not exist, it falls back to resolving relative to the workspace root (for example, `@/path/to/file.md` resolves to `/path/to/file.md`, or `workspace/path/to/file.md` if `/path/to/file.md` does not exist).
 
-1.  Open the Customizations panel via the ”…” dropdown at the top of the editor’s agent panel.
-2.  Navigate to the Workflows panel.
-3.  Click the **\+ Global** button to create a new global workflow that can be accessed across all your workspaces, or click the **\+ Workspace** button to create a workflow specific to your current workspace.
+## Configuration by surface
 
-To execute a workflow, simply invoke it in Agent using the `/workflow-name` command. You can call other Workflows from within a workflow! For example, `/workflow-1` can include instructions like “Call `/workflow-2`” and “Call `/workflow-3`”. Upon invocation, Agent sequentially processes each step defined in the workflow, performing actions or generating responses as specified.
+Select your surface below to configure global or workspace-specific rules:
 
-Workflows are saved as markdown files and contain a title, a description and a series of steps with specific instructions for Agent to follow. Workflow files are limited to 12,000 characters each.
+*   [Antigravity 2.0](#tab-panel-48)
+*   [Antigravity CLI](#tab-panel-49)
+*   [Antigravity IDE](#tab-panel-50)
 
-## Agent-Generated Workflows
+### Managing rules in Antigravity 2.0
 
-You can also ask Agent to generate Workflows for you! This works particularly well after manually working with Agent through a series of steps since it can use the conversation history to create the Workflow.
+To get started with rules in Antigravity 2.0:
+
+1.  Open the **Customizations** panel from the application menu or project settings.
+2.  Select the **Rules** tab.
+3.  Click **\+ Global** to create global rules, or **\+ Workspace** to create rules scoped to the active project.
+
+### Antigravity 2.0 file locations
+
+*   **Global rules**: saved to `~/.gemini/GEMINI.md` and applied across all projects.
+*   **Workspace rules**: saved to the `.agents/rules/` directory at the root of your workspace or Git repository.
+
+### Managing rules in Antigravity CLI
+
+The Antigravity CLI reads rules from standard workspace directories, user profiles, and installed plugins:
+
+### CLI file locations
+
+*   **Workspace rules**: place markdown files in `.agents/rules/` at your repository root (e.g., `.agents/rules/testing-style.md`).
+*   **Global rules**: place markdown rules in `~/.gemini/antigravity-cli/rules/` or define persistent global constraints in `~/.gemini/GEMINI.md`.
+*   **Plugin rules**: rules packaged inside installed CLI plugins under `~/.gemini/antigravity-cli/plugins/<plugin_name>/rules/` are activated automatically.
+
+### CLI activation
+
+The CLI evaluates all workspace and global rules during prompt expansion, injecting applicable rules into the agent’s context window before executing commands.
+
+### Managing rules in Antigravity IDE
+
+In the standalone Antigravity IDE:
+
+1.  Click the **…** menu at the top of the agent side panel.
+2.  Select **Customizations**, then navigate to the **Rules** tab.
+3.  Click **\+ Global** to author workstation-wide rules, or **\+ Workspace** to create project-specific rules.
+
+### Antigravity IDE file locations
+
+*   **Workspace rules**: stored in `.agents/rules/` within your open project.
+*   **Global rules**: stored in `~/.gemini/GEMINI.md`.

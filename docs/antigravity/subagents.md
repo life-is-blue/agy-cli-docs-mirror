@@ -1,8 +1,9 @@
-# Asynchronous Subagents
+# Custom subagents
 
-Subagents are an excellent way to parallelize complex tasks and preserve the context of your main agent. Instead of executing every step serially, an agent can delegate tasks—such as running tests or performing extensive codebase searches—to dedicated subagents. This architecture frees the parent agent to continue working on other tasks in parallel and prevents its context window from being polluted by the details of a subagent’s work.
+Delegate parallel builds, multi-file code generation, and research sweeps to concurrent background subagents while maintaining your active programming flow.
 
-> **Antigravity CLI Reference:** Working in the terminal? See [CLI Background Tasks & Subagents](/docs/cli/subagents) and the [`/agents` Command Reference](/docs/cli/commands/agents) for TUI controls and keyboard shortcuts like `Alt+J` and `Ctrl+K`.
+*   [Antigravity 2.0](#tab-panel-70)
+*   [Antigravity CLI](#tab-panel-71)
 
 ## Invoking Subagents
 
@@ -129,12 +130,112 @@ Subagents inherit safety configurations from their parent agent to maintain secu
 *   **Workspace Access**: Parent agents retain full access to their subagents’ workspaces, including isolated Git worktrees.
 *   **Permission Bubbling**: If a subagent encounters a tool execution requiring user authorization, the request automatically bubbles up to the main UI/Subagent panel.
 
-## Multi-Agent Teamwork (Ultra Plan Only)
+## Multi-agent orchestrators
 
-Antigravity 2.0 introduces advanced multi-agent orchestration for complex high-level goals.
+Antigravity provides two advanced multi-agent orchestrators designed for different task scales and execution horizons:
+
+### 1\. Boost deep reasoning (`/boost`)
 
 Note
 
-**Ultra Plan Exclusive**: The `/teamwork-preview` slash command is currently in preview and is exclusive to users on the [Ultra ($200/mo) plan](/pricing).
+**Plan availability**: Available on **Google One AI Premium** (Pro and Ultra tiers) and **Enterprise** plans across Antigravity 2.0 and the Antigravity CLI.
 
-Using `/teamwork-preview` prompts the main agent to launch a collaborative multi-agent framework. This framework features built-in error recovery, automatic retries, and task coordination, allowing you to define the high-level goal while the platform manages the agent team.
+Invoking [`/boost`](/docs/boost) launches a three-tier multi-agent reasoning hierarchy (`Orchestrator` -> `DeepCoder` / `DeepInvestigator` coordinators -> isolated execution workers). It tackles tough concurrency bugs, algorithmic challenges, and non-trivial refactoring within interactive coding sessions (seconds to hours) with independent verification loops. Learn more in the [Boost documentation](/docs/boost).
+
+### 2\. Multi-agent teamwork (`/teamwork-preview`)
+
+Note
+
+**Plan availability**: The `/teamwork-preview` command is available on **paid plans** across Google Antigravity 2.0 and the Antigravity CLI.
+
+Using [`/teamwork-preview`](/docs/teamwork) coordinates a team of specialized AI agents designed for large software projects, multi-file refactoring, and complex research. The team handles milestone decomposition, parallel implementation, and independent verification checks, allowing you to define the high-level goals while the platform manages agent coordination. Learn more in the [Teamwork documentation](/docs/teamwork).
+
+## Asynchronous execution model
+
+To maximize developer velocity, Antigravity CLI leverages a multi-threaded asynchronous execution architecture. Instead of locking your terminal session during long-running builds, massive codebase search sweeps, or complex multi-file edits, the primary agent delegates these operations to parallel **Subagents** or background **Tasks**.
+
+This delegation model ensures you never have to wait on high-latency AI processes. You can continue drafting code, submitting prompts, or inspecting files while multiple autonomous background threads execute validation tasks in parallel.
+
+## Managing agents: The `/agents` panel
+
+The active agent-hierarchy and custom agent selection menu are fully transparent and manageable through the interactive [Agent Manager Panel (`/agents`)](/docs/cli/commands/agents).
+
+### Opening the panel
+
+Type `/agents` in the prompt and press Enter to open the interactive **Agent Manager Panel**.
+
+### Panel overview
+
+The panel displays a live checklist of all active, completed, killed, or failed background agents:
+
+*   **Identifier**: The unique target subagent ID.
+*   **Role**: The specialized role of the agent (such as “Codebase Researcher” or “Database Debugger”).
+*   **State**: Live status indicators (running, done, killed, or error).
+*   **Step**: A real-time summary of the tool or reasoning step currently being executed.
+
+Tip
+
+You can also select and switch between custom agents (or fork conversations) from this panel. See the [`/agents` command reference](/docs/cli/commands/agents) for full details on custom agent discovery and panel keybindings.
+
+## Custom Agents (Markdown Format)
+
+In addition to built-in agents, the CLI automatically discovers custom agents defined in Markdown format (`.md`) with YAML frontmatter:
+
+*   **Workspace Agents**: `.agents/agents/<name>.md` or `.agents/agents/<name>/agent.md`
+*   **Global Agents**: `~/.gemini/config/agents/`
+
+When a custom agent has `subagent: true` set in its YAML frontmatter, the primary agent can invoke it via `invoke_subagent`. You can also select custom agents directly as your primary agent in the `/agents` panel menu.
+
+For the complete schema, frontmatter parameters, and code examples, see [Custom Subagents Specification](/docs/subagents#custom-subagents).
+
+## Deep-dive monitoring
+
+To inspect the inner reasoning, thoughts, and logs of a specific background agent:
+
+1.  Open the `/agents` panel and highlight the target agent using ↑/↓.
+2.  Press Enter to open the **Subagent Detail View**.
+3.  Inspect the subagent’s entire reasoning log, including its private internal thoughts, tool calls, and execution outputs.
+4.  Press Esc to exit and return to the main Agent Manager list.
+
+## Monitoring background tasks with `/tasks`
+
+For non-agentic background operations, such as direct shell commands, testing suites, or simple background queries initiated via `/btw`, use the `/tasks` command.
+
+```
+/tasks
+```
+
+The tasks tracking list lets you:
+
+*   Track standard non-interactive background processes.
+*   Select a task using ↑/↓ and press Enter to view stdout logs.
+*   Terminate runaway terminal processes safely.
+
+## Keyboard ergonomics
+
+To reduce context-switching friction when subagents require manual interaction or tool authorizations, Antigravity CLI integrates high-efficiency shortcut paths.
+
+### Detailed “Teleport” navigation (`Alt+J`)
+
+When a subagent encounters a tool requiring approval (e.g. writing a file or running a database migration), a status bar notification blinks.
+
+*   Press Alt + J inside the main prompt panel to instantly “teleport” from your current conversation directly into the Detail View of the next subagent awaiting your approval.
+*   Confirm or reject the action, and press Esc to teleport back to your primary thread.
+
+### ”Fast-Path” confirmations (`Ctrl+K`)
+
+To authorize an agent action instantly without leaving your active workspace:
+
+1.  Look at the inline status notification displayed right above your active prompt box. It summarizes the pending action (e.g., `Subagent 12 asks to run "npm test"`).
+2.  Press Ctrl + K to instantly approve the pending fast-path action without switching panels or opening overlays.
+
+## Next steps
+
+Explore related documentation and guides:
+
+*   **[Boost deep reasoning (`/boost`)](/docs/boost)**: Explore on-demand multi-agent reasoning.
+*   **[Teamwork agent teams (`/teamwork-preview`)](/docs/teamwork)**: Launch collaborative multi-agent teams for long-horizon projects.
+*   **[Settings, Rendering & Keybindings](/docs/settings)**: Customize key maps, buffering, and JSON rules.
+*   **[Permissions & Sandbox](/docs/sandbox)**: Enforce security containment rings on background processes.
+*   **[Plugins & Skills](/docs/plugins)**: Create your own custom skills and slash commands.
+*   **[Slash commands catalog](/docs/slash-commands)**: Review all available slash commands across Antigravity surfaces.

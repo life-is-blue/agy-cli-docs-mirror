@@ -1,58 +1,157 @@
 # Plugins
 
-Plugins are namespaced bundles that allow you to extend Antigravity’s capabilities by grouping skills, rules, MCP servers, and hooks into a single package.
+Plugins package reusable skills, background subagents, linting rules, Model Context Protocol (MCP) servers, and lifecycle hooks into a single deployable asset.
 
-## Directory Structure
+## Directory structure
 
-If you want to create your own plugins or inspect existing ones, they follow a specific directory structure. A plugin is a directory containing a `plugin.json` file and optional subdirectories for different customization types:
+A plugin is a directory containing a required manifest file (`plugin.json`) and optional subdirectories for different customization types:
 
 ```
 plugins/<plugin-name>/
-├── plugin.json       # Required marker file
+├── plugin.json       # Required marker and manifest file
 ├── mcp_config.json   # Optional MCP server definitions
 ├── hooks.json        # Optional hooks definition
-├── skills/           # Optional skills
+├── skills/           # Optional skills directory
 │   └── <skill-name>/
 │       └── SKILL.md
-└── rules/            # Optional rules
+├── agents/           # Optional subagent definition templates
+│   └── <agent-name>.md
+└── rules/            # Optional rules directory
     └── <rule-name>.md
 ```
 
-### Manifest File (`plugin.json`)
+### Manifest file (`plugin.json`)
 
-Every plugin must have a `plugin.json` file at its root. This file identifies the directory as a plugin.
+Every plugin requires a `plugin.json` file at its root to identify the directory as a plugin and define its metadata:
 
 ```
 {
-  "name": "my-custom-plugin"
+  "$schema": "https://antigravity.google/schemas/v1/plugin.json",
+  "name": "my-custom-plugin",
+  "description": "A brief description of what my plugin does."
 }
 ```
 
-The `name` field is optional and defaults to the directory name if omitted.
+#### Field reference
 
-## Supported Components
+| Field | Type | Required | Description |
+| :-- | :-- | :-- | :-- |
+| `name` | String | **Yes** (CLI) / Optional (2.0 & IDE) | The unique, machine-readable name of the plugin (matches `^[a-zA-Z0-9-_]+$`). Required when managing plugins via Antigravity CLI commands; defaults to the folder name if omitted in Antigravity 2.0 or Antigravity IDE. |
+| `description` | String | No | A brief human-readable description of the plugin’s purpose, displayed in plugin listings. |
 
-A plugin can contain the following components:
+#### Automatic validation
 
-1.  **Skills**: Located in the `skills/` subdirectory. Each skill must have a `SKILL.md` file containing instructions for the agent.
-2.  **Rules**: Located in the `rules/` subdirectory. These are markdown files that define constraints or guidelines for the agent’s behavior.
-3.  **MCP Servers**: Configured via `mcp_config.json` at the plugin root. This allows you to connect Antigravity to external tools and services.
-4.  **Hooks**: Configured via `hooks.json` at the plugin root. These allow you to run scripts or commands when specific events occur.
+To enable automatic autocomplete and validation in editors like VS Code or JetBrains IDEs, include the `$schema` key pointing to the official schema URL:
 
-## How to Add Plugins
+```
+"$schema": "https://antigravity.google/schemas/v1/plugin.json"
+```
 
-There are two ways to add plugins to Antigravity:
+#### Full JSON Schema
 
-### 1\. Using Bundled Plugins (Build with Google)
+```
+{
+  "$schema": "https://antigravity.google/schemas/v1/plugin.json",
+  "title": "Antigravity Plugin Manifest",
+  "description": "Schema for Antigravity plugin manifest files (plugin.json)",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "The unique, machine-readable name of the plugin. Must contain only alphanumeric characters, hyphens, and underscores.",
+      "pattern": "^[a-zA-Z0-9-_]+$"
+    },
+    "description": {
+      "type": "string",
+      "description": "A brief human-readable description of the plugin's purpose and capabilities."
+    }
+  },
+  "required": ["name"],
+  "additionalProperties": false
+}
+```
 
-Antigravity comes with a variety of bundled plugins created by Google. You can browse and add these plugins directly from the user interface:
+### Supported components
 
-*   Navigate to the **Customizations** page.
-*   For more details about the available Google-built plugins, see the [Build with Google Page](/docs/build-with-google).
+A plugin can contain any of the following components:
 
-### 2\. Manually Adding Plugins
+*   `skills/`: subdirectories containing a `SKILL.md` file with instructions for the agent.
+*   `agents/`: markdown files defining custom subagents and persona configurations.
+*   `rules/`: markdown files defining behavioral constraints or style guidelines.
+*   `mcp_config.json`: declarations connecting Antigravity to external tool servers.
+*   `hooks.json`: event handlers executing shell commands before or after tool calls.
 
-You can also add custom plugins by placing your plugin folders in one of the designated plugin locations. Antigravity automatically scans these directories to discover and load your customizations:
+## Managing plugins by surface
 
-*   **Workspace Level**: Place your plugin folder inside a `.agents/plugins/` or `_agents/plugins/` directory at the root of your opened workspace. This makes the plugin available only when working in this specific workspace.
-*   **Global Level**: Place your plugin folder inside `~/.gemini/config/plugins/` in your user home directory. This makes the plugin active across all workspaces.
+Follow the instructions below to install and manage plugins on your preferred surface:
+
+*   [Antigravity 2.0](#tab-panel-34)
+*   [Antigravity CLI](#tab-panel-35)
+*   [Antigravity IDE](#tab-panel-36)
+
+### Bundled plugins
+
+Antigravity 2.0 provides curated plugins created by Google that you can install directly from the application interface:
+
+1.  Open the **Customizations** panel.
+2.  Browse available plugins and select **Install**.
+3.  To learn more about available Google plugins, refer to the [Build with Google](/docs/build-with-google) guide.
+
+### Manual plugin installation
+
+You can install custom plugins by placing their directories in either of the following locations:
+
+*   **Workspace level**: place your plugin folder in `.agents/plugins/` at the root of your workspace. The plugin activates only when working in that project.
+*   **Global level**: place your plugin folder in `~/.gemini/config/plugins/`. The plugin activates across all workspaces on your workstation.
+
+### CLI plugin management
+
+The Antigravity CLI exposes the `agy plugin` subcommand pipeline to manage extensions:
+
+*   **List installed plugins**: list all active packages and their loaded components:
+    
+    ```
+    agy plugin list
+    ```
+    
+*   **Install a plugin**: stage a local package directory into your profile:
+    
+    ```
+    agy plugin install /path/to/local/plugin
+    ```
+    
+*   **Enable or disable a plugin**: toggle a plugin without removing its files:
+    
+    ```
+    agy plugin disable <plugin_name>
+    agy plugin enable <plugin_name>
+    ```
+    
+*   **Uninstall a plugin**: remove the plugin files and clean up configuration registries:
+    
+    ```
+    agy plugin uninstall <plugin_name>
+    ```
+    
+
+### CLI filesystem location
+
+When installed, the CLI stages plugin assets in your global configuration directory:
+
+```
+~/.gemini/antigravity-cli/plugins/<plugin_name>/
+```
+
+### Next steps
+
+*   [Migration from Gemini CLI](/docs/cli/gcli-migration)
+*   [Troubleshooting](/docs/cli/troubleshooting)
+*   [Permissions & Sandbox](/docs/sandbox?tab=cli)
+
+### Standalone IDE plugin installation
+
+In the standalone Antigravity IDE, plugins can be loaded locally or globally:
+
+*   **Workspace level**: save plugin folders to `.agents/plugins/` in your project root.
+*   **Global level**: save plugin folders to `~/.gemini/config/plugins/` to activate them across all IDE windows.
+*   **Editor settings**: access the **Customizations** dropdown from the agent side panel to review active plugin components and inspect loaded skills.

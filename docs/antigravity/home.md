@@ -35,7 +35,7 @@ The fully-featured, AI-powered developer environment. Standardize your daily cod
 
 Every Antigravity surface runs on a shared, highly-optimized agent harness co-trained with Gemini models:
 
-*   **Gemini 3.5 Flash**: Powering all local agents with SOTA speed, reasoning, and context window capacity.
+*   **Gemini 3.8 Flash**: Powering all local agents with SOTA speed, reasoning, and context window capacity.
 *   **[Asynchronous Subagents](/docs/subagents)**: Allows the main agent to delegate parallel background tasks to concurrent subagents without blocking your flow.
 *   **[Visual Artifacts](/docs/artifacts)**: Track and verify agent output (plans, code diffs, browser recordings) with high-fidelity visual reports, keeping you informed every step of the way.
 *   **[Security by Design](/docs/permissions)**: Secure local execution via safe defaults, local proxying, and granular tool approval gates.

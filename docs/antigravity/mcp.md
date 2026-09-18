@@ -2,7 +2,7 @@
 
 Antigravity supports the [Model Context Protocol (MCP)](https://modelcontextprotocol.io), an open standard that lets AI agents and editors securely connect to local developer tools, databases, file parsers, and external remote APIs. This integration provides the AI model with real-time context and execution capabilities beyond your immediate workspace.
 
-In this guide, you’ll learn how to connect and configure MCP servers across Antigravity products. You can also skip to information for MCP servers in [Antigravity 2.0](/docs/mcp#antigravity-20), [Antigravity IDE](/docs/mcp#antigravity-ide), [Antigravity CLI](/docs/mcp#antigravity-cli), or [Antigravity SDK](/docs/mcp#antigravity-sdk).
+In this guide, you’ll learn how to connect and configure MCP servers across Antigravity products.
 
 ## What is MCP?
 
@@ -22,7 +22,11 @@ With MCP, Antigravity can execute specific, safe actions defined by your connect
 *   Create a Linear issue for this TODO.
 *   Search Notion or GitHub for authentication patterns.
 
-## Antigravity 2.0
+## Getting started by surface
+
+*   [Antigravity 2.0](#tab-panel-20)
+*   [Antigravity CLI](#tab-panel-21)
+*   [Antigravity IDE](#tab-panel-22)
 
 In Antigravity 2.0, you can manage your MCP servers through the **Installed MCP Servers** section of your **Settings**.
 
@@ -42,29 +46,6 @@ To manage your MCP servers from this screen:
 *   **Uninstall**: Click the trash can icon next to the MCP server in the list.
 *   **Disable/enable**: Click the toggle switch next to the MCP server in the list.
 *   **Refresh**: Click the refresh button.
-
-## Antigravity IDE
-
-In Antigravity IDE, the easiest way to manage MCP servers is through the built-in MCP Store. In the MCP Store, you can browse, discover, and install supported MCP servers. You can also install custom servers by updating your `mcp_config.json`.
-
-To use the MCP Store:
-
-1.  Click **…** at the top of the editor’s agent side panel and select **MCP Servers**.
-2.  Hover over any supported server and click **Install**. (Or, click a server to view details and then click **Install**.)
-3.  Follow any on-screen prompts.
-
-Once installed, resources and tools from the server are automatically available to the editor.
-
-To connect to a custom MCP server not listed in the store:
-
-1.  Click **…** at the top of the editor’s agent side panel and select **MCP Servers**.
-2.  Click **Manage MCP Servers**.
-3.  Click **View raw config**.
-4.  Modify the `mcp_config.json` file with your custom [MCP server configuration](/docs/mcp#mcp-configuration-structure).
-
-The configuration file is located globally at `~/.gemini/config/mcp_config.json` (or locally in your workspace under `.agents/mcp_config.json`).
-
-## Antigravity CLI
 
 Antigravity CLI supports both local `stdio` processes and remote host MCP server configurations. The simplest path to installing an MCP server on Antigravity CLI is by using the **Interactive MCP Manager**. You can also manually edit your global server setup or workspace-level `mcp_config.json`.
 
@@ -88,16 +69,28 @@ Note
 
 **Remote Connection Schema**: When declaring remote SSE, Streamable HTTP, or websocket-based MCP connections, you must define the `serverUrl` field. Legacy fields like `url` or `httpUrl` are not supported.
 
-## Antigravity SDK
+In Antigravity IDE, the easiest way to manage MCP servers is through the built-in MCP Store. In the MCP Store, you can browse, discover, and install supported MCP servers. You can also install custom servers by updating your `mcp_config.json`.
 
-In Python applications built using the [Antigravity SDK](/docs/sdk/overview), MCP servers (`stdio`, `SSE`, or `HTTP`) can be connected programmatically under a unified execution pipeline alongside built-in tools and custom Python functions.
+To use the MCP Store:
 
-The SDK automatically discovers servers configured in your workspace’s `.agents/mcp_config.json` file. You can also instantiate agents with local configurations directly:
+1.  Click **…** at the top of the editor’s agent side panel and select **MCP Servers**.
+2.  Hover over any supported server and click **Install**. (Or, click a server to view details and then click **Install**.)
+3.  Follow any on-screen prompts.
 
-```
-import asyncio
-from google.antigravity import Agent, LocalAgentConfig
-```
+Once installed, resources and tools from the server are automatically available to the editor.
+
+To connect to a custom MCP server not listed in the store:
+
+1.  Click **…** at the top of the editor’s agent side panel and select **MCP Servers**.
+2.  Click **Manage MCP Servers**.
+3.  Click **View raw config**.
+4.  Modify the `mcp_config.json` file with your custom [MCP server configuration](/docs/mcp#mcp-configuration-structure).
+
+The configuration file is located globally at `~/.gemini/config/mcp_config.json` (or locally in your workspace under `.agents/mcp_config.json`).
+
+Antigravity SDK
+
+In Python applications built using the [Antigravity SDK](/docs/sdk/overview), MCP servers (`stdio`, `SSE`, or `HTTP`) can be connected programmatically under a unified execution pipeline alongside built-in tools and custom Python functions. The SDK automatically discovers servers configured in your workspace’s `.agents/mcp_config.json` file. For dedicated documentation and examples, refer to the [Antigravity SDK MCP guide](/docs/sdk/mcp).
 
 ## MCP Configuration Structure
 
@@ -264,58 +257,63 @@ The MCP Store features direct integrations for a wide variety of developer platf
 
 Databases & Storage (14 servers)
 
-*   AlloyDB for PostgreSQL
-*   BigQuery
-*   Bigtable Admin remote MCP
-*   ClickHouse
-*   Cloud SQL (MySQL, PostgreSQL, SQL Server, Managed)
-*   Dataplex
-*   MCP Toolbox for Databases
-*   MongoDB
-*   Neon
-*   Pinecone
-*   Prisma
-*   Redis
-*   Spanner
-*   Supabase
+*   [AlloyDB for PostgreSQL](https://cloud.google.com/alloydb/docs/ai/use-alloydb-mcp)
+*   [BigQuery](https://cloud.google.com/bigquery/docs/use-bigquery-mcp)
+*   [Bigtable Admin remote MCP](https://docs.cloud.google.com/bigtable/docs/use-bigtable-mcp)
+*   [ClickHouse](https://clickhouse.com/docs/use-cases/AI/MCP)
+*   [Cloud SQL (MySQL, PostgreSQL, SQL Server, Managed)](https://docs.cloud.google.com/sql/docs/mysql/use-cloudsql-mcp)
+*   [Dataplex](https://docs.cloud.google.com/dataplex/docs/use-remote-mcp)
+*   [MCP Toolbox for Databases](https://mcp-toolbox.dev/documentation/introduction/)
+*   [MongoDB](https://github.com/mongodb-js/mongodb-mcp-server)
+*   [Neon](https://github.com/neondatabase-labs/mcp-server-neon)
+*   [Pinecone](https://github.com/pinecone-io/pinecone-mcp)
+*   [Prisma](https://github.com/prisma/prisma?tab=readme-ov-file#mcp-server)
+*   [Redis](https://github.com/redis/mcp-redis)
+*   [Spanner](https://docs.cloud.google.com/spanner/docs/use-spanner-mcp)
+*   [Supabase](https://github.com/supabase-community/supabase-mcp)
 
 Developer Tools & CI/CD (13 servers)
 
-*   Apigee MCP
-*   Atlassian
-*   Cloud CLI Execution
-*   GitHub
-*   GitLab Orbit
-*   GKE OneMCP
-*   Harness
-*   Heroku
-*   Home Developer MCP
-*   Linear
-*   Netlify
-*   Postman
-*   SonarQube
+*   [Apigee MCP](https://docs.cloud.google.com/apigee/docs/reference/apis/apihub/mcp)
+*   [Atlassian](https://support.atlassian.com/atlassian-rovo-mcp-server/docs/getting-started-with-the-atlassian-remote-mcp-server/)
+*   [Cloud CLI Execution](https://docs.cloud.google.com/sdk/use-gcloud-mcp)
+*   [GitHub](https://github.com/github/github-mcp-server)
+*   [GitLab Orbit](https://docs.gitlab.com/orbit/remote/access/mcp/)
+*   [GKE OneMCP](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/use-gke-mcp)
+*   [Harness](https://github.com/harness/mcp-server)
+*   [Heroku](https://github.com/heroku/heroku-mcp-server)
+*   [Home Developer MCP](https://developers.home.google.com/mcp/developer)
+*   [Linear](https://linear.app/changelog/2025-05-01-mcp)
+*   [Netlify](https://github.com/netlify/netlify-mcp)
+*   [Postman](https://github.com/postmanlabs/postman-mcp-server)
+*   [SonarQube](https://github.com/SonarSource/sonarqube-mcp-server)
 
-Frontend & Design (6 servers)
+Frontend & Design (7 servers)
 
-*   Chrome DevTools
-*   Dart
-*   Figma Dev Mode MCP
-*   Locofy
-*   Lovable MCP
-*   Mobbin MCP
+*   [Chrome DevTools](https://github.com/ChromeDevTools/chrome-devtools-mcp)
+*   [Dart](https://dart.dev/tools/mcp-server)
+*   [Figma Dev Mode MCP](https://help.figma.com/hc/en-us/articles/32132100833559-Guide-to-the-Dev-Mode-MCP-Server)
+*   [Locofy](https://www.locofy.ai/docs/export-and-deployment/locofy-mcp/)
+*   [Lovable MCP](https://docs.lovable.dev/integrations/lovable-mcp-server)
+*   [Miro](https://developers.miro.com/docs/miro-mcp)
+*   [Mobbin MCP](https://mobbin.com/mcp)
 
-Analytics, AI & Cloud (13 servers)
+Analytics, AI & Cloud (17 servers)
 
-*   Airweave
-*   Antimetal
-*   Arize
-*   Firebase
-*   Google Cloud Quotas
-*   Looker
-*   Notion
-*   PayPal
-*   Perplexity Ask
-*   PostHog
-*   Sequential Thinking
-*   Stripe
-*   Windsor AI
+*   [Airweave](https://github.com/airweave-ai/airweave)
+*   [Antimetal](https://docs.antimetal.com/connect)
+*   [Arize](https://github.com/Arize-ai/arize-tracing-assistant)
+*   [Cloud Audit Manager](https://docs.cloud.google.com/audit-manager/docs/reference/auditmanager/mcp)
+*   [CrowdStrike](https://github.com/CrowdStrike/falcon-mcp)
+*   [Firebase](https://firebase.google.com/docs/ai-assistance/mcp-server)
+*   [Google Cloud Quotas](https://cloud.google.com/docs/quotas/overview)
+*   [Grafana Cloud](https://github.com/grafana/ai-marketplace/tree/main/plugins/grafana-cloud-mcp)
+*   [Looker](https://mcp-toolbox.dev/documentation/connect-to/ides/looker_mcp/)
+*   [Notion](https://github.com/makenotion/notion-mcp-server)
+*   [PayPal](https://developer.paypal.com/tools/mcp-server/)
+*   [Perplexity Ask](https://github.com/ppl-ai/modelcontextprotocol)
+*   [PostHog](https://posthog.com/mcp)
+*   [Sequential Thinking](https://github.com/modelcontextprotocol/servers/tree/main/src/sequentialthinking)
+*   [Splunk](https://splunkbase.splunk.com/app/7931)
+*   [Stripe](https://github.com/stripe/agent-toolkit/tree/main/modelcontextprotocol)
+*   [Windsor AI](https://windsor.ai/documentation/windsor-mcp/)

@@ -55,6 +55,8 @@ The Antigravity CLI supports a variety of slash commands typed directly into the
 | Command | Category | Purpose |
 | :-- | :-- | :-- |
 | **`/resume`** _(alias `/switch`)_ | Conversation | Open the conversation picker to resume or switch sessions. |
+| **[`/boost <task>`](/docs/boost)** | Reasoning | Multi-agent deep reasoning for complex bugs, race conditions, and algorithms. |
+| **[`/teamwork-preview <task>`](/docs/teamwork)** | Reasoning | Launch [collaborative multi-agent teams](/docs/teamwork) for long-horizon projects (paid plans). |
 | **`/rewind`** _(alias `/undo`)_ | Conversation | Roll back conversation history to a previous checkpoint. |
 | **`/rename <name>`** | Conversation | Rename the active conversation thread for easier tracking. |
 | **`/permissions`** | Configuration | Select agent autonomy level (`request-review`, `always-proceed`, or `strict`). |
@@ -66,6 +68,7 @@ The Antigravity CLI supports a variety of slash commands typed directly into the
 | **`/mcp`** | Tools & Monitoring | Open the panel to configure and manage Model Context Protocol servers. |
 | **`/open <path>`** | Utility | Immediately open a file in your preferred external editor. |
 | **`/diff`** | Utility | Open the [interactive diff viewer](/docs/cli/commands/diff) to review changes and steer the agent. |
+| **[`/remote-control`](/docs/remote-control?tab=cli#interactive-mode)** | Utility | Turn on or off Remote Control for the active terminal session. |
 | **`/usage`** | Utility | Open the inline interactive help manual inside the terminal. |
 | **`/logout`** | Account | Log out of your Google session and clear cached credentials. |
 

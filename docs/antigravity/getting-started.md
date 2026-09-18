@@ -1,6 +1,12 @@
-# Getting Started with Antigravity 2.0
+# Getting Started
 
-### Download
+Welcome to Google Antigravity! Follow the instructions below to get started on your preferred surface.
+
+*   [Antigravity 2.0](#tab-panel-8)
+*   [Antigravity CLI](#tab-panel-9)
+*   [Antigravity IDE](#tab-panel-10)
+
+### Download Antigravity 2.0
 
 Visit [antigravity.google/download](https://antigravity.google/download) to download Google Antigravity 2.0. Select your operating system below:
 
@@ -68,3 +74,88 @@ Once your Project is created, you can spawn an agent to start working on tasks.
 | `/grill-me` | Before starting to implement, ask questions back to align on the specific details of the plan. |
 | `/schedule` | Run an instruction as a one-time timer in the future or on a recurring schedule (via Scheduled Tasks). |
 | `/browser` | Explicit slash command controlling browser debugging behaviors in Google Chrome. |
+
+Welcome to Antigravity CLI! This guide provides a direct, high-level developer roadmap to install the client, launch the Terminal User Interface (TUI), and begin collaborating with autonomous agents.
+
+### Roadmap checklist
+
+Complete the following sequential steps to launch your first session:
+
+1.  **Install the client (fast path)**
+    
+    Run the appropriate fast-path command for your operating system:
+    
+    **macOS / Linux**:
+    
+    ```
+    curl -fsSL https://antigravity.google/cli/install.sh | bash
+    ```
+    
+    **Windows (PowerShell)**:
+    
+    ```
+    irm https://antigravity.google/cli/install.ps1 | iex
+    ```
+    
+    **Windows (CMD)**:
+    
+    ```
+    curl -fsSL https://antigravity.google/cli/install.cmd -o install.cmd && install.cmd && del install.cmd
+    ```
+    
+    By default, the installer registers the `agy` binary to your platform-specific directory:
+    
+    *   **macOS / Linux**: `~/.local/bin/agy`
+    *   **Windows**: `C:\Users\<username>\AppData\Local\agy\bin` (where `<username>` represents your active Windows profile name).
+    
+    Note
+    
+    **Advanced Setup**: For detailed enterprise credentials configuration, secure keyring auth permissions, proxy setups, or troubleshooting installation issues, consult the **[Installation & Auth Guide](/docs/cli/install)**.
+    
+2.  **Launch the TUI inside a project**
+    
+    Open a fresh terminal window, navigate to your target project codebase directory, and execute the launcher command:
+    
+    ```
+    agy
+    ```
+    
+3.  **Complete the first-launch setup**
+    
+    On your very first launch, the TUI walks you through a brief interactive setup:
+    
+    *   **Color Scheme**: Select your preferred visual theme (Solarized, Dark, Solarized Light, or standard Terminal colors).
+    *   **Rendering Mode**: Choose Alt-Screen mode (alternate buffer with full-screen scrolling) or Inline mode (sequential stream integrated with your terminal’s history).
+    *   **Workspace Trust**: Confirm that you trust the repository directory. Once confirmed, the agent indexes the files and stands ready.
+4.  **Run your first agent task**
+    
+    Type the following instruction in the prompt box at the bottom of your TUI screen and press Enter:
+    
+    ```
+    Write a simple python script to fetch web page text
+    ```
+    
+    The agent reads the workspace, reasons about the task, and proposes a plan. For a detailed step-by-step tutorial on reviewing code and running test commands inside the TUI, follow the **[Tutorial Guide](/docs/cli/tutorial)**.
+    
+
+### Related resources
+
+Optimize your local environment configurations and master advanced collaboration tools:
+
+*   **[Best Practices](/docs/cli/best-practices)**: Master verification loops, planning phases, rule files, and session checkpoints.
+*   **[Troubleshooting](/docs/cli/troubleshooting)**: Resolve common path, keyring, or SSH forwarding errors.
+*   **[CLI Reference](/docs/cli/reference)**: Dense reference sheets cataloging all slash commands, shortcuts, and JSON keys.
+
+### Download Antigravity IDE
+
+Please visit [antigravity.google/download](https://antigravity.google/download) to download Antigravity IDE.
+
+**Available platforms and minimum versions:**
+
+*   **macOS**: macOS versions with Apple security update support. This is typically the current and two previous versions. Min Version 12 (Monterey), X86 is not supported
+*   **Windows**: Windows 10 (64 bit)
+*   **Linux**: glibc >= 2.28, glibcxx >= 3.4.25 (e.g. Ubuntu 20. Debian 10, Fedora 36, RHEL 8)
+
+The application will prompt when updates are available:
+
+![Update Available](/assets/image/docs/restart-to-update.png)
