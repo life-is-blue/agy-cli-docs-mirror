@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-18T03:38:08Z",
+  "generated_at": "2026-09-19T03:35:20Z",
   "tool": "scripts/fetch_agy_docs.py",
   "strict_fetch": false,
   "is_degraded": true,
@@ -1088,9 +1088,9 @@
       "slug": "mcp",
       "label": "MCP",
       "url": "https://antigravity.google/docs/mcp.md",
-      "sha256": "32cad75133428ed76ff42b9f43de713dd33d878bb20ed0a578bdd0fcae813c34",
-      "bytes": 14255,
-      "fetched_at": "2026-09-18T03:38:01Z",
+      "sha256": "12f6863aa28f67527735f0173c58fc9cb61d16212eefb60dfab3d0eca58a9c08",
+      "bytes": 14582,
+      "fetched_at": "2026-09-19T03:35:10Z",
       "sidebar_label": "MCP"
     },
     "antigravity/models.md": {
@@ -1410,9 +1410,9 @@
       "slug": "subagents",
       "label": "Custom Subagents",
       "url": "https://antigravity.google/docs/subagents.md",
-      "sha256": "1ee0151871a920bb978963eb502fd9732b70563cc650b10248d000d300d17c03",
+      "sha256": "9a942910a56f308003b91a1242af525eb0fbb388cb711692d5465deecc0e10f9",
       "bytes": 13682,
-      "fetched_at": "2026-09-18T03:38:01Z",
+      "fetched_at": "2026-09-19T03:35:10Z",
       "sidebar_label": "Custom Subagents"
     },
     "antigravity/teamwork.md": {
