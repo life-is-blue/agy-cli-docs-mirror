@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-20T03:51:02Z",
+  "generated_at": "2026-09-21T03:47:50Z",
   "tool": "scripts/fetch_agy_docs.py",
   "strict_fetch": false,
   "is_degraded": true,
@@ -1410,9 +1410,9 @@
       "slug": "subagents",
       "label": "Custom Subagents",
       "url": "https://antigravity.google/docs/subagents.md",
-      "sha256": "9a942910a56f308003b91a1242af525eb0fbb388cb711692d5465deecc0e10f9",
+      "sha256": "1ee0151871a920bb978963eb502fd9732b70563cc650b10248d000d300d17c03",
       "bytes": 13682,
-      "fetched_at": "2026-09-19T03:35:10Z",
+      "fetched_at": "2026-09-21T03:47:39Z",
       "sidebar_label": "Custom Subagents"
     },
     "antigravity/teamwork.md": {
