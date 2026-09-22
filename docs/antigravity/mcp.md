@@ -300,12 +300,13 @@ Frontend & Design (7 servers)
 *   [Miro](https://developers.miro.com/docs/miro-mcp)
 *   [Mobbin MCP](https://mobbin.com/mcp)
 
-Security (2 servers)
+Security (3 servers)
 
 *   [CrowdStrike](https://github.com/CrowdStrike/falcon-mcp)
+*   [Splunk](https://splunkbase.splunk.com/app/7931)
 *   [Wiz](https://www.wiz.io/blog/introducing-wiz-mcp)
 
-Analytics, AI & Cloud (18 servers)
+Analytics, AI & Cloud (17 servers)
 
 *   [Airweave](https://github.com/airweave-ai/airweave)
 *   [Antimetal](https://docs.antimetal.com/connect)
@@ -322,6 +323,5 @@ Analytics, AI & Cloud (18 servers)
 *   [Perplexity Ask](https://github.com/ppl-ai/modelcontextprotocol)
 *   [PostHog](https://posthog.com/mcp)
 *   [Sequential Thinking](https://github.com/modelcontextprotocol/servers/tree/main/src/sequentialthinking)
-*   [Splunk](https://splunkbase.splunk.com/app/7931)
 *   [Stripe](https://github.com/stripe/agent-toolkit/tree/main/modelcontextprotocol)
 *   [Windsor AI](https://windsor.ai/documentation/windsor-mcp/)

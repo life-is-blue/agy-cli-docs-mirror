@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-21T03:47:50Z",
+  "generated_at": "2026-09-22T03:45:17Z",
   "tool": "scripts/fetch_agy_docs.py",
   "strict_fetch": false,
   "is_degraded": true,
@@ -1088,9 +1088,9 @@
       "slug": "mcp",
       "label": "MCP",
       "url": "https://antigravity.google/docs/mcp.md",
-      "sha256": "12f6863aa28f67527735f0173c58fc9cb61d16212eefb60dfab3d0eca58a9c08",
+      "sha256": "d18db420390397c73a5d2df0ddfd70d0670da00238e569eb9a1004e4458cf05f",
       "bytes": 14582,
-      "fetched_at": "2026-09-19T03:35:10Z",
+      "fetched_at": "2026-09-22T03:45:11Z",
       "sidebar_label": "MCP"
     },
     "antigravity/models.md": {
