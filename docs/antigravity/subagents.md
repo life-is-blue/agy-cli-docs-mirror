@@ -2,8 +2,8 @@
 
 Delegate parallel builds, multi-file code generation, and research sweeps to concurrent background subagents while maintaining your active programming flow.
 
-*   [Antigravity 2.0](#tab-panel-70)
-*   [Antigravity CLI](#tab-panel-71)
+*   [Antigravity 2.0](#tab-panel-74)
+*   [Antigravity CLI](#tab-panel-75)
 
 ## Invoking Subagents
 

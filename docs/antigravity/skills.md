@@ -95,9 +95,9 @@ For complex skills, add a section that helps the agent choose the right approach
 
 Explore how to create and manage skills on your preferred surface:
 
-*   [Antigravity 2.0](#tab-panel-64)
-*   [Antigravity CLI](#tab-panel-65)
-*   [Antigravity IDE](#tab-panel-66)
+*   [Antigravity 2.0](#tab-panel-68)
+*   [Antigravity CLI](#tab-panel-69)
+*   [Antigravity IDE](#tab-panel-70)
 
 ### Antigravity 2.0 skill locations
 

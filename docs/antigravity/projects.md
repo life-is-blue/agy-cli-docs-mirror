@@ -2,8 +2,8 @@
 
 Projects organize multi-folder workspace configurations, isolated agent settings, and conversation histories across Antigravity surfaces.
 
-*   [Antigravity 2.0](#tab-panel-40)
-*   [Antigravity CLI](#tab-panel-41)
+*   [Antigravity 2.0](#tab-panel-44)
+*   [Antigravity CLI](#tab-panel-45)
 
 ## What is a project?
 

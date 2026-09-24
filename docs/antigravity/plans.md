@@ -1,6 +1,6 @@
 # Plans
 
-Google Antigravity is available with [terms](https://antigravity.google/terms) to individual accounts derived from Google’s terms of service, and available to teams under Google Cloud terms through the Gemini Enterprise Agent Platform. To learn more, see [Enterprise Get Started](/docs/enterprise).
+Google Antigravity is available with [terms](https://antigravity.google/terms) to individual accounts derived from Google’s terms of service, and available to teams under Google Cloud terms in Gemini Enterprise. To learn more, see [Enterprise Get Started](/docs/enterprise).
 
 Rate limits and model availability differs based on usage of [Google AI](https://one.google.com/about/google-ai-plans/) plans. See [Models](/docs/models) for a breakdown of model availability.
 
@@ -8,7 +8,7 @@ Rate limits and model availability differs based on usage of [Google AI](https:/
 
 All plans receive a baseline of:
 
-*   Use of Gemini models including Gemini 3.1 Pro, Gemini 3.8 Flash, and other offered Gemini Enterprise Agent Platform models as the core agent model
+*   Use of Gemini models including Gemini 3.1 Pro, Gemini 3.8 Flash, and other offered Gemini Enterprise models as the core agent model
 *   Unlimited Tab completions
 *   Access to all product features, such as the Scheduled Tasks and the CLI
 
@@ -34,7 +34,7 @@ Usage limits for this service are subject to modification. These adjustments may
 
 ## Overages
 
-Users on Google AI Pro or Ultra plans can utilize [purchased AI credits](http://one.google.com/ai/credits) (or any one-time promotional credits) for additional overage usage above the baseline provided quota. AI credits are consumed at standard Gemini Enterprise Agent Platform consumption pricing.
+Users on Google AI Pro or Ultra plans can utilize [purchased AI credits](http://one.google.com/ai/credits) (or any one-time promotional credits) for additional overage usage above the baseline provided quota. AI credits are consumed at standard Gemini Enterprise consumption pricing.
 
 Usage of credits once the baseline quota is exhausted for any particular model is controlled by the “AI Credit Overages” user setting, which can be set to the following:
 

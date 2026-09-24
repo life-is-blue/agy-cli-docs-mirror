@@ -34,9 +34,9 @@ if __name__ == "__main__":
     asyncio.run(main())
 ```
 
-## Gemini Enterprise Agent Platform
+## Gemini Enterprise
 
-To connect the SDK to Gemini Enterprise Agent Platform (formerly Vertex AI), set `vertex=True` in `LocalAgentConfig` alongside your GCP `project` and `location`:
+To connect the SDK to Gemini Enterprise, set `vertex=True` in `LocalAgentConfig` alongside your GCP `project` and `location`:
 
 ```
 from google.antigravity import Agent, LocalAgentConfig
@@ -60,6 +60,8 @@ export GOOGLE_CLOUD_PROJECT="your-gcp-project"
 export GOOGLE_CLOUD_LOCATION="us-central1"
 gcloud auth application-default login
 ```
+
+> **Note:** Setting `vertex=True` (or `GOOGLE_GENAI_USE_VERTEXAI=True`) configures the SDK to route requests through the Gemini Enterprise API (`aiplatform.googleapis.com`) using Google Cloud credentials.
 
 ## Core agent foundations
 
@@ -89,6 +91,7 @@ if __name__ == "__main__":
 
 Explore the guides below to learn more about building and customizing agents with the Python SDK:
 
+*   **[Local models](/docs/sdk/local-models)**: Run agents on-device with LiteRT or local OpenAI-compatible servers.
 *   **[Personas](/docs/sdk/personas)**: Customize agent identity using templated or custom system instructions.
 *   **[Tools & skills](/docs/sdk/tools)**: Register custom Python functions, use built-in tools, and load skills.
 *   **[MCP](/docs/sdk/mcp)**: Connect external Model Context Protocol (MCP) servers to your agents.
@@ -102,6 +105,7 @@ Explore the guides below to learn more about building and customizing agents wit
 You can find full, runnable Python scripts for each SDK feature in the [getting\_started directory](https://github.com/google-antigravity/antigravity-sdk-python/tree/main/examples/getting_started) on GitHub:
 
 *   [`hello_world.py`](https://github.com/google-antigravity/antigravity-sdk-python/blob/main/examples/getting_started/hello_world.py): Basic agent setup and single-turn chat.
+*   [`local_models.py`](https://github.com/google-antigravity/antigravity-sdk-python/blob/main/examples/getting_started/local_models.py): On-device execution with LiteRT and OpenAI-compatible local servers.
 *   [`streaming.py`](https://github.com/google-antigravity/antigravity-sdk-python/blob/main/examples/getting_started/streaming.py): Token streaming and reasoning thoughts.
 *   [`persona_config.py`](https://github.com/google-antigravity/antigravity-sdk-python/blob/main/examples/getting_started/persona_config.py): Templated and custom system instructions.
 *   [`policies.py`](https://github.com/google-antigravity/antigravity-sdk-python/blob/main/examples/getting_started/policies.py): Declarative tool access policies.

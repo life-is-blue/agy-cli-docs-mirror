@@ -2,9 +2,9 @@
 
 Configure preferences, execution boundaries, command permissions, and tool telemetry across Antigravity surfaces.
 
-*   [Antigravity 2.0](#tab-panel-58)
-*   [Antigravity CLI](#tab-panel-59)
-*   [Antigravity IDE](#tab-panel-60)
+*   [Antigravity 2.0](#tab-panel-62)
+*   [Antigravity CLI](#tab-panel-63)
+*   [Antigravity IDE](#tab-panel-64)
 
 ## Settings architecture
 

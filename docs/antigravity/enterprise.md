@@ -1,6 +1,6 @@
 # Antigravity in Gemini Enterprise
 
-To deploy Google Antigravity using models hosted directly within your organization’s Google Cloud infrastructure, you can integrate with the Gemini Enterprise app and Gemini Enterprise Agent Platform. Every session runs under Google Cloud’s enterprise security controls, data residency guarantees, and the Google Cloud Terms of Service.
+To deploy Google Antigravity using models hosted directly within your organization’s Google Cloud infrastructure, you can integrate with Gemini Enterprise. Every session runs under Google Cloud’s enterprise security controls, data residency guarantees, and the Google Cloud Terms of Service.
 
 Supported products: [Antigravity 2.0](/product/antigravity-2) [Antigravity CLI](/product/antigravity-cli) [Visual Studio Code](/docs/ide/extensions/vscode) [Visual Studio](/docs/ide/extensions/visual-studio) [JetBrains (Preview)](/docs/ide/extensions/jetbrains) [Zed (Preview)](/docs/ide/extensions/zed) [Xcode (Preview)](/docs/ide/extensions/xcode)
 
@@ -10,10 +10,10 @@ Note
 
 ## Overview & Key Benefits
 
-You can use Antigravity in two ways:
+You can connect Antigravity to Gemini Enterprise in two ways:
 
-*   **Gemini Enterprise Agent Platform** - Connect directly to Agent Platform API to use Antigravity with consumption-based billing.
-*   **Gemini Enterprise license** - Connect with your Gemini Enterprise license to get access to included quotas, managed overages as well as advanced administrative controls.
+*   **Google Cloud Project & API** - Connect directly via Google Cloud project APIs to use Antigravity with consumption-based billing.
+*   **Gemini Enterprise license** - Connect with your Gemini Enterprise license (Standard or Plus) to get access to included quotas, managed overages, and centralized administrative controls.
 
 By connecting Google Antigravity to your Google Cloud project, your organization gains:
 
@@ -27,13 +27,13 @@ Satisfies private networking (VPC Service Controls) and regional data residency 
 
 ## Administrator Setup Guide
 
-### Gemini Enterprise App Setup
+### Gemini Enterprise Subscription Setup
 
 To set up Gemini Enterprise subscriptions, follow the official Google Cloud onboarding guide.
 
-[Gemini Enterprise App Documentation](https://docs.cloud.google.com/gemini/enterprise/docs/ai-developer-tools-overview)
+[Gemini Enterprise Documentation](https://docs.cloud.google.com/gemini/enterprise/docs/ai-developer-tools-overview)
 
-### Gemini Enterprise Agent Platform API Setup
+### Google Cloud Project & API Setup
 
 Complete the following three steps to provision your Google Cloud project and enable API access.
 
@@ -47,9 +47,9 @@ Complete the following three steps to provision your Google Cloud project and en
 2.  **Verify Cloud Billing**: Ensure that Cloud Billing is active for your selected Google Cloud project. You can inspect your project’s billing status in the Cloud Console.
     
     [Open Google Cloud Billing Console](https://console.cloud.google.com/billing)
-3.  **Enable the Agent Platform API**: Enable the Agent Platform API (`aiplatform.googleapis.com`) to allow Antigravity clients to connect to your project’s model endpoints.
+3.  **Enable the API**: Enable the Gemini Enterprise API (`aiplatform.googleapis.com`) to allow Antigravity clients to connect to your project’s model endpoints.
     
-    [Enable Agent Platform API](https://console.cloud.google.com/apis/library/aiplatform.googleapis.com)
+    [Enable API in Cloud Console](https://console.cloud.google.com/apis/library/aiplatform.googleapis.com)
 
 ## Sign In & License Selection
 
@@ -144,11 +144,11 @@ For full endpoint specifications, consult the [Deployment Endpoints Documentatio
 
 Request & Response Logging
 
-Audit model interactions and maintain enterprise compliance records for your Gemini Enterprise Agent Platform instance. [Learn more](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/request-response-logging)
+Audit model interactions and maintain enterprise compliance records for your Gemini Enterprise instance. [Learn more](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/request-response-logging)
 
 VPC Service Controls (VPC-SC)
 
-Enforce private networking security perimeters by adding the Agent Platform API to your VPC-SC perimeter. [Learn more](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/vpc-service-controls)
+Enforce private networking security perimeters by adding the Gemini Enterprise API (`aiplatform.googleapis.com`) to your VPC-SC perimeter. [Learn more](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/vpc-service-controls)
 
 ## Troubleshooting & Diagnostics
 
@@ -161,7 +161,7 @@ Enforce private networking security perimeters by adding the Agent Platform API 
 
 Caution
 
-**Enable Required APIs Before Purchasing Licenses**: New Gemini Enterprise license purchases can fail or fail to provision if the **Agent Platform API** (`aiplatform.googleapis.com`) is not enabled first. Enable the API in the Google Cloud Console and wait approximately 5 minutes for propagation before completing license purchases.
+**Enable Required APIs Before Purchasing Licenses**: New Gemini Enterprise license purchases can fail or fail to provision if the **Gemini Enterprise API** (`aiplatform.googleapis.com`) is not enabled first. Enable the API in the Google Cloud Console and wait approximately 5 minutes for propagation before completing license purchases.
 
 ### Sharing Diagnostics with Support
 

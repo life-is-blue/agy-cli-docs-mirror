@@ -31,9 +31,9 @@ The following table provides a complete reference for all public slash commands:
 | [`/boost`](/docs/boost) | Reasoning | Multi-agent deep reasoning for complex bugs, race conditions, and algorithms. | Paid plans | Seconds to hours |
 | [`/teamwork-preview`](/docs/teamwork) | Reasoning | Collaborative agent teams for repo-scale migrations, simulation, and research. | Paid plans | Hours to days |
 | `/goal` | Reasoning | Autonomous execution until the goal is achieved without intermediate pauses. | All plans | Minutes to hours |
-| [`/plan`](/docs/implementation-plan) | Planning | Researches code and generates a reviewable implementation plan artifact. | All plans | Minutes |
+| [`/plan`](/docs/plan) | Planning | Researches code, conducts requirement interviews, and drafts a reviewable plan artifact. | All plans | Minutes |
 | `/grill-me` | Planning | Conducts an interactive interview to align on design details and edge cases. | All plans | Minutes |
-| [`/learn`](/docs/rules-workflows) | Customization | Distills session feedback and corrections into persistent Rules or Skills. | All plans | Immediate |
+| [`/learn`](/docs/rules) | Customization | Distills session feedback and corrections into persistent Rules or Skills. | All plans | Immediate |
 | [`/schedule`](/docs/sidecars) | Automation | Schedules an instruction as a one-time timer or recurring cron job. | All plans | Scheduled |
 | `/browser` | Tools | Launches a sandboxed browser subagent for web research and UI inspection. | All plans | Minutes |
 | `/btw` | Tools | Asks a quick contextual question in the background without pausing work. | All plans | Immediate |
@@ -82,15 +82,37 @@ To run a test suite repair autonomously, run the following command:
 
 ### /plan
 
-Inspects the repository, analyzes affected files, and drafts a structured `Implementation Plan` artifact for review. You can annotate the plan with line comments, request revisions, or click **Proceed** to execute.
+The `/plan` slash command facilitates structured planning, codebase exploration, and requirements discovery before jumping directly into execution. It makes sure complex tasks are well-understood, properly scoped, and organized before code changes are made.
 
-To generate an implementation plan, run the following command:
+#### How it works
+
+1.  **Analysis and discovery**: The agent examines your prompt, analyzes the workspace, reads relevant source files, and discovers dependencies or potential roadblocks.
+2.  **Clarification and interviewing**: If details are underspecified or architectural decisions are ambiguous, the agent conducts a focused interview with you (leveraging interactive question prompts or structured options) to clarify requirements and trade-offs.
+3.  **Structured plan creation**: The agent creates a comprehensive `Implementation Plan` artifact detailing high-level approach, step-by-step task breakdowns with verification gates, and potential risks.
+4.  **User review and approval**: The agent presents the plan artifact for your review. Once you review, comment on, or approve the plan, the agent transitions into execution mode.
+
+#### When to use /plan
+
+*   **Complex refactors**: When refactoring architectural components across multiple files or packages.
+*   **Ambiguous requirements**: When starting a feature with open questions, trade-offs, or missing specifications.
+*   **High-risk changes**: For database migrations, core protocol changes, or security-sensitive updates where an upfront checklist and risk assessment are critical.
+*   **Collaborative alignment**: When you want to review and guide the agent’s proposed steps before any code modifications occur.
+
+#### Usage examples
+
+To plan a specific task, run `/plan` with your objective:
 
 ```
-/plan Add rate limiting middleware to all public API endpoints using Redis token buckets.
+/plan Refactor our authentication middleware to support OIDC token verification with JWKS caching
 ```
 
-For artifact interaction workflows, see the [Implementation plan guide](/docs/implementation-plan).
+To begin an interactive discovery session for the current workspace context without a predefined prompt:
+
+```
+/plan
+```
+
+For complete workflow details, see the [Plan slash command guide](/docs/plan) and the [Implementation plan artifact guide](/docs/implementation-plan).
 
 ### /grill-me
 
@@ -116,7 +138,7 @@ To capture recent session patterns into persistent rules, run the following comm
 /learn Save our database transaction retry pattern as a project rule for all future database changes.
 ```
 
-For customization syntax and configuration schemas, see the [Rules and workflows documentation](/docs/rules-workflows).
+For customization syntax and configuration schemas, see the [Rules documentation](/docs/rules).
 
 * * *
 
@@ -168,10 +190,10 @@ The following decision guide outlines when to use each command based on your tas
 | :-- | :-- | :-- |
 | **Complex bug, race condition, or algorithmic puzzle** | [`/boost`](/docs/boost) | Multi-agent deep reasoning with isolated verification loops. |
 | **Multi-day project, repository migration, or research** | [`/teamwork-preview`](/docs/teamwork) | Collaborative agent teams with scoping interviews and milestone roadmaps. |
-| **Feature requiring review before making code edits** | [`/plan`](/docs/implementation-plan) | Researches code and generates a reviewable implementation plan. |
+| **Feature requiring review before making code edits** | [`/plan`](/docs/plan) | Researches code, interviews requirements, and generates a reviewable plan. |
 | **Vague requirements needing architectural alignment** | `/grill-me` | Conducts a step-by-step interview to clarify edge cases and constraints. |
 | **Task that should run continuously until 100% complete** | `/goal` | Autonomous execution without turn-by-turn confirmation pauses. |
-| **Distill recent corrections into permanent project rules** | [`/learn`](/docs/rules-workflows) | Analyzes session patterns and writes persistent Rules and Skills. |
+| **Distill recent corrections into permanent project rules** | [`/learn`](/docs/rules) | Analyzes session patterns and writes persistent Rules and Skills. |
 | **Web research, UI validation, and layout inspection** | `/browser` | Sandboxed Chrome browser subagent for live page interactions. |
 | **One-shot countdown timer or recurring background schedule** | [`/schedule`](/docs/sidecars) | Runs instructions in the background on cron schedules. |
 | **Quick side query without pausing primary agent work** | `/btw` | Lightweight out-of-band query executed in the background. |
@@ -194,7 +216,8 @@ Public slash commands are supported across Antigravity developer surfaces:
 Explore related documentation and guides:
 
 *   [Boost deep reasoning (`/boost`)](/docs/boost): Dive deep into the 3-tier multi-agent reasoning hierarchy.
+*   [Plan slash command (`/plan`)](/docs/plan): Conduct structured planning, requirement discovery, and interactive interviews.
 *   [Teamwork agent teams (`/teamwork-preview`)](/docs/teamwork): Learn how collaborative agent teams tackle large-scale migrations.
-*   [Implementation plans (`/plan`)](/docs/implementation-plan): Master reviewable planning artifacts and structured workflows.
-*   [Rules and workflows (`/learn`)](/docs/rules-workflows): Persist project-wide patterns and conventions.
+*   [Implementation plans artifact guide](/docs/implementation-plan): Master reviewable planning artifacts and structured workflows.
+*   [Rules (`/learn`)](/docs/rules): Persist project-wide patterns and conventions.
 *   [Sidecars and scheduled tasks (`/schedule`)](/docs/sidecars): Automate routine maintenance with cron expressions.

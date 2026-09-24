@@ -311,7 +311,7 @@ Please see more details in the docs on [Plans](/docs/plans).
 
 ## Why can’t I use third party software (e.g. Claude Code, OpenClaw, OpenCode) with my Antigravity login?
 
-Using third party software, tools, or services to access Antigravity is a violation of our [Terms of Service](/terms), and severely degrades the experience for legitimate product users. Such actions may be grounds for suspension or termination of your account. If you would like to use a third party coding agent with Gemini, we recommend using a Vertex or AI Studio API key.
+Using third party software, tools, or services to access Antigravity is a violation of our [Terms of Service](/terms), and severely degrades the experience for legitimate product users. Such actions may be grounds for suspension or termination of your account. If you would like to use a third party coding agent with Gemini, we recommend using a Gemini Enterprise or Google AI Studio API key.
 
 ## Does Google Antigravity currently support worktrees?
 

@@ -85,9 +85,9 @@ A plugin can contain any of the following components:
 
 Follow the instructions below to install and manage plugins on your preferred surface:
 
-*   [Antigravity 2.0](#tab-panel-34)
-*   [Antigravity CLI](#tab-panel-35)
-*   [Antigravity IDE](#tab-panel-36)
+*   [Antigravity 2.0](#tab-panel-38)
+*   [Antigravity CLI](#tab-panel-39)
+*   [Antigravity IDE](#tab-panel-40)
 
 ### Bundled plugins
 

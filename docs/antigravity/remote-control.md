@@ -4,8 +4,8 @@ Antigravity Remote Control allows you to securely connect to and drive your Anti
 
 As AI agents take on larger-scope tasks—such as full-subsystem refactorings, extensive test suite runs, and complex dependency migrations—operations can run for extended periods. Remote Control untethers you from your physical desk while preserving your entire local development environment.
 
-*   [Antigravity 2.0](#tab-panel-44)
-*   [Antigravity CLI](#tab-panel-45)
+*   [Antigravity 2.0](#tab-panel-48)
+*   [Antigravity CLI](#tab-panel-49)
 
 ## Enabling Remote Control in Antigravity 2.0
 

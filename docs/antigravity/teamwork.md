@@ -115,8 +115,8 @@ Teamwork includes built-in safeguards to ensure parallel agent work remains safe
 
 ## How to use /teamwork-preview
 
-*   [Antigravity 2.0](#tab-panel-74)
-*   [Antigravity CLI](#tab-panel-75)
+*   [Antigravity 2.0](#tab-panel-78)
+*   [Antigravity CLI](#tab-panel-79)
 
 Start a new conversation and invoke `/teamwork-preview` with your goal:
 
@@ -144,5 +144,5 @@ Explore related documentation and guides:
 *   [Subagents architecture](/docs/subagents): Learn how background subagents execute parallel workstreams.
 *   [Slash commands overview](/docs/slash-commands): Explore the complete catalog of slash commands in Antigravity.
 *   [Implementation plans (`/plan`)](/docs/implementation-plan): Master reviewable planning artifacts and structured workflows.
-*   [Rules and workflows (`/learn`)](/docs/rules-workflows): Persist project-wide patterns and conventions.
+*   [Rules](/docs/rules): Persist project-wide patterns and conventions.
 *   [Antigravity Overview](/docs/overview): Explore core features and workflows in Antigravity.

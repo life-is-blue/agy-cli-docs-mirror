@@ -56,6 +56,10 @@
         "slug": "antigravity/permissions"
       },
       {
+        "label": "Plan (/plan)",
+        "slug": "antigravity/plan"
+      },
+      {
         "label": "Plugins",
         "slug": "antigravity/plugins"
       },
@@ -69,7 +73,7 @@
       },
       {
         "label": "Rules",
-        "slug": "antigravity/rules-workflows"
+        "slug": "antigravity/rules"
       },
       {
         "label": "Terminal Sandbox",
@@ -320,6 +324,10 @@
       {
         "label": "Lifecycle & hooks",
         "slug": "antigravity/sdk/lifecycle"
+      },
+      {
+        "label": "Local models",
+        "slug": "antigravity/sdk/local-models"
       },
       {
         "label": "MCP",
