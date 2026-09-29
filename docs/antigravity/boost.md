@@ -67,8 +67,8 @@ The following table compares the three primary execution modes in Antigravity:
 
 You can invoke Boost across all Antigravity surfaces.
 
-*   [Antigravity 2.0](#tab-panel-4)
-*   [Antigravity CLI](#tab-panel-5)
+*   [Antigravity 2.0](#tab-panel-2)
+*   [Antigravity CLI](#tab-panel-3)
 
 Type `/boost` followed by your task prompt in any conversation turn:
 

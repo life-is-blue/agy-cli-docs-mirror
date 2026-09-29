@@ -41,7 +41,7 @@ Complete the following three steps to provision your Google Cloud project and en
     
     Note
     
-    **Project Switching Note**: To switch to a different Google Cloud project or location, log out of the Antigravity CLI or Hub, then log back in to select your new project or region.
+    **Project Switching Note**: To switch to a different Google Cloud project or location, log out of the Antigravity CLI or Antigravity 2.0, then log back in to select your new project or region.
     
     [Go to GCP Project Selector](https://console.cloud.google.com/projectselector2)
 2.  **Verify Cloud Billing**: Ensure that Cloud Billing is active for your selected Google Cloud project. You can inspect your project’s billing status in the Cloud Console.
@@ -85,15 +85,17 @@ Note
 
 **Note**: If the same email address exists across multiple identity providers, sign in with the identity that matches your Gemini Enterprise license.
 
-## Application Default Credentials (ADC) in Antigravity CLI
+## Application Default Credentials (ADC)
 
-For headless environments and automated terminal workflows, the **Antigravity CLI** supports authentication using Google Cloud Application Default Credentials (ADC).
+For headless environments and automated terminal workflows, Antigravity supports authentication using Google Cloud [Application Default Credentials](https://docs.cloud.google.com/docs/authentication/application-default-credentials) (ADC). ADC is available across the **Antigravity CLI**, **Antigravity 2.0**, and **Antigravity IDE**.
 
 Note
 
 **Note**: Image generation is currently not available in `eu` and `us` locations.
 
-### Setting Up ADC
+### Setting up ADC
+
+Complete the following steps to generate and verify your credentials:
 
 1.  Generate local Application Default Credentials for your project using the Google Cloud SDK:
     
@@ -107,22 +109,70 @@ Note
     ~/.config/gcloud/application_default_credentials.json
     ```
     
-3.  Enable ADC authentication by exporting the required environment variable:
+
+### Enabling ADC
+
+Enable ADC authentication based on your Antigravity surface:
+
+*   **Antigravity CLI**: ADC is enabled only when the `AGY_ADC_AUTH` environment variable is set to `true`:
     
     ```
     export AGY_ADC_AUTH=true
     ```
     
-4.  To sign out of ADC, unset the environment variable and restart your terminal session:
+*   **Antigravity 2.0 and IDE**: enable ADC using one of the following two options:
     
-    ```
-    unset AGY_ADC_AUTH
-    ```
-    
+    *   Launch from a terminal with `AGY_ADC_AUTH=true` set (same as the CLI).
+        
+    *   Because launching from a terminal is not always feasible, enable the `enableAdc` user setting manually in `~/.gemini/config/config.json`:
+        
+        ```
+        {
+          "userSettings": {
+            "enableAdc": true
+          }
+        }
+        ```
+        
+
+### Sign out of ADC
+
+To sign out of ADC on the CLI, unset the environment variable and restart your terminal session:
+
+```
+unset AGY_ADC_AUTH
+```
+
+Similarly, for **Antigravity 2.0 and IDE**, undo any changes to `~/.gemini/config/config.json` (or unset `AGY_ADC_AUTH` if launched from a terminal) and restart the application.
+
+### ADC quickstart
+
+This section provides a brief walkthrough of key ADC parameters to be aware of.
+
+#### How credentials are resolved
+
+Antigravity resolves credentials using the standard ADC search order. [Learn more about how ADC finds credentials](https://docs.cloud.google.com/docs/authentication/application-default-credentials#order).
+
+#### How the project ID is resolved
+
+Antigravity resolves the Google Cloud project ID from the first source found, in this order:
+
+1.  The `quota_project_id` field in the ADC file (set using the gcloud CLI, or edited manually).
+2.  **\[CLI only\]** The `GOOGLE_CLOUD_QUOTA_PROJECT` environment variable.
+3.  The project ID reported by the metadata server (for service accounts).
+
+#### How the location is resolved
+
+Antigravity resolves the endpoint location from the first source found, in this order:
+
+1.  The surface-specific configuration:
+    *   **\[CLI\]**: the `GOOGLE_CLOUD_LOCATION` environment variable.
+    *   **\[Antigravity 2.0 / IDE\]**: the `location` field in the ADC file.
+2.  Otherwise, the location defaults to `global`.
 
 Note
 
-**ADC Limitations**: ADC sign-in is supported exclusively on the **Antigravity CLI**. When authenticating via ADC, models older than Gemini 3 Flash are not supported.
+**Note**: When authenticating with ADC, models older than Gemini 3 Flash are not supported.
 
 ## Regional Endpoints & Capability Matrix
 

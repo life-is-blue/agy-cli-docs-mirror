@@ -10,6 +10,7 @@
   - [Getting Started](antigravity/getting-started.md)
   - [Hooks](antigravity/hooks.md)
   - [Plan](antigravity/implementation-plan.md)
+  - [Marketplace](antigravity/marketplace.md)
   - [MCP](antigravity/mcp.md)
   - [Models](antigravity/models.md)
   - [Antigravity 2.0 Overview](antigravity/overview.md)
@@ -28,6 +29,8 @@
   - [Custom Subagents](antigravity/subagents.md)
   - [Teamwork agent teams (/teamwork-preview)](antigravity/teamwork.md)
   - [Walkthrough](antigravity/walkthrough.md)
+- Changelog
+  - [Changelog](antigravity/changelog.md)
 - Antigravity CLI
   - [Reviewing Artifacts](antigravity/cli/artifacts.md)
   - [Best Practices](antigravity/cli/best-practices.md)

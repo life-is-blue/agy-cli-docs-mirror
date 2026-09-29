@@ -85,17 +85,23 @@ A plugin can contain any of the following components:
 
 Follow the instructions below to install and manage plugins on your preferred surface:
 
-*   [Antigravity 2.0](#tab-panel-38)
-*   [Antigravity CLI](#tab-panel-39)
-*   [Antigravity IDE](#tab-panel-40)
+*   [Antigravity 2.0](#tab-panel-21)
+*   [Antigravity CLI](#tab-panel-22)
+*   [Antigravity IDE](#tab-panel-23)
 
-### Bundled plugins
+### Marketplace and bundled plugins
 
-Antigravity 2.0 provides curated plugins created by Google that you can install directly from the application interface:
+Antigravity 2.0 provides curated plugins that you can browse and install directly from the application interface:
 
-1.  Open the **Customizations** panel.
-2.  Browse available plugins and select **Install**.
-3.  To learn more about available Google plugins, refer to the [Build with Google](/docs/build-with-google) guide.
+1.  Open the **Customizations** tab, located below the **Scheduled Tasks** tab in the left sidebar.
+2.  Switch between the **Marketplace** view (which displays all plugins available to you) and the **Installed** tab (which displays only your installed plugins).
+3.  In the **Marketplace** tab, click the **+** button to install a plugin, or click on a plugin’s name to see what is included in the bundle (such as [skills](/docs/skills), [MCP servers](/docs/mcp), [rules](/docs/rules), and [agents](/docs/subagents)).
+
+For a complete walkthrough of plugin discovery and cross-surface synchronization, see the [Marketplace guide](/docs/marketplace).
+
+Note
+
+**Cross-surface synchronization**: Plugins installed in Antigravity 2.0 are automatically updated and shown in the Antigravity CLI’s **Installed** tab.
 
 ### Manual plugin installation
 
@@ -104,9 +110,27 @@ You can install custom plugins by placing their directories in either of the fol
 *   **Workspace level**: place your plugin folder in `.agents/plugins/` at the root of your workspace. The plugin activates only when working in that project.
 *   **Global level**: place your plugin folder in `~/.gemini/config/plugins/`. The plugin activates across all workspaces on your workstation.
 
-### CLI plugin management
+### Interactive plugins manager (`/plugin`)
 
-The Antigravity CLI exposes the `agy plugin` subcommand pipeline to manage extensions:
+In an interactive TUI session, run `/plugin` (or its alias `/plugins`) to open the **Plugins Manager**, where you can browse the marketplace in the **Discover** tab, install plugins from a local directory, or enable, disable, and uninstall plugins in the **Installed** tab.
+
+You can also manage and install plugins directly from the prompt using inline subcommands (`install`, `uninstall`, `enable`, `disable`, and `list`), including installing a custom plugin from a local path:
+
+```
+/plugin install <local-path>
+/plugin install <plugin-name>@<marketplace-name>
+/plugin list
+```
+
+For the full interactive walkthrough of the **Discover** and **Installed** tabs, keyboard shortcuts, and inline marketplace commands, see the [Marketplace guide](/docs/marketplace?tab=cli).
+
+Note
+
+**Cross-surface synchronization**: Plugins installed in Antigravity 2.0 are automatically updated and shown in the CLI’s **Installed** tab.
+
+### CLI shell subcommands (`agy plugin`)
+
+Outside an interactive TUI session, the Antigravity CLI also exposes the `agy plugin` subcommand pipeline to manage extensions from your shell:
 
 *   **List installed plugins**: list all active packages and their loaded components:
     
@@ -117,7 +141,7 @@ The Antigravity CLI exposes the `agy plugin` subcommand pipeline to manage exten
 *   **Install a plugin**: stage a local package directory into your profile:
     
     ```
-    agy plugin install /path/to/local/plugin
+    agy plugin install </path/to/local/plugin>
     ```
     
 *   **Enable or disable a plugin**: toggle a plugin without removing its files:
@@ -144,6 +168,7 @@ When installed, the CLI stages plugin assets in your global configuration direct
 
 ### Next steps
 
+*   [Marketplace](/docs/marketplace?tab=cli)
 *   [Migration from Gemini CLI](/docs/cli/gcli-migration)
 *   [Troubleshooting](/docs/cli/troubleshooting)
 *   [Permissions & Sandbox](/docs/sandbox?tab=cli)

@@ -34,6 +34,7 @@ The following table provides a complete reference for all public slash commands:
 | [`/plan`](/docs/plan) | Planning | Researches code, conducts requirement interviews, and drafts a reviewable plan artifact. | All plans | Minutes |
 | `/grill-me` | Planning | Conducts an interactive interview to align on design details and edge cases. | All plans | Minutes |
 | [`/learn`](/docs/rules) | Customization | Distills session feedback and corrections into persistent Rules or Skills. | All plans | Immediate |
+| [`/plugin`](/docs/plugins) | Customization | Opens the interactive [Plugins Manager](/docs/marketplace) or manages and creates plugins. | All plans | Immediate |
 | [`/schedule`](/docs/sidecars) | Automation | Schedules an instruction as a one-time timer or recurring cron job. | All plans | Scheduled |
 | `/browser` | Tools | Launches a sandboxed browser subagent for web research and UI inspection. | All plans | Minutes |
 | `/btw` | Tools | Asks a quick contextual question in the background without pausing work. | All plans | Immediate |
@@ -140,6 +141,22 @@ To capture recent session patterns into persistent rules, run the following comm
 
 For customization syntax and configuration schemas, see the [Rules documentation](/docs/rules).
 
+### /plugin
+
+Manages installed plugins, browses the [Marketplace](/docs/marketplace), and packages reusable skills, rules, subagents, MCP servers, and hooks into a single deployable plugin bundle.
+
+In the **Antigravity CLI**, running `/plugin` (or its alias `/plugins`) opens the interactive Plugins Manager panel with **Installed** and **Discover** tabs, or executes inline subcommands directly:
+
+```
+/plugin
+/plugin install <plugin-name>@<marketplace-name>
+/plugin list
+```
+
+In **Antigravity 2.0**, you can also invoke `/plugin` with natural-language instructions to enable, disable, install, or scaffold custom plugins.
+
+For complete plugin manifest and marketplace documentation, see the [Plugins guide](/docs/plugins) and the [Marketplace guide](/docs/marketplace).
+
 * * *
 
 ## Automation and scheduling
@@ -194,6 +211,7 @@ The following decision guide outlines when to use each command based on your tas
 | **Vague requirements needing architectural alignment** | `/grill-me` | Conducts a step-by-step interview to clarify edge cases and constraints. |
 | **Task that should run continuously until 100% complete** | `/goal` | Autonomous execution without turn-by-turn confirmation pauses. |
 | **Distill recent corrections into permanent project rules** | [`/learn`](/docs/rules) | Analyzes session patterns and writes persistent Rules and Skills. |
+| **Discover, install, or manage plugins and marketplace bundles** | [`/plugin`](/docs/plugins) | Interactive [Plugins Manager](/docs/marketplace) in the CLI and conversational plugin management. |
 | **Web research, UI validation, and layout inspection** | `/browser` | Sandboxed Chrome browser subagent for live page interactions. |
 | **One-shot countdown timer or recurring background schedule** | [`/schedule`](/docs/sidecars) | Runs instructions in the background on cron schedules. |
 | **Quick side query without pausing primary agent work** | `/btw` | Lightweight out-of-band query executed in the background. |
@@ -220,4 +238,5 @@ Explore related documentation and guides:
 *   [Teamwork agent teams (`/teamwork-preview`)](/docs/teamwork): Learn how collaborative agent teams tackle large-scale migrations.
 *   [Implementation plans artifact guide](/docs/implementation-plan): Master reviewable planning artifacts and structured workflows.
 *   [Rules (`/learn`)](/docs/rules): Persist project-wide patterns and conventions.
+*   [Plugins (`/plugin`)](/docs/plugins) and [Marketplace](/docs/marketplace): Discover, install, and package reusable agent extensions.
 *   [Sidecars and scheduled tasks (`/schedule`)](/docs/sidecars): Automate routine maintenance with cron expressions.

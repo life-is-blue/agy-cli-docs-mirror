@@ -16,7 +16,7 @@ Note
 
 **Important**: Please check the country listed on the [Google Terms of Service](https://policies.google.com/terms) page. If this is the wrong country, you may [submit a request](https://policies.google.com/country-association-form) to change your associated region.
 
-Americas (51 countries & territories)
+**Americas (51 countries & territories):**
 
 *   American Samoa
 *   Anguilla
@@ -70,7 +70,7 @@ Americas (51 countries & territories)
 *   U.S. Virgin Islands
 *   Venezuela
 
-Europe (47 countries & territories)
+**Europe (47 countries & territories):**
 
 *   Albania
 *   Armenia
@@ -120,7 +120,7 @@ Europe (47 countries & territories)
 *   Ukraine (supported territories)
 *   United Kingdom
 
-Africa (56 countries & territories)
+**Africa (56 countries & territories):**
 
 *   Algeria
 *   Angola
@@ -179,7 +179,7 @@ Africa (56 countries & territories)
 *   Zambia
 *   Zimbabwe
 
-Asia (43 countries & territories)
+**Asia (43 countries & territories):**
 
 *   Bahrain
 *   Bangladesh
@@ -224,7 +224,7 @@ Asia (43 countries & territories)
 *   Vietnam
 *   Yemen
 
-Oceania & Antarctica (27 countries & territories)
+**Oceania & Antarctica (27 countries & territories):**
 
 *   Antarctica
 *   Australia

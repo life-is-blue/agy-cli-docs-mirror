@@ -115,8 +115,8 @@ Teamwork includes built-in safeguards to ensure parallel agent work remains safe
 
 ## How to use /teamwork-preview
 
-*   [Antigravity 2.0](#tab-panel-78)
-*   [Antigravity CLI](#tab-panel-79)
+*   [Antigravity 2.0](#tab-panel-41)
+*   [Antigravity CLI](#tab-panel-42)
 
 Start a new conversation and invoke `/teamwork-preview` with your goal:
 

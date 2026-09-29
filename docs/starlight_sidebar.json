@@ -40,6 +40,10 @@
         "slug": "antigravity/implementation-plan"
       },
       {
+        "label": "Marketplace",
+        "slug": "antigravity/marketplace"
+      },
+      {
         "label": "MCP",
         "slug": "antigravity/mcp"
       },
@@ -110,6 +114,16 @@
       {
         "label": "Walkthrough",
         "slug": "antigravity/walkthrough"
+      }
+    ]
+  },
+  {
+    "label": "Changelog",
+    "collapsed": true,
+    "items": [
+      {
+        "label": "Changelog",
+        "slug": "antigravity/changelog"
       }
     ]
   },

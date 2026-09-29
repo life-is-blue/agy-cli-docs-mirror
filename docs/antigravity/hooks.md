@@ -2,9 +2,9 @@
 
 Hooks allow you to run custom scripts or shell commands at specific points during Antigravity’s execution loop to enforce rules, execute linters, or capture diagnostics.
 
-*   [Antigravity 2.0](#tab-panel-14)
-*   [Antigravity CLI](#tab-panel-15)
-*   [Antigravity IDE](#tab-panel-16)
+*   [Antigravity 2.0](#tab-panel-7)
+*   [Antigravity CLI](#tab-panel-8)
+*   [Antigravity IDE](#tab-panel-9)
 
 ### Managing hooks in Antigravity 2.0
 

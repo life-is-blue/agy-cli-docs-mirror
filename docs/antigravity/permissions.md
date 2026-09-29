@@ -2,8 +2,8 @@
 
 Antigravity uses a unified fine-grained permission engine to evaluate sensitive tool operations across Deny, Ask, and Allow access lists.
 
-*   [Antigravity 2.0](#tab-panel-30)
-*   [Antigravity CLI](#tab-panel-31)
+*   [Antigravity 2.0](#tab-panel-17)
+*   [Antigravity CLI](#tab-panel-18)
 
 Note
 

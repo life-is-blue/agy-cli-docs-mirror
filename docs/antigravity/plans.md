@@ -1,6 +1,6 @@
 # Plans
 
-Google Antigravity is available with [terms](https://antigravity.google/terms) to individual accounts derived from Google’s terms of service, and available to teams under Google Cloud terms in Gemini Enterprise. To learn more, see [Enterprise Get Started](/docs/enterprise).
+Google Antigravity is available with [terms](/terms) to individual accounts derived from Google’s terms of service, and available to teams under Google Cloud terms in Gemini Enterprise. To learn more, see [Enterprise Get Started](/docs/enterprise).
 
 Rate limits and model availability differs based on usage of [Google AI](https://one.google.com/about/google-ai-plans/) plans. See [Models](/docs/models) for a breakdown of model availability.
 

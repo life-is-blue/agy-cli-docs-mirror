@@ -43,8 +43,8 @@ The `/plan` command is especially valuable in the following development scenario
 
 You can invoke `/plan` with a specific task prompt or without arguments to start an open-ended discovery session.
 
-*   [Antigravity 2.0](#tab-panel-34)
-*   [Antigravity CLI](#tab-panel-35)
+*   [Antigravity 2.0](#tab-panel-19)
+*   [Antigravity CLI](#tab-panel-20)
 
 Type `/plan` followed by your goal in the prompt input:
 

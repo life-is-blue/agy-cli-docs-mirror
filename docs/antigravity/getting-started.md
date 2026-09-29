@@ -2,13 +2,13 @@
 
 Welcome to Google Antigravity! Follow the instructions below to get started on your preferred surface.
 
-*   [Antigravity 2.0](#tab-panel-8)
-*   [Antigravity CLI](#tab-panel-9)
-*   [Antigravity IDE](#tab-panel-10)
+*   [Antigravity 2.0](#tab-panel-4)
+*   [Antigravity CLI](#tab-panel-5)
+*   [Antigravity IDE](#tab-panel-6)
 
 ### Download Antigravity 2.0
 
-Visit [antigravity.google/download](https://antigravity.google/download) to download Google Antigravity 2.0. Select your operating system below:
+Visit [antigravity.google/download](/download) to download Google Antigravity 2.0. Select your operating system below:
 
 | Platform | Download |
 | --- | --- |
@@ -74,6 +74,7 @@ Once your Project is created, you can spawn an agent to start working on tasks.
 | `/grill-me` | Before starting to implement, ask questions back to align on the specific details of the plan. |
 | `/schedule` | Run an instruction as a one-time timer in the future or on a recurring schedule (via Scheduled Tasks). |
 | `/browser` | Explicit slash command controlling browser debugging behaviors in Google Chrome. |
+| [`/plugin`](/docs/plugins) | Manage installed [Marketplace](/docs/marketplace) plugins or create and configure custom plugin bundles. |
 
 Welcome to Antigravity CLI! This guide provides a direct, high-level developer roadmap to install the client, launch the Terminal User Interface (TUI), and begin collaborating with autonomous agents.
 
@@ -148,7 +149,7 @@ Optimize your local environment configurations and master advanced collaboration
 
 ### Download Antigravity IDE
 
-Please visit [antigravity.google/download](https://antigravity.google/download) to download Antigravity IDE.
+Please visit [antigravity.google/download](/download) to download Antigravity IDE.
 
 **Available platforms and minimum versions:**
 

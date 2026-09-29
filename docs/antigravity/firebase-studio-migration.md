@@ -38,7 +38,7 @@ Antigravity is a local, agent-first IDE that brings the power of AI into your lo
 
 Ensure you have the following installed locally and fully up-to-date:
 
-*   [Google Antigravity IDE](https://antigravity.google/download)
+*   [Google Antigravity IDE](/download)
 *   [Node.js](https://nodejs.org/en) (version 20 or higher)
 *   [Firebase CLI](https://firebase.google.com/docs/cli) (version 15.10.0 or higher)
 

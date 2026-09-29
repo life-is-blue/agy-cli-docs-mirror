@@ -136,9 +136,9 @@ To prevent rules from exhausting the context window, Antigravity enforces two li
 
 Select your surface below to configure global or workspace-specific rules:
 
-*   [Antigravity 2.0](#tab-panel-52)
-*   [Antigravity CLI](#tab-panel-53)
-*   [Antigravity IDE & Extensions](#tab-panel-54)
+*   [Antigravity 2.0](#tab-panel-28)
+*   [Antigravity CLI](#tab-panel-29)
+*   [Antigravity IDE & Extensions](#tab-panel-30)
 
 ### Managing rules in Antigravity 2.0
 

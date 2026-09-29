@@ -24,9 +24,9 @@ With MCP, Antigravity can execute specific, safe actions defined by your connect
 
 ## Getting started by surface
 
-*   [Antigravity 2.0](#tab-panel-20)
-*   [Antigravity CLI](#tab-panel-21)
-*   [Antigravity IDE](#tab-panel-22)
+*   [Antigravity 2.0](#tab-panel-12)
+*   [Antigravity CLI](#tab-panel-13)
+*   [Antigravity IDE](#tab-panel-14)
 
 In Antigravity 2.0, you can manage your MCP servers through the **Installed MCP Servers** section of your **Settings**.
 
@@ -255,7 +255,7 @@ Access to Model Context Protocol tools and resources is governed by Antigravityâ
 
 The MCP Store features direct integrations for a wide variety of developer platforms, databases, and productivity services:
 
-Databases & Storage (15 servers)
+**Databases & Storage (15 servers):**
 
 *   [AlloyDB for PostgreSQL](https://cloud.google.com/alloydb/docs/ai/use-alloydb-mcp)
 *   [BigQuery](https://cloud.google.com/bigquery/docs/use-bigquery-mcp)
@@ -273,11 +273,12 @@ Databases & Storage (15 servers)
 *   [Spanner](https://docs.cloud.google.com/spanner/docs/use-spanner-mcp)
 *   [Supabase](https://github.com/supabase-community/supabase-mcp)
 
-Developer Tools & CI/CD (14 servers)
+**Developer Tools & CI/CD (17 servers):**
 
 *   [Apigee MCP](https://docs.cloud.google.com/apigee/docs/reference/apis/apihub/mcp)
 *   [Atlassian](https://support.atlassian.com/atlassian-rovo-mcp-server/docs/getting-started-with-the-atlassian-remote-mcp-server/)
 *   [Cloud CLI Execution](https://docs.cloud.google.com/sdk/use-gcloud-mcp)
+*   [Forge](https://app.softwareforge.ai/docs/introduction)
 *   [GitHub](https://github.com/github/github-mcp-server)
 *   [GitLab Orbit](https://docs.gitlab.com/orbit/remote/access/mcp/)
 *   [GKE OneMCP](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/use-gke-mcp)
@@ -287,11 +288,14 @@ Developer Tools & CI/CD (14 servers)
 *   [Linear](https://linear.app/changelog/2025-05-01-mcp)
 *   [mabl](https://help.mabl.com/hc/en-us/articles/47299375773844-mabl-MCP-overview)
 *   [Netlify](https://github.com/netlify/netlify-mcp)
+*   [Opsera AI Agents](https://docs.agents.opsera.ai/)
 *   [Postman](https://github.com/postmanlabs/postman-mcp-server)
 *   [SonarQube](https://github.com/SonarSource/sonarqube-mcp-server)
+*   [Vercel](https://vercel.com/docs/agent-resources/vercel-mcp)
 
-Frontend & Design (7 servers)
+**Frontend & Design (8 servers):**
 
+*   [Canva](https://www.canva.dev/docs/mcp/)
 *   [Chrome DevTools](https://github.com/ChromeDevTools/chrome-devtools-mcp)
 *   [Dart](https://dart.dev/tools/mcp-server)
 *   [Figma Dev Mode MCP](https://help.figma.com/hc/en-us/articles/32132100833559-Guide-to-the-Dev-Mode-MCP-Server)
@@ -300,28 +304,44 @@ Frontend & Design (7 servers)
 *   [Miro](https://developers.miro.com/docs/miro-mcp)
 *   [Mobbin MCP](https://mobbin.com/mcp)
 
-Security (3 servers)
+**Security (4 servers):**
 
 *   [CrowdStrike](https://github.com/CrowdStrike/falcon-mcp)
+*   [Endor Labs](https://docs.endorlabs.com/setup-deployment/mcp/antigravity)
 *   [Splunk](https://splunkbase.splunk.com/app/7931)
 *   [Wiz](https://www.wiz.io/blog/introducing-wiz-mcp)
 
-Analytics, AI & Cloud (17 servers)
+**Analytics, AI & Cloud (32 servers):**
 
 *   [Airweave](https://github.com/airweave-ai/airweave)
 *   [Antimetal](https://docs.antimetal.com/connect)
 *   [Arize](https://github.com/Arize-ai/arize-tracing-assistant)
 *   [Cloud Audit Manager](https://docs.cloud.google.com/audit-manager/docs/reference/auditmanager/mcp)
+*   [Courtroom5](https://courtroom5.com/)
+*   [Daloopa](https://docs.daloopa.com/docs/mcp)
+*   [Docusign](https://developers.docusign.com/platform/mcp-server/)
 *   [Exa](https://docs.exa.ai/reference/exa-mcp)
+*   [FactSet AI-Ready Data](https://developer.factset.com/mcp/factset-ai-ready-data-mcp)
+*   [Finnhub](https://finnhub.io/mcp)
 *   [Firebase](https://firebase.google.com/docs/ai-assistance/mcp-server)
+*   [Fiscal.ai](https://docs.fiscal.ai/docs/guides/mcp-integration)
 *   [Google Cloud Quotas](https://cloud.google.com/docs/quotas/overview)
 *   [Grafana Cloud](https://github.com/grafana/ai-marketplace/tree/main/plugins/grafana-cloud-mcp)
+*   [Guidepoint](https://github.com/guidepointglobal/mcp-skills-plugins)
+*   [Harvey](https://developers.harvey.ai/guides/harvey_mcp)
+*   [iManage](https://docs.imanage.com/ai/mcpserver-user-help/en-US/iManage_MCP_Server_Help.html)
+*   [LegalZoom](https://www.legalzoom.com/ai)
 *   [Looker](https://mcp-toolbox.dev/documentation/connect-to/ides/looker_mcp/)
+*   [LSEG](https://developers.lseg.com/)
+*   [NetDocuments](https://docs.cloud.google.com/gemini/enterprise/docs/connectors/netdocuments)
 *   [Notion](https://github.com/makenotion/notion-mcp-server)
 *   [Parallel Search](https://docs.parallel.ai/search/search-mcp)
 *   [PayPal](https://developer.paypal.com/tools/mcp-server/)
 *   [Perplexity Ask](https://github.com/ppl-ai/modelcontextprotocol)
 *   [PostHog](https://posthog.com/mcp)
+*   [Relativity](https://docs.cloud.google.com/gemini/enterprise/docs/connectors/relativity)
+*   [S&P Global](https://github.com/kensho-technologies/kfinance)
+*   [Salesforce](https://developer.salesforce.com/docs/platform/hosted-mcp-servers/guide/sobject-all.html)
 *   [Sequential Thinking](https://github.com/modelcontextprotocol/servers/tree/main/src/sequentialthinking)
 *   [Stripe](https://github.com/stripe/agent-toolkit/tree/main/modelcontextprotocol)
 *   [Windsor AI](https://windsor.ai/documentation/windsor-mcp/)
