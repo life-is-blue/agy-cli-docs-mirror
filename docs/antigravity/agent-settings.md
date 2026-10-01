@@ -1,44 +1,44 @@
-# Agent Settings
+# Agent settings
 
 Note
 
-Antigravity’s updated permission system is currently available on **macOS and Linux**. On **Windows**, Antigravity continues to use the previous settings — see the [Windows](#windows) section below.
+Antigravity’s updated permission system is currently available on **macOS and Linux**. On **Windows**, Antigravity continues to use the previous settings. Refer to the [Windows](#windows) section for details.
 
-## macOS & Linux
+## macOS and Linux
 
-### Permission Settings
+### Permission settings
 
-Controls how agent actions — terminal commands, file access, MCP tools, and web page reads — are approved, via a **permission preset**:
+This setting controls how agent actions—terminal commands, file access, MCP tools, and web page reads—are approved using a **permission preset**:
 
-*   **Default**: Commands run without prompting inside the [Terminal Sandbox](/docs/sandbox); running outside the sandbox requires approval. The agent can read and write the workspace and temp directories, and needs approval for anything else.
+*   **Default**: Commands run without prompting inside the [Terminal sandbox](/docs/sandbox); running outside the sandbox requires approval. The agent can read and write the workspace and temp directories, and needs approval for anything else.
 *   **Request Review**: The sandbox is off and every terminal command requires approval. The agent can read and write the workspace, and needs approval for anything else.
 *   **Turbo**: All commands run without prompting with no isolation or restrictions, and the agent has full read and write access to your filesystem.
 
-The preset is configured under **Settings → General → Permission Settings**, and can be overridden per project under **Settings → Projects**. Projects default to **Inherit General**, which follows your global preset.
+You can configure the preset under **Settings** > **General** > **Permission Settings**, and override it per project under **Settings** > **Projects**. Projects default to **Inherit General**, which follows your global preset.
 
-Your configured allow/deny/ask permission rules are layered on top of the preset and always take precedence. Learn more in **[Agent Permissions](/docs/permissions)**.
+Your configured allow, deny, and ask permission rules are layered on top of the preset and always take precedence. To learn more, refer to **[Agent permissions](/docs/permissions)**.
 
 ## Windows
 
-### Terminal Command Auto Execution
+### Terminal command auto execution
 
-Controls how the agent executes generated shell commands:
+This setting controls how the agent executes generated shell commands:
 
-*   **Request Review**: The agent will never execute terminal commands without prompting (except those explicitly added to your configurable Allow list).
-*   **Proceed in Sandbox**: Commands run without prompting inside the [Terminal Sandbox](/docs/sandbox); commands that need to run outside it still require review.
-*   **Always Proceed**: The agent will execute commands without prompting (except those explicitly added to your configurable Deny list).
+*   **Request Review**: The agent never executes terminal commands without prompting (except those explicitly added to your configurable Allow list).
+*   **Proceed in Sandbox**: Commands run without prompting inside the [Terminal sandbox](/docs/sandbox); commands that need to run outside it still require review.
+*   **Always Proceed**: The agent executes commands without prompting (except those explicitly added to your configurable Deny list).
 
-### Agent Non-Workspace File Access
+### Agent non-workspace file access
 
-Allows the agent to view and edit files outside of the active project folders.
+This setting allows the agent to view and edit files outside of the active project folders:
 
-*   By default, the agent only has access to the folders inside your Project and the application’s local app data directory `~/.gemini/antigravity/` (which contains Artifacts, Knowledge Items, etc.).
+*   By default, the agent only has access to the folders inside your project and the application’s local app data directory `~/.gemini/antigravity/` (which contains artifacts, knowledge items, and more).
 *   Enforcing this boundary protects your local sensitive data. Enable non-workspace access with caution.
 
-### Terminal Sandbox Mode
+### Terminal sandbox mode
 
-Restricts agent terminal commands to an isolated sandbox.
+This setting restricts agent terminal commands to an isolated sandbox:
 
 *   When enabled, shell commands execute inside the sandbox without access to sensitive system paths or unauthorized networks.
-*   Configurable globally in application preferences or overridden per project.
-*   Learn more in the **[Terminal Sandbox](/docs/sandbox)** guide.
+*   You can configure this setting globally in application preferences or override it per project.
+*   To learn more, refer to the **[Terminal sandbox](/docs/sandbox)** guide.

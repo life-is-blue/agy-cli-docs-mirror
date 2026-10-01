@@ -42,6 +42,8 @@ Caution
 
 ### Supported frontmatter keys
 
+Rules in `.agents/rules/` support the following YAML frontmatter keys:
+
 ```
 ---
 trigger: model_decision       # Required: always_on | model_decision | glob | manual
@@ -57,6 +59,8 @@ globs: "*.ts, *.tsx"          # Required for glob (singular `glob:` is also acce
 | `globs` _(or `glob`)_ | `string` | **Required** for `glob` | Comma-separated file glob patterns (for example, `"*.py, *_test.py"`). Wrap patterns starting with `*` in quotes so YAML does not treat `*` as an alias anchor. |
 
 ### Activation modes
+
+Configure the `trigger` key to control how and when a rule is loaded into context:
 
 *   **`model_decision`** _(best for detailed domain guides)_: Antigravity injects only the rule’s path and `description` upfront (progressive disclosure). The agent reads the full rule on demand when your task matches the description.
     
@@ -142,11 +146,15 @@ Select your surface below to configure global or workspace-specific rules:
 
 ### Managing rules in Antigravity 2.0
 
+Follow these steps to create or manage rules in Antigravity 2.0:
+
 1.  Open the **Customizations** panel from the application menu or project settings.
 2.  Select the **Rules** tab.
 3.  Click **\+ Global** to create global rules, or **\+ Workspace** to create rules scoped to the active project.
 
 ### Antigravity 2.0 file locations
+
+Antigravity 2.0 loads rules from the following locations:
 
 *   **Workspace rules**: `AGENTS.md`, `GEMINI.md`, or `.agents/rules/*.md` in your workspace root or any project subdirectory.
 *   **Global rules**: `~/.gemini/AGENTS.md`, `~/.gemini/GEMINI.md`, or modular rules in `~/.gemini/config/rules/*.md`.
@@ -159,13 +167,17 @@ The Antigravity CLI evaluates workspace, directory-scoped, global, and plugin ru
 *   **Global rules**: `~/.gemini/AGENTS.md`, `~/.gemini/GEMINI.md`, `~/.gemini/config/rules/*.md`, or `~/.gemini/antigravity-cli/rules/*.md`.
 *   **Plugin rules**: Antigravity automatically activates rules packaged inside installed plugins under `~/.gemini/antigravity-cli/plugins/<plugin_name>/rules/`.
 
-### Managing rules in Antigravity IDE & Extensions
+### Managing rules in Antigravity IDE and extensions
+
+Follow these steps to create or manage rules in Antigravity IDE and extensions:
 
 1.  Click the **…** menu at the top of the agent side panel.
 2.  Select **Customizations**, then navigate to the **Rules** tab.
 3.  Click **\+ Global** to author workstation-wide rules, or **\+ Workspace** to create project-specific rules.
 
-### Antigravity IDE & Extensions file locations
+### Antigravity IDE and extensions file locations
+
+Antigravity IDE and extensions load rules from the following locations:
 
 *   **Workspace rules**: `AGENTS.md`, `GEMINI.md`, or `.agents/rules/*.md` within your project or subdirectories.
 *   **Global rules**: `~/.gemini/AGENTS.md`, `~/.gemini/GEMINI.md`, or `~/.gemini/config/rules/*.md`.

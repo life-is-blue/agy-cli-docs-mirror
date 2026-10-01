@@ -9,12 +9,12 @@ As AI agents take on larger-scope tasks—such as full-subsystem refactorings, e
 
 ## Enabling Remote Control in Antigravity 2.0
 
-You can enable Remote Control directly from the Antigravity 2.0 Settings:
+You can enable Remote Control directly from the Antigravity 2.0 settings:
 
-1.  Open the **Settings** panel by pressing `Cmd + ,` (or `Ctrl + ,` on Linux/Windows), or click **Settings** at the bottom of the left sidebar.
+1.  Open the **Settings** panel by pressing `Cmd + ,` (or `Ctrl + ,` on Linux and Windows), or click **Settings** at the bottom of the left sidebar.
 2.  Navigate to the **App** section.
 3.  Toggle **Enable Remote Control** to **On**.
-4.  _(Optional)_ Set a custom **Nickname** (e.g., `workstation-primary` or `server-machine`) to easily identify this machine in your instance list.
+4.  _(Optional)_ Set a custom **Nickname** (for example, `workstation-primary` or `server-machine`) to easily identify this machine in your instance list.
 
 ### Connecting from a web browser
 
@@ -27,25 +27,27 @@ To access your remote Antigravity instance:
 
 ## Desktop troubleshooting
 
-### Antigravity 2.0 Desktop
+### Antigravity 2.0 desktop
 
-*   **Machine Does Not Appear in the Web UI**:
-    *   Ensure that **Enable Remote Control** is toggled on in Antigravity 2.0 Settings on your host machine.
+If you encounter issues connecting to your desktop instance, review the following troubleshooting steps:
+
+*   **Machine does not appear in the web UI**:
+    *   Ensure that **Enable Remote Control** is toggled on in Antigravity 2.0 settings on your host machine.
     *   Verify that your host machine has an active internet connection and is not asleep or suspended.
     *   Check that you are signed in with the same Google Account in both the desktop app and the web browser.
-*   **Reconnection and Disconnects**:
-    *   If your local network connectivity drops temporarily, the web interface automatically tries to reconnect. Any running background agent tasks and shell commands will continue executing on your host machine uninterrupted as long as the host maintains an internet connection.
+*   **Reconnection and disconnects**:
+    *   If your local network connectivity drops temporarily, the web interface automatically tries to reconnect. Any running background agent tasks and shell commands continue executing on your host machine uninterrupted as long as the host maintains an internet connection.
 
 ## Overview
 
 Remote Control lets you interact with your CLI instances remotely using the Antigravity desktop UI. Antigravity CLI supports two ways to use Remote Control:
 
-1.  **Interactive Mode**: Start a Remote Control connection in an active CLI instance using `/remote-control` or start it in a new instance by launching the CLI with the `--remote-control` flag. Tunnel stays open only for the lifetime of that CLI instance.
-2.  **Headless Background Daemon**: Start a connection to an always-on headless CLI instance with `agy remote-control start`. You will be able to interact with this instance remotely as long as the machine running it is on.
+1.  **Interactive mode**: Start a Remote Control connection in an active CLI instance using `/remote-control` or start it in a new instance by launching the CLI with the `--remote-control` flag. The tunnel stays open only for the lifetime of that CLI instance.
+2.  **Headless background daemon**: Start a connection to an always-on headless CLI instance with `agy remote-control start`. You can interact with this instance remotely as long as the machine running it is on.
 
 * * *
 
-## Interactive Mode
+## Interactive mode
 
 ### Enable Remote Control in an active session (`/remote-control`)
 
@@ -65,7 +67,7 @@ Hostname: devbox-swift-falcon
 Open https://antigravity.google.com/r/<instance-id>?p=c%2F<conversation-id> on another device to continue this conversation.
 ```
 
-Open the printed URL in any web browser (on your laptop, tablet, or phone) signed into the same Google Account to interact with the session using the Antigravity desktop UI.
+Open the printed URL in any web browser (on your laptop, tablet, or phone) signed in to the same Google Account to interact with the session using the Antigravity desktop UI.
 
 To disconnect the remote tunnel while keeping your local terminal session running, run:
 
@@ -100,12 +102,12 @@ Interactive Remote Control is strictly tied to the running `agy` terminal proces
 When you connect to your interactive CLI session using the Antigravity desktop UI in your browser, both surfaces stay synchronized in real time:
 
 *   **Shared live stream**: Prompts submitted from your remote device stream live into your local terminal TUI as they happen, and thoughts, tool executions, and diffs generated in the terminal appear live in the remote UI.
-*   **Cross-device tool approvals & questions**: When the agent pauses for a tool confirmation (`y`/`n`) or asks an interactive clarifying question, you can respond from either your local terminal or the remote UI.
+*   **Cross-device tool approvals and questions**: When the agent pauses for a tool confirmation (`y`/`n`) or asks an interactive clarifying question, you can respond from either your local terminal or the remote UI.
 *   **CLI-controlled settings**: You cannot toggle settings in the settings panel from the remote web interface; to change settings, use the CLI.
 
 * * *
 
-## Remote Control Headless Daemon
+## Remote Control headless daemon
 
 Use the `remote-control` subcommand to register an always-on headless CLI instance that starts automatically in the background and stays connected whenever your machine is powered on:
 
@@ -115,9 +117,11 @@ agy remote-control start
 
 The daemon registers as an OS service (a systemd user service on Linux, a LaunchAgent on macOS, or a Scheduled Task on Windows) and starts immediately without requiring an open terminal window.
 
-Run `agy remote-control status` to see this machine’s instance name, then select it from the [Antigravity Remote Control Dashboard](https://antigravity.google.com) to interact with it using the Antigravity desktop UI.
+Run `agy remote-control status` to view this machine’s instance name, then select it from the [Antigravity Remote Control Dashboard](https://antigravity.google.com) to interact with it using the Antigravity desktop UI.
 
 ### Managing the daemon
+
+Use the following commands to manage the headless daemon:
 
 ```
 agy remote-control start     Register and start the daemon
@@ -127,13 +131,15 @@ agy remote-control stop      Stop the daemon and unregister it
 
 ### Windows notes
 
+Keep the following behavior in mind when running the daemon on Windows:
+
 *   Registering the daemon to **start at boot** requires an Administrator prompt. PowerShell and Command Prompt both work.
-*   From a normal prompt, `start` still works, but if your machine gets logged out/restarted, the daemon will only resume after you log back in: it cannot start on boot.
+*   From a normal prompt, `start` still works, but if your machine gets logged out or restarted, the daemon resumes only after you log back in; it cannot start on boot.
 *   `status` and `stop` work from a normal prompt.
 
 ### Sign-in
 
-The credentials you used to sign into the CLI are used by the daemon for auth. This sign-in is separate from the Antigravity editor’s on the same machine.
+The daemon uses the credentials you used to sign in to the CLI for authentication. This sign-in is separate from the Antigravity editor on the same machine.
 
 ### Naming your machine (headless daemon)
 
@@ -147,14 +153,14 @@ For headless daemon instances, the instance name is how the machine appears in R
     
     Re-running `start --name` with a new value renames the machine.
     
-*   If you never set a name, the daemon generates a friendly one (like `my-machine-distant-plume`) on its first start. `agy remote-control status` shows the current name.
+*   If you never set a name, the daemon generates a friendly one (such as `my-machine-distant-plume`) on its first start. `agy remote-control status` shows the current name.
     
-*   To rename by editing the settings file instead, open `~/.gemini/config/config.json` on Linux/macOS or `%USERPROFILE%\.gemini\config\config.json` on Windows, change the value of `cliRemoteControlHostname`, save, and run `agy remote-control start` again to restart the daemon. The new name appears in the Antigravity Remote Control dashboard once the service restarts — edits do nothing while it’s running.
+*   To rename by editing the settings file instead, open `~/.gemini/config/config.json` on Linux or macOS or `%USERPROFILE%\.gemini\config\config.json` on Windows, change the value of `cliRemoteControlHostname`, save, and run `agy remote-control start` again to restart the daemon. The new name appears in the Antigravity Remote Control dashboard once the service restarts; edits do nothing while it’s running.
     
 
 Note
 
-**Important:** The file has two similar-looking names in it. `cliRemoteControlHostname` is this service — the one you want. `remoteControlHostname` is the Antigravity editor on the same machine; in Antigravity 2.0, you can edit this directly in **Settings > App**.
+**Important:** The file has two similar-looking names in it. `cliRemoteControlHostname` is this service—the one you want. `remoteControlHostname` is the Antigravity editor on the same machine; in Antigravity 2.0, you can edit this directly in **Settings** > **App**.
 
 ### How the daemon runs
 
@@ -162,22 +168,22 @@ Note
 | :-- | :-- | :-- | :-- |
 | Starts | At boot, nobody needs to log in | When you log in | At boot (Administrator install); at login otherwise |
 | Keeps running after you sign out | Yes | No, back at next login. | Yes, with a boot install |
-| Comes back by itself after a crash | Yes | Yes | Yes, up to 3 restart attempts, then at the next boot or by running `agy remote-control start` again |
+| Comes back by itself after a crash | Yes | Yes | Yes, up to three restart attempts, then at the next boot or by running `agy remote-control start` again |
 
 * * *
 
-## Interactive Mode vs. Headless Background Daemon
+## Interactive mode vs. headless background daemon
 
-Use the table below to choose between interactive Remote Control and the persistent background daemon.
+Use the table below to choose between interactive Remote Control and the persistent background daemon:
 
-| Feature | Interactive Mode (`/remote-control` / `agy --remote-control`) | Headless Background Daemon (`agy remote-control start`) |
+| Feature | Interactive mode (`/remote-control` / `agy --remote-control`) | Headless background daemon (`agy remote-control start`) |
 | :-- | :-- | :-- |
 | **Scope** | Single interactive terminal session | Entire machine (background OS service) |
 | **Lifecycle** | Active only while the terminal session is open and toggled on | Persistent across logouts and system reboots |
-| **Instance naming** | Fresh per-session name (e.g., `host-swift-falcon`) | Single persistent machine name (`--name` or `cliRemoteControlHostname`) |
+| **Instance naming** | Fresh per-session name (for example, `host-swift-falcon`) | Single persistent machine name (`--name` or `cliRemoteControlHostname`) |
 | **Concurrency** | Multiple concurrent terminal sessions supported per machine | One daemon service per machine |
-| **Direct handoff link** | Prints a link directly into the active conversation thread | Accessed via the instance switcher on `antigravity.google.com` |
-| **Best for** | Stepping away from an active terminal task and continuing on mobile/web | Always-on remote access to a workstation or server anytime |
+| **Direct handoff link** | Prints a link directly into the active conversation thread | Accessed using the instance switcher on `antigravity.google.com` |
+| **Best for** | Stepping away from an active terminal task and continuing on mobile or web | Always-on remote access to a workstation or server anytime |
 
 * * *
 
@@ -185,25 +191,31 @@ Use the table below to choose between interactive Remote Control and the persist
 
 ### Interactive mode issues
 
-*   **`Remote control is not enabled for your account.`** — account or organization policy has not enabled the Remote Control feature flag. Contact your workspace administrator or verify your account plan supports Remote Control.
-*   **Instance disappears from the web dashboard** — `/remote-control` and `agy --remote-control` create tunnels that automatically disconnect when the interactive terminal session exits (`/exit` or `Ctrl+C`), or when `/remote-control off` is run. To keep a machine reachable when no terminal is open, run `agy remote-control start` to install the headless daemon.
-*   **Multiple CLI instances listed for the same machine** — each interactive CLI session uses a distinct session hostname so you can control multiple terminal windows simultaneously.
+Review the following solutions for common interactive mode issues:
+
+*   **`Remote control is not enabled for your account.`**: Account or organization policy has not enabled the Remote Control feature flag. Contact your workspace administrator or verify that your account plan supports Remote Control.
+*   **Instance disappears from the web dashboard**: `/remote-control` and `agy --remote-control` create tunnels that automatically disconnect when the interactive terminal session exits (`/exit` or `Ctrl+C`), or when `/remote-control off` is run. To keep a machine reachable when no terminal is open, run `agy remote-control start` to install the headless daemon.
+*   **Multiple CLI instances listed for the same machine**: Each interactive CLI session uses a distinct session hostname so you can control multiple terminal windows simultaneously.
 
 ### Headless daemon issues
 
-*   **Machine doesn’t show up in the Antigravity Remote Control dashboard** — run `agy remote-control status`. If it reports sign-in problems, run `agy`, sign in, then run `agy remote-control start` again.
-*   **Checking the logs**:
-    *   Linux: `journalctl --user -u antigravity-cli-daemon -n 50`
-    *   macOS: `~/Library/Logs/antigravity-cli-daemon.log`
-    *   Windows: the newest `cli-*.log` under `%USERPROFILE%\.gemini\antigravity-cli\log`
-*   **Rename didn’t take effect** — the name is read when the daemon starts; run `agy remote-control start` again.
-*   **Windows: daemon only starts at login, not at boot** — `start` was run from a non-Administrator prompt. Re-run `agy remote-control start` from an elevated prompt for start-at-boot.
-*   **Connection keeps dropping and reconnecting** — an old script-installed daemon may still be registered and fighting this one for the connection. Run `agy remote-control start` again; it removes the old service automatically.
-*   **Two similar entries in the Antigravity Remote Control dashboard** — one is the editor, one is this daemon. They’re separate on purpose; rename whichever one you mean.
+Review the following solutions for common headless daemon issues:
+
+*   **Machine doesn’t show up in the Antigravity Remote Control dashboard**: Run `agy remote-control status`. If it reports sign-in problems, run `agy`, sign in, and then run `agy remote-control start` again.
+*   **Checking the logs**: Inspect the daemon logs for your operating system:
+    *   **Linux**: `journalctl --user -u antigravity-cli-daemon -n 50`
+    *   **macOS**: `~/Library/Logs/antigravity-cli-daemon.log`
+    *   **Windows**: The newest `cli-*.log` under `%USERPROFILE%\.gemini\antigravity-cli\log`
+*   **Rename didn’t take effect**: The name is read when the daemon starts; run `agy remote-control start` again.
+*   **Windows daemon only starts at login, not at boot**: `start` was run from a non-Administrator prompt. Re-run `agy remote-control start` from an elevated prompt for start-at-boot.
+*   **Connection keeps dropping and reconnecting**: An old script-installed daemon may still be registered and competing with this one for the connection. Run `agy remote-control start` again; it removes the old service automatically.
+*   **Two similar entries in the Antigravity Remote Control dashboard**: One is the editor, and one is this daemon. They’re separate on purpose; rename whichever one you want to distinguish.
 
 * * *
 
-## Next Steps
+## Next steps
 
-*   [Settings Overview](/docs/settings): Explore configuration options across Antigravity.
-*   [Permissions & Security](/docs/permissions): Configure permission presets and tool access rules.
+Explore related documentation and guides:
+
+*   [Settings overview](/docs/settings): Explore configuration options across Antigravity.
+*   [Permissions and security](/docs/permissions): Configure permission presets and tool access rules.

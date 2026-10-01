@@ -1,6 +1,6 @@
 # Models
 
-## Reasoning Model
+## Reasoning model
 
 For the core reasoning model, Antigravity offers leading frontier models. Availability depends on your plan:
 
@@ -14,7 +14,7 @@ For the core reasoning model, Antigravity offers leading frontier models. Availa
 | Claude Opus 4.6 (thinking) | ✅ | ✅ | ✅ | ❌ |
 | GPT-OSS-120b | ✅ | ✅ | ✅ | ❌ |
 
-Users can select which reasoning model they want to use within the model selector drop-down under the conversation prompt box:
+You can select which reasoning model you want to use from the model selector menu under the conversation prompt box:
 
 Model
 
@@ -68,12 +68,12 @@ Five Hour Limit Remaining
 
 100%
 
-The choice of reasoning model is sticky between user messages within a conversation, so if you change the reasoning model while the Agent is running, it will continue to use the previously selected reasoning model until it has completed its steps for that user turn (or until you cancel the current execution).
+Your choice of reasoning model persists between messages within a conversation. If you change the reasoning model while the agent is running, it continues to use the previously selected reasoning model until it completes its steps for that turn (or until you cancel the current execution).
 
-Learn more about reasoning model rate limits in [our plans page](/docs/plans).
+To learn more about reasoning model rate limits, refer to the [plans page](/docs/plans).
 
-## Additional Models
+## Additional models
 
-Antigravity uses a number of other models for various parts of the stack that are not customizable:
+Antigravity uses other models for various parts of the stack that aren’t customizable:
 
-*   **[Nano Banana 2](/blog/nano-banana-pro)**: Used by the generative image tool when the Agent wants to produce a UI mockup, needs images to populate a web page or application, generate system or architecture diagrams, or other generative image tasks.
+*   **[Nano Banana 2](/blog/nano-banana-pro)**: Used by the generative image tool when the agent produces a UI mockup, generates images to populate a web page or application, creates system or architecture diagrams, or performs other generative image tasks.

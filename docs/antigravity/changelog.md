@@ -6,9 +6,35 @@ New versions roll out gradually and may take a few days to reach all users.
 
 ## Antigravity 2.0
 
-### [v2.18.1](/releases?tab=hub&version=2.18.1 "View release 2.18.1")
+### [v2.19.1](/releases?tab=hub&version=2.19.1 "View release 2.19.1")
 
 Latest
+
+September 30, 2026
+
+### Message subagents directly, export Markdown as PDF, and conversation-only undo
+
+You can now send messages straight to a subagent from the message box, export rendered Markdown as a PDF, and revert only the conversation when you undo. You can also reopen the window from the tray icon on Windows and Linux. This release includes 5 improvements and 5 fixes.
+
+**Improvements:**
+
+*   You can now send a message directly to a subagent from the message box, without going through the main agent.
+*   Rendered Markdown in artifacts and in files opened in the side pane can now be exported as a PDF from the overflow menu, including tables, code blocks, and diagrams.
+*   The Confirm Undo dialog now offers an option to revert only the conversation.
+*   On Windows and Linux, a left-click on the tray icon now reopens or focuses the Antigravity window.
+*   Pressing Cmd+A or Ctrl+A now selects only the content pane or terminal you are focused on instead of the whole page.
+
+**Fixes:**
+
+*   Fixed an issue where a terminal command step you had expanded collapsed again when the command finished.
+*   Fixed an issue where custom agents ignored your global and project rules.
+*   Fixed an issue where selecting the image pill on a file step opened the image in the side pane and also expanded the step to show a second copy.
+*   Fixed an issue where double-clicking or triple-clicking text in the file viewer and then dragging did not extend the selection by word or line.
+*   Fixed an issue where the title bar Forward button could stay disabled, and where the Back and Forward tooltips on Windows and Linux showed shortcuts that did nothing.
+
+---
+
+### [v2.18.1](/releases?tab=hub&version=2.18.1 "View release 2.18.1")
 
 September 28, 2026
 
@@ -288,7 +314,7 @@ Enterprise users can now access Google's flagship Gemini 3.8 Flash reasoning mod
 
 **Improvements:**
 
-*   Enterprise users can now select and use Gemini 3.8 Flash via ADC for agentic tasks.
+*   Enterprise users can now select and use Gemini 3.8 Flash using ADC for agentic tasks.
 
 ---
 
@@ -357,11 +383,11 @@ Generative UI renders HTML artifacts inline in chat, with support for KaTeX math
 *   Fixed an issue where clicking a comment link would not scroll to the comment if it was located below the visible fold in virtualized file and diff viewers.
 *   Fixed an issue where project folder names with special characters or spaces were improperly decoded twice.
 *   Fixed an issue where newly added files in the review pane displayed an inaccurate added line count due to trailing newlines.
-*   Fixed an issue where users authenticated via Workforce Identity Federation (WIF / Enterprise sign-in) were logged out prematurely after one hour due to token refresh endpoint routing.
+*   Fixed an issue where users authenticated using Workforce Identity Federation (WIF / Enterprise sign-in) were logged out prematurely after one hour due to token refresh endpoint routing.
 *   Fixed a z-index stacking conflict where inline file change panels overlapped the @-mention dropdown menu.
 *   Fixed an issue where the side panel overflow menu incorrectly marked the last-clicked action with a checkmark.
 *   Fixed an issue where form controls and scrollbars inside generative UI widgets did not adapt to the dark or light theme.
-*   Fixed an issue where Enterprise users authenticating via Application Default Credentials could erroneously see an "Out of credits" error message.
+*   Fixed an issue where Enterprise users authenticating using Application Default Credentials could erroneously see an "Out of credits" error message.
 *   Fixed cold-start token endpoint routing to prevent HTTP 429 resource exhaustion errors on launch, and cached account authentication status to eliminate redundant backend checks on user interactions.
 *   Fixed an issue where long terminal commands in permission prompts caused the popup layout to overflow.
 *   Fixed an issue where rapid consecutive agent status updates caused repeated notification chime sounds.
@@ -393,7 +419,7 @@ An embedded terminal and Git-native version control now live directly in the sid
 *   Added an embedded terminal directly in the sidebar (Ctrl/Cmd + \`), allowing you to run build commands, test suites, and scripts without switching applications.
 *   Introduced Git version control in the Review pane to inspect working tree diffs, stage and unstage files, and commit changes directly within the app.
 *   Improved Git responsiveness and reduced background CPU usage on large repositories and projects with submodules.
-*   Added support for attaching audio files (MP3, WAV, M4A, AAC, OGG, FLAC, OPUS) up to 20MB via file picker or drag-and-drop.
+*   Added support for attaching audio files (MP3, WAV, M4A, AAC, OGG, FLAC, OPUS) up to 20MB using file picker or drag-and-drop.
 *   You can now drag to select regions and leave comments directly on any image in the file viewer, with smooth scrolling for tall images.
 *   Model Context Protocol (MCP) and custom tool execution steps now display structured headers, expandable argument blocks, and formatted result previews.
 *   Redesigned pending review comments in the chat input with unified attachment badges, file-grouped hover previews, and quick modal access for queued messages.
@@ -595,7 +621,7 @@ July 31, 2026
 
 ### Enterprise sign-in: Gemini Enterprise accounts and Workforce Identity Federation
 
-Added enterprise sign-in support for Gemini Enterprise user accounts (with admin controls) and Workforce Identity Federation via Advanced SSO.
+Added enterprise sign-in support for Gemini Enterprise user accounts (with admin controls) and Workforce Identity Federation using Advanced SSO.
 
 **Improvements:**
 
@@ -650,7 +676,7 @@ Added preview tabs, attachment support for .json, .md, and .csv files, MCP timeo
 
 *   Added a keyboard shortcut (Cmd+L / Ctrl+L) to quickly quote selected text into the chat input.
 *   Added support for attaching .json and .md files to the input box with distinct visual badges.
-*   Added preview (temporary) tabs to the auxiliary pane, allowing files to open in a temporary slot that is reused until promoted to a permanent tab (e.g., via double-click).
+*   Added preview (temporary) tabs to the auxiliary pane, allowing files to open in a temporary slot that is reused until promoted to a permanent tab (for example, by double-clicking).
 *   Added a timeout for MCP server connections and tool calls to prevent the agent from hanging indefinitely.
 *   Added an 'Only Unread' filter option to the Conversation History dropdown.
 *   Added support for uploading and attaching CSV (.csv) files in chat as plain text.
@@ -670,7 +696,7 @@ Added preview tabs, attachment support for .json, .md, and .csv files, MCP timeo
 
 *   Fixed an issue where configuring duplicate tool names in customizations (such as MCP servers) caused the agent to fail to initialize.
 *   Fixed a potential crash in the image generation tool.
-*   Fixed a bug where terminal commands with quoted arguments (e.g., arguments containing pipes or special characters) were incorrectly parsed, which could cause permission checks to fail or behave unexpectedly.
+*   Fixed a bug where terminal commands with quoted arguments (for example, arguments containing pipes or special characters) were incorrectly parsed, which could cause permission checks to fail or behave unexpectedly.
 *   Fixed an issue where queued agent messages could be delivered and displayed out of order on Windows clients.
 *   Fixed an issue where live-streamed subagent steps would display as generic text instead of rich cards.
 *   Fixed an issue where inline markdown diff blocks could occasionally render as empty boxes.
@@ -785,7 +811,7 @@ Quota screen redesign, PDF attachment support, new /btw slash command, and other
 **Improvements:**
 
 *   Quota screen redesign: clearer, unambiguous view into “used” versus “remaining” credits in the Models tab of the Settings screen.
-*   Ask side questions via /btw: while in a conversation, type ‘/btw’ in the input and select the ‘btw’ option in the menu to write a message to an ephemeral, single-response agent that has the context of your current conversation.
+*   Ask side questions using `/btw`: While in a conversation, type ‘/btw’ in the input and select the ‘btw’ option in the menu to write a message to an ephemeral, single-response agent that has the context of your current conversation.
 *   Simple conversation search functionality: cmd/ctrl+F to search for visible text in the conversation view.
 *   Support for PDF attachments to messages to Gemini models: drag and drop PDFs from your filesystem or add PDFs using the media option in the Add Context menu button in the input box.
 *   Breadcrumbs in file viewer pane header: quality-of-life UI to more easily see and navigate directories in your repo.
@@ -867,9 +893,30 @@ Antigravity 2.0 Launch bug fixes.
 
 ## Antigravity CLI
 
-### [v1.2.11](/download#antigravity-cli "View release 1.2.11")
+### [v1.2.12](/download#antigravity-cli "View release 1.2.12")
 
 Latest
+
+September 27, 2026
+
+### Smooth full-screen scrolling, fast quota exhaustion handling, and replay and terminal fixes
+
+Coalesces bursts of scroll events to reduce latency in full-screen views, terminates exhausted Gemini API key sessions immediately without wasteful retries, speeds up long conversation replays in lower verbosities, prevents corrupt terminal titles inside screen/tmux/Zellij multiplexers, and fixes Vim mode multibyte character navigation and undo history.
+
+**Improvements:**
+
+*   Improved scrolling in the full-screen view: bursts of mouse-wheel or trackpad events are now coalesced before redrawing, which cuts CPU use and reduces scroll lag in long conversations and the artifact viewer.
+*   Improved `GEMINI_API_KEY` sessions to stop immediately when the Gemini API reports an exhausted daily quota, a project or billing-account spend cap, or depleted prepaid credits, instead of spending several minutes on retries that cannot succeed; short-lived per-minute rate limits are still retried.
+
+**Fixes:**
+
+*   Fixed resuming a long conversation in `medium` or `low` verbosity taking many seconds and lagging while history replayed: earlier tool groups now appear already finished instead of each re-animating, and keys pressed during the replay no longer refresh a half-loaded transcript.
+*   Fixed the terminal or tab title changing to a string like `Ga=q,f=32,...` every time the CLI starts inside GNU `screen`, `tmux` (including iTerm2 `tmux -CC` tabs), or Zellij; the CLI no longer sends its image-support probe through a multiplexer, and `CLI_GRAPHICS=kitty` still forces image mode.
+*   Fixed Vim mode ignoring non-ASCII characters such as `é` or `中` after `r`, `f`, `F`, `t` and `T`, `fv` and `fV` in Visual mode leaving Visual mode instead of extending the selection, and `D`, `C`, or Visual `~`/`u`/`U` recording an empty undo step and clearing redo history when they changed nothing.
+
+---
+
+### [v1.2.11](/download#antigravity-cli "View release 1.2.11")
 
 September 25, 2026
 
@@ -1010,11 +1057,11 @@ September 18, 2026
 
 ### Session-scoped Remote Control, unlimited headless run timeouts, structured error reporting, and artifact text selection
 
-Introduces session-scoped Remote Control via `--remote-control` and `/remote-control`, lifts the default 5-minute timeout on headless runs, adds structured `AGY_ERROR` output on stderr, improves word-wise navigation in the prompt editor, and fixes Remote Control workspace permission inheritance, oversized file edit storage limits, full-screen artifact text selection, queued `/model` switching, and `/rewind` snapshot resolution.
+Introduces session-scoped Remote Control using `--remote-control` and `/remote-control`, lifts the default 5-minute timeout on headless runs, adds structured `AGY_ERROR` output on stderr, improves word-wise navigation in the prompt editor, and fixes Remote Control workspace permission inheritance, oversized file edit storage limits, full-screen artifact text selection, queued `/model` switching, and `/rewind` snapshot resolution.
 
 **Improvements:**
 
-*   Added Remote Control (start a connection via `--remote-control` startup flag or `/remote-control` slash command) to create a session-scoped remote connection for following and controlling your active terminal session from another device. Typing `/remote-control off` or closing the session automatically tears down the tunnel and unregisters the device from the active Remote Control session list.
+*   Added Remote Control (start a connection using `--remote-control` startup flag or `/remote-control` slash command) to create a session-scoped remote connection for following and controlling your active terminal session from another device. Typing `/remote-control off` or closing the session automatically tears down the tunnel and unregisters the device from the active Remote Control session list.
 *   Changed the default timeout for headless (`-p` / `--prompt`) runs from 5 minutes to unlimited so long-running agent turns run until the response completes unless `--print-timeout` is passed explicitly, and enabled daemon background commands in headless `GEMINI_API_KEY` sessions so background servers stay running after the turn finishes.
 *   Improved headless (`-p` / `--prompt`) error reporting when a turn terminates on an agent or model API failure: the CLI now prints a structured `AGY_ERROR: {...}` JSON line on stderr with canonical status, HTTP or gRPC error code, retryability, and error ID (including HTTP status mapping for `GEMINI_API_KEY` SDK errors) and exits with code `3` instead of `1`.
 *   Improved word-wise cursor movement (`Alt+F`, `Alt+B`, and `Ctrl`/`Alt`+Arrow keys) and word deletion (`Ctrl+W`, `Alt+Backspace`, and `Alt+D`) in the prompt editor to stop at punctuation boundaries instead of only whitespace, making it easy to step through or delete individual segments of file paths, URLs, and flags.
@@ -1147,7 +1194,7 @@ Introduces `excludeDefaultComponents` for custom agent Markdown definitions, add
 
 *   Fixed `--continue` starting a brand-new conversation when launched from a subdirectory, after a crash, or while another session is open in the same workspace; it now falls back to the most recent non-empty conversation in the current workspace or its parent/child directories.
 *   Fixed full-screen blank flashes in inline mode when content first pushes to scrollback, at the end of a turn, or when clearing the screen with `Ctrl+L`.
-*   Fixed remote companion UIs connected to an interactive CLI session via Remote Control displaying an unauthenticated sign-in screen instead of the active session's signed-in state.
+*   Fixed remote companion UIs connected to an interactive CLI session using Remote Control displaying an unauthenticated sign-in screen instead of the active session's signed-in state.
 *   Fixed the status line reporting the terminal sandbox as disabled when the session was launched with the `--sandbox` command-line flag.
 *   Fixed image zoom keys (`Ctrl+=` and `Ctrl+-`) and the footer zoom hint appearing in the artifact viewer when a Mermaid diagram is rendered in ASCII mode instead of as a Kitty image.
 
@@ -1194,7 +1241,7 @@ Improves resilience to transient model API errors with extended exponential back
 *   Improved headless (`-p`) runs to exit promptly upon delivering final answers, waiting for non-daemon background tasks and scheduled timers within `--print-timeout` while preserving running background daemons.
 *   Improved failure reporting in headless (`-p`) runs by printing fatal errors to stderr with stable `error:` markers and adding truncation notifications.
 *   Improved headless (`-p`) latency by eliminating up to 200 ms of idle delay per turn and skipping unused conversation title generation model calls.
-*   Improved tool approval prompts to display specific action requests (e.g. `Run this command?`, `Allow access to this URL?`, or `Allow calling this tool?`), restricting command editing to commands and including a `Reason:` explanation when triggered by hooks or cross-project files.
+*   Improved tool approval prompts to display specific action requests (for example, `Run this command?`, `Allow access to this URL?`, or `Allow calling this tool?`), restricting command editing to commands and including a `Reason:` explanation when triggered by hooks or cross-project files.
 *   Improved model selection auditability by logging alias resolutions, `--effort` variant mappings, and deprecated model replacements in `cli.log`.
 *   Changed `--print-timeout` expiration behavior in headless mode to return partial output and exit successfully with a warning on stderr instead of raising a timeout failure.
 *   Changed default URL fetching permissions to prompt for approval by default before reading external URLs unless access has been pre-granted.
@@ -1359,7 +1406,7 @@ Adds direct `/model` switching with inline ghost text autocompletion, dynamic `/
 
 **Fixes:**
 
-*   Fixed selectable reasoning effort configuration for Gemini 3.1 Pro and Gemini 3.5 Flash when authenticating via Gemini API keys.
+*   Fixed selectable reasoning effort configuration for Gemini 3.1 Pro and Gemini 3.5 Flash when authenticating using Gemini API keys.
 *   Fixed continuous interface redraws when the tasks panel or subagent detail panel was open with no active tasks, significantly reducing idle CPU usage.
 *   Fixed running subagent elapsed timers freezing on screen while the parent agent was in a waiting state.
 *   Fixed transient HTTP 502 Bad Gateway errors terminating runs by adding automatic retry handling with backoff.
@@ -1529,7 +1576,7 @@ August 19, 2026
 
 ### Stream-JSON input mode, markdown agent explicit rules, and startup credential fixes
 
-Stream-JSON print input mode for persistent session drivers, direct rule file configuration in markdown agent frontmatter, plugin rule support via `rules.json`, current tool call hints on the spinner, and fixes for allocator preloading on Cloud TPU VMs, keyring credential restoration, terminal scrolling and unicode display in the model picker, and artifact subdirectories.
+Stream-JSON print input mode for persistent session drivers, direct rule file configuration in markdown agent frontmatter, plugin rule support using `rules.json`, current tool call hints on the spinner, and fixes for allocator preloading on Cloud TPU VMs, keyring credential restoration, terminal scrolling and unicode display in the model picker, and artifact subdirectories.
 
 **Improvements:**
 
@@ -1767,7 +1814,7 @@ Added structured output formats (`json`, `stream-json`) for print mode, support 
 
 **Improvements:**
 
-*   Print mode (`-p` / `--print`) now supports structured, machine-readable output via the `--output-format` flag (`text` (default), `json`, or `stream-json`), so headless runs in CI, eval harnesses, and scripts can consume the CLI's output programmatically; these flags are now discoverable in `--help`.
+*   Print mode (`-p` / `--print`) now supports structured, machine-readable output using the `--output-format` flag (`text` (default), `json`, or `stream-json`), so headless runs in CI, eval harnesses, and scripts can consume the CLI's output programmatically; these flags are now discoverable in `--help`.
 *   Added the `stream-json` output format: a strongly-typed NDJSON event stream that emits typed `init`, `step_update`, and terminal `result` events with a stable, closed-vocabulary `step_type` discriminator, so consumers receive progress incrementally instead of waiting for the whole run to finish.
 *   Added the `--json-schema` flag to enforce a custom JSON schema on the structured output, accepting either an inline schema string or a path to a schema file; for `stream-json` the schema applies to the final `result` event.
 *   Enriched the structured stream with a `tool_info` object for each tool call (canonical tool name, parameters, and output) and a `subagent_info` payload for delegated subagents (including `conversation_id` and `log_uri`) so consumers can correlate child trajectories.
@@ -1809,7 +1856,7 @@ Added support for defining custom agents in Markdown format (`agent.md`), option
 
 **Improvements:**
 
-*   Added support for defining custom agents using Markdown files (`agent.md`) with YAML frontmatter and H1-delimited system prompts. Markdown agents support `mainAgent`, `subagent`, `hidden`, `inheritMcp`, and `commandExecutionPolicy` frontmatter fields for fine-grained control over agent behavior. Dynamically defined subagents (via `define_subagent`) now also write Markdown format so they resolve correctly on external builds.
+*   Added support for defining custom agents using Markdown files (`agent.md`) with YAML frontmatter and H1-delimited system prompts. Markdown agents support `mainAgent`, `subagent`, `hidden`, `inheritMcp`, and `commandExecutionPolicy` frontmatter fields for fine-grained control over agent behavior. Dynamically defined subagents (using `define_subagent`) now also write Markdown format so they resolve correctly on external builds.
 *   Added an optional index argument to `/copy` so `/copy` copies the n-th most recent response to the clipboard, while `/copy` and `/copy 1` still copy the latest.
 *   Improved `/codesearch` to render results progressively as they stream in, showing a live count while loading and letting you cancel an in-flight search with `Esc` instead of blocking until the whole search finishes.
 *   Improved default file access by granting read access to the system temporary directory out of the box, resolved correctly per platform, so agents no longer trigger permission prompts when reading temporary files.
@@ -1819,7 +1866,7 @@ Added support for defining custom agents in Markdown format (`agent.md`), option
 
 **Fixes:**
 
-*   Fixed switching from a custom agent back to the default agent via `/agents`, which previously failed silently and left the conversation stuck on the custom agent's persona.
+*   Fixed switching from a custom agent back to the default agent using `/agents`, which previously failed silently and left the conversation stuck on the custom agent's persona.
 *   Fixed a crash when a command was blocked by sandbox permissions before its output was captured, and cleaned up the permission approval and denial messages.
 *   Fixed the artifact viewer emitting garbage escape bytes when cycling to image mode on terminals that are detected but cannot actually render Kitty graphics, such as iTerm2.
 *   Fixed the first keystroke (such as `Esc`) being dropped when opening the first artifact view on some non-Kitty terminals.
@@ -1928,7 +1975,7 @@ Added full-screen diffs for file creations, OAuth authorization code pasting in 
 **Improvements:**
 
 *   Added an `f` (full diff) shortcut to the create-file tool review screen so new-file confirmations can open a full-screen diff view, matching the existing file-edit experience.
-*   Added support for pasting the OAuth authorization code in print mode (-p) via the controlling terminal (/dev/tty on POSIX and CONIN$ on Windows) when stdin is consumed by a piped prompt, and made truly headless runs fail fast with an actionable message instead of blocking.
+*   Added support for pasting the OAuth authorization code in print mode (-p) using the controlling terminal (/dev/tty on POSIX and CONIN$ on Windows) when stdin is consumed by a piped prompt, and made truly headless runs fail fast with an actionable message instead of blocking.
 *   Improved responsiveness on large conversations (5000+ steps) in no flickering mode by switching hot-path line-count methods to pointer receivers, cutting the per-frame prefix-sum cost and eliminating sustained 99% CPU and keystroke lag.
 
 **Fixes:**
@@ -1962,7 +2009,7 @@ Added `--agent` flag, in-file keyword search for artifacts, recursive subagent u
 **Fixes:**
 
 *   Fixed print mode (`--print` / `-p`) silently exiting with a success code and empty output when a request failed server-side, now writing the error to stderr and returning a non-zero exit code.
-*   Fixed `agy -p` hanging when run inside a shell script or subprocess by no longer reading stdin when a prompt is provided via a flag.
+*   Fixed `agy -p` hanging when run inside a shell script or subprocess by no longer reading stdin when a prompt is provided using a flag.
 *   Fixed a data race on the `/btw` cancellation function.
 *   Fixed interactive `/diff` viewer defects in Jujutsu (jj) workspaces by correctly prioritizing `.jj` over `.git` in colocated repos, fixing commit hash regex boundaries, and correctly highlighting active `@` graph nodes.
 *   Fixed workspace-local hooks defined in `/.agents/hooks.json` not loading after trusting a folder by reloading hooks whenever workspaces change.
@@ -1980,7 +2027,7 @@ Public release of mode cycling, default request-review mode with interactive lin
 
 **Improvements:**
 
-*   Agent execution mode cycling is now publicly available: `default` -> `accept-edits` -> `plan`)
+*   Agent execution mode cycling is now publicly available: `default` > `accept-edits` > `plan`).
 *   Added `request-review` (default) mode as the default execution behavior: automatically pauses before file write operations to display an interactive, line-level diff preview (`f` shortcut) where users can review, accept, or reject individual code modifications before they are saved to disk.
 *   Added an `Agent Mode` option to the `/settings` panel so users can set and persist a default execution mode (`default`, `accept-edits`, `plan`) without manually editing `settings.json` or passing `--mode` on startup, with real-time synchronization so changes take effect immediately.
 *   Added a dedicated `"Create file"` confirmation preview for new file creations (`write_to_file` without overwrite): renders new content as an addition-only diff preview.
@@ -2081,7 +2128,7 @@ Optimistic slash command rendering, strict non-regex permission matching, and un
 **Improvements:**
 
 *   Improved command permission security by making "Always Approve" rule matching strict (non-regex) by default, while allowing users to explicitly opt-in to regex matching by prepending rules with `regex:`.
-*   Improved command permission usability by relaxing redirection checks, allowing safe commands with output redirection (e.g., `tool > file`) to match without requiring strict full-command approval.
+*   Improved command permission usability by relaxing redirection checks, allowing safe commands with output redirection (for example, `tool > file`) to match without requiring strict full-command approval.
 
 **Fixes:**
 
@@ -2128,16 +2175,16 @@ Added `ctrl+c` interrupt and exit handling, parallel `/resume` metadata caching,
 
 **Improvements:**
 
-*   Added `ctrl+c` as an exit and interrupt key: the first press cancels active agent operations (like streaming responses), and a double-press triggers the exit flow. Also added a dynamic exit hint in the status line.
+*   Added `ctrl+c` as an exit and interrupt key: The first press cancels active agent operations (like streaming responses), and a double-press triggers the exit flow. Also added a dynamic exit hint in the status line.
 *   Improved `/resume` loading performance by implementing a persistent metadata cache and parallel loader, eliminating severe latency with large conversation histories and preventing background loading log spam.
-*   Added an expanded AltScreen view for tool confirmations (accessible via `ctrl+g`), allowing users to view and edit the full command and associated permissions in a dedicated full-screen view, replacing the inline edit (`e`) key.
+*   Added an expanded AltScreen view for tool confirmations (accessible using `ctrl+g`), allowing users to view and edit the full command and associated permissions in a dedicated full-screen view, replacing the inline edit (`e`) key.
 *   Added the `AGY_CLI_CMD_OUTPUT_PERCENTAGE` environment variable, allowing users to customize the maximum height of command outputs in the TUI as a percentage of the terminal height.
 *   Added strict key name validation to the keybindings system to reject invalid key names (like typos) and suggest canonical alternatives, preventing "dead keys" from being registered.
 *   Added a validation warning when `ctrl+c` is mapped to a non-default action, clarifying that the system always intercepts `ctrl+c` to interrupt active operations or exit, and providing instructions on how to resolve the warning.
 *   Improved command output rendering by making the output height dynamic, improving the readability of commands like `/keybindings`.
 *   Improved text rendering with ANSI-aware word wrapping at word boundaries and prevented URLs containing hyphens from being incorrectly split across lines.
 *   Improved the `/resume` experience: added support for pasting clipboard text into the search filter and rename fields, upgraded the rename input to a multiline editor to prevent long titles from being hidden, and fixed a bug where the navigation cursor could disappear.
-*   Improved keybinding validation warning messages to use user-facing names (e.g., `cli.escape`) instead of internal representation names.
+*   Improved keybinding validation warning messages to use user-facing names (for example, `cli.escape`) instead of internal representation names.
 *   Improved startup behavior by only creating the `keybindings.json` configuration file when the user explicitly runs the `/keybindings` customization command, rather than automatically generating it on every startup.
 *   Improved keybinding error presentation by replacing the persistent error footer with transient error alerts, freeing up valuable terminal space.
 
@@ -2160,15 +2207,15 @@ Expanded ARM64 device compatibility, added builtin `antigravity_guide` skill, an
 
 **Improvements:**
 
-*   Improved compatibility with a broader set of ARM64 devices (e.g. raspberry pi 4b).
+*   Improved compatibility with a broader set of ARM64 devices (such as Raspberry Pi 4B).
 *   Added `antigravity_guide` builtin skill to provide instant, in-context reference guides for the Antigravity 2.0, CLI, IDE, and SDK.
 *   Improved commit history navigation: scrolling now immediately loads and displays changed files and diffs.
 *   Improved Git integration by enabling ASCII node graphs (`git log --graph`) for visual parity with hg/jj.
-*   Improved commit hash matching to seamlessly resolve short (6-char) to long (64-char) hashes via prefix comparison.
+*   Improved commit hash matching to seamlessly resolve short (6-char) to long (64-char) hashes using prefix comparison.
 *   Added alert message type for system errors/warnings, separating them from standard command output.
 *   Added the CLI log file path to the `/help` menu for easy troubleshooting.
 *   Improved markdown rendering by upgrading `glamour` to v2.0.1 for cleaner headings and block padding.
-*   Improved authentication to automatically launch browser sign-in via `rundll32`.
+*   Improved authentication to automatically launch browser sign-in using `rundll32`.
 
 **Fixes:**
 
@@ -2198,7 +2245,7 @@ Automatic Git submodule resolution for plugins, read-only access for builtin ski
 
 *   Hardened command execution permission checks by enforcing strict exact-match verification for PowerShell scripts, complex shell redirections ( `>` , `2>&1` ), and unparseable strings to prevent sandbox escapes.
 *   Hardened sandbox execution by adding `.git` to the core list of dangerous paths, preventing unauthorized or destructive repository modifications.
-*   Fixed a bug where allowlisted terminal commands with quoted arguments (e.g., `python -c "print(1)"`) would silently fail to match at runtime due to flawed whitespace tokenization.
+*   Fixed a bug where allowlisted terminal commands with quoted arguments (for example, `python -c "print(1)"`) would silently fail to match at runtime due to flawed whitespace tokenization.
 *   Fixed a bug in headless print mode resumption (`--conversation`/`-c` `-p ...`) where the CLI would dump the entire historical conversation transcript instead of only printing the newly generated response.
 *   Fixed a CPU compatibility issue on ARM64 devices without AES hardware support.
 
@@ -2230,7 +2277,7 @@ Replay slash command history with Up arrow, redesigned Models & Quota page, and 
 *   Fixed a CPU compatibility issue (SIGILL on non-AES-NI CPUs), preventing immediate crashes on startup on older CPUs (like Intel Ivy Bridge) or VM environments that lack AES-NI support.
 *   Fixed dynamic reloading of custom skills and system slash commands, ensuring they are instantly discovered in autocomplete upon conversation switch or `/add-dir`.
 *   Fixed a TUI hang in the artifact view during long sessions by optimizing the rendering complexity of large step histories.
-*   Fixed an autocomplete bug where a command that is an exact prefix of another (e.g., `/conv` vs `/conv-switch`) would aggressively auto-complete and hide the suggestions menu.
+*   Fixed an autocomplete bug where a command that is an exact prefix of another (for example, `/conv` vs `/conv-switch`) would aggressively auto-complete and hide the suggestions menu.
 *   Fixed a race condition where sending a message immediately after denying a permission request would fail due to incomplete backend cleanup.
 *   Fixed potential OOM risks when reading large clipboard files by verifying file size before reading.
 *   Fixed Windows and Wayland-only Linux distributions clipboard image and file reading.
@@ -2279,7 +2326,7 @@ Path autocompletion for `/open` and `/add-dir`, optimistic chat prompt rendering
 
 *   Added shell-style path auto-completion for `/open` and `/add-dir`.
 *   Added optimistic rendering for user chat prompt submissions, injecting messages immediately into the viewport to eliminate perceived input lag.
-*   Added fuzzy and partial substring matching across slash commands. E.g. `/el` -> shows `/help` and `/model` while previous no suggested completions.
+*   Added fuzzy and partial substring matching across slash commands. For example, `/el` suggests `/help` and `/model` where previously no completions were suggested.
 *   Skipped subagent conversations from `/resume`, keeping the standalone conversation picker focused purely on direct user initiated conversations.
 *   Added a `stack_with_default` flag to the `statusLine` configuration to render both the default Antigravity status line and custom status line output vertically stacked.
 
@@ -2306,9 +2353,9 @@ Added `--model` launch flag, interactive `/permissions` editor, and URL-configur
 *   Allowed opening the Artifact Review panel (shortcut `ctrl+r`) while answering pending questions or tool permission confirmations, preserving your current progress when toggling back.
 *   Improved statusline layout by merging active tip and artifact status on a single line and truncating with ellipsis on narrow terminals to prevent collisions.
 *   Improved customization support by allowing directories in the customization manager to be passed as workspace directories, enabling correct trajectory metadata population and `/add-dir` support.
-*   Added support for `url` in `mcp_config.json` to configure MCP servers directly via a URL.
+*   Added support for `url` in `mcp_config.json` to configure MCP servers directly using a URL.
 *   Improved `/resume` performance: optimized lazy loading of conversation details, filtered out empty conversations, and added support for scanning SQLite database files (`.db` and `.db-wal`).
-*   Improved autocomplete: tab completion for slash commands now resolves to the matched alias instead of the primary command name (e.g., `/se` autocompletes to `/settings` instead of `/config`).
+*   Improved autocomplete: Tab completion for slash commands now resolves to the matched alias instead of the primary command name (for example, `/se` autocompletes to `/settings` instead of `/config`).
 *   Integrated the permissioning system with the rest of Antigravity. CLI permissions now merges project level permissions, permissions from user settings shared with Antigravity, and permissions from the CLI `settings.json`.
 
 **Fixes:**
@@ -2362,8 +2409,8 @@ G1 AI credits support when standard quotas run out, in-CLI `/credits` panel, and
 **Fixes:**
 
 *   Fixed an infinite loop in the prompt input. Navigating left (`wordLeft`) when encountering spaces at the very beginning of the input no longer causes an infinite hang.
-*   Fixed custom MCP server disabling via the TUI. Resolved a directory path mismatch where pressing the `[Disable]` button wrote to the legacy `mcp_config.json` path instead of the migrated `config/mcp_config.json` path, ensuring custom MCP servers can now be successfully disabled and unloaded.
-*   Fixed `$EDITOR` environment variable parsing: resolved issues where arguments containing `=` (e.g., `--alternate-editor=vi`) were incorrectly split, causing editor launch failures.
+*   Fixed custom MCP server disabling using the TUI. Resolved a directory path mismatch where pressing the `[Disable]` button wrote to the legacy `mcp_config.json` path instead of the migrated `config/mcp_config.json` path, ensuring custom MCP servers can now be successfully disabled and unloaded.
+*   Fixed `$EDITOR` environment variable parsing: Resolved issues where arguments containing `=` (for example, `--alternate-editor=vi`) were incorrectly split, causing editor launch failures.
 *   Fixed `/diff` detail view truncation: implemented dynamic line wrapping based on terminal viewport width and added automatic tab-to-space expansion to prevent layout overflow.
 *   Fixed project discovery robustness: updated the CLI to skip invalid or broken symlinks in `.antigravitycli/` rather than failing immediately, allowing discovery of valid projects.
 *   Fixed `AskQuestion` state management: memorizes selected options, write-in values, and UI states when navigating back and forth (`KeyLeft`) between questions in multi-question dialogs.
@@ -2452,23 +2499,23 @@ This release announces official Antigravity SDK local model support with first-c
 
 **Improvements:**
 
-*   **Antigravity SDK + Local Models Support**: Official local model support is now ready to use with first-class `LiteRTAgentConfig` and `LocalOpenAIAgentConfig` configurations. Developers can execute on-device models with automated lightweight presets or integrate with local OpenAI-compatible endpoints.
+*   **Antigravity SDK and local models support**: Official local model support is now ready to use with first-class `LiteRTAgentConfig` and `LocalOpenAIAgentConfig` configurations. Developers can execute on-device models with automated lightweight presets or integrate with local OpenAI-compatible endpoints.
 *   **Standardized Evaluation Preset (`AgentConfig.eval()`)**: Adds a standardized, benchmark-ready preset that configures autonomous permissions, benchmark retry behavior, daemon execution in commands, and strips image generation and subagents to focus on core coding evaluations.
-*   **Custom Subagent Models**: Allows developers to assign specific model targets to subagents independently of the root agent configuration.
-*   **Built-in Schedule Tool**: Enables the `schedule` tool by default across standard tool groups, permitting agents and subagents to set timers and cron-based background jobs alongside task management.
-*   **Automatic Lightweight Presets for LiteRT**: Instantiating `LiteRTAgentConfig` now automatically applies optimized lightweight presets—including reduced prompt overhead and synchronous context compaction—without requiring an explicit call to `.lightweight()`.
-*   **Task Management Pairing**: Automatically enables the `manage_task` tool whenever `run_command` or `schedule` is active, allowing background task lifecycle management.
-*   **LiteRT & Local Model Examples**: Added getting-started guides and end-to-end examples demonstrating on-device execution with `LiteRTAgentConfig` (Gemma 4 26B) and OpenAI-compatible local endpoints via `LocalOpenAIAgentConfig`.
-*   **Sandbox Availability Warning**: Added a session startup warning when `enable_sandbox=True` is requested on an environment or OS backend where sandbox isolation cannot be enforced.
-*   **Extended JSON Schema Normalization**: Added schema normalization support for OpenAPI and JSON Schema Draft 7 / 2020-12 keywords (such as `multipleOf`, `prefixItems`, and `dependentSchemas`) and prevented accidental mutation of uppercase sample values.
-*   **Optimized ToolRunner Coercion**: Improved type resolution for closure-scoped tools and forward-referenced `ToolContext` parameters, and introduced TypeAdapter caching to accelerate tool call execution.
+*   **Custom subagent models**: Allows developers to assign specific model targets to subagents independently of the root agent configuration.
+*   **Built-in schedule tool**: Enables the `schedule` tool by default across standard tool groups, permitting agents and subagents to set timers and cron-based background jobs alongside task management.
+*   **Automatic lightweight presets for LiteRT**: Instantiating `LiteRTAgentConfig` now automatically applies optimized lightweight presets—including reduced prompt overhead and synchronous context compaction—without requiring an explicit call to `.lightweight()`.
+*   **Task management pairing**: Automatically enables the `manage_task` tool whenever `run_command` or `schedule` is active, allowing background task lifecycle management.
+*   **LiteRT and local model examples**: Added getting-started guides and end-to-end examples demonstrating on-device execution with `LiteRTAgentConfig` (Gemma 4 26B) and OpenAI-compatible local endpoints using `LocalOpenAIAgentConfig`.
+*   **Sandbox availability warning**: Added a session startup warning when `enable_sandbox=True` is requested on an environment or OS backend where sandbox isolation cannot be enforced.
+*   **Extended JSON Schema normalization**: Added schema normalization support for OpenAPI and JSON Schema Draft 7 / 2020-12 keywords (such as `multipleOf`, `prefixItems`, and `dependentSchemas`) and prevented accidental mutation of uppercase sample values.
+*   **Optimized ToolRunner coercion**: Improved type resolution for closure-scoped tools and forward-referenced `ToolContext` parameters, and introduced TypeAdapter caching to accelerate tool call execution.
 *   **Top-Level `ServiceTier` Export**: Re-exported `ServiceTier` at the root package namespace for easier import parity.
 *   **Excluded `ASK_QUESTION` from Default Tools**: Excluded `BuiltinTools.ASK_QUESTION` from `BuiltinTools.default()`. Default configurations run autonomously; agents in headless workflows will no longer attempt interactive user prompts. To re-enable interactive questions, explicitly pass `BuiltinTools.ASK_QUESTION` in `enabled_tools`.
-*   **Single Compaction Threshold Dial**: Simplified `CompactionConfig` to a single `token_threshold` property, deprecating legacy context token limits and interval dials. To configure context compaction, specify `CompactionConfig(token_threshold=...)`.
+*   **Single compaction threshold dial**: Simplified `CompactionConfig` to a single `token_threshold` property, deprecating legacy context token limits and interval dials. To configure context compaction, specify `CompactionConfig(token_threshold=...)`.
 
 **Fixes:**
 
-*   **Service Tier Ingestion**: Fixed an unhandled `ValueError` when connecting via gateways reporting unlisted backend service tiers (such as Vertex AI `PROVISIONED_THROUGHPUT`) by safely ignoring unknown tier values while preserving token counts.
+*   **Service tier ingestion**: Fixed an unhandled `ValueError` when connecting using gateways reporting unlisted backend service tiers (such as Vertex AI `PROVISIONED_THROUGHPUT`) by safely ignoring unknown tier values while preserving token counts.
 
 **Patches:**
 
@@ -2482,23 +2529,23 @@ September 14, 2026
 
 ### Conversation compaction controls, forward-looking budget scopes, and tool output token truncation
 
-This release introduces first-class conversation compaction controls via `CompactionConfig`, delta and forward-looking budget scopes for session resumption, tool output token truncation limits, and expanded arithmetic operations on `UsageMetadata`. It also delivers OS-level terminal sandboxing examples and automated tool wrapper reflection preservation.
+This release introduces first-class conversation compaction controls using `CompactionConfig`, delta and forward-looking budget scopes for session resumption, tool output token truncation limits, and expanded arithmetic operations on `UsageMetadata`. It also delivers OS-level terminal sandboxing examples and automated tool wrapper reflection preservation.
 
 **Improvements:**
 
-*   **Compaction Configuration**: Adds `CompactionConfig` on `AgentConfig` to govern sliding-window conversation history compaction through an explicit token ceiling dial (`token_threshold`), deprecating `CapabilitiesConfig.compaction_threshold`.
-*   **Forward-Looking Budget Scope**: Adds `BudgetScope.FORWARD_LOOKING` to `BudgetConfig` to enforce model call and token budgets across newly resumed execution turns without counting previous historical usage.
-*   **Tool Output Token Truncation**: Exposes `tool_output_truncation_config` across agent configurations to cap token output volume initially for `run_command` executions in localharness.
-*   **UsageMetadata Arithmetic**: Supports standard Python arithmetic protocols on `UsageMetadata`, enabling scalar multiplications, scaling, and accumulating token counts using built-in `sum()`.
-*   **Tool Wrapper Metadata Preservation**: Preserves function signature, module name, annotations, and original callable references via `__wrapped__` when registering tools with `ToolWithSchema`.
-*   **Interactive REPL Policy Flattening**: Automatically flattens nested policy lists during interactive REPL upgrades so nested command authorization rules correctly upgrade to prompt the user.
-*   **Terminal Command Sandboxing Guide**: Added getting-started guide and references demonstrating OS-level command sandboxing using `RunCommandConfig(enable_sandbox=True)` paired with execution policies.
+*   **Compaction configuration**: Adds `CompactionConfig` on `AgentConfig` to govern sliding-window conversation history compaction through an explicit token ceiling dial (`token_threshold`), deprecating `CapabilitiesConfig.compaction_threshold`.
+*   **Forward-looking budget scope**: Adds `BudgetScope.FORWARD_LOOKING` to `BudgetConfig` to enforce model call and token budgets across newly resumed execution turns without counting previous historical usage.
+*   **Tool output token truncation**: Exposes `tool_output_truncation_config` across agent configurations to cap token output volume initially for `run_command` executions in localharness.
+*   **UsageMetadata arithmetic**: Supports standard Python arithmetic protocols on `UsageMetadata`, enabling scalar multiplications, scaling, and accumulating token counts using built-in `sum()`.
+*   **Tool wrapper metadata preservation**: Preserves function signature, module name, annotations, and original callable references using `__wrapped__` when registering tools with `ToolWithSchema`.
+*   **Interactive REPL policy flattening**: Automatically flattens nested policy lists during interactive REPL upgrades so nested command authorization rules correctly upgrade to prompt the user.
+*   **Terminal command sandboxing guide**: Added getting-started guide and references demonstrating OS-level command sandboxing using `RunCommandConfig(enable_sandbox=True)` paired with execution policies.
 
 **Fixes:**
 
-*   **Tool Call Deserialization**: Fixed dropped tool arguments during tool call handling when incoming payloads provide structured dictionary arguments rather than serialized JSON strings.
-*   **Local Step Trajectory Tracking**: Fixed missing provenance metadata by forwarding `trajectory_id` from incoming tool calls to local connection execution steps.
-*   **Dynamic Content Proto Resolution**: Fixed an `AttributeError` when importing `struct_converter` in external environments missing internal protobuf definitions by resolving descriptor types dynamically at runtime.
+*   **Tool call deserialization**: Fixed dropped tool arguments during tool call handling when incoming payloads provide structured dictionary arguments rather than serialized JSON strings.
+*   **Local step trajectory tracking**: Fixed missing provenance metadata by forwarding `trajectory_id` from incoming tool calls to local connection execution steps.
+*   **Dynamic content proto resolution**: Fixed an `AttributeError` when importing `struct_converter` in external environments missing internal protobuf definitions by resolving descriptor types dynamically at runtime.
 
 ---
 
@@ -2512,24 +2559,24 @@ The 0.1.16 release updates the default model for new agents to `gemini-3.8-flash
 
 **Improvements:**
 
-*   **Default Model Update to Gemini 3.8 Flash**: The default model for new agents and configurations has been updated to `gemini-3.8-flash`, delivering higher reasoning quality and stronger task performance. Developers can override this default by specifying `model` in their configuration:
-*   **Optimized Lightweight Agent Configuration**: New `.lightweight()` method on agent configurations (including `LocalAgentConfig` and `LiteRTAgentConfig`) applies preset optimizations for smaller, local-running models by configuring minimal tool sets, minimal prompting, and disabling background subagents:
-*   **Vertex AI Express Mode (API Key Support)**: Developers can now connect to Vertex AI using Express mode by providing an API key directly on `LocalAgentConfig(vertex=True, api_key="...")`, simplifying authentication without needing full GCP project/location ADC setup:
-*   **Support for Callable Class and Dataclass Tools**: The SDK's `ToolRunner` now inspects and executes tools defined as callable class instances (functors) and dataclass methods, enhancing flexibility for custom tool implementations:
-*   **OS Sandbox Opt-in for Commands**: Added an `enable_sandbox` field to `RunCommandConfig` to allow developers to execute terminal commands within an OS-level sandbox environment:
-*   **Tool Invocation Argument Flexibility**: `ToolWithSchema` and public callable proxies now accept both positional (`_args_`_) and keyword arguments (_`*kwargs`), matching standard Python function calling conventions.
+*   **Default model update to Gemini 3.8 Flash**: The default model for new agents and configurations has been updated to `gemini-3.8-flash`, delivering higher reasoning quality and stronger task performance. Developers can override this default by specifying `model` in their configuration:
+*   **Optimized lightweight agent configuration**: New `.lightweight()` method on agent configurations (including `LocalAgentConfig` and `LiteRTAgentConfig`) applies preset optimizations for smaller, local-running models by configuring minimal tool sets, minimal prompting, and disabling background subagents:
+*   **Vertex AI Express Mode (API key support)**: Developers can now connect to Vertex AI using Express mode by providing an API key directly on `LocalAgentConfig(vertex=True, api_key="...")`, simplifying authentication without needing full GCP project/location ADC setup:
+*   **Support for callable class and dataclass tools**: The SDK's `ToolRunner` now inspects and executes tools defined as callable class instances (functors) and dataclass methods, enhancing flexibility for custom tool implementations:
+*   **OS sandbox opt-in for commands**: Added an `enable_sandbox` field to `RunCommandConfig` to allow developers to execute terminal commands within an OS-level sandbox environment:
+*   **Tool invocation argument flexibility**: `ToolWithSchema` and public callable proxies now accept both positional (`_args_`_) and keyword arguments (_`*kwargs`), matching standard Python function calling conventions.
 *   **Support for `genai.Content` Media**: Introduced a structconverter to support media blocks from `genai.Content` objects within the SDK, enabling richer multimodal interactions.
-*   **MCP Dependency Compatibility Widening**: The SDK now supports both `mcp>=1.0` and `mcp<3.0` dependencies.
+*   **MCP dependency compatibility widening**: The SDK now supports both `mcp>=1.0` and `mcp<3.0` dependencies.
 
 **Fixes:**
 
-*   **Stop Hook Integration**: Agents now support the `StopHook` lifecycle hook, triggered when an agent's execution is externally stopped, enabling custom cleanup and resource logging actions:
-*   **Interactive Example Agent Behavior**: Fixed interactive SDK examples (`interactive_cli.py`, `human_in_the_loop.py`) to consistently configure `AgentBehavior.INTERACTIVE`.
-*   **Tool Runner stdio MCP Environment**: Resolved an issue in exported SDK examples where `stdio` MCP servers failed by ensuring child processes use `sys.executable` within the active virtual environment.
+*   **Stop hook integration**: Agents now support the `StopHook` lifecycle hook, triggered when an agent's execution is externally stopped, enabling custom cleanup and resource logging actions:
+*   **Interactive example agent behavior**: Fixed interactive SDK examples (`interactive_cli.py`, `human_in_the_loop.py`) to consistently configure `AgentBehavior.INTERACTIVE`.
+*   **Tool runner stdio MCP environment**: Resolved an issue in exported SDK examples where `stdio` MCP servers failed by ensuring child processes use `sys.executable` within the active virtual environment.
 
 **Patches:**
 
-*   **Step Token Usage Deprecation**: Deprecated `Step.usage_metadata` in favor of consolidated turn-level (`ChatResponse.usage_metadata`) and session-level (`agent.conversation.total_usage`) reporting.
+*   **Step token usage deprecation**: Deprecated `Step.usage_metadata` in favor of consolidated turn-level (`ChatResponse.usage_metadata`) and session-level (`agent.conversation.total_usage`) reporting.
 
 ---
 
@@ -2543,24 +2590,24 @@ The 0.1.15 release introduces subagent-exclusive tool scoping to reduce context 
 
 **Improvements:**
 
-*   **Subagent-Scoped Custom Tools**: Custom tools can now be registered directly on subagents without requiring registration on the root agent, strictly isolating them to the subagent's context and reducing root context tokens.
-*   **Context Compaction Lifecycle Hook**: Improved support for the `on_compaction` lifecycle hook to accurately capture compaction events and summaries when long-running conversations trigger checkpointing.
-*   **Custom Base URL & Secure Vertex Proxy Support**: `VertexEndpoint` now supports routing requests to custom `base_url` reverse proxies or enterprise gateways without leaking ambient Google Cloud Application Default Credentials (ADC) OAuth tokens or conflicting with project/location configurations.
-*   **Universal JSON Schema Normalization for Custom Tools**: Custom Python tools now produce standard OpenAPI / JSON Schema compliant parameter definitions with lowercase types and camelCase combiners, eliminating schema errors when connecting to local OpenAI-compatible engines such as Ollama, LM Studio, or vLLM.
+*   **Subagent-scoped custom tools**: Custom tools can now be registered directly on subagents without requiring registration on the root agent, strictly isolating them to the subagent's context and reducing root context tokens.
+*   **Context compaction lifecycle hook**: Improved support for the `on_compaction` lifecycle hook to accurately capture compaction events and summaries when long-running conversations trigger checkpointing.
+*   **Custom base URL and secure Vertex proxy support**: `VertexEndpoint` now supports routing requests to custom `base_url` reverse proxies or enterprise gateways without leaking ambient Google Cloud Application Default Credentials (ADC) OAuth tokens or conflicting with project/location configurations.
+*   **Universal JSON Schema normalization for custom tools**: Custom Python tools now produce standard OpenAPI / JSON Schema compliant parameter definitions with lowercase types and camelCase combiners, eliminating schema errors when connecting to local OpenAI-compatible engines such as Ollama, LM Studio, or vLLM.
 *   **`from_bytes` Helper Export**: Exported the `from_bytes` helper in top-level `google.antigravity` alongside `from_file` for creating binary and multimodal content payloads.
-*   **PEP 656 musllinux Wheel Support**: Added `musllinux_1_1` wheel platform tags for x86\_64 and aarch64 architectures, enabling direct installation via pip on Alpine Linux containers.
-*   **Isolated Harness Environment Configuration**: Added per-connection environment dictionary resolution for `ANTIGRAVITY_HARNESS_PATH`, avoiding mutation of global `os.environ`.
-*   **Tool Call Metadata Preservation**: Preserved `id`, `step_id`, and `server_name` metadata across all `ToolResult` executions, including batch calls, errors, and unknown tools.
-*   **Relative Workspace Path Normalization**: `LocalAgentConfig(workspaces=...)` now resolves relative directory paths and tilde (`~`) expansions against the current working directory (`os.getcwd()`).
+*   **PEP 656 musllinux wheel support**: Added `musllinux_1_1` wheel platform tags for x86\_64 and aarch64 architectures, enabling direct installation using pip on Alpine Linux containers.
+*   **Isolated harness environment configuration**: Added per-connection environment dictionary resolution for `ANTIGRAVITY_HARNESS_PATH`, avoiding mutation of global `os.environ`.
+*   **Tool call metadata preservation**: Preserved `id`, `step_id`, and `server_name` metadata across all `ToolResult` executions, including batch calls, errors, and unknown tools.
+*   **Relative workspace path normalization**: `LocalAgentConfig(workspaces=...)` now resolves relative directory paths and tilde (`~`) expansions against the current working directory (`os.getcwd()`).
 
 **Fixes:**
 
-*   **Local OpenAI Tool Schema Validation**: Fixed HTTP 400 "Invalid discriminator value" errors on local OpenAI endpoints by canonicalizing tool parameter schemas to standard JSON Schema.
-*   **Vertex Custom Gateway Token Leaks**: Fixed host GCP OAuth bearer token leakage and environment variable collisions when using custom `base_url` endpoints with `VertexEndpoint`.
-*   **Subagent Custom Tool Routing**: Fixed tool dispatch failures when subagents defined tools not registered on the root agent.
+*   **Local OpenAI tool schema validation**: Fixed HTTP 400 "Invalid discriminator value" errors on local OpenAI endpoints by canonicalizing tool parameter schemas to standard JSON Schema.
+*   **Vertex custom gateway token leaks**: Fixed host GCP OAuth bearer token leakage and environment variable collisions when using custom `base_url` endpoints with `VertexEndpoint`.
+*   **Subagent custom tool routing**: Fixed tool dispatch failures when subagents defined tools not registered on the root agent.
 *   **`UsageMetadata` Service Tier Loss**: Fixed `UsageMetadata.__sub__` dropping the `service_tier` field when calculating per-turn usage deltas.
-*   **WebSocket Deprecation Warnings**: Resolved `DeprecationWarning` exceptions when reading WebSocket close codes across varying websockets library versions.
-*   **OpenTelemetry Optional Dependency Guard**: Fixed test collection failures on minimal environments lacking `opentelemetry.sdk`.
+*   **WebSocket deprecation warnings**: Resolved `DeprecationWarning` exceptions when reading WebSocket close codes across varying websockets library versions.
+*   **OpenTelemetry optional dependency guard**: Fixed test collection failures on minimal environments lacking `opentelemetry.sdk`.
 
 **Patches:**
 
@@ -2578,12 +2625,12 @@ Resolves relative workspace paths against the current working directory, prevent
 
 **Improvements:**
 
-*   **Vertex Endpoint Authentication Overrides**: Enhanced `VertexEndpoint` to support custom authentication headers and token overrides when routing inference requests through API gateways or proxy servers.
+*   **Vertex endpoint authentication overrides**: Enhanced `VertexEndpoint` to support custom authentication headers and token overrides when routing inference requests through API gateways or proxy servers.
 
 **Fixes:**
 
-*   **Workspace Path Resolution**: Fixed relative workspace paths in `LocalAgentConfig(workspaces=[...])` incorrectly resolving against `app_data_dir` instead of the process working directory.
-*   **Compaction Hook Deduplication**: Fixed `on_compaction` hook dispatching multiple times per compaction event and resolved over-counting in `compaction_indices` by adding terminal state deduplication.
+*   **Workspace path resolution**: Fixed relative workspace paths in `LocalAgentConfig(workspaces=[...])` incorrectly resolving against `app_data_dir` instead of the process working directory.
+*   **Compaction hook deduplication**: Fixed `on_compaction` hook dispatching multiple times per compaction event and resolved over-counting in `compaction_indices` by adding terminal state deduplication.
 
 ---
 
@@ -2597,16 +2644,16 @@ The 0.1.13 release introduces pre-tool argument modification capabilities in lif
 
 **Improvements:**
 
-*   **Pre-Tool Hook Argument Modification**: Pre-tool lifecycle hooks can now sanitize, transform, or override tool input arguments before tool execution begins.
-*   **Synchronous Hook Function Support**: Lifecycle hook decorators now accept standard synchronous functions alongside asynchronous coroutines without raising runtime await errors.
-*   **Structured Command Execution Configuration**: Command execution settings are now consolidated under `RunCommandConfig`, introducing configurable timeouts that default to 10 minutes (600 seconds) alongside daemon execution controls.
-*   **Tool Lifecycle Step Correlation**: `ToolResult` and `ToolExecutionError` event payloads now include `step_id`, enabling end-to-end tracking and correlation of tool invocations across trajectory steps.
-*   **VS Code Debugging Configuration**: Updated `setup_vscode_debugging.sh` to target the canonical `getting_started/hello_world` starter example and explicitly configure Gemini Developer API defaults.
+*   **Pre-tool hook argument modification**: Pre-tool lifecycle hooks can now sanitize, transform, or override tool input arguments before tool execution begins.
+*   **Synchronous hook function support**: Lifecycle hook decorators now accept standard synchronous functions alongside asynchronous coroutines without raising runtime await errors.
+*   **Structured command execution configuration**: Command execution settings are now consolidated under `RunCommandConfig`, introducing configurable timeouts that default to 10 minutes (600 seconds) alongside daemon execution controls.
+*   **Tool lifecycle step correlation**: `ToolResult` and `ToolExecutionError` event payloads now include `step_id`, enabling end-to-end tracking and correlation of tool invocations across trajectory steps.
+*   **VS Code debugging configuration**: Updated `setup_vscode_debugging.sh` to target the canonical `getting_started/hello_world` starter example and explicitly configure Gemini Developer API defaults.
 
 **Fixes:**
 
-*   **Synchronous Hook Decorator Execution**: Fixed a runtime `TypeError` when decorating synchronous functions with `@pre_turn`, `@post_tool_call`, and other lifecycle hooks by verifying awaitability before awaiting hook responses.
-*   **LiteRT Early Client Disconnects**: Suppressed unhandled `ConnectionResetError`, `ConnectionAbortedError`, and `BrokenPipeError` exceptions when clients disconnect early from local LiteRT server connections.
+*   **Synchronous hook decorator execution**: Fixed a runtime `TypeError` when decorating synchronous functions with `@pre_turn`, `@post_tool_call`, and other lifecycle hooks by verifying awaitability before awaiting hook responses.
+*   **LiteRT early client disconnects**: Suppressed unhandled `ConnectionResetError`, `ConnectionAbortedError`, and `BrokenPipeError` exceptions when clients disconnect early from local LiteRT server connections.
 
 ---
 
@@ -2620,7 +2667,7 @@ The 0.1.12 release fixes a client-side proto deserialization regression in image
 
 **Fixes:**
 
-*   **ActionGenerateImage Proto Skew**: Resolved client-side deserialization errors where the bundled binary emitted `ActionGenerateImage.output_path` while the shipped Python proto lacked the corresponding field, ensuring robust protobuf parsing across image generation steps.
+*   **ActionGenerateImage proto skew**: Resolved client-side deserialization errors where the bundled binary emitted `ActionGenerateImage.output_path` while the shipped Python proto lacked the corresponding field, ensuring robust protobuf parsing across image generation steps.
 
 ---
 
@@ -2634,19 +2681,19 @@ The 0.1.11 release updates the default model to `gemini-3.7-flash`, introduces s
 
 **Improvements:**
 
-*   **Default Model Upgrade to Gemini 3.7 Flash**: Upgraded the default inference model to `gemini-3.7-flash`.
-*   **Session Budget Enforcement & Stop Reasons**: Added `BudgetConfig` to define session-level usage limits (total tokens, turns, and cost) and `StopReason` enum (`BUDGET_EXCEEDED`, `TURN_LIMIT`, `USER_CANCELLED`, etc.) to inspect turn termination causes.
-*   **Vertex AI Express Mode Support**: Added native support for Express Mode authentication via `VertexEndpoint(api_key=...)` and `LocalAgentConfig(vertex=true, api_key=...)`, simplifying headless and non-GCP deployments.
-*   **Autonomous Agent Behavior Mode**: Control the agent's behavior with `AgentBehavior`. By default the SDK now has an `AgentBehavior.AUTONOMOUS` mode (previously `AgentBehavior.INTERACTIVE`) to streamline scripting, background, and headless interaction modes. Override by setting `CapabilitiesConfig(agent_behavior=AgentBehavior.INTERACTIVE)`.
-*   **Multi-Interface Hook Registration**: Enabled single-instance registration across multiple hook interfaces (`PreToolHook`, `PostToolHook`, `PreTurnHook`), allowing for cross-functional instrumentation without duplicate invocations.
-*   **PreToolArgs Metadata**: Exposed `trajectory_id` and `step_index` on tool hook payloads for chat thread context tracing.
+*   **Default model upgrade to Gemini 3.7 Flash**: Upgraded the default inference model to `gemini-3.7-flash`.
+*   **Session budget enforcement and stop reasons**: Added `BudgetConfig` to define session-level usage limits (total tokens, turns, and cost) and `StopReason` enum (`BUDGET_EXCEEDED`, `TURN_LIMIT`, `USER_CANCELLED`, etc.) to inspect turn termination causes.
+*   **Vertex AI Express Mode support**: Added native support for Express Mode authentication using `VertexEndpoint(api_key=...)` and `LocalAgentConfig(vertex=true, api_key=...)`, simplifying headless and non-GCP deployments.
+*   **Autonomous agent behavior mode**: Control the agent's behavior with `AgentBehavior`. By default the SDK now has an `AgentBehavior.AUTONOMOUS` mode (previously `AgentBehavior.INTERACTIVE`) to streamline scripting, background, and headless interaction modes. Override by setting `CapabilitiesConfig(agent_behavior=AgentBehavior.INTERACTIVE)`.
+*   **Multi-interface hook registration**: Enabled single-instance registration across multiple hook interfaces (`PreToolHook`, `PostToolHook`, `PreTurnHook`), allowing for cross-functional instrumentation without duplicate invocations.
+*   **PreToolArgs metadata**: Exposed `trajectory_id` and `step_index` on tool hook payloads for chat thread context tracing.
 
 **Fixes:**
 
-*   **ToolRunner String Annotation Coercion**: When using `from __future__ import annotations`, tool argument coercion failed on stringified types; resolved by resolving type annotations via `typing.get_type_hints` before type adaptation.
-*   **MCP Server Example Port Binding**: Ephemeral port race conditions in test and example server startup were resolved by binding directly to port 0.
-*   **Subagent Deadlock Prevention**: Handled subagent fatal errors in the localagent executor to prevent deadlocks when subagents terminate abnormally.
-*   **Empty Input Validation**: Added input validation to prevent SDK unresponsiveness on empty or whitespace-only prompts.
+*   **ToolRunner string annotation coercion**: When using `from __future__ import annotations`, tool argument coercion failed on stringified types; resolved by resolving type annotations using `typing.get_type_hints` before type adaptation.
+*   **MCP server example port binding**: Ephemeral port race conditions in test and example server startup were resolved by binding directly to port 0.
+*   **Subagent deadlock prevention**: Handled subagent fatal errors in the localagent executor to prevent deadlocks when subagents terminate abnormally.
+*   **Empty input validation**: Added input validation to prevent SDK unresponsiveness on empty or whitespace-only prompts.
 
 ---
 
@@ -2660,21 +2707,21 @@ The 0.1.10 release introduces support for Gemini Prioritized Inference service t
 
 **Improvements:**
 
-*   **Gemini Prioritized Inference Service Tier**: Configure agents to utilize Gemini Prioritized Inference service tiers for high-priority model execution with automated graceful fallback.
-*   **Tool Call ID Correlation in Lifecycle Hooks**: Inspect `call_id` attributes on tool executions, errors, and hooks to correlate multi-step tool invocations across lifecycle callbacks.
-*   **Context-Aware Hook Decorators**: Decorate hook handlers (`@hooks.pre_turn`, `@hooks.post_tool_call`, etc.) that optionally accept `HookContext` as a parameter to maintain state and share data across lifecycle callbacks.
-*   **ActionCompaction Event Emission & Hook**: Track context window compaction notifications over WebSockets and intercept them using `@hooks.on_compaction`.
-*   **Standardized System Instructions Strategy**: Plain string instructions default to appending to built-in instructions. To override and completely replace built-in instructions, pass `CustomSystemInstructions`.
-*   **Live Token Usage Reporting**: Introduced real-time `UsageUpdate` event streaming so token usage accumulates live during agent execution rather than delaying updates until state transitions.
-*   **Interactive CLI Spinner**: Updated CLI interactive loop spinner to list all active tool names when running concurrent tool calls (e.g., `Running tools 'tool_a', 'tool_b'`).
-*   **Module Re-exports**: Re-exported `ReadUrlContentResult` and `SearchWebResult` in `connections.local` for uniform tool result access.
-*   **Local Gemma Model Documentation**: Added guides and tutorials for running agents locally with Gemma models using LiteRT and OpenAI-compatible endpoints.
-*   **LiteRT Token Output Limit**: Increased `max_output_tokens` default in LiteRT local server configuration from 8,192 to 16,384 tokens to prevent truncation during complex reasoning and generation tasks.
+*   **Gemini prioritized inference service tier**: Configure agents to utilize Gemini Prioritized Inference service tiers for high-priority model execution with automated graceful fallback.
+*   **Tool call ID correlation in lifecycle hooks**: Inspect `call_id` attributes on tool executions, errors, and hooks to correlate multi-step tool invocations across lifecycle callbacks.
+*   **Context-aware hook decorators**: Decorate hook handlers (`@hooks.pre_turn`, `@hooks.post_tool_call`, etc.) that optionally accept `HookContext` as a parameter to maintain state and share data across lifecycle callbacks.
+*   **ActionCompaction event emission and hook**: Track context window compaction notifications over WebSockets and intercept them using `@hooks.on_compaction`.
+*   **Standardized system instructions strategy**: Plain string instructions default to appending to built-in instructions. To override and completely replace built-in instructions, pass `CustomSystemInstructions`.
+*   **Live token usage reporting**: Introduced real-time `UsageUpdate` event streaming so token usage accumulates live during agent execution rather than delaying updates until state transitions.
+*   **Interactive CLI spinner**: Updated CLI interactive loop spinner to list all active tool names when running concurrent tool calls (for example, `Running tools 'tool_a', 'tool_b'`).
+*   **Module re-exports**: Re-exported `ReadUrlContentResult` and `SearchWebResult` in `connections.local` for uniform tool result access.
+*   **Local Gemma model documentation**: Added guides and tutorials for running agents locally with Gemma models using LiteRT and OpenAI-compatible endpoints.
+*   **LiteRT token output limit**: Increased `max_output_tokens` default in LiteRT local server configuration from 8,192 to 16,384 tokens to prevent truncation during complex reasoning and generation tasks.
 
 **Fixes:**
 
-*   **ActionCompaction Event Emission**: Fixed issue where compaction notifications were suppressed in external SDK releases, causing `@hooks.on_compaction` handlers and `conversation.compaction_indices` tracking to fail; compaction events now emit properly over WebSockets.
-*   **MCP Test Server Startup**: Fixed a race condition where the HTTP port was exposed before uvicorn server startup completed, which previously caused intermittent `ConnectionRefusedError` failures during test initialization.
+*   **ActionCompaction event emission**: Fixed issue where compaction notifications were suppressed in external SDK releases, causing `@hooks.on_compaction` handlers and `conversation.compaction_indices` tracking to fail; compaction events now emit properly over WebSockets.
+*   **MCP test server startup**: Fixed a race condition where the HTTP port was exposed before uvicorn server startup completed, which previously caused intermittent `ConnectionRefusedError` failures during test initialization.
 
 ---
 
@@ -2688,16 +2735,16 @@ Release 0.1.9 of the Google Antigravity Python SDK adds model-call retry/backoff
 
 **Improvements:**
 
-*   **Model-Call Retry & Backoff Configuration**: Exposes configurable retry and backoff parameters in `LocalAgentConfig` for model calls.
-*   **LiteRT Warm-up Timeout Scaling**: Dynamically scales LiteRT engine warm-up timeouts based on context size and synchronizes warm-up cleanup.
-*   **Improved Tool Registration**: Enhances automatic tool registration and docstring parsing for custom Python functions.
-*   **BuiltinTools Typing Exports**: Exports `BuiltinTools` at top-level package and typing boundaries for subagent tool configuration.
+*   **Model-call retry and backoff configuration**: Exposes configurable retry and backoff parameters in `LocalAgentConfig` for model calls.
+*   **LiteRT warm-up timeout scaling**: Dynamically scales LiteRT engine warm-up timeouts based on context size and synchronizes warm-up cleanup.
+*   **Improved tool registration**: Enhances automatic tool registration and docstring parsing for custom Python functions.
+*   **BuiltinTools typing exports**: Exports `BuiltinTools` at top-level package and typing boundaries for subagent tool configuration.
 *   **Connection DebugConfig**: Adds base `DebugConfig` options for enhanced connection debugging and logging.
 
 **Fixes:**
 
-*   **Audio Payload Processing**: Fixes processing for user audio payloads in interactive agent sessions.
-*   **ToolExecutionError Handling**: Introduces `ToolExecutionError` to SDK error types for explicit tool failure handling.
+*   **Audio payload processing**: Fixes processing for user audio payloads in interactive agent sessions.
+*   **ToolExecutionError handling**: Introduces `ToolExecutionError` to SDK error types for explicit tool failure handling.
 
 ---
 
@@ -2711,23 +2758,23 @@ Release 0.1.8 of the Google Antigravity Python SDK updates the default text mode
 
 **Improvements:**
 
-*   **Default Model Upgrade to Gemini 3.6 Flash**: Upgrades the default generative text model in the Python SDK to `gemini-3.6-flash`.
-*   **Pydantic TypeAdapter Tool Argument Coercion**: Automatically coerces stringified numbers, booleans, and nested models returned by LLMs into strict Python types declared in tool signatures.
-*   **Custom Subagent Instructions**: Adds capability to specify custom system instructions and allowlisted tool configurations for spawned subagents in multi-agent workflows.
-*   **Prompt Sanitization**: Strips null bytes (`\x00`) and non-printable control characters (`DEL`, `BEL`, `C1`) from incoming user prompts at the wire boundary to prevent HTTP 400 errors and terminal corruption.
-*   **Configurable Tool Retries**: Add `RetryConfig` definitions in local configuration to allow fine-tuned model and output retry policies.
-*   **Operating System Telemetry**: Populate client OS and version information in telemetry headers to improve diagnostic tracking.
-*   **Native Usage Accumulation**: Enable native addition (`+` and `+=`) operations on `UsageMetadata` instances.
+*   **Default model upgrade to Gemini 3.6 Flash**: Upgrades the default generative text model in the Python SDK to `gemini-3.6-flash`.
+*   **Pydantic TypeAdapter tool argument coercion**: Automatically coerces stringified numbers, booleans, and nested models returned by LLMs into strict Python types declared in tool signatures.
+*   **Custom subagent instructions**: Adds capability to specify custom system instructions and allowlisted tool configurations for spawned subagents in multi-agent workflows.
+*   **Prompt sanitization**: Strips null bytes (`\x00`) and non-printable control characters (`DEL`, `BEL`, `C1`) from incoming user prompts at the wire boundary to prevent HTTP 400 errors and terminal corruption.
+*   **Configurable tool retries**: Add `RetryConfig` definitions in local configuration to allow fine-tuned model and output retry policies.
+*   **Operating system telemetry**: Populate client OS and version information in telemetry headers to improve diagnostic tracking.
+*   **Native usage accumulation**: Enable native addition (`+` and `+=`) operations on `UsageMetadata` instances.
 
 **Fixes:**
 
-*   **Large Tool Output Handling**: Dynamic output truncation and removal of WebSocket frame limits to resolve connection termination on large tool responses.
-*   **Subagent Idle Synchronization**: Fix race conditions where multiple idle states could cause `receive_steps()` to hang indefinitely.
-*   **Custom Tool Policy Enforcement**: Ensure custom tools properly trigger pre-tool policy checks and cleanly report denials.
-*   **Media MIME Type Inference**: Raise `ValueError` instead of Pydantic validation failures when media MIME types cannot be inferred from file extensions.
-*   **LiteRT Log Noise**: Suppress verbose C++ LiteRT engine diagnostic output by default.
-*   **Policy Copy Idempotency**: Prevent duplicate workspace policy prepending during deep copies of `BaseLocalAgentConfig`.
-*   **Type Safety**: Enforce typed `types.Step` arguments in `OnCompactionHook`.
+*   **Large tool output handling**: Dynamic output truncation and removal of WebSocket frame limits to resolve connection termination on large tool responses.
+*   **Subagent idle synchronization**: Fix race conditions where multiple idle states could cause `receive_steps()` to hang indefinitely.
+*   **Custom tool policy enforcement**: Ensure custom tools properly trigger pre-tool policy checks and cleanly report denials.
+*   **Media MIME type inference**: Raise `ValueError` instead of Pydantic validation failures when media MIME types cannot be inferred from file extensions.
+*   **LiteRT log noise**: Suppress verbose C++ LiteRT engine diagnostic output by default.
+*   **Policy copy idempotency**: Prevent duplicate workspace policy prepending during deep copies of `BaseLocalAgentConfig`.
+*   **Type safety**: Enforce typed `types.Step` arguments in `OnCompactionHook`.
 
 ---
 
@@ -2741,23 +2788,23 @@ Release 0.1.7 of the Google Antigravity Python SDK expands end-user control over
 
 **Improvements:**
 
-*   **Multi-threaded Hook & Tool State Handling**: Developers can now safely read and mutate shared context variables across multi-threaded tools (`asyncio.to_thread` or `ThreadPoolExecutor`) using atomic updates and thread locking:
-*   **Custom Subprocess Environment Variables**: Developers can now pass custom environment variables directly to isolated agent instances via `LocalAgentConfig`, avoiding pollution of the global parent environment:
-*   **Extra High Thinking Severity Support**: Developers can now configure an `"extra_high"` thinking severity level for complex reasoning tasks without needing to specify or override the model name:
-*   **MCP & Subagent Support for Local Models (LiteRT & OpenAI)**: Developers using local Gemma (`LiteRTAgentConfig`) or local OpenAI-compatible endpoints (`LocalOpenAIAgentConfig`, such as Ollama or LM Studio) can now directly configure subagents and register Model Context Protocol (MCP) servers, enabling full local multi-agent and MCP tool workflows.
-*   **Environment Hydration**: Hydrates GCP/Vertex parameters (project, location, routing) dynamically from standard GOOGLE\_CLOUD environment variables when not explicitly passed during LocalAgentConfig initialization.
-*   **Default Image Generation Model Optimization**: Updated the default image generation model (`DEFAULT_IMAGE_GENERATION_MODEL`) to `"gemini-3.1-flash-lite-image"`. Previous default image models often took too long to run on average during standard agent execution loops; this lightweight model ensures dependable, high-speed image generation by default while remaining fully replaceable via explicit model configuration if higher fidelity is required.
-*   **Local WebSocket Connections**: Retries socket connections by resolving to both "localhost" and "127.0.0.1", ensuring dependable harness discovery under containerized setups.
-*   **Tool Runner Public Asyncness**: Preserves original asynchronous and synchronous execution interfaces of tools when accessed via ToolRunner.get\_public\_callable.
-*   **Config Inheritance and Gaps**: Cleaned up redundant base overrides in LocalAgentConfig and corrected Pydantic validation failures arising from None initialization variables.
+*   **Multi-threaded hook and tool state handling**: Developers can now safely read and mutate shared context variables across multi-threaded tools (`asyncio.to_thread` or `ThreadPoolExecutor`) using atomic updates and thread locking:
+*   **Custom subprocess environment variables**: Developers can now pass custom environment variables directly to isolated agent instances using `LocalAgentConfig`, avoiding pollution of the global parent environment:
+*   **Extra high thinking severity support**: Developers can now configure an `"extra_high"` thinking severity level for complex reasoning tasks without needing to specify or override the model name:
+*   **MCP and subagent support for local models (LiteRT and OpenAI)**: Developers using local Gemma (`LiteRTAgentConfig`) or local OpenAI-compatible endpoints (`LocalOpenAIAgentConfig`, such as Ollama or LM Studio) can now directly configure subagents and register Model Context Protocol (MCP) servers, enabling full local multi-agent and MCP tool workflows.
+*   **Environment hydration**: Hydrates GCP/Vertex parameters (project, location, routing) dynamically from standard GOOGLE\_CLOUD environment variables when not explicitly passed during LocalAgentConfig initialization.
+*   **Default image generation model optimization**: Updated the default image generation model (`DEFAULT_IMAGE_GENERATION_MODEL`) to `"gemini-3.1-flash-lite-image"`. Previous default image models often took too long to run on average during standard agent execution loops; this lightweight model ensures dependable, high-speed image generation by default while remaining fully replaceable using explicit model configuration if higher fidelity is required.
+*   **Local WebSocket connections**: Retries socket connections by resolving to both "localhost" and "127.0.0.1", ensuring dependable harness discovery under containerized setups.
+*   **Tool runner public asyncness**: Preserves original asynchronous and synchronous execution interfaces of tools when accessed using ToolRunner.get\_public\_callable.
+*   **Config inheritance and gaps**: Cleaned up redundant base overrides in LocalAgentConfig and corrected Pydantic validation failures arising from None initialization variables.
 
 **Fixes:**
 
-*   **Interactive Console Spinner Clobbering**: Fixed a bug in `run_interactive_loop` where background spinner animation frames (`⠼ Reasoning...`) continuously clobbered user confirmation prompts (`async_input` and `ASK_USER` policy checks) every 80ms. The active spinner is now explicitly cleared (`\r\033[K`) and paused when an interactive input prompt opens, keeping confirmation lines readable and resuming the spinner smoothly after input is submitted.
-*   **Duplicate Tool Call Events**: Fixed client rendering issues by filtering out custom tool events from StepUpdate payloads to prevent duplicate event dispatches.
-*   **SDK Idle Transitions**: Corrected premature agent shutdown situations by properly checking and clearing idling flags once a TrajectoryStateUpdate signals transition to running.
-*   **LiteRT Connection Engine**: Rectified local engine initialization bugs, including a missing protobuf import, a token constructor argument mismatch, and OpenAITool inheritance.
-*   **Shutdown Connection Handshake**: Added extra execution buffer to local connections during agent shutdown, ensuring safe persistent state storage actions.
+*   **Interactive console spinner clobbering**: Fixed a bug in `run_interactive_loop` where background spinner animation frames (`⠼ Reasoning...`) continuously clobbered user confirmation prompts (`async_input` and `ASK_USER` policy checks) every 80ms. The active spinner is now explicitly cleared (`\r\033[K`) and paused when an interactive input prompt opens, keeping confirmation lines readable and resuming the spinner smoothly after input is submitted.
+*   **Duplicate tool call events**: Fixed client rendering issues by filtering out custom tool events from StepUpdate payloads to prevent duplicate event dispatches.
+*   **SDK idle transitions**: Corrected premature agent shutdown situations by properly checking and clearing idling flags once a TrajectoryStateUpdate signals transition to running.
+*   **LiteRT connection engine**: Rectified local engine initialization bugs, including a missing protobuf import, a token constructor argument mismatch, and OpenAITool inheritance.
+*   **Shutdown connection handshake**: Added extra execution buffer to local connections during agent shutdown, ensuring safe persistent state storage actions.
 
 ---
 
@@ -2771,17 +2818,17 @@ This release expands local execution capabilities by broadening support for mult
 
 **Improvements:**
 
-*   **Local Model Connectivity**: Introduced `LiteRTAgentConfig` and `LiteRTConnectionStrategy` for LiteRT-LM (supporting local Gemma execution), `LocalOpenAIAgentConfig` and `LocalOpenAIConnectionStrategy` for OpenAI-compatible APIs (supporting Ollama and LM Studio), and a background loopback HTTP translation server.
-*   **Multimodal Tool Outputs**: Enabled custom tools to return media assets (`Image`, `Document`, `Audio`, `Video`) directly via a single tool response without needing separate follow-up turns (`supplemental_media`).
-*   **Built-in Web Fetch Tool**: Integrated the `read_url_content` tool end-to-end for fetching structured web content natively with the `ReadUrlContentResult` Pydantic model.
-*   **MCP String Prefix Modernization**: Decoupled tool calls and safety policy engines from legacy `"mcp_"` string synthesis, resolving name mismatch issues by utilizing explicit `server_name` attributes in tool evaluation.
+*   **Local model connectivity**: Introduced `LiteRTAgentConfig` and `LiteRTConnectionStrategy` for LiteRT-LM (supporting local Gemma execution), `LocalOpenAIAgentConfig` and `LocalOpenAIConnectionStrategy` for OpenAI-compatible APIs (supporting Ollama and LM Studio), and a background loopback HTTP translation server.
+*   **Multimodal tool outputs**: Enabled custom tools to return media assets (`Image`, `Document`, `Audio`, `Video`) directly using a single tool response without needing separate follow-up turns (`supplemental_media`).
+*   **Built-in web fetch tool**: Integrated the `read_url_content` tool end-to-end for fetching structured web content natively with the `ReadUrlContentResult` Pydantic model.
+*   **MCP string prefix modernization**: Decoupled tool calls and safety policy engines from legacy `"mcp_"` string synthesis, resolving name mismatch issues by utilizing explicit `server_name` attributes in tool evaluation.
 
 **Fixes:**
 
-*   **Python 3.14 Compatibility**: Resolved namespace class conflicts and typing normalization issues in `agent.py` and `public_api_test.py` under Python 3.14 deferred annotations evaluation.
-*   **Vertex Validation Errors**: Cleared a misleading reference to API keys in `VertexEndpoint` validation error messages, limiting fields to project and location.
-*   **OTel Trace Warnings**: Resolved detached `contextvars` warnings and set-status race conditions by removing `use_span` context managers from Turn/Session hooks and checking span recording readiness.
-*   **Exception Wrapping Mapping**: Fixed `agent_middleware` integration check failures by making the example check for error message substrings instead of strict exception types.
+*   **Python 3.14 compatibility**: Resolved namespace class conflicts and typing normalization issues in `agent.py` and `public_api_test.py` under Python 3.14 deferred annotations evaluation.
+*   **Vertex validation errors**: Cleared a misleading reference to API keys in `VertexEndpoint` validation error messages, limiting fields to project and location.
+*   **OTel trace warnings**: Resolved detached `contextvars` warnings and set-status race conditions by removing `use_span` context managers from Turn/Session hooks and checking span recording readiness.
+*   **Exception wrapping mapping**: Fixed `agent_middleware` integration check failures by making the example check for error message substrings instead of strict exception types.
 
 ---
 
@@ -2795,16 +2842,16 @@ This release introduces native OpenTelemetry tracing support, declarative subage
 
 **Improvements:**
 
-*   **OpenTelemetry Tracing Support**: Integrates OpenTelemetry tracing into the SDK to translate session, turn, step, and tool lifecycle events into standard GenAI-compliant semantic spans for advanced monitoring and performance debugging, with custom task-safe active span propagation for tool execution.
-*   **Declarative Subagent Configurations**: Added `SubagentConfig` and `SubagentCapabilities` in `types.py` to support constructing static subagents with declarative instructions and tools directly.
-*   **Type Safety in `AgentConfig`**: Type-annotated policies, hooks, and triggers parameters on `AgentConfig` and its subclasses to improve type safety and overall developer experience.
-*   **Lifecycle Hook Routing**: Shifted core orchestration of `OnSessionStartHook`, turn-level hooks (`PRE_TURN` and `POST_TURN`), and `OnSessionEndHook` to the connection layer, implementing the Python-side `HookRouter` for event routing.
-*   **Public API Cleanup**: Hid internal validation methods on media and error classes by prefixing them with an underscore (`_validate_mime_type` and `_from_pydantic` on validation errors).
+*   **OpenTelemetry tracing support**: Integrates OpenTelemetry tracing into the SDK to translate session, turn, step, and tool lifecycle events into standard GenAI-compliant semantic spans for advanced monitoring and performance debugging, with custom task-safe active span propagation for tool execution.
+*   **Declarative subagent configurations**: Added `SubagentConfig` and `SubagentCapabilities` in `types.py` to support constructing static subagents with declarative instructions and tools directly.
+*   **Type safety in `AgentConfig`**: Type-annotated policies, hooks, and triggers parameters on `AgentConfig` and its subclasses to improve type safety and overall developer experience.
+*   **Lifecycle hook routing**: Shifted core orchestration of `OnSessionStartHook`, turn-level hooks (`PRE_TURN` and `POST_TURN`), and `OnSessionEndHook` to the connection layer, implementing the Python-side `HookRouter` for event routing.
+*   **Public API cleanup**: Hid internal validation methods on media and error classes by prefixing them with an underscore (`_validate_mime_type` and `_from_pydantic` on validation errors).
 
 **Fixes:**
 
-*   **Historical Step Absorption**: Ensured historical step absorption is properly drained during initialization to prevent persistence non-linearity issues in `Conversation`.
-*   **Python 3.14 Compatibility**: Resolved potential name shadowing in the `Conversation` class by renaming the top-level connection module import.
+*   **Historical step absorption**: Ensured historical step absorption is properly drained during initialization to prevent persistence non-linearity issues in `Conversation`.
+*   **Python 3.14 compatibility**: Resolved potential name shadowing in the `Conversation` class by renaming the top-level connection module import.
 
 ---
 
@@ -2818,16 +2865,16 @@ This release introduces major architectural refactorings, public API standardiza
 
 **Improvements:**
 
-*   **Built-in Web Search Tool**: Exposes the `SEARCH_WEB` tool directly within the SDK, enabling agents to leverage Google Search for grounded real-time information retrieval, complete with new developer examples (`web_tools.py`).
-*   **MCP Server Environment Variables**: Added support for configuring and passing custom environment variables to launched stdio servers via the new `env` field in `McpStdioServer`.
-*   **Base URL and HTTP Headers Support**: Out-of-the-box support for setting custom base URLs and HTTP headers.
-*   **Image Generation Aspect Ratio**: Updated the SDK model config and wrapper to support specifying `aspect_ratio` within the image creation tool configuration.
-*   **Centralized Multi-Model Configuration**: Replaces legacy singular `gemini_config` options with a unified, repeated `models` collection on `AgentConfig` and `LocalAgentConfig` to support multi-model routing, fallback strategies, and automated selection helpers.
-*   **Agent Session Lifecycle & API Standardization**: Improves runtime safety by removing dynamic post-initialization hook and trigger registration in favor of session creation-time declarations.
-*   **Top-Level Package Exports**: Exposed core SDK constructs (including `Content`, `Image`, `Document`, `Audio`, `Video`, `from_file`, `BuiltinTools`, and `SystemInstructions`) directly under the `google.antigravity` root module for easier access.
-*   **Hook Base Class Exports**: Consolidated the base hooks implementation by exporting `DecideHook`, `InspectHook`, and `TransformHook` from the hooks package root.
-*   **Top-Level Policy Package**: Created a new top-level policy package to clean up hook and workspace path validation dependencies.
-*   **Relocated Trigger Types**: Moved the `FileChange` model and `FileChangeKind` enum from `types.py` to the specialized triggers package.
+*   **Built-in web search tool**: Exposes the `SEARCH_WEB` tool directly within the SDK, enabling agents to leverage Google Search for grounded real-time information retrieval, complete with new developer examples (`web_tools.py`).
+*   **MCP server environment variables**: Added support for configuring and passing custom environment variables to launched stdio servers using the new `env` field in `McpStdioServer`.
+*   **Base URL and HTTP headers support**: Out-of-the-box support for setting custom base URLs and HTTP headers.
+*   **Image generation aspect ratio**: Updated the SDK model config and wrapper to support specifying `aspect_ratio` within the image creation tool configuration.
+*   **Centralized multi-model configuration**: Replaces legacy singular `gemini_config` options with a unified, repeated `models` collection on `AgentConfig` and `LocalAgentConfig` to support multi-model routing, fallback strategies, and automated selection helpers.
+*   **Agent session lifecycle and API standardization**: Improves runtime safety by removing dynamic post-initialization hook and trigger registration in favor of session creation-time declarations.
+*   **Top-level package exports**: Exposed core SDK constructs (including `Content`, `Image`, `Document`, `Audio`, `Video`, `from_file`, `BuiltinTools`, and `SystemInstructions`) directly under the `google.antigravity` root module for easier access.
+*   **Hook base class exports**: Consolidated the base hooks implementation by exporting `DecideHook`, `InspectHook`, and `TransformHook` from the hooks package root.
+*   **Top-level policy package**: Created a new top-level policy package to clean up hook and workspace path validation dependencies.
+*   **Relocated trigger types**: Moved the `FileChange` model and `FileChangeKind` enum from `types.py` to the specialized triggers package.
 
 ---
 
@@ -2841,8 +2888,8 @@ This release introduces per-server MCP timeout configurations and improves local
 
 **Improvements:**
 
-*   **Per-Server MCP Timeout**: Added configuration support to set custom timeouts (in seconds) for individual MCP servers (`BaseMcpServerConfig.timeout_seconds`).
-*   **Terminal Error Propagation**: The local connection now propagates terminal trajectory errors from the `localharness` binary as structured `AntigravityExecutionError` exceptions in the Python SDK during step collection.
+*   **Per-server MCP timeout**: Added configuration support to set custom timeouts (in seconds) for individual MCP servers (`BaseMcpServerConfig.timeout_seconds`).
+*   **Terminal error propagation**: The local connection now propagates terminal trajectory errors from the `localharness` binary as structured `AntigravityExecutionError` exceptions in the Python SDK during step collection.
 
 ---
 
@@ -2856,13 +2903,13 @@ This release adds Windows platform support, introduces programmatic turn-level s
 
 **Improvements:**
 
-*   **Windows Platform Support**: Native compatibility added for Windows x86\_64 and ARM64 environments. Path and file URI resolution now correctly handles drive letters and directory separators under Windows.
-*   **Programmatic Turn-Level Cancellation**: Added programmatic stream cancellation via `ChatResponse.cancel()`. This programmatically aborts active generation turns directly from the client and raises `AntigravityCancelledError` (subclass of `asyncio.CancelledError`) to cleanly signal cancellation in the async flow (`examples/getting_started/cancellation.py`).
-*   **Direct MCP Safety Policy Configuration**: Overloaded `policy.allow`, `policy.deny`, and `policy.ask_user` to accept server configurations (`BaseMcpServerConfig`) directly instead of typing namespaced string paths. Policy evaluation follows a 9-level precedence model (Specific > Prefix Wildcard > Global Wildcard) with longest-match prefix validation to protect against collisions.
+*   **Windows platform support**: Native compatibility added for Windows x86\_64 and ARM64 environments. Path and file URI resolution now correctly handles drive letters and directory separators under Windows.
+*   **Programmatic turn-level cancellation**: Added programmatic stream cancellation using `ChatResponse.cancel()`. This programmatically aborts active generation turns directly from the client and raises `AntigravityCancelledError` (subclass of `asyncio.CancelledError`) to cleanly signal cancellation in the async flow (`examples/getting_started/cancellation.py`).
+*   **Direct MCP safety policy configuration**: Overloaded `policy.allow`, `policy.deny`, and `policy.ask_user` to accept server configurations (`BaseMcpServerConfig`) directly instead of typing namespaced string paths. Policy evaluation follows a 9-level precedence model (Specific > Prefix Wildcard > Global Wildcard) with longest-match prefix validation to protect against collisions.
 
 **Patches:**
 
-*   **Deprecation of SSE Transport**: Removed the legacy `McpSseServer` configuration and connection handlers in favor of standard Stdio and Streamable HTTP connection strategies.
+*   **Deprecation of SSE transport**: Removed the legacy `McpSseServer` configuration and connection handlers in favor of standard Stdio and Streamable HTTP connection strategies.
 
 ---
 
@@ -2876,15 +2923,15 @@ This release focuses on significant enhancements to the Model Context Protocol (
 
 **Improvements:**
 
-*   **MCP Tool Filtering & Simplified Policies**: Added support for `enabled_tools` (allowlist) and `disabled_tools` (denylist) in server configurations, and overloaded safety policy helpers (`policy.allow`, `policy.deny`, `policy.ask_user`) to accept the MCP server configuration object directly.
-*   **Vertex AI Authentication**: Integrated native support for Vertex AI authentication in the Python SDK.
-*   **MCP Tool Prefixing & Validation**: The SDK now automatically namespaces and prefixes MCP tools (`mcp_{server_name}_{tool_name}`) to prevent name collisions when connecting multiple MCP servers. The `name` field is now mandatory in MCP server configurations and validated as a proper Python identifier.
-*   **Improved Error Handling**: The SDK now raises explicit, descriptive exceptions for terminal errors rather than failing silently.
+*   **MCP tool filtering and simplified policies**: Added support for `enabled_tools` (allowlist) and `disabled_tools` (denylist) in server configurations, and overloaded safety policy helpers (`policy.allow`, `policy.deny`, `policy.ask_user`) to accept the MCP server configuration object directly.
+*   **Vertex AI authentication**: Integrated native support for Vertex AI authentication in the Python SDK.
+*   **MCP tool prefixing and validation**: The SDK now automatically namespaces and prefixes MCP tools (`mcp_{server_name}_{tool_name}`) to prevent name collisions when connecting multiple MCP servers. The `name` field is now mandatory in MCP server configurations and validated as a proper Python identifier.
+*   **Improved error handling**: The SDK now raises explicit, descriptive exceptions for terminal errors rather than failing silently.
 
 **Fixes:**
 
-*   **Structured Output Token Tracking**: Fixed a bug where token `usage_metadata` was not correctly returned when structured output (`response.structured_output()`) was requested.
-*   **Type Checking Warnings**: Fixed `pytype` warnings (including `wrong-keyword-args` in `LocalAgentConfig`) across several modules.
+*   **Structured output token tracking**: Fixed a bug where token `usage_metadata` was not correctly returned when structured output (`response.structured_output()`) was requested.
+*   **Type checking warnings**: Fixed `pytype` warnings (including `wrong-keyword-args` in `LocalAgentConfig`) across several modules.
 
 ---
 
@@ -2986,11 +3033,11 @@ May 21, 2026
 
 ### Fix installation location
 
-Fixed installation location when installed via Antigravity 1.0.
+Fixed installation location when installed using Antigravity 1.0.
 
 **Fixes:**
 
-*   Fixed installation location when installed via Antigravity 1.0.
+*   Fixed installation location when installed using Antigravity 1.0.
 
 ---
 
@@ -3172,7 +3219,7 @@ Bug fixes and stability improvements.
 
 **Fixes:**
 
-*   Fixed an issue where the Windows auto-updater fails to detect new releases. Please manually install the latest update if you are on version 1.16.5 or 1.18.3.
+*   Fixed an issue where the Windows auto-updater fails to detect new releases. Manually install the latest update if you are on version 1.16.5 or 1.18.3.
 
 ---
 

@@ -8,7 +8,7 @@ In Python applications built using the Antigravity SDK, MCP servers (`stdio` or 
 
 You can define MCP servers programmatically in your application’s `LocalAgentConfig` using `McpStdioServer` or `McpStreamableHttpServer`.
 
-For example, you can configure an agent to connect to an external SQLite MCP server via `stdio`:
+For example, you can configure an agent to connect to an external SQLite MCP server using `stdio`:
 
 ```
 import asyncio
@@ -35,10 +35,10 @@ if __name__ == "__main__":
     asyncio.run(main())
 ```
 
-For more details on MCP protocol capabilities across the Antigravity suite, see the central [Model Context Protocol guide](/docs/mcp).
+For more details on MCP protocol capabilities across the Antigravity suite, check out the central [Model Context Protocol guide](/docs/mcp).
 
 ## Sample code
 
-For full working code examples, see the GitHub repository:
+For full working code examples, check out the GitHub repository:
 
 *   [`mcp_tools.py`](https://github.com/google-antigravity/antigravity-sdk-python/blob/main/examples/getting_started/mcp_tools.py)

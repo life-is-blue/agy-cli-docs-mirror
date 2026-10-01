@@ -24,25 +24,25 @@ Modern software development involves problems spanning a wide spectrum of comple
 
 When you invoke `/boost`, Antigravity initiates a three-phase multi-agent reasoning pipeline that decouples strategy formulation from isolated execution and verification:
 
-### Phase 1: Goal & strategy formulation
+### Phase 1: Goal and strategy formulation
 
-The Primary Orchestrator receives your prompt, inspects workspace context, and formulates an execution strategy. It breaks down complex engineering challenges into discrete, verifiable subtasks and determines which specialized workstreams are required.
+The primary orchestrator receives your prompt, inspects workspace context, and formulates an execution strategy. It breaks down complex engineering challenges into discrete, verifiable subtasks and determines which specialized workstreams are required.
 
-### Phase 2: Parallel execution & verification
+### Phase 2: Parallel execution and verification
 
-The Orchestrator dispatches focused subtasks to specialized subagents operating in clean, isolated scopes:
+The orchestrator dispatches focused subtasks to specialized subagents operating in clean, isolated scopes:
 
 *   **Implementation workstreams**: Construct candidate code solutions, apply refactoring, and generate unit tests.
 *   **Investigation workstreams**: Perform root-cause debugging, trace execution call graphs, and analyze unfamiliar dependencies without modifying files.
 *   **Local verification**: Subagents execute build targets and test suites locally to validate hypotheses before reporting results.
 
-### Phase 3: Synthesis & delivery
+### Phase 3: Synthesis and delivery
 
 Before presenting the final outcome, the reasoning pipeline aggregates findings and runs regression checks:
 
-*   The Orchestrator validates the combined solution against full test suites and edge cases.
+*   The orchestrator validates the combined solution against full test suites and edge cases.
 *   If an assertion fails, error diagnostics are fed back into the next iteration for automated correction.
-*   Once all tests and requirements pass, a concise summary with verified changes is delivered.
+*   Once all tests and requirements pass, the pipeline delivers a concise summary with verified changes.
 
 * * *
 
@@ -52,11 +52,11 @@ The following table compares the three primary execution modes in Antigravity:
 
 | Dimension | Default Agent | 🚀 Boost (`/boost`) | 👥 Teamwork (`/teamwork-preview`) |
 | :-- | :-- | :-- | :-- |
-| **Primary focus** | Full-spectrum interactive coding & pair programming | **Deep reasoning and tricky bugs** | Autonomous multi-day agent teams |
+| **Primary focus** | Full-spectrum interactive coding and pair programming | **Deep reasoning and tricky bugs** | Autonomous multi-day agent teams |
 | **Task horizon** | Seconds to minutes | **Seconds to hours** | Hours to days |
 | **Plan tier** | All plans | **Paid plans** | Paid plans |
 | **Scoping phase** | Single prompt | **Immediate execution** | Two-phase scoping interview |
-| **Architecture** | Single-agent direct loop | **3-phase reasoning hierarchy** | Multi-role agent teams |
+| **Architecture** | Single-agent direct loop | **Three-phase reasoning hierarchy** | Multi-role agent teams |
 | **Workspace model** | Shared working tree | **Ephemeral isolated worktrees** | Persistent isolated worktrees per milestone |
 | **Verification** | Single-pass tool check | **Multi-round independent verification** | Adversarial falsification and independent success audit |
 | **Best suited for** | Feature development, code navigation, refactoring, and general engineering workflows | **Tough concurrency bugs, algorithmic optimization, intricate multi-file refactors** | Subsystem builds, formal proofs, and autonomous OS-scale campaigns |
@@ -86,33 +86,33 @@ Type `/boost` directly into the terminal user interface (TUI) prompt box:
 
 ## Key use cases
 
-### 1\. Concurrency and race conditions
+### Concurrency and race conditions
 
-Debugging multithreaded timing issues, deadlocks, and cache synchronization bugs where reproduction requires careful trace analysis and isolated verification:
+Use `/boost` to debug multithreaded timing issues, deadlocks, and cache synchronization bugs where reproduction requires careful trace analysis and isolated verification:
 
 ```
 /boost Reproduce and fix the intermittent deadlock in the connection pool during high connection turnover.
 ```
 
-### 2\. Algorithmic problem solving
+### Algorithmic problem solving
 
-Implementing high-performance algorithms, custom data structures, graph traversals, or mathematical routines with rigorous boundary testing:
+Use `/boost` to implement high-performance algorithms, custom data structures, graph traversals, or mathematical routines with rigorous boundary testing:
 
 ```
 /boost Implement a lock-free ring buffer for streaming telemetry events and write stress tests.
 ```
 
-### 3\. Non-trivial refactoring
+### Non-trivial refactoring
 
-Refactoring tightly coupled modules, modernizing legacy interfaces, or migrating synchronous APIs to asynchronous patterns across multiple files:
+Use `/boost` to refactor tightly coupled modules, modernize legacy interfaces, or migrate synchronous APIs to asynchronous patterns across multiple files:
 
 ```
 /boost Refactor the authentication middleware to use asynchronous token validation without breaking existing routes.
 ```
 
-### 4\. Deep root-cause investigation
+### Deep root-cause investigation
 
-Tracing execution paths across unfamiliar or large codebases to isolate the exact origin of an unexpected failure:
+Use `/boost` to trace execution paths across unfamiliar or large codebases to isolate the exact origin of an unexpected failure:
 
 ```
 /boost Trace why HTTP request timeouts spike when batch payload size exceeds 2MB, without modifying code.
@@ -134,7 +134,7 @@ Boost respects all standard Antigravity security policies:
 
 Explore related documentation and guides:
 
-*   [Slash commands catalog](/docs/slash-commands): Review all available slash commands across Antigravity surfaces.
-*   [Teamwork agent teams (`/teamwork-preview`)](/docs/teamwork): Learn how collaborative agent teams tackle large-scale migrations.
-*   [Subagents overview](/docs/subagents): Learn how asynchronous subagent workers operate in parallel.
-*   [Antigravity CLI reference](/docs/cli/reference): Explore terminal keybindings and command reference for the CLI.
+*   **[Slash commands catalog](/docs/slash-commands)**: Review all available slash commands across Antigravity surfaces.
+*   **[Teamwork agent teams (`/teamwork-preview`)](/docs/teamwork)**: Learn how collaborative agent teams tackle large-scale migrations.
+*   **[Subagents overview](/docs/subagents)**: Learn how asynchronous subagent workers operate in parallel.
+*   **[Antigravity CLI reference](/docs/cli/reference)**: Explore terminal keybindings and the command reference for the CLI.

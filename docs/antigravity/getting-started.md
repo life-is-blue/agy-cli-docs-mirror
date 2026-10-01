@@ -1,6 +1,6 @@
-# Getting Started
+# Getting started
 
-Welcome to Google Antigravity! Follow the instructions below to get started on your preferred surface.
+Welcome to Google Antigravity! Follow the instructions in this guide to get started on your preferred surface.
 
 *   [Antigravity 2.0](#tab-panel-4)
 *   [Antigravity CLI](#tab-panel-5)
@@ -8,75 +8,79 @@ Welcome to Google Antigravity! Follow the instructions below to get started on y
 
 ### Download Antigravity 2.0
 
-Visit [antigravity.google/download](/download) to download Google Antigravity 2.0. Select your operating system below:
+Visit [antigravity.google/download](/download) to download Google Antigravity 2.0. Select your operating system from the following table:
 
 | Platform | Download |
 | --- | --- |
 | **macOS** | 
 [Download for Apple Silicon](https://storage.googleapis.com/antigravity-public/antigravity-hub/2.5.0-5471848641724416/darwin-arm/Antigravity.dmg)[Download for Intel](https://storage.googleapis.com/antigravity-public/antigravity-hub/2.5.0-5471848641724416/darwin-x64/Antigravity.dmg)
 
-**Requirements:** macOS versions with Apple security update support. This is typically the current and two previous versions. Min Version 12 (Monterey), X86 is not supported.
+**Requirements:** macOS versions with Apple security update support. This is typically the current and two previous versions. Minimum version 12 (Monterey); x86 is not supported.
 
  |
 | **Windows** | 
 
 [Download for x64](https://storage.googleapis.com/antigravity-public/antigravity-hub/2.5.0-5471848641724416/windows-x64/Antigravity-x64.exe)[Download for ARM64](https://storage.googleapis.com/antigravity-public/antigravity-hub/2.5.0-5471848641724416/windows-arm/Antigravity-arm64.exe)
 
-**Requirements:** Windows 10 (64 bit)
+**Requirements:** Windows 10 (64-bit)
 
  |
 | **Linux** | 
 
 [Download for x64](https://storage.googleapis.com/antigravity-public/antigravity-hub/2.5.0-5471848641724416/linux-x64/Antigravity.tar.gz)[Download for ARM64](https://storage.googleapis.com/antigravity-public/antigravity-hub/2.5.0-5471848641724416/linux-arm/Antigravity.tar.gz)
 
-**Requirements:** glibc >= 2.28, glibcxx >= 3.4.25 (e.g. Ubuntu 20, Debian 10, Fedora 36, RHEL 8)
+**Requirements:** glibc >= 2.28, glibcxx >= 3.4.25 (for example, Ubuntu 20, Debian 10, Fedora 36, RHEL 8)
 
  |
 
 ### Installation
 
-You may get a notification asking whether you want to “Keep Both” or “Replace” Antigravity, select “Replace.” You will be prompted to re-install the IDE during installation, should you choose to. If you do not install it now and would like to re-download it later, you can do so [here](/download).
+If you get a notification asking whether you want to “Keep Both” or “Replace” Antigravity, select **Replace**. You are prompted to reinstall the IDE during installation if you choose to do so. If you don’t install it now and want to download it later, visit the [download page](/download).
 
-### Creating a Project
+### Creating a project
 
-Agents work within Projects, which define the boundaries of the folders and repositories they can access.
+Agents work within projects, which define the boundaries of the folders and repositories they can access:
 
 1.  Click the **folder with a ”+” icon** in the **left sidebar**.
-2.  Click on **“New Project”**.
+2.  Click **New Project**.
 3.  Click **Add Folder** to associate one or more local folders or Git repositories. Adding multiple folders provides your agent with full cross-repository context.
 4.  Click **Create**.
-5.  _(Optional)_ Configure your Project’s settings. Each Project maintains its own isolated settings and security policies that the agent respects.
+5.  _(Optional)_ Configure your project’s settings. Each project maintains its own isolated settings and security policies that the agent respects.
 
-### Starting an Agent
+### Starting an agent
 
-Once your Project is created, you can spawn an agent to start working on tasks.
+Once your project is created, you can spawn an agent to start working on tasks:
 
-1.  Type your goal or instruction in the chat input (e.g., “Help me add a new feature”) and press Enter.
+1.  Type your goal or instruction in the chat input (for example, “Help me add a new feature”) and press Enter.
 2.  Choose a **Mode** in the setup modal to boot up your agent:
-    *   **Local Mode**: The agent operates directly in your active folders.
-    *   **New Worktree Mode**: The agent operates in an isolated Git worktree.
+    *   **Local mode**: The agent operates directly in your active folders.
+    *   **New worktree mode**: The agent operates in an isolated Git worktree.
 
-### Basic Navigation
+### Basic navigation
+
+Use the following keyboard shortcuts to navigate Antigravity 2.0:
 
 | Action | macOS | Windows / Linux |
 | :-- | :-- | :-- |
-| **Open Conversation Picker** | ⌘K | Ctrl + K |
-| **Open File Search** | ⌘P | Ctrl + P |
-| **Focus Input** | ⌘L | Ctrl + L |
-| **New Conversation** | ⌘N | Ctrl + N |
-| **Next/Previous Conversation** | ⌥ Up / Down | Alt + Up / Down |
+| **Open conversation picker** | ⌘K | Ctrl + K |
+| **Open file search** | ⌘P | Ctrl + P |
+| **Focus input** | ⌘L | Ctrl + L |
+| **New conversation** | ⌘N | Ctrl + N |
+| **Next/previous conversation** | ⌥ Up / Down | Alt + Up / Down |
 
-### Slash Commands
+### Slash commands
 
-| Slash Command | Description |
+Use the following slash commands to control agent execution:
+
+| Slash command | Description |
 | :-- | :-- |
-| `/goal` | Run until the specified task is completely finished, not asking for intermediate input from the user. |
-| `/grill-me` | Before starting to implement, ask questions back to align on the specific details of the plan. |
-| `/schedule` | Run an instruction as a one-time timer in the future or on a recurring schedule (via Scheduled Tasks). |
-| `/browser` | Explicit slash command controlling browser debugging behaviors in Google Chrome. |
+| `/goal` | Run until the specified task is completely finished, without asking for intermediate input. |
+| `/grill-me` | Ask clarifying questions to align on the specific details of the plan before starting implementation. |
+| `/schedule` | Run an instruction as a one-time timer in the future or on a recurring schedule using scheduled tasks. |
+| `/browser` | Control browser debugging behaviors in Google Chrome. |
 | [`/plugin`](/docs/plugins) | Manage installed [Marketplace](/docs/marketplace) plugins or create and configure custom plugin bundles. |
 
-Welcome to Antigravity CLI! This guide provides a direct, high-level developer roadmap to install the client, launch the Terminal User Interface (TUI), and begin collaborating with autonomous agents.
+Welcome to Antigravity CLI! This guide provides a direct, high-level developer roadmap to install the client, launch the terminal user interface (TUI), and begin collaborating with autonomous agents.
 
 ### Roadmap checklist
 
@@ -111,7 +115,7 @@ Complete the following sequential steps to launch your first session:
     
     Note
     
-    **Advanced Setup**: For detailed enterprise credentials configuration, secure keyring auth permissions, proxy setups, or troubleshooting installation issues, consult the **[Installation & Auth Guide](/docs/cli/install)**.
+    **Advanced setup**: For detailed enterprise credentials configuration, secure keyring authentication permissions, proxy setups, or troubleshooting installation issues, refer to the **[Installation and authentication guide](/docs/cli/install)**.
     
 2.  **Launch the TUI inside a project**
     
@@ -125,9 +129,9 @@ Complete the following sequential steps to launch your first session:
     
     On your very first launch, the TUI walks you through a brief interactive setup:
     
-    *   **Color Scheme**: Select your preferred visual theme (Solarized, Dark, Solarized Light, or standard Terminal colors).
-    *   **Rendering Mode**: Choose Alt-Screen mode (alternate buffer with full-screen scrolling) or Inline mode (sequential stream integrated with your terminal’s history).
-    *   **Workspace Trust**: Confirm that you trust the repository directory. Once confirmed, the agent indexes the files and stands ready.
+    *   **Color scheme**: Select your preferred visual theme (Solarized, Dark, Solarized Light, or standard terminal colors).
+    *   **Rendering mode**: Choose Alt-Screen mode (alternate buffer with full-screen scrolling) or Inline mode (sequential stream integrated with your terminal’s history).
+    *   **Workspace trust**: Confirm that you trust the repository directory. Once confirmed, the agent indexes the files and stands ready.
 4.  **Run your first agent task**
     
     Type the following instruction in the prompt box at the bottom of your TUI screen and press Enter:
@@ -136,27 +140,27 @@ Complete the following sequential steps to launch your first session:
     Write a simple python script to fetch web page text
     ```
     
-    The agent reads the workspace, reasons about the task, and proposes a plan. For a detailed step-by-step tutorial on reviewing code and running test commands inside the TUI, follow the **[Tutorial Guide](/docs/cli/tutorial)**.
+    The agent reads the workspace, reasons about the task, and proposes a plan. For a detailed step-by-step tutorial on reviewing code and running test commands inside the TUI, follow the **[Tutorial guide](/docs/cli/tutorial)**.
     
 
 ### Related resources
 
 Optimize your local environment configurations and master advanced collaboration tools:
 
-*   **[Best Practices](/docs/cli/best-practices)**: Master verification loops, planning phases, rule files, and session checkpoints.
+*   **[Best practices](/docs/cli/best-practices)**: Master verification loops, planning phases, rule files, and session checkpoints.
 *   **[Troubleshooting](/docs/cli/troubleshooting)**: Resolve common path, keyring, or SSH forwarding errors.
-*   **[CLI Reference](/docs/cli/reference)**: Dense reference sheets cataloging all slash commands, shortcuts, and JSON keys.
+*   **[CLI reference](/docs/cli/reference)**: Review reference sheets cataloging all slash commands, shortcuts, and JSON keys.
 
 ### Download Antigravity IDE
 
-Please visit [antigravity.google/download](/download) to download Antigravity IDE.
+Visit [antigravity.google/download](/download) to download Antigravity IDE.
 
-**Available platforms and minimum versions:**
+Antigravity IDE supports the following platforms and minimum versions:
 
-*   **macOS**: macOS versions with Apple security update support. This is typically the current and two previous versions. Min Version 12 (Monterey), X86 is not supported
-*   **Windows**: Windows 10 (64 bit)
-*   **Linux**: glibc >= 2.28, glibcxx >= 3.4.25 (e.g. Ubuntu 20. Debian 10, Fedora 36, RHEL 8)
+*   **macOS**: macOS versions with Apple security update support (typically the current and two previous versions). Minimum version 12 (Monterey); x86 is not supported.
+*   **Windows**: Windows 10 (64-bit).
+*   **Linux**: glibc >= 2.28, glibcxx >= 3.4.25 (for example, Ubuntu 20, Debian 10, Fedora 36, RHEL 8).
 
-The application will prompt when updates are available:
+The application prompts you when updates are available:
 
 ![Update Available](/assets/image/docs/restart-to-update.png)

@@ -6,9 +6,9 @@ Skills are an [open standard](https://agentskills.io/home) for extending agent c
 
 Skills are reusable packages of knowledge that extend what the agent can do. Each skill contains:
 
-*   **Instructions**: explicit protocols for how to approach a specific task.
-*   **Best practices**: conventions, style guidelines, and checklists to follow.
-*   **Scripts and resources**: optional helper scripts and data schemas the agent can execute.
+*   **Instructions**: Explicit protocols for how to approach a specific task.
+*   **Best practices**: Conventions, style guidelines, and checklists to follow.
+*   **Scripts and resources**: Optional helper scripts and data schemas the agent can execute.
 
 When you start a conversation, the agent sees a list of available skills with their names and descriptions. If a skill looks relevant to your task, the agent reads the full instructions and follows them.
 
@@ -44,10 +44,10 @@ When reviewing code, follow these steps:
 
 ## Review checklist
 
-1. **Correctness**: verify that the code satisfies specifications.
-2. **Edge cases**: ensure error conditions and boundaries are handled.
-3. **Style**: follow project naming and architectural patterns.
-4. **Performance**: identify potential bottlenecks or inefficiencies.
+1. **Correctness**: Verify that the code satisfies specifications.
+2. **Edge cases**: Ensure error conditions and boundaries are handled.
+3. **Style**: Follow project naming and architectural patterns.
+4. **Performance**: Identify potential bottlenecks or inefficiencies.
 ```
 
 ### Frontmatter fields
@@ -67,9 +67,9 @@ Write your description in third person and include keywords that help the agent 
 
 Skills follow a **progressive disclosure** pattern:
 
-1.  **Discovery**: when a conversation starts, the agent sees a list of available skills with their names and descriptions.
-2.  **Activation**: if a skill looks relevant to your task, the agent reads the full `SKILL.md` content.
-3.  **Execution**: the agent follows the skill’s instructions while working on your task.
+1.  **Discovery**: When a conversation starts, the agent sees a list of available skills with their names and descriptions.
+2.  **Activation**: If a skill looks relevant to your task, the agent reads the full `SKILL.md` content.
+3.  **Execution**: The agent follows the skill’s instructions while working on your task.
 
 You don’t need to explicitly tell the agent to use a skill—it decides based on context. However, you can mention a skill by name if you want to ensure it’s used.
 
@@ -108,13 +108,17 @@ Antigravity 2.0 loads skills from two primary locations:
 | `<workspace-root>/.agents/skills/<skill-folder>/` | Workspace-specific |
 | `~/.gemini/config/skills/<skill-folder>/` | Global (all workspaces) |
 
-*   **Workspace skills**: scoped to a single project and committed to version control to share across your engineering team.
-*   **Global skills**: available across all projects on your workstation.
+Each scope serves a distinct purpose:
+
+*   **Workspace skills**: Scoped to a single project and committed to version control to share across your engineering team.
+*   **Global skills**: Available across all projects on your workstation.
 
 ### Invoking skills in Antigravity 2.0
 
-*   **Autonomous invocation**: the agent automatically reads and follows relevant skills based on your prompt.
-*   **Manual slash command**: type `/<skill-name>` in the prompt panel to explicitly invoke a skill.
+You can invoke skills in Antigravity 2.0 in two ways:
+
+*   **Autonomous invocation**: The agent automatically reads and follows relevant skills based on your prompt.
+*   **Manual slash command**: Type `/<skill-name>` in the prompt panel to explicitly invoke a skill.
 
 ### CLI skill locations
 
@@ -138,13 +142,13 @@ Skills can also be packaged inside plugins and managed with `agy plugin`:
 # List all active plugins and their bundled skills
 agy plugin list
 
-# Install a skill bundle via local plugin path
+# Install a skill bundle using a local plugin path
 agy plugin install ./my-skills-plugin
 ```
 
 ### Antigravity IDE skill locations
 
-In the standalone Antigravity IDE, skills are discovered from:
+In the standalone Antigravity IDE, skills are discovered from the following locations:
 
 | Location | Scope |
 | :-- | :-- |

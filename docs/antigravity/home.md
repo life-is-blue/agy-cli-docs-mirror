@@ -1,47 +1,47 @@
 # Welcome to Google Antigravity
 
-## Choose Your Surface
+## Choose your surface
 
 Google Antigravity offers multiple product surfaces tailored to your specific development workflow. Select the interface that best fits your needs:
 
 ### Antigravity 2.0
 
-Your standalone desktop command center for your agents. Start agents inside Projects, work across multiple workspaces and worktrees, and orchestrate complex tasks using parallel local subagents.
+Antigravity 2.0 is the standalone desktop command center for your agents. Start agents inside projects, work across multiple workspaces and worktrees, and orchestrate complex tasks using parallel local subagents. It includes the following highlights:
 
-*   **Key Features**: Asynchronous task management, Scheduled Tasks (Cron sidecars), and voice transcription.
-*   **Get Started**: Read the [Getting Started Guide](/docs/getting-started)
+*   **Key features**: Asynchronous task management, scheduled tasks (cron sidecars), and voice transcription.
+*   **Get started**: Read the [Getting started guide](/docs/getting-started).
 
 ### Antigravity CLI
 
-The lightweight, keyboard-centric Terminal User Interface surface. It brings the same core agentic capabilities as the desktop app directly to your terminal workflow, making it perfect for fast interactions and SSH sessions.
+The Antigravity CLI is a lightweight, keyboard-centric Terminal User Interface (TUI) surface. It brings the same core agentic capabilities as the desktop app directly to your terminal workflow, making it ideal for fast interactions and SSH sessions. It includes the following highlights:
 
-*   **Key Features**: High-speed prompt shortcuts, custom keybindings, and parallel subagent management.
-*   **Get Started**: Explore the [CLI Quick Overview](/docs/cli/overview)
+*   **Key features**: High-speed prompt shortcuts, custom keybindings, and parallel subagent management.
+*   **Get started**: Explore the [CLI quick overview](/docs/cli/overview).
 
 ### Antigravity SDK
 
-A programmatic Python framework for researchers and developers who want complete control over their agent deployments. Custom build an agent, register custom tools, and implement lifecycle hooks, all on top of the Antigravity Harness.
+The Antigravity SDK is a programmatic Python framework for researchers and developers who want complete control over their agent deployments. Build custom agents, register custom tools, and implement lifecycle hooks on top of the Antigravity harness. It includes the following highlights:
 
-*   **Key Features**: Declarative safety policies, inspect/decide/transform hooks, and programmatic subagent spawning.
-*   **Get Started**: Review the [SDK Overview](/docs/sdk/overview)
+*   **Key features**: Declarative safety policies, inspect/decide/transform hooks, and programmatic subagent spawning.
+*   **Get started**: Review the [SDK overview](/docs/sdk/overview).
 
 ### Antigravity IDE
 
-The fully-featured, AI-powered developer environment. Standardize your daily coding with powerful tightly integrated coding agents, deep context awareness, tools like MCP and skills, and more.
+Antigravity IDE is a full-featured, AI-powered developer environment. Standardize your daily coding with tightly integrated coding agents, deep context awareness, tools like MCP and skills, and more:
 
-*   **Get Started**: Read the [IDE Getting Started Guide](/docs/ide/getting-started)
+*   **Get started**: Read the [IDE getting started guide](/docs/ide/getting-started).
 
-### Core Agent Capabilities
+### Core agent capabilities
 
-Every Antigravity surface runs on a shared, highly-optimized agent harness co-trained with Gemini models:
+Every Antigravity surface runs on a shared, highly optimized agent harness co-trained with Gemini models:
 
-*   **Gemini 3.8 Flash**: Powering all local agents with SOTA speed, reasoning, and context window capacity.
-*   **[Asynchronous Subagents](/docs/subagents)**: Allows the main agent to delegate parallel background tasks to concurrent subagents without blocking your flow.
-*   **[Visual Artifacts](/docs/artifacts)**: Track and verify agent output (plans, code diffs, browser recordings) with high-fidelity visual reports, keeping you informed every step of the way.
-*   **[Security by Design](/docs/permissions)**: Secure local execution via safe defaults, local proxying, and granular tool approval gates.
-*   **[Google Integrations](/docs/build-with-google)**: We partner with product teams across Google to provide curated bundles of skills, MCP servers, and extensions that make building on Google platforms frictionless.
+*   **Gemini 3.8 Flash**: Powers all local agents with state-of-the-art speed, reasoning, and context window capacity.
+*   **[Asynchronous subagents](/docs/subagents)**: Lets the main agent delegate parallel background tasks to concurrent subagents without blocking your workflow.
+*   **[Visual artifacts](/docs/artifacts)**: Tracks and verifies agent output (such as plans, code diffs, and browser recordings) with high-fidelity visual reports, keeping you informed at every step.
+*   **[Security by design](/docs/permissions)**: Secures local execution using safe defaults, local proxying, and granular tool approval gates.
+*   **[Google integrations](/docs/build-with-google)**: We partner with product teams across Google to provide curated bundles of skills, MCP servers, and extensions that make building on Google platforms seamless:
     *   **Android**: Editor extension, CLI integrations, and Android developer skills.
-    *   **Firebase**: Curated skills for Firebase Firestore, Cloud Functions, and more.
-    *   **Web**: Chrome and Web MCP servers for autonomous browser research.
-    *   **Science**: Specialized DeepMind biology and chemistry skills to accelerate scientific workflows.
-    *   **AGY SDK**: Skills that optimize your agent’s ability to use the Antigravity SDK to build custom AI agents tailored to your workflow.
+    *   **Firebase**: Curated skills for Cloud Firestore, Cloud Functions, and more.
+    *   **Web**: Chrome and web MCP servers for autonomous browser research.
+    *   **Science**: Specialized Google DeepMind biology and chemistry skills to accelerate scientific workflows.
+    *   **Antigravity SDK**: Skills that optimize your agent’s ability to use the Antigravity SDK to build custom AI agents tailored to your workflow.

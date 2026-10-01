@@ -6,74 +6,78 @@ Supported products: [Antigravity 2.0](/product/antigravity-2) [Antigravity CLI](
 
 Note
 
-**Note**: Enterprise integration is supported for Antigravity 2.0, Antigravity CLI, and Antigravity IDE Extensions. **Antigravity IDE** (standalone) is currently not supported for enterprise deployments. [View Supported Models](/docs/models)
+**Note**: Enterprise integration is supported for Antigravity 2.0, Antigravity CLI, and Antigravity IDE extensions. **Antigravity IDE** (standalone) is currently not supported for enterprise deployments. [View supported models](/docs/models)
 
-## Overview & Key Benefits
+## Overview and key benefits
 
 You can connect Antigravity to Gemini Enterprise in two ways:
 
-*   **Google Cloud Project & API** - Connect directly via Google Cloud project APIs to use Antigravity with consumption-based billing.
-*   **Gemini Enterprise license** - Connect with your Gemini Enterprise license (Standard or Plus) to get access to included quotas, managed overages, and centralized administrative controls.
+*   **Google Cloud project and API**: Connect directly using Google Cloud project APIs to use Antigravity with consumption-based billing.
+*   **Gemini Enterprise license**: Connect with your Gemini Enterprise license (Standard or Plus) to get access to included quotas, managed overages, and centralized administrative controls.
 
 By connecting Google Antigravity to your Google Cloud project, your organization gains:
 
-Enterprise Governance
+Enterprise governance
 
 Operates under your existing Google Cloud Terms of Service with centralized administrative controls.
 
-Data Residency & Security
+Data residency and security
 
 Satisfies private networking (VPC Service Controls) and regional data residency constraints. Enterprise prompts, responses, code, and telemetry are never stored outside your private environments.
 
-## Administrator Setup Guide
+## Administrator setup guide
 
-### Gemini Enterprise Subscription Setup
+### Gemini Enterprise subscription setup
 
 To set up Gemini Enterprise subscriptions, follow the official Google Cloud onboarding guide.
 
 [Gemini Enterprise Documentation](https://docs.cloud.google.com/gemini/enterprise/docs/ai-developer-tools-overview)
 
-### Google Cloud Project & API Setup
+### Google Cloud project and API setup
 
-Complete the following three steps to provision your Google Cloud project and enable API access.
+Complete the following three steps to provision your Google Cloud project and enable API access:
 
-1.  **Select or Create a Google Cloud Project**: Select an existing project or create a dedicated project for your team’s Antigravity workloads.
+1.  **Select or create a Google Cloud project**: Select an existing project or create a dedicated project for your team’s Antigravity workloads.
     
     Note
     
-    **Project Switching Note**: To switch to a different Google Cloud project or location, log out of the Antigravity CLI or Antigravity 2.0, then log back in to select your new project or region.
+    **Project switching note**: To switch to a different Google Cloud project or location, log out of the Antigravity CLI or Antigravity 2.0, then log back in to select your new project or region.
     
     [Go to GCP Project Selector](https://console.cloud.google.com/projectselector2)
-2.  **Verify Cloud Billing**: Ensure that Cloud Billing is active for your selected Google Cloud project. You can inspect your project’s billing status in the Cloud Console.
+2.  **Verify Cloud Billing**: Ensure that Cloud Billing is active for your selected Google Cloud project. You can inspect your project’s billing status in the Google Cloud Console.
     
     [Open Google Cloud Billing Console](https://console.cloud.google.com/billing)
 3.  **Enable the API**: Enable the Gemini Enterprise API (`aiplatform.googleapis.com`) to allow Antigravity clients to connect to your project’s model endpoints.
     
     [Enable API in Cloud Console](https://console.cloud.google.com/apis/library/aiplatform.googleapis.com)
 
-## Sign In & License Selection
+## Sign in and license selection
 
 Google Antigravity uses a single sign-on (SSO) flow. When you sign in with your corporate business account, your license tier is automatically detected without requiring manual tier selection.
 
-### Sign-In Workflow
+### Sign-in workflow
+
+Complete the following steps to sign in and select a license:
 
 1.  Start **Antigravity 2.0**, the **Antigravity CLI**, or your supported **[IDE extension](/docs/ide/extensions)**.
 2.  Select **Sign in** to open the browser authentication flow.
 3.  Choose **Business account** _(subject to the Google Cloud Terms of Service)_.
-4.  Select **Continue with Google Cloud** (or configure Advanced SSO / WIF).
+4.  Select **Continue with Google Cloud** (or configure Advanced SSO and WIF).
 5.  Complete authentication in your browser.
 6.  Once authenticated, the **License Selector** displays your assigned licenses.
 7.  Confirm the project linked to your license and select it. Alternatively, select **Other** to self-assign a license by entering your project ID and selecting a location (`global`, `us`, or `eu`).
 
 Note
 
-**Data-Sharing & Project Logging Notice**: Your customer telemetry and model interactions are logged directly to the Google Cloud project corresponding to the license you select. You can maintain **one license per project and location**.
+**Data-sharing and project logging notice**: Your customer telemetry and model interactions are logged directly to the Google Cloud project corresponding to the license you select. You can maintain **one license per project and location**.
 
-## Bring Your Own Identity (BYOID / WIF)
+## Bring your own identity (BYOID and WIF)
 
 Bring Your Own Identity (BYOID) uses Workforce Identity Federation (WIF) to let your organization authenticate through an external identity provider, such as Okta, instead of a standard Google Account.
 
 ### Configuring BYOID
+
+Complete the following steps to configure BYOID:
 
 1.  In Antigravity, select **Business account**.
 2.  Select **Advanced WIF Configuration**.
@@ -120,7 +124,7 @@ Enable ADC authentication based on your Antigravity surface:
     export AGY_ADC_AUTH=true
     ```
     
-*   **Antigravity 2.0 and IDE**: enable ADC using one of the following two options:
+*   **Antigravity 2.0 and IDE**: Enable ADC using one of the following two options:
     
     *   Launch from a terminal with `AGY_ADC_AUTH=true` set (same as the CLI).
         
@@ -157,8 +161,8 @@ Antigravity resolves credentials using the standard ADC search order. [Learn mor
 
 Antigravity resolves the Google Cloud project ID from the first source found, in this order:
 
-1.  The `quota_project_id` field in the ADC file (set using the gcloud CLI, or edited manually).
-2.  **\[CLI only\]** The `GOOGLE_CLOUD_QUOTA_PROJECT` environment variable.
+1.  The `quota_project_id` field in the ADC file (set using the `gcloud` CLI, or edited manually).
+2.  **\[CLI only\]**: The `GOOGLE_CLOUD_QUOTA_PROJECT` environment variable.
 3.  The project ID reported by the metadata server (for service accounts).
 
 #### How the location is resolved
@@ -166,17 +170,17 @@ Antigravity resolves the Google Cloud project ID from the first source found, in
 Antigravity resolves the endpoint location from the first source found, in this order:
 
 1.  The surface-specific configuration:
-    *   **\[CLI\]**: the `GOOGLE_CLOUD_LOCATION` environment variable.
-    *   **\[Antigravity 2.0 / IDE\]**: the `location` field in the ADC file.
+    *   **\[CLI\]**: The `GOOGLE_CLOUD_LOCATION` environment variable.
+    *   **\[Antigravity 2.0 / IDE\]**: The `location` field in the ADC file.
 2.  Otherwise, the location defaults to `global`.
 
 Note
 
 **Note**: When authenticating with ADC, models older than Gemini 3 Flash are not supported.
 
-## Regional Endpoints & Capability Matrix
+## Regional endpoints and capability matrix
 
-Antigravity CLI, Antigravity 2.0, and IDE Extensions support multi-region deployment endpoints to satisfy regional data residency requirements:
+Antigravity CLI, Antigravity 2.0, and IDE extensions support multi-region deployment endpoints to satisfy regional data residency requirements:
 
 | Endpoint Region | Base Endpoint URI | Supported Capabilities |
 | :-- | :-- | :-- |
@@ -188,11 +192,11 @@ Note
 
 **Note**: Image generation capabilities are currently available exclusively on **`global`** deployment endpoints.
 
-For full endpoint specifications, consult the [Deployment Endpoints Documentation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations#global).
+For full endpoint specifications, consult the [Deployment endpoints documentation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations#global).
 
-## Security & Governance
+## Security and governance
 
-Request & Response Logging
+Request and response logging
 
 Audit model interactions and maintain enterprise compliance records for your Gemini Enterprise instance. [Learn more](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/request-response-logging)
 
@@ -200,20 +204,22 @@ VPC Service Controls (VPC-SC)
 
 Enforce private networking security perimeters by adding the Gemini Enterprise API (`aiplatform.googleapis.com`) to your VPC-SC perimeter. [Learn more](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/vpc-service-controls)
 
-## Troubleshooting & Diagnostics
+## Troubleshooting and diagnostics
 
-### Common Sign-In & License Issues
+### Common sign-in and license issues
 
-*   **No Licenses Appear During Setup**: Licenses are assigned by your organization’s Google Cloud administrator. If the License Selector is empty, contact your administrator to ensure your account has been granted access to a Gemini Enterprise Standard or Plus license.
-*   **Missing BYOID Sign-In Option**: Ensure you are running the latest release of **[Antigravity 2.0](/download)**, the **[Antigravity CLI](/docs/cli/install)**, or your **[IDE Extension](/docs/ide/extensions)**, as enterprise authentication and BYOID support are included natively in all recent releases.
+Review the following solutions for common sign-in and license issues:
 
-### Important API Provisioning Advisory
+*   **No licenses appear during setup**: Licenses are assigned by your organization’s Google Cloud administrator. If the License Selector is empty, contact your administrator to ensure your account has been granted access to a Gemini Enterprise Standard or Plus license.
+*   **Missing BYOID sign-in option**: Ensure you are running the latest release of **[Antigravity 2.0](/download)**, the **[Antigravity CLI](/docs/cli/install)**, or your **[IDE extension](/docs/ide/extensions)**, as enterprise authentication and BYOID support are included natively in all recent releases.
+
+### Important API provisioning advisory
 
 Caution
 
-**Enable Required APIs Before Purchasing Licenses**: New Gemini Enterprise license purchases can fail or fail to provision if the **Gemini Enterprise API** (`aiplatform.googleapis.com`) is not enabled first. Enable the API in the Google Cloud Console and wait approximately 5 minutes for propagation before completing license purchases.
+**Enable required APIs before purchasing licenses**: New Gemini Enterprise license purchases can fail or fail to provision if the **Gemini Enterprise API** (`aiplatform.googleapis.com`) is not enabled first. Enable the API in the Google Cloud Console and wait approximately five minutes for propagation before completing license purchases.
 
-### Sharing Diagnostics with Support
+### Sharing diagnostics with support
 
 When contacting Google Cloud Support, include the diagnostic log file from your most recent session:
 
@@ -230,8 +236,10 @@ When contacting Google Cloud Support, include the diagnostic log file from your 
     ```
     
 
-## What’s Next
+## What’s next
 
-*   Explore supported model architectures in the [Models Guide](/docs/models).
-*   Learn more about enterprise privacy and compliance in [Security & Governance](#security--governance).
-*   Check the [Antigravity CLI Reference](/docs/cli/reference) for headless automation commands.
+Explore the following resources to learn more:
+
+*   Explore supported model architectures in the [Models guide](/docs/models).
+*   Learn more about enterprise privacy and compliance in [Security and governance](#security-and-governance).
+*   Check the [Antigravity CLI reference](/docs/cli/reference) for headless automation commands.

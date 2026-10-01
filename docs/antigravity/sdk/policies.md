@@ -2,7 +2,7 @@
 
 The SDK provides a declarative policy engine for controlling tool execution and requesting human approval.
 
-By default, custom Python functions and standard read-only tools are allowed, while high-risk system operations (such as executing shell commands via `run_command`) require explicit permission or policy rules.
+By default, custom Python functions and standard read-only tools are allowed, while high-risk system operations (such as executing shell commands using `run_command`) require explicit permission or policy rules.
 
 ## Declarative policy engine
 
@@ -61,7 +61,7 @@ Allow execution? (y/n) [n]:
 
 ## Sample code
 
-For full working code examples, see the GitHub repository:
+For full working code examples, check out the GitHub repository:
 
 *   [`policies.py`](https://github.com/google-antigravity/antigravity-sdk-python/blob/main/examples/getting_started/policies.py)
 *   [`human_in_the_loop.py`](https://github.com/google-antigravity/antigravity-sdk-python/blob/main/examples/getting_started/human_in_the_loop.py)

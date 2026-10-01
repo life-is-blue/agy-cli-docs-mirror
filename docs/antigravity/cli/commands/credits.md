@@ -1,4 +1,4 @@
-# AI Credits Command (/credits)
+# AI credits command (/credits)
 
 View and manage your AI Premium credits interactively.
 
@@ -6,11 +6,11 @@ View and manage your AI Premium credits interactively.
 
 The `/credits` command opens a dedicated panel in the TUI that displays your current AI Premium credit balance, consumption history, and links to manage your subscription or purchase additional credits.
 
-For details on how credits are tracked, low credit alerts, and settings configuration, see the conceptual **[AI Credits Guide](/docs/cli/credits)**.
+For details on how credits are tracked, low credit alerts, and settings configuration, refer to the conceptual **[AI credits guide](/docs/cli/credits)**.
 
-## Using the Credits Command
+## Using the credits command
 
-To view your credit status:
+To view your credit status, follow these steps:
 
 1.  Type `/credits` in the prompt box.
 2.  Press `Enter`.
@@ -19,16 +19,18 @@ To view your credit status:
 /credits
 ```
 
-The credits panel will display:
+The credits panel displays the following details:
 
-*   **Active Balance**: Your remaining AI Premium credits.
-*   **Usage Summary**: A breakdown of credits consumed in the current billing cycle.
-*   **Quick Links**: Actions to buy more credits or upgrade your plan (which will open the relevant web portals).
+*   **Active balance**: Your remaining AI Premium credits.
+*   **Usage summary**: A breakdown of credits consumed in the current billing cycle.
+*   **Quick links**: Actions to buy more credits or upgrade your plan (which open the relevant web portals).
 
 Press `Esc` to close the panel and return to the main prompt.
 
 ## Next steps
 
-*   **[AI Credits Guide](/docs/cli/credits)**: Learn about credit consumption, alerts, and settings.
-*   **[Model Quotas Command](/docs/cli/commands/usage)**: Monitor your model-specific API quotas.
-*   **[CLI Reference](/docs/cli/reference)**: See all available slash commands.
+Explore the following guides to learn more about quotas and credits:
+
+*   **[AI credits guide](/docs/cli/credits)**: Learn about credit consumption, alerts, and settings.
+*   **[Model quotas command](/docs/cli/commands/usage)**: Monitor your model-specific API quotas.
+*   **[CLI reference](/docs/cli/reference)**: View all available slash commands.

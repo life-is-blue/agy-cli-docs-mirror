@@ -53,7 +53,7 @@ To invoke Boost for an algorithmic optimization, run the following command:
 /boost Optimize the sparse matrix multiplication routine using SIMD intrinsics and benchmark throughput.
 ```
 
-For detailed architectural documentation and CLI keybindings, see the [Boost deep reasoning guide](/docs/boost) and the [CLI reference](/docs/cli/reference).
+For detailed architectural documentation and CLI keybindings, refer to the [Boost deep reasoning guide](/docs/boost) and the [CLI reference](/docs/cli/reference).
 
 ### /teamwork-preview
 
@@ -65,7 +65,7 @@ To launch a multi-agent migration, run the following command:
 /teamwork-preview Migrate our REST backend from Express to Fastify with full test parity and benchmarks.
 ```
 
-For complete multi-agent lifecycle documentation and engineering patterns, see the [Teamwork agent teams guide](/docs/teamwork).
+For complete multi-agent lifecycle documentation and engineering patterns, refer to the [Teamwork agent teams guide](/docs/teamwork).
 
 ### /goal
 
@@ -87,12 +87,16 @@ The `/plan` slash command facilitates structured planning, codebase exploration,
 
 #### How it works
 
+When you invoke `/plan`, Antigravity runs a four-step workflow:
+
 1.  **Analysis and discovery**: The agent examines your prompt, analyzes the workspace, reads relevant source files, and discovers dependencies or potential roadblocks.
 2.  **Clarification and interviewing**: If details are underspecified or architectural decisions are ambiguous, the agent conducts a focused interview with you (leveraging interactive question prompts or structured options) to clarify requirements and trade-offs.
-3.  **Structured plan creation**: The agent creates a comprehensive `Implementation Plan` artifact detailing high-level approach, step-by-step task breakdowns with verification gates, and potential risks.
+3.  **Structured plan creation**: The agent creates a comprehensive `Implementation Plan` artifact detailing the high-level approach, step-by-step task breakdowns with verification gates, and potential risks.
 4.  **User review and approval**: The agent presents the plan artifact for your review. Once you review, comment on, or approve the plan, the agent transitions into execution mode.
 
 #### When to use /plan
+
+Use `/plan` in the following scenarios:
 
 *   **Complex refactors**: When refactoring architectural components across multiple files or packages.
 *   **Ambiguous requirements**: When starting a feature with open questions, trade-offs, or missing specifications.
@@ -113,11 +117,11 @@ To begin an interactive discovery session for the current workspace context with
 /plan
 ```
 
-For complete workflow details, see the [Plan slash command guide](/docs/plan) and the [Implementation plan artifact guide](/docs/implementation-plan).
+For complete workflow details, refer to the [Plan slash command guide](/docs/plan) and the [Implementation plan artifact guide](/docs/implementation-plan).
 
 ### /grill-me
 
-Prompts the agent to interview you before writing code. The agent asks targeted questions about architecture, error handling, performance targets, and backwards compatibility to eliminate ambiguity.
+Prompts the agent to interview you before writing code. The agent asks targeted questions about architecture, error handling, performance targets, and backward compatibility to eliminate ambiguity.
 
 To align on design constraints, run the following command:
 
@@ -131,7 +135,7 @@ To align on design constraints, run the following command:
 
 ### /learn
 
-Analyzes recent corrections, user feedback, and debugging resolutions from your active session, distilling them into persistent project Rules (`.antigravity/rules.md`) or reusable Agent Skills (`SKILL.md`).
+Analyzes recent corrections, user feedback, and debugging resolutions from your active session, distilling them into persistent project rules (`.antigravity/rules.md`) or reusable agent skills (`SKILL.md`).
 
 To capture recent session patterns into persistent rules, run the following command:
 
@@ -139,7 +143,7 @@ To capture recent session patterns into persistent rules, run the following comm
 /learn Save our database transaction retry pattern as a project rule for all future database changes.
 ```
 
-For customization syntax and configuration schemas, see the [Rules documentation](/docs/rules).
+For customization syntax and configuration schemas, refer to the [Rules documentation](/docs/rules).
 
 ### /plugin
 
@@ -155,7 +159,7 @@ In the **Antigravity CLI**, running `/plugin` (or its alias `/plugins`) opens th
 
 In **Antigravity 2.0**, you can also invoke `/plugin` with natural-language instructions to enable, disable, install, or scaffold custom plugins.
 
-For complete plugin manifest and marketplace documentation, see the [Plugins guide](/docs/plugins) and the [Marketplace guide](/docs/marketplace).
+For complete plugin manifest and marketplace documentation, refer to the [Plugins guide](/docs/plugins) and the [Marketplace guide](/docs/marketplace).
 
 * * *
 
@@ -163,7 +167,7 @@ For complete plugin manifest and marketplace documentation, see the [Plugins gui
 
 ### /schedule
 
-Configures the agent to execute a prompt at a specified future time or on a recurring cron schedule using background Scheduled Tasks.
+Configures the agent to execute a prompt at a specified future time or on a recurring cron schedule using background scheduled tasks.
 
 To set up a daily cleanup routine, run the following command:
 
@@ -171,7 +175,7 @@ To set up a daily cleanup routine, run the following command:
 /schedule "0 9 * * 1-5" Run git fetch, prune stale local branches, and summarize pending PR reviews.
 ```
 
-For background process architecture and cron expressions, see the [Sidecars and scheduled tasks guide](/docs/sidecars).
+For background process architecture and cron expressions, refer to the [Sidecars and scheduled tasks guide](/docs/sidecars).
 
 * * *
 
@@ -210,7 +214,7 @@ The following decision guide outlines when to use each command based on your tas
 | **Feature requiring review before making code edits** | [`/plan`](/docs/plan) | Researches code, interviews requirements, and generates a reviewable plan. |
 | **Vague requirements needing architectural alignment** | `/grill-me` | Conducts a step-by-step interview to clarify edge cases and constraints. |
 | **Task that should run continuously until 100% complete** | `/goal` | Autonomous execution without turn-by-turn confirmation pauses. |
-| **Distill recent corrections into permanent project rules** | [`/learn`](/docs/rules) | Analyzes session patterns and writes persistent Rules and Skills. |
+| **Distill recent corrections into permanent project rules** | [`/learn`](/docs/rules) | Analyzes session patterns and writes persistent rules and skills. |
 | **Discover, install, or manage plugins and marketplace bundles** | [`/plugin`](/docs/plugins) | Interactive [Plugins Manager](/docs/marketplace) in the CLI and conversational plugin management. |
 | **Web research, UI validation, and layout inspection** | `/browser` | Sandboxed Chrome browser subagent for live page interactions. |
 | **One-shot countdown timer or recurring background schedule** | [`/schedule`](/docs/sidecars) | Runs instructions in the background on cron schedules. |
@@ -222,9 +226,9 @@ The following decision guide outlines when to use each command based on your tas
 
 Public slash commands are supported across Antigravity developer surfaces:
 
-| Surface | Input Method | Navigation & Management |
+| Surface | Input Method | Navigation and Management |
 | :-- | :-- | :-- |
-| **Antigravity 2.0 (Desktop & Web)** | Type `/` in the prompt input or select from the command menu. | Model selector dropdown, Artifact review panel, Visual diff viewer. |
+| **Antigravity 2.0 (Desktop and Web)** | Type `/` in the prompt input or select from the command menu. | Model selector dropdown, Artifact review panel, Visual diff viewer. |
 | **Antigravity CLI** | Type `/` in the interactive prompt box. | `/agents` panel, Alt+J (switch threads), Ctrl+O (trajectory). |
 
 * * *
@@ -233,7 +237,7 @@ Public slash commands are supported across Antigravity developer surfaces:
 
 Explore related documentation and guides:
 
-*   [Boost deep reasoning (`/boost`)](/docs/boost): Dive deep into the 3-tier multi-agent reasoning hierarchy.
+*   [Boost deep reasoning (`/boost`)](/docs/boost): Dive deep into the three-tier multi-agent reasoning hierarchy.
 *   [Plan slash command (`/plan`)](/docs/plan): Conduct structured planning, requirement discovery, and interactive interviews.
 *   [Teamwork agent teams (`/teamwork-preview`)](/docs/teamwork): Learn how collaborative agent teams tackle large-scale migrations.
 *   [Implementation plans artifact guide](/docs/implementation-plan): Master reviewable planning artifacts and structured workflows.

@@ -59,6 +59,6 @@ async with Agent(config) as agent:
 
 ## Sample code
 
-For full working code examples, see the GitHub repository:
+For full working code examples, check out the GitHub repository:
 
 *   [`subagents.py`](https://github.com/google-antigravity/antigravity-sdk-python/blob/main/examples/getting_started/subagents.py)

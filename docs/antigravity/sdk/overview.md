@@ -2,7 +2,7 @@
 
 The Google Antigravity SDK is a Python SDK for building autonomous AI agents powered by Antigravity and Gemini. It provides a secure, stateful runtime harness that handles tool execution, context management, safety policies, and subagent delegation.
 
-If you’re looking for the managed cloud REST/gRPC API instead of the local Python SDK runtime, see the [Gemini API Antigravity Agent documentation](https://ai.google.dev/gemini-api/docs/antigravity-agent).
+If you’re looking for the managed cloud REST/gRPC API instead of the local Python SDK runtime, check out the [Gemini API Antigravity Agent documentation](https://ai.google.dev/gemini-api/docs/antigravity-agent).
 
 ## Quickstart
 
@@ -93,12 +93,12 @@ Explore the guides below to learn more about building and customizing agents wit
 
 *   **[Local models](/docs/sdk/local-models)**: Run agents on-device with LiteRT or local OpenAI-compatible servers.
 *   **[Personas](/docs/sdk/personas)**: Customize agent identity using templated or custom system instructions.
-*   **[Tools & skills](/docs/sdk/tools)**: Register custom Python functions, use built-in tools, and load skills.
+*   **[Tools and skills](/docs/sdk/tools)**: Register custom Python functions, use built-in tools, and load skills.
 *   **[MCP](/docs/sdk/mcp)**: Connect external Model Context Protocol (MCP) servers to your agents.
 *   **[Policies](/docs/sdk/policies)**: Enforce explicit tool execution policies and interactive approval flows.
 *   **[Subagents](/docs/sdk/subagents)**: Build multi-agent systems using dynamic self-cloning or static subagents.
 *   **[Structured output](/docs/sdk/structured-output)**: Handle multimodal input, stream model thoughts, and validate output.
-*   **[Lifecycle & hooks](/docs/sdk/lifecycle)**: Manage background event triggers, session persistence, and custom hooks.
+*   **[Lifecycle and hooks](/docs/sdk/lifecycle)**: Manage background event triggers, session persistence, and custom hooks.
 
 ## Sample code and examples
 

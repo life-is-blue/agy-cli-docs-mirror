@@ -2,7 +2,7 @@
 
 The SDK lets you extend your agent’s capabilities using [custom Python functions](#custom-python-functions), built-in web tools, built-in system tools, and agent skills.
 
-For Model Context Protocol (MCP) server configuration, see the [MCP Documentation](/docs/sdk/mcp).
+For Model Context Protocol (MCP) server configuration, check out the [MCP documentation](/docs/sdk/mcp).
 
 ## Built-in tools reference
 
@@ -97,7 +97,7 @@ async with Agent(config) as agent:
 
 ## Sample code
 
-For full working code examples, see the GitHub repository:
+For full working code examples, check out the GitHub repository:
 
 *   [`custom_tools.py`](https://github.com/google-antigravity/antigravity-sdk-python/blob/main/examples/getting_started/custom_tools.py)
 *   [`web_tools.py`](https://github.com/google-antigravity/antigravity-sdk-python/blob/main/examples/getting_started/web_tools.py)

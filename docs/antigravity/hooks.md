@@ -13,17 +13,17 @@ In Antigravity 2.0, hooks are configured in a `hooks.json` file located in your 
 *   **Workspace level**: `.agents/hooks.json` in your workspace root.
 *   **Global level**: `~/.gemini/config/hooks.json`.
 
-You can also view and toggle hooks from **Settings > Customizations > Hooks**. For Antigravity 2.0, `<app_data_dir>` in hook payloads resolves to `~/.gemini/antigravity`.
+You can also view and toggle hooks from **Settings** > **Customizations** > **Hooks**. For Antigravity 2.0, `<app_data_dir>` in hook payloads resolves to `~/.gemini/antigravity`.
 
 ### Managing hooks in Antigravity CLI
 
 Hooks intercept agent actions right before or immediately after execution. They are useful for running automated pre-flight checks or post-generation formatters (such as running `prettier` after writing files).
 
-Hooks can be defined in any of the following locations:
+You can define hooks in any of the following locations:
 
 *   **Workspace level**: `.agents/hooks.json` at your project root.
 *   **Global level**: `~/.gemini/config/hooks.json` or inside your primary `~/.gemini/antigravity-cli/settings.json` file.
-*   **Plugin level**: packaged inside an installed plugin’s `hooks.json` file.
+*   **Plugin level**: Packaged inside an installed plugin’s `hooks.json` file.
 
 You can inspect all loaded and active hooks interactively inside the TUI by typing:
 
@@ -40,11 +40,11 @@ In the standalone Antigravity IDE, hooks are configured in a `hooks.json` file:
 *   **Workspace level**: `.agents/hooks.json` in your open project.
 *   **Global level**: `~/.gemini/config/hooks.json`.
 
-You can manage active hooks from the **… > Customizations > Hooks** menu in the agent side panel. For Antigravity IDE, `<app_data_dir>` in hook payloads resolves to `~/.gemini/antigravity-ide`.
+You can manage active hooks from the **…** > **Customizations** > **Hooks** menu in the agent side panel. For Antigravity IDE, `<app_data_dir>` in hook payloads resolves to `~/.gemini/antigravity-ide`.
 
-## Schema and File Format
+## Schema and file format
 
-The `hooks.json` file maps hook names to their event configurations.
+The `hooks.json` file maps hook names to their event configurations:
 
 ```
 {
@@ -86,7 +86,9 @@ The `hooks.json` file maps hook names to their event configurations.
 }
 ```
 
-### Hook Definition Fields
+### Hook definition fields
+
+Each hook definition supports the following fields:
 
 | Field | Type | Description |
 | :-- | :-- | :-- |
@@ -97,11 +99,13 @@ The `hooks.json` file maps hook names to their event configurations.
 | `PostInvocation` | array | Handlers that run immediately after each model invocation completes. |
 | `Stop` | array | Handlers that run when the execution loop terminates. |
 
-## Supported Events
+## Supported events
+
+Antigravity supports the following hook events:
 
 | Event | Description | Matcher Target |
 | :-- | :-- | :-- |
-| `PreToolUse` | Fires before a tool is executed. | Tool name (e.g., `run_command`) |
+| `PreToolUse` | Fires before a tool is executed. | Tool name (for example, `run_command`) |
 | `PostToolUse` | Fires after a tool completes. | Tool name |
 | `PreInvocation` | Fires before the model is called. | N/A (matcher ignored) |
 | `PostInvocation` | Fires immediately after each model invocation completes. | N/A (matcher ignored) |
@@ -120,68 +124,78 @@ Note
 
 **Note**: For `PreInvocation`, `PostInvocation`, and `Stop`, the structure is simpler (a list of handlers directly under the event key) and the matcher is ignored.
 
-## Supported Tools
+## Supported tools
 
-For `PreToolUse` and `PostToolUse` matchers, you can match against standard tool names, grouped by category:
+For `PreToolUse` and `PostToolUse` matchers, you can match against standard tool names, grouped by category.
 
-### File and Directory Operations
+### File and directory operations
+
+The following tools manage files and directories:
 
 *   **`view_file`**: View the contents of a file.
-    *   Arguments: `AbsolutePath`, `StartLine` (optional), `EndLine` (optional), `IsSkillFile` (optional)
+    *   **Arguments**: `AbsolutePath`, `StartLine` (optional), `EndLine` (optional), `IsSkillFile` (optional)
 *   **`write_to_file`**: Create new files.
-    *   Arguments: `TargetFile`, `Overwrite`, `CodeContent`, `Description`, `IsArtifact` (optional), `ArtifactMetadata` (optional)
+    *   **Arguments**: `TargetFile`, `Overwrite`, `CodeContent`, `Description`, `IsArtifact` (optional), `ArtifactMetadata` (optional)
 *   **`replace_file_content`**: Edit a single contiguous block of text in a file.
-    *   Arguments: `TargetFile`, `Instruction`, `Description`, `AllowMultiple`, `TargetContent`, `ReplacementContent`, `StartLine`, `EndLine`, `TargetLintErrorIds` (optional)
+    *   **Arguments**: `TargetFile`, `Instruction`, `Description`, `AllowMultiple`, `TargetContent`, `ReplacementContent`, `StartLine`, `EndLine`, `TargetLintErrorIds` (optional)
 *   **`multi_replace_file_content`**: Make multiple, non-contiguous edits to the same file.
-    *   Arguments: `TargetFile`, `Instruction`, `Description`, `ReplacementChunks` (array of chunks), `TargetLintErrorIds` (optional), `ArtifactMetadata` (optional)
+    *   **Arguments**: `TargetFile`, `Instruction`, `Description`, `ReplacementChunks` (array of chunks), `TargetLintErrorIds` (optional), `ArtifactMetadata` (optional)
 *   **`list_dir`**: List the contents of a directory.
-    *   Arguments: `DirectoryPath`
+    *   **Arguments**: `DirectoryPath`
 *   **`find_by_name`**: Search for files and directories using glob patterns.
-    *   Arguments: `SearchDirectory`, `Pattern`, `Type` (optional), `Excludes` (optional), `Extensions` (optional), `FullPath` (optional), `MaxDepth` (optional)
+    *   **Arguments**: `SearchDirectory`, `Pattern`, `Type` (optional), `Excludes` (optional), `Extensions` (optional), `FullPath` (optional), `MaxDepth` (optional)
 
-### Search and Research
+### Search and research
 
-*   **`grep_search`**: Fast text searches within specific paths.
-    *   Arguments: `SearchPath`, `Query`, `IsRegex` (optional), `CaseInsensitive` (optional), `Includes` (optional), `MatchPerLine` (optional)
+The following tools search files and the web:
+
+*   **`grep_search`**: Run fast text searches within specific paths.
+    *   **Arguments**: `SearchPath`, `Query`, `IsRegex` (optional), `CaseInsensitive` (optional), `Includes` (optional), `MatchPerLine` (optional)
 *   **`search_web`**: Perform a general web search.
-    *   Arguments: `query`, `domain` (optional)
+    *   **Arguments**: `query`, `domain` (optional)
 *   **`read_url_content`**: Fetch text content of a public URL.
-    *   Arguments: `Url`
+    *   **Arguments**: `Url`
 
-### System and Execution
+### System and execution
 
-*   **`run_command`**: Propose a bash command to run.
-    *   Arguments: `CommandLine`, `Cwd`, `WaitMsBeforeAsync`, `RunPersistent` (optional), `RequestedTerminalID` (optional)
+The following tools execute commands and manage permissions:
+
+*   **`run_command`**: Propose a Bash command to run.
+    *   **Arguments**: `CommandLine`, `Cwd`, `WaitMsBeforeAsync`, `RunPersistent` (optional), `RequestedTerminalID` (optional)
 *   **`manage_task`**: Interact with background tasks.
-    *   Arguments: `Action` (`'list'`, `'kill'`, `'status'`, `'send_input'`), `TaskId` (optional), `Input` (optional)
+    *   **Arguments**: `Action` (`'list'`, `'kill'`, `'status'`, `'send_input'`), `TaskId` (optional), `Input` (optional)
 *   **`schedule`**: Set timers or recurring cron jobs.
-    *   Arguments: `DurationSeconds` (optional), `CronExpression` (optional), `MaxIterations` (optional), `Prompt`
+    *   **Arguments**: `DurationSeconds` (optional), `CronExpression` (optional), `MaxIterations` (optional), `Prompt`
 *   **`list_permissions`**: View current resource access grants.
-    *   Arguments: None
+    *   **Arguments**: None
 *   **`ask_permission`**: Request additional scoped permissions.
-    *   Arguments: `Action`, `Target`, `Reason`
+    *   **Arguments**: `Action`, `Target`, `Reason`
 
-### Agent Collaboration
+### Agent collaboration
 
-*   **`invoke_subagent`**: Spawn specialized sub-agents.
-    *   Arguments: `Subagents` (array of specs with `Prompt`, `Role`, `TypeName`, `Workspace` (optional))
-*   **`define_subagent`**: Create a custom sub-agent.
-    *   Arguments: `name`, `description`, `system_prompt`, `enable_mcp_tools` (optional), `enable_write_tools` (optional), `enable_subagent_tools` (optional)
+The following tools coordinate subagents:
+
+*   **`invoke_subagent`**: Spawn specialized subagents.
+    *   **Arguments**: `Subagents` (array of specs with `Prompt`, `Role`, `TypeName`, `Workspace` (optional))
+*   **`define_subagent`**: Create a custom subagent.
+    *   **Arguments**: `name`, `description`, `system_prompt`, `enable_mcp_tools` (optional), `enable_write_tools` (optional), `enable_subagent_tools` (optional)
 *   **`send_message`**: Communicate with other agents.
-    *   Arguments: `Recipient`, `Message`
-*   **`manage_subagents`**: List or terminate active sub-agents.
-    *   Arguments: `Action` (`'list'`, `'kill'`, `'kill_all'`), `ConversationIds` (optional)
+    *   **Arguments**: `Recipient`, `Message`
+*   **`manage_subagents`**: List or terminate active subagents.
+    *   **Arguments**: `Action` (`'list'`, `'kill'`, `'kill_all'`), `ConversationIds` (optional)
 
-### Interaction and Media
+### Interaction and media
+
+The following tools handle user interaction and media generation:
 
 *   **`ask_question`**: Ask multiple-choice questions.
-    *   Arguments: `questions` (array of questions with `question`, `options`, `is_multi_select`)
+    *   **Arguments**: `questions` (array of questions with `question`, `options`, `is_multi_select`)
 *   **`generate_image`**: Create or edit images.
-    *   Arguments: `Prompt`, `ImageName`, `ImagePaths` (optional)
+    *   **Arguments**: `Prompt`, `ImageName`, `ImagePaths` (optional)
 
-## Hook Handler Configuration
+## Hook handler configuration
 
-Each item in the `hooks` array supports:
+Each item in the `hooks` array supports the following fields:
 
 | Field | Type | Description |
 | :-- | :-- | :-- |
@@ -189,27 +203,27 @@ Each item in the `hooks` array supports:
 | `command` | string | Required. The shell command to execute. |
 | `timeout` | integer | Optional. Timeout in seconds. Defaults to `30`. |
 
-## Input/Output Contract
+## Input and output contract
 
-Hooks receive input via **stdin** as JSON and should return output via **stdout** as JSON. Field names use camelCase.
+Hooks receive input through **stdin** as JSON and return output through **stdout** as JSON. Field names use camelCase.
 
-### Common Input Fields
+### Common input fields
 
 All hooks receive the following system metadata fields in their input payload on `stdin`:
 
 | Field | Type | Description |
 | :-- | :-- | :-- |
 | `conversationId` | string | The unique UUID of the active agent conversation. |
-| `workspacePaths` | array of strings | Absolute directory paths representing the user’s mounted workspaces. |
+| `workspacePaths` | array of strings | Absolute directory paths representing your mounted workspaces. |
 | `transcriptPath` | string | The absolute path to the persistent `transcript.jsonl` conversation logs.  
-**Note**: This file lives in: `<app_data_dir>/brain/<conversationId>/.system_generated/logs/transcript.jsonl` where `<app_data_dir>` is:
+**Note**: This file lives in `<app_data_dir>/brain/<conversationId>/.system_generated/logs/transcript.jsonl` where `<app_data_dir>` is:
 *   `~/.gemini/antigravity` for Antigravity 2.0
 *   `~/.gemini/antigravity-cli` for Antigravity CLI
 *   `~/.gemini/antigravity-ide` for Antigravity IDE
 
  |
 | `artifactDirectoryPath` | string | The absolute path to the directory containing all conversation artifacts and screenshots. |
-| `modelName` | string | The name/identifier of the model handling the invocation (e.g., `gemini-3.6-flash-medium`). |
+| `modelName` | string | The name or identifier of the model handling the invocation (for example, `gemini-3.6-flash-medium`). |
 
 * * *
 
@@ -217,32 +231,30 @@ All hooks receive the following system metadata fields in their input payload on
 
 Fires before a tool is executed.
 
-**Schema**
-
-**Input Fields (stdin)**:
+**Input fields (stdin)**:
 
 | Field | Type | Description |
 | :-- | :-- | :-- |
 | `toolCall` | object | Details of the proposed tool call. |
-| `toolCall.name` | string | The name of the tool being executed (e.g., `run_command`). |
+| `toolCall.name` | string | The name of the tool being executed (for example, `run_command`). |
 | `toolCall.args` | object | Arguments passed to the tool call. |
 | `stepIdx` | integer | The 0-based index of the current step in the trajectory. |
-| _(Common Fields)_ |  | Includes `conversationId`, `workspacePaths`, `transcriptPath`, `artifactDirectoryPath`, `modelName`. |
+| _(Common fields)_ |  | Includes `conversationId`, `workspacePaths`, `transcriptPath`, `artifactDirectoryPath`, `modelName`. |
 
-**Output Fields (stdout)**:
+**Output fields (stdout)**:
 
 | Field | Type | Description |
 | :-- | :-- | :-- |
 | `decision` | string | **Required.** Controls how the tool call is gated:  
 \- `"allow"`: Automatically allows the tool execution.  
 \- `"deny"`: Hard blocks execution immediately.  
-\- `"ask"`: Prompts the user, but respects “Always Allow” settings.  
-\- `"force_ask"`: Always prompts the user, ignoring cached permissions.  
-\- `"deny_unless_prior_grant"`: Denies execution unless the resource was previously approved in a prior user grant. |
-| `reason` | string | **Optional.** The explanation shown to the agent or user for the decision. |
-| `permissionOverrides` | array of strings | **Optional.** A list of resource strings (e.g. `["read_file(/path)", "command(args)"]`) to override default tool permissions. |
+\- `"ask"`: Prompts you for approval, but respects “Always Allow” settings.  
+\- `"force_ask"`: Always prompts you for approval, ignoring cached permissions.  
+\- `"deny_unless_prior_grant"`: Denies execution unless the resource was previously approved in a prior grant. |
+| `reason` | string | **Optional.** The explanation shown to the agent or to you for the decision. |
+| `permissionOverrides` | array of strings | **Optional.** A list of resource strings (for example, `["read_file(/path)", "command(args)"]`) to override default tool permissions. |
 
-**Example**
+**Example**:
 
 *   **Input (stdin)**:
 
@@ -281,20 +293,18 @@ Fires before a tool is executed.
 
 Fires after a tool completes.
 
-**Schema**
-
-**Input Fields (stdin)**:
+**Input fields (stdin)**:
 
 | Field | Type | Description |
 | :-- | :-- | :-- |
 | `toolCall` | object | Details of the executed tool call (`name` and `args`). |
 | `stepIdx` | integer | The 0-based index of the completed step. |
 | `error` | string | Optional. The detailed runtime error message if the tool call failed. Empty if successful. |
-| _(Common Fields)_ |  | Includes `conversationId`, `workspacePaths`, `transcriptPath`, `artifactDirectoryPath`, `modelName`. |
+| _(Common fields)_ |  | Includes `conversationId`, `workspacePaths`, `transcriptPath`, `artifactDirectoryPath`, `modelName`. |
 
-**Output Fields (stdout)**: Returns an empty JSON object `{}`.
+**Output fields (stdout)**: Returns an empty JSON object `{}`.
 
-**Example**
+**Example**:
 
 *   **Input (stdin)**:
 
@@ -326,29 +336,27 @@ Fires after a tool completes.
 
 Fires before the model is called.
 
-**Schema**
-
-**Input Fields (stdin)**:
+**Input fields (stdin)**:
 
 | Field | Type | Description |
 | :-- | :-- | :-- |
 | `invocationNum` | integer | The 0-indexed sequence number of the current model invocation (the first invocation is 0). |
 | `initialNumSteps` | integer | The number of steps currently in the trajectory. |
-| _(Common Fields)_ |  | Includes `conversationId`, `workspacePaths`, `transcriptPath`, `artifactDirectoryPath`, `modelName`. |
+| _(Common fields)_ |  | Includes `conversationId`, `workspacePaths`, `transcriptPath`, `artifactDirectoryPath`, `modelName`. |
 
-**Output Fields (stdout)**:
+**Output fields (stdout)**:
 
 | Field | Type | Description |
 | :-- | :-- | :-- |
 | `injectSteps` | array of objects | **Optional.** List of steps to inject into the conversation trajectory before the model is called. |
 
-_Injected Step Schema_: Each object in the `injectSteps` array can have one of the following fields:
+Each object in the `injectSteps` array can have one of the following fields:
 
-*   `toolCall` (object): A tool call to execute.
-*   `userMessage` (string): A message from the user.
-*   `ephemeralMessage` (string): A transient system message.
+*   **`toolCall`** (object): A tool call to execute.
+*   **`userMessage`** (string): A message from you.
+*   **`ephemeralMessage`** (string): A transient system message.
 
-**Example**
+**Example**:
 
 *   **Input (stdin)**:
 
@@ -378,11 +386,9 @@ _Injected Step Schema_: Each object in the `injectSteps` array can have one of t
 
 Fires immediately after each model invocation completes.
 
-**Schema**
+**Input fields (stdin)**: Same as `PreInvocation` input fields (`invocationNum` and `initialNumSteps`).
 
-**Input Fields (stdin)**: Same as `PreInvocation` input fields (`invocationNum` and `initialNumSteps`).
-
-**Output Fields (stdout)**:
+**Output fields (stdout)**:
 
 | Field | Type | Description |
 | :-- | :-- | :-- |
@@ -392,9 +398,9 @@ Fires immediately after each model invocation completes.
 \- `"terminate"`: Forces the loop to terminate.  
 \- `""` (or omitted): Default behavior. |
 
-**Example**
+**Example**:
 
-*   **Input (stdin)**: Same as `PreInvocation`
+*   **Input (stdin)**: Same as `PreInvocation`.
 *   **Output (stdout)**:
 
 ```
@@ -410,26 +416,24 @@ Fires immediately after each model invocation completes.
 
 Fires when the execution loop terminates.
 
-**Schema**
-
-**Input Fields (stdin)**:
+**Input fields (stdin)**:
 
 | Field | Type | Description |
 | :-- | :-- | :-- |
 | `executionNum` | integer | The sequence number of the execution attempt. |
-| `terminationReason` | string | The reason why the execution is stopping (e.g., `"model_stop"`, `"max_steps_exceeded"`, `"error"`). |
+| `terminationReason` | string | The reason why the execution is stopping (for example, `"model_stop"`, `"max_steps_exceeded"`, `"error"`). |
 | `error` | string | Optional. The error message if termination was caused by a system error. |
 | `fullyIdle` | boolean | **Required.** `true` if the agent is completely finished and all background commands or asynchronous tasks have completed. `false` if active background tasks are still running. |
-| _(Common Fields)_ |  | Includes `conversationId`, `workspacePaths`, `transcriptPath`, `artifactDirectoryPath`, `modelName`. |
+| _(Common fields)_ |  | Includes `conversationId`, `workspacePaths`, `transcriptPath`, `artifactDirectoryPath`, `modelName`. |
 
-**Output Fields (stdout)**:
+**Output fields (stdout)**:
 
 | Field | Type | Description |
 | :-- | :-- | :-- |
 | `decision` | string | **Required.** Set to `"continue"` to prevent the agent from stopping and re-enter the execution loop. Any other value allows the stop. |
 | `reason` | string | **Optional.** If `decision` is `"continue"`, this message is injected as a system message into the conversation. |
 
-**Example**
+**Example**:
 
 *   **Input (stdin)**:
 

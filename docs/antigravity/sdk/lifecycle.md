@@ -77,7 +77,7 @@ config = LocalAgentConfig(
 
 ## Sample code
 
-For full working code examples, see the GitHub repository:
+For full working code examples, check out the GitHub repository:
 
 *   [`triggers.py`](https://github.com/google-antigravity/antigravity-sdk-python/blob/main/examples/getting_started/triggers.py)
 *   [`hooks.py`](https://github.com/google-antigravity/antigravity-sdk-python/blob/main/examples/getting_started/hooks.py)

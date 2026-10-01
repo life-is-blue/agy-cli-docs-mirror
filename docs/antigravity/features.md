@@ -2,74 +2,74 @@
 
 ### Projects
 
-In Antigravity 2.0, agents work in **Projects** (previously in Agent Manager, agents were strictly mapped to a single workspace folder).
+In Antigravity 2.0, agents work in **projects** (previously in Agent Manager, agents were strictly mapped to a single workspace folder):
 
 *   **Worktree support**: Projects natively support Git worktrees, allowing agents to operate in isolated background folders.
-*   **Scoped settings**: Settings are scoped, allowing you to have different security settings per project. This means you can have a more permissive setting for a trusted project and a more restrictive security setting for an untrusted folder. The main three presets are “Default”, “Full machine” and “Unrestricted” (see the settings tab for the full list).
+*   **Scoped settings**: Settings are scoped, allowing you to have different security settings per project. This means you can have a more permissive setting for a trusted project and a more restrictive security setting for an untrusted folder. The three main presets are “Default”, “Full machine”, and “Unrestricted” (refer to the **Settings** tab for the full list).
 *   **Scoped permissions**: Attach permission grants to projects to control what the agents are allowed to access. Permissions manually granted during a conversation can persist, allowing the agent to learn trusted actions and enabling a more seamless experience over time.
-*   **Multi-folder access**: A project can be configured to work in multiple folders, allowing agents to operate across different codebases within the same conversation.
+*   **Multi-folder access**: You can configure a project to work in multiple folders, allowing agents to operate across different codebases within the same conversation.
 
 ### Conversations outside of projects
 
-Start quick, one-off conversations outside of any Project. These sessions run in an isolated local scratch folder. They have their own settings, and they also have their own permissions in addition to inheriting from global permissions.
+Start quick, one-off conversations outside of any project. These sessions run in an isolated local scratch folder. They have their own settings and permissions in addition to inheriting from global permissions.
 
 ### Scheduled tasks
 
-We’re introducing scheduled tasks, allowing users to plan ahead with their projects. Utilizing the newest Gemini 3.8 Flash model, users can schedule messages to be sent to their agents while they’re away.
+Scheduled tasks let you plan ahead with your projects. Using the Gemini 3.8 Flash model, you can schedule messages to be sent to your agents while you’re away:
 
 *   **Repeatable**: Set up time-based triggers to start conversations periodically.
-*   Tasks will be set to repeat on the minute you’ve set them.
+*   **Minute-level precision**: Tasks repeat on the exact minute you set them.
 
 ### Secure by default
 
-We put you in the driver’s seat with robust security controls:
+Antigravity puts you in the driver’s seat with robust security controls:
 
-*   **Interactive approvals**: By default, agents request your explicit permission before running terminal commands outside the isolated [Terminal Sandbox](/docs/sandbox) (macOS and Linux) or before running any terminal command (Windows).
-*   **Bounded access**: By default, your agent can only read and write within the provided folders of a project. If you broaden your permission settings (for example, the “Turbo” preset on macOS and Linux, or the “Full machine” / “Unrestricted” security presets on Windows), the agent will have read and write access over your full machine.
+*   **Interactive approvals**: By default, agents request your explicit permission before running terminal commands outside the isolated [Terminal sandbox](/docs/sandbox) (macOS and Linux) or before running any terminal command (Windows).
+*   **Bounded access**: By default, your agent can only read and write within the provided folders of a project. If you broaden your permission settings (for example, the “Turbo” preset on macOS and Linux, or the “Full machine” or “Unrestricted” security presets on Windows), the agent has read and write access over your full machine.
 
 ### Voice transcription
 
-Antigravity features a built-in live voice transcription, allowing you to prompt agents and leave feedback using natural speech.
+Antigravity features built-in live voice transcription, allowing you to prompt agents and leave feedback using natural speech.
 
-**How to use**:
+To use voice transcription:
 
-*   **Start/stop**: Click the mic button next to the text input box to start recording, click it again to stop.
-*   **Live view**: As you speak, your words are transcribed in real-time directly into the input field.
+*   **Start or stop**: Click the microphone button next to the text input box to start recording, and click it again to stop.
+*   **Live view**: As you speak, your words are transcribed in real time directly into the input field.
 *   **Shortcut**: You can start recording by pressing Ctrl + M. Once you’re done, press Ctrl + M to stop recording.
 
-**Key features**
+Voice transcription includes the following key features:
 
 *   **Smart cleanup**: Speak naturally without worrying about pauses or perfect phrasing. Once you stop recording, the system automatically cleans up the transcription, resolving self-corrections, repetitions, and filler words into a cohesive prompt.
-*   **Conversational awareness**: The model will have context to your conversation, you can use project-specific terminology and expect accurate results.
+*   **Conversational awareness**: Because the model has context from your conversation, you can use project-specific terminology and expect accurate results.
 
-**Availability** Voice input is available across all primary interaction surfaces:
+Voice input is available across all primary interaction surfaces:
 
 *   **Agent input**: For starting conversations and sending prompt updates.
 *   **Artifact comments**: For leaving precise, inline feedback on plans, code diffs, and deliverables.
 
 ### JSON hooks
 
-JSON hooks allow you to execute custom local shell scripts at critical stages of an Antigravity agent’s execution cycle. You can intercept and control the agent’s behavior before tool calls, after model responses, or at loop stopping conditions—configured globally or per-workspace via simple JSON files.
+JSON hooks allow you to execute custom local shell scripts at critical stages of an Antigravity agent’s execution cycle. You can intercept and control the agent’s behavior before tool calls, after model responses, or at loop stopping conditions—configured globally or per workspace using simple JSON files.
 
-[Explore the JSON hooks & rules documentation](/docs/hooks)
+[Explore the JSON hooks and rules documentation](/docs/hooks).
 
 ### Browser
 
-We reworked the browser subagent in Antigravity 2.0.
+The reworked browser subagent in Antigravity 2.0 includes the following capabilities:
 
-*   **On-demand**: Can be invoked through the `/browser` command.
-*   **Chrome DevTools integration**: The browser subagent also integrates natively with Chrome DevTools MCP.
-*   **Video recording**: Now supports recordings as webm videos.
+*   **On-demand**: Invoke the browser subagent through the `/browser` command.
+*   **Chrome DevTools integration**: Integrate natively with Chrome DevTools MCP.
+*   **Video recording**: Record browser sessions as WebM videos.
 
 ### Remote Control
 
 Antigravity 2.0 Remote Control allows you to drive and monitor your desktop agent sessions across multiple machines from any web browser:
 
-*   **Untethered Mobility**: Launch long-running agent workflows on your desktop workstation and continue monitoring or approving actions from a mobile device or laptop.
-*   **Local Context Retained**: Keep full access to your workstation’s local filesystem, toolchains, credentials, and Git worktrees without duplicating environments.
-*   **Proactive Push Notifications**: Receive browser push notifications when tasks complete or when user input is needed.
+*   **Untethered mobility**: Launch long-running agent workflows on your desktop workstation and continue monitoring or approving actions from a mobile device or laptop.
+*   **Local context retained**: Keep full access to your workstation’s local filesystem, toolchains, credentials, and Git worktrees without duplicating environments.
+*   **Proactive push notifications**: Receive browser push notifications when tasks complete or when your input is needed.
 
-[Learn more about Antigravity 2.0 Remote Control](/docs/remote-control)
+[Learn more about Antigravity 2.0 Remote Control](/docs/remote-control).
 
 ### Integrated terminal
 

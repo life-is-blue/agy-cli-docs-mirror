@@ -1,9 +1,9 @@
 # Walkthrough
 
-Agent creates walkthrough artifacts when it has completed task implementation; this type of artifact includes a concise summary of the changes that have been made to remind the user of what has happened in the active conversation. This is a great way to get up to speed with the state of your codebase after Agent has made its changes in case you were not strictly following it the whole time.
+The agent creates walkthrough artifacts when it completes task implementation. This type of artifact includes a concise summary of the changes made to remind you of what happened in the active conversation. Walkthroughs help you get up to speed with the state of your codebase after the agent makes changes, even if you weren’t following every step in real time.
 
 ![Walkthrough](/assets/image/docs/artifacts/artifact-walkthrough.png)
 
-For browser tasks, walkthroughs often contain screenshots and screen recordings of what Agent has built or created in the browser!
+For browser tasks, walkthroughs often contain screenshots and screen recordings of what the agent built or created in the browser.
 
 ![Walkthrough with Image](/assets/image/docs/artifacts/artifact-walkthrough-image.png)

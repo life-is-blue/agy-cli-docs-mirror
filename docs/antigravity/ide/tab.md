@@ -1,4 +1,4 @@
-# Antigravity IDE: Tab & Navigation
+# Antigravity IDE: Tab and navigation
 
 This guide covers the core navigation and completion tools: **Supercomplete**, **Tab-to-Jump**, and **Tab-to-Import**.
 
@@ -8,9 +8,11 @@ Supercomplete provides code suggestions in a region near your current cursor pos
 
 ![Supercomplete](/assets/image/docs/editor/supercomplete.png)
 
-### How it Works
+### How it works
 
-*   **File-Wide Suggestions**: Suggestions can modify code throughout the document, handling tasks like changing variable names or updating separate function definitions simultaneously.
+Supercomplete includes the following capabilities:
+
+*   **File-wide suggestions**: Suggestions can modify code throughout the document, handling tasks like changing variable names or updating separate function definitions simultaneously.
 *   **Accepting**: Press `Tab` to accept the changes.
 
 ## Tab-to-Jump
@@ -19,9 +21,11 @@ Tab-to-Jump is a fluid navigation tool that suggests the next logical place in y
 
 ![Tab-to-Jump](/assets/image/docs/editor/tab_to_jump.png)
 
-### How it Works
+### How it works
 
-*   A “Tab to jump” icon will appear offering to move your cursor to where your next logical edit will be. Pressing `Tab` instantly moves your cursor to that location.
+Tab-to-Jump works in the following ways:
+
+*   **Navigation**: A **Tab to jump** icon appears, offering to move your cursor to your next logical edit location. Press `Tab` to immediately move your cursor to that location.
 *   **Accepting**: Press `Tab` to accept the jump.
 
 ## Tab-to-Import
@@ -30,20 +34,22 @@ Tab-to-Import handles missing dependencies without breaking your flow.
 
 ![Tab-to-Import](/assets/image/docs/editor/tab_to_import.png)
 
-### How it Works
+### How it works
+
+Tab-to-Import works in the following ways:
 
 *   **Detection**: If you type a class or function that isn’t imported, Antigravity suggests the import.
-*   **Action**: Press `Tab` to complete the word and instantly add the import statement to the top of the file.
+*   **Action**: Press `Tab` to complete the word and immediately add the import statement to the top of the file.
 
 ## Settings
 
 In your settings, you can customize the behavior of these features:
 
-*   **Enable/Disable Features**: You can individually turn off Autocomplete, Tab-to-Jump, Supercomplete, or Tab-to-Import.
-*   **Tab Speed**: Controls the responsiveness of suggestions.
+*   **Enable or disable features**: You can individually turn off Autocomplete, Tab-to-Jump, Supercomplete, or Tab-to-Import.
+*   **Tab speed**: Controls the responsiveness of suggestions:
     *   `Slow`: Waits for more context before suggesting.
     *   `Default`: Offers a balanced pace.
     *   `Fast`: Provides rapid-fire suggestions.
-*   **Highlight Inserted Text**: When enabled, text inserted via Tab is highlighted to track changes easily.
-*   **Clipboard Context**: When enabled, Antigravity uses the contents of your clipboard to improve completion accuracy.
-*   **Allow Gitignored Files**: Enables Tab features (suggestions and jumping) within files listed in your `.gitignore` file. Tab will only ignore gitignored files if git is installed.
+*   **Highlight inserted text**: When enabled, text inserted using Tab is highlighted so you can track changes easily.
+*   **Clipboard context**: When enabled, Antigravity uses the contents of your clipboard to improve completion accuracy.
+*   **Allow gitignored files**: Enables Tab features (suggestions and jumping) within files listed in your `.gitignore` file. Tab ignores gitignored files only if Git is installed.
