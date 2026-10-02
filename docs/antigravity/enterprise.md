@@ -35,6 +35,10 @@ To set up Gemini Enterprise subscriptions, follow the official Google Cloud onbo
 
 ### Google Cloud project and API setup
 
+New to Gemini Enterprise Agent Platform?
+
+If you are a new customer connecting via API, you will need an API key to authenticate. Visit the [API Key Quickstart Guide](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/start/api-keys?usertype=expressmode) to create your key first.
+
 Complete the following three steps to provision your Google Cloud project and enable API access:
 
 1.  **Select or create a Google Cloud project**: Select an existing project or create a dedicated project for your team’s Antigravity workloads.

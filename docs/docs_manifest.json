@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-01T04:38:28Z",
+  "generated_at": "2026-10-02T04:30:23Z",
   "tool": "scripts/fetch_agy_docs.py",
   "strict_fetch": false,
   "is_degraded": true,
@@ -626,9 +626,9 @@
       "slug": "enterprise",
       "label": "Enterprise",
       "url": "https://antigravity.google/docs/enterprise.md",
-      "sha256": "67e6e775f9e8c7e62cd8879d8f1ac0cd466dd39ed73be99f0be90d2956199e96",
-      "bytes": 11587,
-      "fetched_at": "2026-10-01T04:38:18Z",
+      "sha256": "c8fa494ea5e3dd5c439883e5b330cbe8a11f0c3e0c7b8d9e8f28057b48ff71b3",
+      "bytes": 11888,
+      "fetched_at": "2026-10-02T04:30:13Z",
       "sidebar_label": "Enterprise"
     },
     "antigravity/faq.md": {
