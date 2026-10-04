@@ -32,6 +32,13 @@ Visit [antigravity.google/download](/download) to download Google Antigravity 2.
 **Requirements:** glibc >= 2.28, glibcxx >= 3.4.25 (for example, Ubuntu 20, Debian 10, Fedora 36, RHEL 8)
 
  |
+| **Googlebook** | 
+
+[Get it on Google Play](https://play.google.com/store/apps/details?id=com.google.android.apps.antigravity)
+
+**Requirements:** Googlebook OS (pre-installed on Googlebooks; update or reinstall through the Google Play Store)
+
+ |
 
 ### Installation
 
@@ -90,7 +97,7 @@ Complete the following sequential steps to launch your first session:
     
     Run the appropriate fast-path command for your operating system:
     
-    **macOS / Linux**:
+    **macOS / Linux / Googlebook**:
     
     ```
     curl -fsSL https://antigravity.google/cli/install.sh | bash
@@ -110,7 +117,7 @@ Complete the following sequential steps to launch your first session:
     
     By default, the installer registers the `agy` binary to your platform-specific directory:
     
-    *   **macOS / Linux**: `~/.local/bin/agy`
+    *   **macOS / Linux / Googlebook**: `~/.local/bin/agy`
     *   **Windows**: `C:\Users\<username>\AppData\Local\agy\bin` (where `<username>` represents your active Windows profile name).
     
     Note

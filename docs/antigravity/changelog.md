@@ -893,9 +893,54 @@ Antigravity 2.0 Launch bug fixes.
 
 ## Antigravity CLI
 
-### [v1.2.12](/download#antigravity-cli "View release 1.2.12")
+### [v1.2.14](/download#antigravity-cli "View release 1.2.14")
 
 Latest
+
+September 30, 2026
+
+### Queued messages configuration, systemd-free remote-control, faster conversation loading, and cursor and file handling fixes
+
+Adds a configurable Queued Messages option in `/config`, supports running `remote-control` on Linux systems without systemd, accelerates resuming long conversation transcripts, factors attachments into automatic thread titles, hardens `--json-schema` validation, and fixes unicode cursor drift, special file hangs, and corrupted transcript step recovery.
+
+**Improvements:**
+
+*   Added the `Queued Messages` option to `/config`: keep the default `Queue` to hold follow-up messages until the current turn ends, or choose `Send Immediately` to interrupt the agent with them; it can also be set with `"queuedMessages": "send-immediately"` in `settings.json`, which was previously ignored.
+*   Improved `remote-control start` on Linux machines without a systemd user service manager, such as most containers: instead of failing, it now starts the daemon as a background process and warns that it will not restart after a crash or start at boot; `remote-control status` shows its PID and `remote-control stop` shuts it down.
+*   Improved loading long conversations: resuming a conversation with thousands of steps is noticeably faster because the CLI no longer scans every step up front.
+*   Improved automatically generated conversation titles to take images and files attached to your first message into account, so screenshot- or file-driven requests get specific titles and messages with only attachments get a title too.
+*   Improved the sign-in error shown to accounts blocked for a Terms of Service violation, which now includes a link to submit an appeal.
+*   Changed `--json-schema` to reject plain text, bare type names such as `string`, and missing schema files instead of silently treating them as a string schema; these inputs, and any schema whose root is not `"type": "object"`, now fail at startup with an error and exit code `1`.
+
+**Fixes:**
+
+*   Fixed the prompt cursor drifting away from the end of the text after emoji such as ⚠️ or 👩‍💻, or scripts with combining marks such as Devanagari and Thai, especially inside `tmux`, and fixed prompt wrapping splitting such characters across two lines.
+*   Fixed the agent hanging when it tried to view a pipe, socket, or device file, and a conversation getting stuck with `INVALID_ARGUMENT` errors after the agent viewed a truncated MP4, MOV, or M4A recording; both are now rejected up front with a clear message.
+*   Fixed resuming a conversation whose history had a missing step, for example after a crash or an interrupted write, hiding the most recent steps and letting new messages overwrite them.
+
+---
+
+### [v1.2.13](/download#antigravity-cli "View release 1.2.13")
+
+September 29, 2026
+
+### Dynamic retry delays for rate limits, rendering performance optimizations, and narrow terminal text wrapping
+
+Adopts server-requested retry delays for API rate limits while halting early on extended caps, optimizes conversation redraw rendering efficiency to reduce CPU and memory churn, clarifies artifact viewer mode toggle hints, and fixes text clipping on narrow terminals.
+
+**Improvements:**
+
+*   Improved rate-limit handling when the model API returns a retry delay: the CLI now waits the delay the server asks for instead of a fixed 5 seconds, and stops right away instead of retrying when the delay is longer than 30 seconds or the quota is a daily or billing cap.
+*   Improved rendering efficiency, cutting CPU use and memory churn while the conversation view redraws, such as during fast scrolling or while the agent is working.
+*   Improved the artifact viewer's `m` hint to name the content and the mode it switches to, such as `diagram ASCII`, `diagram source`, or `math image`, instead of `toggle ASCII` or `toggle raw`.
+
+**Fixes:**
+
+*   Fixed the workspace trust dialog, the `/help` panel, and the sign-in and MCP authentication screens clipping text on narrow terminals of around 40 columns; long lines and navigation hints now wrap, and the `/help` tab bar compacts to fit.
+
+---
+
+### [v1.2.12](/download#antigravity-cli "View release 1.2.12")
 
 September 27, 2026
 

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-03T04:13:05Z",
+  "generated_at": "2026-10-04T04:44:32Z",
   "tool": "scripts/fetch_agy_docs.py",
   "strict_fetch": false,
   "is_degraded": true,
@@ -102,9 +102,9 @@
       "slug": "changelog",
       "label": "Changelog",
       "url": "https://antigravity.google/docs/changelog.md",
-      "sha256": "b143e33dc00a1b7f6c3dfaf0829c4d750a635035489187bf14f8a4869529d645",
-      "bytes": 272311,
-      "fetched_at": "2026-10-01T04:38:18Z",
+      "sha256": "38286068600a55b896eb248bf38636c414c2554b1997c5e7ee5a05409a42552f",
+      "bytes": 276487,
+      "fetched_at": "2026-10-04T04:44:25Z",
       "sidebar_label": "Changelog"
     },
     "antigravity/cli/artifacts.md": {
@@ -354,9 +354,9 @@
       "slug": "cli/headless",
       "label": "Headless mode",
       "url": "https://antigravity.google/docs/cli/headless.md",
-      "sha256": "67dea440119baa34357de976bbf4bc338d4cb43a6ed469a85acd0f287503dfc9",
-      "bytes": 27523,
-      "fetched_at": "2026-10-01T04:38:18Z",
+      "sha256": "4fdcf016b60efc39588e90f29c51c67d47e1c7100e496e75b3eb60007eb1f0f3",
+      "bytes": 27468,
+      "fetched_at": "2026-10-04T04:44:25Z",
       "sidebar_label": "Headless mode"
     },
     "antigravity/cli/install.md": {
@@ -368,9 +368,9 @@
       "slug": "cli/install",
       "label": "Installation and auth",
       "url": "https://antigravity.google/docs/cli/install.md",
-      "sha256": "403673e1e5a8d781c7aa6b4adb624833fb24eae9c87f4aa44566decd326a3634",
-      "bytes": 6680,
-      "fetched_at": "2026-10-01T04:38:18Z",
+      "sha256": "322c3ee907924d9e0b4ff4fd6927ba33779aabd65e3c159839ccf2c23526b4ab",
+      "bytes": 6705,
+      "fetched_at": "2026-10-04T04:44:25Z",
       "sidebar_label": "Installation and auth"
     },
     "antigravity/cli/mcp.md": {
@@ -668,9 +668,9 @@
       "slug": "firebase-studio-migration",
       "label": "Firebase Studio migration",
       "url": "https://antigravity.google/docs/firebase-studio-migration.md",
-      "sha256": "9478257b461ac9fb4c1ffaf76e128fce0faa6c45b43bc5491f68f32490ed1957",
-      "bytes": 6066,
-      "fetched_at": "2026-10-01T04:38:18Z",
+      "sha256": "d47537eab98dbb1dd5954c528fca5c25a487cbc5abeecdabf32d63ae948b4b49",
+      "bytes": 6122,
+      "fetched_at": "2026-10-04T04:44:25Z",
       "sidebar_label": "Firebase Studio migration"
     },
     "antigravity/getting-started.md": {
@@ -682,9 +682,9 @@
       "slug": "getting-started",
       "label": "Getting started",
       "url": "https://antigravity.google/docs/getting-started.md",
-      "sha256": "4db720923160486154ce5589bdc015633a85d58f38bed93484d0c73b308102d7",
-      "bytes": 7751,
-      "fetched_at": "2026-10-01T04:38:18Z",
+      "sha256": "a6ec1c3244163c1e442ce1e3277ecdf63ecd72f55de109bdd4bb31d3c9f8acae",
+      "bytes": 8024,
+      "fetched_at": "2026-10-04T04:44:25Z",
       "sidebar_label": "Getting started"
     },
     "antigravity/home.md": {
@@ -1130,9 +1130,9 @@
       "slug": "models",
       "label": "Models",
       "url": "https://antigravity.google/docs/models.md",
-      "sha256": "c836d89a566946011ffd7bffcf82ae1fe750d45605d03d3b11be7f2558a8bc6c",
-      "bytes": 2071,
-      "fetched_at": "2026-10-01T04:38:18Z",
+      "sha256": "9726408b3cfb690aa68e323712d269828d2ee8d47a3c4fe842cbb928fd8207f0",
+      "bytes": 2444,
+      "fetched_at": "2026-10-04T04:44:25Z",
       "sidebar_label": "Models"
     },
     "antigravity/overview.md": {

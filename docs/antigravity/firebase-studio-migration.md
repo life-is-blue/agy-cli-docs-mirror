@@ -58,26 +58,26 @@ This workflow uses the Antigravity agent to autonomously handle project transfor
     
 4.  In the Agent pane within Antigravity, enter the following prompt. To optimize your workflow and conserve tokens, we recommend selecting the **Gemini Flash** model, which is designed for speed and efficiency in high-volume transformation tasks like file conversion:
     
+    ```
+    @fbs-to-agy-export
+    ```
+    
+    The Antigravity agent begins project migration, requesting your assistance along the way. Follow the agent’s guidance to complete the migration process. If you encounter any errors, prompt the agent to try again.
+    
 
-@fbs-to-agy-export
+Note
 
-````
-
-   The Antigravity agent begins project migration, requesting your assistance along the way. Follow the agent's guidance to complete the migration process. If you encounter any errors, prompt the agent to try again.
-
-:::note
-If the download window doesn't appear, check your browser's address bar for a pop-up blocker icon and ensure pop-ups are allowed.
-:::
+If the download window doesn’t appear, check your browser’s address bar for a pop-up blocker icon and ensure pop-ups are allowed.
 
 **Option 2: Manual export**
 
-If you prefer to manage the migration yourself without using AI tokens, you can use the Firebase CLI to manually export your project. This method is direct and doesn't require agent interaction.
+If you prefer to manage the migration yourself without using AI tokens, you can use the Firebase CLI to manually export your project. This method is direct and doesn’t require agent interaction.
 
 Open your terminal and run the following command, replacing `<path>` with the file path to your extracted project folder or the original `.zip` file:
 
-```bash
+```
 npx firebase-tools@latest studio:export <path>
-````
+```
 
 Note
 
@@ -101,25 +101,25 @@ Antigravity uses agent skills to publish your app using Firebase best practices:
 
 1.  In the chat panel, enter the following prompt:
     
-
-Publish my app
-
-```
-
-2. When prompted to run `firebase deploy`, choose **Yes**. The agent publishes to your existing URL if you've previously published to App Hosting. If this is your first time publishing to App Hosting, the agent walks you through the process.
-3. For future updates, instruct the agent to `publish my app` in the Antigravity chat panel.
+    ```
+    Publish my app
+    ```
+    
+2.  When prompted to run `firebase deploy`, choose **Yes**. The agent publishes to your existing URL if you’ve previously published to App Hosting. If this is your first time publishing to App Hosting, the agent walks you through the process.
+    
+3.  For future updates, instruct the agent to `publish my app` in the Antigravity chat panel.
+    
 
 ## Continue your work
 
 There are several ways you can continue your development in Antigravity:
 
-- **Running workflows**: In Antigravity, you can seamlessly execute workflows and continue your work with the model by typing `@workflows <workflow_name>` into the agentic chat panel.
-- **App Hosting deployments**: You can seamlessly deploy your apps directly through the agent using agent skills, or by using the platform-agnostic Firebase CLI and GitHub.
-- **Troubleshooting**: If you experience deployment issues, try re-authenticating with the Firebase CLI or verifying your project secrets.
+*   **Running workflows**: In Antigravity, you can seamlessly execute workflows and continue your work with the model by typing `@workflows <workflow_name>` into the agentic chat panel.
+*   **App Hosting deployments**: You can seamlessly deploy your apps directly through the agent using agent skills, or by using the platform-agnostic Firebase CLI and GitHub.
+*   **Troubleshooting**: If you experience deployment issues, try re-authenticating with the Firebase CLI or verifying your project secrets.
 
-Thank you for being part of the Firebase Studio journey. Your prototypes and feedback have directly shaped Google's AI tools, and we look forward to seeing what you build next in Antigravity!
+Thank you for being part of the Firebase Studio journey. Your prototypes and feedback have directly shaped Google’s AI tools, and we look forward to seeing what you build next in Antigravity!
 
 ## Need help?
 
 File any migration bugs in our [GitHub Issues](https://github.com/firebase/firebase-tools/issues).
-```

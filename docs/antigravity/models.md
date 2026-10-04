@@ -10,11 +10,19 @@ For the core reasoning model, Antigravity offers leading frontier models. Availa
 | [Gemini 3.7 Flash](/blog/gemini-3-7-flash-in-google-antigravity) | ✅ | ✅ | ✅ | ✅ |
 | [Gemini 3.6 Flash](/blog/gemini-3-6-flash-in-google-antigravity) | ✅ | ✅ | ✅ | ✅ |
 | [Gemini 3.1 Pro](/blog/gemini-3-1-pro-in-google-antigravity) | ✅ | ✅ | ✅ | ✅ |
-| Claude Sonnet 4.6 (thinking) | ✅ | ✅ | ✅ | ❌ |
-| Claude Opus 4.6 (thinking) | ✅ | ✅ | ✅ | ❌ |
-| GPT-OSS-120b | ✅ | ✅ | ✅ | ❌ |
+| Claude Sonnet 5.5 (thinking)\*\* | ❌ | ✅\*\* | ✅ | ❌ |
+| Claude Opus 5.5 (thinking)\*\* | ❌ | ✅\*\* | ✅ | ❌ |
+| Claude Sonnet 4.6 (thinking)\* | ✅ | ✅ | ❌ | ❌ |
+| Claude Opus 4.6 (thinking)\* | ✅ | ✅ | ❌ | ❌ |
+| GPT-OSS-120b\* | ✅ | ✅ | ✅ | ❌ |
+
+\* Will be removed on November 2, 2026.
+
+\*\* Available on Google AI Pro for non-trial subscriptions only.
 
 You can select which reasoning model you want to use from the model selector menu under the conversation prompt box:
+
+Free & PlusFreeGoogle AI ProProGoogle AI UltraUltraEnterpriseEnterprise
 
 Model
 
@@ -39,6 +47,10 @@ LowMediumHigh
 Gemini 3.1 ProHigh
 
 LowHigh
+
+Claude Sonnet 5.5 (Thinking)
+
+Claude Opus 5.5 (Thinking)
 
 Claude Sonnet 4.6 (Thinking)
 
