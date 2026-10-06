@@ -2530,6 +2530,57 @@ Initial public release of the Antigravity CLI.
 
 ---
 
+## IDE Extensions
+
+VS Code
+
+[Extension docs→](/docs/ide/extensions/vscode)
+
+### [v1.6.0](/docs/ide/extensions/vscode "View Visual Studio Code extension docs")
+
+Latest
+
+September 29, 2026
+
+### Terminal context integration (@terminal), native notifications, auto-accept inline diffs on chat send, and faster startup
+
+Introduces `@terminal` context integration to reference active terminals and command output in chat, adds in-editor and native Linux desktop notifications when the agent finishes or needs input, enables auto-accepting pending background inline diffs on chat send, and delivers faster extension startup, resilient binary downloads, and comprehensive inline diff lifecycle fixes.
+
+**Improvements:**
+
+*   Added `@terminal` context integration in chat to capture and reference open VS Code terminals, recent shell commands, exit codes, and up to 8 KiB of output per terminal directly in your prompts.
+*   Added **Antigravity: Add Terminal Selection or Output to Chat** (`antigravity.insertTerminalSnippet`, `Cmd+L` on macOS) to the terminal right-click context menu, with automatic clipboard fallback.
+*   Added native VS Code information notifications with **Open Chat** and **Dismiss** actions when an agent task completes or needs input while the Antigravity chat panel is unfocused, automatically suppressing duplicate notifications when chat already has focus.
+*   Added native Linux desktop notifications (`notify-send`) with the VS Code desktop entry and Antigravity icon when the VS Code window is unfocused.
+*   Added the `antigravity.autoAcceptOnChat` setting (enabled by default) to automatically accept pending inline diffs in background files when sending a new chat message, while keeping the active file's inline diff open for review.
+*   Added an in-panel error recovery screen when the background server fails to start or crashes mid-session, with **Try again** to reconnect and automatic recovery polling.
+*   Added one-click **Report issue** diagnostic submission from the error screen that packages host and installation logs (`diagnostics.json.gz`) and submits feedback even when the backend CLI is offline.
+*   Improved extension startup latency by caching binary version checks using file metadata instead of computing a full-file SHA-256 hash on every launch.
+*   Improved initial backend binary downloads by replacing the fixed 120-second deadline with a 30-second rolling inactivity timer and automatic HTTP `Range` resume across retries.
+*   Improved backend download progress reporting with monotonic 10% step updates capped cleanly at 100%.
+*   Improved activation cleanup to automatically remove abandoned temporary staging files and unpack directories older than 24 hours.
+*   Improved backend installation retries to re-fetch the latest release manifest before retrying so mid-download release updates do not fail checksum verification.
+*   Increased the default backend startup timeout (`antigravity.serverStartupTimeoutMs`) to 30 seconds and improved startup diagnostics to distinguish early process exits and signal kills from timeouts.
+*   Improved the loading screen progress bar with hardware-accelerated animations and synchronized transitions into the chat view.
+*   Updated the Antigravity activity bar icon to a crisp monochrome vector asset and refreshed the extension marketplace icon so it renders without clipping.
+
+**Fixes:**
+
+*   Fixed manual save (`Cmd+S` / `Ctrl+S`) and tab close (**Don't Save**) behavior in files with active inline diffs to prevent saving raw diff markers or leaving unintended edits on disk.
+*   Fixed inline diff application so unsaved manual edits made before or on top of agent changes are preserved.
+*   Fixed closing a tab with active inline diffs so selecting **Save** accepts the changes, **Don't Save** rejects them, and **Cancel** keeps the tab and diff review open.
+*   Fixed inline diff review zones disappearing across consecutive multi-turn agent edits.
+*   Fixed the editor tab dirty indicator (`●`) remaining visible and triggering save-conflict dialogs after accepting or rejecting inline diffs.
+*   Fixed inline diff disposal and `files.autoSave: onFocusChange` handling when switching between editor tab groups.
+*   Fixed reviewing earlier conversation turns so the diff view accurately shows cumulative file changes.
+*   Fixed diff view behavior when opening resolved versus unresolved files from the **Files Changed** sidebar.
+*   Fixed repeated "Choose a repository" prompts appearing after every inline diff edit in multi-repository workspaces.
+*   Fixed reopening an older conversation unexpectedly re-applying its file edits to the workspace.
+*   Fixed artifact review webviews clearing their own **Proceed** button when mounting.
+*   Fixed backend server readiness checks failing behind localhost proxy settings, validated the working directory before spawning when a workspace folder is deleted, and added automatic rollback if binary promotion fails on Windows.
+
+---
+
 ## Antigravity SDK
 
 ### [v0.1.18](/download#antigravity-sdk "View release 0.1.18")

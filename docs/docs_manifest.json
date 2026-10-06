@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-05T04:32:55Z",
+  "generated_at": "2026-10-06T05:18:44Z",
   "tool": "scripts/fetch_agy_docs.py",
   "strict_fetch": false,
   "is_degraded": true,
@@ -102,9 +102,9 @@
       "slug": "changelog",
       "label": "Changelog",
       "url": "https://antigravity.google/docs/changelog.md",
-      "sha256": "38286068600a55b896eb248bf38636c414c2554b1997c5e7ee5a05409a42552f",
-      "bytes": 276487,
-      "fetched_at": "2026-10-04T04:44:25Z",
+      "sha256": "c7db0ad6b12456e417abe68aa39f8946d6dd40e971471228f9347a5cf0245e12",
+      "bytes": 281468,
+      "fetched_at": "2026-10-06T05:18:38Z",
       "sidebar_label": "Changelog"
     },
     "antigravity/cli/artifacts.md": {
