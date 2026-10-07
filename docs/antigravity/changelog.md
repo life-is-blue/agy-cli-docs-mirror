@@ -2532,13 +2532,44 @@ Initial public release of the Antigravity CLI.
 
 ## IDE Extensions
 
-VS Code
+VS CodeVisual Studio
 
 [Extension docs→](/docs/ide/extensions/vscode)
 
-### [v1.6.0](/docs/ide/extensions/vscode "View Visual Studio Code extension docs")
+### [v1.7.0](/docs/ide/extensions/vscode "View Visual Studio Code extension docs")
 
 Latest
+
+October 5, 2026
+
+### Native Windows desktop notifications, undo/redo and side-by-side actions for diff reviews, Cloud Workstations authentication, and inline diff stability fixes
+
+Introduces native Windows desktop notifications when unfocused, undo/redo and side-by-side tab actions for diff reviews, interactive authentication in Cloud Workstations and Cloud Shell, and stability fixes for inline diff reviews and language server installation.
+
+**Improvements:**
+
+*   Added native Windows toast notifications with direct conversation navigation when the VS Code window is unfocused, with automatic fallback to in-IDE notifications.
+*   Added undo and redo support (`Ctrl+Z` / `Cmd+Z` and `Ctrl+Y` / `Cmd+Shift+Z`) for individual and file-level **Accept** and **Reject** actions during inline diff reviews, keeping the changes overview bar synchronized.
+*   Added **Accept All** and **Reject All** action buttons to the side-by-side diff editor tab title bar and automatic diff tab opening when starting a review or selecting files from the changes overview with inline diffs disabled (`antigravity.enableInlineDiff: false`).
+*   Updated read-only (`Resolved`) diffs to display the saved **Accept** or **Reject** outcome in the tab title and mark rejected changes inline with a **Rejected** indicator.
+*   Added an interactive authentication prompt card, pre-flight credential validation, native login terminal workflow, and automatic background token refresh when running in Google Cloud Workstations or Google Cloud Shell.
+*   Improved language server download and installation error messages to surface specific network failure causes (such as DNS lookup, connection reset, or TLS certificate-trust errors) and actionable certificate remediation guidance.
+
+**Fixes:**
+
+*   Fixed release manifest and language server download failures on macOS and corporate networks by falling back to Node's bundled root certificates (and `NODE_EXTRA_CA_CERTS`) when VS Code's certificate list cannot verify the release host.
+*   Fixed an issue where VS Code Auto Save could overwrite or prematurely resolve active inline diff reviews by keeping deleted lines out of the saved buffer, prompting to disable Auto Save or switch to side-by-side diffs, and deferring diff renderer changes until active reviews finish.
+*   Fixed redundant in-IDE completion toast notifications appearing when the Antigravity chat panel is already open and displaying the active conversation.
+*   Fixed inline diff review handling so individual hunk **Accept** and **Reject** decisions are preserved when saving (`Ctrl+S` / `Cmd+S`), clicking **Accept all** or **Reject all**, closing tabs with or without saving, or starting the next chat turn.
+*   Fixed inline diff review lifecycle issues to preserve exact end-of-file bytes and newlines, keep pending reviews editable across window reloads and file renames, and prevent stale creation diffs from overwriting user-modified files.
+*   Fixed clicking **Review** or a file in the chat and review panes so past turns without an active review open as read-only diffs without reopening or auto-accepting other files' pending reviews, and normalized file URIs on Windows.
+*   Fixed UI lag in the inline diff changes toolbar and unresponsive **Accept all** actions when opening workspaces inside large or home-directory Git repositories.
+*   Fixed clicking chat file links with `#L` line or line-range fragments (such as `#L42` or `#L10-L20`) opening duplicate editor tabs instead of focusing the existing workspace file and selecting the target lines.
+*   Updated in-IDE feedback reports to include the installed Antigravity extension version and omit local binary filesystem paths.
+
+---
+
+### [v1.6.0](/docs/ide/extensions/vscode "View Visual Studio Code extension docs")
 
 September 29, 2026
 
@@ -2578,6 +2609,342 @@ Introduces `@terminal` context integration to reference active terminals and com
 *   Fixed reopening an older conversation unexpectedly re-applying its file edits to the workspace.
 *   Fixed artifact review webviews clearing their own **Proceed** button when mounting.
 *   Fixed backend server readiness checks failing behind localhost proxy settings, validated the working directory before spawning when a workspace folder is deleted, and added automatic rollback if binary promotion fails on Windows.
+
+---
+
+### [v1.5.0](/docs/ide/extensions/vscode "View Visual Studio Code extension docs")
+
+September 23, 2026
+
+### Faster startup binary verification, refreshed activity bar and marketplace icons, and inline diff save and history review fixes
+
+Introduces faster startup binary verification using cached file metadata, refreshes the Antigravity activity bar and marketplace icons, and fixes inline diff save and tab-close behavior, historical turn diff reviews, and multi-repository Git prompts.
+
+**Improvements:**
+
+*   Improved extension startup latency by caching binary version checks using file metadata instead of computing a full-file SHA-256 hash on every launch.
+*   Updated the Antigravity activity bar icon to a crisp monochrome vector asset and refreshed the extension marketplace icon so it renders without clipping.
+
+**Fixes:**
+
+*   Fixed manual save (`Cmd+S` / `Ctrl+S`) and tab close (**Don't Save**) behavior in files with active inline diffs to prevent saving raw diff markers or leaving unintended edits on disk.
+*   Fixed reviewing earlier conversation turns so the diff view opens in a read-only view without overwriting newer file edits on disk.
+*   Fixed diff view behavior when opening resolved versus unresolved files from the **Files Changed** sidebar.
+*   Fixed empty or stale side-by-side virtual diff documents when opening percent-encoded file paths or refreshing diff contents across turns.
+*   Fixed repeated "Choose a repository" prompts appearing after every inline diff edit in multi-repository workspaces.
+*   Fixed reopening an older conversation unexpectedly re-applying its file edits to the workspace.
+*   Fixed artifact review webviews clearing their own **Proceed** button when mounting.
+*   Fixed a duplicate `antigravity.resetConversationState` command registration error during extension activation.
+
+---
+
+### [v1.4.0](/docs/ide/extensions/vscode "View Visual Studio Code extension docs")
+
+September 17, 2026
+
+### In-IDE feedback reporting with diagnostic logs, resilient auto-updates with offline fallback, and Windows file-lock recovery
+
+Introduces in-editor feedback and diagnostic log reporting, resilient backend auto-updates with fast-path offline startup, Windows binary upgrade file-lock recovery, and faster secondary panel loading.
+
+**Improvements:**
+
+*   Added the **Antigravity: Provide Feedback** command (`antigravity.feedback`) and an **Antigravity - Settings** status bar item to open extension settings and submit feedback or issue reports directly from VS Code.
+*   Added automatic buffering of extension installation and server operational logs so diagnostic logs can be attached when submitting feedback.
+*   Improved backend auto-updater reliability with exponential-backoff retries (`Retry-After` header support), offline fallback to an existing valid binary when network downloads fail, and a 3-second fast-path startup check so unresponsive update servers do not block extension startup.
+*   Updated the minimum required Antigravity backend version to `1.1.11`.
+
+**Fixes:**
+
+*   Fixed Windows `EPERM` and `EBUSY` file-locking errors during backend binary upgrades by staging running executables aside before replacement, retrying locked file operations with exponential backoff, and cleaning up stale `.old` binary backups.
+*   Fixed blank webview screens and reduced latency when opening secondary panels (Settings, Artifacts, and Terminal) by skipping redundant loading-screen rebuilds once the backend server connection is cached.
+
+---
+
+### [v1.3.0](/docs/ide/extensions/vscode "View Visual Studio Code extension docs")
+
+September 10, 2026
+
+### OS root CA certificate and proxy inheritance, refreshed initialization UI, faster startup and Settings load, and Git index and focus fixes
+
+Introduces automatic host OS root CA certificate and proxy inheritance for enterprise networks, a refreshed initialization screen, faster startup and Settings loading, and fixes for Git index stability and editor focus.
+
+**Improvements:**
+
+*   Added automatic detection and inheritance of host OS root CA certificates and proxy environment settings (`HTTP_PROXY`, `HTTPS_PROXY`, `NO_PROXY`) for the background server.
+*   Updated the initialization loading screen with the Antigravity emblem, title typography, and an animated progress bar.
+*   Improved load times when opening Settings and artifact views by caching local server connection state.
+
+**Fixes:**
+
+*   Fixed a 10-second startup delay and blank screen during initial extension load.
+*   Fixed an issue where applying inline diff hunks or agent edits could corrupt `.git/index` in Git repositories.
+*   Fixed an issue where the chat panel could unexpectedly steal keyboard focus from the active editor or terminal.
+*   Fixed spurious `NotFound` error logs in the output channel when switching focus before a conversation is active.
+*   Addressed other minor user interface issues.
+
+---
+
+### [v1.2.1](/docs/ide/extensions/vscode "View Visual Studio Code extension docs")
+
+September 8, 2026
+
+### Fixes a webview message serialization conflict affecting third-party extensions such as GitLens
+
+Introduces a patch fix resolving a webview message serialization conflict with third-party extensions such as GitLens.
+
+**Fixes:**
+
+*   Fixed a webview message serialization conflict that could break webviews and cause RPC timeouts in third-party extensions such as GitLens.
+*   Addressed other minor user interface issues.
+
+---
+
+### [v1.2.0](/docs/ide/extensions/vscode "View Visual Studio Code extension docs")
+
+September 3, 2026
+
+### Status bar settings shortcut, autoOpenFiles and serverPort settings, browser clipboard and CORS fixes, and inline diff lifecycle improvements
+
+Introduces a status bar shortcut for Settings, new configuration options for auto-opening edited files and pinning the server port, and fixes for browser-based VS Code environments, inline diff lifecycles, and duplicate tabs.
+
+**Improvements:**
+
+*   Added an **Antigravity - Settings** status bar item and the **Antigravity: Open Antigravity Settings** (`antigravity.openSettings`) command for quick access to extension settings.
+*   Added the `antigravity.autoOpenFiles` setting (defaulting to `false`) to control whether files are automatically opened in the editor when the agent proposes edits.
+*   Added the `antigravity.serverPort` setting to allow pinning a fixed port for the background language server in remote and port-forwarded environments.
+*   Improved startup performance by caching verified CLI binary versions in memory using SHA-256 checksums.
+
+**Fixes:**
+
+*   Fixed a spurious `"The extension 'google.antigravity' cannot be installed because it was not found"` error notification after signing in.
+*   Fixed paste (`Cmd+V` / `Ctrl+V`) and clipboard shortcuts (`Cut`, `Copy`, `Select All`) in browser-based VS Code environments such as GitHub Codespaces and `vscode.dev`.
+*   Fixed Private Network Access (PNA) CORS errors and a repeated webview reload loop during startup in remote and browser-based VS Code environments.
+*   Fixed inline diff lifecycle issues where starting a new chat auto-accepted pending diffs, closing an editor tab reverted changes on disk, and GitLens showed stale blame annotations on newly added lines.
+*   Fixed a modal `"Git: There are no available repositories"` error dialog when creating a project or refreshing inline diffs in workspaces without an active Git repository.
+*   Fixed an issue where opening Settings or artifact files from different UI entry points or split editor groups could spawn duplicate editor tabs.
+*   Addressed other minor user interface issues.
+
+---
+
+### [v1.1.0](/docs/ide/extensions/vscode "View Visual Studio Code extension docs")
+
+August 27, 2026
+
+### Google Antigravity Marketplace branding, resilient CLI download retries, auto-jump diff hunk navigation, and theme and diff persistence fixes
+
+Introduces Google Antigravity Marketplace branding, automatic CLI download retries with an interactive retry card, automatic navigation to the next diff hunk on accept or reject, and fixes for theme colors and diff persistence.
+
+**Improvements:**
+
+*   Updated the extension display name to **Google Antigravity** (`google.google-antigravity`) for Visual Studio Marketplace uniqueness.
+*   Added automatic retry with exponential backoff and an interactive retry card when downloading and verifying the background server binary.
+*   Added automatic editor scrolling to focus the next remaining diff hunk after accepting or rejecting a hunk.
+
+**Fixes:**
+
+*   Fixed light and dark theme background color mismatches across the chat sidebar, settings editor, artifact viewer, and terminal panel.
+*   Fixed an issue where starting a new conversation or switching conversations discarded pending agent edits instead of saving them to disk.
+*   Fixed an issue where bulk **Accept All** and **Reject All** diff actions were not persisted across window reloads, causing resolved diffs to reappear.
+*   Fixed an issue where agent edits unconditionally opened modified files in the editor, preventing `"Content of file is newer"` save conflicts.
+*   Fixed an issue where extension state queries with an empty key filter returned an empty object instead of all stored settings.
+*   Fixed console error noise when synchronizing file diff states before the webview is ready.
+*   Addressed other minor user interface issues.
+
+---
+
+### [v1.0.0](/docs/ide/extensions/vscode "View Visual Studio Code extension docs")
+
+August 18, 2026
+
+### Initial 1.0.0 release of Antigravity for VS Code with agentic chat, in-editor inline diffs, interactive plan review, and Remote-SSH support
+
+Introduces the 1.0.0 release of Antigravity for VS Code, bringing an agentic AI coding assistant with sidebar chat, in-editor inline diff review, interactive implementation plan artifacts, and Remote-SSH workspace support.
+
+**Improvements:**
+
+*   Added automatic installation, integrity verification, and channel-aware updates for the local Antigravity backend server.
+*   Added the Antigravity sidebar chat view with keyboard shortcuts to add editor selections to chat (`Cmd+L` / `Ctrl+L`), toggle chat focus (`Cmd+L` / `Ctrl+L`), start a new conversation (`Cmd+Shift+L` / `Ctrl+Shift+L`), accept (`Alt+Enter`) or reject (`Alt+Shift+Enter`) agent steps, and interrupt the agent (`Escape`).
+*   Added in-editor inline diff decorations and CodeLens actions (`Accept` / `Reject`) for reviewing agent code changes, along with **Accept All Changes**, **Reject All Changes**, and **Antigravity: Toggle Inline Diff** (`antigravity.enableInlineDiff`) to switch between inline and side-by-side diff views.
+*   Added the **Antigravity Artifact Viewer** custom editor for previewing, commenting on, and approving agent implementation plans and Markdown artifacts, along with support for exporting conversations.
+*   Added automatic port-forwarding resolution and tunnel connection retry support for VS Code Remote-SSH and remote development workspaces.
+*   Scoped conversations to the active workspace folder and preserved pending conversation state when opening or switching workspace folders.
+*   Synchronized VS Code theme colors and editor font families with the Antigravity chat view, and added support for right-click context menus, native Cut/Copy/Paste shortcuts, and mouse back/forward navigation.
+*   Added the **Antigravity: Reset Conversation State** and **Antigravity: Show Third Party Notices** commands, dedicated **Antigravity** and **Antigravity LS** output channels, and streamlined extension settings.
+
+**Fixes:**
+
+*   Fixed OAuth sign-in browser launch, post-login callback focus, and authentication state revalidation across Antigravity views.
+*   Fixed `Cmd+L` / `Ctrl+L` so it reliably focuses the chat input when opening the Antigravity sidebar and toggles the sidebar closed when the chat input is already focused.
+*   Fixed agent diff handling so switching conversations or editing files externally preserves user changes in a read-only diff view instead of overwriting the file, and prevented background agent edits from stealing editor focus.
+*   Fixed the **Proceed** button in planning mode, directory navigation in the VS Code Explorer, and `BigInt` message serialization in webview communication.
+*   Addressed other minor user interface issues.
+
+---
+
+### [v1.0.261005.0](/docs/ide/extensions/visual-studio "View Visual Studio extension docs")
+
+Latest
+
+October 5, 2026
+
+### Automatic environment diagnostics in feedback submissions and chat feedback dialog fix
+
+Introduces automatic Visual Studio environment diagnostics in feedback submissions and resolves an issue opening the feedback dialog from the chat interface.
+
+**Improvements:**
+
+*   Enhanced in-IDE feedback submissions to automatically attach Visual Studio version details and local server diagnostic logs for faster troubleshooting.
+
+**Fixes:**
+
+*   Fixed an issue where clicking feedback thumbs-up, thumbs-down, or **Report an Issue** actions in the chat view failed to open the feedback dialog in the Settings tool window.
+*   Addressed other minor user interface issues.
+
+---
+
+### [v1.0.260928.0](/docs/ide/extensions/visual-studio "View Visual Studio extension docs")
+
+September 29, 2026
+
+### Improved inline diff accuracy and cross-platform line-ending normalization
+
+Introduces improved inline diff accuracy and line-change calculations using Visual Studio's native hierarchical diff engine.
+
+**Improvements:**
+
+*   Improved inline diff accuracy and line-change calculations using Visual Studio's native hierarchical diff engine with word-level comparison and cross-platform line-ending (`CRLF`/`LF`) normalization.
+
+**Fixes:**
+
+*   Addressed other minor user interface issues.
+
+---
+
+### [v1.0.260921.0](/docs/ide/extensions/visual-studio "View Visual Studio extension docs")
+
+September 21, 2026
+
+### Fixes for docked tool window tab visibility and chat keyboard focus
+
+Introduces fixes for docked tool window tab-switching visibility and keyboard focus in the chat interface.
+
+**Fixes:**
+
+*   Fixed an issue where switching between docked tool window tabs could leave the Antigravity view blank or hidden until resized.
+*   Fixed a keyboard focus issue in the Antigravity tool window where clicking into the chat input failed to register typing focus or unexpectedly stole focus from other Visual Studio windows.
+*   Addressed other minor user interface issues.
+
+---
+
+### [v1.0.260914.2](/docs/ide/extensions/visual-studio "View Visual Studio extension docs")
+
+September 17, 2026
+
+### Unsaved @file context support, diff persistence and non-UTF-8 encoding fixes, and tool window stability
+
+Introduces `@file` context support for unsaved editor buffers and resolves issues with inline diff persistence, non-UTF-8 file encoding in diffs, external browser links, and tool window responsiveness.
+
+**Improvements:**
+
+*   Added support for referencing unsaved (`Untitled`) editor buffers using `@file` mentions in chat.
+
+**Fixes:**
+
+*   Fixed an issue where resolved inline diff views could reopen after reloading a workspace or switching solutions, and ensured open diff tabs close cleanly when changing workspaces.
+*   Fixed an issue where opening a diff preview for non-UTF-8 files (such as `Windows-1252` or `UTF-16`) could display encoding warnings or corrupted characters.
+*   Fixed an issue where external links (such as Terms of Service in the Settings window) did not open in the default system browser.
+*   Fixed a UI hang when dragging the Antigravity tool window and resolved rendering overlap where the tool window bled over adjacent docked Visual Studio panes or lost visibility when switching tabs.
+*   Fixed a keyboard focus issue in the Antigravity tool window where clicking into the chat input failed to register typing focus or unexpectedly stole focus from other Visual Studio windows.
+*   Addressed other minor user interface issues.
+
+---
+
+### [v1.0.260907.0](/docs/ide/extensions/visual-studio "View Visual Studio extension docs")
+
+September 10, 2026
+
+### Background service reliability and diagnostic reporting stability improvements
+
+Introduces background service reliability and diagnostic reporting stability improvements.
+
+**Improvements:**
+
+*   Improved background service reliability and diagnostic reporting stability.
+
+**Fixes:**
+
+*   Addressed other minor user interface issues.
+
+---
+
+### [v1.0.260901.0](/docs/ide/extensions/visual-studio "View Visual Studio extension docs")
+
+September 3, 2026
+
+### Improved Visual Studio Marketplace extension categories and search discoverability
+
+Introduces updated Visual Studio Marketplace extension categories and search tags to improve extension discoverability alongside internal reliability updates.
+
+**Improvements:**
+
+*   Updated Visual Studio Marketplace extension categories and search tags to improve extension discoverability in the Visual Studio Extension Manager.
+
+**Fixes:**
+
+*   Addressed other minor user interface issues.
+
+---
+
+### [v1.0.260826.0](/docs/ide/extensions/visual-studio "View Visual Studio extension docs")
+
+August 27, 2026
+
+### First-install tool window activation, active chat protection on solution switch, CLI download retries, and theme and docked window fixes
+
+Introduces automatic first-install tool window activation, active chat protection when switching solutions, resilient CLI download retries, and fixes for theme synchronization and docked window rendering.
+
+**Improvements:**
+
+*   Added automatic opening of the Antigravity tool window on the first Visual Studio launch after installing the extension.
+*   Added a confirmation prompt when switching solutions or folders during an active chat session so in-progress conversations are not accidentally interrupted, along with full workspace synchronization for **Open Folder** workspaces.
+*   Added automatic retry logic with exponential backoff when downloading and verifying the Antigravity CLI binary to handle transient network interruptions.
+*   Synchronized background colors and theme palettes across the Chat, Settings, and Artifact views to match the active Visual Studio theme without an initial light/dark flash on load.
+
+**Fixes:**
+
+*   Fixed an issue where the **Accept All** / **Reject All** agent edits bar failed to appear or update after unloading and reloading the Antigravity tool window.
+*   Fixed an issue where docked auto-hide tool windows overlapped by or adjacent to the Antigravity tool window failed to collapse on click or suffered from rendering bleed.
+*   Fixed a potential crash when closing the Antigravity or Settings tool windows during shutdown.
+*   Fixed an authentication issue during initial startup that could prevent theme and onboarding state from synchronizing with the local server, and resolved a sign-in redirect loop during onboarding project or license selection.
+*   Addressed other minor user interface issues.
+
+---
+
+### [v1.0.260818.0](/docs/ide/extensions/visual-studio "View Visual Studio extension docs")
+
+August 18, 2026
+
+### Initial release of Antigravity for Visual Studio with agentic chat, side-by-side diff previews, interactive planning artifacts, and chorded keyboard shortcuts
+
+Introduces the initial release of the Google Antigravity extension for Visual Studio, featuring an integrated AI agent chat tool window, native side-by-side diff previews with batch edit controls, interactive planning artifact tabs, automatic CLI management, and full Visual Studio theme and shortcut integration.
+
+**Improvements:**
+
+*   Added native in-memory agent edit previews using Visual Studio's side-by-side diff viewer, along with an **Accept All** / **Reject All** action bar and automatic document saving without external file-reload prompts.
+*   Added support for opening interactive planning mode artifacts (such as implementation plans and walkthroughs) directly in Visual Studio document tabs.
+*   Added a standalone, dockable Antigravity Settings tool window with single-instance focus management and automatic state restoration across Visual Studio restarts.
+*   Added `Ctrl+\` chorded keyboard shortcuts for toggling the Antigravity window with active editor selection context (`Ctrl+\, Ctrl+Alt+L`), starting a new conversation (`Ctrl+\, Ctrl+Shift+L`), approving or rejecting agent steps (`Ctrl+\, Alt+Enter` / `Ctrl+\, Shift+Alt+Enter`), and interrupting the agent (`Ctrl+\, Escape`).
+*   Added automatic background management of the Antigravity CLI (`~/.gemini/bin`), including automatic downloads, checksum verification, multi-instance lock detection, ephemeral port allocation, and offline fallback.
+*   Added automatic Visual Studio Light and Dark theme detection and live theme synchronization across the loading screen, Chat, Settings, and Artifact views.
+*   Added a dedicated **Google Antigravity Language Server** Output window pane for live backend log streaming alongside the **Google Antigravity** extension Output pane.
+*   Added bundled End User License Agreement (EULA), Marketplace README overview, and a **Third-Party Notices** command in the Visual Studio **Help** menu.
+
+**Fixes:**
+
+*   Fixed workspace synchronization when opening or switching Visual Studio solutions and **Open Folder** workspaces, and added support for switching workspaces directly from the chat view.
+*   Fixed standard editing shortcuts (`Ctrl+V`, `Ctrl+C`, `Ctrl+X`, `Ctrl+A`, `Ctrl+Z`, `Ctrl+Y`) and **Edit** menu commands when focus is inside the Antigravity tool window.
+*   Fixed an issue where signing in or out in the Settings window could trigger a sign-in redirect loop or lose the active workspace context.
+*   Addressed other minor user interface issues.
 
 ---
 

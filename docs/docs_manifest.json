@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-06T05:18:44Z",
+  "generated_at": "2026-10-07T04:47:29Z",
   "tool": "scripts/fetch_agy_docs.py",
   "strict_fetch": false,
   "is_degraded": true,
@@ -102,9 +102,9 @@
       "slug": "changelog",
       "label": "Changelog",
       "url": "https://antigravity.google/docs/changelog.md",
-      "sha256": "c7db0ad6b12456e417abe68aa39f8946d6dd40e971471228f9347a5cf0245e12",
-      "bytes": 281468,
-      "fetched_at": "2026-10-06T05:18:38Z",
+      "sha256": "b087494609f9f36aa17b9fc28ec1b7f78fcc46f5f7cc0b6168564f18485e141c",
+      "bytes": 306855,
+      "fetched_at": "2026-10-07T04:47:22Z",
       "sidebar_label": "Changelog"
     },
     "antigravity/cli/artifacts.md": {
@@ -1074,9 +1074,9 @@
       "slug": "ide/workflows",
       "label": "Workflows",
       "url": "https://antigravity.google/docs/ide/workflows.md",
-      "sha256": "5f748122f49eadc7d39f39c1bda640262c46787166bdb4b5cc39685fb3bb7d83",
-      "bytes": 2184,
-      "fetched_at": "2026-10-01T04:38:18Z",
+      "sha256": "f7ddde459cd14202b1c4659ad0f8397758127814ced11f29a05cae18f5d1782b",
+      "bytes": 2414,
+      "fetched_at": "2026-10-07T04:47:22Z",
       "sidebar_label": "Workflows"
     },
     "antigravity/implementation-plan.md": {

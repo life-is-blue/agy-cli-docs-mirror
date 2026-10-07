@@ -1,8 +1,8 @@
 # Workflows
 
-Upcoming migration to skills
+Changes to workflows
 
-Workflows are being deprecated in favor of **[Agent skills](/docs/ide/skills)** by November 1, 2026. Refer to the **[Workflows to skills migration guide](/docs/migration/workflows-to-skills)** or use the `/migrate-workflows` slash command in chat to automatically migrate your existing workflows to skills.
+We are accelerating bringing a more powerful, dynamic way to define and use workflows. Current workflows will stop working on **October 19, 2026**, and will be shortly followed with instructions on how to transition to the new workflows system. In the meantime, you can also migrate existing workflows to **[Agent skills](/docs/ide/skills)** using the **[Workflows to skills migration guide](/docs/migration/workflows-to-skills)** or the [`/migrate-workflows`](/docs/migration/workflows-to-skills#using-migrate-workflows) slash command in chat.
 
 Workflows enable you to define a series of steps to guide the agent through a repetitive set of tasks, such as deploying a service or responding to PR comments. These workflows are saved as Markdown files, giving you a repeatable way to run key processes. Once saved, you can invoke workflows in the agent using a slash command with the format `/workflow-name`.
 
