@@ -13,21 +13,21 @@ Visit [antigravity.google/download](/download) to download Google Antigravity 2.
 | Platform | Download |
 | --- | --- |
 | **macOS** | 
-[Download for Apple Silicon](https://storage.googleapis.com/antigravity-public/antigravity-hub/2.5.0-5471848641724416/darwin-arm/Antigravity.dmg)[Download for Intel](https://storage.googleapis.com/antigravity-public/antigravity-hub/2.5.0-5471848641724416/darwin-x64/Antigravity.dmg)
+[Download for Apple Silicon](https://storage.googleapis.com/antigravity-public/antigravity-hub/2.21.1-5614635819335680/darwin-arm/Antigravity.dmg)[Download for Intel](https://storage.googleapis.com/antigravity-public/antigravity-hub/2.21.1-5614635819335680/darwin-x64/Antigravity.dmg)
 
 **Requirements:** macOS versions with Apple security update support. This is typically the current and two previous versions. Minimum version 12 (Monterey); x86 is not supported.
 
  |
 | **Windows** | 
 
-[Download for x64](https://storage.googleapis.com/antigravity-public/antigravity-hub/2.5.0-5471848641724416/windows-x64/Antigravity-x64.exe)[Download for ARM64](https://storage.googleapis.com/antigravity-public/antigravity-hub/2.5.0-5471848641724416/windows-arm/Antigravity-arm64.exe)
+[Download for x64](https://storage.googleapis.com/antigravity-public/antigravity-hub/2.21.1-5614635819335680/windows-x64/Antigravity-x64.exe)[Download for ARM64](https://storage.googleapis.com/antigravity-public/antigravity-hub/2.21.1-5614635819335680/windows-arm/Antigravity-arm64.exe)
 
 **Requirements:** Windows 10 (64-bit)
 
  |
 | **Linux** | 
 
-[Download for x64](https://storage.googleapis.com/antigravity-public/antigravity-hub/2.5.0-5471848641724416/linux-x64/Antigravity.tar.gz)[Download for ARM64](https://storage.googleapis.com/antigravity-public/antigravity-hub/2.5.0-5471848641724416/linux-arm/Antigravity.tar.gz)
+[Download for x64](https://storage.googleapis.com/antigravity-public/antigravity-hub/2.21.1-5614635819335680/linux-x64/Antigravity.tar.gz)[Download for ARM64](https://storage.googleapis.com/antigravity-public/antigravity-hub/2.21.1-5614635819335680/linux-arm/Antigravity.tar.gz)
 
 **Requirements:** glibc >= 2.28, glibcxx >= 3.4.25 (for example, Ubuntu 20, Debian 10, Fedora 36, RHEL 8)
 

@@ -6,9 +6,48 @@ New versions roll out gradually and may take a few days to reach all users.
 
 ## Antigravity 2.0
 
-### [v2.19.1](/releases?tab=hub&version=2.19.1 "View release 2.19.1")
+### [v2.21.1](/releases?tab=hub&version=2.21.1 "View release 2.21.1")
 
 Latest
+
+October 7, 2026
+
+### Advanced Search, Automations, and grouped agent actions
+
+Use ⌘+K (or CTRL+K on Windows) to search conversations based on their contents. The Scheduled Tasks tab is now called Automations, where you can run on-demand or scheduled automations or set up with the agent's help. Antigravity now also groups the agent's file edits, terminal commands, and file reads into one collapsible row.
+
+**Improvements:**
+
+*   Scheduled Tasks are now called Automations. You can run a scheduled automation right away with Run Now, or select Create with Prompt to have the agent walk you through setting up a new one.
+*   File edits, terminal commands, and file reads between agent replies now group into a single collapsible row with a short summary of what the agent did.
+*   Added the Gruvbox Material theme preset for light and dark modes, with matching syntax highlighting colors.
+*   The time under each agent reply is now always shown as a relative time, such as 5m ago. Hover over it to see the full date and time.
+*   Grouped agent actions no longer show as still running after a command moves to the background, and they now collapse as soon as the agent starts its reply.
+*   Auto-generated conversation titles now take images attached to your first message into account, and messages sent with only attachments can now get a title.
+*   On Windows and Linux, selecting the Antigravity icon in the top-left corner of the window now starts a new conversation.
+*   Archived conversations in the sidebar now keep their status and last-updated time, and the sidebar heading shows (Archived) while you're viewing archived conversations.
+*   On macOS, if privacy settings block Antigravity from reading a file or folder you drop into a conversation, the message box now explains how to allow access in System Settings > Privacy & Security > Files and Folders. The agent also no longer reports a blocked file as missing.
+
+**Fixes:**
+
+*   Fixed an issue where the agent reading an incomplete or truncated MP4 or MOV video could make every later message in the conversation fail.
+*   Fixed an issue where your settings stopped working after the settings file was saved in Windows Notepad or with PowerShell, which add an invisible character to the start of the file.
+*   Fixed an issue where, after you changed the model in one conversation, switching to another conversation could show the wrong model.
+*   Fixed an issue where opening a PDF, Word, Excel, or PowerPoint artifact showed the file's raw contents as unreadable text. These files now show a message with a download link instead.
+*   Fixed an issue where the file tree sidebar didn't appear in the File Viewer, including when viewing files from conversations that aren't part of a project.
+*   Fixed an issue where, on Windows, removing or updating a Build With Google plugin such as Dart and Flutter could fail because the plugin was still running.
+*   Fixed an issue where attachments you sent from the home screen came back in the message box the next time you started a new conversation.
+*   Fixed an issue where returning focus to a Markdown preview, artifact, or review diff in the side pane scrolled it back to the top.
+*   Fixed an issue where reverting a conversation could make the message toolbar briefly disappear, or leave an outdated message on screen after you sent new messages.
+*   Fixed an issue where holding down a keyboard shortcut such as Cmd+B or Ctrl+B repeatedly toggled the sidebar or side pane open and closed.
+*   Fixed an issue where sending review comments without any message text while the agent was working showed "Empty message" in the queued messages card instead of the number of comments.
+*   Fixed an issue where pressing Cmd+L or Ctrl+L sometimes didn't move the cursor to the message box after you selected text in the conversation.
+*   Fixed an issue where the agent's temporary working files opened as artifacts instead of in the File Viewer.
+*   Fixed an issue where Rust files and code blocks marked rs appeared without syntax highlighting.
+
+---
+
+### [v2.19.1](/releases?tab=hub&version=2.19.1 "View release 2.19.1")
 
 September 30, 2026
 

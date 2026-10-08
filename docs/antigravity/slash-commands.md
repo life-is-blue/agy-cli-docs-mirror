@@ -149,11 +149,12 @@ For customization syntax and configuration schemas, refer to the [Rules document
 
 Manages installed plugins, browses the [Marketplace](/docs/marketplace), and packages reusable skills, rules, subagents, MCP servers, and hooks into a single deployable plugin bundle.
 
-In the **Antigravity CLI**, running `/plugin` (or its alias `/plugins`) opens the interactive Plugins Manager panel with **Installed** and **Discover** tabs, or executes inline subcommands directly:
+In the **Antigravity CLI**, running `/plugin` (or its alias `/plugins`) opens the interactive Plugins Manager panel with **Installed** and **Discover** tabs, or executes inline subcommands directly (`<marketplace-name>` supports the official marketplace, `antigravity-plugins-official`):
 
 ```
 /plugin
-/plugin install <plugin-name>@<marketplace-name>
+/plugin install <plugin-name>@antigravity-plugins-official
+/plugin install <local-path>
 /plugin list
 ```
 

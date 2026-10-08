@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-07T04:47:29Z",
+  "generated_at": "2026-10-08T04:57:48Z",
   "tool": "scripts/fetch_agy_docs.py",
   "strict_fetch": false,
   "is_degraded": true,
@@ -102,9 +102,9 @@
       "slug": "changelog",
       "label": "Changelog",
       "url": "https://antigravity.google/docs/changelog.md",
-      "sha256": "b087494609f9f36aa17b9fc28ec1b7f78fcc46f5f7cc0b6168564f18485e141c",
-      "bytes": 306855,
-      "fetched_at": "2026-10-07T04:47:22Z",
+      "sha256": "322968ccd9552fb90db4e976719fcf02647798f72bd7782e464dca3e1a2648bd",
+      "bytes": 310985,
+      "fetched_at": "2026-10-08T04:57:41Z",
       "sidebar_label": "Changelog"
     },
     "antigravity/cli/artifacts.md": {
@@ -312,9 +312,9 @@
       "slug": "cli/features",
       "label": "Features",
       "url": "https://antigravity.google/docs/cli/features.md",
-      "sha256": "04835fdfada6af2d25861ae8fe24ba794deaf267f96abf5650bb6d24083c294c",
-      "bytes": 10294,
-      "fetched_at": "2026-10-01T04:38:18Z",
+      "sha256": "bced61d8555d9eb7a3a59bb0069a0e131fe1f39beadc37f0ccd84e6a0591fb5f",
+      "bytes": 11544,
+      "fetched_at": "2026-10-08T04:57:41Z",
       "sidebar_label": "Features"
     },
     "antigravity/cli/gcli-migration.md": {
@@ -682,9 +682,9 @@
       "slug": "getting-started",
       "label": "Getting started",
       "url": "https://antigravity.google/docs/getting-started.md",
-      "sha256": "a6ec1c3244163c1e442ce1e3277ecdf63ecd72f55de109bdd4bb31d3c9f8acae",
-      "bytes": 8024,
-      "fetched_at": "2026-10-04T04:44:25Z",
+      "sha256": "54c7a917e100372cb9d74ccd6d4e032d81ec94c974effa7360e97f502364cc70",
+      "bytes": 8030,
+      "fetched_at": "2026-10-08T04:57:41Z",
       "sidebar_label": "Getting started"
     },
     "antigravity/home.md": {
@@ -1466,9 +1466,9 @@
       "slug": "slash-commands",
       "label": "Slash commands overview",
       "url": "https://antigravity.google/docs/slash-commands.md",
-      "sha256": "c3adb3333f0a4ad1039b6a4c545d4dacdd445bee22f5af6ff4f4b2df5e3b2a7d",
-      "bytes": 12760,
-      "fetched_at": "2026-10-01T04:38:18Z",
+      "sha256": "c88e7683d17fa39ce4c6810c4578d656b0926dcc0ed3e10f09fe50819b98014a",
+      "bytes": 12888,
+      "fetched_at": "2026-10-08T04:57:41Z",
       "sidebar_label": "Slash commands overview"
     },
     "antigravity/subagents.md": {
