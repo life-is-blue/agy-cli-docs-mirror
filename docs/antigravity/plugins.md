@@ -114,11 +114,14 @@ You can install custom plugins by placing their directories in either of the fol
 
 In an interactive TUI session, run `/plugin` (or its alias `/plugins`) to open the **Plugins Manager**, where you can browse the marketplace in the **Discover** tab, install plugins from a local directory, or enable, disable, and uninstall plugins in the **Installed** tab.
 
-You can also manage and install plugins directly from the prompt using inline subcommands (`install`, `uninstall`, `enable`, `disable`, and `list`), including installing a custom plugin from a local path:
+You can also manage and install plugins directly from the prompt using inline subcommands (`install`, `uninstall`, `enable`, `disable`, and `list`). For marketplace installs, `<marketplace-name>` supports the official marketplace (`antigravity-plugins-official`):
 
 ```
+/plugin install <plugin-name>@antigravity-plugins-official
 /plugin install <local-path>
-/plugin install <plugin-name>@<marketplace-name>
+/plugin enable <plugin-name>
+/plugin disable <plugin-name>
+/plugin uninstall <plugin-name>
 /plugin list
 ```
 
@@ -130,18 +133,28 @@ Note
 
 ### CLI shell subcommands (`agy plugin`)
 
-Outside an interactive TUI session, the Antigravity CLI also exposes the `agy plugin` subcommand pipeline to manage extensions from your shell:
+Outside an interactive TUI session, the Antigravity CLI exposes the `agy plugin` subcommand pipeline to install and manage extensions from your shell:
 
+*   **Install a plugin**: Install from the official marketplace (`antigravity-plugins-official`), a GitHub repository URL, or a local directory:
+    
+    ```
+    # Install from the official marketplace (<marketplace-name> only supports antigravity-plugins-official)
+    agy plugin install <plugin-name>@antigravity-plugins-official
+    
+    # Or install by plugin name (defaults to <plugin-name>@antigravity-plugins-official)
+    agy plugin install <plugin-name>
+    
+    # Install from a GitHub repository link
+    agy plugin install https://github.com/<owner>/<repo>
+    
+    # Install from a local plugin directory
+    agy plugin install </path/to/local/plugin>
+    ```
+    
 *   **List installed plugins**: List all active packages and their loaded components:
     
     ```
     agy plugin list
-    ```
-    
-*   **Install a plugin**: Stage a local package directory into your profile:
-    
-    ```
-    agy plugin install </path/to/local/plugin>
     ```
     
 *   **Enable or disable a plugin**: Toggle a plugin without removing its files:

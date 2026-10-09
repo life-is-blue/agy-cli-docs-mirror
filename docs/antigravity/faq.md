@@ -313,6 +313,10 @@ Refer to the [Plans](/docs/plans) documentation for more details.
 
 Using third-party software, tools, or services to access Antigravity is a violation of our [Terms of Service](/terms) and severely degrades the experience for legitimate product users. Such actions can result in suspension or termination of your account. To use a third-party coding agent with Gemini, we recommend using a Gemini Enterprise or Google AI Studio API key.
 
+## Can I use Antigravity CLI headless mode in third-party coding agents or automate account switching?
+
+Antigravity CLI headless mode (`agy -p`) is intended for direct scripting and CI workflows. Wrapping `agy` inside third-party coding agents or applications, or automating account rotation, is not supported under consumer plans.
+
 ## Does Google Antigravity currently support worktrees?
 
 Yes, you can use worktrees in Antigravity 2.0.

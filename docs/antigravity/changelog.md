@@ -932,9 +932,136 @@ Antigravity 2.0 Launch bug fixes.
 
 ## Antigravity CLI
 
-### [v1.2.14](/download#antigravity-cli "View release 1.2.14")
+### [v1.3.1](/download#antigravity-cli "View release 1.3.1")
 
 Latest
+
+October 7, 2026
+
+### Enhanced /diff navigation and position indicators, Windows plugin lifecycle management, and subagent and task status fixes
+
+Enhances `/diff` file view navigation with preserved cursor positions, cross-file `n`/`N` change traversal, and a `change A/B · file X/Y` header indicator, while fixing `/rewind` on compacted messages, Windows `/plugin` MCP server lifecycle handling, relative paths in Markdown custom agents, subagent error states, and background task tracking.
+
+**Improvements:**
+
+*   Improved navigation in the `/diff` file view: `←`/`→` now open the next or previous file at its first change with the hunk header and leading context in view, each file remembers its cursor and scroll position when you switch files or go back to the file list, `n`/`N` continue into the next or previous file's changes instead of stopping at the last change in the current file, and the key-hint footer drops the generic scroll and page hints and wraps onto extra lines instead of being cut off on narrow terminals.
+*   Improved the `/diff` file view header to show where you are: it now ends with a right-aligned `change A/B · file X/Y` position, counting the block of added or removed lines under the cursor and the file's place in the file list (`file X/Y` is left out when only one file changed, and the position is hidden on narrow terminals).
+
+**Fixes:**
+
+*   Fixed `/rewind` in very long conversations listing older messages as `(empty message)` and failing with an error when you picked one: messages that were cleared to save space now show their original text, dimmed and labeled `cleared to save space, can't rewind here`, and can no longer be selected.
+*   Fixed installing, reinstalling, and uninstalling plugins with `/plugin` on Windows failing while one of the plugin's MCP servers was running: the CLI now stops the plugin's MCP servers before replacing or deleting its folder and restarts them afterwards, and if another Antigravity process such as another `agy` session, the Antigravity Hub, or the `remote-control` daemon still holds the plugin open, it tells you to close it and retry. Plugin manifests, `mcp_config.json`, and `hooks.json` files saved with a UTF-8 byte-order mark now load, and installing from a marketplace no longer overwrites an existing plugin folder that came from a different source.
+*   Fixed markdown custom agents ignoring `skills:`, `plugins:`, `rules:`, `agents:`, and `hooks:` entries written as paths relative to the agent's own file when the agent ran as a subagent or as the main agent; such entries now resolve against the agent's directory, so an agent that lists `agents: [child.md]` can invoke `child`.
+*   Fixed subagents that stopped on an error, such as running out of quota or model capacity, being shown as `Done` in `/agents` and the list of running agents; they now show `Error:` with the reason, and the error clears once the subagent makes further progress.
+*   Fixed `/tasks`, the active task list, and the status line's task count showing only background shell commands; timers and recurring jobs the agent schedules, and other tools running in the background, now appear there too and are shown as `completed` or `failed` without a made-up exit code.
+*   Fixed messages sent with `Queued Messages` set to `Send Immediately` in `/config` being silently queued until the end of the turn whenever the agent had already written or updated an artifact, such as a task list or plan, during that turn; they now reach the agent right away.
+*   Fixed terminal notifications not firing when the agent stops to ask you a question; with `Notifications` turned on in `/config`, the CLI now alerts you for pending questions just as it does for tool permission prompts.
+*   Fixed restarting an MCP server from `/mcp` sometimes leaving it stopped, with an error such as `Failed to stop existing instances for reload: ... signal: killed`, when the old server process took too long to exit; the server now always starts again.
+*   Fixed the sign-in error for accounts that need to verify their identity or appeal a Terms of Service block sometimes showing only `Verify your account to continue.` with no link; the verification or appeal link now always appears, and the CLI no longer suggests logging out and back in when that would not help.
+*   Fixed `GEMINI_API_KEY` sessions failing a turn as if you had cancelled it when the connection to the Gemini API was dropped internally; the CLI now retries the request instead.
+
+---
+
+### [v1.3.0](/download#antigravity-cli "View release 1.3.0")
+
+October 6, 2026
+
+### Medium default verbosity, Vim-style j/k line navigation in /diff, and smooth trackpad scrolling
+
+Updates the default `Verbosity` setting to `medium` to group related tool calls and thoughts into concise summaries, aligns `j` and `k` in the `/diff` file view with standard line-by-line cursor movement, smooths trackpad and mouse-wheel scrolling over SSH and `tmux`, and fixes special-character and Windows drive path handling.
+
+**Improvements:**
+
+*   Changed the default `Verbosity` setting from `high` to `medium`, so the conversation view now groups related tool calls and thoughts into concise summaries while keeping commands and responses visible. This applies to everyone who never picked a verbosity, including anyone who selected `high` while it was still the default; set `Verbosity` back to `high` in `/config` to see every tool call, command, and thought in full again.
+*   Changed `j` and `k` in the `/diff` file view to move the line cursor like the up and down arrow keys, matching the file list and Vim, instead of jumping to the next or previous file; use the left and right arrow keys to switch files.
+
+**Fixes:**
+
+*   Fixed trackpad and mouse-wheel scrolling in the conversation view jumping back and forth, most noticeably over SSH or inside tmux, by ignoring the sideways part of diagonal swipes and limiting how far a single fast scroll step can move; `Page Up` and `Page Down` still move a full page.
+*   Fixed files and folders whose paths contain spaces, `#`, `%`, or other special characters, or that sit on a Windows drive, being mishandled across the CLI: `@` file mentions, `/codesearch` results, and file links in agent responses now open the right file, and workspace trust and project-scoped custom agents now recognize projects created in the Antigravity desktop app in such folders.
+
+---
+
+### [v1.2.17](/download#antigravity-cli "View release 1.2.17")
+
+October 5, 2026
+
+### Dismissible announcement cards, non-admin Windows command sandboxing, and Markdown table alignment fixes
+
+Introduces dismissible announcement cards above the prompt for model launches and service notices, improves the Windows command sandbox to run without administrator rights with out-of-the-box support for Python, Git, and `npm`, and fixes Markdown table alignment with emoji and `.tiff` image MIME handling.
+
+**Improvements:**
+
+*   Added announcement cards above the prompt for model launches, deprecations, and other service notices. Cards appear one at a time, newest first; press `Esc` on an empty prompt to dismiss the current card permanently and show the next one, and sending a message hides the card for the rest of the session.
+*   Improved the Windows command sandbox so sandboxed commands no longer need administrator rights, and common tools such as Python, Git, and `npm` work inside the sandbox out of the box.
+
+**Fixes:**
+
+*   Fixed markdown table columns drifting out of alignment when a cell contains emoji such as ⚠️ or 👍🏽 or scripts with combining characters such as Hindi, which affected every session over SSH or inside tmux.
+*   Fixed `.tiff` images being reported with the wrong file type and silently converted to PNG when the agent viewed them.
+
+---
+
+### [v1.2.16](/download#antigravity-cli "View release 1.2.16")
+
+October 3, 2026
+
+### Quick config value cycling, altscreen resize performance, built-in image-generator subagent, and selection improvements
+
+Adds left/right arrow shortcuts to cycle settings in `/config`, improves altscreen resize performance and mouse text selection across the conversation and artifact viewers, delegates image creation to a built-in `image-generator` subagent, refines `go` command allow-listing and `Send Immediately` message queueing, and resolves background process crashes and subdirectory manifest loading.
+
+**Improvements:**
+
+*   Added `←`/`→` shortcuts to `/config`: on a highlighted setting they switch to the previous or next value and save it right away, without opening the dropdown, and the footer shows a `←/→ Change` hint.
+*   Improved responsiveness in long conversations in no flicker (altscreen) mode: resizing the terminal no longer freezes or lags the CLI, the full-screen view redraws the messages on screen first instead of showing text wrapped for the old width until the whole conversation has re-rendered, and interrupting the agent with `Esc` or resuming a conversation no longer re-renders every step already on screen.
+*   Improved mouse text selection in the `altscreen` view and in the artifact viewer: dragging past the top or bottom now auto-scrolls, the selection stays on its text while the agent streams or you scroll with the wheel, and copying includes lines that scrolled off screen, without line numbers or comment previews from the artifact viewer.
+*   Improved the always-allow suggestion when approving `go` commands: approving a command such as `go vet` or `go build` now offers to allow that subcommand with any arguments, while `go run`, `go test`, `go generate`, `go install`, and `go tool` still require the exact command.
+*   Improved the `Send Immediately` option for Queued Messages in `/config`: a message you send while earlier messages are still queued now goes to the agent together with them, in order, instead of joining the queue, and a message that fails to send mid-turn goes back to the queue instead of being lost.
+*   Changed how the agent generates images: it now hands image requests to a built-in `image-generator` subagent, which writes the prompt, checks each result with up to three attempts, and saves the images to the conversation's artifacts, so image generation appears as a subagent run in the conversation.
+
+**Fixes:**
+
+*   Fixed the agent stalling when a background command it was waiting on crashed or was killed by the system, for example when it ran out of memory; the agent now sees the command finish with its exit code, such as `137` or `134`, and keeps going.
+*   Fixed headless `-p` runs sometimes exiting before the agent could respond to a background command that finished after its first turn.
+*   Fixed `k` in Vim Normal mode recalling the last history entry instead of your queued messages when pressed on the top line, which could send a queued message twice; `k` now pulls queued messages back into the editor like the `Up` arrow does.
+*   Fixed `skills.json`, `rules.json`, and other customization manifests in a parent `.agents/` directory being ignored when a session started in a subdirectory; manifests now load from every `.agents/` directory between the working directory and the project root.
+*   Fixed the `/` menu listing built-in skills that the current agent does not enable, which inserted instructions for tools the agent could not use when selected.
+*   Fixed settings failing to load when `~/.gemini/config/config.json` starts with a UTF-8 byte order mark, as files saved by Notepad or PowerShell `Set-Content` on Windows do.
+*   Fixed slash-command output and alerts where a line exactly as wide as the terminal had its last word pushed to the start of the next line without indentation.
+
+---
+
+### [v1.2.15](/download#antigravity-cli "View release 1.2.15")
+
+October 2, 2026
+
+### Native Android Termux binaries, lower-memory streaming redraws, and SSH and quota fixes
+
+Adds prebuilt native Android binaries for Termux, reduces memory allocations during typing and streaming redraws, displays `/usage` quota reset times in the local time zone, scopes `repo` command allow-listing to subcommands, and fixes terminal resize freezes, exhausted AI credit retries, and SSH terminal image probing.
+
+**Improvements:**
+
+*   Added prebuilt native Android binaries of the CLI that can run directly in Termux, without requiring a proot-distro environment.
+*   Improved responsiveness while typing, scrolling, and streaming agent output by sharply reducing the memory the CLI allocates on every update and redraw.
+*   Improved `-p "/usage"` to show quota reset times in your local time zone when printing to a terminal; piped and `--json` output still use UTC timestamps, so existing scripts are unaffected.
+*   Improved the always-allow suggestion when approving `repo` commands: it is now limited to the subcommand, such as `repo status`, instead of allowing every `repo` command, matching `git`, `hg`, and `jj`.
+*   Improved how the agent handles a permission request that is not approved, such as one raised by a subagent that cannot ask you: it now respects the denial and no longer tries to work around it with other commands, scripts, or tools.
+
+**Fixes:**
+
+*   Fixed the conversation view freezing for the rest of the session, with no new steps appearing while the agent kept working, after redraws such as several quick terminal resizes in a long conversation; the CLI now reconnects automatically, warns only if reconnecting fails, and sending a new message recovers a lost connection.
+*   Fixed requests made after your plan quota is used up and your AI credits balance cannot cover them: instead of retrying on `Working...` for about two and a half minutes and then showing the generic "Agent execution terminated due to error.", the CLI now immediately says "Your AI credits balance is too low to continue."
+*   Fixed text like `Ga=q,f=32,s=1,v=1,i=31;AAAAAA==` being left behind in macOS Terminal.app after exiting the CLI over SSH; the CLI now asks the terminal to identify itself before probing for image support, and over SSH only Kitty and Ghostty are treated as image-capable, so WezTerm and Konsole no longer show garbled image placeholders.
+*   Fixed the Vim mode cursor stopping inside emoji such as 👩‍💻 or ⚠️ and characters with combining marks such as Devanagari: `h`, `l`, and other motions now move over whole characters, and `x` and `r` delete or replace the whole character instead of a hidden part of it.
+*   Fixed the search box in the `/resume` conversation picker wrapping long queries so that their beginning scrolled out of view; the box now uses the full terminal width.
+*   Fixed the agent being blocked from reading your global rules and customization files in `~/.gemini/config`, including the `rules/` folder, `AGENTS.md`, `GEMINI.md`, `skills.json`, `rules.json`, `plugins.json`, and `agents.json`; it can now read them and asks before editing them, while other files in that folder stay off-limits.
+*   Fixed global rules being added to the agent's context more than once when `~/.gemini/GEMINI.md`, `~/.gemini/AGENTS.md`, or their `~/.gemini/config/` counterparts are symlinks to the same file.
+*   Fixed signing in to MCP servers whose OAuth client registration responds with HTTP `200` instead of `201`, which previously failed with `registration failed with status 200`.
+*   Fixed large WebP images opened by the agent not being scaled down to fit image size limits the way PNG and JPEG images are.
+
+---
+
+### [v1.2.14](/download#antigravity-cli "View release 1.2.14")
 
 September 30, 2026
 
@@ -2989,9 +3116,35 @@ Introduces the initial release of the Google Antigravity extension for Visual St
 
 ## Antigravity SDK
 
-### [v0.1.18](/download#antigravity-sdk "View release 0.1.18")
+### [v0.1.21](/download#antigravity-sdk "View release 0.1.21")
 
 Latest
+
+October 5, 2026
+
+### Experimental API isolation with @beta namespaces, declarative subagent skills configuration, and bulk hook registration
+
+This release introduces experimental API isolation using the `@beta` decorator and `.beta` namespaces, granular skills configuration for subagents, and bulk hook registration during agent initialization. It also expands typing support for tool context annotations, refines `UsageMetadata` arithmetic operations, and resolves an issue where tool calls with empty string IDs were unintentionally deduplicated.
+
+**Improvements:**
+
+*   **Experimental API isolation with beta namespaces**: Introduces the `@beta` decorator and `google.antigravity.beta` module, enabling access to preview and experimental features on class and instance namespaces without polluting the stable API surface.
+*   **Declarative subagent skills configuration**: Adds `skills_config` support to `SubagentConfig`, allowing developers to explicitly configure subagent skill inheritance, override skills, or isolate subagents from parent skills.
+*   **Bulk hook registration**: Enables registering sequences of hooks at once during `Agent` session initialization and within `HookRunner`.
+*   **Beta API decorator and namespace**: Added `@beta` and `BetaNamespace` support to expose preview classes, methods, and properties under dedicated `.beta` accessors and `google.antigravity.beta`.
+*   **Subagent skills management**: Added `SubagentSkillsConfig`, `SubagentInheritSkillsConfig`, `SubagentNoneSkillsConfig`, and `SubagentOverrideSkillsConfig` to `SubagentConfig` for declarative control over subagent skills.
+*   **Session hook collections**: Updated `HookRunner` and `Agent` session initialization to accept collections of hooks in addition to individual registrations.
+*   **Qualified typing in tool annotations**: Expanded `ToolRunner` string annotation inspection to resolve qualified typing wrappers (`typing.Optional`, `typing.Union`, and `typing.Annotated`) when injecting `ToolContext`.
+*   **UsageMetadata arithmetic**: Harmonized `UsageMetadata.__sub__` typing and zero-value identity behavior to align with `UsageMetadata.__add__`.
+*   **Tool inspection**: Added `__repr__` to `ToolWithSchema` for clearer terminal output and debugging inspection.
+
+**Fixes:**
+
+*   **Tool call deduplication**: Fixed an issue in `Conversation.receive_chunks()` where tool calls with empty string IDs (`id=''`) were treated as duplicate IDs and dropped; they are now treated as absent IDs and yielded correctly.
+
+---
+
+### [v0.1.18](/download#antigravity-sdk "View release 0.1.18")
 
 September 21, 2026
 
