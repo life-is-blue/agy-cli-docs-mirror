@@ -85,11 +85,9 @@ A plugin can contain any of the following components:
 
 Follow the instructions below to install and manage plugins on your preferred surface:
 
-*   [Antigravity 2.0](#tab-panel-21)
-*   [Antigravity CLI](#tab-panel-22)
-*   [Antigravity IDE](#tab-panel-23)
+### Antigravity 2.0
 
-### Marketplace and bundled plugins
+#### Marketplace and bundled plugins
 
 Antigravity 2.0 provides curated plugins that you can browse and install directly from the application interface:
 
@@ -103,14 +101,16 @@ Note
 
 **Cross-surface synchronization**: Plugins installed in Antigravity 2.0 are automatically updated and shown in the Antigravity CLI’s **Installed** tab.
 
-### Manual plugin installation
+#### Manual plugin installation
 
 You can install custom plugins by placing their directories in either of the following locations:
 
 *   **Workspace level**: Place your plugin folder in `.agents/plugins/` at the root of your workspace. The plugin activates only when working in that project.
 *   **Global level**: Place your plugin folder in `~/.gemini/config/plugins/`. The plugin activates across all workspaces on your workstation.
 
-### Interactive plugins manager (`/plugin`)
+### Antigravity CLI
+
+#### Interactive plugins manager (`/plugin`)
 
 In an interactive TUI session, run `/plugin` (or its alias `/plugins`) to open the **Plugins Manager**, where you can browse the marketplace in the **Discover** tab, install plugins from a local directory, or enable, disable, and uninstall plugins in the **Installed** tab.
 
@@ -131,7 +131,7 @@ Note
 
 **Cross-surface synchronization**: Plugins installed in Antigravity 2.0 are automatically updated and shown in the CLI’s **Installed** tab.
 
-### CLI shell subcommands (`agy plugin`)
+#### CLI shell subcommands (`agy plugin`)
 
 Outside an interactive TUI session, the Antigravity CLI exposes the `agy plugin` subcommand pipeline to install and manage extensions from your shell:
 
@@ -171,7 +171,7 @@ Outside an interactive TUI session, the Antigravity CLI exposes the `agy plugin`
     ```
     
 
-### CLI filesystem location
+#### CLI filesystem location
 
 When installed, the CLI stages plugin assets in your global configuration directory:
 
@@ -179,7 +179,7 @@ When installed, the CLI stages plugin assets in your global configuration direct
 ~/.gemini/antigravity-cli/plugins/<plugin_name>/
 ```
 
-### Next steps
+#### Next steps
 
 Explore related documentation and guides:
 
@@ -188,7 +188,9 @@ Explore related documentation and guides:
 *   [Troubleshooting](/docs/cli/troubleshooting)
 *   [Permissions and sandbox](/docs/sandbox?tab=cli)
 
-### Standalone IDE plugin installation
+### Antigravity IDE
+
+#### Standalone IDE plugin installation
 
 In the standalone Antigravity IDE, plugins can be loaded locally or globally:
 

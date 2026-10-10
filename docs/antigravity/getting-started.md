@@ -2,9 +2,7 @@
 
 Welcome to Google Antigravity! Follow the instructions in this guide to get started on your preferred surface.
 
-*   [Antigravity 2.0](#tab-panel-4)
-*   [Antigravity CLI](#tab-panel-5)
-*   [Antigravity IDE](#tab-panel-6)
+## Antigravity 2.0
 
 ### Download Antigravity 2.0
 
@@ -13,21 +11,21 @@ Visit [antigravity.google/download](/download) to download Google Antigravity 2.
 | Platform | Download |
 | --- | --- |
 | **macOS** | 
-[Download for Apple Silicon](https://storage.googleapis.com/antigravity-public/antigravity-hub/2.21.1-5614635819335680/darwin-arm/Antigravity.dmg)[Download for Intel](https://storage.googleapis.com/antigravity-public/antigravity-hub/2.21.1-5614635819335680/darwin-x64/Antigravity.dmg)
+[Download for Apple Silicon](https://storage.googleapis.com/antigravity-public/antigravity-hub/2.22.0-5446056071266304/darwin-arm/Antigravity.dmg)[Download for Intel](https://storage.googleapis.com/antigravity-public/antigravity-hub/2.22.0-5446056071266304/darwin-x64/Antigravity.dmg)
 
 **Requirements:** macOS versions with Apple security update support. This is typically the current and two previous versions. Minimum version 12 (Monterey); x86 is not supported.
 
  |
 | **Windows** | 
 
-[Download for x64](https://storage.googleapis.com/antigravity-public/antigravity-hub/2.21.1-5614635819335680/windows-x64/Antigravity-x64.exe)[Download for ARM64](https://storage.googleapis.com/antigravity-public/antigravity-hub/2.21.1-5614635819335680/windows-arm/Antigravity-arm64.exe)
+[Download for x64](https://storage.googleapis.com/antigravity-public/antigravity-hub/2.22.0-5446056071266304/windows-x64/Antigravity-x64.exe)[Download for ARM64](https://storage.googleapis.com/antigravity-public/antigravity-hub/2.22.0-5446056071266304/windows-arm/Antigravity-arm64.exe)
 
 **Requirements:** Windows 10 (64-bit)
 
  |
 | **Linux** | 
 
-[Download for x64](https://storage.googleapis.com/antigravity-public/antigravity-hub/2.21.1-5614635819335680/linux-x64/Antigravity.tar.gz)[Download for ARM64](https://storage.googleapis.com/antigravity-public/antigravity-hub/2.21.1-5614635819335680/linux-arm/Antigravity.tar.gz)
+[Download for x64](https://storage.googleapis.com/antigravity-public/antigravity-hub/2.22.0-5446056071266304/linux-x64/Antigravity.tar.gz)[Download for ARM64](https://storage.googleapis.com/antigravity-public/antigravity-hub/2.22.0-5446056071266304/linux-arm/Antigravity.tar.gz)
 
 **Requirements:** glibc >= 2.28, glibcxx >= 3.4.25 (for example, Ubuntu 20, Debian 10, Fedora 36, RHEL 8)
 
@@ -43,6 +41,8 @@ Visit [antigravity.google/download](/download) to download Google Antigravity 2.
 ### Installation
 
 If you get a notification asking whether you want to “Keep Both” or “Replace” Antigravity, select **Replace**. You are prompted to reinstall the IDE during installation if you choose to do so. If you don’t install it now and want to download it later, visit the [download page](/download).
+
+When you launch Antigravity 2.0 and sign in, select your personal Google Account or choose **Business account** to connect with [Gemini Enterprise](/docs/enterprise#sign-in-and-license-selection).
 
 ### Creating a project
 
@@ -87,6 +87,8 @@ Use the following slash commands to control agent execution:
 | `/browser` | Control browser debugging behaviors in Google Chrome. |
 | [`/plugin`](/docs/plugins) | Manage installed [Marketplace](/docs/marketplace) plugins or create and configure custom plugin bundles. |
 
+## Antigravity CLI
+
 Welcome to Antigravity CLI! This guide provides a direct, high-level developer roadmap to install the client, launch the terminal user interface (TUI), and begin collaborating with autonomous agents.
 
 ### Roadmap checklist
@@ -122,7 +124,7 @@ Complete the following sequential steps to launch your first session:
     
     Note
     
-    **Advanced setup**: For detailed enterprise credentials configuration, secure keyring authentication permissions, proxy setups, or troubleshooting installation issues, refer to the **[Installation and authentication guide](/docs/cli/install)**.
+    **Advanced setup**: For [Gemini Enterprise authentication](/docs/enterprise#sign-in-and-license-selection), keyring permissions, API key setup, or troubleshooting installation issues, refer to the **[Installation and authentication guide](/docs/cli/install)**.
     
 2.  **Launch the TUI inside a project**
     
@@ -134,8 +136,9 @@ Complete the following sequential steps to launch your first session:
     
 3.  **Complete the first-launch setup**
     
-    On your very first launch, the TUI walks you through a brief interactive setup:
+    On your very first launch, the TUI walks you through authentication and a brief interactive setup:
     
+    *   **Sign in**: Authenticate in your browser with your personal Google Account, or choose **Business account** to sign in with [Gemini Enterprise](/docs/enterprise#sign-in-and-license-selection).
     *   **Color scheme**: Select your preferred visual theme (Solarized, Dark, Solarized Light, or standard terminal colors).
     *   **Rendering mode**: Choose Alt-Screen mode (alternate buffer with full-screen scrolling) or Inline mode (sequential stream integrated with your terminal’s history).
     *   **Workspace trust**: Confirm that you trust the repository directory. Once confirmed, the agent indexes the files and stands ready.
@@ -158,9 +161,11 @@ Optimize your local environment configurations and master advanced collaboration
 *   **[Troubleshooting](/docs/cli/troubleshooting)**: Resolve common path, keyring, or SSH forwarding errors.
 *   **[CLI reference](/docs/cli/reference)**: Review reference sheets cataloging all slash commands, shortcuts, and JSON keys.
 
+## Antigravity IDE
+
 ### Download Antigravity IDE
 
-Visit [antigravity.google/download](/download) to download Antigravity IDE.
+Visit [antigravity.google/download](/download) to download Antigravity IDE. If you are using VS Code, JetBrains, Visual Studio, Zed, or Xcode—or connecting to [Gemini Enterprise](/docs/enterprise)—see [IDE extensions](/docs/ide/extensions).
 
 Antigravity IDE supports the following platforms and minimum versions:
 

@@ -140,11 +140,9 @@ To prevent rules from exhausting the context window, Antigravity enforces two li
 
 Select your surface below to configure global or workspace-specific rules:
 
-*   [Antigravity 2.0](#tab-panel-28)
-*   [Antigravity CLI](#tab-panel-29)
-*   [Antigravity IDE & Extensions](#tab-panel-30)
+### Antigravity 2.0
 
-### Managing rules in Antigravity 2.0
+#### Managing rules in Antigravity 2.0
 
 Follow these steps to create or manage rules in Antigravity 2.0:
 
@@ -152,14 +150,16 @@ Follow these steps to create or manage rules in Antigravity 2.0:
 2.  Select the **Rules** tab.
 3.  Click **\+ Global** to create global rules, or **\+ Workspace** to create rules scoped to the active project.
 
-### Antigravity 2.0 file locations
+#### Antigravity 2.0 file locations
 
 Antigravity 2.0 loads rules from the following locations:
 
 *   **Workspace rules**: `AGENTS.md`, `GEMINI.md`, or `.agents/rules/*.md` in your workspace root or any project subdirectory.
 *   **Global rules**: `~/.gemini/AGENTS.md`, `~/.gemini/GEMINI.md`, or modular rules in `~/.gemini/config/rules/*.md`.
 
-### Managing rules in Antigravity CLI
+### Antigravity CLI
+
+#### Managing rules in Antigravity CLI
 
 The Antigravity CLI evaluates workspace, directory-scoped, global, and plugin rules during prompt expansion:
 
@@ -167,7 +167,9 @@ The Antigravity CLI evaluates workspace, directory-scoped, global, and plugin ru
 *   **Global rules**: `~/.gemini/AGENTS.md`, `~/.gemini/GEMINI.md`, `~/.gemini/config/rules/*.md`, or `~/.gemini/antigravity-cli/rules/*.md`.
 *   **Plugin rules**: Antigravity automatically activates rules packaged inside installed plugins under `~/.gemini/antigravity-cli/plugins/<plugin_name>/rules/`.
 
-### Managing rules in Antigravity IDE and extensions
+### Antigravity IDE & Extensions
+
+#### Managing rules in Antigravity IDE and extensions
 
 Follow these steps to create or manage rules in Antigravity IDE and extensions:
 
@@ -175,7 +177,7 @@ Follow these steps to create or manage rules in Antigravity IDE and extensions:
 2.  Select **Customizations**, then navigate to the **Rules** tab.
 3.  Click **\+ Global** to author workstation-wide rules, or **\+ Workspace** to create project-specific rules.
 
-### Antigravity IDE and extensions file locations
+#### Antigravity IDE and extensions file locations
 
 Antigravity IDE and extensions load rules from the following locations:
 

@@ -67,14 +67,15 @@ The following table compares the three primary execution modes in Antigravity:
 
 You can invoke Boost across all Antigravity surfaces.
 
-*   [Antigravity 2.0](#tab-panel-2)
-*   [Antigravity CLI](#tab-panel-3)
+### Antigravity 2.0
 
 Type `/boost` followed by your task prompt in any conversation turn:
 
 ```
 /boost Investigate the race condition in the session cache and implement a thread-safe fix with tests.
 ```
+
+### Antigravity CLI
 
 Type `/boost` directly into the terminal user interface (TUI) prompt box:
 

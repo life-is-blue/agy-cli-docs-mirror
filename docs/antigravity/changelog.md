@@ -6,9 +6,25 @@ New versions roll out gradually and may take a few days to reach all users.
 
 ## Antigravity 2.0
 
-### [v2.21.1](/releases?tab=hub&version=2.21.1 "View release 2.21.1")
+### [v2.22.0](/releases?tab=hub&version=2.22.0 "View release 2.22.0")
 
 Latest
+
+October 8, 2026
+
+### Sidebar drag-and-drop, UI Extensions, and localized conversation timestamps
+
+Now you can drag-and-drop conversations to organize threads across the sidebar and conversation timestamps now use localized month names. This release also supports UI extensions that Antigravity shows in the side pane next to a conversation.
+
+**Improvements:**
+
+*   Construct and display custom user interfaces inside the side panel as part of installed Antigravity plugins.
+*   You can now drag and drop conversations between sections in the sidebar to organize your projects.
+*   Conversation timestamps in message headers and turn tooltips now display with month names rather than numeric dates.
+
+---
+
+### [v2.21.1](/releases?tab=hub&version=2.21.1 "View release 2.21.1")
 
 October 7, 2026
 

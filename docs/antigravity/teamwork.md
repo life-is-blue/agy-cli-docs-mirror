@@ -119,8 +119,7 @@ Teamwork includes built-in safeguards to ensure parallel agent work remains safe
 
 Select your surface to launch a Teamwork session:
 
-*   [Antigravity 2.0](#tab-panel-41)
-*   [Antigravity CLI](#tab-panel-42)
+### Antigravity 2.0
 
 Start a new conversation and invoke `/teamwork-preview` with your goal:
 
@@ -129,6 +128,8 @@ Start a new conversation and invoke `/teamwork-preview` with your goal:
 ```
 
 Your agent starts the Phase 1 scoping interview and generates the prompt artifact. Once you approve the prompt, the multi-agent team begins autonomous execution.
+
+### Antigravity CLI
 
 In the terminal interface, run `/teamwork-preview` at the prompt:
 

@@ -1,9 +1,9 @@
 # Agent permissions
 
-Antigravity uses a unified fine-grained permission engine to evaluate sensitive tool operations across Deny, Ask, and Allow access lists.
+Antigravity uses a unified fine-grained permission engine to evaluate sensitive tool operations across Deny, Ask, and Allow access lists. If you are using Antigravity with Gemini Enterprise, see [Antigravity in Gemini Enterprise](/docs/enterprise#autonomous-tool-permissions-and-human-in-the-loop-controls).
 
-*   [Antigravity 2.0](#tab-panel-17)
-*   [Antigravity CLI](#tab-panel-18)
+*   [Antigravity 2.0](#tab-panel-20)
+*   [Antigravity CLI](#tab-panel-21)
 
 Note
 

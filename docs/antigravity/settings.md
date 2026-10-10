@@ -2,15 +2,13 @@
 
 Configure preferences, execution boundaries, command permissions, and tool telemetry across Antigravity surfaces.
 
-*   [Antigravity 2.0](#tab-panel-33)
-*   [Antigravity CLI](#tab-panel-34)
-*   [Antigravity IDE](#tab-panel-35)
+## Antigravity 2.0
 
-## Settings architecture
+### Settings architecture
 
 Antigravity features a hierarchical settings architecture designed to give you granular control over your development environment. Settings are split between global application preferences and isolated project-level boundaries to ensure robust security and flexible workspace configurations.
 
-### Accessing settings
+#### Accessing settings
 
 You can open the Settings panel using any of the following methods:
 
@@ -22,11 +20,11 @@ Note
 
 By default, if you have an active project open, clicking **Settings** automatically opens configurations for that specific project. Otherwise, it opens the global settings.
 
-### The four settings categories
+#### The four settings categories
 
 Settings are organized into four distinct scopes to keep configurations clean and isolated:
 
-#### Global settings
+##### Global settings
 
 Global settings apply across all workspaces:
 
@@ -37,7 +35,7 @@ Global settings apply across all workspaces:
 *   **Model usage**: Choose and configure default reasoning models.
 *   **Customizations**: Manage Model Context Protocol (MCP) servers, custom skills, and plugins.
 
-#### Project settings
+##### Project settings
 
 Project settings apply exclusively within the scope of a specific project:
 
@@ -52,31 +50,33 @@ Project settings apply exclusively within the scope of a specific project:
 *   **Project-level permissions**: Configure permissions at the project level. As you interact with an agent, you accumulate permission requests that can be automatically added to project permissions.
 *   **Customizations**: Derived from both global and project-specific customizations. You can view all skills originating from each folder added to the project.
 
-#### Standalone conversations
+##### Standalone conversations
 
 You can also start conversations outside of a project:
 
 *   **Behavior**: Standalone conversations do not have a configurable folder and instead run in a local scratch directory.
 *   **Settings**: Standalone conversations can have their own settings (such as terminal execution, file access policies, and permissions) similar to projects, but operate independently of any project structure.
 
-#### Miscellaneous
+##### Miscellaneous
 
 Access shortcuts and feedback tools:
 
 *   **Shortcuts**: View and customize keyboard shortcut configurations.
 *   **Feedback**: Access the feedback form to send reports directly to the team.
 
-## Data collection settings
+### Data collection settings
 
 The **Enable Telemetry** setting is located in the Settings panel under the **Account** section. When toggled on, Antigravity collects interactions for use in evaluating, developing, and improving Antigravity and models that support Antigravity.
 
+## Antigravity CLI
+
 Configure persistent preferences, customize keyboard shortcuts, toggle terminal display buffers, and manage runtime CLI parameter overrides.
 
-## Setting up preferences
+### Setting up preferences
 
 Antigravity CLI stores user preferences in a minimal, forward-compatible JSON configuration profile.
 
-### Configuration file location
+#### Configuration file location
 
 The persistent settings are saved in a plain JSON format:
 
@@ -86,7 +86,7 @@ The persistent settings are saved in a plain JSON format:
 
 The CLI leverages **sparse persistence** by writing only values to disk that differ from their system defaults. This keeps your configuration file clean, minimal, and fully forward-compatible with future updates.
 
-### The interactive settings panel
+#### The interactive settings panel
 
 To edit settings directly inside your active terminal session without opening raw JSON files:
 
@@ -98,7 +98,7 @@ To edit settings directly inside your active terminal session without opening ra
 
 ![The interactive settings panel](/assets/image/docs/cli/settings-interactive-panel.png)
 
-## Command-line overrides
+### Command-line overrides
 
 You can temporarily override persistent preferences for individual terminal sessions using CLI command flags:
 
@@ -114,18 +114,18 @@ When an override flag is active, the interactive `/config` menu displays a warni
 
 You can still edit the persistent value on disk during these sessions, but the CLI enforces the active runtime flag override until you close the session.
 
-## Visual rendering modes
+### Visual rendering modes
 
 The TUI operates in one of two visual rendering modes depending on your terminal capability and connection latency.
 
-### Alt-screen mode (`always`)
+#### Alt-screen mode (`always`)
 
 This mode opens a dedicated display screen using the terminal’s alternate buffer, creating an immersive, standalone app interface:
 
 *   **Key features**: Integrated scrollback, mouse-wheel scrolling support, custom rendered scrollbar, and clean terminal state restoration on exit.
 *   **Best used for**: Standard local development sessions in advanced terminal emulators (such as iTerm2, Ghostty, or WezTerm).
 
-### Inline mode (`never`)
+#### Inline mode (`never`)
 
 This mode renders output sequentially directly within your terminal’s standard stdout pipeline:
 
@@ -136,11 +136,11 @@ Note
 
 **Adaptive rendering**: Setting Alt-screen mode to `default` allows the TUI to automatically detect your environment. It defaults to Alt-screen on advanced local shells and degrades to Inline mode when running over SSH or in non-interactive sessions.
 
-## Configuration options reference
+### Configuration options reference
 
 The interactive settings panel (`/config`) and `settings.json` allow you to customize the CLI’s behavior across several categories.
 
-### Safety and permissions
+#### Safety and permissions
 
 Manage how the agent interacts with your system and codebase:
 
@@ -156,7 +156,7 @@ Manage how the agent interacts with your system and codebase:
 *   **Sandbox Mode (`enableTerminalSandbox`)**: When enabled (`on`), restricts all agent-initiated terminal commands to a secure OS container.
 *   **Non-Workspace Access (`allowNonWorkspaceAccess`)**: Controls whether the agent can read or write files outside your active project directories. Set to `off` by default for safety.
 
-### Display and rendering
+#### Display and rendering
 
 Customize the visual experience of the TUI:
 
@@ -168,7 +168,7 @@ Customize the visual experience of the TUI:
 *   **Animation Speed (`runningLightSpeed`)**: Adjusts the speed of the progress indicator animation (`fast`, `medium`, `slow`, or `off`).
 *   **Verbosity (`verbosity`)**: Controls detail level. `high` shows full agent thoughts and tool steps; `low` shows only minimal progress indicators.
 
-### Editor and notifications
+#### Editor and notifications
 
 Configure integrations with your host environment:
 
@@ -176,7 +176,7 @@ Configure integrations with your host environment:
 *   **Editor Mode (`editorMode`)**: The editing model used inside the CLI prompt itself. Defaults to `default` (flat text editing); set it to `vim` for modal editing. Refer to [Vim editor mode](/docs/cli/vim-editor-mode). This is independent of the `editor` setting above, which only selects an external program.
 *   **Notifications (`notifications`)**: When enabled (`on`), triggers a system desktop notification and a terminal bell chime when a long-running task completes or requires your attention.
 
-### AI credits and feedback
+#### AI credits and feedback
 
 Manage usage, tips, and telemetry:
 
@@ -185,18 +185,18 @@ Manage usage, tips, and telemetry:
 *   **Show Tips (`showTips`)**: Toggles the display of helpful usage tips while the agent is generating responses.
 *   **Show Feedback Survey (`showFeedbackSurvey`)**: Enables periodic brief surveys after task completions to help improve the experience.
 
-## Custom status lines and terminal titles
+### Custom status lines and terminal titles
 
 For advanced TUI environment integrations, you can toggle active metrics or deploy custom scripts to generate dynamic status bars and modify your terminal window titles:
 
 *   **[Status line customization](/docs/cli/commands/statusline)**: Learn how to manage the status indicator panel and construct custom formatted status line shell scripts.
 *   **[Terminal title customization](/docs/cli/commands/title)**: Learn how to toggle window title outputs and pipe live agent states into your window headers.
 
-## Keybindings configuration
+### Keybindings configuration
 
 You can customize almost all keyboard shortcuts in the TUI by mapping keys to specific workspace commands.
 
-### Keybindings file location
+#### Keybindings file location
 
 Custom maps are stored alongside your primary settings profile:
 
@@ -204,7 +204,7 @@ Custom maps are stored alongside your primary settings profile:
 ~/.gemini/antigravity-cli/keybindings.json
 ```
 
-### Format and customization
+#### Format and customization
 
 The JSON structure maps a single TUI command action to an array of hotkey sequences:
 
@@ -222,7 +222,7 @@ Note
 
 **Protected keys**: Crucial navigation shortcuts such as `cli.exit` (Ctrl + D / Ctrl + C) and `cli.enter` (`Enter`) are protected by the system and cannot be disabled.
 
-### Restoring defaults
+#### Restoring defaults
 
 To revert all keys back to system defaults, delete the keybindings profile:
 
@@ -230,7 +230,7 @@ To revert all keys back to system defaults, delete the keybindings profile:
 rm ~/.gemini/antigravity-cli/keybindings.json
 ```
 
-## Next steps
+### Next steps
 
 Now that you configured your environment, review security controls and extensibility options:
 
@@ -238,36 +238,38 @@ Now that you configured your environment, review security controls and extensibi
 *   **[Plugins and skills](/docs/plugins)**: Create your own custom skills and import legacy plugins.
 *   **[CLI reference](/docs/cli/reference)**: Access quick reference sheets listing all configuration options, commands, and default key maps.
 
+## Antigravity IDE
+
 Configure how the Antigravity agent interacts with your environment, executes commands, and secures your workspace.
 
-## Command execution and file access
+### Command execution and file access
 
-### Terminal command auto execution
+#### Terminal command auto execution
 
 Controls how the agent executes generated shell commands:
 
 *   **Request Review**: The agent always prompts for confirmation before executing any terminal command (except those explicitly added to your configurable allowlist).
 *   **Always Proceed**: The agent executes commands automatically without prompting (except those explicitly added to your configurable denylist). High autonomy, high risk.
 
-### Agent non-workspace file access
+#### Agent non-workspace file access
 
 Allows the agent to view and edit files outside active project folders:
 
 *   By default, the agent only has access to the folders inside your project and the local app data directory `~/.gemini/antigravity-ide/` (which contains artifacts, knowledge items, and configuration files).
 *   Enforcing this boundary protects your local sensitive data. Enable non-workspace access with caution.
 
-## Strict mode
+### Strict mode
 
 Strict mode provides enhanced security controls for the agent, allowing you to restrict its access to external resources and sensitive operations. When strict mode is enabled, several security measures are enforced to protect your environment.
 
-### Browser URL allowlist and denylist
+#### Browser URL allowlist and denylist
 
 In strict mode, the agent’s ability to interact with external websites is governed by the browser’s allowlist and denylist. This applies to:
 
 *   **External Markdown images**: The agent only renders images from URLs that are allowed.
 *   **Read URL tool**: The Read URL tool only auto-executes for allowed URLs.
 
-### Terminal, browser, and artifact review policies
+#### Terminal, browser, and artifact review policies
 
 Strict mode enforces the following behavior for terminal, browser, and artifact interactions:
 
@@ -275,26 +277,26 @@ Strict mode enforces the following behavior for terminal, browser, and artifact 
 *   **Browser JavaScript execution**: Set to “Request Review”. The agent always prompts for permission before executing JavaScript in the browser.
 *   **Artifact review**: Set to “Request Review”. The agent always prompts for confirmation before acting on plans laid out in artifacts.
 
-### File system access
+#### File system access
 
 Strict mode restricts the agent’s access to the file system to ensure it only interacts with authorized files:
 
 *   **Respect .gitignore**: The agent respects `.gitignore` rules, preventing it from accessing ignored files.
 *   **Workspace isolation**: Access to files outside the workspace is disabled. The agent can only view and edit files within the designated workspace.
 
-## Terminal sandboxing
+### Terminal sandboxing
 
 Sandboxing provides kernel-level isolation for terminal commands executed by the agent. When enabled, commands run in a restricted environment with limited file system and network access, protecting your system from unintended modifications.
 
 Sandboxing is currently disabled by default, but this may change in future releases. It is supported on macOS and Linux. On macOS, it leverages Seatbelt (`sandbox-exec`), Apple’s kernel-level sandboxing mechanism. On Linux, it uses `nsjail` for process isolation.
 
-### Enabling sandboxing
+#### Enabling sandboxing
 
 You can enable or disable sandboxing in Antigravity user settings. Toggle “Enable Terminal Sandboxing” to turn sandboxing on or off. When enabled, you can also control network access separately using the “Sandbox Allow Network” toggle.
 
 ![Sandbox settings toggles](/assets/image/docs/sandbox-settings-toggle.png)
 
-### Restrictions
+#### Restrictions
 
 When sandboxing is enabled, the agent’s terminal commands are subject to the following restrictions:
 
@@ -309,7 +311,7 @@ Here’s an example of a command being blocked due to network restrictions:
 
 ![Sandbox network denial example](/assets/image/docs/sandbox-network-denied.png)
 
-### Interaction with strict mode
+#### Interaction with strict mode
 
 When strict mode is enabled, sandboxing is automatically activated with network access denied. This ensures maximum protection when operating in a strict environment.
 

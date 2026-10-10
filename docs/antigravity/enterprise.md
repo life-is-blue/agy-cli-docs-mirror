@@ -6,14 +6,18 @@ Supported products: [Antigravity 2.0](/product/antigravity-2) [Antigravity CLI](
 
 Note
 
-**Note**: Enterprise integration is supported for Antigravity 2.0, Antigravity CLI, and Antigravity IDE extensions. **Antigravity IDE** (standalone) is currently not supported for enterprise deployments. [View supported models](/docs/models)
+Enterprise integration is supported for Antigravity 2.0, Antigravity CLI, and Antigravity IDE extensions. **Antigravity IDE** (standalone) is not supported for enterprise deployments, and legacy **Gemini Code Assist** IDE extensions support only first-party Gemini models.
+
+[Developer sign-in and models](#sign-in-and-license-selection)Sign in with Google Cloud SSO, Workforce Identity Federation (WIF), or ADC and select enterprise models.
+
+[Administrator and network setup](#administrator-setup-guide)Provision a Google Cloud project, enable third-party models, and configure firewall and mTLS allowlists.
 
 ## Overview and key benefits
 
 You can connect Antigravity to Gemini Enterprise in two ways:
 
-*   **Google Cloud project and API**: Connect directly using Google Cloud project APIs to use Antigravity with consumption-based billing.
-*   **Gemini Enterprise license**: Connect with your Gemini Enterprise license (Standard or Plus) to get access to included quotas, managed overages, and centralized administrative controls.
+*   **Google Cloud project and API**: Connect directly using a Google Cloud project with an invoiced Cloud Billing account and the `roles/discoveryengine.agentspaceUser` Identity and Access Management (IAM) role for consumption-based billing.
+*   **Gemini Enterprise license**: Connect with your **Gemini Enterprise Standard** or **Gemini Enterprise Plus** seat license to get access to included first-party quotas, managed overages, and centralized administrative controls across Antigravity 2.0, Antigravity CLI (`agy`), and Antigravity IDE extensions. No separate per-user Antigravity license is required.
 
 By connecting Google Antigravity to your Google Cloud project, your organization gains:
 
@@ -23,7 +27,143 @@ Operates under your existing Google Cloud Terms of Service with centralized admi
 
 Data residency and security
 
-Satisfies private networking (VPC Service Controls) and regional data residency constraints. Enterprise prompts, responses, code, and telemetry are never stored outside your private environments.
+Satisfies private networking (VPC Service Controls). Regional data residency constraints apply to first-party Gemini models; third-party model inference runs in `global`, `us`, and `eu` locations (in-country regions are not supported; see Anthropic’s [Supported countries and regions](https://www.anthropic.com/supported-countries)).
+
+## Sign in and license selection
+
+After installing [Antigravity 2.0](/docs/getting-started), the [Antigravity CLI (`agy`)](/docs/cli/install), or a supported [IDE extension](/docs/ide/extensions), choose your organization’s authentication method to connect to Gemini Enterprise:
+
+### Google Cloud SSO
+
+#### Sign-in workflow
+
+Google Antigravity uses a single sign-on (SSO) flow that automatically detects your assigned license tier:
+
+1.  Launch **Antigravity 2.0**, run `agy` (or `/login`) in the **Antigravity CLI**, or open your **[IDE extension](/docs/ide/extensions)**.
+2.  Select **Sign in** to open the browser authentication flow.
+3.  Choose **Business account** _(subject to the Google Cloud Terms of Service)_.
+4.  Select **Continue with Google Cloud** and complete authentication in your browser.
+5.  In the **License Selector**, confirm the Google Cloud project linked to your license and select it. Alternatively, select **Other** to self-assign a license by entering your project ID and selecting a location (`global`, `us`, or `eu`; saved to `~/.gemini/antigravity-cli/settings.json` in the CLI), or pass `agy --project PROJECT_ID` when launching the CLI.
+
+Note
+
+**Data-sharing and project logging notice**: Your customer telemetry and model interactions are logged directly to the Google Cloud project corresponding to the license you select. You can maintain **one license per project and location**.
+
+### BYOID and WIF
+
+#### Configuring Bring Your Own Identity (BYOID)
+
+Bring Your Own Identity (BYOID) uses Workforce Identity Federation (WIF) to let your organization authenticate through an external identity provider, such as Okta, instead of a standard Google Account:
+
+1.  In Antigravity, select **Business account**.
+2.  Select **Advanced WIF Configuration**.
+3.  Enter the **WIF Configuration String** (for example, `locations/global/workforcePools/POOL_ID/providers/PROVIDER_ID`) provided by your organization’s administrator.
+4.  Complete sign-in through your federated identity provider.
+5.  Select or self-assign a license from the **License Selector**.
+
+Note
+
+If the same email address exists across multiple identity providers, sign in with the identity that matches your Gemini Enterprise license.
+
+### ADC (Headless)
+
+#### Setting up Application Default Credentials (ADC)
+
+For headless environments and automated terminal workflows, Antigravity supports authentication using Google Cloud [Application Default Credentials](https://docs.cloud.google.com/docs/authentication/application-default-credentials) (ADC) across the **Antigravity CLI**, **Antigravity 2.0**, and **Antigravity IDE**.
+
+1.  Generate local Application Default Credentials for your project using the Google Cloud SDK:
+    
+    ```
+    gcloud auth application-default login --project {GCP_PROJECT}
+    ```
+    
+2.  Verify that your credentials file exists (on Linux and macOS, `~/.config/gcloud/application_default_credentials.json`).
+    
+3.  Enable ADC for your surface:
+    
+    *   **Antigravity CLI**: Export `AGY_ADC_AUTH=true` before running `agy` (run `unset AGY_ADC_AUTH` to sign out):
+        
+        ```
+        export AGY_ADC_AUTH=true
+        ```
+        
+    *   **Antigravity 2.0 and IDE**: Launch from a terminal with `AGY_ADC_AUTH=true`, or set `"enableAdc": true` in `~/.gemini/config/config.json`:
+        
+        ```
+        {
+          "userSettings": {
+            "enableAdc": true
+          }
+        }
+        ```
+        
+
+#### How ADC resolves credentials, project, and location
+
+*   **Credentials**: Resolved using the [standard ADC search order](https://docs.cloud.google.com/docs/authentication/application-default-credentials#order).
+*   **Project ID**: Resolved in order from (1) `quota_project_id` in the ADC file, (2) `GOOGLE_CLOUD_QUOTA_PROJECT` environment variable _(CLI only)_, or (3) the metadata server project ID (for service accounts).
+*   **Location**: Resolved from `GOOGLE_CLOUD_LOCATION` _(CLI)_ or the `location` field in the ADC file _(Antigravity 2.0 / IDE)_, defaulting to `global`.
+
+Note
+
+When authenticating with ADC, models older than Gemini 3 Flash are not supported, and image generation is not available in `eu` and `us` locations.
+
+## Supported models in Gemini Enterprise
+
+Antigravity in Gemini Enterprise supports included first-party Gemini models and administrator-enabled third-party partner models:
+
+| Model | CLI / API Identifier | Enterprise |
+| --- | --- | --- |
+| [Gemini 3.8 Flash](/blog/gemini-3-8-flash-in-google-antigravity) | `gemini-3.8-flash` | ✅ |
+| [Gemini 3.7 Flash](/blog/gemini-3-7-flash-in-google-antigravity) | `gemini-3.7-flash` | ✅ |
+| [Gemini 3.6 Flash](/blog/gemini-3-6-flash-in-google-antigravity) | `gemini-3.6-flash` | ✅ |
+| [Gemini 3.1 Pro](/blog/gemini-3-1-pro-in-google-antigravity) | `gemini-3.1-pro-preview` | ✅ |
+| [Claude Sonnet 5.5 (thinking)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/sonnet-5-5) | `claude-sonnet-5-5-<level>`\* | ✅\*\* |
+| [Claude Opus 5.5 (thinking)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/opus-5-5) | `claude-opus-5-5-<level>`\* | ✅\*\* |
+| Claude Sonnet 4.6 (thinking) | — | ❌ |
+| Claude Opus 4.6 (thinking) | — | ❌ |
+| GPT-OSS-120b | — | ❌ |
+
+\* Available at four thinking levels (<level>): low, medium (default), high, and max (for example, claude-opus-5-5-high or claude-sonnet-5-5-max).
+
+\*\* Third-party partner models require [administrator opt-in](https://cloud.google.com/gemini/enterprise/docs/ai-developer-tools-settings#enable-third-party-models) in the Google Cloud Console and are billed by token consumption. First-party Gemini models are enabled by default and draw from pooled edition seat credits ($10/month Standard, $15/month Plus).
+
+### Selecting models and thinking levels
+
+Once enabled for your project, models appear in your client shortly after your administrator enables them:
+
+*   **Antigravity 2.0 and IDE extensions**: Open the **Model picker** in the chat composer and select your preferred model (third-party models appear under **Other Models**). **Anthropic Claude Opus 5.5** and **Anthropic Claude Sonnet 5.5** are available at four thinking levels—`Low`, `Medium` (default), `High`, and `Max`—and each level appears as a separate entry in the model picker (for example, **Claude Opus 5.5 (High)**). Higher levels give the model more room to reason on complex tasks, but use more tokens.
+*   **Antigravity CLI (`agy`)**: Start a session with `--model` or switch mid-session with the `/model` slash command:
+    
+    ```
+    agy --model claude-opus-5-5-medium
+    agy --model claude-sonnet-5-5-medium
+    ```
+    
+    You can also specify a base model ID and use the `--effort` flag (or `/effort` mid-session, requires `agy` `v1.2.11` or later) to set the reasoning level (`low`, `medium`, `high`, `max`):
+    
+    ```
+    agy --model claude-opus-5-5-medium --effort high
+    agy --model claude-sonnet-5-5-medium --effort max
+    ```
+    
+
+### Architectural transparency: Hybrid execution
+
+When you select **Anthropic Claude Opus 5.5** or **Anthropic Claude Sonnet 5.5** in Antigravity, your selected third-party model executes all primary reasoning, planning, tool orchestration, and code generation turns.
+
+Antigravity uses a hybrid execution architecture: lightweight first-party Gemini models continue to run in the background to handle high-frequency client-side coordination—such as context management and summaries. These background models consume first-party tokens, which can incur charges.
+
+## Autonomous tool permissions and human-in-the-loop controls
+
+Autonomous tool execution in Antigravity supports **human-in-the-loop** confirmation when using either first-party Gemini models or administrator-enabled third-party Anthropic models (`claude-opus-5-5` and `claude-sonnet-5-5`):
+
+*   **Antigravity 2.0**: Keep **Default** (isolated terminal sandbox) or **Request Review** enabled in **Settings > General > Permission Settings** so unsandboxed shell commands, external file modifications, and MCP tool calls require explicit developer approval. Use unrestricted auto-approval (**Turbo** / **Always proceed**) only in isolated development containers or disposable branches.
+*   **Antigravity CLI (`agy`)**: Keep interactive tool permissions and `--sandbox=true` enabled (`seatbelt` on macOS, `bubblewrap` on Linux), or use read-only plan mode (`--mode plan`) before approving edits. Configure policies with `/permissions` or `/config`.
+
+[Agent permissions](/docs/permissions)Configure allow, ask, and deny rules and permission presets in Antigravity 2.0 and the CLI.
+
+[Terminal sandbox](/docs/sandbox)Learn how OS-level sandboxing isolates shell commands and network access.
 
 ## Administrator setup guide
 
@@ -39,7 +179,7 @@ New to Gemini Enterprise Agent Platform?
 
 If you are a new customer connecting via API, you will need an API key to authenticate. Visit the [API Key Quickstart Guide](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/start/api-keys?usertype=expressmode) to create your key first.
 
-Complete the following three steps to provision your Google Cloud project and enable API access:
+Complete the following steps to provision your Google Cloud project and enable API access:
 
 1.  **Select or create a Google Cloud project**: Select an existing project or create a dedicated project for your team’s Antigravity workloads.
     
@@ -54,149 +194,41 @@ Complete the following three steps to provision your Google Cloud project and en
 3.  **Enable the API**: Enable the Gemini Enterprise API (`aiplatform.googleapis.com`) to allow Antigravity clients to connect to your project’s model endpoints.
     
     [Enable API in Cloud Console](https://console.cloud.google.com/apis/library/aiplatform.googleapis.com)
-
-## Sign in and license selection
-
-Google Antigravity uses a single sign-on (SSO) flow. When you sign in with your corporate business account, your license tier is automatically detected without requiring manual tier selection.
-
-### Sign-in workflow
-
-Complete the following steps to sign in and select a license:
-
-1.  Start **Antigravity 2.0**, the **Antigravity CLI**, or your supported **[IDE extension](/docs/ide/extensions)**.
-2.  Select **Sign in** to open the browser authentication flow.
-3.  Choose **Business account** _(subject to the Google Cloud Terms of Service)_.
-4.  Select **Continue with Google Cloud** (or configure Advanced SSO and WIF).
-5.  Complete authentication in your browser.
-6.  Once authenticated, the **License Selector** displays your assigned licenses.
-7.  Confirm the project linked to your license and select it. Alternatively, select **Other** to self-assign a license by entering your project ID and selecting a location (`global`, `us`, or `eu`).
-
-Note
-
-**Data-sharing and project logging notice**: Your customer telemetry and model interactions are logged directly to the Google Cloud project corresponding to the license you select. You can maintain **one license per project and location**.
-
-## Bring your own identity (BYOID and WIF)
-
-Bring Your Own Identity (BYOID) uses Workforce Identity Federation (WIF) to let your organization authenticate through an external identity provider, such as Okta, instead of a standard Google Account.
-
-### Configuring BYOID
-
-Complete the following steps to configure BYOID:
-
-1.  In Antigravity, select **Business account**.
-2.  Select **Advanced WIF Configuration**.
-3.  Enter the **WIF Configuration String** provided by your organization’s administrator.
-4.  Complete sign-in through your federated identity provider.
-5.  Select or self-assign a license from the License Selector.
-
-Note
-
-**Note**: If the same email address exists across multiple identity providers, sign in with the identity that matches your Gemini Enterprise license.
-
-## Application Default Credentials (ADC)
-
-For headless environments and automated terminal workflows, Antigravity supports authentication using Google Cloud [Application Default Credentials](https://docs.cloud.google.com/docs/authentication/application-default-credentials) (ADC). ADC is available across the **Antigravity CLI**, **Antigravity 2.0**, and **Antigravity IDE**.
-
-Note
-
-**Note**: Image generation is currently not available in `eu` and `us` locations.
-
-### Setting up ADC
-
-Complete the following steps to generate and verify your credentials:
-
-1.  Generate local Application Default Credentials for your project using the Google Cloud SDK:
-    
-    ```
-    gcloud auth application-default login --project {GCP_PROJECT}
-    ```
-    
-2.  Verify that your credentials file exists. On Linux and macOS, the default path is:
-    
-    ```
-    ~/.config/gcloud/application_default_credentials.json
-    ```
+4.  **Enable third-party partner models (optional)**: To allow developers to use **Anthropic Claude Opus 5.5** or **Anthropic Claude Sonnet 5.5**, [enable third-party models](https://cloud.google.com/gemini/enterprise/docs/ai-developer-tools-settings#enable-third-party-models) in **Gemini Enterprise > Settings > AI developer tools** in the Google Cloud Console.
     
 
-### Enabling ADC
+## Regional endpoints and network allowlists
 
-Enable ADC authentication based on your Antigravity surface:
-
-*   **Antigravity CLI**: ADC is enabled only when the `AGY_ADC_AUTH` environment variable is set to `true`:
-    
-    ```
-    export AGY_ADC_AUTH=true
-    ```
-    
-*   **Antigravity 2.0 and IDE**: Enable ADC using one of the following two options:
-    
-    *   Launch from a terminal with `AGY_ADC_AUTH=true` set (same as the CLI).
-        
-    *   Because launching from a terminal is not always feasible, enable the `enableAdc` user setting manually in `~/.gemini/config/config.json`:
-        
-        ```
-        {
-          "userSettings": {
-            "enableAdc": true
-          }
-        }
-        ```
-        
-
-### Sign out of ADC
-
-To sign out of ADC on the CLI, unset the environment variable and restart your terminal session:
-
-```
-unset AGY_ADC_AUTH
-```
-
-Similarly, for **Antigravity 2.0 and IDE**, undo any changes to `~/.gemini/config/config.json` (or unset `AGY_ADC_AUTH` if launched from a terminal) and restart the application.
-
-### ADC quickstart
-
-This section provides a brief walkthrough of key ADC parameters to be aware of.
-
-#### How credentials are resolved
-
-Antigravity resolves credentials using the standard ADC search order. [Learn more about how ADC finds credentials](https://docs.cloud.google.com/docs/authentication/application-default-credentials#order).
-
-#### How the project ID is resolved
-
-Antigravity resolves the Google Cloud project ID from the first source found, in this order:
-
-1.  The `quota_project_id` field in the ADC file (set using the `gcloud` CLI, or edited manually).
-2.  **\[CLI only\]**: The `GOOGLE_CLOUD_QUOTA_PROJECT` environment variable.
-3.  The project ID reported by the metadata server (for service accounts).
-
-#### How the location is resolved
-
-Antigravity resolves the endpoint location from the first source found, in this order:
-
-1.  The surface-specific configuration:
-    *   **\[CLI\]**: The `GOOGLE_CLOUD_LOCATION` environment variable.
-    *   **\[Antigravity 2.0 / IDE\]**: The `location` field in the ADC file.
-2.  Otherwise, the location defaults to `global`.
-
-Note
-
-**Note**: When authenticating with ADC, models older than Gemini 3 Flash are not supported.
-
-## Regional endpoints and capability matrix
+### Regional endpoints
 
 Antigravity CLI, Antigravity 2.0, and IDE extensions support multi-region deployment endpoints to satisfy regional data residency requirements:
 
-| Endpoint Region | Base Endpoint URI | Supported Capabilities |
+| Region | Location ID | Supported capabilities |
 | :-- | :-- | :-- |
-| **Global** | `global` | Text Generation, Code Inference, Multimodal, Image Generation |
-| **US Multi-Region** | `us` | Text Generation, Code Inference, Multimodal |
-| **EU Multi-Region** | `eu` | Text Generation, Code Inference, Multimodal |
+| **Global** | `global` | Text generation, code inference, multimodal, image generation |
+| **US** (Multi-region) | `us` | Text generation, code inference, multimodal |
+| **EU** (Multi-region) | `eu` | Text generation, code inference, multimodal |
 
 Note
 
-**Note**: Image generation capabilities are currently available exclusively on **`global`** deployment endpoints.
+Image generation capabilities are currently available exclusively on **`global`** deployment endpoints.
 
 For full endpoint specifications, consult the [Deployment endpoints documentation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations#global).
+
+### Network allowlists and mTLS endpoints
+
+If your organization restricts outbound developer traffic using corporate firewalls, proxies, or context-aware access rules, allowlist the following endpoints over TCP port `443` for Antigravity 2.0, Antigravity CLI (`agy`), and Antigravity for IDEs:
+
+| Service and protocol | Allowed hostnames (TCP port 443) |
+| :-- | :-- |
+| **AI Developer Tools Orchestration** (Standard HTTPS) | `businessaicode.googleapis.com` |
+| **AI Developer Tools Orchestration** (Mutual TLS) | `businessaicode.mtls.googleapis.com` |
+| **Discovery Engine — Global, US, EU** (Standard HTTPS) | `discoveryengine.googleapis.com`  
+`us-discoveryengine.googleapis.com`  
+`eu-discoveryengine.googleapis.com` |
+| **Discovery Engine — Global, US, EU** (Mutual TLS) | `discoveryengine.mtls.googleapis.com`  
+`us-discoveryengine.mtls.googleapis.com`  
+`eu-discoveryengine.mtls.googleapis.com` |
 
 ## Security and governance
 

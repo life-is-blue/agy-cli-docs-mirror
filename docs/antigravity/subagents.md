@@ -2,10 +2,9 @@
 
 Delegate parallel builds, multi-file code generation, and research sweeps to concurrent background subagents while maintaining your active programming flow.
 
-*   [Antigravity 2.0](#tab-panel-39)
-*   [Antigravity CLI](#tab-panel-40)
+## Antigravity 2.0
 
-## Invoking subagents
+### Invoking subagents
 
 The parent agent calls the `invoke_subagent` tool to spawn a new concurrent session with a dedicated role and initial prompt:
 
@@ -14,7 +13,7 @@ The parent agent calls the `invoke_subagent` tool to spawn a new concurrent sess
 *   **Execution**: Once invoked, the subagent immediately begins executing its task. A parent agent can invoke multiple subagents concurrently.
 *   **Monitoring**: You can directly monitor the progress of any subagent by clicking into its conversation in the subagent panel or pressing `Alt+J` in the CLI.
 
-## Built-in subagents
+### Built-in subagents
 
 Antigravity comes pre-packaged with several specialized subagents out of the box:
 
@@ -22,11 +21,11 @@ Antigravity comes pre-packaged with several specialized subagents out of the box
 *   **`browser`**: Operates sandboxed web browsers to perform interactive browser testing (invoked exclusively using the `/browser` slash command).
 *   **`self`**: A direct clone of the calling agent, sharing identical system instructions and toolsets.
 
-## Custom subagents
+### Custom subagents
 
 You can define reusable custom subagents in Markdown format (`.md`) with YAML frontmatter, or create transient subagents during a session using the `define_subagent` tool.
 
-### Agent location and discovery
+#### Agent location and discovery
 
 Antigravity automatically discovers custom subagent `.md` files in the following locations:
 
@@ -36,7 +35,7 @@ Antigravity automatically discovers custom subagent `.md` files in the following
 | **Global Customizations** | `~/.gemini/config/agents/<name>.md` or `.../agents/<name>/agent.md` | Machine-wide / All Projects |
 | **Plugins** | `plugins/<plugin_name>/agents/` | Bundled Plugin Package |
 
-### Frontmatter configuration (YAML)
+#### Frontmatter configuration (YAML)
 
 Define agent metadata, capability limits, and execution policies using YAML frontmatter at the top of your `.md` file:
 
@@ -54,11 +53,11 @@ Define agent metadata, capability limits, and execution policies using YAML fron
 
 > **Known issue (tool validation)**: Specifying an unmapped or misspelled tool name in the `tools` list may cause the subagent process to hang during execution. Double-check exact tool names (such as `view_file` or `run_command`) when configuring custom subagents. Enhanced schema validation and a fix for this behavior are planned for an upcoming update.
 
-### System prompt and Markdown body
+#### System prompt and Markdown body
 
 The content following the YAML `---` delimiter defines the subagent’s system prompt. You can organize instructions using standard Markdown H1 headings (`# System Prompt`, `# Review Guidelines`).
 
-### Example Markdown custom agent (`code-auditor.md`)
+#### Example Markdown custom agent (`code-auditor.md`)
 
 The following example defines a custom security auditor subagent:
 
@@ -87,32 +86,32 @@ You are an expert security auditor and code reviewer. Your primary objective is 
 3. Provide concise, actionable remediation steps for each finding.
 ```
 
-## Subagent lifecycle and states
+### Subagent lifecycle and states
 
 Subagents run asynchronously in the background. At any point during a session, a subagent exists in one of three states.
 
-### Running
+#### Running
 
 The subagent is actively executing its task, calling tools, and generating responses:
 
 *   **Cancellation**: You can cancel a running subagent by clicking **Stop Subagent** in the subagent panel (or pressing `k` in the CLI).
 *   **Parent control**: The parent agent can interrupt a subagent by sending a message or terminating it.
 
-### Idle
+#### Idle
 
 The subagent has completed its task, sent a result message to its parent agent, and paused execution:
 
 *   **Re-awakening**: An idle agent automatically re-awakens to the _Running_ state upon receiving a message from another agent.
 *   **Context retention**: When awoken, the agent retains all context from its prior execution turns.
 
-### Killed
+#### Killed
 
 The subagent is permanently terminated and cannot be re-awoken:
 
 *   **Cleanup**: Any temporary Git worktrees generated for the subagent are automatically cleaned up.
 *   **Visibility**: Historical conversation transcripts remain readable in JSONL logs.
 
-## Inter-agent communication and nesting limits
+### Inter-agent communication and nesting limits
 
 Agents communicate by sending messages to each other using unique agent conversation IDs:
 
@@ -124,7 +123,7 @@ Note
 
 **Nesting depth limit**: A maximum nesting depth of **10 levels** (layers of subagents beneath the primary agent) is strictly enforced to prevent runaway recursion or resource exhaustion.
 
-## Permissions and configuration inheritance
+### Permissions and configuration inheritance
 
 Subagents inherit safety configurations from their parent agent to maintain security boundaries:
 
@@ -132,11 +131,11 @@ Subagents inherit safety configurations from their parent agent to maintain secu
 *   **Workspace access**: Parent agents retain full access to their subagents’ workspaces, including isolated Git worktrees.
 *   **Permission bubbling**: If a subagent encounters a tool execution requiring user authorization, the request automatically bubbles up to the main UI or subagent panel.
 
-## Multi-agent orchestrators
+### Multi-agent orchestrators
 
 Antigravity provides two advanced multi-agent orchestrators designed for different task scales and execution horizons.
 
-### Boost deep reasoning (`/boost`)
+#### Boost deep reasoning (`/boost`)
 
 Note
 
@@ -144,7 +143,7 @@ Note
 
 Invoking [`/boost`](/docs/boost) launches a three-tier multi-agent reasoning hierarchy (`Orchestrator` -> `DeepCoder` / `DeepInvestigator` coordinators -> isolated execution workers). It tackles tough concurrency bugs, algorithmic challenges, and non-trivial refactoring within interactive coding sessions (seconds to hours) with independent verification loops. Learn more in the [Boost documentation](/docs/boost).
 
-### Multi-agent teamwork (`/teamwork-preview`)
+#### Multi-agent teamwork (`/teamwork-preview`)
 
 Note
 
@@ -152,21 +151,23 @@ Note
 
 Using [`/teamwork-preview`](/docs/teamwork) coordinates a team of specialized AI agents designed for large software projects, multi-file refactoring, and complex research. The team handles milestone decomposition, parallel implementation, and independent verification checks, allowing you to define the high-level goals while the platform manages agent coordination. Learn more in the [Teamwork documentation](/docs/teamwork).
 
-## Asynchronous execution model
+## Antigravity CLI
+
+### Asynchronous execution model
 
 To maximize developer velocity, Antigravity CLI leverages a multi-threaded asynchronous execution architecture. Instead of locking your terminal session during long-running builds, massive codebase search sweeps, or complex multi-file edits, the primary agent delegates these operations to parallel **subagents** or background **tasks**.
 
 This delegation model ensures you never have to wait on high-latency AI processes. You can continue drafting code, submitting prompts, or inspecting files while multiple autonomous background threads execute validation tasks in parallel.
 
-## Managing agents: the `/agents` panel
+### Managing agents: the `/agents` panel
 
 The active agent hierarchy and custom agent selection menu are fully transparent and manageable through the interactive [Agent Manager panel (`/agents`)](/docs/cli/commands/agents).
 
-### Opening the panel
+#### Opening the panel
 
 Type `/agents` in the prompt and press Enter to open the interactive **Agent Manager panel**.
 
-### Panel overview
+#### Panel overview
 
 The panel displays a live checklist of all active, completed, killed, or failed background agents:
 
@@ -179,7 +180,7 @@ Tip
 
 You can also select and switch between custom agents (or fork conversations) from this panel. Refer to the [`/agents` command reference](/docs/cli/commands/agents) for full details on custom agent discovery and panel keybindings.
 
-## Custom agents (Markdown format)
+### Custom agents (Markdown format)
 
 In addition to built-in agents, the CLI automatically discovers custom agents defined in Markdown format (`.md`) with YAML frontmatter:
 
@@ -190,7 +191,7 @@ When a custom agent has `subagent: true` set in its YAML frontmatter, the primar
 
 For the complete schema, frontmatter parameters, and code examples, refer to [Custom subagents](/docs/subagents#custom-subagents).
 
-## Deep-dive monitoring
+### Deep-dive monitoring
 
 To inspect the inner reasoning, thoughts, and logs of a specific background agent:
 
@@ -199,7 +200,7 @@ To inspect the inner reasoning, thoughts, and logs of a specific background agen
 3.  Inspect the subagent’s entire reasoning log, including its private internal thoughts, tool calls, and execution outputs.
 4.  Press Esc to exit and return to the main Agent Manager list.
 
-## Monitoring background tasks with `/tasks`
+### Monitoring background tasks with `/tasks`
 
 For non-agentic background operations, such as direct shell commands, testing suites, or simple background queries initiated using `/btw`, use the `/tasks` command:
 
@@ -213,18 +214,18 @@ The tasks tracking list lets you perform the following actions:
 *   Select a task using ↑/↓ and press Enter to view stdout logs.
 *   Terminate runaway terminal processes safely.
 
-## Keyboard ergonomics
+### Keyboard ergonomics
 
 To reduce context-switching friction when subagents require manual interaction or tool authorizations, Antigravity CLI integrates high-efficiency shortcut paths.
 
-### Detailed “teleport” navigation (`Alt+J`)
+#### Detailed “teleport” navigation (`Alt+J`)
 
 When a subagent encounters a tool requiring approval (for example, writing a file or running a database migration), a status bar notification blinks:
 
 *   Press Alt + J inside the main prompt panel to immediately jump from your current conversation directly into the Detail View of the next subagent awaiting your approval.
 *   Confirm or reject the action, and press Esc to return to your primary thread.
 
-### ”Fast-path” confirmations (`Ctrl+K`)
+#### ”Fast-path” confirmations (`Ctrl+K`)
 
 To authorize an agent action immediately without leaving your active workspace:
 

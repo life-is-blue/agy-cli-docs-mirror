@@ -142,11 +142,7 @@ Skills can also be packaged inside plugins and managed with `agy plugin`:
 # List all active plugins and their bundled skills
 agy plugin list
 
-# Install a plugin from the official marketplace (defaults to @antigravity-plugins-official)
-agy plugin install <plugin-name>
-
-# Install a skill bundle from a GitHub URL or local plugin path
-agy plugin install https://github.com/<owner>/<repo>
+# Install a skill bundle using a local plugin path
 agy plugin install ./my-skills-plugin
 ```
 

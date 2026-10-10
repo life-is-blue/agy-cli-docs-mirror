@@ -10,8 +10,8 @@ For the core reasoning model, Antigravity offers leading frontier models. Availa
 | [Gemini 3.7 Flash](/blog/gemini-3-7-flash-in-google-antigravity) | ✅ | ✅ | ✅ | ✅ |
 | [Gemini 3.6 Flash](/blog/gemini-3-6-flash-in-google-antigravity) | ✅ | ✅ | ✅ | ✅ |
 | [Gemini 3.1 Pro](/blog/gemini-3-1-pro-in-google-antigravity) | ✅ | ✅ | ✅ | ✅ |
-| Claude Sonnet 5.5 (thinking)\*\* | ❌ | ✅\*\* | ✅ | ❌ |
-| Claude Opus 5.5 (thinking)\*\* | ❌ | ✅\*\* | ✅ | ❌ |
+| Claude Sonnet 5.5 (thinking)\*\* | ❌ | ✅\*\* | ✅ | ✅ |
+| Claude Opus 5.5 (thinking)\*\* | ❌ | ✅\*\* | ✅ | ✅ |
 | Claude Sonnet 4.6 (thinking)\* | ✅ | ✅ | ❌ | ❌ |
 | Claude Opus 4.6 (thinking)\* | ✅ | ✅ | ❌ | ❌ |
 | GPT-OSS-120b\* | ✅ | ✅ | ✅ | ❌ |
@@ -22,67 +22,9 @@ For the core reasoning model, Antigravity offers leading frontier models. Availa
 
 You can select which reasoning model you want to use from the model selector menu under the conversation prompt box:
 
-Free & PlusFreeGoogle AI ProProGoogle AI UltraUltraEnterpriseEnterprise
-
-Model
-
-Gemini 3.8 FlashMedium
-
-Fast
-
-LowMediumHigh
-
-Gemini 3.7 FlashMedium
-
-Fast
-
-LowMediumHigh
-
-Gemini 3.6 FlashMedium
-
-Fast
-
-LowMediumHigh
-
-Gemini 3.1 ProHigh
-
-LowHigh
-
-Claude Sonnet 5.5 (Thinking)
-
-Claude Opus 5.5 (Thinking)
-
-Claude Sonnet 4.6 (Thinking)
-
-Claude Opus 4.6 (Thinking)
-
-GPT-OSS 120B (Medium)
-
-View Usage
-
-Gemini Models
-
-Weekly Limit Remaining
-
-100%
-
-Five Hour Limit Remaining
-
-100%
-
-Claude and GPT models
-
-Weekly Limit Remaining
-
-100%
-
-Five Hour Limit Remaining
-
-100%
-
 Your choice of reasoning model persists between messages within a conversation. If you change the reasoning model while the agent is running, it continues to use the previously selected reasoning model until it completes its steps for that turn (or until you cancel the current execution).
 
-To learn more about reasoning model rate limits, refer to the [plans page](/docs/plans).
+To learn more about reasoning model rate limits, refer to the [plans page](/docs/plans). If you are using Antigravity with Gemini Enterprise, see [Supported models in Gemini Enterprise](/docs/enterprise#supported-models-in-gemini-enterprise).
 
 ## Additional models
 
