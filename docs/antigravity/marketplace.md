@@ -6,10 +6,9 @@ Note
 
 **Cross-surface synchronization**: Plugins installed in **Antigravity 2.0** are automatically updated and displayed in the **Antigravity CLI**’s **Installed** tab.
 
-*   [Antigravity 2.0](#tab-panel-10)
-*   [Antigravity CLI](#tab-panel-11)
+## Antigravity 2.0
 
-## Browse and install plugins
+### Browse and install plugins
 
 To browse and install Marketplace plugins in Antigravity 2.0, follow these steps:
 
@@ -28,7 +27,7 @@ To browse and install Marketplace plugins in Antigravity 2.0, follow these steps
 4.  Click **+** on the plugin card to install it.
     
 
-## Manage installed plugins
+### Manage installed plugins
 
 To inspect, toggle, or uninstall existing plugins:
 
@@ -43,7 +42,9 @@ To inspect, toggle, or uninstall existing plugins:
 
 Any plugins you install in Antigravity 2.0 automatically sync and appear in the Antigravity CLI’s **Installed** tab.
 
-## Open the plugin manager in the CLI
+## Antigravity CLI
+
+#### Open the plugin manager in the CLI
 
 In the Antigravity CLI, open the interactive plugin manager using the `/plugin` slash command (or its alias `/plugins`):
 
@@ -51,25 +52,11 @@ In the Antigravity CLI, open the interactive plugin manager using the `/plugin` 
 /plugin
 ```
 
-/plugin—Antigravity CLI
-
-Plugins
-
-Installed (6)Discover (15)(tab to cycle)
-
-× clear
-
-  \+ Install from local directory... Path: ./my-custom-plugin (press Enter or Esc)
-
-Keyboard:↑/↓Navigate←/→PagetabCycle TabsenterExpand DetailsspaceToggle Enablectrl+sUninstallescExit
-
-Interactive CLI Plugins Manager — press Tab (or click a tab) to switch between Installed and Discover, ↑/↓ to navigate, Enter to expand details, Space to toggle enable/disable, and Ctrl+S to install or uninstall.
-
 Press Tab to switch between the **Installed** tab and the **Discover** tab.
 
 * * *
 
-## Discover tab
+#### Discover tab
 
 Use the **Discover** tab to browse the Marketplace catalog and install new plugins:
 
@@ -82,14 +69,14 @@ Use the **Discover** tab to browse the Marketplace catalog and install new plugi
     *   Version
 *   **Install or uninstall**: Press Ctrl + S on an uninstalled plugin to install it, or press Ctrl + S on an installed plugin to uninstall it.
 
-### After installation
+##### After installation
 
 Once a plugin is installed, the interface updates as follows:
 
 *   **Discover tab**: A green dot (`●`) appears beside the plugin name indicating its installed status.
 *   **Installed tab**: The plugin name appears in the **Installed** tab list.
 
-## Installed tab
+#### Installed tab
 
 Use the **Installed** tab to inspect and manage the plugins you have installed:
 
@@ -106,7 +93,7 @@ Use the **Installed** tab to inspect and manage the plugins you have installed:
     *   Version
 *   **Uninstall**: Press Ctrl + S on an installed plugin to uninstall it.
 
-### Keyboard shortcuts
+##### Keyboard shortcuts
 
 The following keyboard shortcuts are available in the plugin manager:
 
@@ -120,21 +107,21 @@ The following keyboard shortcuts are available in the plugin manager:
 
 * * *
 
-## Inline `/plugin` commands
+#### Inline `/plugin` commands
 
 In addition to the interactive panel, `/plugin` supports inline commands to `install`, `uninstall`, `enable`, `disable`, and `list` plugins directly from the prompt without opening the plugin manager UI:
 
-*   **Install from a marketplace or local directory**: Run the following commands:
+*   **Install from the official marketplace or a local directory**: Run the following commands (`<marketplace-name>` supports the official marketplace, `antigravity-plugins-official`):
     
     ```
-    /plugin install <plugin-name>@<marketplace-name>
+    /plugin install <plugin-name>@antigravity-plugins-official
     /plugin install <local-path>
     ```
     
-    For example, running `/plugin install firebase@agent-marketplace` outputs:
+    For example, running `/plugin install firebase@antigravity-plugins-official` outputs:
     
     ```
-    Successfully installed plugin "firebase" from "agent-marketplace"
+    Successfully installed plugin "firebase" from "antigravity-plugins-official".
     ```
     
 *   **Manage and list plugins inline**: Run the following commands:
@@ -146,6 +133,40 @@ In addition to the interactive panel, `/plugin` supports inline commands to `ins
     /plugin list
     ```
     
+
+* * *
+
+### Install from your shell (`agy plugin`)
+
+Outside an interactive TUI session, you can install and manage plugins directly from your shell using `agy plugin`:
+
+*   **Install from the official marketplace**: Specify `<plugin-name>@antigravity-plugins-official` (`<marketplace-name>` only supports the official marketplace, `antigravity-plugins-official`), or pass a bare `<plugin-name>`, which defaults to `<plugin-name>@antigravity-plugins-official`:
+    
+    ```
+    agy plugin install firebase@antigravity-plugins-official
+    agy plugin install firebase
+    ```
+    
+*   **Install from a GitHub link**: Clone and stage a plugin directly from a GitHub repository URL:
+    
+    ```
+    agy plugin install https://github.com/<owner>/<repo>
+    ```
+    
+*   **Install from a local directory**: Stage a local plugin folder into your profile:
+    
+    ```
+    agy plugin install </path/to/local/plugin>
+    ```
+    
+*   **List, enable, disable, or uninstall plugins**:
+    
+    ```
+    agy plugin list
+    agy plugin enable <plugin-name>
+    agy plugin disable <plugin-name>
+    agy plugin uninstall <plugin-name>
+    ```
 
 * * *
 

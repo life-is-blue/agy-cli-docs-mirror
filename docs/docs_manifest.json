@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-10T04:46:35Z",
+  "generated_at": "2026-10-11T04:31:57Z",
   "tool": "scripts/fetch_agy_docs.py",
   "strict_fetch": false,
   "is_degraded": true,
@@ -570,9 +570,9 @@
       "slug": "cli/troubleshooting",
       "label": "Troubleshooting",
       "url": "https://antigravity.google/docs/cli/troubleshooting.md",
-      "sha256": "c9fa04ce21345f13d28736316770e9b1ec2f4831ddfc129b22344bea8cc4f4cc",
-      "bytes": 6628,
-      "fetched_at": "2026-10-01T04:38:18Z",
+      "sha256": "9738bb578df883f07314bdb3e5d8f9669bfab87052c6df12f0a36e43e081e0e8",
+      "bytes": 6949,
+      "fetched_at": "2026-10-11T04:31:47Z",
       "sidebar_label": "Troubleshooting"
     },
     "antigravity/cli/tutorial.md": {
@@ -710,9 +710,9 @@
       "slug": "hooks",
       "label": "Hooks",
       "url": "https://antigravity.google/docs/hooks.md",
-      "sha256": "92ef760300bb424679a65bb82efa369a72c31eb5e8fd933d4a3e7ba15527afee",
-      "bytes": 17262,
-      "fetched_at": "2026-10-01T04:38:18Z",
+      "sha256": "cb8b510a1bb6fee4e4c631048d728ffdf357fdbe560a3307bbc2ba6d2ec2c658",
+      "bytes": 17213,
+      "fetched_at": "2026-10-11T04:31:47Z",
       "sidebar_label": "Hooks"
     },
     "antigravity/ide/agent-side-panel.md": {
@@ -1102,9 +1102,9 @@
       "slug": "marketplace",
       "label": "Marketplace",
       "url": "https://antigravity.google/docs/marketplace.md",
-      "sha256": "135522a31c6ab7bff9f8b572ebefb2874ba3946d114586b8b7698213691e30be",
-      "bytes": 6196,
-      "fetched_at": "2026-10-10T04:46:26Z",
+      "sha256": "fd817fb2c4be2036dc19caf1eb821324d5c32b70e224adfe9b6d473844786b26",
+      "bytes": 6934,
+      "fetched_at": "2026-10-11T04:31:47Z",
       "sidebar_label": "Marketplace"
     },
     "antigravity/mcp.md": {
@@ -1116,9 +1116,9 @@
       "slug": "mcp",
       "label": "MCP",
       "url": "https://antigravity.google/docs/mcp.md",
-      "sha256": "9820c39ae69db896e2b77cbc895af8e38d7faeadd8afd5ea379fb69eb695b917",
-      "bytes": 16052,
-      "fetched_at": "2026-10-01T04:38:18Z",
+      "sha256": "c15d6ae682b3a00a40bebeecac8782da8e11cadacd926c91e17cd3909e79d968",
+      "bytes": 16005,
+      "fetched_at": "2026-10-11T04:31:47Z",
       "sidebar_label": "MCP"
     },
     "antigravity/models.md": {
@@ -1158,9 +1158,9 @@
       "slug": "permissions",
       "label": "Permissions",
       "url": "https://antigravity.google/docs/permissions.md",
-      "sha256": "27b9b34fa699a356e1c3a72d2f42cf09bc275ae6e9a667de91a3f750398df710",
-      "bytes": 27553,
-      "fetched_at": "2026-10-10T04:46:26Z",
+      "sha256": "7951f8d4902fe27f11757f340adcad570ac06efa6da77ded329fcfd348cdafee",
+      "bytes": 27548,
+      "fetched_at": "2026-10-11T04:31:47Z",
       "sidebar_label": "Permissions"
     },
     "antigravity/plan.md": {
@@ -1452,9 +1452,9 @@
       "slug": "skills",
       "label": "Agent skills",
       "url": "https://antigravity.google/docs/skills.md",
-      "sha256": "3db1ead60d67823005aed8102c27c66e67308d721fdd07cb29861a696e082c48",
-      "bytes": 6256,
-      "fetched_at": "2026-10-10T04:46:26Z",
+      "sha256": "9bd64b59fe5e2e4599f5182a099d61c4c1735ab24dd38c35a73615fb25e0d7a7",
+      "bytes": 6406,
+      "fetched_at": "2026-10-11T04:31:47Z",
       "sidebar_label": "Agent skills"
     },
     "antigravity/slash-commands.md": {

@@ -95,11 +95,9 @@ For complex skills, add a section that helps the agent choose the right approach
 
 Explore how to create and manage skills on your preferred surface:
 
-*   [Antigravity 2.0](#tab-panel-36)
-*   [Antigravity CLI](#tab-panel-37)
-*   [Antigravity IDE](#tab-panel-38)
+### Antigravity 2.0
 
-### Antigravity 2.0 skill locations
+#### Antigravity 2.0 skill locations
 
 Antigravity 2.0 loads skills from two primary locations:
 
@@ -113,14 +111,16 @@ Each scope serves a distinct purpose:
 *   **Workspace skills**: Scoped to a single project and committed to version control to share across your engineering team.
 *   **Global skills**: Available across all projects on your workstation.
 
-### Invoking skills in Antigravity 2.0
+#### Invoking skills in Antigravity 2.0
 
 You can invoke skills in Antigravity 2.0 in two ways:
 
 *   **Autonomous invocation**: The agent automatically reads and follows relevant skills based on your prompt.
 *   **Manual slash command**: Type `/<skill-name>` in the prompt panel to explicitly invoke a skill.
 
-### CLI skill locations
+### Antigravity CLI
+
+#### CLI skill locations
 
 The Antigravity CLI features full support for local and global agent skills:
 
@@ -130,11 +130,11 @@ The Antigravity CLI features full support for local and global agent skills:
 | `~/.gemini/antigravity-cli/skills/<skill-folder>/` | Global (all workspaces) |
 | `~/.gemini/antigravity-cli/plugins/<name>/skills/` | Plugin-provided skills |
 
-### Slash command conversion
+#### Slash command conversion
 
 Whenever you define a skill, the CLI **automatically converts it into a slash command** inside the interactive TUI. For example, creating a skill named `deploy-staging` immediately makes `/deploy-staging` available in the prompt box.
 
-### Managing skills with plugins
+#### Managing skills with plugins
 
 Skills can also be packaged inside plugins and managed with `agy plugin`:
 
@@ -142,11 +142,17 @@ Skills can also be packaged inside plugins and managed with `agy plugin`:
 # List all active plugins and their bundled skills
 agy plugin list
 
-# Install a skill bundle using a local plugin path
+# Install a plugin from the official marketplace (defaults to @antigravity-plugins-official)
+agy plugin install <plugin-name>
+
+# Install a skill bundle from a GitHub URL or local plugin path
+agy plugin install https://github.com/<owner>/<repo>
 agy plugin install ./my-skills-plugin
 ```
 
-### Antigravity IDE skill locations
+### Antigravity IDE
+
+#### Antigravity IDE skill locations
 
 In the standalone Antigravity IDE, skills are discovered from the following locations:
 

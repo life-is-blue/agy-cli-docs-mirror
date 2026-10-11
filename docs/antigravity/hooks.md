@@ -2,9 +2,7 @@
 
 Hooks allow you to run custom scripts or shell commands at specific points during Antigravity’s execution loop to enforce rules, execute linters, or capture diagnostics.
 
-*   [Antigravity 2.0](#tab-panel-7)
-*   [Antigravity CLI](#tab-panel-8)
-*   [Antigravity IDE](#tab-panel-9)
+## Antigravity 2.0
 
 ### Managing hooks in Antigravity 2.0
 
@@ -14,6 +12,8 @@ In Antigravity 2.0, hooks are configured in a `hooks.json` file located in your 
 *   **Global level**: `~/.gemini/config/hooks.json`.
 
 You can also view and toggle hooks from **Settings** > **Customizations** > **Hooks**. For Antigravity 2.0, `<app_data_dir>` in hook payloads resolves to `~/.gemini/antigravity`.
+
+## Antigravity CLI
 
 ### Managing hooks in Antigravity CLI
 
@@ -32,6 +32,8 @@ You can inspect all loaded and active hooks interactively inside the TUI by typi
 ```
 
 For Antigravity CLI, `<app_data_dir>` in hook payloads resolves to `~/.gemini/antigravity-cli`.
+
+## Antigravity IDE
 
 ### Managing hooks in Antigravity IDE
 

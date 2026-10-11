@@ -24,9 +24,7 @@ With MCP, Antigravity can execute specific, safe actions defined by your connect
 
 ## Getting started by surface
 
-*   [Antigravity 2.0](#tab-panel-12)
-*   [Antigravity CLI](#tab-panel-13)
-*   [Antigravity IDE](#tab-panel-14)
+### Antigravity 2.0
 
 In Antigravity 2.0, you can manage your MCP servers through the **Installed MCP Servers** section of your **Settings**.
 
@@ -47,16 +45,18 @@ To manage your MCP servers from this screen:
 *   **Disable or enable**: Click the toggle switch next to the MCP server in the list.
 *   **Refresh**: Click the refresh button.
 
+### Antigravity CLI
+
 Antigravity CLI supports both local `stdio` processes and remote host MCP server configurations. The simplest path to installing an MCP server on Antigravity CLI is by using the **Interactive MCP Manager**. You can also manually edit your global server setup or workspace-level `mcp_config.json`.
 
-### Interactive MCP manager
+#### Interactive MCP manager
 
 Type `/mcp` inside the prompt panel and press Enter to open the interactive **MCP Manager Overlay**. This panel lets you perform the following actions:
 
 *   View live status rings for active, disconnected, or loading servers.
 *   Manually reload server configurations or inspect real-time connection logs.
 
-### Global and workspace server configs
+#### Global and workspace server configs
 
 Unlike legacy setups, Antigravity CLI separates MCP definitions into dedicated, sparse configurations:
 
@@ -68,6 +68,8 @@ You can modify these files directly with your custom [MCP server configuration](
 Note
 
 **Remote connection schema**: When declaring remote SSE, Streamable HTTP, or WebSocket-based MCP connections, you must define the `serverUrl` field. Legacy fields like `url` or `httpUrl` aren’t supported.
+
+### Antigravity IDE
 
 In Antigravity IDE, the easiest way to manage MCP servers is through the built-in MCP Store. In the MCP Store, you can browse, discover, and install supported MCP servers. You can also install custom servers by updating your `mcp_config.json`.
 

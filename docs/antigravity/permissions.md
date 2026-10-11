@@ -2,14 +2,13 @@
 
 Antigravity uses a unified fine-grained permission engine to evaluate sensitive tool operations across Deny, Ask, and Allow access lists. If you are using Antigravity with Gemini Enterprise, see [Antigravity in Gemini Enterprise](/docs/enterprise#autonomous-tool-permissions-and-human-in-the-loop-controls).
 
-*   [Antigravity 2.0](#tab-panel-20)
-*   [Antigravity CLI](#tab-panel-21)
+## Antigravity 2.0
 
 Note
 
 Antigravity’s updated permission system is currently available on **macOS and Linux**. On **Windows**, Antigravity continues to use the previous permission system. Refer to the [Windows](#windows) section for details.
 
-## macOS and Linux
+### macOS and Linux
 
 Antigravity uses a robust, unified permission engine to secure your environment while enabling autonomous workflows. Every sensitive operation the agent performs is represented as a **permission resource** formatted as `action(target)`.
 
@@ -23,7 +22,7 @@ Note
 
 **Precedence rule**: Conflicting rules are strictly evaluated in priority order: **Deny > Ask > Allow**. For example, if you configure `command(*)` in Ask and `command(git)` in Allow, the Ask rule takes precedence and prompts before every command.
 
-### Permission presets
+#### Permission presets
 
 The **permission preset** controls how agent actions are approved. Your configured allow, deny, and ask rules are layered on top of the preset and always take precedence:
 
@@ -37,7 +36,7 @@ Under **Default**, terminal commands run inside the isolated **[Terminal sandbox
 
 Configure your preset under **Settings** > **General** > **Permission Settings**, or override it per project under **Settings** > **Projects** (new projects default to **Inherit General**, which follows your global preset). Refer to **[Agent settings](/docs/agent-settings)** for more detail on each preset.
 
-### Supported actions and matching rules
+#### Supported actions and matching rules
 
 The following table describes the supported permission actions and their matching behavior:
 
@@ -54,13 +53,13 @@ Note
 
 **Global wildcard syntax (`*`)**: Across all supported action types (such as `read_file(*)`, `command(*)`, and `mcp(*)`), passing the global wildcard `*` matches all targets within that entire action namespace.
 
-#### When commands require an exact match
+##### When commands require an exact match
 
 Certain shell constructs can hide arbitrary command execution behind an otherwise benign prefix—for example, command or process substitution (`$(...)`, backticks, `<(...)`), arithmetic contexts (`$((...))`), brace expansion (`{a,b}`), non-literal command names, network or file descriptor redirections, and developer-tool flags that execute subcommands (such as `git -c core.pager=<cmd>` or `tar --to-command`). When Antigravity detects any of these (or cannot cleanly parse the command), it disables prefix matching for the entire command line: the command runs without prompting only if a rule matches the full line **character-for-character** (or across the full raw line for `regex:` rules), and otherwise falls back to **Ask**.
 
 Standard shell composition still prefix-matches normally: pipelines, `&&`/`||`/`;` chains, quoted literals, plain `$VAR` arguments, simple file redirects, and transparent wrappers (`timeout`, `nohup`, `nice`, `env`, whose inner command is evaluated on its own). For example, with `command(git)` in your Allow list, `git status && git log` runs without prompting, while `git log $(whoami)` prompts for approval.
 
-#### Understanding read\_url and execute\_url across the platform
+##### Understanding read\_url and execute\_url across the platform
 
 The `read_url` permission governs outbound web connectivity across three distinct areas of Antigravity:
 
@@ -68,22 +67,22 @@ The `read_url` permission governs outbound web connectivity across three distinc
 2.  **Browser subagent and tool**: When driving Chrome sessions, `read_url` authorizes loading and viewing the target domain. However, interactive UI actuation (clicking buttons, typing text) is governed independently by `execute_url`.
 3.  **Terminal sandboxing**: Any domain granted under `read_url` is compiled directly into the sandbox’s outbound network allowlist, permitting commands like `curl` or `npm` to connect to authorized hosts.
 
-#### Cross-platform command and path matching
+##### Cross-platform command and path matching
 
 Antigravity ensures your permission rules work consistently whether you’re developing on macOS, Linux, or Windows. On macOS and Linux, paths use standard forward slashes (`/`). On Windows, Antigravity automatically normalizes paths prior to rule evaluation by stripping drive letters (for example, `C:`) and converting all backslashes (`\`) to forward slashes (`/`).
 
-### Implicit permission rules
+#### Implicit permission rules
 
 Antigravity applies the following implicit permission rules:
 
 *   **Write implies read**: Allowing `write_file` on a path automatically grants `read_file` on that path.
 *   **Deny read implies deny write**: Denying `read_file` on a path immediately blocks `write_file` on that path.
 
-### Interactive permission prompts
+#### Interactive permission prompts
 
 When the agent encounters an operation requiring approval (**Ask** mode), an interactive card appears in your editor. Before clicking **Allow** for file, URL, or MCP permissions, you can directly edit the target string in the prompt card to expand the granted scope (for example, broadening a single file request like `/project/file.txt` to the parent directory `/project`). Antigravity validates that your edited target safely covers the operation and applies the expanded grant for the remainder of the turn, preventing repeated prompts for related operations. _(Note: Scope editing isn’t supported for terminal commands)._
 
-### Terminal commands and the sandbox
+#### Terminal commands and the sandbox
 
 Under the **Default** preset, the agent runs terminal commands inside an isolated [Terminal sandbox](/docs/sandbox), which by default has access only to your workspace and system temp directories, and no network access. Commands can run without manual approval in the sandbox, and your permission grants can further shape what the sandbox can reach:
 
@@ -93,7 +92,7 @@ Under the **Default** preset, the agent runs terminal commands inside an isolate
 
 Because some commands cannot run in the sandbox—for example, those requiring network access—the agent can still choose to run commands outside the sandbox. Such commands prompt for your approval, unless already allowed or denied by a `command` rule.
 
-### Default system behaviors and guardrails
+#### Default system behaviors and guardrails
 
 When an action isn’t explicitly listed in your Allow, Deny, or Ask lists, Antigravity falls back to secure system defaults:
 
@@ -106,7 +105,7 @@ Note
 
 Explicit rules always take precedence over defaults. An Ask rule such as `command(rm)` prompts for approval even when the command would otherwise run without prompting in the sandbox.
 
-### Configuration examples
+#### Configuration examples
 
 The following examples show rules for the **Allow list**, which defines actions that run without prompting:
 
@@ -138,7 +137,7 @@ execute_url(aws.amazon.com)        # Prompt AWS console actuation
 mcp(sql/execute_mutation)          # Prompt modifying SQL queries
 ```
 
-## Windows
+### Windows
 
 Note
 
@@ -156,7 +155,7 @@ Note
 
 **Precedence rule**: Conflicting rules are strictly evaluated in priority order: **Deny > Ask > Allow**. For example, if you configure `command(*)` in Ask and `command(git)` in Allow, the Ask rule takes precedence and prompts before every command.
 
-### Supported actions and matching rules
+#### Supported actions and matching rules
 
 The following table describes the supported permission actions and their matching behavior on Windows:
 
@@ -174,13 +173,13 @@ Note
 
 **Global wildcard syntax (`*`)**: Across all supported action types (such as `read_file(*)`, `command(*)`, and `mcp(*)`), passing the global wildcard `*` matches all targets within that entire action namespace.
 
-#### When commands require an exact match
+##### When commands require an exact match
 
 Certain shell constructs can hide arbitrary command execution behind an otherwise benign prefix—for example, command or process substitution (`$(...)`, backticks, `<(...)`), arithmetic contexts (`$((...))`), brace expansion (`{a,b}`), non-literal command names, network or file descriptor redirections, and developer-tool flags that execute subcommands (such as `git -c core.pager=<cmd>` or `tar --to-command`). On Windows shells like PowerShell or Command Prompt, commands whose syntax cannot be cleanly split into separate words also fall into this category. When Antigravity detects any of these, it disables prefix matching for the entire command line: the command runs without prompting only if a rule matches the full line **character-for-character** (or across the full raw line for `regex:` rules, such as `command(regex:git .*)`), and otherwise falls back to **Ask**.
 
 Standard shell composition still prefix-matches normally: pipelines, `&&`/`||`/`;` chains, quoted literals, plain `$VAR` arguments, simple file redirects, and transparent wrappers (`timeout`, `nohup`, `nice`, `env`, whose inner command is evaluated on its own). For example, with `command(git)` in your Allow list, `git status && git log` runs without prompting, while `git log $(whoami)` prompts for approval.
 
-#### Understanding read\_url and execute\_url across the platform
+##### Understanding read\_url and execute\_url across the platform
 
 The `read_url` permission governs outbound web connectivity across three distinct areas of Antigravity:
 
@@ -188,22 +187,22 @@ The `read_url` permission governs outbound web connectivity across three distinc
 2.  **Browser subagent and tool**: When driving Chrome sessions, `read_url` authorizes loading and viewing the target domain. However, interactive UI actuation (clicking buttons, typing text) is governed independently by `execute_url`.
 3.  **Terminal sandboxing**: In sandbox mode, any domain granted under `read_url` is compiled directly into the container’s outbound network allowlist (`AllowedDomains`), permitting commands like `curl` or `npm` to connect to authorized hosts.
 
-#### Cross-platform command and path matching
+##### Cross-platform command and path matching
 
 Antigravity ensures your permission rules work consistently whether you’re developing on macOS, Linux, or Windows. On macOS and Linux, paths use standard forward slashes (`/`). On Windows, Antigravity automatically normalizes paths prior to rule evaluation by stripping drive letters (for example, `C:`) and converting all backslashes (`\`) to forward slashes (`/`).
 
-### Implicit permission rules
+#### Implicit permission rules
 
 Antigravity applies the following implicit permission rules:
 
 *   **Write implies read**: Allowing `write_file` on a path automatically grants `read_file` on that path.
 *   **Deny read implies deny write**: Denying `read_file` on a path immediately blocks `write_file` on that path.
 
-### Interactive permission prompts
+#### Interactive permission prompts
 
 When the agent encounters an operation requiring approval (**Ask** mode), an interactive card appears in your editor. Before clicking **Allow** for file, URL, or MCP permissions, you can directly edit the target string in the prompt card to expand the granted scope (for example, broadening a single file request like `/project/file.txt` to the parent directory `/project`). Antigravity validates that your edited target safely covers the operation and applies the expanded grant for the remainder of the turn, preventing repeated prompts for related operations. _(Note: Scope editing isn’t supported for terminal commands)._
 
-### Terminal sandboxing (preview)
+#### Terminal sandboxing (preview)
 
 Permission grants also apply to commands when the sandbox is enabled:
 
@@ -215,7 +214,7 @@ Note
 
 Refer to **[Terminal sandbox](/docs/sandbox)** for architecture, preset configurations, and security details.
 
-### Default system behaviors and guardrails
+#### Default system behaviors and guardrails
 
 When an action isn’t explicitly listed in your Allow, Deny, or Ask lists, Antigravity falls back to secure system defaults:
 
@@ -228,7 +227,7 @@ Note
 
 Explicit rules always take precedence over defaults.
 
-### Configuration examples
+#### Configuration examples
 
 The following examples show rules for the **Allow list**, which defines actions that run without prompting:
 
@@ -260,7 +259,9 @@ execute_url(aws.amazon.com)        # Prompt AWS console actuation
 mcp(sql/execute_mutation)          # Prompt modifying SQL queries
 ```
 
-## CLI fine-grained permissions
+## Antigravity CLI
+
+### CLI fine-grained permissions
 
 To secure your workstation while enabling autonomous workflows, Antigravity CLI integrates a robust **fine-grained permissions engine**. Every sensitive operation the agent performs is represented as a **permission resource** formatted as `action(target)`.
 
@@ -274,7 +275,7 @@ Note
 
 **Precedence rule**: Conflicting rules are strictly evaluated in priority order: **Deny > Ask > Allow**. For example, if you configure `command(*)` in your `ask` list and `command(git)` in your `allow` list, the `ask` rule takes precedence and prompts before every command.
 
-## Supported CLI actions and matching rules
+### Supported CLI actions and matching rules
 
 Fine-grained permissions follow a standard schema pattern:
 
@@ -294,28 +295,28 @@ The supported actions, target format specifications, and matching algorithms are
 | **`unsandboxed`** | `unsandboxed(prefix)`, `unsandboxed(regex:pattern)`, or `unsandboxed(*)` | Matches command prefixes word-by-word literally by default (or with `regex:`). Commands matching this grant execute outside container isolation when terminal sandboxing is enabled. | **Ask** |
 | **`mcp`** | `mcp(server/tool)`, `mcp(server/*)`, or `mcp(*)` | Matches exact MCP tools or all tools on a specified server (applies to local and remote MCP servers). `mcp(*)` matches any tool. | **Ask** |
 
-### CLI global wildcard syntax
+#### CLI global wildcard syntax
 
 Across all supported action types, passing the global wildcard `*` (such as `read_file(*)`, `command(*)`, and `mcp(*)`) matches all targets within that entire action namespace.
 
-### CLI implicit permission rules
+#### CLI implicit permission rules
 
 Antigravity CLI applies the following implicit permission rules:
 
 *   **Write implies read**: Allowing `write_file` on a path automatically grants `read_file` on that path.
 *   **Deny read implies deny write**: Denying `read_file` on a path immediately blocks `write_file` on that path.
 
-### CLI cross-platform path normalization
+#### CLI cross-platform path normalization
 
 Antigravity ensures your permission rules work consistently whether you’re developing on macOS, Linux, or Windows. On macOS and Linux, paths use standard forward slashes (`/`). On Windows, Antigravity automatically normalizes paths prior to rule evaluation by stripping drive letters (for example, `C:`) and converting all backslashes (`\`) to forward slashes (`/`).
 
-### CLI cross-platform command matching
+#### CLI cross-platform command matching
 
 On Windows shells like PowerShell or Command Prompt, commands that can’t be cleanly split into separate words require an exact match by default. To match a command and its subcommands on Windows, use the `regex:` prefix (for example, `command(regex:git .*)` to allow any `git` command).
 
 * * *
 
-## Default CLI system behaviors and guardrails
+### Default CLI system behaviors and guardrails
 
 When an action isn’t explicitly listed in your `allow`, `deny`, or `ask` lists, the system falls back to secure system defaults:
 
@@ -325,7 +326,7 @@ When an action isn’t explicitly listed in your `allow`, `deny`, or `ask` lists
 
 * * *
 
-## Interactive CLI permission prompts
+### Interactive CLI permission prompts
 
 When the agent encounters an operation requiring approval (**Ask** mode), an interactive prompt card appears in your TUI.
 
@@ -333,7 +334,7 @@ Before confirming **Allow** for file, URL, or MCP permissions, you can directly 
 
 * * *
 
-## CLI configuration examples
+### CLI configuration examples
 
 Add these rules to your `~/.gemini/antigravity-cli/settings.json` file:
 
