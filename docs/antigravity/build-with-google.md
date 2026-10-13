@@ -107,3 +107,14 @@ Equip your AI coding agent with Google Maps Platform knowledge and workflows to 
     *   **Build location-rich experiences**: Enable your agent to write production-ready code for interactive mapping, place lookup, route optimization, geofencing, and environmental insights across mobile, web, and backend services.
     *   **Low-friction prototyping**: Get started using a Maps demo key without needing immediate billing setup, with guided prompts to create an account and restrict your key when transitioning to production.
 *   **Learn more**: [Explore the Google Maps Platform agent skills repository](https://github.com/googlemaps/agent-skills).
+
+### Google Cloud
+
+Equip your AI coding agent with Google Cloud knowledge and workflows to design, build, deploy, and manage scalable cloud infrastructure and services directly from Antigravity:
+
+*   **What’s included**: A package of agent skills covering core Google Cloud services, architecture design, and deployment workflows, including Compute (Cloud Run, GKE, Compute Engine), Serverless & Eventing (Cloud Functions, Eventarc, Pub/Sub), Storage & Databases (Cloud Storage, Cloud SQL, Firestore, Spanner, AlloyDB), AI & Data (Gemini platform, BigQuery), Identity & Security (IAM, Secret Manager), and Infrastructure as Code (Terraform, gcloud CLI).
+*   **Key capabilities**:
+    *   **Build and deploy cloud-native applications**: Enable your agent to write production-ready service architectures, container definitions, IaC configurations, and client library integrations across multiple runtimes (Node.js, Python, Go, Java).
+    *   **Guided setup & infrastructure management**: Streamline project provisioning, service enablement, IAM permissioning, and resource configuration with best-practice templates and automated gcloud workflows.
+    *   **Intelligent troubleshooting & observability**: Diagnose deployment errors, inspect Cloud Logging and Cloud Monitoring telemetry, and optimize configurations for cost, security, and performance.
+*   **Learn more**: [Explore the Google Cloud agent skills repository](https://g.dev/ai/skills).

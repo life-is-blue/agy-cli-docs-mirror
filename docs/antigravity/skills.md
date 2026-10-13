@@ -139,8 +139,9 @@ Whenever you define a skill, the CLI **automatically converts it into a slash co
 Skills can also be packaged inside plugins and managed with `agy plugin`:
 
 ```
-# List all active plugins and their bundled skills
+# List installed plugins (pass --json to include bundled skill names and paths)
 agy plugin list
+agy plugin list --json
 
 # Install a plugin from the official marketplace (defaults to @antigravity-plugins-official)
 agy plugin install <plugin-name>

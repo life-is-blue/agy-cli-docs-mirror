@@ -151,10 +151,66 @@ Outside an interactive TUI session, the Antigravity CLI exposes the `agy plugin`
     agy plugin install </path/to/local/plugin>
     ```
     
-*   **List installed plugins**: List all active packages and their loaded components:
+*   **List installed plugins**: View all installed plugins, their enabled or disabled state, version, source, and component counts. Pass `--json` to output the list as a JSON array with full component names (`skills`, `agents`, `rules`, `mcpServers`, and `hooks`) and installation paths:
     
     ```
+    # Human-readable summary of installed plugins
     agy plugin list
+    
+    # Machine-readable JSON output with component names and paths
+    agy plugin list --json
+    ```
+    
+    Running `agy plugin list` outputs a summary of installed plugins and component counts:
+    
+    ```
+    Installed plugins:
+    - gcalendar (enabled, 0.0.3)
+        Source:     antigravity-plugins-official
+        Components: 1 skill
+    - gdocs (disabled, 0.0.3)
+        Source:     antigravity-plugins-official
+        Components: 1 skill
+    - workspace (enabled, 1.0.0)
+        Source:     gemini-cli
+        Components: 1 MCP server
+    ```
+    
+    Running `agy plugin list --json` outputs the full details in JSON format:
+    
+    ```
+    [
+      {
+        "name": "gcalendar",
+        "enabled": true,
+        "version": "0.0.3",
+        "source": "antigravity-plugins-official",
+        "path": "/home/user/.gemini/config/plugins/gcalendar",
+        "skills": [
+          "gcalendar"
+        ]
+      },
+      {
+        "name": "gdocs",
+        "enabled": false,
+        "version": "0.0.3",
+        "source": "antigravity-plugins-official",
+        "path": "/home/user/.gemini/config/plugins/gdocs",
+        "skills": [
+          "gdocs"
+        ]
+      },
+      {
+        "name": "workspace",
+        "enabled": true,
+        "version": "1.0.0",
+        "source": "gemini-cli",
+        "path": "/home/user/.gemini/config/plugins/workspace",
+        "mcpServers": [
+          "WorkspaceMCP"
+        ]
+      }
+    ]
     ```
     
 *   **Enable or disable a plugin**: Toggle a plugin without removing its files:

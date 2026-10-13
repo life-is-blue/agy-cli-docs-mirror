@@ -84,6 +84,14 @@ The `hooks.json` file maps hook names to their event configurations:
         "command": "./scripts/reminder.sh"
       }
     ]
+  },
+  "session-init": {
+    "SessionStart": [
+      {
+        "type": "command",
+        "command": "./scripts/init-env.sh"
+      }
+    ]
   }
 }
 ```
@@ -95,6 +103,7 @@ Each hook definition supports the following fields:
 | Field | Type | Description |
 | :-- | :-- | :-- |
 | `enabled` | boolean | Optional. Set to `false` to disable the hook without removing it. Defaults to `true`. |
+| `SessionStart` | array | Handlers that run once when a new conversation session starts, before the first model invocation. |
 | `PreToolUse` | array | Handlers that run before a tool is executed. |
 | `PostToolUse` | array | Handlers that run after a tool completes. |
 | `PreInvocation` | array | Handlers that run before Antigravity calls the model. |
@@ -107,6 +116,7 @@ Antigravity supports the following hook events:
 
 | Event | Description | Matcher Target |
 | :-- | :-- | :-- |
+| `SessionStart` | Fires once when a new conversation session starts, before the first model invocation. | N/A (matcher ignored) |
 | `PreToolUse` | Fires before a tool is executed. | Tool name (for example, `run_command`) |
 | `PostToolUse` | Fires after a tool completes. | Tool name |
 | `PreInvocation` | Fires before the model is called. | N/A (matcher ignored) |
@@ -124,7 +134,7 @@ For `PreToolUse` and `PostToolUse`, you can use a regular expression in the `mat
 
 Note
 
-**Note**: For `PreInvocation`, `PostInvocation`, and `Stop`, the structure is simpler (a list of handlers directly under the event key) and the matcher is ignored.
+**Note**: For `SessionStart`, `PreInvocation`, `PostInvocation`, and `Stop`, the structure is simpler (a list of handlers directly under the event key) and the matcher is ignored.
 
 ## Supported tools
 
@@ -229,6 +239,52 @@ All hooks receive the following system metadata fields in their input payload on
 
 * * *
 
+### SessionStart
+
+Fires once when a new conversation session starts, before the first model invocation.
+
+**Input fields (stdin)**:
+
+| Field | Type | Description |
+| :-- | :-- | :-- |
+| _(Common fields)_ |  | Includes `conversationId`, `workspacePaths`, `transcriptPath`, `artifactDirectoryPath`, `modelName`. |
+
+**Output fields (stdout)**:
+
+| Field | Type | Description |
+| :-- | :-- | :-- |
+| `injectSteps` | array of objects | **Optional.** List of steps to inject into the conversation trajectory at the start of the session (same schema as `PreInvocation` inject steps). |
+
+**Example**:
+
+*   **Input (stdin)**:
+
+```
+{
+  "conversationId": "ec33ebf9-0cba-4100-8142-c61503f6c587",
+  "workspacePaths": ["/workspace/project"],
+  "transcriptPath": "~/.gemini/antigravity/brain/ec33ebf9-0cba-4100-8142-c61503f6c587/.system_generated/logs/transcript.jsonl",
+  "artifactDirectoryPath": "~/.gemini/antigravity/brain/ec33ebf9-0cba-4100-8142-c61503f6c587",
+  "modelName": "gemini-3.6-flash-medium"
+}
+```
+
+*   **Output (stdout)**:
+
+```
+{
+  "injectSteps": [
+    {
+      "systemMessage": {
+        "systemMessage": "Environment initialized for workspace /workspace/project"
+      }
+    }
+  ]
+}
+```
+
+* * *
+
 ### PreToolUse
 
 Fires before a tool is executed.
@@ -248,12 +304,14 @@ Fires before a tool is executed.
 | Field | Type | Description |
 | :-- | :-- | :-- |
 | `decision` | string | **Required.** Controls how the tool call is gated:  
-\- `"allow"`: Automatically allows the tool execution.  
+\- `"allow"`: Allows the tool call to proceed, delegating to the next hook or default policy.  
+\- `"auto_approve"`: Automatically approves the tool call when the default policy would otherwise prompt, while honoring explicit user-configured rules.  
 \- `"deny"`: Hard blocks execution immediately.  
 \- `"ask"`: Prompts you for approval, but respects “Always Allow” settings.  
 \- `"force_ask"`: Always prompts you for approval, ignoring cached permissions.  
 \- `"deny_unless_prior_grant"`: Denies execution unless the resource was previously approved in a prior grant. |
 | `reason` | string | **Optional.** The explanation shown to the agent or to you for the decision. |
+| `overwrite` | object | **Optional.** Replacement arguments merged (shallow top-level merge) into `toolCall.args` before execution. When arguments are modified, a notice naming the changed keys is prepended to the tool result. |
 | `permissionOverrides` | array of strings | **Optional.** A list of resource strings (for example, `["read_file(/path)", "command(args)"]`) to override default tool permissions. |
 
 **Example**:
@@ -354,9 +412,10 @@ Fires before the model is called.
 
 Each object in the `injectSteps` array can have one of the following fields:
 
-*   **`toolCall`** (object): A tool call to execute.
+*   **`systemMessage`** (object): An out-of-band system instruction for the agent (for example, `{"systemMessage": "Remember to lint", "metadata": {"source": "policy"}}`).
 *   **`userMessage`** (string): A message from you.
 *   **`ephemeralMessage`** (string): A transient system message.
+*   **`toolCall`** (object): A tool call to execute.
 
 **Example**:
 

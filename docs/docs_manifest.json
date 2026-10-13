@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-12T04:47:04Z",
+  "generated_at": "2026-10-13T05:50:44Z",
   "tool": "scripts/fetch_agy_docs.py",
   "strict_fetch": false,
   "is_degraded": true,
@@ -88,9 +88,9 @@
       "slug": "build-with-google",
       "label": "Build with Google",
       "url": "https://antigravity.google/docs/build-with-google.md",
-      "sha256": "90fddc60245f37012d07ce55df25f486db565204cf50ad17f8264beec1a1816a",
-      "bytes": 7975,
-      "fetched_at": "2026-10-01T04:38:18Z",
+      "sha256": "87d8712cdb738043c8b9c8dea9bced91adff664b122aadc5274e8ec46f65b71f",
+      "bytes": 9424,
+      "fetched_at": "2026-10-13T05:50:36Z",
       "sidebar_label": "Build with Google"
     },
     "antigravity/changelog.md": {
@@ -682,9 +682,9 @@
       "slug": "getting-started",
       "label": "Getting started",
       "url": "https://antigravity.google/docs/getting-started.md",
-      "sha256": "6e85756334513c849997360ce2e006999202cdba02474e23bedaec740dedb6e3",
+      "sha256": "2df5c7cb3e7923b46f6b687be5ec8124d5411e50e4078a50c89e36940a98417a",
       "bytes": 8584,
-      "fetched_at": "2026-10-10T04:46:26Z",
+      "fetched_at": "2026-10-13T05:50:36Z",
       "sidebar_label": "Getting started"
     },
     "antigravity/home.md": {
@@ -710,9 +710,9 @@
       "slug": "hooks",
       "label": "Hooks",
       "url": "https://antigravity.google/docs/hooks.md",
-      "sha256": "cb8b510a1bb6fee4e4c631048d728ffdf357fdbe560a3307bbc2ba6d2ec2c658",
-      "bytes": 17213,
-      "fetched_at": "2026-10-11T04:31:47Z",
+      "sha256": "9a6d9f794b7498af60e38708c9ac2e2a143e6f00bf2f6286ca55587d5bf0363d",
+      "bytes": 19417,
+      "fetched_at": "2026-10-13T05:50:36Z",
       "sidebar_label": "Hooks"
     },
     "antigravity/ide/agent-side-panel.md": {
@@ -1102,9 +1102,9 @@
       "slug": "marketplace",
       "label": "Marketplace",
       "url": "https://antigravity.google/docs/marketplace.md",
-      "sha256": "fd817fb2c4be2036dc19caf1eb821324d5c32b70e224adfe9b6d473844786b26",
-      "bytes": 6934,
-      "fetched_at": "2026-10-11T04:31:47Z",
+      "sha256": "61f5633111f41feb04d2281c7b777e9aefe83be2b52e2356535ff4af8612e32e",
+      "bytes": 7198,
+      "fetched_at": "2026-10-13T05:50:36Z",
       "sidebar_label": "Marketplace"
     },
     "antigravity/mcp.md": {
@@ -1200,9 +1200,9 @@
       "slug": "plugins",
       "label": "Plugins",
       "url": "https://antigravity.google/docs/plugins.md",
-      "sha256": "f22e17f726c85b5e4731981094754d0fc8130605e676ac6cd0a3c405b6cca0f9",
-      "bytes": 8109,
-      "fetched_at": "2026-10-10T04:46:26Z",
+      "sha256": "189969e278fc32f2e8ac09d72f3aa657622ae875380b09177ab5e5b79dd8d986",
+      "bytes": 9798,
+      "fetched_at": "2026-10-13T05:50:36Z",
       "sidebar_label": "Plugins"
     },
     "antigravity/projects.md": {
@@ -1452,9 +1452,9 @@
       "slug": "skills",
       "label": "Agent skills",
       "url": "https://antigravity.google/docs/skills.md",
-      "sha256": "9bd64b59fe5e2e4599f5182a099d61c4c1735ab24dd38c35a73615fb25e0d7a7",
-      "bytes": 6406,
-      "fetched_at": "2026-10-11T04:31:47Z",
+      "sha256": "33a98f367f20b21014cd5f3d8784a0ea1f65e03f42bc88a75ad7d51bf7068c72",
+      "bytes": 6458,
+      "fetched_at": "2026-10-13T05:50:36Z",
       "sidebar_label": "Agent skills"
     },
     "antigravity/slash-commands.md": {
