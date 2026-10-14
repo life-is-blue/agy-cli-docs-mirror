@@ -6,9 +6,9 @@ As agents become more autonomous and execute complex tasks over longer periods, 
 
 ## Reviewing artifacts across surfaces
 
-Artifacts are primarily generated during the agent’s **Planning mode** and are accessible across both Antigravity 2.0 and the Antigravity CLI.
+Artifacts are primarily generated during the agent’s **Planning mode** and are accessible across both the Antigravity app and the Antigravity CLI.
 
-### Antigravity 2.0
+### Antigravity app
 
 The desktop app features a visual sidebar and review pane specifically optimized for displaying, organizing, and managing rich artifacts:
 

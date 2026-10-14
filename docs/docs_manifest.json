@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-13T05:50:44Z",
+  "generated_at": "2026-10-14T03:54:10Z",
   "tool": "scripts/fetch_agy_docs.py",
   "strict_fetch": false,
   "is_degraded": true,
@@ -60,9 +60,9 @@
       "slug": "artifacts",
       "label": "Artifacts",
       "url": "https://antigravity.google/docs/artifacts.md",
-      "sha256": "15102175512a56f4ec6817ea80e906c3abc72ac10643fe0f41338b07220cca67",
-      "bytes": 2026,
-      "fetched_at": "2026-10-10T04:46:26Z",
+      "sha256": "d00d912ea9de383e392159c1f0bbcb94fca32a0fd83efd8546dc29d0f5afdae1",
+      "bytes": 2030,
+      "fetched_at": "2026-10-14T03:54:05Z",
       "sidebar_label": "Artifacts"
     },
     "antigravity/boost.md": {
@@ -102,9 +102,9 @@
       "slug": "changelog",
       "label": "Changelog",
       "url": "https://antigravity.google/docs/changelog.md",
-      "sha256": "961910f3f2e468a6cce88b2c262f7a7db194d4046e63608a47d1446c31f6be36",
-      "bytes": 329844,
-      "fetched_at": "2026-10-10T04:46:26Z",
+      "sha256": "9b3d68f1d6365271f654d93b16285406ed2cdccbb27ee4a4618c508974523338",
+      "bytes": 333808,
+      "fetched_at": "2026-10-14T03:54:05Z",
       "sidebar_label": "Changelog"
     },
     "antigravity/cli/artifacts.md": {
@@ -312,9 +312,9 @@
       "slug": "cli/features",
       "label": "Features",
       "url": "https://antigravity.google/docs/cli/features.md",
-      "sha256": "bced61d8555d9eb7a3a59bb0069a0e131fe1f39beadc37f0ccd84e6a0591fb5f",
-      "bytes": 11544,
-      "fetched_at": "2026-10-08T04:57:41Z",
+      "sha256": "17f059c7b925e5cb6235d2926771e15467a7371c8675ace1bcd8a8bf972dca15",
+      "bytes": 11808,
+      "fetched_at": "2026-10-14T03:54:05Z",
       "sidebar_label": "Features"
     },
     "antigravity/cli/gcli-migration.md": {
@@ -354,9 +354,9 @@
       "slug": "cli/headless",
       "label": "Headless mode",
       "url": "https://antigravity.google/docs/cli/headless.md",
-      "sha256": "4fdcf016b60efc39588e90f29c51c67d47e1c7100e496e75b3eb60007eb1f0f3",
-      "bytes": 27468,
-      "fetched_at": "2026-10-04T04:44:25Z",
+      "sha256": "c3a3c40175e898afd240e43fea176f7780611ff44bf7bdf38ceb3facd439a319",
+      "bytes": 27566,
+      "fetched_at": "2026-10-14T03:54:05Z",
       "sidebar_label": "Headless mode"
     },
     "antigravity/cli/install.md": {
@@ -682,9 +682,9 @@
       "slug": "getting-started",
       "label": "Getting started",
       "url": "https://antigravity.google/docs/getting-started.md",
-      "sha256": "2df5c7cb3e7923b46f6b687be5ec8124d5411e50e4078a50c89e36940a98417a",
-      "bytes": 8584,
-      "fetched_at": "2026-10-13T05:50:36Z",
+      "sha256": "45af8e71d1f894f4c5a5d839781e7e954ea3a26342f237b67f3860f48dc7fc3b",
+      "bytes": 8825,
+      "fetched_at": "2026-10-14T03:54:05Z",
       "sidebar_label": "Getting started"
     },
     "antigravity/home.md": {
@@ -710,9 +710,9 @@
       "slug": "hooks",
       "label": "Hooks",
       "url": "https://antigravity.google/docs/hooks.md",
-      "sha256": "9a6d9f794b7498af60e38708c9ac2e2a143e6f00bf2f6286ca55587d5bf0363d",
-      "bytes": 19417,
-      "fetched_at": "2026-10-13T05:50:36Z",
+      "sha256": "6ed5a6c6f78b45f9881a8a7bd7a6066ca23bf8a83b57e446ae87a501b789d441",
+      "bytes": 19433,
+      "fetched_at": "2026-10-14T03:54:05Z",
       "sidebar_label": "Hooks"
     },
     "antigravity/ide/agent-side-panel.md": {
@@ -929,9 +929,9 @@
       "slug": "ide/overview",
       "label": "Antigravity IDE overview",
       "url": "https://antigravity.google/docs/ide/overview.md",
-      "sha256": "10f6c12caa5f413fb63413ddf5b5ce895f94a841af3e649b7ccab5db0d048e9c",
-      "bytes": 1879,
-      "fetched_at": "2026-10-01T04:38:18Z",
+      "sha256": "887ec085cf2035bad2404ef47297801b1e89f482d74244a67905e476df2d592f",
+      "bytes": 2096,
+      "fetched_at": "2026-10-14T03:54:05Z",
       "sidebar_label": "Antigravity IDE overview"
     },
     "antigravity/ide/plugins.md": {
@@ -1102,9 +1102,9 @@
       "slug": "marketplace",
       "label": "Marketplace",
       "url": "https://antigravity.google/docs/marketplace.md",
-      "sha256": "61f5633111f41feb04d2281c7b777e9aefe83be2b52e2356535ff4af8612e32e",
-      "bytes": 7198,
-      "fetched_at": "2026-10-13T05:50:36Z",
+      "sha256": "0874f92f094d6da7d5671e1413b65f576a7748f085cefac95a6dfc15433882c5",
+      "bytes": 7210,
+      "fetched_at": "2026-10-14T03:54:05Z",
       "sidebar_label": "Marketplace"
     },
     "antigravity/mcp.md": {
@@ -1130,9 +1130,9 @@
       "slug": "models",
       "label": "Models",
       "url": "https://antigravity.google/docs/models.md",
-      "sha256": "f15fd13dc3e3b521f82c909791abe9d93fbac040200ef63437186f13b356fd60",
-      "bytes": 2039,
-      "fetched_at": "2026-10-10T04:46:26Z",
+      "sha256": "8bc13c5d69100ecd1e51c5a6f53198c841a216347e488c6305094c071ead12fe",
+      "bytes": 2201,
+      "fetched_at": "2026-10-14T03:54:05Z",
       "sidebar_label": "Models"
     },
     "antigravity/overview.md": {
@@ -1172,9 +1172,9 @@
       "slug": "plan",
       "label": "Plan (/plan)",
       "url": "https://antigravity.google/docs/plan.md",
-      "sha256": "64f180f03d00b30ef909d46a720375510df3354cf3ce387661cf399cb3a1e163",
+      "sha256": "680d82bbd6ffce7d1f0c8dc302a085dc838b26f6a091c942313eef02bb475df7",
       "bytes": 6080,
-      "fetched_at": "2026-10-10T04:46:26Z",
+      "fetched_at": "2026-10-14T03:54:05Z",
       "sidebar_label": "Plan (/plan)"
     },
     "antigravity/plans.md": {
@@ -1200,9 +1200,9 @@
       "slug": "plugins",
       "label": "Plugins",
       "url": "https://antigravity.google/docs/plugins.md",
-      "sha256": "189969e278fc32f2e8ac09d72f3aa657622ae875380b09177ab5e5b79dd8d986",
-      "bytes": 9798,
-      "fetched_at": "2026-10-13T05:50:36Z",
+      "sha256": "7ba2cc047d7196f311c463e6efed77727de74ac5b2162a122ace28e1989c75ae",
+      "bytes": 9826,
+      "fetched_at": "2026-10-14T03:54:05Z",
       "sidebar_label": "Plugins"
     },
     "antigravity/projects.md": {

@@ -36,7 +36,7 @@ Every plugin requires a `plugin.json` file at its root to identify the directory
 
 | Field | Type | Required | Description |
 | :-- | :-- | :-- | :-- |
-| `name` | String | **Yes** (CLI) / Optional (2.0 and IDE) | The unique, machine-readable name of the plugin (matches `^[a-zA-Z0-9-_]+$`). Required when managing plugins using Antigravity CLI commands; defaults to the folder name if omitted in Antigravity 2.0 or Antigravity IDE. |
+| `name` | String | **Yes** (CLI) / Optional (Antigravity app and IDE) | The unique, machine-readable name of the plugin (matches `^[a-zA-Z0-9-_]+$`). Required when managing plugins using Antigravity CLI commands; defaults to the folder name if omitted in the Antigravity app or Antigravity IDE. |
 | `description` | String | No | A brief human-readable description of the plugin’s purpose, displayed in plugin listings. |
 
 #### Automatic validation
@@ -85,11 +85,11 @@ A plugin can contain any of the following components:
 
 Follow the instructions below to install and manage plugins on your preferred surface:
 
-### Antigravity 2.0
+### Antigravity app
 
 #### Marketplace and bundled plugins
 
-Antigravity 2.0 provides curated plugins that you can browse and install directly from the application interface:
+The Antigravity app provides curated plugins that you can browse and install directly from the application interface:
 
 1.  Open the **Customizations** tab, located below the **Scheduled Tasks** tab in the left sidebar.
 2.  Switch between the **Marketplace** view (which displays all plugins available to you) and the **Installed** tab (which displays only your installed plugins).
@@ -99,7 +99,7 @@ For a complete walkthrough of plugin discovery and cross-surface synchronization
 
 Note
 
-**Cross-surface synchronization**: Plugins installed in Antigravity 2.0 are automatically updated and shown in the Antigravity CLI’s **Installed** tab.
+**Cross-surface synchronization**: Plugins installed in the Antigravity app are automatically updated and shown in the Antigravity CLI’s **Installed** tab.
 
 #### Manual plugin installation
 
@@ -129,7 +129,7 @@ For the full interactive walkthrough of the **Discover** and **Installed** tabs,
 
 Note
 
-**Cross-surface synchronization**: Plugins installed in Antigravity 2.0 are automatically updated and shown in the CLI’s **Installed** tab.
+**Cross-surface synchronization**: Plugins installed in the Antigravity app are automatically updated and shown in the CLI’s **Installed** tab.
 
 #### CLI shell subcommands (`agy plugin`)
 

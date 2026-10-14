@@ -2,7 +2,9 @@
 
 Note
 
-**Note**: Antigravity IDE is not supported for enterprise customers. To use Antigravity with enterprise configurations, use Antigravity 2.0 or Antigravity CLI.
+**Note**: Antigravity IDE is not supported for enterprise customers. To use Antigravity with enterprise configurations, use the Antigravity app or Antigravity CLI.
+
+Gemini 4 Argon is not available in Antigravity IDE. To use Gemini 4 Argon, install the [Antigravity app](/download#antigravity-2), [Antigravity CLI](/docs/cli/install), or [IDE extensions](/docs/ide/extensions).
 
 Antigravity IDE is an agentic development environment built for the agent-first era. It integrates agents directly into your development workspace, providing them the tools needed to autonomously operate across the editor, terminal, and browser—emphasizing verification and higher-level communication through tasks and artifacts. This capability enables agents to plan and execute complex, end-to-end software tasks, elevating all aspects of development, from building features, iterating on UI, and fixing bugs to conducting research and generating reports.
 

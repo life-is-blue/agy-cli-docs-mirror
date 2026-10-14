@@ -2,11 +2,11 @@
 
 Welcome to Google Antigravity! Follow the instructions in this guide to get started on your preferred surface.
 
-## Antigravity 2.0
+## Antigravity app
 
-### Download Antigravity 2.0
+### Download Antigravity app
 
-Visit [antigravity.google/download](/download) to download Google Antigravity 2.0. Select your operating system from the following table:
+Visit [antigravity.google/download](/download) to download the Google Antigravity app. Select your operating system from the following table:
 
 | Platform | Download |
 | --- | --- |
@@ -42,7 +42,7 @@ Visit [antigravity.google/download](/download) to download Google Antigravity 2.
 
 If you get a notification asking whether you want to “Keep Both” or “Replace” Antigravity, select **Replace**. You are prompted to reinstall the IDE during installation if you choose to do so. If you don’t install it now and want to download it later, visit the [download page](/download).
 
-When you launch Antigravity 2.0 and sign in, select your personal Google Account or choose **Business account** to connect with [Gemini Enterprise](/docs/enterprise#sign-in-and-license-selection).
+When you launch the Antigravity app and sign in, select your personal Google Account or choose **Business account** to connect with [Gemini Enterprise](/docs/enterprise#sign-in-and-license-selection).
 
 ### Creating a project
 
@@ -65,7 +65,7 @@ Once your project is created, you can spawn an agent to start working on tasks:
 
 ### Basic navigation
 
-Use the following keyboard shortcuts to navigate Antigravity 2.0:
+Use the following keyboard shortcuts to navigate the Antigravity app:
 
 | Action | macOS | Windows / Linux |
 | :-- | :-- | :-- |
@@ -164,6 +164,10 @@ Optimize your local environment configurations and master advanced collaboration
 ## Antigravity IDE
 
 ### Download Antigravity IDE
+
+Note
+
+**Note**: Gemini 4 Argon is not available in Antigravity IDE. To use Gemini 4 Argon, install the [Antigravity app](/download#antigravity-2), [Antigravity CLI](/docs/cli/install), or [IDE extensions](/docs/ide/extensions).
 
 Visit [antigravity.google/download](/download) to download Antigravity IDE. If you are using VS Code, JetBrains, Visual Studio, Zed, or Xcode—or connecting to [Gemini Enterprise](/docs/enterprise)—see [IDE extensions](/docs/ide/extensions).
 

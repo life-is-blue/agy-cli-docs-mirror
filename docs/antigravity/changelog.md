@@ -1,14 +1,54 @@
 # Changelog
 
-Track new features, improvements, and bug fixes across Google Antigravity surfaces, including Antigravity 2.0, Antigravity CLI, the Antigravity SDK, and Antigravity IDE.
+Track new features, improvements, and bug fixes across Google Antigravity surfaces, including the Antigravity app, Antigravity CLI, the Antigravity SDK, and Antigravity IDE.
 
 New versions roll out gradually and may take a few days to reach all users.
 
-## Antigravity 2.0
+## Antigravity app
 
-### [v2.22.0](/releases?tab=hub&version=2.22.0 "View release 2.22.0")
+### [v2.23.0](/releases?tab=hub&version=2.23.0 "View release 2.23.0")
 
 Latest
+
+October 12, 2026
+
+### Permissions picker, full-screen media viewer, and .zip attachments
+
+This release adds a permissions picker to the message box, opens images and videos in a full-screen viewer, and lets you attach .zip archives and folders. Onboarding now shows what Antigravity can do instead of asking you to pick a theme.
+
+**Improvements:**
+
+*   You can now choose the agent's permissions preset from a picker in the message box. In a project with its own permissions, choose Use Global Settings to go back to your global preset.
+*   Images and videos in a conversation now open in a full-screen viewer. You can zoom and pan images, and videos play with skip, volume, playback speed, and keyboard controls, including holding Space for 2x speed.
+*   Onboarding now shows what Antigravity can do between signing in and accepting the terms, in place of the theme step. The sign-in screens also keep one layout, so nothing shifts while you sign in.
+*   You can now attach .zip archives to a prompt, and the agent unpacks them with its tools. You can also add a folder to a prompt from the + menu in the message box.
+*   When an MCP server fails to start, the Customizations page now offers Fix with Agent so the agent can find and install what is missing. MCP server menus also have a Restart option.
+*   Subagent launches now show as a one-line row with a live status icon, like other agent steps. Select the row to open the subagent.
+*   The sidebar now shows a needs-attention icon on a conversation when one of its subagents is waiting for your approval, instead of a spinner.
+*   The Pinned section now has a sort menu, so you can order pinned conversations by last updated or keep your own order. You can also pin or unpin a conversation from its context menu in the sidebar.
+*   The shortcut to archive the current conversation is now Cmd+Option+A on macOS and Ctrl+Alt+A on Windows and Linux.
+*   Switching conversations now puts the cursor back in the message box, so you can start typing right away.
+*   Scrollbars are now thin overlays that appear while you scroll, so they no longer take space from the content beside them.
+*   Permission prompts for commands that run a program from an installed plugin now show the plugin's name and icon.
+*   Plugin pages now list a plugin's suggested prompts. On an installed, enabled plugin, selecting one opens a new conversation with the prompt ready to send.
+*   If a search of your installed plugins finds nothing, you can now repeat the same search in the Marketplace with one button.
+*   When Antigravity gets a specific reason for an error, such as a model your administrator has not allowed, the error notification now shows it instead of a generic message asking you to try again.
+*   The macOS installer window has new artwork, with the Antigravity and Applications icons on either side of an arrow.
+
+**Fixes:**
+
+*   Fixed an issue where opening the terminal on Windows did nothing until the app lost and regained focus.
+*   Fixed an issue where Antigravity sent a notification that the agent had finished after you stopped the agent yourself.
+*   Fixed an issue where the message box was replaced by an error when all of a conversation's folders were missing. You can now keep typing while a banner warns you about the missing folders.
+*   Fixed an issue where the conversation stopped following new output after the window resized or an approval request closed.
+*   Fixed an issue where the AI credit overages setting appeared off after a reload, hiding the credits row until you turned it on again.
+*   Fixed an issue where restarting an MCP server could leave it stopped.
+*   Fixed an issue where a custom agent ignored the skills, rules, plugins, and hooks it listed with paths relative to its own folder.
+*   Fixed an issue where a plugin with a top-level skill did not load the other skills in its skills folder.
+
+---
+
+### [v2.22.0](/releases?tab=hub&version=2.22.0 "View release 2.22.0")
 
 October 8, 2026
 
