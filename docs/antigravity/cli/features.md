@@ -90,7 +90,7 @@ Outside an interactive TUI session, you can install and manage plugins from your
 
 Cross-surface synchronization
 
-Plugins installed in Antigravity 2.0 are automatically updated and shown in the CLI’s **Installed** tab. For more details, refer to the [Marketplace guide](/docs/marketplace?tab=cli).
+Plugins installed in the Antigravity app are automatically updated and shown in the CLI’s **Installed** tab. For more details, refer to the [Marketplace guide](/docs/marketplace?tab=cli).
 
 **Accessing plugin components** Once staged and loaded, you can interact with the plugin components inside the CLI using slash commands.
 
@@ -125,23 +125,27 @@ The Antigravity CLI supports a variety of slash commands typed directly into the
 
 | Command | Category | Purpose |
 | :-- | :-- | :-- |
-| **`/resume`** _(alias `/switch`)_ | Conversation | Open the conversation picker to resume or switch sessions. |
+| **[`/resume`](/docs/cli/commands/resume)** _(alias `/switch`)_ | Conversation | Open the conversation picker to resume or switch sessions. |
 | **[`/boost <task>`](/docs/boost)** | Reasoning | Multi-agent deep reasoning for complex bugs, race conditions, and algorithms. |
 | **[`/teamwork-preview <task>`](/docs/teamwork)** | Reasoning | Launch [collaborative multi-agent teams](/docs/teamwork) for long-horizon projects (paid plans). |
+| **[`/effort [level]`](/docs/cli/commands/effort)** | Configuration | Set the active model’s [reasoning effort level](/docs/cli/commands/effort) (`low` through `max`, depending on the model). |
 | **`/rewind`** _(alias `/undo`)_ | Conversation | Roll back conversation history to a previous checkpoint. |
 | **`/rename <name>`** | Conversation | Rename the active conversation thread for easier tracking. |
-| **`/permissions`** | Configuration | Select agent autonomy level (`request-review`, `always-proceed`, or `strict`). |
+| **[`/permissions`](/docs/cli/commands/permissions)** | Configuration | Select agent autonomy level (`request-review`, `always-proceed`, or `strict`). |
 | **`/model`** | Configuration | Select the default reasoning model (persists across sessions). |
 | **`/keybindings`** | Configuration | Open the interactive keyboard shortcut editor. |
-| **`/statusline`** | Configuration | Customize real-time indicators displayed in the CLI status bar. |
+| **[`/statusline`](/docs/cli/commands/statusline)** | Configuration | Customize real-time indicators displayed in the CLI status bar. |
 | **`/tasks`** | Tools & Monitoring | Monitor, view logs for, or terminate active background tasks. |
-| **`/plugin`** _(alias `/plugins`)_ | Tools & Monitoring | Open the interactive [Plugins Manager](/docs/marketplace?tab=cli) to discover, install, enable, disable, or uninstall plugins. |
+| **[`/plugin`](/docs/plugins?tab=cli)** _(alias `/plugins`)_ | Tools & Monitoring | Open the interactive [Plugins Manager](/docs/marketplace?tab=cli) to discover, install, enable, disable, or uninstall plugins. |
 | **`/skills`** | Tools & Monitoring | Browse local and global encapsulated agent workflows. |
 | **`/mcp`** | Tools & Monitoring | Open the panel to configure and manage Model Context Protocol servers. |
+| **[`/btw <query>`](/docs/cli/commands/btw)** | Utility | Ask a [side question in the background](/docs/cli/commands/btw) without interrupting the active conversation. |
+| **[`/context`](/docs/cli/commands/context)** | Utility | Visualize [active context window usage](/docs/cli/commands/context), category token breakdowns, and checkpoints. |
 | **`/open <path>`** | Utility | Immediately open a file in your preferred external editor. |
-| **`/diff`** | Utility | Open the [interactive diff viewer](/docs/cli/commands/diff) to review changes and steer the agent. |
+| **[`/diff`](/docs/cli/commands/diff)** | Utility | Open the [interactive diff viewer](/docs/cli/commands/diff) to review changes and steer the agent. |
 | **[`/remote-control`](/docs/remote-control?tab=cli#interactive-mode)** | Utility | Turn on or off Remote Control for the active terminal session. |
-| **`/usage`** | Utility | Open the inline interactive help manual inside the terminal. |
+| **[`/changelog`](/docs/cli/commands/changelog)** | Utility | View [versioned CLI release notes](/docs/cli/commands/changelog) in the TUI or headless mode. |
+| **[`/usage`](/docs/cli/commands/usage)** | Utility | Display model quota usage and refresh limits. |
 | **`/logout`** | Account | Log out of your Google session and clear cached credentials. |
 
 ### Advanced customization using `settings.json`

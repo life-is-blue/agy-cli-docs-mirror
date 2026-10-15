@@ -1,8 +1,8 @@
-# Antigravity 2.0 features
+# Antigravity app features
 
 ### Projects
 
-In Antigravity 2.0, agents work in **projects** (previously in Agent Manager, agents were strictly mapped to a single workspace folder):
+In the Antigravity app, agents work in **projects** (previously in Agent Manager, agents were strictly mapped to a single workspace folder):
 
 *   **Worktree support**: Projects natively support Git worktrees, allowing agents to operate in isolated background folders.
 *   **Scoped settings**: Settings are scoped, allowing you to have different security settings per project. This means you can have a more permissive setting for a trusted project and a more restrictive security setting for an untrusted folder. The three main presets are “Default”, “Full machine”, and “Unrestricted” (refer to the **Settings** tab for the full list).
@@ -55,7 +55,7 @@ JSON hooks allow you to execute custom local shell scripts at critical stages of
 
 ### Browser
 
-The reworked browser subagent in Antigravity 2.0 includes the following capabilities:
+The reworked browser subagent in the Antigravity app includes the following capabilities:
 
 *   **On-demand**: Invoke the browser subagent through the `/browser` command.
 *   **Chrome DevTools integration**: Integrate natively with Chrome DevTools MCP.
@@ -63,21 +63,21 @@ The reworked browser subagent in Antigravity 2.0 includes the following capabili
 
 ### Remote Control
 
-Antigravity 2.0 Remote Control allows you to drive and monitor your desktop agent sessions across multiple machines from any web browser:
+Antigravity app Remote Control allows you to drive and monitor your desktop agent sessions across multiple machines from any web browser:
 
 *   **Untethered mobility**: Launch long-running agent workflows on your desktop workstation and continue monitoring or approving actions from a mobile device or laptop.
 *   **Local context retained**: Keep full access to your workstation’s local filesystem, toolchains, credentials, and Git worktrees without duplicating environments.
 *   **Proactive push notifications**: Receive browser push notifications when tasks complete or when your input is needed.
 
-[Learn more about Antigravity 2.0 Remote Control](/docs/remote-control).
+[Learn more about Antigravity app Remote Control](/docs/remote-control).
 
 ### Integrated terminal
 
-Antigravity 2.0 provides terminal support directly from the sidebar. Access the terminal at any time by clicking the terminal button () or by using the Ctrl/Cmd + \` keyboard shortcut.
+The Antigravity app provides terminal support directly from the sidebar. Access the terminal at any time by clicking the terminal button () or by using the Ctrl/Cmd + \` keyboard shortcut.
 
 ### Version control system (VCS) panel
 
-Antigravity 2.0 provides a Git-native VCS review panel directly from the sidebar. Access the panel at any time by clicking the version control button () to perform the following actions:
+The Antigravity app provides a Git-native VCS review panel directly from the sidebar. Access the panel at any time by clicking the version control button () to perform the following actions:
 
 *   **Review panel diffs**:
     *   **Uncommitted diffs**: View all staged and unstaged working tree changes.

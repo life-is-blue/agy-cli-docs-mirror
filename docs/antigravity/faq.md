@@ -319,7 +319,7 @@ Antigravity CLI headless mode (`agy -p`) is intended for direct scripting and CI
 
 ## Does Google Antigravity currently support worktrees?
 
-Yes, you can use worktrees in Antigravity 2.0.
+Yes, you can use worktrees in the Antigravity app.
 
 ## What happens when my computer goes to sleep?
 

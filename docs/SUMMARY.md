@@ -1,6 +1,6 @@
 # Antigravity Documentation
 
-- Antigravity 2.0
+- Antigravity app
   - [Agent settings](antigravity/agent-settings.md)
   - [Artifact review](antigravity/artifact-review.md)
   - [Artifacts](antigravity/artifacts.md)
@@ -13,7 +13,7 @@
   - [Marketplace](antigravity/marketplace.md)
   - [MCP](antigravity/mcp.md)
   - [Models](antigravity/models.md)
-  - [Antigravity 2.0 overview](antigravity/overview.md)
+  - [Antigravity app overview](antigravity/overview.md)
   - [Permissions](antigravity/permissions.md)
   - [Plan (/plan)](antigravity/plan.md)
   - [Plugins](antigravity/plugins.md)

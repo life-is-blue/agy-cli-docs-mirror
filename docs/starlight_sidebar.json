@@ -1,6 +1,6 @@
 [
   {
-    "label": "Antigravity 2.0",
+    "label": "Antigravity app",
     "collapsed": true,
     "items": [
       {
@@ -52,7 +52,7 @@
         "slug": "antigravity/models"
       },
       {
-        "label": "Antigravity 2.0 overview",
+        "label": "Antigravity app overview",
         "slug": "antigravity/overview"
       },
       {

@@ -4,9 +4,9 @@
 
 Google Antigravity offers multiple product surfaces tailored to your specific development workflow. Select the interface that best fits your needs:
 
-### Antigravity 2.0
+### Antigravity app
 
-Antigravity 2.0 is the standalone desktop command center for your agents. Start agents inside projects, work across multiple workspaces and worktrees, and orchestrate complex tasks using parallel local subagents. It includes the following highlights:
+The Antigravity app is the standalone desktop command center for your agents. Start agents inside projects, work across multiple workspaces and worktrees, and orchestrate complex tasks using parallel local subagents. It includes the following highlights:
 
 *   **Key features**: Asynchronous task management, scheduled tasks (cron sidecars), and voice transcription.
 *   **Get started**: Read the [Getting started guide](/docs/getting-started).

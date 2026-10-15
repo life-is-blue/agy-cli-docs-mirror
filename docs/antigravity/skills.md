@@ -95,11 +95,11 @@ For complex skills, add a section that helps the agent choose the right approach
 
 Explore how to create and manage skills on your preferred surface:
 
-### Antigravity 2.0
+### Antigravity app
 
-#### Antigravity 2.0 skill locations
+#### Antigravity app skill locations
 
-Antigravity 2.0 loads skills from two primary locations:
+The Antigravity app loads skills from two primary locations:
 
 | Location | Scope |
 | :-- | :-- |
@@ -111,9 +111,9 @@ Each scope serves a distinct purpose:
 *   **Workspace skills**: Scoped to a single project and committed to version control to share across your engineering team.
 *   **Global skills**: Available across all projects on your workstation.
 
-#### Invoking skills in Antigravity 2.0
+#### Invoking skills in the Antigravity app
 
-You can invoke skills in Antigravity 2.0 in two ways:
+You can invoke skills in the Antigravity app in two ways:
 
 *   **Autonomous invocation**: The agent automatically reads and follows relevant skills based on your prompt.
 *   **Manual slash command**: Type `/<skill-name>` in the prompt panel to explicitly invoke a skill.

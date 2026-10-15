@@ -24,9 +24,9 @@ With MCP, Antigravity can execute specific, safe actions defined by your connect
 
 ## Getting started by surface
 
-### Antigravity 2.0
+### Antigravity app
 
-In Antigravity 2.0, you can manage your MCP servers through the **Installed MCP Servers** section of your **Settings**.
+In the Antigravity app, you can manage your MCP servers through the **Installed MCP Servers** section of your **Settings**.
 
 To view and update your MCP servers:
 
@@ -96,7 +96,7 @@ In Python applications built using the [Antigravity SDK](/docs/sdk/overview), yo
 
 ## MCP configuration structure
 
-Whether configuring custom servers for Antigravity 2.0, Antigravity IDE, or Antigravity CLI, the configuration file follows a standardized format. The file contains a single `mcpServers` object where you define each server you want to connect to:
+Whether configuring custom servers for the Antigravity app, Antigravity IDE, or Antigravity CLI, the configuration file follows a standardized format. The file contains a single `mcpServers` object where you define each server you want to connect to:
 
 ```
 {

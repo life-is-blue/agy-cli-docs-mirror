@@ -1,6 +1,6 @@
 # Slash commands overview
 
-Slash commands provide quick shortcuts for invoking specialized agent workflows, reasoning modes, interactive planning tools, and background automations. These commands operate consistently across both **Google Antigravity 2.0** (Desktop and Web) and the **Antigravity CLI**.
+Slash commands provide quick shortcuts for invoking specialized agent workflows, reasoning modes, interactive planning tools, and background automations. These commands operate consistently across both the **Google Antigravity app** (Desktop and Web) and the **Antigravity CLI**.
 
 Note
 
@@ -37,7 +37,7 @@ The following table provides a complete reference for all public slash commands:
 | [`/plugin`](/docs/plugins) | Customization | Opens the interactive [Plugins Manager](/docs/marketplace) or manages and creates plugins. | All plans | Immediate |
 | [`/schedule`](/docs/sidecars) | Automation | Schedules an instruction as a one-time timer or recurring cron job. | All plans | Scheduled |
 | `/browser` | Tools | Launches a sandboxed browser subagent for web research and UI inspection. | All plans | Minutes |
-| `/btw` | Tools | Asks a quick contextual question in the background without pausing work. | All plans | Immediate |
+| [`/btw`](/docs/cli/commands/btw) | Tools | Asks a quick contextual question in the background without pausing work. | All plans | Immediate |
 
 * * *
 
@@ -158,7 +158,7 @@ In the **Antigravity CLI**, running `/plugin` (or its alias `/plugins`) opens th
 /plugin list
 ```
 
-In **Antigravity 2.0**, you can also invoke `/plugin` with natural-language instructions to enable, disable, install, or scaffold custom plugins.
+In the **Antigravity app**, you can also invoke `/plugin` with natural-language instructions to enable, disable, install, or scaffold custom plugins.
 
 For complete plugin manifest and marketplace documentation, refer to the [Plugins guide](/docs/plugins) and the [Marketplace guide](/docs/marketplace).
 
@@ -199,8 +199,10 @@ Submits an out-of-band query that runs in a lightweight background thread withou
 To ask an aside while an implementation is running, run the following command:
 
 ```
-/btw Which file defines the UserSession interface in this repository?
+/btw Which file did you say defines the UserSession interface?
 ```
+
+For CLI card navigation, history browsing, and `/copy btw` clipboard support, refer to the [Side question (`/btw`) command guide](/docs/cli/commands/btw).
 
 * * *
 
@@ -219,7 +221,7 @@ The following decision guide outlines when to use each command based on your tas
 | **Discover, install, or manage plugins and marketplace bundles** | [`/plugin`](/docs/plugins) | Interactive [Plugins Manager](/docs/marketplace) in the CLI and conversational plugin management. |
 | **Web research, UI validation, and layout inspection** | `/browser` | Sandboxed Chrome browser subagent for live page interactions. |
 | **One-shot countdown timer or recurring background schedule** | [`/schedule`](/docs/sidecars) | Runs instructions in the background on cron schedules. |
-| **Quick side query without pausing primary agent work** | `/btw` | Lightweight out-of-band query executed in the background. |
+| **Quick side query without pausing primary agent work** | [`/btw`](/docs/cli/commands/btw) | Lightweight out-of-band query executed in the background. |
 
 * * *
 
@@ -229,7 +231,7 @@ Public slash commands are supported across Antigravity developer surfaces:
 
 | Surface | Input Method | Navigation and Management |
 | :-- | :-- | :-- |
-| **Antigravity 2.0 (Desktop and Web)** | Type `/` in the prompt input or select from the command menu. | Model selector dropdown, Artifact review panel, Visual diff viewer. |
+| **Antigravity app (Desktop and Web)** | Type `/` in the prompt input or select from the command menu. | Model selector dropdown, Artifact review panel, Visual diff viewer. |
 | **Antigravity CLI** | Type `/` in the interactive prompt box. | `/agents` panel, Alt+J (switch threads), Ctrl+O (trajectory). |
 
 * * *
@@ -241,6 +243,7 @@ Explore related documentation and guides:
 *   [Boost deep reasoning (`/boost`)](/docs/boost): Dive deep into the three-tier multi-agent reasoning hierarchy.
 *   [Plan slash command (`/plan`)](/docs/plan): Conduct structured planning, requirement discovery, and interactive interviews.
 *   [Teamwork agent teams (`/teamwork-preview`)](/docs/teamwork): Learn how collaborative agent teams tackle large-scale migrations.
+*   [Side question command (`/btw`)](/docs/cli/commands/btw): Ask quick background questions without adding to your conversation history.
 *   [Implementation plans artifact guide](/docs/implementation-plan): Master reviewable planning artifacts and structured workflows.
 *   [Rules (`/learn`)](/docs/rules): Persist project-wide patterns and conventions.
 *   [Plugins (`/plugin`)](/docs/plugins) and [Marketplace](/docs/marketplace): Discover, install, and package reusable agent extensions.

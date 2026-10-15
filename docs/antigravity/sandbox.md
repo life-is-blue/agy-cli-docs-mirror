@@ -2,7 +2,7 @@
 
 The terminal sandbox isolates agent shell commands inside OS-level container boundaries to protect your workstation and sensitive files.
 
-## Antigravity 2.0
+## Antigravity app
 
 Note
 

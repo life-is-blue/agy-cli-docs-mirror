@@ -4,7 +4,7 @@ The `/boost` slash command activates an on-demand multi-agent reasoning pipeline
 
 Note
 
-**Plan availability**: The `/boost` command is available on **paid plans** across Google Antigravity 2.0 and the Antigravity CLI.
+**Plan availability**: The `/boost` command is available on **paid plans** across the Google Antigravity app and the Antigravity CLI.
 
 * * *
 
@@ -67,7 +67,7 @@ The following table compares the three primary execution modes in Antigravity:
 
 You can invoke Boost across all Antigravity surfaces.
 
-### Antigravity 2.0
+### Antigravity app
 
 Type `/boost` followed by your task prompt in any conversation turn:
 

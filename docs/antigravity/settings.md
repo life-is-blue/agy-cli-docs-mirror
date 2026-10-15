@@ -2,7 +2,7 @@
 
 Configure preferences, execution boundaries, command permissions, and tool telemetry across Antigravity surfaces.
 
-## Antigravity 2.0
+## Antigravity app
 
 ### Settings architecture
 

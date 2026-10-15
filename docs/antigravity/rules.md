@@ -140,19 +140,19 @@ To prevent rules from exhausting the context window, Antigravity enforces two li
 
 Select your surface below to configure global or workspace-specific rules:
 
-### Antigravity 2.0
+### Antigravity app
 
-#### Managing rules in Antigravity 2.0
+#### Managing rules in the Antigravity app
 
-Follow these steps to create or manage rules in Antigravity 2.0:
+Follow these steps to create or manage rules in the Antigravity app:
 
 1.  Open the **Customizations** panel from the application menu or project settings.
 2.  Select the **Rules** tab.
 3.  Click **\+ Global** to create global rules, or **\+ Workspace** to create rules scoped to the active project.
 
-#### Antigravity 2.0 file locations
+#### Antigravity app file locations
 
-Antigravity 2.0 loads rules from the following locations:
+The Antigravity app loads rules from the following locations:
 
 *   **Workspace rules**: `AGENTS.md`, `GEMINI.md`, or `.agents/rules/*.md` in your workspace root or any project subdirectory.
 *   **Global rules**: `~/.gemini/AGENTS.md`, `~/.gemini/GEMINI.md`, or modular rules in `~/.gemini/config/rules/*.md`.

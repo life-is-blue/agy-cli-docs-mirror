@@ -2,7 +2,7 @@
 
 Delegate parallel builds, multi-file code generation, and research sweeps to concurrent background subagents while maintaining your active programming flow.
 
-## Antigravity 2.0
+## Antigravity app
 
 ### Invoking subagents
 
@@ -139,7 +139,7 @@ Antigravity provides two advanced multi-agent orchestrators designed for differe
 
 Note
 
-**Plan availability**: Available on **Google One AI Premium** (Pro and Ultra tiers) and **Enterprise** plans across Antigravity 2.0 and the Antigravity CLI.
+**Plan availability**: Available on **Google One AI Premium** (Pro and Ultra tiers) and **Enterprise** plans across the Antigravity app and the Antigravity CLI.
 
 Invoking [`/boost`](/docs/boost) launches a three-tier multi-agent reasoning hierarchy (`Orchestrator` -> `DeepCoder` / `DeepInvestigator` coordinators -> isolated execution workers). It tackles tough concurrency bugs, algorithmic challenges, and non-trivial refactoring within interactive coding sessions (seconds to hours) with independent verification loops. Learn more in the [Boost documentation](/docs/boost).
 
@@ -147,7 +147,7 @@ Invoking [`/boost`](/docs/boost) launches a three-tier multi-agent reasoning hie
 
 Note
 
-**Plan availability**: The `/teamwork-preview` command is available on **paid plans** across Google Antigravity 2.0 and the Antigravity CLI.
+**Plan availability**: The `/teamwork-preview` command is available on **paid plans** across the Google Antigravity app and the Antigravity CLI.
 
 Using [`/teamwork-preview`](/docs/teamwork) coordinates a team of specialized AI agents designed for large software projects, multi-file refactoring, and complex research. The team handles milestone decomposition, parallel implementation, and independent verification checks, allowing you to define the high-level goals while the platform manages agent coordination. Learn more in the [Teamwork documentation](/docs/teamwork).
 
