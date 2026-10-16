@@ -144,8 +144,20 @@
         "slug": "antigravity/cli/commands/agents"
       },
       {
+        "label": "Side question command (/btw)",
+        "slug": "antigravity/cli/commands/btw"
+      },
+      {
+        "label": "Changelog command (/changelog)",
+        "slug": "antigravity/cli/commands/changelog"
+      },
+      {
         "label": "Code search command (/codesearch)",
         "slug": "antigravity/cli/commands/codesearch"
+      },
+      {
+        "label": "Context command (/context)",
+        "slug": "antigravity/cli/commands/context"
       },
       {
         "label": "AI credits command (/credits)",
@@ -154,6 +166,10 @@
       {
         "label": "Diff command (/diff)",
         "slug": "antigravity/cli/commands/diff"
+      },
+      {
+        "label": "Effort command (/effort)",
+        "slug": "antigravity/cli/commands/effort"
       },
       {
         "label": "Permissions command (/permissions)",

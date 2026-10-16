@@ -6,9 +6,23 @@ New versions roll out gradually and may take a few days to reach all users.
 
 ## Antigravity app
 
-### [v2.23.0](/releases?tab=hub&version=2.23.0 "View release 2.23.0")
+### [v2.23.1](/releases?tab=hub&version=2.23.1 "View release 2.23.1")
 
 Latest
+
+October 13, 2026
+
+### Fix for the license picker during sign-in
+
+This release fixes the license picker shown during onboarding, which could grow taller than the window and hide the buttons below it.
+
+**Fixes:**
+
+*   Fixed an issue where the license picker during onboarding could grow taller than the window and cover the buttons below it. Long license lists now scroll inside the card, with a fade at the top or bottom edge when there is more to see.
+
+---
+
+### [v2.23.0](/releases?tab=hub&version=2.23.0 "View release 2.23.0")
 
 October 12, 2026
 
@@ -2758,9 +2772,35 @@ VS CodeVisual Studio
 
 [Extension docs→](/docs/ide/extensions/vscode)
 
-### [v1.7.0](/docs/ide/extensions/vscode "View Visual Studio Code extension docs")
+### [v1.8.0](/docs/ide/extensions/vscode "View Visual Studio Code extension docs")
 
 Latest
+
+October 12, 2026
+
+### Cumulative multi-turn inline diff reviews, automatic external disk-change detection, and reliability fixes for inline diff restoration and startup
+
+Introduces cumulative multi-turn inline diff reviews and automatic disk-change detection, while improving inline diff restoration across window reloads and conversation rollbacks.
+
+**Improvements:**
+
+*   Preserved open inline diff reviews across consecutive agent turns when `antigravity.autoAcceptOnChat` is disabled (`false`), keeping earlier per-change **Accept** and **Reject** decisions and manual edits in a cumulative review instead of auto-accepting the previous turn's changes, and surfacing an **Open review** notification for older background reviews after 5 turns.
+*   Added automatic disk-change detection for files under inline diff review so external modifications (such as `git checkout` or external formatters) clear stale inline diff controls within a second and provide **Reload from disk** and **Save agent version** actions when the editor has unsaved changes.
+*   Added 24-hour deduplication to one-click **Report issue** load-failure notifications for repeated occurrences of the same error, with a **Send anyway** action to submit an additional report on demand.
+*   Optimized the packaged extension JavaScript bundle, reducing the VSIX bundle size by ~70% for faster installation and startup.
+
+**Fixes:**
+
+*   Fixed inline diff reviews losing manual user edits made while the agent is generating changes or during an active review, preserving edits across multi-edit turns, **Reject all**, and **Developer: Reload Window**, and presenting overlapping line edits as an explicit **Accept** / **Reject** review hunk instead of triggering save-conflict dialogs.
+*   Fixed restoring partly reviewed inline diffs after **Developer: Reload Window** so identical changes stay separate, accepted insertions restore at the exact line without off-by-one shifts, and whitespace-only edits that already match the file do not reopen an empty review.
+*   Fixed rolling back a conversation turn so open inline and side-by-side diff reviews in the editor immediately revert to pre-turn file contents, close side-by-side diff tabs, and clear stored review decisions for the rolled-back turn.
+*   Fixed a startup race condition when restoring secondary Antigravity views (such as an artifact viewer, terminal, or settings tab) alongside the primary chat sidebar that could double-render panels or route notifications to a secondary tab.
+*   Fixed one-click **Report issue** diagnostic bundles to redact local file paths, workspace paths, tokens, email addresses, and IP addresses and deduplicate log streams before attachment.
+*   Fixed `PendingMigrationError: navigator is now a global in nodejs` deprecation warnings logged in the VS Code Extension Host console during extension startup.
+
+---
+
+### [v1.7.0](/docs/ide/extensions/vscode "View Visual Studio Code extension docs")
 
 October 5, 2026
 
@@ -3003,9 +3043,25 @@ Introduces the 1.0.0 release of Antigravity for VS Code, bringing an agentic AI 
 
 ---
 
-### [v1.0.261005.0](/docs/ide/extensions/visual-studio "View Visual Studio extension docs")
+### [v1.0.261012.0](/docs/ide/extensions/visual-studio "View Visual Studio extension docs")
 
 Latest
+
+October 12, 2026
+
+### Fixes for conversation history persistence across Visual Studio restarts, chat input focus after agent file edits, and multi-turn diff review handling
+
+Fixes conversation restoration across Visual Studio restarts, resolves a chat input focus bug after agent file edits, and improves multi-turn diff review handling.
+
+**Fixes:**
+
+*   Fixed the Antigravity tool window resetting to the home screen after restarting Visual Studio by persisting and restoring the last active conversation for the current solution or workspace.
+*   Fixed a focus issue where clicking the chat input box after the agent opened or modified files in the editor failed to focus the chat input and instead highlighted the sidebar toggle button.
+*   Fixed multi-turn agent edit reviews to preserve the original pre-agent file baseline across consecutive turns before a review is resolved, keep target editor buffers read-only while a diff review is pending, and match active edit sessions using case-insensitive file paths on Windows.
+
+---
+
+### [v1.0.261005.0](/docs/ide/extensions/visual-studio "View Visual Studio extension docs")
 
 October 5, 2026
 

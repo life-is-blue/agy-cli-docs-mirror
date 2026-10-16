@@ -30,13 +30,13 @@ The following table provides a complete reference for all public slash commands:
 | :-- | :-- | :-- | :-- | :-- |
 | [`/boost`](/docs/boost) | Reasoning | Multi-agent deep reasoning for complex bugs, race conditions, and algorithms. | Paid plans | Seconds to hours |
 | [`/teamwork-preview`](/docs/teamwork) | Reasoning | Collaborative agent teams for repo-scale migrations, simulation, and research. | Paid plans | Hours to days |
-| `/goal` | Reasoning | Autonomous execution until the goal is achieved without intermediate pauses. | All plans | Minutes to hours |
+| [`/goal`](/docs/commands/goal) | Reasoning | Autonomous execution until the goal is achieved without intermediate pauses. | All plans | Minutes to hours |
 | [`/plan`](/docs/plan) | Planning | Researches code, conducts requirement interviews, and drafts a reviewable plan artifact. | All plans | Minutes |
 | `/grill-me` | Planning | Conducts an interactive interview to align on design details and edge cases. | All plans | Minutes |
-| [`/learn`](/docs/rules) | Customization | Distills session feedback and corrections into persistent Rules or Skills. | All plans | Immediate |
+| [`/learn`](/docs/commands/learn) | Customization | Distills session feedback and corrections into persistent Rules or Skills. | All plans | Immediate |
 | [`/plugin`](/docs/plugins) | Customization | Opens the interactive [Plugins Manager](/docs/marketplace) or manages and creates plugins. | All plans | Immediate |
-| [`/schedule`](/docs/sidecars) | Automation | Schedules an instruction as a one-time timer or recurring cron job. | All plans | Scheduled |
-| `/browser` | Tools | Launches a sandboxed browser subagent for web research and UI inspection. | All plans | Minutes |
+| [`/schedule`](/docs/commands/schedule) | Automation | Schedules an instruction as a one-time timer or recurring cron job. | All plans | Scheduled |
+| [`/browser`](/docs/commands/browser) | Tools | Launches a sandboxed browser subagent for web research and UI inspection. | All plans | Minutes |
 | [`/btw`](/docs/cli/commands/btw) | Tools | Asks a quick contextual question in the background without pausing work. | All plans | Immediate |
 
 * * *
@@ -76,6 +76,8 @@ To run a test suite repair autonomously, run the following command:
 ```
 /goal Fix all failing unit tests in the authentication package and ensure 100% pass rate.
 ```
+
+For details on how goal mode intercepts stops, audits deliverables, and how to cancel a goal, refer to the [Goal command guide](/docs/commands/goal).
 
 * * *
 
@@ -135,7 +137,7 @@ To align on design constraints, run the following command:
 
 ### /learn
 
-Analyzes recent corrections, user feedback, and debugging resolutions from your active session, distilling them into persistent project rules (`.antigravity/rules.md`) or reusable agent skills (`SKILL.md`).
+Analyzes recent corrections, user feedback, and debugging resolutions from your active session, distilling them into persistent project rules (`AGENTS.md`, `GEMINI.md`, or `.agents/rules/*.md`) or reusable agent skills (`.agents/skills/<name>/SKILL.md`). The agent proposes changes in a `learning_proposal.md` artifact and writes files only after you approve.
 
 To capture recent session patterns into persistent rules, run the following command:
 
@@ -143,7 +145,7 @@ To capture recent session patterns into persistent rules, run the following comm
 /learn Save our database transaction retry pattern as a project rule for all future database changes.
 ```
 
-For customization syntax and configuration schemas, refer to the [Rules documentation](/docs/rules).
+For the proposal workflow and the full list of rule and skill locations, refer to the [Learn command guide](/docs/commands/learn) and the [Rules documentation](/docs/rules).
 
 ### /plugin
 
@@ -176,7 +178,7 @@ To set up a daily cleanup routine, run the following command:
 /schedule "0 9 * * 1-5" Run git fetch, prune stale local branches, and summarize pending PR reviews.
 ```
 
-For background process architecture and cron expressions, refer to the [Sidecars and scheduled tasks guide](/docs/sidecars).
+For timer and cron parameters, managing active schedules, and how `/schedule` differs from persistent Automations, refer to the [Schedule command guide](/docs/commands/schedule) and the [Sidecars and scheduled tasks guide](/docs/sidecars).
 
 * * *
 
@@ -191,6 +193,8 @@ To verify a local web server layout, run the following command:
 ```
 /browser Open http://localhost:3000/dashboard, verify that the analytics charts render, and capture a screenshot.
 ```
+
+For the subagent’s full tool set, session recordings, and example tasks, refer to the [Browser command guide](/docs/commands/browser).
 
 ### /btw
 
@@ -216,11 +220,11 @@ The following decision guide outlines when to use each command based on your tas
 | **Multi-day project, repository migration, or research** | [`/teamwork-preview`](/docs/teamwork) | Collaborative agent teams with scoping interviews and milestone roadmaps. |
 | **Feature requiring review before making code edits** | [`/plan`](/docs/plan) | Researches code, interviews requirements, and generates a reviewable plan. |
 | **Vague requirements needing architectural alignment** | `/grill-me` | Conducts a step-by-step interview to clarify edge cases and constraints. |
-| **Task that should run continuously until 100% complete** | `/goal` | Autonomous execution without turn-by-turn confirmation pauses. |
-| **Distill recent corrections into permanent project rules** | [`/learn`](/docs/rules) | Analyzes session patterns and writes persistent rules and skills. |
+| **Task that should run continuously until 100% complete** | [`/goal`](/docs/commands/goal) | Autonomous execution without turn-by-turn confirmation pauses. |
+| **Distill recent corrections into permanent project rules** | [`/learn`](/docs/commands/learn) | Analyzes session patterns and writes persistent rules and skills. |
 | **Discover, install, or manage plugins and marketplace bundles** | [`/plugin`](/docs/plugins) | Interactive [Plugins Manager](/docs/marketplace) in the CLI and conversational plugin management. |
-| **Web research, UI validation, and layout inspection** | `/browser` | Sandboxed Chrome browser subagent for live page interactions. |
-| **One-shot countdown timer or recurring background schedule** | [`/schedule`](/docs/sidecars) | Runs instructions in the background on cron schedules. |
+| **Web research, UI validation, and layout inspection** | [`/browser`](/docs/commands/browser) | Sandboxed Chrome browser subagent for live page interactions. |
+| **One-shot countdown timer or recurring background schedule** | [`/schedule`](/docs/commands/schedule) | Runs instructions in the background on cron schedules. |
 | **Quick side query without pausing primary agent work** | [`/btw`](/docs/cli/commands/btw) | Lightweight out-of-band query executed in the background. |
 
 * * *
@@ -244,6 +248,10 @@ Explore related documentation and guides:
 *   [Plan slash command (`/plan`)](/docs/plan): Conduct structured planning, requirement discovery, and interactive interviews.
 *   [Teamwork agent teams (`/teamwork-preview`)](/docs/teamwork): Learn how collaborative agent teams tackle large-scale migrations.
 *   [Side question command (`/btw`)](/docs/cli/commands/btw): Ask quick background questions without adding to your conversation history.
+*   [Goal command (`/goal`)](/docs/commands/goal): Run long-horizon tasks autonomously until every deliverable is verified.
+*   [Learn command (`/learn`)](/docs/commands/learn): Persist session corrections as rules and skills through a reviewable proposal.
+*   [Schedule command (`/schedule`)](/docs/commands/schedule): Set one-shot timers and recurring cron schedules within a conversation.
+*   [Browser command (`/browser`)](/docs/commands/browser): Delegate web tasks and UI verification to the browser subagent.
 *   [Implementation plans artifact guide](/docs/implementation-plan): Master reviewable planning artifacts and structured workflows.
 *   [Rules (`/learn`)](/docs/rules): Persist project-wide patterns and conventions.
 *   [Plugins (`/plugin`)](/docs/plugins) and [Marketplace](/docs/marketplace): Discover, install, and package reusable agent extensions.

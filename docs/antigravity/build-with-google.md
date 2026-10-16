@@ -11,110 +11,265 @@ You can enable Build with Google integrations at two points:
 *   **During onboarding**: Select the checkboxes for the stacks you plan to use.
 *   **In settings**: Navigate to **Settings** > **Customizations** > **Build with Google Plugins** to add or remove integrations at any time.
 
+* * *
+
 ## Available bundles
 
 The following curated bundles are available in the Antigravity app:
 
-### Modern web guidance
+All bundles10languageWeb & ChromecloudCloud & Dataphone\_androidMobile & MapspsychologyAI & Science
 
-Keep your coding agent up to date with the latest web best practices:
+search
 
-*   **What’s included**: A package of evergreen and expert-vetted skills for the modern web.
-*   **Key capabilities**: Your agent can build accessible, performant, and secure web experiences using injected guidance.
-*   **Learn more**: [Read the Modern Web Guidance](http://goo.gle/modern-web-guidance).
+view\_agendagrid\_view
 
-### Firebase bundle
+language
 
-Transform your AI coding agent into a specialized Firebase expert that can write code, configure Firebase Security Rules, and manage live resources:
+Web & Chrome
 
-*   **What’s included**: A package of agent skills for core Firebase services, including Cloud Firestore, Authentication, App Hosting, and more.
-*   **Key capabilities**:
-    *   **Take action**: Do more than just write code. Your agent can initialize services, manage Authentication users, deploy new Firebase Security Rules, and work directly with your Cloud Firestore data.
-    *   **Stay up to date**: Use official, version-aware prompts to guide your agent through setup tasks.
-    *   **Improve accuracy**: Access your project’s environment and schemas to provide more relevant and accurate help.
-*   **Learn more**: [Explore the Firebase agent skills guide](https://firebase.google.com/docs/ai-assistance/agent-skills).
+### Modern Web Guidance
+
+Detailsexpand\_less
+
+Keep your coding agent up to date with the latest web best practices.
+
+#### inventory\_2What's included
+
+*   Package of evergreen and expert-vetted skills for the modern web.
+
+#### boltKey capabilities
+
+*   Build accessible, performant, and secure web experiences using injected guidance.
+
+[Read the Modern Web Guidanceopen\_in\_new](https://goo.gle/modern-web-guidance)
+
+local\_fire\_department
+
+Cloud & Data
+
+### Firebase Bundle
+
+Detailsexpand\_less
+
+Transform your AI coding agent into a specialized Firebase expert that can write code, configure Firebase Security Rules, and manage live resources.
+
+#### inventory\_2What's included
+
+*   Package of agent skills for core Firebase services, including Firestore, Authentication, App Hosting, and more.
+
+#### boltKey capabilities
+
+*   **Take action:** Go beyond writing code. Your agent can initialize services, manage Authentication users, deploy new Firebase Security Rules, and work directly with your Cloud Firestore data.
+*   **Stay up to date:** Use official, version-aware prompts to guide your agent through setup tasks.
+*   **Improve accuracy:** Access your project's environment and schemas to provide more relevant and accurate help.
+
+[Explore the Firebase Agent Skills Guideopen\_in\_new](https://firebase.google.com/docs/ai-assistance/agent-skills)
+
+code\_blocks
+
+AI & Science
 
 ### Google Antigravity SDK
 
-Use the Antigravity Python SDK to build AI agents:
+Detailsexpand\_less
 
-*   **What’s included**: An agent skill containing architecture references, getting-started examples, and configuration guides for the Antigravity Python SDK (`google-antigravity`).
-*   **Key capabilities**:
-    *   **Build agents**: Your agent can scaffold new Antigravity agents, configure models, register custom Python tools, and connect MCP servers using SDK best practices.
-    *   **Stay safe**: Use official guidance to implement declarative safety policies, including deny-by-default templates and argument-level predicates.
-    *   **Go deeper**: Access reference material for lifecycle hooks, multi-agent delegation, structured output, multimodal input, and token usage observability.
-*   **Learn more**: [Visit the Antigravity SDK repository](https://github.com/google-antigravity/antigravity-sdk-python).
+Use the Antigravity Python SDK to build autonomous AI agents.
+
+#### inventory\_2What's included
+
+*   An agent skill containing architecture references, getting-started examples, and configuration guides for the Antigravity Python SDK (google-antigravity).
+
+#### boltKey capabilities
+
+*   **Build agents:** Your agent can scaffold new Antigravity agents, configure models, register custom Python tools, and connect MCP servers using SDK best practices.
+*   **Stay safe:** Use official guidance to implement declarative safety policies, including deny-by-default templates and argument-level predicates.
+*   **Go deeper:** Access reference material for lifecycle hooks, multi-agent delegation, structured output, multimodal input, and token usage observability.
+
+[Explore the Antigravity SDK Documentationarrow\_forward](/docs/sdk/overview)
+
+phone\_android
+
+Mobile & Maps
 
 ### Android CLI
 
-Equip your agent with the core tools and knowledge required to develop for Android:
+Detailsexpand\_less
 
-*   **What’s included**: The Android CLI and Android skills for core development tasks, including making your UI edge-to-edge and adaptive, creating a testing framework, analyzing your R8 configuration to optimize performance, and more.
-*   **Key capabilities**:
-    *   Enable the agent of your choice to build high-quality Android apps.
-    *   Create new projects.
-    *   Deploy your app on an Android virtual device.
-    *   Test your app using natural language instructions.
-    *   Migrate to the latest versions of libraries and plugins.
-*   **Learn more**: [Explore the Android agent developer tools](http://developer.android.com/tools/agents).
+Core tools and knowledge required to develop for Android.
+
+#### inventory\_2What's included
+
+*   Android CLI and Android skills for core development tasks, including making your UI edge-to-edge and adaptive, creating a testing framework, analyzing your R8 configuration to optimize performance, and more.
+
+#### boltKey capabilities
+
+*   Enable the agent to build high-quality Android apps.
+*   Create new projects.
+*   Deploy your app on an Android virtual device.
+*   Test your app using natural language instructions.
+*   Migrate to the latest versions of libraries and plugins.
+
+[Explore the Android Agent Developer Toolsopen\_in\_new](https://developer.android.com/tools/agents)
+
+science
+
+AI & Science
 
 ### Science
 
-Use a curated collection of agent skills for science:
+Detailsexpand\_less
 
-*   **What’s included**: A high-quality curated bundle of scientific skills.
-*   **Key capabilities**: Improve agent capabilities on scientific workflows.
-*   **Learn more**: [Review the DeepMind science skills repository](https://github.com/google-deepmind/science-skills).
+Curated collection of agent skills for scientific computing and research workflows.
+
+#### inventory\_2What's included
+
+*   A curated bundle of scientific skills.
+
+#### boltKey capabilities
+
+*   Improve agent performance across scientific workflows.
+
+[Review the DeepMind Science Skills Repositoryopen\_in\_new](https://github.com/google-deepmind/science-skills)
+
+bug\_report
+
+Web & Chrome
 
 ### Chrome DevTools
 
-Perform reliable automation, in-depth debugging, and performance analysis in Chrome using Chrome DevTools and Puppeteer:
+Detailsexpand\_less
 
-*   **What’s included**: A package of agent skills for Chrome DevTools and Puppeteer.
-*   **Key capabilities**: Debug accessibility (a11y) issues, audit Core Web Vitals (LCP/INP), run visual automation tests, and diagnose memory leaks.
-*   **Learn more**: [Explore the Chrome DevTools repository](https://github.com/ChromeDevTools/chrome-devtools-mcp).
+Reliable automation, in-depth debugging, and performance analysis in Chrome using Chrome DevTools and Puppeteer.
+
+#### inventory\_2What's included
+
+*   Package of agent skills for Chrome DevTools and Puppeteer.
+
+#### boltKey capabilities
+
+*   Debug accessibility (a11y) issues, audit Core Web Vitals (LCP/INP), run visual automation tests, and diagnose memory leaks.
+
+[Explore the Chrome DevTools Repositoryopen\_in\_new](https://github.com/ChromeDevTools/chrome-devtools-mcp)
+
+flutter\_dash
+
+Mobile & Maps
 
 ### Dart and Flutter
 
-Use the official Dart and Flutter plugin to build natively compiled, visually stunning applications for mobile, web, desktop, and embedded devices from a single codebase:
+Detailsexpand\_less
 
-*   **What’s included**: A package of agent skills for common Dart and Flutter workflows, as well as the Dart MCP server to interact with your development environment and your running Dart or Flutter application.
-*   **Key capabilities**:
-    *   **Enhance developer experience**: Your agent can use deep static analysis tools, package management routines through `pub`, code formatting, and automated code-renaming capabilities.
-    *   **Multiplatform development**: Enable your agent to build high-quality apps across mobile, web, and desktop with one codebase.
-    *   **Improve accuracy**: Provide instructions for agents to reliably complete common developer tasks, such as building adaptive layouts.
-*   **Learn more**: [Explore Flutter agentic tools](https://docs.flutter.dev/ai/create-with-ai).
+The official Dart and Flutter plugin for building natively compiled applications for mobile, web, desktop, and embedded devices from a single codebase.
 
-### Data Agent Kit starter pack
+#### inventory\_2What's included
 
-Use a specialized suite of skills and MCP tools for data engineers and database practitioners building end-to-end analytics, ETL, and AI workflows on Google Cloud:
+*   Package of agent skills for common Dart and Flutter workflows, plus a Dart MCP server to interact with your development environment and running Dart or Flutter applications.
 
-*   **What’s included**:
-    *   Curated domain skills for BigQuery SQL and ML, dbt transformations, Apache Spark, Dataflow, Spanner, BigLake Iceberg catalogs, and workflow orchestration.
-    *   Integration with Google Cloud data MCP servers for database introspection, query execution, and pipeline troubleshooting.
-    *   Notebook, dashboard (Streamlit), and semantic modeling guidance.
-*   **Key capabilities**:
-    *   **End-to-end medallion pipelines**: Prompt your agent in natural language to ingest raw data from Cloud Storage, transform it through bronze, silver, and gold layers with dbt or Spark, and serve it using BigQuery or Spanner.
-    *   **SQL and ML code generation**: Write optimized BigQuery SQL, train BigQuery ML models (XGBoost, k-means), or build interactive LookML and Streamlit data apps.
-    *   **Pipeline orchestration and debugging**: Automatically scaffold orchestration workflows and debug failed Dataflow or Dataproc jobs across the Google Cloud data ecosystem.
+#### boltKey capabilities
+
+*   **Enhance developer experience:** Leverage static analysis tools, package management routines via pub, code formatting, and automated code-renaming capabilities.
+*   **Multiplatform development:** Build high-quality apps across mobile, web, and desktop from one codebase.
+*   **Improve accuracy:** Provide structured instructions for agents to complete common developer tasks, such as building adaptive layouts.
+
+[Explore Flutter Agentic Toolsopen\_in\_new](https://docs.flutter.dev/ai/create-with-ai)
+
+database
+
+Cloud & Data
+
+### Data Agent Kit Starter Pack
+
+Detailsexpand\_less
+
+Specialized suite of skills and MCP tools for data engineers and database practitioners building end-to-end analytics, ETL, and AI workflows on Google Cloud.
+
+#### inventory\_2What's included
+
+*   Curated domain skills for BigQuery SQL & ML, dbt transformations, Apache Spark, Dataflow, Cloud Spanner, BigLake Iceberg catalogs, and workflow orchestration.
+*   Integration with Google Cloud data MCP servers for database introspection, query execution, and pipeline troubleshooting.
+*   Notebook, dashboard (Streamlit), and semantic modeling guidance.
+
+#### boltKey capabilities
+
+*   **End-to-end medallion pipelines:** Prompt your agent in natural language to ingest raw data from Cloud Storage, transform it through bronze, silver, and gold layers with dbt or Spark, and serve it via BigQuery or Spanner.
+*   **SQL & ML code generation:** Write optimized BigQuery SQL, train BigQuery ML models (XGBoost, K-Means), or build interactive LookML and Streamlit data apps.
+*   **Pipeline orchestration & debugging:** Automatically scaffold orchestration workflows and debug failed Dataflow or Dataproc jobs across the Google Cloud data ecosystem.
+
+map
+
+Mobile & Maps
 
 ### Google Maps Platform
 
-Equip your AI coding agent with Google Maps Platform knowledge and workflows to design, build, and deploy location-aware features across web, Android, iOS, and web services:
+Detailsexpand\_less
 
-*   **What’s included**: A package of agent skills covering core Google Maps Platform APIs and SDKs, including Maps (2D/3D, Street View, Static, Styling, Clustering), Places, Address Validation, Geocoding, Routes and ETA (including eco-friendly routing), Geofencing, Heatmaps, and Environmental APIs (Air Quality, Pollen, Solar, Weather).
-*   **Key capabilities**:
-    *   **Build location-rich experiences**: Enable your agent to write production-ready code for interactive mapping, place lookup, route optimization, geofencing, and environmental insights across mobile, web, and backend services.
-    *   **Low-friction prototyping**: Get started using a Maps demo key without needing immediate billing setup, with guided prompts to create an account and restrict your key when transitioning to production.
-*   **Learn more**: [Explore the Google Maps Platform agent skills repository](https://github.com/googlemaps/agent-skills).
+Equip your AI coding agent with Google Maps Platform knowledge and workflows to design, build, and deploy location-aware features across Web, Android, iOS, and web services.
+
+#### inventory\_2What's included
+
+*   Package of agent skills covering core Google Maps Platform APIs and SDKs—including Maps (2D/3D, Street View, Static, Styling, Clustering), Places, Address Validation, Geocoding, Routes & ETA (including eco-friendly routing), Geofencing, Heatmaps, and Environmental APIs (Air Quality, Pollen, Solar, Weather).
+
+#### boltKey capabilities
+
+*   **Build location-rich experiences:** Write production-ready code for interactive mapping, place lookup, route optimization, geofencing, and environmental insights across mobile, web, and backend services.
+*   **Low-friction prototyping:** Get started using a Maps Demo Key without immediate billing setup, with guided prompts to create an account and restrict your API key when transitioning to production.
+
+[Explore the Google Maps Platform Agent Skills Repositoryopen\_in\_new](https://github.com/googlemaps/agent-skills)
+
+cloud
+
+Cloud & Data
 
 ### Google Cloud
 
-Equip your AI coding agent with Google Cloud knowledge and workflows to design, build, deploy, and manage scalable cloud infrastructure and services directly from Antigravity:
+Detailsexpand\_less
 
-*   **What’s included**: A package of agent skills covering core Google Cloud services, architecture design, and deployment workflows, including Compute (Cloud Run, GKE, Compute Engine), Serverless & Eventing (Cloud Functions, Eventarc, Pub/Sub), Storage & Databases (Cloud Storage, Cloud SQL, Firestore, Spanner, AlloyDB), AI & Data (Gemini platform, BigQuery), Identity & Security (IAM, Secret Manager), and Infrastructure as Code (Terraform, gcloud CLI).
-*   **Key capabilities**:
-    *   **Build and deploy cloud-native applications**: Enable your agent to write production-ready service architectures, container definitions, IaC configurations, and client library integrations across multiple runtimes (Node.js, Python, Go, Java).
-    *   **Guided setup & infrastructure management**: Streamline project provisioning, service enablement, IAM permissioning, and resource configuration with best-practice templates and automated gcloud workflows.
-    *   **Intelligent troubleshooting & observability**: Diagnose deployment errors, inspect Cloud Logging and Cloud Monitoring telemetry, and optimize configurations for cost, security, and performance.
-*   **Learn more**: [Explore the Google Cloud agent skills repository](https://g.dev/ai/skills).
+Equip your AI coding agent with Google Cloud knowledge and workflows to design, build, deploy, and manage scalable cloud infrastructure and services directly from Antigravity.
+
+#### inventory\_2What's included
+
+*   Package of agent skills covering core Google Cloud services, architecture design, and deployment workflows, including Compute (Cloud Run, GKE, Compute Engine), Serverless & Eventing (Cloud Functions, Eventarc, Pub/Sub), Storage & Databases (Cloud Storage, Cloud SQL, Firestore, Spanner, AlloyDB), AI & Data (Gemini platform, BigQuery), Identity & Security (IAM, Secret Manager), and Infrastructure as Code (Terraform, gcloud CLI).
+
+#### boltKey capabilities
+
+*   **Build and deploy cloud-native applications:** Enable your agent to write production-ready service architectures, container definitions, IaC configurations, and client library integrations across multiple runtimes (Node.js, Python, Go, Java).
+*   **Guided setup & infrastructure management:** Streamline project provisioning, service enablement, IAM permissioning, and resource configuration with best-practice templates and automated gcloud workflows.
+*   **Intelligent troubleshooting & observability:** Diagnose deployment errors, inspect Cloud Logging and Cloud Monitoring telemetry, and optimize configurations for cost, security, and performance.
+
+[Explore the Google Cloud Agent Skills Repositoryopen\_in\_new](https://g.dev/ai/skills)
+
+search\_off
+
+No Google bundles match your filter. Try clearing the search or selecting **All bundles**.
+
+Reset filters
+
+* * *
+
+## Next steps
+
+[
+
+extensionExtensibility
+
+Agent Marketplace & Plugins
+
+Discover, install, and manage agent plugins across Antigravity surfaces.
+
+](/docs/plugins)[
+
+hubIntegrations
+
+Model Context Protocol (MCP)
+
+Connect custom MCP servers and external tools to your agent workspace.
+
+](/docs/mcp)[
+
+code\_blocksPython SDK
+
+Antigravity SDK
+
+Build custom programmatic agents with the Antigravity Python SDK.
+
+](/docs/sdk/overview)
