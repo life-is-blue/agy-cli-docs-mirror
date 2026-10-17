@@ -2,16 +2,16 @@
 
 Hooks allow you to run custom scripts or shell commands at specific points during Antigravity’s execution loop to enforce rules, execute linters, or capture diagnostics.
 
-## Antigravity app
+## Antigravity App
 
-### Managing hooks in the Antigravity app
+### Managing hooks in the Antigravity App
 
-In the Antigravity app, hooks are configured in a `hooks.json` file located in your customization directory:
+In the Antigravity App, hooks are configured in a `hooks.json` file located in your customization directory:
 
 *   **Workspace level**: `.agents/hooks.json` in your workspace root.
 *   **Global level**: `~/.gemini/config/hooks.json`.
 
-You can also view and toggle hooks from **Settings** > **Customizations** > **Hooks**. For the Antigravity app, `<app_data_dir>` in hook payloads resolves to `~/.gemini/antigravity`.
+You can also view and toggle hooks from **Settings** > **Customizations** > **Hooks**. For the Antigravity App, `<app_data_dir>` in hook payloads resolves to `~/.gemini/antigravity`.
 
 ## Antigravity CLI
 
@@ -229,7 +229,7 @@ All hooks receive the following system metadata fields in their input payload on
 | `workspacePaths` | array of strings | Absolute directory paths representing your mounted workspaces. |
 | `transcriptPath` | string | The absolute path to the persistent `transcript.jsonl` conversation logs.  
 **Note**: This file lives in `<app_data_dir>/brain/<conversationId>/.system_generated/logs/transcript.jsonl` where `<app_data_dir>` is:
-*   `~/.gemini/antigravity` for the Antigravity app
+*   `~/.gemini/antigravity` for the Antigravity App
 *   `~/.gemini/antigravity-cli` for Antigravity CLI
 *   `~/.gemini/antigravity-ide` for Antigravity IDE
 

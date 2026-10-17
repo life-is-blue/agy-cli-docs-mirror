@@ -309,6 +309,13 @@ To submit a legal notice, regulatory inquiry, or report content under applicable
 
 Refer to the [Plans](/docs/plans) documentation for more details.
 
+## How do I upgrade to a paid Google AI plan?
+
+Some models (such as Gemini 4 Argon, Claude Opus 5.5, and Claude Sonnet 5.5) require a paid **Google AI Pro** or **Google AI Ultra** subscription and are not included in free trials. To upgrade:
+
+*   **Free or Google AI Plus users**: Subscribe to a paid **Google AI Pro** or **Google AI Ultra** plan on [Google One](https://one.google.com/ai).
+*   **Google AI Pro trial users**: [Submit an upgrade request](https://one.google.com/support) to switch to a paid **Google AI Pro** plan, or upgrade directly to a paid **Google AI Ultra** plan on [Google One](https://one.google.com/ai). For memberships through third-party partners, Pixel Pass, or Google Fi, [learn how to manage third-party subscriptions](https://support.google.com/googleone/answer/15801606).
+
 ## Why can’t I use third-party software (such as Claude Code, OpenClaw, or OpenCode) with my Antigravity login?
 
 Using third-party software, tools, or services to access Antigravity is a violation of our [Terms of Service](/terms) and severely degrades the experience for legitimate product users. Such actions can result in suspension or termination of your account. To use a third-party coding agent with Gemini, we recommend using a Gemini Enterprise or Google AI Studio API key.
@@ -319,7 +326,7 @@ Antigravity CLI headless mode (`agy -p`) is intended for direct scripting and CI
 
 ## Does Google Antigravity currently support worktrees?
 
-Yes, you can use worktrees in the Antigravity app.
+Yes, you can use worktrees in the Antigravity App.
 
 ## What happens when my computer goes to sleep?
 

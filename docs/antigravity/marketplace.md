@@ -4,13 +4,13 @@ The Marketplace lets you discover, install, and manage curated [plugins](/docs/p
 
 Note
 
-**Cross-surface synchronization**: Plugins installed in the **Antigravity app** are automatically updated and displayed in the **Antigravity CLI**’s **Installed** tab.
+**Cross-surface synchronization**: Plugins installed in the **Antigravity App** are automatically updated and displayed in the **Antigravity CLI**’s **Installed** tab.
 
-## Antigravity app
+## Antigravity App
 
 ### Browse and install plugins
 
-To browse and install Marketplace plugins in the Antigravity app, follow these steps:
+To browse and install Marketplace plugins in the Antigravity App, follow these steps:
 
 1.  In the left sidebar, click the **Customizations** tab (below **Scheduled Tasks**):
     
@@ -40,7 +40,7 @@ To inspect, toggle, or uninstall existing plugins:
 3.  To uninstall a plugin, click the plugin card and select **Uninstall**.
     
 
-Any plugins you install in the Antigravity app automatically sync and appear in the Antigravity CLI’s **Installed** tab.
+Any plugins you install in the Antigravity App automatically sync and appear in the Antigravity CLI’s **Installed** tab.
 
 ## Antigravity CLI
 

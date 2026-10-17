@@ -2,7 +2,7 @@
 
 Antigravity uses a unified fine-grained permission engine to evaluate sensitive tool operations across Deny, Ask, and Allow access lists. If you are using Antigravity with Gemini Enterprise, see [Antigravity in Gemini Enterprise](/docs/enterprise#autonomous-tool-permissions-and-human-in-the-loop-controls).
 
-## Antigravity app
+## Antigravity App
 
 Note
 
@@ -73,7 +73,7 @@ Antigravity ensures your permission rules work consistently whether you’re dev
 
 #### Implicit permission rules
 
-Antigravity applies the following implicit permission rules:
+Antigravity Applies the following implicit permission rules:
 
 *   **Write implies read**: Allowing `write_file` on a path automatically grants `read_file` on that path.
 *   **Deny read implies deny write**: Denying `read_file` on a path immediately blocks `write_file` on that path.
@@ -193,7 +193,7 @@ Antigravity ensures your permission rules work consistently whether you’re dev
 
 #### Implicit permission rules
 
-Antigravity applies the following implicit permission rules:
+Antigravity Applies the following implicit permission rules:
 
 *   **Write implies read**: Allowing `write_file` on a path automatically grants `read_file` on that path.
 *   **Deny read implies deny write**: Denying `read_file` on a path immediately blocks `write_file` on that path.

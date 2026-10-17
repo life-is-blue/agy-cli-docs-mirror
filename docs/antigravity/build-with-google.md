@@ -1,6 +1,6 @@
 # Build with Google
 
-The Antigravity app makes it seamless to build with popular Google technology stacks. We’ve partnered with teams across Google to create curated bundles of primitives, including skills, MCP servers, and editor extensions, that are pre-configured for specific ecosystems.
+The Antigravity App makes it seamless to build with popular Google technology stacks. We’ve partnered with teams across Google to create curated bundles of primitives, including skills, MCP servers, and editor extensions, that are pre-configured for specific ecosystems.
 
 Instead of searching for individual tools, you can enable these bundles to instantly empower your agents with deep knowledge of Google platforms.
 
@@ -15,7 +15,7 @@ You can enable Build with Google integrations at two points:
 
 ## Available bundles
 
-The following curated bundles are available in the Antigravity app:
+The following curated bundles are available in the Antigravity App:
 
 All bundles10languageWeb & ChromecloudCloud & Dataphone\_androidMobile & MapspsychologyAI & Science
 

@@ -4,11 +4,11 @@ Antigravity Remote Control allows you to securely connect to and drive your Anti
 
 As AI agents take on larger-scope tasks—such as full-subsystem refactorings, extensive test suite runs, and complex dependency migrations—operations can run for extended periods. Remote Control untethers you from your physical desk while preserving your entire local development environment.
 
-## Antigravity app
+## Antigravity App
 
-### Enabling Remote Control in the Antigravity app
+### Enabling Remote Control in the Antigravity App
 
-You can enable Remote Control directly from the Antigravity app settings:
+You can enable Remote Control directly from the Antigravity App settings:
 
 1.  Open the **Settings** panel by pressing `Cmd + ,` (or `Ctrl + ,` on Linux and Windows), or click **Settings** at the bottom of the left sidebar.
 2.  Navigate to the **App** section.
@@ -26,12 +26,12 @@ To access your remote Antigravity instance:
 
 ### Desktop troubleshooting
 
-#### Antigravity app desktop
+#### Antigravity App desktop
 
 If you encounter issues connecting to your desktop instance, review the following troubleshooting steps:
 
 *   **Machine does not appear in the web UI**:
-    *   Ensure that **Enable Remote Control** is toggled on in the Antigravity app settings on your host machine.
+    *   Ensure that **Enable Remote Control** is toggled on in the Antigravity App settings on your host machine.
     *   Verify that your host machine has an active internet connection and is not asleep or suspended.
     *   Check that you are signed in with the same Google Account in both the desktop app and the web browser.
 *   **Reconnection and disconnects**:
@@ -161,7 +161,7 @@ For headless daemon instances, the instance name is how the machine appears in R
 
 Note
 
-**Important:** The file has two similar-looking names in it. `cliRemoteControlHostname` is this service—the one you want. `remoteControlHostname` is the Antigravity editor on the same machine; in the Antigravity app, you can edit this directly in **Settings** > **App**.
+**Important:** The file has two similar-looking names in it. `cliRemoteControlHostname` is this service—the one you want. `remoteControlHostname` is the Antigravity editor on the same machine; in the Antigravity App, you can edit this directly in **Settings** > **App**.
 
 #### How the daemon runs
 

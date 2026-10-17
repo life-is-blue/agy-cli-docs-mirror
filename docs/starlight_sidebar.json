@@ -1,6 +1,6 @@
 [
   {
-    "label": "Antigravity app",
+    "label": "Antigravity App",
     "collapsed": true,
     "items": [
       {
@@ -20,16 +20,24 @@
         "slug": "antigravity/boost"
       },
       {
-        "label": "Build with Google",
-        "slug": "antigravity/build-with-google"
+        "label": "Browser command (/browser)",
+        "slug": "antigravity/commands/browser"
+      },
+      {
+        "label": "Goal command (/goal)",
+        "slug": "antigravity/commands/goal"
+      },
+      {
+        "label": "Learn command (/learn)",
+        "slug": "antigravity/commands/learn"
+      },
+      {
+        "label": "Schedule command (/schedule)",
+        "slug": "antigravity/commands/schedule"
       },
       {
         "label": "Feature overview",
         "slug": "antigravity/features"
-      },
-      {
-        "label": "Getting started",
-        "slug": "antigravity/getting-started"
       },
       {
         "label": "Hooks",
@@ -46,14 +54,6 @@
       {
         "label": "MCP",
         "slug": "antigravity/mcp"
-      },
-      {
-        "label": "Models",
-        "slug": "antigravity/models"
-      },
-      {
-        "label": "Antigravity app overview",
-        "slug": "antigravity/overview"
       },
       {
         "label": "Permissions",
@@ -118,6 +118,32 @@
     ]
   },
   {
+    "label": "Get Started",
+    "collapsed": true,
+    "items": [
+      {
+        "label": "Build with Google",
+        "slug": "antigravity/build-with-google"
+      },
+      {
+        "label": "Get started",
+        "slug": "antigravity/getting-started"
+      },
+      {
+        "label": "Authenticate",
+        "slug": "antigravity/install"
+      },
+      {
+        "label": "Choose a model",
+        "slug": "antigravity/models"
+      },
+      {
+        "label": "Choose your Antigravity",
+        "slug": "antigravity/overview"
+      }
+    ]
+  },
+  {
     "label": "Changelog",
     "collapsed": true,
     "items": [
@@ -136,7 +162,7 @@
         "slug": "antigravity/cli/artifacts"
       },
       {
-        "label": "Best practices",
+        "label": "CLI best practices",
         "slug": "antigravity/cli/best-practices"
       },
       {
@@ -200,7 +226,7 @@
         "slug": "antigravity/cli/conversations"
       },
       {
-        "label": "AI credits",
+        "label": "CLI AI credits",
         "slug": "antigravity/cli/credits"
       },
       {
@@ -216,23 +242,15 @@
         "slug": "antigravity/cli/headless"
       },
       {
-        "label": "Installation and auth",
-        "slug": "antigravity/cli/install"
-      },
-      {
         "label": "Choose an execution mode",
         "slug": "antigravity/cli/modes"
-      },
-      {
-        "label": "Antigravity CLI overview",
-        "slug": "antigravity/cli/overview"
       },
       {
         "label": "Prompting and interaction",
         "slug": "antigravity/cli/prompting"
       },
       {
-        "label": "CLI reference",
+        "label": "CLI commands",
         "slug": "antigravity/cli/reference"
       },
       {
@@ -244,15 +262,11 @@
         "slug": "antigravity/cli/title"
       },
       {
-        "label": "Troubleshooting",
+        "label": "CLI troubleshooting",
         "slug": "antigravity/cli/troubleshooting"
       },
       {
-        "label": "Tutorial",
-        "slug": "antigravity/cli/tutorial"
-      },
-      {
-        "label": "Using Antigravity CLI",
+        "label": "CLI settings and tips",
         "slug": "antigravity/cli/using"
       },
       {
@@ -292,10 +306,6 @@
     ]
   },
   {
-    "label": "Home",
-    "slug": "antigravity/home"
-  },
-  {
     "label": "Antigravity for IDEs",
     "collapsed": true,
     "items": [
@@ -314,10 +324,6 @@
       {
         "label": "Browser recordings",
         "slug": "antigravity/ide/browser-recordings"
-      },
-      {
-        "label": "Antigravity IDE overview",
-        "slug": "antigravity/ide/overview"
       },
       {
         "label": "Review changes",

@@ -2,7 +2,7 @@
 
 Projects organize multi-folder workspace configurations, isolated agent settings, and conversation histories across Antigravity surfaces.
 
-## Antigravity app
+## Antigravity App
 
 ### What is a project?
 

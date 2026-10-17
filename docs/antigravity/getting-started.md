@@ -6,25 +6,25 @@ Welcome to Google Antigravity! Follow the instructions in this guide to get star
 
 ## Download and install
 
-### Antigravity app
+### Antigravity App
 
 1.  Download the Google Antigravity installer for your operating system (or view all builds at [antigravity.google/download](/download)):
     
     macOSmacOS 12 (Monterey) or later (Apple Silicon or 64-bit Intel)
     
-    [Download for Apple Silicon](https://storage.googleapis.com/antigravity-public/antigravity-hub/2.23.1-6348059836284928/darwin-arm/Antigravity.dmg)[Download for Intel](https://storage.googleapis.com/antigravity-public/antigravity-hub/2.23.1-6348059836284928/darwin-x64/Antigravity.dmg)
+    [Download for Apple Silicon](https://storage.googleapis.com/antigravity-public/antigravity-hub/2.24.0-5780333019398144/darwin-arm/Antigravity.dmg)[Download for Intel](https://storage.googleapis.com/antigravity-public/antigravity-hub/2.24.0-5780333019398144/darwin-x64/Antigravity.dmg)
     
     Open the downloaded `Antigravity.dmg` disk image and drag **Antigravity** into your **Applications** folder. If you are upgrading an existing installation, select **Replace** when prompted instead of **Keep Both**.
     
     WindowsWindows 10 (64-bit) or Windows 11
     
-    [Download for x64](https://storage.googleapis.com/antigravity-public/antigravity-hub/2.23.1-6348059836284928/windows-x64/Antigravity-x64.exe)[Download for ARM64](https://storage.googleapis.com/antigravity-public/antigravity-hub/2.23.1-6348059836284928/windows-arm/Antigravity-arm64.exe)
+    [Download for x64](https://storage.googleapis.com/antigravity-public/antigravity-hub/2.24.0-5780333019398144/windows-x64/Antigravity-x64.exe)[Download for ARM64](https://storage.googleapis.com/antigravity-public/antigravity-hub/2.24.0-5780333019398144/windows-arm/Antigravity-arm64.exe)
     
     Run the downloaded `.exe` installer and follow the guided setup wizard.
     
     Linuxglibc >= 2.28, glibcxx >= 3.4.25 (Ubuntu 20+, Debian 10+, Fedora 36+, RHEL 8+)
     
-    [Download for x64](https://storage.googleapis.com/antigravity-public/antigravity-hub/2.23.1-6348059836284928/linux-x64/Antigravity.tar.gz)[Download for ARM64](https://storage.googleapis.com/antigravity-public/antigravity-hub/2.23.1-6348059836284928/linux-arm/Antigravity.tar.gz)
+    [Download for x64](https://storage.googleapis.com/antigravity-public/antigravity-hub/2.24.0-5780333019398144/linux-x64/Antigravity.tar.gz)[Download for ARM64](https://storage.googleapis.com/antigravity-public/antigravity-hub/2.24.0-5780333019398144/linux-arm/Antigravity.tar.gz)
     
     Extract the archive with `tar -xzf Antigravity.tar.gz` and launch `./Antigravity`.
     
@@ -136,7 +136,7 @@ For authentication options or enterprise configurations, consult the **[Authenti
     
     ![Open the editor from the Agent Manager in Antigravity IDE](/assets/image/docs/agent-manager-open-editor.png)
     
-    **Note:** Gemini 4 Argon and Enterprise configurations are not available in standalone Antigravity IDE. To use Gemini 4 Argon or Gemini Enterprise, install the [Antigravity app](/download#antigravity-2), [Antigravity CLI](/docs/install?tab=cli), or [IDE extensions](/docs/ide/extensions).
+    **Note:** Gemini 4 Argon and Enterprise configurations are not available in standalone Antigravity IDE. To use Gemini 4 Argon or Gemini Enterprise, install the [Antigravity App](/download#antigravity-2), [Antigravity CLI](/docs/install?tab=cli), or [IDE extensions](/docs/ide/extensions).
     
 2.  Sign in with your personal Google Account or **Gemini Enterprise** credentials (Enterprise support is available in IDE extensions—GA in VS Code and Visual Studio, and in **Preview** for JetBrains, Zed, and Xcode) when prompted in the Antigravity panel or settings.
 
@@ -179,7 +179,7 @@ For authentication options or enterprise configurations, consult the **[Authenti
 
 ## Start a project
 
-### Antigravity app
+### Antigravity App
 
 Agents operate within **Projects**, which define the repository boundaries, file scopes, and security permissions for your workspaces.
 
@@ -275,7 +275,7 @@ Navigate to any codebase directory in your terminal and start a session:
 
 ## Shortcuts and commands
 
-### Antigravity app
+### Antigravity App
 
 #### Navigation shortcuts
 
@@ -355,7 +355,7 @@ Navigate to any codebase directory in your terminal and start a session:
 
 ## Additional resources
 
-### Antigravity app
+### Antigravity App
 
 [
 

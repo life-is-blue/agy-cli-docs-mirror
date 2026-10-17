@@ -29,7 +29,7 @@ For the core reasoning model, Antigravity offers leading frontier models. Availa
 
 \*\* Available on Google AI Pro for non-trial subscriptions only. To switch from a trial to a paid Google AI Pro plan, [submit an upgrade request](https://support.google.com/googleone/contact/googleone_ai_pro_signup_issues).
 
-\*\*\* Not available in Antigravity IDE. Available in the Antigravity app, Antigravity CLI, and IDE extensions.
+\*\*\* Not available in Antigravity IDE. Available in the Antigravity App, Antigravity CLI, and IDE extensions.
 
 To learn more about reasoning model rate limits, refer to the [plans page](/docs/plans). If you are using Antigravity with Gemini Enterprise, see [Supported models in Gemini Enterprise](/docs/enterprise#supported-models-in-gemini-enterprise).
 

@@ -18,7 +18,7 @@ The `/agents` command opens the interactive **Agent Manager** panel. This interf
 
 Note
 
-**Subagent specification**: For complete details on subagent lifecycle states, inter-agent communication, and custom Markdown agent specifications (`.md`), refer to the [Antigravity app subagents documentation](/docs/subagents) and [CLI subagents guide](/docs/cli/subagents).
+**Subagent specification**: For complete details on subagent lifecycle states, inter-agent communication, and custom Markdown agent specifications (`.md`), refer to the [Antigravity App subagents documentation](/docs/subagents) and [CLI subagents guide](/docs/cli/subagents).
 
 To open the panel inside the TUI, type `/agents` and press Enter:
 

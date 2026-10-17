@@ -2,7 +2,7 @@
 
 Delegate parallel builds, multi-file code generation, and research sweeps to concurrent background subagents while maintaining your active programming flow.
 
-## Antigravity app
+## Antigravity App
 
 ### Invoking subagents
 
@@ -18,7 +18,7 @@ The parent agent calls the `invoke_subagent` tool to spawn a new concurrent sess
 Antigravity comes pre-packaged with several specialized subagents out of the box:
 
 *   **`research`**: Optimized for codebase research, file navigation, and structural exploration.
-*   **`browser`**: Operates sandboxed web browsers to perform interactive browser testing (invoked exclusively using the `/browser` slash command).
+*   **`browser`**: Operates sandboxed web browsers to perform interactive browser testing (invoked exclusively using the [`/browser` slash command](/docs/commands/browser)).
 *   **`self`**: A direct clone of the calling agent, sharing identical system instructions and toolsets.
 
 ### Custom subagents
@@ -139,7 +139,7 @@ Antigravity provides two advanced multi-agent orchestrators designed for differe
 
 Note
 
-**Plan availability**: Available on **Google One AI Premium** (Pro and Ultra tiers) and **Enterprise** plans across the Antigravity app and the Antigravity CLI.
+**Plan availability**: Available on **Google One AI Premium** (Pro and Ultra tiers) and **Enterprise** plans across the Antigravity App and the Antigravity CLI.
 
 Invoking [`/boost`](/docs/boost) launches a three-tier multi-agent reasoning hierarchy (`Orchestrator` -> `DeepCoder` / `DeepInvestigator` coordinators -> isolated execution workers). It tackles tough concurrency bugs, algorithmic challenges, and non-trivial refactoring within interactive coding sessions (seconds to hours) with independent verification loops. Learn more in the [Boost documentation](/docs/boost).
 
@@ -147,7 +147,7 @@ Invoking [`/boost`](/docs/boost) launches a three-tier multi-agent reasoning hie
 
 Note
 
-**Plan availability**: The `/teamwork-preview` command is available on **paid plans** across the Google Antigravity app and the Antigravity CLI.
+**Plan availability**: The `/teamwork-preview` command is available on **paid plans** across the Google Antigravity App and the Antigravity CLI.
 
 Using [`/teamwork-preview`](/docs/teamwork) coordinates a team of specialized AI agents designed for large software projects, multi-file refactoring, and complex research. The team handles milestone decomposition, parallel implementation, and independent verification checks, allowing you to define the high-level goals while the platform manages agent coordination. Learn more in the [Teamwork documentation](/docs/teamwork).
 

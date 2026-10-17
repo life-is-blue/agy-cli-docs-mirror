@@ -1,6 +1,6 @@
 # Slash commands overview
 
-Slash commands provide quick shortcuts for invoking specialized agent workflows, reasoning modes, interactive planning tools, and background automations. These commands operate consistently across both the **Google Antigravity app** (Desktop and Web) and the **Antigravity CLI**.
+Slash commands provide quick shortcuts for invoking specialized agent workflows, reasoning modes, interactive planning tools, and background automations. These commands operate consistently across both the **Google Antigravity App** (Desktop and Web) and the **Antigravity CLI**.
 
 Note
 
@@ -160,7 +160,7 @@ In the **Antigravity CLI**, running `/plugin` (or its alias `/plugins`) opens th
 /plugin list
 ```
 
-In the **Antigravity app**, you can also invoke `/plugin` with natural-language instructions to enable, disable, install, or scaffold custom plugins.
+In the **Antigravity App**, you can also invoke `/plugin` with natural-language instructions to enable, disable, install, or scaffold custom plugins.
 
 For complete plugin manifest and marketplace documentation, refer to the [Plugins guide](/docs/plugins) and the [Marketplace guide](/docs/marketplace).
 
@@ -235,7 +235,7 @@ Public slash commands are supported across Antigravity developer surfaces:
 
 | Surface | Input Method | Navigation and Management |
 | :-- | :-- | :-- |
-| **Antigravity app (Desktop and Web)** | Type `/` in the prompt input or select from the command menu. | Model selector dropdown, Artifact review panel, Visual diff viewer. |
+| **Antigravity App (Desktop and Web)** | Type `/` in the prompt input or select from the command menu. | Model selector dropdown, Artifact review panel, Visual diff viewer. |
 | **Antigravity CLI** | Type `/` in the interactive prompt box. | `/agents` panel, Alt+J (switch threads), Ctrl+O (trajectory). |
 
 * * *

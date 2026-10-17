@@ -1,10 +1,10 @@
 # Changelog
 
-Track new features, improvements, and bug fixes across Google Antigravity surfaces, including the Antigravity app, Antigravity CLI, the Antigravity SDK, and Antigravity IDE.
+Track new features, improvements, and bug fixes across Google Antigravity surfaces, including the Antigravity App, Antigravity CLI, the Antigravity SDK, and Antigravity IDE.
 
 New versions roll out gradually and may take a few days to reach all users.
 
-## Antigravity app
+## Antigravity App
 
 ### [v2.23.1](/releases?tab=hub&version=2.23.1 "View release 2.23.1")
 
@@ -1002,9 +1002,153 @@ Antigravity 2.0 Launch bug fixes.
 
 ## Antigravity CLI
 
-### [v1.3.1](/download#antigravity-cli "View release 1.3.1")
+### [v1.3.6](/download#antigravity-cli "View release 1.3.6")
 
 Latest
+
+October 15, 2026
+
+### Claude 5.5 models via ADC, enhanced Auto mode sandbox reviews, colorized Commit Tree in /diff, and model stall recovery
+
+Adds support for Claude Opus 5.5 and Claude Sonnet 5.5 via Application Default Credentials, enhances Auto mode sandbox egress reviews, colorizes the /diff Commit Tree view, and introduces automatic cancellation and retry for stalled model connections.
+
+**Improvements:**
+
+*   Added Claude Opus 5.5 and Claude Sonnet 5.5 for Application Default Credentials (`AGY_ADC_AUTH`) sign-in. Claude models now appear in `/model` only if your Google Cloud project can use them.
+*   Improved Auto mode's review of commands that would leave the terminal sandbox: the review is faster and no longer times out without a decision, it allows the workspace's own format, lint, and fix commands instead of asking about them, and it blocks commands that would upload sensitive data.
+*   Improved the `/diff` Commit Tree view with colors: commit hashes and change IDs are highlighted, descriptions are dimmed, the `Working Copy (Uncommitted Changes)` row stands out, and `@` is bold, so hashes, timestamps, and descriptions no longer run together.
+
+**Fixes:**
+
+*   Fixed the agent hanging indefinitely when the model connection stalled: if no data arrives for 5 minutes the request is now canceled and retried automatically, and a stalled request no longer leaves an empty response step behind.
+*   Fixed questions asked by subagents and workflow agents being lost, which left the subagent waiting forever: the alert now reads `has a question` and shows it, and `Ctrl+K` or `a` in the subagent's view opens a question picker that sends your answer to that agent. Headless `-p` runs skip these questions so the subagent can continue.
+*   Fixed agent shell commands hanging on an invisible editor when a version control command wants one, such as `git commit` without `-m` or `jj describe`: the CLI now sets `GIT_EDITOR`, `HGEDITOR`, and `JJ_EDITOR` to `false` for agent commands, so they fail right away instead.
+*   Fixed skills, rules, workflows, and Markdown agents failing to load with `mapping values are not allowed in this context` when an unquoted `description:` contains a colon, such as `description: Runs checks: formatters and linters.`
+*   Fixed Mermaid diagrams that start with YAML frontmatter, a `%%{init: ...}%%` directive, or `%%` comments, or that use Mermaid v11 syntax such as `id@{ shape: ..., label: ... }` nodes, showing as raw source instead of rendering in agent responses and the artifact viewer.
+*   Fixed the `@` file-mention dropdown staying open after a newline in a multi-line prompt, where it took over `Up`/`Down` and made `Enter` pick a file instead of inserting the newline.
+*   Fixed `/` search in the file and artifact viewer highlighting the wrong characters, or crashing, on lines with letters whose lowercase form has a different length such as `İ`; `n` and `N` now stop only on lines that show a highlight.
+*   Fixed long lines and file paths containing CJK or other multi-byte text turning into \` `characters in` /codesearch\` results; they are now cut cleanly with an ellipsis.
+*   Fixed `agy plugin validate`, the summary `agy plugin install` prints, and marketplace previews in the `/plugin` Discover tab leaving out subagents a plugin declares in its root `agents.json`.
+*   Fixed plugin names and manifests being case-sensitive where the agent was not: `/plugin` subcommands such as `/plugin List` now work in any case instead of failing with `Unknown subcommand`, and a manifest named `Plugin.json` is now found by `agy plugin install`, `agy plugin validate`, and enable and disable.
+
+---
+
+### [v1.3.5](/download#antigravity-cli "View release 1.3.5")
+
+October 14, 2026
+
+### Auto mode for autonomous command approvals, on-demand /compact conversation summarization, and syntax highlighting with folding in /diff
+
+Introduces Auto mode to approve safe file edits and commands autonomously with secondary agent verification for sandbox escapes, adds the /compact slash command for on-demand context reduction, and delivers syntax highlighting, code folding, and virtualization to the /diff file viewer.
+
+**Improvements:**
+
+*   Added Auto mode, which approves file edits and safe commands without asking and still prompts before irreversible actions; commands that would leave the terminal sandbox are first reviewed by a separate agent. Choose it with `--mode auto`, from `Agent Mode` in `/config`, or by pressing `Shift+Tab` to cycle modes. Auto mode is available on Linux and macOS, with Windows support coming later.
+*   Added the `/compact` command to compact the conversation on demand and free up the context window: `/compact` on its own summarizes the conversation and ends the turn, and `/compact` summarizes it and then answers your message. While it runs the CLI shows a `Compacting conversation...` progress label that you can cancel with `Esc`, and when it finishes it shows how many steps were summarized and how much smaller the context became.
+*   Added syntax highlighting to the `/diff` file view, with token colors for each color scheme and a background tint on added and removed lines. With the `Terminal` color scheme the CLI detects whether your terminal has a light or dark background and picks matching colors. The color scheme previews in `/config` and first-run setup now show a sample exactly as `/diff` draws it.
+*   Added folding to the `/diff` file view: each hunk header now shows how many unchanged lines are hidden above it, `Ctrl+O` expands or collapses the fold nearest the cursor, and `f` switches between showing only the changes and the whole file. Both keys work on uncommitted changes when the file on disk still matches the diff, and the footer explains when they can't be used.
+*   Improved `/diff` performance on very large files by rendering only the rows on screen, so scrolling, expanding folds, and opening the whole file no longer freeze the CLI. Expanding folds and showing the whole file are turned off for files over 100,000 lines or 10 MB, and the footer says why.
+
+**Fixes:**
+
+*   Fixed colors being reduced to 256 colors in iTerm2 over SSH, where `COLORTERM` is not forwarded; the CLI now uses full 24-bit color when `LC_TERMINAL=iTerm2` is set, unless `COLORTERM` or `NO_COLOR` says otherwise.
+
+---
+
+### [v1.3.4](/download#antigravity-cli "View release 1.3.4")
+
+October 13, 2026
+
+### JSON output for plugin listing, default thinking level selection, and browser settings synchronization for Remote Control
+
+Adds a --json flag to plugin listings, allows selecting base models without an explicit thinking effort, improves Remote Control settings synchronization between CLI and browser, and fixes retry backoffs, OAuth session persistence for remote MCP servers, and colored repository diffs.
+
+**Improvements:**
+
+*   Added a `--json` flag to `agy plugin list` for machine-readable output, and fixed the command showing only imported plugins: it now lists every installed plugin, including ones installed from a marketplace, with its version and whether it is enabled.
+*   Changed `--model` and `/model` to accept a base model name without `--effort`: instead of failing with an error asking for `--effort`, the CLI now picks the model's default thinking level (the server's default for that model, otherwise medium, otherwise the lowest available).
+*   Improved Remote Control so the browser's Settings modal opens for CLI sessions and shows the settings the CLI actually uses (project and global permissions, queued messages, AI credits, telemetry, and artifact review) instead of a notice that settings can't be changed in the browser, and `agy remote-control serve` sessions now use your saved `settings.json` and save changes made in the browser back to it.
+*   Improved the `/model` picker for Business sign-in with a Google Cloud project on pay-as-you-go: third-party models your project can't access are now hidden instead of failing when you send a message.
+
+**Fixes:**
+
+*   Fixed long stalls when model requests fail repeatedly: the agent now waits at most 30 seconds between automatic retries instead of up to 4 minutes.
+*   Fixed remote MCP servers that use OAuth signing you out after a temporary network failure, timeout, or server error; saved sign-ins are now cleared only when the server or its authorization server actually rejects them.
+*   Fixed `--agent` silently running the default agent when the name matches no agent: headless `-p` runs now exit with code 1 and list the available agents, and interactive sessions show an `Agent Not Found` warning before falling back to the default agent.
+*   Fixed combining `--print` with `--prompt-interactive` exiting with status 0 after reporting the conflict; it now exits with status 2 like other print-mode usage errors.
+*   Fixed `/diff` showing `No uncommitted changes` in Git, Mercurial, and Jujutsu repositories configured to always color output, for example with `color.ui = always`.
+*   Fixed `@conversation:` suggestions getting stuck on `Fetching matches for ...` when conversation search is slow; after 2 seconds the list now falls back to your local conversations.
+*   Fixed the `Agents:` row in `/plugin` plugin details leaving out subagents a plugin declares in its root `agents.json`; it now lists every loaded agent by name instead of by its `agents/` folder name.
+*   Fixed "Always allow" rules approved from a Remote Control browser session still applying after you removed them in the browser's rules editor or the shared tab of `/permissions`; these rules are now saved only to the shared `config.json`.
+*   Fixed requests failing with `thinking_budget and thinking_level are not supported together` when signed in with Application Default Credentials and using a model that has a thinking level.
+*   Fixed a conversation failing on every later request after the agent read a truncated or header-only WebM file; such files are now rejected when read instead of being attached.
+
+---
+
+### [v1.3.3](/download#antigravity-cli "View release 1.3.3")
+
+October 10, 2026
+
+### Pinned prompt headers, MCP always-load tools, plugin agents.json, and sandbox protection for user application data
+
+Adds pinned prompt headers during transcript scrolling, support for MCP servers to mark tools as always loaded, root-level agents.json support for plugins, and enhanced sandbox protection blocking reads to application data directories by default, alongside fixes for expired authentication and Jujutsu pager handling.
+
+**Improvements:**
+
+*   Added a pinned prompt header in no flickering mode while you scroll back through a long conversation: the prompt that produced the response you're reading stays at the top of the transcript, and clicking it jumps back to that prompt.
+*   Added support for MCP servers to mark a tool as always loaded by setting `_meta: {"antigravity/alwaysLoad": true}` on it in their `tools/list` response, so the agent gets that tool directly instead of discovering it on demand.
+*   Added support for a root-level `agents.json` in plugins, so a plugin can declare its subagents the same way it declares skills and rules with `skills.json` and `rules.json`.
+*   Changed the macOS terminal sandbox to block sandboxed commands from reading `~/Library/Application Support` by default, since desktop apps keep credentials and session tokens there; previously it was readable, and you can still allow it explicitly in your sandbox rules.
+*   Improved error messages: a request that fails with an HTML error page, for example from a corporate proxy, now shows the page title instead of the raw HTML, other long non-JSON error bodies are cut off after 500 bytes, and reaching your individual quota is reported right away instead of being retried.
+*   Improved search in the `/plugin` Installed tab: you can now type spaces in a search query, press `Enter` to finish searching, then use `Space` to toggle the selected plugin and `Enter` to expand its details; start typing again to resume the search.
+
+**Fixes:**
+
+*   Fixed an expired or revoked sign-in showing an unclear error mid-session; the agent now says `Authentication expired. Please log back in.`, and a token refresh that was already in flight no longer restores the expired credentials.
+*   Fixed `/add-dir` claiming it added a path that doesn't exist or isn't a directory; it now reports `directory not found` or `not a directory`.
+*   Fixed `/btw` side questions running your user and workspace hooks, which could make hooks such as stop hooks loop or add extra steps to a quick question.
+*   Fixed Jujutsu (`jj`) commands run by the agent, such as `jj diff` or `jj log`, hanging in an interactive pager; agent commands now set `JJ_PAGER=cat` alongside `PAGER` and `GIT_PAGER`.
+*   Fixed subagents started with a `branch` or `share` workspace in a multi-repository workspace silently working in your real checkout; each repository now gets its own isolated copy.
+*   Fixed a stopped subagent staying in the active agents list while it still had an approval pending; stopping it now clears its pending approvals right away.
+*   Fixed `--remote-control` failing when you sign in with Application Default Credentials (`AGY_ADC_AUTH`); Remote Control doesn't support ADC yet, so the flag now exits with a clear error and the `/remote-control` command is hidden.
+*   Fixed custom `alt` keybindings such as `alt+s` not working with the macOS Option key in terminals that don't treat Option as Meta, such as Terminal.app and VS Code-based terminals.
+*   Fixed `/keybindings` silently doing nothing when the configured editor can't be found; it now shows an error.
+*   Fixed `agy plugin validate` and plugin listings missing skills declared through the `skills` field in `plugin.json` or ignoring `skills.json` exclusions, so they now match the skills that actually load, and fixed a race that could drop results when importing plugins.
+*   Fixed sandboxed commands failing with `Access is denied.` on Windows when PowerShell 7 was installed from the Microsoft Store; the agent now falls back to Windows PowerShell in that case.
+*   Fixed `/diff` showing the error from `git diff HEAD` instead of the real cause, such as a corrupt index, when the fallback `git diff` also fails.
+*   Fixed file links in agent responses whose line anchor was percent-encoded, such as `file.go%23L795`; the label now shows the line number and the link opens the correct line.
+*   Fixed separate links to the same URL highlighting together when you hover over one of them in terminals that support clickable links.
+*   Fixed counts in tool steps and the `/codesearch` panel, which now read "Found 1 result", "1 match", "1 file", and "Wrote 1 line" instead of "1 results", and the file-creation step reporting one line too many.
+
+---
+
+### [v1.3.2](/download#antigravity-cli "View release 1.3.2")
+
+October 8, 2026
+
+### Interactive plugin marketplace manager, authoring capabilities, and /diff Commit Tree navigation
+
+Introduces /plugin, an interactive manager for the official Antigravity plugin marketplace, alongside expanded plugin authoring options, permission controls in /plan mode, CPU efficiency improvements during heavy shell output, and navigation fixes for the /diff Commit Tree.
+
+**Improvements:**
+
+*   Added `/plugin`, an interactive manager for the official Antigravity plugin marketplace: browse and install plugins that bundle skills, MCP servers, subagents, rules, and hooks, or install them from your shell without opening the CLI with `agy plugin install @antigravity-plugins-official`; install one straight from a folder on your computer with `+ Install from local directory...`; fill in any settings a plugin needs in a simple form before it turns on; and manage installed plugins with `/plugin install`, `uninstall`, `enable`, `disable`, and `list`.
+*   Added more options for plugin authors: keep the manifest in a `.antigravity-plugin/` or `.gemini-plugin/` folder, list skills in `plugin.json`, store data in a per-plugin folder available as `PLUGIN_DATA`, and ship command-line tools in a `bin/` folder that the agent can run by name.
+*   Improved plugin installs: the plugin list opens instantly, an interrupted install never leaves a half-installed plugin behind, and installing or removing plugins on Windows is more reliable.
+*   Improved plugin compatibility: plugins load every skill in their `skills/` folder, remote MCP servers start correctly once their settings are filled in, and a plugin's subagents can use the plugin's own MCP servers.
+*   Changed `--dangerously-skip-permissions` to stop auto-approving the agent's implementation plan in `/plan` mode: the flag now only skips tool permission prompts, so plans wait for your review again. Set `Artifact Review` in `/config` if you want plans and other artifacts to proceed automatically.
+*   Improved CPU usage while the agent runs long shell commands with a lot of output, since output that is already valid UTF-8 is no longer rescanned in full on every update.
+
+**Fixes:**
+
+*   Fixed `Tab`, `→`, and `←` in the `/diff` Commit Tree view moving the cursor to other lines instead of switching views as the `←/→ switch view` hint says, and added `Shift+Tab` to switch to the previous view in every `/diff` tab.
+*   Fixed the `/resume` conversation picker crashing when you pressed `Enter` to import a conversation from the `Other` tab on a narrow terminal, and conversation titles with CJK characters being cut off mid-character.
+*   Fixed conversations that collect many images failing on Claude models: images the agent views or you attach are now scaled down to at most 2576 pixels per side (previously 4096), keeping them within the model's limits however many images a conversation contains.
+*   Fixed a timer the agent scheduled with a wake-up condition keeping a CPU core at 100% until it expired when the condition could no longer be met; the timer now waits idly and fires on schedule.
+
+---
+
+### [v1.3.1](/download#antigravity-cli "View release 1.3.1")
 
 October 7, 2026
 
@@ -3228,9 +3372,44 @@ Introduces the initial release of the Google Antigravity extension for Visual St
 
 ## Antigravity SDK
 
-### [v0.1.21](/download#antigravity-sdk "View release 0.1.21")
+### [v0.1.22](/download#antigravity-sdk "View release 0.1.22")
 
 Latest
+
+October 12, 2026
+
+### Dynamic workflow orchestration, in-memory skill definitions, and configurable per-step output token limits
+
+Google Antigravity Python SDK v0.1.22 introduces beta support for dynamic workflow orchestration, in-memory skill definitions, and configurable per-step output token limits for extended model decodes. This release also standardizes subagent invocation naming on `BuiltinTools.INVOKE_SUBAGENT` and provides fine-grained controls over MCP tool payload limits and eager tool registration.
+
+**Improvements:**
+
+*   **Dynamic Workflow Orchestration (`beta.workflows`)**: Author and execute multi-step agent workflows with typed workflow primitives (`phase`, `log`, `agent`, `parallel`, `pipeline`), the `@beta.workflows.define` decorator, and `agent.beta.run_workflow()`.
+*   **In-Memory Skills (`InlineSkill`)**: Define and register in-memory skills directly on agent configurations using `InlineSkill`, eliminating the requirement for disk-based skill files.
+*   **Configurable Output Token Limits (`GeminiModelOptions`)**: Configure per-step output generation limits via `max_output_tokens` in `GeminiModelOptions` to support long decodes exceeding 64k tokens.
+*   **Canonical Subagent Tool Naming (`BuiltinTools.INVOKE_SUBAGENT`)**: Standardize subagent invocation around `BuiltinTools.INVOKE_SUBAGENT`, deprecating `BuiltinTools.START_SUBAGENT` while retaining automatic coercion and dictionary lookup compatibility.
+*   **Configurable MCP Output Byte Limits (`CapabilitiesConfig`)**: Configure byte thresholds for Model Context Protocol (MCP) tool responses via `mcp_max_output_bytes` on `CapabilitiesConfig` to handle large payloads without truncation.
+*   **Eager MCP Tool Loading (`force_all_tools_eager`)**: Opt out of lazy tool-search loading to force all tools from an MCP server into the model's eager tool list.
+*   **Dynamic Workflows**: Added the `google.antigravity.beta.workflows` module with orchestration primitives (`phase`, `log`, `agent`, `parallel`, `pipeline`), `@beta.workflows.define` decorator, AST script extraction, and the `agent.beta.run_workflow` entry point.
+*   **In-Memory Skills**: Exposed `InlineSkill` at the root package level and added the `inline_skills` parameter across `AgentConfig`, `LocalAgentConfig`, `LiteRTAgentConfig`, and `LocalOpenAIAgentConfig`. Passing both `skills_paths` and `inline_skills` simultaneously is validated and rejected.
+*   **Subagent Model Configuration**: Added support for assigning dedicated model configurations to individual subagents via `SubagentConfig(model=...)`, enabling multi-tier or multi-provider agent swarms.
+*   **SandboxStatus Type Export**: Added `SandboxStatus` to `google.antigravity` root exports and surfaced `is_sandboxed` across session contexts.
+*   **UsageMetadata Reflected Subtraction**: Implemented `__rsub__` on `UsageMetadata` to support reverse subtraction against numeric zero values.
+*   **Tool Lifecycle Call IDs**: Propagated `call_id` across tool hooks (`pre_tool_call`, `post_tool_call`) to correlate execution timing and telemetry traces.
+*   **Workflow Tool Default**: `BuiltinTools.RUN_WORKFLOW` is now enabled by default across standard tool suites.
+*   **Gemini Max Output Tokens**: Added `max_output_tokens` to `GeminiModelOptions`, allowing models to generate responses up to target token lengths.
+*   **Subagent Invocation Tool Name**: Replaced `BuiltinTools.START_SUBAGENT` with `BuiltinTools.INVOKE_SUBAGENT` across tool definitions and documentation.
+*   **MCP Lazy Loading Opt-Out**: Added `force_all_tools_eager` to MCP server configuration to disable lazy tool search and load all server tools immediately.
+*   **MCP Output Byte Limit**: Added `mcp_max_output_bytes` to `CapabilitiesConfig` for customizable tool response payload limits.
+
+**Fixes:**
+
+*   **Skill Lookup Steps**: Server-side skill lookups were misclassified as `StepType.AGENT_ACTION` instead of `StepType.SKILL_LOOKUP` in trajectory parsing.
+*   **ToolContext Type Detection**: Import aliases ending in `.ToolContext` (such as `import foo as ToolContext`) were incorrectly matched as tool context injections.
+
+---
+
+### [v0.1.21](/download#antigravity-sdk "View release 0.1.21")
 
 October 5, 2026
 

@@ -4,7 +4,7 @@ The `/teamwork-preview` command runs a collaborative multi-agent team designed f
 
 Note
 
-**Plan availability**: The `/teamwork-preview` command is available on **paid plans** across the Google Antigravity app and the Antigravity CLI.
+**Plan availability**: The `/teamwork-preview` command is available on **paid plans** across the Google Antigravity App and the Antigravity CLI.
 
 * * *
 
@@ -119,7 +119,7 @@ Teamwork includes built-in safeguards to ensure parallel agent work remains safe
 
 Select your surface to launch a Teamwork session:
 
-### Antigravity app
+### Antigravity App
 
 Start a new conversation and invoke `/teamwork-preview` with your goal:
 

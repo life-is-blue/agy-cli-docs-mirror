@@ -1,12 +1,12 @@
 # Choose your Antigravity
 
-Antigravity delivers native agentic assistance across purpose-built product surfaces, with dynamic reasoning controls, multi-agent orchestration, and enterprise-grade security. Evolved from the Agent Manager into a standalone desktop command center (Antigravity app) alongside native terminal, editor, and programmatic SDK interfaces, Antigravity supports both synchronous interactive pair-programming and asynchronous background agent workflows independent of a single IDE. Select any surface below to explore live interface previews, core workflows, and quickstart paths:
+Antigravity delivers native agentic assistance across purpose-built product surfaces, with dynamic reasoning controls, multi-agent orchestration, and enterprise-grade security. Evolved from the Agent Manager into a standalone desktop command center (Antigravity App) alongside native terminal, editor, and programmatic SDK interfaces, Antigravity supports both synchronous interactive pair-programming and asynchronous background agent workflows independent of a single IDE. Select any surface below to explore live interface previews, core workflows, and quickstart paths:
 
 Surfaces
 
 desktop\_windowsv2.5+
 
-Antigravity appDesktop application
+Antigravity AppDesktop application
 
 terminalagy · v1.2+
 
@@ -50,7 +50,7 @@ settingsSettings
 
 checkout-service/Discount Code Validation
 
-more\_vertOpen IDE
+more\_vert
 
 Add promo code validation and expired coupon checks to the checkout endpoint.
 
@@ -69,11 +69,11 @@ Ask anything, @ to mention, / for actions
 
 add
 
-Gemini 3.8 FlashHighexpand\_less
+Gemini 3.8 FlashMediumexpand\_less
 
 Model
 
-Gemini 4 Argon _High_checkGemini 3.8 Flash _High_checkGemini 3.1 Pro _High_checkClaude Sonnet 5.5 _Thinking_checkClaude Opus 5.5 _Thinking_check
+Gemini 4 Argon _High_checkGemini 3.8 Flash _Medium_checkClaude Sonnet 5.5 _Thinking_checkClaude Opus 5.5 _Thinking_checkGPT-OSS 120B _Medium_check
 
 micarrow\_forward
 
@@ -135,7 +135,7 @@ Order Total$96.00
 
 A standalone desktop application for launching, orchestrating, and inspecting autonomous agent teams with visual diff and plan inspection.
 
-[Get started with Antigravity apparrow\_forward](/docs/getting-started/)[Desktop features guide](/docs/features/)
+[Get started with Antigravity Apparrow\_forward](/docs/getting-started/)[Desktop features guide](/docs/features/)
 
 terminalAntigravity CLI
 
@@ -206,11 +206,11 @@ Ask anything, @ to mention, / for actions
 
 add
 
-Gemini 3.8 Flash Highexpand\_less
+Gemini 3.8 Flash Mediumexpand\_less
 
 Model
 
-Gemini 4 Argon HighcheckGemini 3.8 Flash HighcheckGemini 3.1 Pro HighcheckClaude Sonnet 5.5 (Thinking)checkClaude Opus 5.5 (Thinking)check
+Gemini 4 Argon HighcheckGemini 3.8 Flash MediumcheckClaude Sonnet 5.5 (Thinking)checkClaude Opus 5.5 (Thinking)checkGPT-OSS 120B (Medium)check
 
 arrow\_forward
 
@@ -409,7 +409,7 @@ desktop\_windows
 
 Desktop & terminal clients
 
-Full access to the native Antigravity app desktop application and the high-speed `agy` command-line interface.
+Full access to the native Antigravity App desktop application and the high-speed `agy` command-line interface.
 
 extension
 
@@ -501,7 +501,7 @@ rocket\_launchStart Here
 
 Get Started
 
-Install the Antigravity app, set up the CLI, integrate the SDK, and configure IDE extensions.
+Install the Antigravity App, set up the CLI, integrate the SDK, and configure IDE extensions.
 
 ](/docs/getting-started/)[
 
