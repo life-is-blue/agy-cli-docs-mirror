@@ -27,7 +27,7 @@ For the core reasoning model, Antigravity offers leading frontier models. Availa
 
 \* Will be removed on November 2, 2026.
 
-\*\* Available on Google AI Pro for non-trial subscriptions only. To switch from a trial to a paid Google AI Pro plan, [submit an upgrade request](https://support.google.com/googleone/contact/googleone_ai_pro_signup_issues).
+\*\* Available on Google AI Pro for non-trial subscriptions only. To switch from a trial to a paid Google AI Pro plan, [submit an upgrade request](https://one.google.com/support).
 
 \*\*\* Not available in Antigravity IDE. Available in the Antigravity App, Antigravity CLI, and IDE extensions.
 

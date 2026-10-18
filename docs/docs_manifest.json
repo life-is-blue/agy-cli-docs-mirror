@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-17T03:22:11Z",
+  "generated_at": "2026-10-18T03:27:35Z",
   "tool": "scripts/fetch_agy_docs.py",
   "strict_fetch": false,
   "is_degraded": true,
@@ -102,9 +102,9 @@
       "slug": "changelog",
       "label": "Changelog",
       "url": "https://antigravity.google/docs/changelog.md",
-      "sha256": "532a375fe6e27b1a7755212134236a3c92481b6f3ea2599726c5bafead33c9f4",
-      "bytes": 360617,
-      "fetched_at": "2026-10-17T03:22:01Z",
+      "sha256": "abd44ebd5db9d0398933c264a25d05897f2d7e95632da691352cb2c6b1bde843",
+      "bytes": 367553,
+      "fetched_at": "2026-10-18T03:27:25Z",
       "sidebar_label": "Changelog"
     },
     "antigravity/cli/artifacts.md": {
@@ -158,9 +158,9 @@
       "slug": "cli/commands/btw",
       "label": "Side question command (/btw)",
       "url": "https://antigravity.google/docs/cli/commands/btw.md",
-      "sha256": "0df8a57181f99d3033c73598b6a53dcb4cbb14183ffdb7f8573a361d093ec0ca",
+      "sha256": "cd9778b813d3347eae48e294c41c1aeea27fd6b51b43d6aa28eae70725b2ecb6",
       "bytes": 5053,
-      "fetched_at": "2026-10-16T03:31:46Z",
+      "fetched_at": "2026-10-18T03:27:25Z",
       "sidebar_label": "Side question command (/btw)"
     },
     "antigravity/cli/commands/changelog.md": {
@@ -1258,9 +1258,9 @@
       "slug": "models",
       "label": "Choose a model",
       "url": "https://antigravity.google/docs/models.md",
-      "sha256": "1226029831d3416fa2767c4a8640b68bd94d6296099a50fa143d2f8638aa11ed",
-      "bytes": 2763,
-      "fetched_at": "2026-10-17T03:22:01Z",
+      "sha256": "93b35c80529fc7f48246c73d76fb0972fb50ca8c9a532759105febd1c2c8f79d",
+      "bytes": 2718,
+      "fetched_at": "2026-10-18T03:27:25Z",
       "sidebar_label": "Choose a model"
     },
     "antigravity/overview.md": {

@@ -6,9 +6,49 @@ New versions roll out gradually and may take a few days to reach all users.
 
 ## Antigravity App
 
-### [v2.23.1](/releases?tab=hub&version=2.23.1 "View release 2.23.1")
+### [v2.24.0](/releases?tab=hub&version=2.24.0 "View release 2.24.0")
 
 Latest
+
+October 15, 2026
+
+### Redesigned side panel, /compact, and model choice for automations
+
+Launch the updated side panel from the overview button during an active conversation, use /compact command for long conversations, and you can now choose a specific model for your automations.
+
+**Improvements:**
+
+*   The side panel has a new design, with an overview panel that gathers the artifacts, changed files, links, and uploads from the current conversation in one place.
+*   You can now type /compact to summarize a long conversation so far and free up room for the agent to keep working.
+*   You can now pick Flash Lite, Flash, or Pro for an automation when you create or edit it. New automations still start on Flash.
+*   Press Cmd+Shift+M on macOS or Ctrl+Shift+M on Windows and Linux to maximize the side panel. A maximized panel now slides over the conversation instead of squeezing it.
+*   Display Options now has separate Sort Conversations and Sort Projects menus when you group by project. Projects and the Pinned section can each be sorted by Last Updated, Last Prompt, or Custom Order.
+*   A new Auto Pin option in Display Options pins a conversation whenever you send it a message. It is off by default.
+*   If you use Antigravity with your own Google Cloud project through Vertex AI, the model picker now hides third-party models your project cannot use. With Application Default Credentials sign-in, the picker also offers Claude Opus 5.5 and Claude Sonnet 5.5 when your project has access to them.
+*   When your sign-in expires during a session, Antigravity now shows an Authentication expired notice with a Log back in button.
+*   The Review permissions dialog now wraps long commands and paths, so you can read every permission in full before you turn on a plugin or automation.
+*   In the full-screen viewer, the comma and period keys now step a video back or forward one frame, and double-clicking an image zooms in on the spot under the pointer.
+*   Press Cmd+Shift+V on macOS or Ctrl+Shift+V on Windows and Linux to paste plain text into the message box.
+*   Mark All as Read is now available from the command palette whenever you have unread conversations.
+*   In split view, narrow panes now show their toolbar only when focused, so conversation titles have more room. Hover over a pane to see its toolbar.
+
+**Fixes:**
+
+*   Fixed an issue where @-mention file search in a project with more than one folder missed matches from some of the folders.
+*   Fixed an issue where the model list was empty after you signed out and signed back in.
+*   Fixed an issue where an incomplete WebM video could make every later message in the conversation fail.
+*   Fixed an issue where every sandboxed command failed with "Access is denied" on Windows when PowerShell was installed from the Microsoft Store.
+*   Fixed an issue where renamed conversations did not show up when you searched for their new name.
+*   Fixed an issue where your answers to the agent's questions briefly showed as "No answer provided" while the agent continued.
+*   Fixed an issue where links and code in the agent's question options showed as raw markdown.
+*   Fixed an issue where the Add Comment button moved out of reach when you commented on the last lines of an artifact.
+*   Fixed an issue where stray characters appeared at the terminal prompt after you reopened the terminal or reloaded the app.
+*   Fixed an issue where full-page HTML artifacts showed as a short strip at the top of the side panel.
+*   Fixed an issue where conversations briefly appeared in the Conversations section at startup before moving into their projects.
+
+---
+
+### [v2.23.1](/releases?tab=hub&version=2.23.1 "View release 2.23.1")
 
 October 13, 2026
 
@@ -1002,9 +1042,34 @@ Antigravity 2.0 Launch bug fixes.
 
 ## Antigravity CLI
 
-### [v1.3.6](/download#antigravity-cli "View release 1.3.6")
+### [v1.4.0](/download#antigravity-cli "View release 1.4.0")
 
 Latest
+
+October 16, 2026
+
+### OSC 7501 terminal status reporting, alt+m message queue toggle, and enhanced agy plugin validate diagnostics
+
+Adds terminal status reporting over OSC 7501, the alt+m shortcut to toggle between immediate and queued message delivery, and comprehensive plugin validation rules in agy plugin validate with --strict and --json flags, alongside fixes for startup eligibility checks, MCP header variable expansion, and 100-commit history in /diff.
+
+**Improvements:**
+
+*   Added terminal status reporting over OSC 7501: in terminals that support it, the tab or window shows whether the CLI is working, waiting for your input, done, or failed. The CLI checks for support first, so other terminals are unaffected. Set `AGY_CLI_OSC7501=off` to turn it off, `AGY_CLI_OSC7501=on` for a terminal that supports it but doesn't answer the check, or `AGY_CLI_OSC7501_MESSAGES=brief` to show only the status without details such as the pending command or question.
+*   Added the `alt+m` shortcut (`Option+m` on macOS when Option is set to act as Alt) to send a message using the opposite of your `Queued Messages` setting in `/config`, so you can send right away while in `Queue` mode, or queue a message while in `Send Immediately` mode.
+*   Improved `agy plugin validate` so it checks a plugin with the same rules the CLI uses to load it, instead of simplified checks that rejected valid plugins (such as a manifest without a `name`) and missed problems that kept a plugin from loading. It lists each error and warning with its file and line, accepts a plugin directory or its `plugin.json`, warns about common `plugin.json` mistakes such as unknown fields (with "did you mean" suggestions), invalid names, and components placed inside `.antigravity-plugin/` instead of the plugin root, and adds `--strict` to fail on warnings and `--json` for a machine-readable report in CI.
+
+**Fixes:**
+
+*   Fixed the CLI refusing every message with `Eligibility check failed` until you restarted it when the service was briefly unavailable or rate-limited at launch; the check now retries temporary errors and no longer locks the session.
+*   Fixed plugin MCP servers that use a variable in a request header, such as `"Authorization": "Bearer ${TOKEN}"`, sending the literal placeholder and failing to authenticate; headers now get the value you configured, like the server's command, arguments, and environment already did.
+*   Fixed the `/diff` Commit Tree view: the header now counts commits instead of lines, the cursor stops only on commit rows and `Enter` opens that commit, the view fills the terminal height, and it shows the latest 100 commits (previously 10) with scrolling.
+*   Fixed the agent losing track of its file changes, tasks, and session cost when a background command finished while the agent kept working; they no longer roll back to the point where that command started.
+*   Fixed a background command's final output sometimes missing from its task log; the output is now always recorded when the command finishes or is canceled.
+*   Fixed links to directories disappearing from agent responses; they now show the directory name, for example `pipelines/`.
+
+---
+
+### [v1.3.6](/download#antigravity-cli "View release 1.3.6")
 
 October 15, 2026
 
