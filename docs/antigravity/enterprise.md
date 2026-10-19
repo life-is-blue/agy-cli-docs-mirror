@@ -222,14 +222,35 @@ If your organization restricts outbound developer traffic using corporate firewa
 
 | Service and protocol | Allowed hostnames (TCP port 443) |
 | :-- | :-- |
-| **AI Developer Tools Orchestration** (Standard HTTPS) | `businessaicode.googleapis.com` |
+| **AI Developer Tools Orchestration — Global, US, EU** (Standard HTTPS) | `businessaicode.googleapis.com`  
+`businessaicode.us.rep.googleapis.com`  
+`businessaicode.eu.rep.googleapis.com` |
 | **AI Developer Tools Orchestration** (Mutual TLS) | `businessaicode.mtls.googleapis.com` |
+| **Vertex AI / Gemini Enterprise API — Global, US, EU** (Standard HTTPS) | `aiplatform.googleapis.com`  
+`aiplatform.us.rep.googleapis.com`  
+`aiplatform.eu.rep.googleapis.com` |
+| **Vertex AI / Gemini Enterprise API** (Mutual TLS) | `aiplatform.mtls.googleapis.com` |
 | **Discovery Engine — Global, US, EU** (Standard HTTPS) | `discoveryengine.googleapis.com`  
 `us-discoveryengine.googleapis.com`  
 `eu-discoveryengine.googleapis.com` |
 | **Discovery Engine — Global, US, EU** (Mutual TLS) | `discoveryengine.mtls.googleapis.com`  
 `us-discoveryengine.mtls.googleapis.com`  
 `eu-discoveryengine.mtls.googleapis.com` |
+| **Cloud Code Telemetry & Client Services** (Standard HTTPS) | `cloudcode-pa.googleapis.com` |
+
+Note
+
+**Global endpoints required across all regions**: Even when using the `us` or `eu` multi-region location, the client connects to the global endpoints (`businessaicode.googleapis.com` and `cloudcode-pa.googleapis.com`) during sign-in to discover assigned licenses and load the model catalog before routing inference traffic to `*.<location>.rep.googleapis.com`. Ensure both global endpoints remain reachable for all regions.
+
+### Private Service Connect (PSC) for regional endpoints
+
+When you select the `us` or `eu` location, Antigravity connects to multi-regional endpoints (`*.<location>.rep.googleapis.com`), such as `businessaicode.us.rep.googleapis.com` and `aiplatform.us.rep.googleapis.com`.
+
+Global Private Google Access VIPs (`private.googleapis.com` and `restricted.googleapis.com`) and global Private Service Connect (PSC) endpoints serve a single-level wildcard TLS certificate for `*.googleapis.com` that does not match multi-level `*.<location>.rep.googleapis.com` subdomains. If your network routes Google APIs privately through PSC, Private Google Access, or VPC Service Controls in the `us` or `eu` locations, complete the following steps:
+
+1.  **Create a PSC regional endpoint**: Configure a [Private Service Connect regional endpoint](https://docs.cloud.google.com/vpc/docs/access-regional-google-apis-endpoints) in your VPC for each multi-regional API you use in your selected region (`businessaicode.<location>.rep.googleapis.com`, and `aiplatform.<location>.rep.googleapis.com` when using pay-as-you-go billing or Application Default Credentials).
+2.  **Configure a private Cloud DNS zone**: Create a private Cloud DNS zone for each regional hostname (for example, `businessaicode.us.rep.googleapis.com.`) with an `A` record pointing to the reserved internal regional PSC IP address.
+3.  **Keep global endpoints routed through your global endpoint**: Route `businessaicode.googleapis.com` and `cloudcode-pa.googleapis.com` through your [global PSC endpoint](https://docs.cloud.google.com/vpc/docs/configure-private-service-connect-apis) or Private Google Access configuration so initial license discovery and model catalog requests succeed.
 
 ## Security and governance
 
@@ -239,7 +260,7 @@ Audit model interactions and maintain enterprise compliance records for your Gem
 
 VPC Service Controls (VPC-SC)
 
-Enforce private networking security perimeters by adding the Gemini Enterprise API (`aiplatform.googleapis.com`) to your VPC-SC perimeter. [Learn more](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/vpc-service-controls)
+Enforce private networking security perimeters by adding the Business AI Code API (`businessaicode.googleapis.com`) and Gemini Enterprise API (`aiplatform.googleapis.com`) to your VPC-SC perimeter. [Learn more](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/vpc-service-controls)
 
 ## Troubleshooting and diagnostics
 
@@ -249,6 +270,7 @@ Review the following solutions for common sign-in and license issues:
 
 *   **No licenses appear during setup**: Licenses are assigned by your organization’s Google Cloud administrator. If the License Selector is empty, contact your administrator to ensure your account has been granted access to a Gemini Enterprise Standard or Plus license.
 *   **Missing BYOID sign-in option**: Ensure you are running the latest release of the **[Antigravity App](/download)**, the **[Antigravity CLI](/docs/cli/install)**, or your **[IDE extension](/docs/ide/extensions)**, as enterprise authentication and BYOID support are included natively in all recent releases.
+*   **TLS certificate or connection errors in `us` or `eu` regions**: Global Private Google Access VIPs (`private.googleapis.com` and `restricted.googleapis.com`) serve a single-level `*.googleapis.com` wildcard certificate that does not match `*.<location>.rep.googleapis.com` subdomains. If connecting to `us` or `eu` fails with an `x509` certificate mismatch or connection error, ensure `businessaicode.googleapis.com` and the regional `*.rep.googleapis.com` domains are allowlisted, and that the regional domains are routed through a Private Service Connect regional endpoint (with `businessaicode.googleapis.com` routed through your global endpoint). See [Private Service Connect (PSC) for regional endpoints](#private-service-connect-psc-for-regional-endpoints).
 
 ### Important API provisioning advisory
 
