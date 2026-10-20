@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-19T03:39:06Z",
+  "generated_at": "2026-10-20T03:49:39Z",
   "tool": "scripts/fetch_agy_docs.py",
   "strict_fetch": false,
   "is_degraded": true,
@@ -796,9 +796,9 @@
       "slug": "getting-started",
       "label": "Get started",
       "url": "https://antigravity.google/docs/getting-started.md",
-      "sha256": "32b8fee34cc939af9ffb97629b678997806d9d5552c98e2ab180881c594fe04b",
-      "bytes": 18136,
-      "fetched_at": "2026-10-17T03:22:01Z",
+      "sha256": "a3c36545b3372e2c09de5b9b64541f2dd575d9ba199802c5c9336ce5269f7147",
+      "bytes": 18083,
+      "fetched_at": "2026-10-20T03:49:34Z",
       "sidebar_label": "Get started"
     },
     "antigravity/home.md": {

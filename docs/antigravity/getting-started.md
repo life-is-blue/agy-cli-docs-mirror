@@ -120,6 +120,10 @@ For authentication options or enterprise configurations, consult the **[Authenti
     
     **Antigravity IDE:**
     
+    Note
+    
+    **Note**: Gemini 4 Argon is not available in Antigravity IDE. To use Gemini 4 Argon, install the [Antigravity App](/download#antigravity-2), [Antigravity CLI](/docs/cli/install), or [IDE extensions](/docs/ide/extensions).
+    
     [Download Antigravity IDE](/download#antigravity-ide)
     
     **Requirements:** macOS 12 (Monterey)+, Windows 10 (64-bit)+, or Linux / Googlebook (glibc >= 2.28, glibcxx >= 3.4.25).
@@ -135,8 +139,6 @@ For authentication options or enterprise configurations, consult the **[Authenti
     From the Agent Manager, open the editor from any workspace using **Focus Editor** in the workspace dropdown menu, the **Open Editor** buttons, or Cmd+E (Ctrl+E on Windows/Linux):
     
     ![Open the editor from the Agent Manager in Antigravity IDE](/assets/image/docs/agent-manager-open-editor.png)
-    
-    **Note:** Gemini 4 Argon and Enterprise configurations are not available in standalone Antigravity IDE. To use Gemini 4 Argon or Gemini Enterprise, install the [Antigravity App](/download#antigravity-2), [Antigravity CLI](/docs/install?tab=cli), or [IDE extensions](/docs/ide/extensions).
     
 2.  Sign in with your personal Google Account or **Gemini Enterprise** credentials (Enterprise support is available in IDE extensions—GA in VS Code and Visual Studio, and in **Preview** for JetBrains, Zed, and Xcode) when prompted in the Antigravity panel or settings.
 
