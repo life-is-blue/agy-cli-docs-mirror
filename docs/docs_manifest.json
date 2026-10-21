@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-20T03:49:39Z",
+  "generated_at": "2026-10-21T03:40:35Z",
   "tool": "scripts/fetch_agy_docs.py",
   "strict_fetch": false,
   "is_degraded": true,
@@ -740,9 +740,9 @@
       "slug": "enterprise",
       "label": "Enterprise",
       "url": "https://antigravity.google/docs/enterprise.md",
-      "sha256": "7d0a65929154f71e236775168f28317e9d81102338d0969d137efe566000ceac",
-      "bytes": 21172,
-      "fetched_at": "2026-10-19T03:38:57Z",
+      "sha256": "4f1c3bafe8d8e2ed842ab5a02a3aef00fdb7a2672653da649803d7b6e9ac5b41",
+      "bytes": 22568,
+      "fetched_at": "2026-10-21T03:40:28Z",
       "sidebar_label": "Enterprise"
     },
     "antigravity/faq.md": {
@@ -1258,9 +1258,9 @@
       "slug": "models",
       "label": "Choose a model",
       "url": "https://antigravity.google/docs/models.md",
-      "sha256": "93b35c80529fc7f48246c73d76fb0972fb50ca8c9a532759105febd1c2c8f79d",
+      "sha256": "e99908d9be1aeff50e5ad9fa37ce01633e147adad8b56fbbb83632de5f8bcf3a",
       "bytes": 2718,
-      "fetched_at": "2026-10-18T03:27:25Z",
+      "fetched_at": "2026-10-21T03:40:28Z",
       "sidebar_label": "Choose a model"
     },
     "antigravity/overview.md": {

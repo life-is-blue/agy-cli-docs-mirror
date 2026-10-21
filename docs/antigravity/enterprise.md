@@ -170,9 +170,13 @@ Autonomous tool execution in Antigravity supports **human-in-the-loop** confirma
 
 ### Gemini Enterprise subscription setup
 
-To set up Gemini Enterprise subscriptions, follow the official Google Cloud onboarding guide.
+To set up Gemini Enterprise subscriptions, assign user licenses, and configure IAM permissions (`roles/discoveryengine.agentspaceAdmin` for administrators and `roles/discoveryengine.agentspaceUser` for anyone using Antigravity, including administrators), follow the official [Google Cloud administrator setup guide](https://docs.cloud.google.com/gemini/enterprise/docs/before-you-begin). For an overview of supported developer capabilities, see the [AI developer tools overview](https://docs.cloud.google.com/gemini/enterprise/docs/ai-developer-tools-overview).
 
-[Gemini Enterprise Documentation](https://docs.cloud.google.com/gemini/enterprise/docs/ai-developer-tools-overview)
+Enable AI developer tools for your region
+
+In Gemini Enterprise, **AI developer tools may be disabled by default** (such as on existing subscriptions or additional regions) and must be enabled for the specific region (`global`, `us`, or `eu`) where your subscription is provisioned. An administrator must go to **Gemini Enterprise > Settings > AI developer tools** in the Google Cloud Console, select the target region, and turn on the **AI developer tools** toggle (which also enables the required `discoveryengine.googleapis.com` and `businessaicode.googleapis.com` APIs). For step-by-step instructions, see [Turn on AI developer tools](https://docs.cloud.google.com/gemini/enterprise/docs/ai-developer-tools-settings#enable-ai-developer-tools).
+
+[Gemini Enterprise Setup Guide](https://docs.cloud.google.com/gemini/enterprise/docs/before-you-begin)
 
 ### Google Cloud project and API setup
 
@@ -268,7 +272,7 @@ Enforce private networking security perimeters by adding the Business AI Code AP
 
 Review the following solutions for common sign-in and license issues:
 
-*   **No licenses appear during setup**: Licenses are assigned by your organization’s Google Cloud administrator. If the License Selector is empty, contact your administrator to ensure your account has been granted access to a Gemini Enterprise Standard or Plus license.
+*   **No licenses appear during setup**: Licenses are assigned by your organization’s Google Cloud administrator. If the License Selector is empty, contact your administrator to ensure your account has been granted access to a Gemini Enterprise Standard or Plus license and that [AI developer tools are enabled](https://docs.cloud.google.com/gemini/enterprise/docs/ai-developer-tools-settings#enable-ai-developer-tools) for your region (`global`, `us`, or `eu`).
 *   **Missing BYOID sign-in option**: Ensure you are running the latest release of the **[Antigravity App](/download)**, the **[Antigravity CLI](/docs/cli/install)**, or your **[IDE extension](/docs/ide/extensions)**, as enterprise authentication and BYOID support are included natively in all recent releases.
 *   **TLS certificate or connection errors in `us` or `eu` regions**: Global Private Google Access VIPs (`private.googleapis.com` and `restricted.googleapis.com`) serve a single-level `*.googleapis.com` wildcard certificate that does not match `*.<location>.rep.googleapis.com` subdomains. If connecting to `us` or `eu` fails with an `x509` certificate mismatch or connection error, ensure `businessaicode.googleapis.com` and the regional `*.rep.googleapis.com` domains are allowlisted, and that the regional domains are routed through a Private Service Connect regional endpoint (with `businessaicode.googleapis.com` routed through your global endpoint). See [Private Service Connect (PSC) for regional endpoints](#private-service-connect-psc-for-regional-endpoints).
 
