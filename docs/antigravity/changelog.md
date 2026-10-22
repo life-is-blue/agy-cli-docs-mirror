@@ -6,9 +6,36 @@ New versions roll out gradually and may take a few days to reach all users.
 
 ## Antigravity App
 
-### [v2.24.0](/releases?tab=hub&version=2.24.0 "View release 2.24.0")
+### [v2.25.0](/releases?tab=hub&version=2.25.0 "View release 2.25.0")
 
 Latest
+
+October 20, 2026
+
+### Plugin sidebar badges, window shortcuts, and reliability fixes
+
+This release shows plugin badges on managed projects in the sidebar, hides empty plugin projects, and improves window shortcuts. It includes 3 improvements and 8 fixes.
+
+**Improvements:**
+
+*   Project folders managed by UI plugins now display a dedicated plugin badge in the sidebar.
+*   Empty sidecar-managed projects are now automatically hidden from the sidebar to reduce clutter.
+*   Onboarding now displays the Google Cloud project auto-assignment panel directly when no pre-assigned licenses are found.
+
+**Fixes:**
+
+*   Fixed an issue where single-line unquoted description fields containing colons caused YAML frontmatter parsing errors in skills and rules.
+*   Fixed an issue where closing the last window on macOS could cause the application dock presence to disappear.
+*   Fixed an issue where pressing Cmd+W with no open tabs or panels did not pass the shortcut through to close the window.
+*   Fixed an issue where a corrupted summaries database caused conversation search to fail instead of recovering automatically.
+*   Fixed an issue where selecting files in the composer did not reset the file input, preventing re-selection of the same file.
+*   Fixed an issue where the Settings dialog scrollbar could render beneath modal content.
+*   Fixed an issue where caret placement and line navigation with Home, End, or arrow keys behaved erratically around prompt chips.
+*   Fixed an issue where the copy button on terminal and command steps was missing an accessible label for screen readers.
+
+---
+
+### [v2.24.0](/releases?tab=hub&version=2.24.0 "View release 2.24.0")
 
 October 15, 2026
 
@@ -1042,9 +1069,116 @@ Antigravity 2.0 Launch bug fixes.
 
 ## Antigravity CLI
 
-### [v1.4.0](/download#antigravity-cli "View release 1.4.0")
+### [v1.4.4](/download#antigravity-cli "View release 1.4.4")
 
 Latest
+
+October 21, 2026
+
+### Windows 11 Auto mode, /diff whole-file toggle and hunk folding, and streaming performance optimizations
+
+Adds Auto mode on Windows 11 24H2+, whole-file toggle and hunk folding in /diff with combined per-turn file diffs, root conversation ID metadata on MCP tool calls, and streaming CPU/memory optimizations, alongside fixes for subagent plugin inheritance, Remote Control tablet layouts, and prompt undo behavior.
+
+**Improvements:**
+
+*   Added Auto mode on Windows 11 version 24H2 and later for personal Google Accounts, selectable via `--mode auto`, `Agent Mode` in `/config`, `Shift+Tab`, or Remote Control Settings (`Agent` remains the default).
+*   Added whole-file toggle (`f`) and hunk folding (`Ctrl+O`) to `Commit Tree` and `Per Turn` views in `/diff`, and consolidated `Per Turn` diffs so multiple edits to a file in one turn appear as a single combined diff.
+*   Added `_meta["antigravity.google/root_conversation_id"]` to MCP `tools/call` requests so MCP servers receive the top-level conversation ID even when a tool is called from a nested subagent.
+*   Improved Auto mode's review of commands that leave the terminal sandbox to include the assistant's preceding question on short replies like `yes`, check every subcommand in pipelines, and prompt before destructive Git or file commands.
+*   Improved `agy plugin validate` with stricter checks across `plugin.json`, MCP server configs, `hooks.json`, and sidecar manifests for invalid JSON syntax, unknown fields, bad variable placeholders, unrecognized hook tool matchers, and missing hook scripts.
+*   Improved CPU and memory usage while streaming responses by caching streamed code-block syntax tokens, rendered Markdown blocks, and inline file-edit confirmation diffs across frames.
+*   Improved `/compact` and automatic compaction to retain tool declarations on summarization requests so the model API reuses its cached prompt prefix.
+*   Improved Remote Control on tablets and foldables to use the multi-pane layout with touch-sized controls instead of collapsing to the phone view, and kept popovers open while dragging scrollbars.
+
+**Fixes:**
+
+*   Fixed subagents losing plugins inherited from the parent session, and fixed plugin-bundled subagents with `plugins.inherit_user: false` and restricted MCP tools failing to start with `mcp spec not found for provider`.
+*   Fixed rules and `SKILL.md` skills loading twice when discovered from both a standalone customization folder and an enabled plugin.
+*   Fixed long rows wrapping instead of truncating at the terminal width in `/diff`'s `Commit Tree` and `Per Turn` lists, and `Per Turn` headers truncating prompts at 50 characters.
+*   Fixed the prompt box staying mid-screen after closing panels, dropdowns, or inline prompts, and blank gaps appearing above the prompt in `Medium` verbosity mode.
+*   Fixed `Ctrl+Z` undo in the prompt mishandling pasted text, merging typing with recalled history entries, recording no-op `Backspace` or `Delete` steps, and truncating characters near emoji.
+*   Fixed MCP client sessions and background connection routines leaking when `tools/list` failed during server startup or when the CLI shut down while a server was connecting.
+*   Fixed the system prompt's user rules wording so `GEMINI.md` and `AGENTS.md` rules explicitly override earlier built-in instructions instead of only instructions that follow them.
+*   Fixed supported media attachments with parameterized MIME types such as `audio/webm; codecs=opus` being rejected as unsupported.
+*   Fixed several UI issues in Remote Control, including clipped headers and dialogs on phones, iOS Safari zoom on input focus, `Enable Telemetry` and `Marketing Emails` reverting while Settings loads, and dragged URLs losing query or `#` parameters.
+*   Fixed rendering and export bugs in Remote Control, including broken nested code blocks, `$VAR` shell variables parsed as LaTeX, broken media previews, blurry or blank diagrams in `Copy Image` and `Export as PDF`, and background-tab timer drift.
+
+---
+
+### [v1.4.3](/download#antigravity-cli "View release 1.4.3")
+
+October 20, 2026
+
+### Interactive /diff search, hook and sidecar plugin validation, and CJK/emoji cursor handling fixes
+
+Adds live / search across the /diff file list and file view, expands agy plugin validate to inspect hooks, sidecars, and component manifests, formats task timer durations in human-readable units, and resolves multiple subagent, Windows plugin update, and CJK/emoji cursor positioning issues.
+
+**Improvements:**
+
+*   Added `/` search to the `/diff` file list and file view: matches are highlighted as you type, the search prompt shows how many matches the diff and each file contain, `Enter` jumps to the first match, and `n`/`N` step through matches one at a time across every file, with `match A/B` in the file view header. `n`/`N` in the artifact viewer now also step through matches one at a time, including several on the same line, instead of jumping from line to line.
+*   Improved `agy plugin validate` to also check a plugin's hooks, sidecars, and component lists: it reports an error when `hooks.json`, a `sidecar.json`, or a `skills.json`, `rules.json`, `agents.json`, or `sidecars.json` file can't be parsed, and warns about unknown hook events, hook matchers that aren't valid regular expressions and so never match, a `hooks/hooks.json` file (which isn't read), list entries with no path or with a path missing from the plugin, `commands/` folders and `workflows/` Markdown files (which plugins don't load), and a Claude Code-style top-level `"hooks"` key, which loads as a single hook named `hooks`.
+*   Improved timer labels in `/tasks` and the active task list to show durations in days, hours, minutes, and seconds, such as `1d 2h timer` or `5m timer`, instead of raw seconds such as `93784s timer`.
+
+**Fixes:**
+
+*   Fixed Gemini 4 Argon not shown in `/model` and `--model` when you connect with a `GEMINI_API_KEY`.
+*   Fixed the CLI offering options that need the terminal sandbox on systems where it can't run, such as Linux systems that block unprivileged user namespaces and Windows before Windows 11 24H2.
+*   Fixed subagents and custom agents in Auto mode asking you to approve every command that would leave the terminal sandbox; like the main agent's, their commands are now first reviewed by a separate agent, so safe commands run without asking and risky ones still prompt you.
+*   Fixed the agent losing track of its most recently started subagents after a conversation was compacted, because the summary included each subagent's full initial prompt and was cut off before their conversation IDs; the summary now keeps only each subagent's type, role, and result, which also leaves more room in the context window.
+*   Fixed a `PostToolUse` hook that fails to run, for example because its command is missing, exits with an error, times out, or prints invalid JSON, marking the tool call it follows as failed even though the tool succeeded; the failure is now logged and the tool keeps its result.
+*   Fixed the agent failing to create empty files such as `__init__.py` or `.gitkeep`, and failing to write or edit regular project files with `... is not a valid artifact path` when the model sent blank artifact details.
+*   Fixed updating or reinstalling a marketplace plugin on Windows leaving it half-deleted when another `agy` session, the Antigravity desktop app, or the Remote Control background service had it open; the installed plugin now stays intact until the new copy is in place, and the previous version is restored if the replacement fails.
+*   Fixed `agy plugin install` and `agy plugin import` writing color codes into piped or redirected output, ignoring `NO_COLOR`, and showing raw codes in older Windows consoles; like `agy plugin validate`, they now use color only in a terminal and follow `NO_COLOR`, `CLICOLOR`, and `CLICOLOR_FORCE`.
+*   Fixed Remote Control on iPhone and iPad asking you to accept the `Security Notice & Data Use` terms and showing the `Enable Notifications` prompt again every time you reopened it; it now remembers your answers, along with your theme, layout, and dismissed tips.
+*   Fixed the prompt cursor appearing in the wrong place after resizing the terminal (sometimes on the `↑ N more lines` indicator or below the input box), when a slash command's completion hint didn't fit on the last line of the prompt (the hint is now shortened or left out), when the prompt was taller than the terminal, after pressing `Up` or `Down` onto a line with CJK characters or emoji, and after entering Vim visual mode, which also rewrapped the text.
+*   Fixed the cursor drifting on lines with emoji such as 👩‍💻, 👍🏽, or ⚠️ inside tmux 3.6 and later, and after returning from your external editor (`Ctrl+G`) or a `Ctrl+Z` suspend in terminals that support grapheme-cluster widths.
+*   Fixed the cursor drifting and lines wrapping too early under Japanese, Chinese, or Korean locales such as `LANG=ja_JP.UTF-8` when text contains characters like `→`, `…`, `─`, or `•`, which parts of the CLI counted as two columns wide while the rest drew them as one.
+*   Fixed `Left`, `Right`, `Backspace`, and `Delete` in the prompt and other text boxes moving over or deleting only part of an emoji such as 👩‍💻 or 👍🏽, a flag, or a letter with a combining accent, and fixed text boxes cutting off a wide character, such as a CJK character or emoji, at the end of a wrapped line instead of moving it to the next line.
+*   Fixed lines containing combining marks or other zero-width characters wrapping too early or leaving blank rows in `/diff` and the inline diff preview, and being cut off with `…` too soon in `/artifact` previews.
+
+---
+
+### [v1.4.2](/download#antigravity-cli "View release 1.4.2")
+
+October 18, 2026
+
+### Remote Control daemon mode conversation history fix
+
+Fixes an issue where conversation history did not appear in Remote Control when running in daemon mode.
+
+**Fixes:**
+
+*   Fixed conversation history not showing in Remote Control in daemon mode.
+
+---
+
+### [v1.4.1](/download#antigravity-cli "View release 1.4.1")
+
+October 17, 2026
+
+### Plugin validation for skills, subagents, and rules, syntax-highlighted inline diff previews, and prompt rendering optimizations
+
+Expands agy plugin validate to check skills, subagents, and rules, adds syntax highlighting and background tints to inline diff previews, reduces CPU usage during prompt rendering, and fixes Business account telemetry settings, Windows sandbox fallback, and network socket retry handling.
+
+**Improvements:**
+
+*   Improved `agy plugin validate` to also check a plugin's skills, subagents, and rules: for skills, it errors on a `SKILL.md` with missing or invalid frontmatter and warns when `name` or `description` is missing, when `name` doesn't match its folder, when the body is over the 24 KB limit, or when a skill in `skills/` is skipped because an earlier skill has the same name; for subagents, it errors on an `agents/` Markdown file with invalid frontmatter or a missing `name` or `description`, an unparseable `agent.json`, or a name reserved for a built-in agent, and warns on duplicate agent names, Markdown files in `agents/` without frontmatter, and `agent.json` files, which the CLI ignores; and for rules, it errors on a rule with invalid frontmatter or without a valid `trigger` (skipping a `README.md` in `rules/` without frontmatter), and warns on a `model_decision` rule without a `description`, a `glob` rule without `globs`, content cut to fit the 24 KB limit, or an `AGENTS.md` or `GEMINI.md` at the plugin root instead of in `rules/`.
+*   Improved the inline diff preview when the agent asks to edit or create a file so it renders like the `/diff` file view, with syntax highlighting for your color scheme, background tints on added and removed lines (picked from your terminal's light or dark background when using the `Terminal` color scheme), and an untinted line-number gutter.
+*   Improved CPU usage while typing and while the agent is working by rendering the prompt area once per frame, reusing measured line widths for unchanged rows across frames, and rendering the animated status line in styled runs instead of one character at a time.
+
+**Fixes:**
+
+*   Fixed `Enable Telemetry` in `/config` remaining editable for Business accounts (such as Google Cloud project and Application Default Credentials sign-in via `AGY_ADC_AUTH`), where prompts, content, and model responses are never collected: the row now shows `off (disabled)` and explains why, and first-run setup with `AGY_ADC_AUTH` now shows the Google Cloud Platform Terms of Service without the consumer telemetry opt-in checkbox.
+*   Fixed agent commands failing to start on Windows versions that don't support the terminal sandbox (Windows 10 and Windows 11 before version 24H2) when a sandboxed permission mode was selected: the CLI now turns off the terminal sandbox and falls back to asking before running commands, and the Remote Control browser Settings modal hides sandboxed permission options on those systems.
+*   Fixed socket disconnect errors such as `broken pipe`, `software caused connection abort`, `network is down`, and `http2: client connection lost` (for example after laptop sleep or a Wi-Fi change) stopping the turn with `Agent execution terminated due to error.` instead of retrying automatically and reporting a network error if retries fail.
+*   Fixed an MCP server continuing to show as `Ready` in `/mcp` after its process exited unexpectedly, which left later tool calls failing with `client is closing: EOF`; the server is now marked as `Error` and its closed session is removed.
+*   Fixed large structured tool outputs (such as JSON results from MCP tools) bypassing the per-step token limit while still being counted as truncated, which could push long conversations past the model's context window before automatic compaction ran.
+*   Fixed clickable links in agent responses whose URL contains `;` opening a URL cut off at the first `;` in terminals and multiplexers that split link sequences on semicolons.
+*   Fixed `/title` and `/remote-control` rejecting `on` and `off` when typed with uppercase letters, such as `/title ON` or `/remote-control Off`.
+
+---
+
+### [v1.4.0](/download#antigravity-cli "View release 1.4.0")
 
 October 16, 2026
 
@@ -2981,9 +3115,34 @@ VS CodeVisual Studio
 
 [Extension docs→](/docs/ide/extensions/vscode)
 
-### [v1.8.0](/docs/ide/extensions/vscode "View Visual Studio Code extension docs")
+### [v1.9.0](/docs/ide/extensions/vscode "View Visual Studio Code extension docs")
 
 Latest
+
+October 19, 2026
+
+### Inline diff hunk keyboard shortcuts, unified telemetry settings, Cloud Workstations ambient authentication, and server auto-recovery
+
+Introduces keyboard shortcuts for accepting or rejecting focused inline diff hunks, unifies telemetry controls in Account settings, adds seamless ambient authentication in Google Cloud Workstations and Google Cloud Shell, and enables opt-in automatic language server crash recovery and liveness probing alongside inline diff and chat reconnection fixes.
+
+**Improvements:**
+
+*   Added keyboard shortcuts (`Alt+Enter` on Windows and Linux or `Option+Enter` on macOS to accept, and `Alt+Shift+Enter` or `Option+Shift+Enter` to reject) for the focused inline diff change (`antigravity.inlineDiff.acceptFocusedHunk` and `antigravity.inlineDiff.rejectFocusedHunk`), with automatic fallback to accepting or rejecting all changes in the active side-by-side diff tab.
+*   Updated the **Enable Telemetry** toggle in **Settings > Account** to serve as the unified control for both conversation trajectory uploads and extension usage metrics, added the **Antigravity: Manage Data Sharing & Telemetry** (`antigravity.openTelemetrySettings`) command, and deprecated the legacy `antigravity.enableTelemetry` VS Code setting with a one-time **Open Account settings** migration notice.
+*   Added seamless ambient authentication in Google Cloud Workstations and Google Cloud Shell via the Cloud Developer Environments companion extension (`google.cloud-developer-environments-auth`), enabling zero-click language server startup and direct webview routing to license and project selection while falling back to interactive terminal login when ambient credentials are unavailable.
+*   Added opt-in automatic language server crash recovery (`antigravity.autoRecover`, up to 3 restarts within 10 minutes with jittered backoff and cached binary reuse) and periodic `/healthz` liveness heartbeat probing (`antigravity.heartbeatIntervalMs`, defaulting to 15 seconds with OS sleep and suspend drift detection) to automatically detect and restart hung or crashed background server processes.
+
+**Fixes:**
+
+*   Fixed `Cmd+L` / `Ctrl+L` closing the Antigravity chat panel when pressed inside the integrated terminal by restricting the toggle-close keybinding (`antigravity.toggleChatFocus`) to when neither the editor nor the terminal has focus (`!editorTextFocus && !terminalFocus`).
+*   Fixed switching conversations, starting a new conversation, or reloading the chat webview unexpectedly auto-accepting open inline diff reviews, preserving pending diff decisions so they are restored when returning to the conversation.
+*   Fixed follow-up or revert agent edits that result in zero diff hunks leaving editor tabs marked dirty or keeping stale file entries in the **Changes Overview** bar during inline diff reviews.
+*   Fixed reconnecting after a connection interruption clearing the active conversation and opening a blank chat prompt instead of resuming the current conversation unless **Start New Chat** is explicitly selected.
+*   Fixed duplicated titles, repeated ellipses during language server installation progress, and ambiguous headings in VS Code notification toasts.
+
+---
+
+### [v1.8.0](/docs/ide/extensions/vscode "View Visual Studio Code extension docs")
 
 October 12, 2026
 
@@ -3252,9 +3411,23 @@ Introduces the 1.0.0 release of Antigravity for VS Code, bringing an agentic AI 
 
 ---
 
-### [v1.0.261012.0](/docs/ide/extensions/visual-studio "View Visual Studio extension docs")
+### [v1.0.261016.0](/docs/ide/extensions/visual-studio "View Visual Studio extension docs")
 
 Latest
+
+October 16, 2026
+
+### Fixes an issue where the Antigravity chat panel could hang in a Working... state when sending a prompt
+
+Fixes an issue where the Antigravity chat panel could hang indefinitely in a "Working..." state when sending a prompt.
+
+**Fixes:**
+
+*   Fixed an issue where the Antigravity chat panel could hang indefinitely in a "Working..." state when sending a prompt by multiplexing all background and interactive chat streams over a WebSocket connection instead of exhausting the browser's per-origin HTTP/1.1 connection pool.
+
+---
+
+### [v1.0.261012.0](/docs/ide/extensions/visual-studio "View Visual Studio extension docs")
 
 October 12, 2026
 

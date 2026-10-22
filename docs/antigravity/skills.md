@@ -1,5 +1,7 @@
 # Agent skills
 
+Available on: Antigravity App, Antigravity CLI, Antigravity IDE
+
 Skills are an [open standard](https://agentskills.io/home) for extending agent capabilities. A skill is a folder containing a `SKILL.md` file with instructions that the agent can follow when working on specific tasks.
 
 ## What are skills?
@@ -20,7 +22,7 @@ Note
 
 Skills are organized as directory bundles containing a required `SKILL.md` file:
 
-```
+```text
 my-skill/
 ├── SKILL.md       # Required skill instructions and metadata
 ├── scripts/       # Optional executable scripts
@@ -32,7 +34,7 @@ my-skill/
 
 Every `SKILL.md` file begins with YAML frontmatter defining its name and triggering criteria:
 
-```
+```yaml
 ---
 name: code-review
 description: Reviews code changes for bugs, style issues, and best practices. Use when reviewing pull requests or checking code quality.
@@ -138,7 +140,7 @@ Whenever you define a skill, the CLI **automatically converts it into a slash co
 
 Skills can also be packaged inside plugins and managed with `agy plugin`:
 
-```
+```bash
 # List installed plugins (pass --json to include bundled skill names and paths)
 agy plugin list
 agy plugin list --json

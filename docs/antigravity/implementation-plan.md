@@ -1,5 +1,7 @@
 # Implementation plan
 
+Available on: Antigravity App, Antigravity IDE
+
 The agent uses the implementation plan artifact to architect changes within your codebase to accomplish a task. These plans contain technical details on what revisions are necessary and are designed for you to review.
 
 Note

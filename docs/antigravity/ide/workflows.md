@@ -1,5 +1,7 @@
 # Workflows
 
+Available on: Antigravity IDE
+
 Changes to workflows
 
 We are accelerating bringing a more powerful, dynamic way to define and use workflows. Current workflows will stop working on **October 19, 2026**, and will be shortly followed with instructions on how to transition to the new workflows system. In the meantime, you can also migrate existing workflows to **[Agent skills](/docs/ide/skills)** using the **[Workflows to skills migration guide](/docs/migration/workflows-to-skills)** or the [`/migrate-workflows`](/docs/migration/workflows-to-skills#using-migrate-workflows) slash command in chat.

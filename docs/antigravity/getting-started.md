@@ -12,19 +12,19 @@ Welcome to Google Antigravity! Follow the instructions in this guide to get star
     
     macOSmacOS 12 (Monterey) or later (Apple Silicon or 64-bit Intel)
     
-    [Download for Apple Silicon](https://storage.googleapis.com/antigravity-public/antigravity-hub/2.24.0-5780333019398144/darwin-arm/Antigravity.dmg)[Download for Intel](https://storage.googleapis.com/antigravity-public/antigravity-hub/2.24.0-5780333019398144/darwin-x64/Antigravity.dmg)
+    [Download for Apple Silicon](https://storage.googleapis.com/antigravity-public/antigravity-hub/2.25.0-6535192714805248/darwin-arm/Antigravity.dmg)[Download for Intel](https://storage.googleapis.com/antigravity-public/antigravity-hub/2.25.0-6535192714805248/darwin-x64/Antigravity.dmg)
     
     Open the downloaded `Antigravity.dmg` disk image and drag **Antigravity** into your **Applications** folder. If you are upgrading an existing installation, select **Replace** when prompted instead of **Keep Both**.
     
     WindowsWindows 10 (64-bit) or Windows 11
     
-    [Download for x64](https://storage.googleapis.com/antigravity-public/antigravity-hub/2.24.0-5780333019398144/windows-x64/Antigravity-x64.exe)[Download for ARM64](https://storage.googleapis.com/antigravity-public/antigravity-hub/2.24.0-5780333019398144/windows-arm/Antigravity-arm64.exe)
+    [Download for x64](https://storage.googleapis.com/antigravity-public/antigravity-hub/2.25.0-6535192714805248/windows-x64/Antigravity-x64.exe)[Download for ARM64](https://storage.googleapis.com/antigravity-public/antigravity-hub/2.25.0-6535192714805248/windows-arm/Antigravity-arm64.exe)
     
     Run the downloaded `.exe` installer and follow the guided setup wizard.
     
     Linuxglibc >= 2.28, glibcxx >= 3.4.25 (Ubuntu 20+, Debian 10+, Fedora 36+, RHEL 8+)
     
-    [Download for x64](https://storage.googleapis.com/antigravity-public/antigravity-hub/2.24.0-5780333019398144/linux-x64/Antigravity.tar.gz)[Download for ARM64](https://storage.googleapis.com/antigravity-public/antigravity-hub/2.24.0-5780333019398144/linux-arm/Antigravity.tar.gz)
+    [Download for x64](https://storage.googleapis.com/antigravity-public/antigravity-hub/2.25.0-6535192714805248/linux-x64/Antigravity.tar.gz)[Download for ARM64](https://storage.googleapis.com/antigravity-public/antigravity-hub/2.25.0-6535192714805248/linux-arm/Antigravity.tar.gz)
     
     Extract the archive with `tar -xzf Antigravity.tar.gz` and launch `./Antigravity`.
     
@@ -42,7 +42,7 @@ Welcome to Google Antigravity! Follow the instructions in this guide to get star
     
     **macOS / Linux / Googlebook:**
     
-    ```
+    ```bash
     curl -fsSL https://antigravity.google/cli/install.sh | bash
     ```
     
@@ -50,7 +50,7 @@ Welcome to Google Antigravity! Follow the instructions in this guide to get star
     
     **Windows (PowerShell):**
     
-    ```
+    ```powershell
     irm https://antigravity.google/cli/install.ps1 | iex
     ```
     
@@ -58,7 +58,7 @@ Welcome to Google Antigravity! Follow the instructions in this guide to get star
     
     **Windows (CMD):**
     
-    ```
+    ```cmd
     curl -fsSL https://antigravity.google/cli/install.cmd -o install.cmd && install.cmd && del install.cmd
     ```
     
@@ -66,7 +66,7 @@ Welcome to Google Antigravity! Follow the instructions in this guide to get star
     
 2.  Open a terminal window and verify the installation:
     
-    ```
+    ```bash
     agy --version
     ```
     
@@ -146,13 +146,13 @@ For authentication options or enterprise configurations, consult the **[Authenti
 
 1.  Install the official Antigravity Python package inside a Python 3.10+ virtual environment:
     
-    ```
+    ```bash
     pip install google-antigravity
     ```
     
     If you use Poetry or uv for package management:
     
-    ```
+    ```bash
     # Poetry
     poetry add google-antigravity
     
@@ -164,7 +164,7 @@ For authentication options or enterprise configurations, consult the **[Authenti
     
     Configure your API credentials in your environment before initializing the agent harness:
     
-    ```
+    ```bash
     export GEMINI_API_KEY="your_api_key_here"
     ```
     
@@ -172,7 +172,7 @@ For authentication options or enterprise configurations, consult the **[Authenti
     
     **Enterprise & Google Cloud**: To authenticate using Gemini Enterprise or Vertex AI, set your project configuration:
     
-    ```
+    ```bash
     export GOOGLE_GENAI_USE_VERTEXAI=True
     export GOOGLE_CLOUD_PROJECT="your-gcp-project"
     export GOOGLE_CLOUD_LOCATION="us-central1"
@@ -199,14 +199,14 @@ Navigate to any codebase directory in your terminal and start a session:
 
 1.  Create or navigate to a project directory and launch the TUI:
     
-    ```
+    ```bash
     mkdir agy-demo && cd agy-demo
     agy
     ```
     
 2.  Enter your first task prompt and press Enter:
     
-    ```
+    ```text
     Write a simple python script to fetch web page text
     ```
     
@@ -221,7 +221,7 @@ Navigate to any codebase directory in your terminal and start a session:
     *   Press Esc to close the review panel and return to the primary prompt.
 4.  Execute a test command with the agent to verify the output:
     
-    ```
+    ```text
     Run the python script and show me the output
     ```
     
@@ -238,7 +238,7 @@ Navigate to any codebase directory in your terminal and start a session:
 
 1.  Create a file named `hello_agent.py` to instantiate and run an autonomous agent:
     
-    ```
+    ```python
     import asyncio
     from google.antigravity import Agent, LocalAgentConfig
     
@@ -255,7 +255,7 @@ Navigate to any codebase directory in your terminal and start a session:
     
 2.  Execute the agent script in your terminal:
     
-    ```
+    ```bash
     python hello_agent.py
     ```
     
@@ -263,7 +263,7 @@ Navigate to any codebase directory in your terminal and start a session:
     
     Use `LocalAgentConfig` and `google.antigravity.hooks.policy` to define explicit tool execution rules:
     
-    ```
+    ```python
     from google.antigravity import LocalAgentConfig
     from google.antigravity.hooks.policy import allow, deny
     
@@ -361,7 +361,7 @@ Navigate to any codebase directory in your terminal and start a session:
 
 [
 
-smart\_toyCore
+Core
 
 Features guide
 
@@ -369,7 +369,7 @@ Autonomous subagents, visual artifacts, and tool integrations.
 
 ](/docs/features/)[
 
-securitySecurity
+Security
 
 Permissions
 
@@ -377,7 +377,7 @@ Local security boundaries, sandboxing, and execution gates.
 
 ](/docs/permissions/)[
 
-tuneConfig
+Config
 
 Settings
 
@@ -385,7 +385,7 @@ Configuration options for projects, models, and agent behavior.
 
 ](/docs/settings/)[
 
-psychologyModels
+Models
 
 Choose a model
 
@@ -397,7 +397,7 @@ Reasoning effort levels, thinking budgets, and supported frontier models.
 
 [
 
-tips\_and\_updatesWorkflow
+Workflow
 
 Best practices
 
@@ -405,7 +405,7 @@ Verification loops, rule files, and session checkpoints.
 
 ](/docs/cli/best-practices/)[
 
-buildDebug
+Debug
 
 CLI troubleshooting
 
@@ -413,7 +413,7 @@ Path resolution, keyring authentication, and SSH forwarding.
 
 ](/docs/cli/troubleshooting/)[
 
-terminalReference
+Reference
 
 CLI reference
 
@@ -421,7 +421,7 @@ Catalog of commands, keybindings, and JSON schemas.
 
 ](/docs/cli/reference/)[
 
-keyboardNavigation
+Navigation
 
 Vim editor mode
 
@@ -433,7 +433,7 @@ Modal navigation and keybindings within the terminal user interface.
 
 [
 
-extensionExtensions
+Extensions
 
 IDE extensions overview
 
@@ -441,7 +441,7 @@ Supported editors, unified authentication, and enterprise licensing across IDEs.
 
 ](/docs/ide/extensions/)[
 
-codeVS Code
+VS Code
 
 Visual Studio Code
 
@@ -449,7 +449,7 @@ Install from the VS Code Marketplace and configure your local workspace.
 
 ](/docs/ide/extensions/vscode/)[
 
-integration\_instructionsJetBrains
+JetBrains
 
 IntelliJ-based IDEs
 
@@ -457,7 +457,7 @@ Set up the Antigravity agent in IntelliJ IDEA, PyCharm, WebStorm, GoLand, and Ri
 
 ](/docs/ide/extensions/jetbrains/)[
 
-verified\_userEnterprise
+Enterprise
 
 Enterprise governance
 
@@ -469,7 +469,7 @@ Configure Gemini Enterprise sign-in, IAM policies, and VPC Service Controls.
 
 [
 
-code\_blocksArchitecture
+Architecture
 
 SDK overview
 
@@ -477,7 +477,7 @@ Architectural overview of the Python runtime harness and async session manager.
 
 ](/docs/sdk/overview/)[
 
-badgeAgent API
+Agent API
 
 Personas and directives
 
@@ -485,7 +485,7 @@ System prompt configuration and specialized agent personas.
 
 ](/docs/sdk/personas/)[
 
-handymanExtensibility
+Extensibility
 
 Tools and skills API
 
@@ -493,7 +493,7 @@ Register custom Python tools, shell executors, and skills.
 
 ](/docs/sdk/tools/)[
 
-hubMCP
+MCP
 
 Model Context Protocol
 

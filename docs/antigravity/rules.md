@@ -1,5 +1,7 @@
 # Rules
 
+Available on: Antigravity App, Antigravity CLI, Antigravity IDE
+
 Rules are persistent instructions, coding standards, and architectural constraints that shape how Antigravity behaves in your codebase. Unlike chat prompts that apply to a single conversation, Antigravity automatically discovers rules from your filesystem and injects them into the agent’s context.
 
 Tip
@@ -44,7 +46,7 @@ Caution
 
 Rules in `.agents/rules/` support the following YAML frontmatter keys:
 
-```
+```yaml
 ---
 trigger: model_decision       # Required: always_on | model_decision | glob | manual
 description: "..."            # Required for model_decision; recommended for all rules
@@ -64,7 +66,7 @@ Configure the `trigger` key to control how and when a rule is loaded into contex
 
 *   **`model_decision`** _(best for detailed domain guides)_: Antigravity injects only the rule’s path and `description` upfront (progressive disclosure). The agent reads the full rule on demand when your task matches the description.
     
-    ```
+    ```markdown
     ---
     trigger: model_decision
     description: "Apply these guidelines whenever writing or reviewing database migrations or SQL schema changes."
@@ -80,7 +82,7 @@ Configure the `trigger` key to control how and when a rule is loaded into contex
     
 *   **`glob`** _(file-pattern scoped)_: Automatically activates when the agent interacts with files matching any comma-separated pattern in `globs`:
     
-    ```
+    ```markdown
     ---
     trigger: glob
     globs: "*.proto, **/*.pb.go"
@@ -106,7 +108,7 @@ Inside any rule file (`AGENTS.md`, `GEMINI.md`, or `.agents/rules/*.md`), Antigr
     *   **Frontmatter stripping**: If an included file contains YAML frontmatter, Antigravity strips the frontmatter and splices in only the Markdown body.
 *   **`@filename`**: Does **not** inline file contents. Instead, it resolves the path (relative to the rule file, or as a workspace-relative/absolute path) and rewrites it to a canonical absolute workspace path (`@/workspace/path`) so the agent has an unambiguous file reference.
 
-```
+```markdown
 Follow our shared API design standards:
 @[API Design Standards](../docs/api-standards.md)
 
@@ -117,7 +119,7 @@ When updating database models, check @src/db/schema.ts first.
 
 To share rules stored outside `.agents/rules/` or to include nested subdirectories of rules while preserving their YAML frontmatter and triggers, create `.agents/rules.json`:
 
-```
+```json
 {
   "inherits": [
     { "path": "../shared-config/.agents/rules.json" }

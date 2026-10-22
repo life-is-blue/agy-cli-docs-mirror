@@ -8,7 +8,7 @@ Templated system instructions are recommended for most applications. This approa
 
 For example, you can template system instructions to define an agent that focuses on reviewing a pull request for code quality:
 
-```
+```python
 from google.antigravity import Agent, LocalAgentConfig, types
 
 identity = "You are an expert Code Quality Reviewer."
@@ -35,7 +35,7 @@ For complete control, custom system instructions bypass all default SDK scaffold
 
 For example, you can customize the system instructions to set an identity of a “Custom Code Reviewer”:
 
-```
+```python
 from google.antigravity import Agent, LocalAgentConfig, types
 
 custom_si = types.CustomSystemInstructions(

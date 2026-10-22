@@ -1,5 +1,7 @@
 # Model Context Protocol (MCP)
 
+Available on: Antigravity App, Antigravity CLI, Antigravity IDE
+
 Antigravity supports the [Model Context Protocol (MCP)](https://modelcontextprotocol.io), an open standard that lets AI agents and editors securely connect to local developer tools, databases, file parsers, and external remote APIs. This integration provides the AI model with real-time context and execution capabilities beyond your immediate workspace.
 
 In this guide, you’ll learn how to connect and configure MCP servers across Antigravity products.
@@ -98,7 +100,7 @@ In Python applications built using the [Antigravity SDK](/docs/sdk/overview), yo
 
 Whether configuring custom servers for the Antigravity App, Antigravity IDE, or Antigravity CLI, the configuration file follows a standardized format. The file contains a single `mcpServers` object where you define each server you want to connect to:
 
-```
+```json
 {
   "mcpServers": {
     "sqlite-explorer": {
@@ -146,7 +148,7 @@ Connected MCP servers can securely authenticate against external services using 
 
 Set `authProviderType` to `"google_credentials"` to use Google Application Default Credentials (ADC):
 
-```
+```json
 {
   "mcpServers": {
     "my-gcp-service": {
@@ -159,13 +161,13 @@ Set `authProviderType` to `"google_credentials"` to use Google Application Defau
 
 This requires Application Default Credentials to be configured locally. To set them up, run:
 
-```
+```bash
 gcloud auth application-default login
 ```
 
 If you previously logged in, ensure your quota project is set by running:
 
-```
+```bash
 gcloud auth application-default set-quota-project {QUOTA_PROJECT}
 ```
 
@@ -173,7 +175,7 @@ gcloud auth application-default set-quota-project {QUOTA_PROJECT}
 
 Antigravity automatically handles OAuth for servers that support dynamic client registration (DCR). For these servers, no additional configuration is needed:
 
-```
+```json
 {
   "mcpServers": {
     "oauth-server": {
@@ -185,7 +187,7 @@ Antigravity automatically handles OAuth for servers that support dynamic client 
 
 If the server doesn’t support dynamic client registration, you can provide your client credentials manually:
 
-```
+```json
 {
   "mcpServers": {
     "oauth-server": {
@@ -201,7 +203,7 @@ If the server doesn’t support dynamic client registration, you can provide you
 
 If you provide client credentials manually, ensure the following URL is registered as a redirect URI in your OAuth provider:
 
-```
+```text
 https://antigravity.google/oauth-callback
 ```
 
@@ -232,7 +234,7 @@ Access tokens are stored in `~/.gemini/antigravity/mcp_oauth_tokens.json`. Expir
 
 For remote servers that require custom HTTP headers (such as API keys or bearer tokens), add them to the `headers` object. For example:
 
-```
+```json
 {
   "mcpServers": {
     "my-remote-server": {

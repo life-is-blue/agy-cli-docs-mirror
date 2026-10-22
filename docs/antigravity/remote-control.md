@@ -1,5 +1,7 @@
 # Remote Control
 
+Available on: Antigravity App, Antigravity CLI
+
 Antigravity Remote Control allows you to securely connect to and drive your Antigravity desktop sessions and CLI instances running across your machines from any web browser.
 
 As AI agents take on larger-scope tasks—such as full-subsystem refactorings, extensive test suite runs, and complex dependency migrations—operations can run for extended periods. Remote Control untethers you from your physical desk while preserving your entire local development environment.
@@ -56,13 +58,13 @@ You can turn on Remote Control at any point during an interactive `agy` terminal
 
 Inside the prompt box, run `/remote-control` (or `/remote-control on`):
 
-```
+```text
 /remote-control
 ```
 
 The CLI establishes a reverse tunnel for the current session and prints the session’s hostname along with a link to open the active conversation on another device:
 
-```
+```text
 Remote control on for this session.
 Hostname: devbox-swift-falcon
 Open https://antigravity.google.com/r/<instance-id>?p=c%2F<conversation-id> on another device to continue this conversation.
@@ -72,11 +74,11 @@ Open the printed URL in any web browser (on your laptop, tablet, or phone) signe
 
 To disconnect the remote tunnel while keeping your local terminal session running, run:
 
-```
+```text
 /remote-control off
 ```
 
-```
+```text
 Remote control off. This machine is no longer reachable from other devices.
 Hostname: devbox-swift-falcon
 ```
@@ -85,7 +87,7 @@ Hostname: devbox-swift-falcon
 
 To start a remote connection immediately upon launching an interactive CLI session, use the `--remote-control` flag:
 
-```
+```bash
 agy --remote-control
 ```
 
@@ -112,7 +114,7 @@ When you connect to your interactive CLI session using the Antigravity desktop U
 
 Use the `remote-control` subcommand to register an always-on headless CLI instance that starts automatically in the background and stays connected whenever your machine is powered on:
 
-```
+```bash
 agy remote-control start
 ```
 
@@ -124,7 +126,7 @@ Run `agy remote-control status` to view this machine’s instance name, then sel
 
 Use the following commands to manage the headless daemon:
 
-```
+```text
 agy remote-control start     Register and start the daemon
 agy remote-control status    Show the daemon's status and instance name
 agy remote-control stop      Stop the daemon and unregister it
@@ -148,7 +150,7 @@ For headless daemon instances, the instance name is how the machine appears in R
 
 *   Set it with the `--name` flag:
     
-    ```
+    ```bash
     agy remote-control start --name "my-workstation"
     ```
     

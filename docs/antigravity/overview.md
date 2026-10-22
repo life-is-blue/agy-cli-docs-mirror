@@ -4,57 +4,51 @@ Antigravity delivers native agentic assistance across purpose-built product surf
 
 Surfaces
 
-desktop\_windowsv2.5+
+v2.5+
 
 Antigravity AppDesktop application
 
-terminalagy · v1.2+
+agy · v1.2+
 
 Antigravity CLITerminal client
 
-extension5 IDEs
+5 IDEs
 
 For IDEsEditor extensions
 
-code\_blocksPython
+Python
 
 Antigravity SDKProgrammatic runtime
 
-view\_sidebararrow\_backarrow\_forward
+New Conversation
 
-addNew Conversation
+Conversation History
 
-historyConversation History
-
-scheduleScheduled Tasks
+Scheduled Tasks
 
 Projects
 
-filter\_listcreate\_new\_folder
-
-foldercheckout-service
+checkout-service
 
 Discount Code Validationnow
 
 Stripe Webhook Handler2h
 
-folderinventory-api
+inventory-api
 
 Low Stock Alerts1d
 
-folderweb-storefront
+web-storefront
 
 Order Summary Drawer
 
-settingsSettings
+Settings
 
 checkout-service/Discount Code Validation
 
-more\_vert
-
 Add promo code validation and expired coupon checks to the checkout endpoint.
 
-Worked for 11schevron\_right
+Worked for 11s
 
 I updated `checkout-service` to validate discount codes before creating a payment intent:
 
@@ -63,27 +57,15 @@ I updated `checkout-service` to validate discount codes before creating a paymen
 
 Shall I run the checkout test suite to verify?
 
-content\_copythumb\_upthumb\_down
-
 Ask anything, @ to mention, / for actions
 
-add
-
-Gemini 3.8 FlashMediumexpand\_less
+Gemini 3.8 FlashMedium
 
 Model
 
-Gemini 4 Argon _High_checkGemini 3.8 Flash _Medium_checkClaude Sonnet 5.5 _Thinking_checkClaude Opus 5.5 _Thinking_checkGPT-OSS 120B _Medium_check
+Gemini 4 Argon _High_Gemini 3.8 Flash _Medium_Claude Sonnet 5.5 _Thinking_Claude Opus 5.5 _Thinking_GPT-OSS 120B _Medium_
 
-micarrow\_forward
-
-terminaldescriptionweb\_asset
-
-addview\_sidebar
-
-TerminalsProjectexpand\_more
-
-addview\_list
+TerminalsProject
 
 `dev@workstation checkout-service % npm test`
 
@@ -97,17 +79,13 @@ Conversations
 
 Discount Code Validation
 
-terminalzsh
+zsh
 
 Artifacts2 files
-
-assignment
 
 Implementation Plan
 
 Promo code validation & unit tests
-
-fact\_check
 
 Verification Report
 
@@ -121,7 +99,7 @@ Proposed Changes
 
 Browserlocalhost:3000
 
-globehttp://localhost:3000/checkout/preview
+http://localhost:3000/checkout/preview
 
 Checkout API · Order Summary
 
@@ -135,11 +113,9 @@ Order Total$96.00
 
 A standalone desktop application for launching, orchestrating, and inspecting autonomous agent teams with visual diff and plan inspection.
 
-[Get started with Antigravity Apparrow\_forward](/docs/getting-started/)[Desktop features guide](/docs/features/)
+[Get started with Antigravity App](/docs/getting-started/)[Desktop features guide](/docs/features/)
 
-terminalAntigravity CLI
-
-more\_horiz
+Antigravity CLI
 
 Antigravity CLI 1.2.14
 
@@ -169,23 +145,13 @@ Edit(src/pricing/discounts.ts)(ctrl+o to expand)
 
 A keyboard-first terminal client that runs Antigravity workflows in local shells, remote cloud environments, and SSH sessions.
 
-[Get started with Antigravity CLIarrow\_forward](/docs/getting-started?tab=cli)[CLI reference manual](/docs/cli/reference/)
+[Get started with Antigravity CLI](/docs/getting-started?tab=cli)[CLI reference manual](/docs/cli/reference/)
 
-arrow\_backarrow\_forward
-
-folderspring-petclinicexpand\_more
-
-splitscreenview\_sidebar
-
-folder\_copysearchfork\_rightauto\_awesomeextension
-
-settings
+spring-petclinic
 
 ANTIGRAVITYVS Code
 
 spring-petclinic / Project Analysis And Reporting
-
-addmore\_vert
 
 Please review this project. Investigate how it works and build a report showing important files and data flows.
 
@@ -198,23 +164,17 @@ Key System Controllers:
 *   `PetController`: Handles pet updates/creation using `PetValidator`.
 *   `VetController`: Provides HTML vet list and cached JSON endpoint.
 
-description
-
 Project ReviewComprehensive review report for Spring PetClinic application detailing architecture...
 
 Ask anything, @ to mention, / for actions
 
-add
-
-Gemini 3.8 Flash Mediumexpand\_less
+Gemini 3.8 Flash Medium
 
 Model
 
-Gemini 4 Argon HighcheckGemini 3.8 Flash MediumcheckClaude Sonnet 5.5 (Thinking)checkClaude Opus 5.5 (Thinking)checkGPT-OSS 120B (Medium)check
+Gemini 4 Argon HighGemini 3.8 Flash MediumClaude Sonnet 5.5 (Thinking)Claude Opus 5.5 (Thinking)GPT-OSS 120B (Medium)
 
-arrow\_forward
-
-articlePreview README.mddescriptionproject\_review.md
+Preview README.mdproject\_review.md
 
 Project ReviewReview ▾
 
@@ -252,17 +212,17 @@ Database Configuration
 
 Uses an in-memory **H2** database by default, with Docker Compose profiles for `mysql` and `postgres`.
 
-fork\_right main⊗ 0 ⚠ 2 ⓘ 1Java: Ready
+main⊗ 0 ⚠ 2 ⓘ 1Java: Ready
 
 Gradle: Build Error
 
 Editor extensions that embed agentic capabilities, inline completions, and side-panel interactions directly in your IDE.
 
-[Get started with IDE extensionsarrow\_forward](/docs/getting-started?tab=ide)[Supported extensions guide](/docs/ide/extensions/)
+[Get started with IDE extensions](/docs/getting-started?tab=ide)[Supported extensions guide](/docs/ide/extensions/)
 
 agent\_pipeline.pyPython 3.10+
 
-```
+```python
 from google.antigravity import Agent, LocalAgentConfig
 from google.antigravity.hooks.policy import allow, deny
 
@@ -280,7 +240,7 @@ async with Agent(config) as agent:
 
 A programmatic Python SDK for building, customizing, and deploying autonomous AI agents and harnesses in your own applications and CI/CD pipelines.
 
-[Get started with Antigravity SDKarrow\_forward](/docs/getting-started?tab=sdk)[Tools and skills API](/docs/sdk/tools/)
+[Get started with Antigravity SDK](/docs/getting-started?tab=sdk)[Tools and skills API](/docs/sdk/tools/)
 
 * * *
 
@@ -288,45 +248,43 @@ A programmatic Python SDK for building, customizing, and deploying autonomous AI
 
 Every Antigravity surface runs on a shared, highly optimized agent harness co-trained with Gemini models, combining synchronous turn-by-turn code editing and tool execution with asynchronous background subagents, scheduled cron sidecars, and automated verification loops:
 
-psychologyFrontier Gemini models
+Frontier Gemini models
 
 Gemini 4 & 3.8
 
 Co-trained with Google DeepMind. Powering all local agents with frontier speed, configurable reasoning levels, and large context capacity across Gemini 4 Argon, Gemini 3.8 Flash, and Gemini 3.1 Pro.
 
-[Model specificationsarrow\_forward](/docs/models/)
+[Model specifications](/docs/models/)
 
-group\_workAsynchronous subagents
+Asynchronous subagents
 
 Parallel execution
 
 Delegate complex background tasks to concurrent subagents working across isolated Git worktrees without blocking your active terminal or editor session.
 
-[Subagents guidearrow\_forward](/docs/subagents/)
+[Subagents guide](/docs/subagents/)
 
-splitscreenVisual artifacts
+Visual artifacts
 
 Verification loops
 
 Track and verify agent output with structured visual reports, including interactive implementation plans, unified multi-file diffs, and browser session recordings.
 
-[Artifact inspectionarrow\_forward](/docs/artifacts/)
+[Artifact inspection](/docs/artifacts/)
 
-shieldSecurity by design
+Security by design
 
 Bounded access
 
 Enforce local execution safeguards with granular tool approval gates, workspace directory scoping, local proxying, and corporate VPC Service Controls.
 
-[Permissions and securityarrow\_forward](/docs/permissions/)
-
-hub
+[Permissions and security](/docs/permissions/)
 
 Google platform integrations
 
 Curated bundles of skills, MCP servers, and extensions engineered with product teams across Google—including Firebase, Android, Modern Web, Chrome DevTools, Flutter, Google Cloud Data, Maps, Science, and the Antigravity SDK.
 
-[View all bundlesarrow\_forward](/docs/build-with-google/)
+[View all bundles](/docs/build-with-google/)
 
 * * *
 
@@ -334,13 +292,11 @@ Curated bundles of skills, MCP servers, and extensions engineered with product t
 
 Antigravity leverages Google DeepMind’s frontier Gemini models with dynamic reasoning controls. Adjust reasoning effort per conversation turn or delegate long-running tasks to autonomous agent swarms:
 
-psychology
-
 ### Interactive model and thinking level selector
 
 Experience the model selector directly below. Antigravity lets you adjust reasoning depth and model speed dynamically per conversation turn.
 
-[Model specs and limitsarrow\_forward](/docs/models/)
+[Model specs and limits](/docs/models/)
 
 * * *
 
@@ -351,43 +307,43 @@ Compare primary capabilities and execution environments across Antigravity surfa
 AllCore workflowExtensibilitySecurity & enterprise
 
 | Capability | 
-desktop\_windowsApp
+App
 
  | 
 
-terminalCLI
+CLI
 
  | 
 
-extensionIDE Ext.
+IDE Ext.
 
  | 
 
-code\_blocksSDK
+SDK
 
  |
 | --- | --- | --- | --- | --- |
-| Desktop application | check | close | close | close |
-| Terminal user interface (TUI) | close | check | close | close |
-| [Editor extensions (VS Code, JetBrains, VS, Zed, Xcode)](/docs/ide/extensions/) | close | close | check | close |
-| [Programmatic Python SDK](/docs/sdk/overview/) | close | close | close | check |
-| [Remote control & headless execution](/docs/remote-control/) | check | check | close | close |
-| [Workspace & Git worktree isolation](/docs/projects/) | check | check | close | check |
-| [Multi-agent swarms (/teamwork-preview)](/docs/teamwork/) | check | check | close | close |
-| [Deep reasoning mode (/boost)](/docs/boost/) | check | check | close | close |
-| [Interactive visual artifacts & diffs](/docs/artifacts/) | check | check | check | close |
-| [Sandboxed Chromium browser automation](/docs/ide/browser/) | check | close | close | close |
-| [Custom skills (SKILL.md) & rule files](/docs/skills/) | check | check | check | check |
-| [Model Context Protocol (MCP) clients](/docs/mcp/) | check | check | check | check |
-| [Scheduled tasks & cron sidecars](/docs/sidecars/) | check | check | close | close |
-| [Corporate SSO & BYOID (Workforce Identity)](/docs/enterprise/) | check | check | check | check |
-| [Regional data residency (US & EU)](/docs/enterprise/) | check | check | check | check |
-| [VPC Service Controls (VPC-SC)](/docs/enterprise/) | check | check | check | check |
-| [Request, response & telemetry logging](/docs/enterprise/) | check | check | check | check |
+| Desktop application |  |  |  |  |
+| Terminal user interface (TUI) |  |  |  |  |
+| [Editor extensions (VS Code, JetBrains, VS, Zed, Xcode)](/docs/ide/extensions/) |  |  |  |  |
+| [Programmatic Python SDK](/docs/sdk/overview/) |  |  |  |  |
+| [Remote control & headless execution](/docs/remote-control/) |  |  |  |  |
+| [Workspace & Git worktree isolation](/docs/projects/) |  |  |  |  |
+| [Multi-agent swarms (/teamwork-preview)](/docs/teamwork/) |  |  |  |  |
+| [Deep reasoning mode (/boost)](/docs/boost/) |  |  |  |  |
+| [Interactive visual artifacts & diffs](/docs/artifacts/) |  |  |  |  |
+| [Sandboxed Chromium browser automation](/docs/ide/browser/) |  |  |  |  |
+| [Custom skills (SKILL.md) & rule files](/docs/skills/) |  |  |  |  |
+| [Model Context Protocol (MCP) clients](/docs/mcp/) |  |  |  |  |
+| [Scheduled tasks & cron sidecars](/docs/sidecars/) |  |  |  |  |
+| [Corporate SSO & BYOID (Workforce Identity)](/docs/enterprise/) |  |  |  |  |
+| [Regional data residency (US & EU)](/docs/enterprise/) |  |  |  |  |
+| [VPC Service Controls (VPC-SC)](/docs/enterprise/) |  |  |  |  |
+| [Request, response & telemetry logging](/docs/enterprise/) |  |  |  |  |
 
-infoCapabilities are tailored to each surface's execution target. Enterprise features under IDE Ext. apply to Antigravity IDE extensions (GA in VS Code & Visual Studio; Preview in JetBrains, Zed, and Xcode).
+Capabilities are tailored to each surface's execution target. Enterprise features under IDE Ext. apply to Antigravity IDE extensions (GA in VS Code & Visual Studio; Preview in JetBrains, Zed, and Xcode).
 
-[Features guidearrow\_forward](/docs/features/)
+[Features guide](/docs/features/)
 
 * * *
 
@@ -395,9 +351,9 @@ infoCapabilities are tailored to each surface's execution target. Enterprise fea
 
 Antigravity supports individual developers and enterprise engineering organizations with Google Cloud security, regional data residency, and VPC Service Controls:
 
-verified\_userDeployment tiers
+Deployment tiers
 
-personIndividualdomainEnterprise suitev2.5+
+IndividualEnterprise suitev2.5+
 
 Individual developers
 
@@ -405,31 +361,23 @@ Designed for software engineers, researchers, and open-source contributors who n
 
 Free tier · Pro & Ultra plans
 
-desktop\_windows
-
 Desktop & terminal clients
 
 Full access to the native Antigravity App desktop application and the high-speed `agy` command-line interface.
-
-extension
 
 All IDE extensions
 
 Integration with VS Code, JetBrains IDEs, Xcode, Zed, and Visual Studio with dedicated agent panels, interactive plans, and inline diff reviews.
 
-toll
-
 Flexible individual plans & AI credits
 
 Start at $0/month on the Free plan, or upgrade to Google AI Plus, Pro, or Ultra for higher rate limits and optional AI credit overages.
-
-build
 
 Skills, MCP & rules
 
 Author project-level custom skills (`SKILL.md`), connect stdio/SSE MCP servers, and define behavior rule sets.
 
-[Get started freearrow\_forward](/docs/getting-started/)[View AI credits & plans](/docs/plans/)
+[Get started free](/docs/getting-started/)[View AI credits & plans](/docs/plans/)
 
 Enterprise engineering organizations
 
@@ -437,7 +385,7 @@ Engineered for organizations requiring Google Cloud governance, regional data re
 
 Google Cloud ToS · VPC-SC
 
-[badge
+[
 
 Corporate SSO & BYOIDGoogle Cloud & WIF
 
@@ -445,7 +393,7 @@ Authenticate with Google Cloud SSO, Bring Your Own Identity (BYOID) via Workforc
 
 
 
-](/docs/enterprise/)[public
+](/docs/enterprise/)[
 
 Regional data residencyUS, EU & Global
 
@@ -453,7 +401,7 @@ Control where model inference and data processing occur across global, US multi-
 
 
 
-](/docs/enterprise/)[lan
+](/docs/enterprise/)[
 
 VPC Service ControlsGoogle Cloud
 
@@ -461,7 +409,7 @@ Enforce network service perimeters and private connectivity with Google Cloud VP
 
 
 
-](/docs/enterprise/)[fact\_check
+](/docs/enterprise/)[
 
 Request & telemetry loggingCloud Audit
 
@@ -469,7 +417,7 @@ Configure project telemetry and full request and response logging directly withi
 
 
 
-](/docs/enterprise/)[account\_balance\_wallet
+](/docs/enterprise/)[
 
 Flexible enterprise billingLicenses or Pay-as-you-go
 
@@ -477,7 +425,7 @@ Choose consumption-based billing via the Gemini Enterprise Agent Platform API or
 
 
 
-](/docs/enterprise/)[shield\_lock
+](/docs/enterprise/)[
 
 Zero model training guaranteeData privacy
 
@@ -487,7 +435,7 @@ Governed by the Google Cloud Terms of Service. Your prompts, code, and transcrip
 
 ](/docs/enterprise/)
 
-[Explore enterprise suitearrow\_forward](/docs/enterprise/)[Architecture & case studies](/use-cases/enterprise/)
+[Explore enterprise suite](/docs/enterprise/)[Architecture & case studies](/use-cases/enterprise/)
 
 * * *
 
@@ -497,7 +445,7 @@ Explore the documentation across six core architectural pillars:
 
 [
 
-rocket\_launchStart Here
+Start Here
 
 Get Started
 
@@ -505,7 +453,7 @@ Install the Antigravity App, set up the CLI, integrate the SDK, and configure ID
 
 ](/docs/getting-started/)[
 
-schoolConcepts
+Concepts
 
 Learn
 
@@ -513,7 +461,7 @@ Master foundational concepts including Workspaces, Git Worktrees, and Sessions.
 
 ](/docs/features/)[
 
-extensionExtensibility
+Extensibility
 
 Extend
 
@@ -521,7 +469,7 @@ Author custom Skills (`SKILL.md`), connect MCP Servers, and define Lifecycle Hoo
 
 ](/docs/skills/)[
 
-domainSecurity
+Security
 
 Enterprise
 
@@ -529,7 +477,7 @@ Corporate SSO & BYOID, Regional Data Residency, VPC Service Controls, and Cloud 
 
 ](/docs/enterprise/)[
 
-menu\_bookEcosystem
+Ecosystem
 
 Build with Google
 
@@ -537,7 +485,7 @@ Firebase, Chrome DevTools, Android CLI, Dart & Flutter, Science, and Data Agent 
 
 ](/docs/build-with-google/)[
 
-auto\_storiesSpecs
+Specs
 
 Reference
 

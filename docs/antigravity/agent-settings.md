@@ -1,5 +1,7 @@
 # Agent settings
 
+Available on: Antigravity App
+
 Note
 
 Antigravity’s updated permission system is currently available on **macOS and Linux**. On **Windows**, Antigravity continues to use the previous settings. Refer to the [Windows](#windows) section for details.

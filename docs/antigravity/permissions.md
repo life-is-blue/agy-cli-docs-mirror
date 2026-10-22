@@ -1,5 +1,7 @@
 # Agent permissions
 
+Available on: Antigravity App, Antigravity CLI
+
 Antigravity uses a unified fine-grained permission engine to evaluate sensitive tool operations across Deny, Ask, and Allow access lists. If you are using Antigravity with Gemini Enterprise, see [Antigravity in Gemini Enterprise](/docs/enterprise#autonomous-tool-permissions-and-human-in-the-loop-controls).
 
 ## Antigravity App
@@ -109,7 +111,7 @@ Explicit rules always take precedence over defaults. An Ask rule such as `comman
 
 The following examples show rules for the **Allow list**, which defines actions that run without prompting:
 
-```
+```text
 command(git)                             # Standard git commands
 command(regex:npm run (build|lint|test)) # Allow safe npm scripts using regex
 command(git push)                        # Allow git push, inside or outside the sandbox
@@ -121,7 +123,7 @@ mcp(linter/*)                            # Run linter MCP tools
 
 The following examples show rules for the **Deny list**, which defines actions that are permanently blocked:
 
-```
+```text
 command(rm -rf)                    # Block destructive deletions
 command(regex:curl .*)             # Block unvetted curl downloads
 command(sudo)                      # Block sudo privileges
@@ -131,7 +133,7 @@ write_file(/home/user/.ssh)        # Safeguard SSH keys
 
 The following examples show rules for the **Ask list**, which defines actions that pause for manual confirmation:
 
-```
+```text
 command(*)                         # Prompt all commands
 execute_url(aws.amazon.com)        # Prompt AWS console actuation
 mcp(sql/execute_mutation)          # Prompt modifying SQL queries
@@ -231,7 +233,7 @@ Explicit rules always take precedence over defaults.
 
 The following examples show rules for the **Allow list**, which defines actions that run without prompting:
 
-```
+```text
 command(git)                             # Standard git commands
 command(regex:npm run (build|lint|test)) # Allow safe npm scripts using regex
 unsandboxed(git push)                    # Allow git push outside sandbox
@@ -243,7 +245,7 @@ mcp(linter/*)                            # Run linter MCP tools
 
 The following examples show rules for the **Deny list**, which defines actions that are permanently blocked:
 
-```
+```text
 command(rm -rf)                    # Block destructive deletions
 command(regex:curl .*)             # Block unvetted curl downloads
 command(sudo)                      # Block sudo privileges
@@ -253,7 +255,7 @@ write_file(/home/user/.ssh)        # Safeguard SSH keys
 
 The following examples show rules for the **Ask list**, which defines actions that pause for manual confirmation:
 
-```
+```text
 command(*)                         # Prompt all commands
 execute_url(aws.amazon.com)        # Prompt AWS console actuation
 mcp(sql/execute_mutation)          # Prompt modifying SQL queries
@@ -279,7 +281,7 @@ Note
 
 Fine-grained permissions follow a standard schema pattern:
 
-```
+```text
 action(target)
 ```
 
@@ -338,7 +340,7 @@ Before confirming **Allow** for file, URL, or MCP permissions, you can directly 
 
 Add these rules to your `~/.gemini/antigravity-cli/settings.json` file:
 
-```
+```json
 {
     "permissions": {
         "allow": [

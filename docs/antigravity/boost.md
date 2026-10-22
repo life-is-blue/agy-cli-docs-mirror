@@ -1,5 +1,7 @@
 # Boost deep reasoning (/boost)
 
+Available on: Antigravity App, Antigravity CLI
+
 The `/boost` slash command activates an on-demand multi-agent reasoning pipeline designed for challenging software engineering tasks. When standard single-turn coding assistance falls short on complex bugs, race conditions, or intricate refactoring, `/boost` breaks down the problem, delegates focused workstreams to specialized subagents, and independently verifies solutions across iterative rounds.
 
 Note
@@ -71,7 +73,7 @@ You can invoke Boost across all Antigravity surfaces.
 
 Type `/boost` followed by your task prompt in any conversation turn:
 
-```
+```text
 /boost Investigate the race condition in the session cache and implement a thread-safe fix with tests.
 ```
 
@@ -79,7 +81,7 @@ Type `/boost` followed by your task prompt in any conversation turn:
 
 Type `/boost` directly into the terminal user interface (TUI) prompt box:
 
-```
+```bash
 /boost Optimize the matrix transposition algorithm to use SIMD vectorization and benchmark throughput.
 ```
 
@@ -91,7 +93,7 @@ Type `/boost` directly into the terminal user interface (TUI) prompt box:
 
 Use `/boost` to debug multithreaded timing issues, deadlocks, and cache synchronization bugs where reproduction requires careful trace analysis and isolated verification:
 
-```
+```text
 /boost Reproduce and fix the intermittent deadlock in the connection pool during high connection turnover.
 ```
 
@@ -99,7 +101,7 @@ Use `/boost` to debug multithreaded timing issues, deadlocks, and cache synchron
 
 Use `/boost` to implement high-performance algorithms, custom data structures, graph traversals, or mathematical routines with rigorous boundary testing:
 
-```
+```text
 /boost Implement a lock-free ring buffer for streaming telemetry events and write stress tests.
 ```
 
@@ -107,7 +109,7 @@ Use `/boost` to implement high-performance algorithms, custom data structures, g
 
 Use `/boost` to refactor tightly coupled modules, modernize legacy interfaces, or migrate synchronous APIs to asynchronous patterns across multiple files:
 
-```
+```text
 /boost Refactor the authentication middleware to use asynchronous token validation without breaking existing routes.
 ```
 
@@ -115,7 +117,7 @@ Use `/boost` to refactor tightly coupled modules, modernize legacy interfaces, o
 
 Use `/boost` to trace execution paths across unfamiliar or large codebases to isolate the exact origin of an unexpected failure:
 
-```
+```text
 /boost Trace why HTTP request timeouts spike when batch payload size exceeds 2MB, without modifying code.
 ```
 

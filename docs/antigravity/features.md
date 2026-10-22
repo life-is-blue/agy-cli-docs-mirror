@@ -1,5 +1,7 @@
 # Antigravity App features
 
+Available on: Antigravity App
+
 ### Projects
 
 In the Antigravity App, agents work in **projects** (previously in Agent Manager, agents were strictly mapped to a single workspace folder):

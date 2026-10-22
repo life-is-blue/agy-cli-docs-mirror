@@ -1,5 +1,7 @@
 # Projects
 
+Available on: Antigravity App, Antigravity CLI
+
 Projects organize multi-folder workspace configurations, isolated agent settings, and conversation histories across Antigravity surfaces.
 
 ## Antigravity App
@@ -59,7 +61,7 @@ You can configure projects to support several common development workflows:
 
 When starting the CLI without any project flags, all conversations in the session run in the `default-cli-project`:
 
-```
+```bash
 agy
 ```
 
@@ -67,7 +69,7 @@ agy
 
 To open a session attached to a specific existing project, pass the `--project` flag with the target project ID:
 
-```
+```bash
 agy --project=<project_id>
 ```
 
@@ -75,7 +77,7 @@ agy --project=<project_id>
 
 To create a new project and initialize your CLI session inside it, pass the `--new-project` flag:
 
-```
+```bash
 agy --new-project
 ```
 
@@ -87,7 +89,7 @@ If you resume a conversation (whether on startup using `--conversation=<conv_id>
 
 While interacting in an active session, you can copy and continue your current conversation in a different project using the `/fork` slash command:
 
-```
+```text
 /fork <project_id>
 ```
 

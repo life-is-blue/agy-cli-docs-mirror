@@ -6,7 +6,7 @@ The SDK supports multimodal input attachments, real-time response streaming, and
 
 In a conversational turn with extended reasoning, the model emits thoughts before generating text response tokens. You can stream internal model thoughts and text tokens as they occur:
 
-```
+```python
 import sys
 from google.antigravity import Agent, LocalAgentConfig
 
@@ -36,7 +36,7 @@ If you are building a multimodal agentic application, you can also include image
 
 For example, you can attach a PDF specification and an image using `from_file()` or `Image.from_file()`:
 
-```
+```python
 from google.antigravity import Agent, LocalAgentConfig
 from google.antigravity.types import Image, from_file
 
@@ -60,7 +60,7 @@ In some cases, you may want your agentic application to always output its respon
 
 For example, you can enforce typed JSON responses matching Pydantic schemas using `response_schema`:
 
-```
+```python
 import pydantic
 from google.antigravity import Agent, LocalAgentConfig
 

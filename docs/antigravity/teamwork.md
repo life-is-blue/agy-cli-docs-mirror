@@ -1,5 +1,7 @@
 # Teamwork agent teams (/teamwork-preview)
 
+Available on: Antigravity App, Antigravity CLI
+
 The `/teamwork-preview` command runs a collaborative multi-agent team designed for large software projects, complex simulations, and deep research tasks. When work spans multiple days, involves refactoring across dozens of files, or tackles open-ended math and systems challenges, Teamwork coordinates specialized agents to deliver thoroughly tested, working results.
 
 Note
@@ -123,7 +125,7 @@ Select your surface to launch a Teamwork session:
 
 Start a new conversation and invoke `/teamwork-preview` with your goal:
 
-```
+```text
 /teamwork-preview Migrate our REST API service from Express to Fastify, including full test coverage, TypeScript typing, and benchmark validation.
 ```
 
@@ -133,7 +135,7 @@ Your agent starts the Phase 1 scoping interview and generates the prompt artifac
 
 In the terminal interface, run `/teamwork-preview` at the prompt:
 
-```
+```bash
 /teamwork-preview Design and implement a cycle-accurate memory controller with lockstep simulation tests.
 ```
 

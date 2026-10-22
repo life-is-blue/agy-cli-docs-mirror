@@ -10,7 +10,7 @@ You can define MCP servers programmatically in your application’s `LocalAgentC
 
 For example, you can configure an agent to connect to an external SQLite MCP server using `stdio`:
 
-```
+```python
 import asyncio
 from google.antigravity import Agent, LocalAgentConfig
 from google.antigravity.types import McpStdioServer

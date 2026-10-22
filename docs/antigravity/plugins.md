@@ -1,12 +1,14 @@
 # Plugins
 
+Available on: Antigravity App, Antigravity CLI, Antigravity IDE
+
 Plugins package reusable skills, background subagents, linting rules, Model Context Protocol (MCP) servers, and lifecycle hooks into a single deployable asset.
 
 ## Directory structure
 
 A plugin is a directory containing a required manifest file (`plugin.json`) and optional subdirectories for different customization types:
 
-```
+```text
 plugins/<plugin-name>/
 ├── plugin.json       # Required marker and manifest file
 ├── mcp_config.json   # Optional MCP server definitions
@@ -24,7 +26,7 @@ plugins/<plugin-name>/
 
 Every plugin requires a `plugin.json` file at its root to identify the directory as a plugin and define its metadata:
 
-```
+```json
 {
   "$schema": "https://antigravity.google/schemas/v1/plugin.json",
   "name": "my-custom-plugin",
@@ -43,13 +45,13 @@ Every plugin requires a `plugin.json` file at its root to identify the directory
 
 To enable automatic autocomplete and validation in editors like VS Code or JetBrains IDEs, include the `$schema` key pointing to the official schema URL:
 
-```
+```json
 "$schema": "https://antigravity.google/schemas/v1/plugin.json"
 ```
 
 #### Full JSON schema
 
-```
+```json
 {
   "$schema": "https://antigravity.google/schemas/v1/plugin.json",
   "title": "Antigravity Plugin Manifest",
@@ -116,7 +118,7 @@ In an interactive TUI session, run `/plugin` (or its alias `/plugins`) to open t
 
 You can also manage and install plugins directly from the prompt using inline subcommands (`install`, `uninstall`, `enable`, `disable`, and `list`). For marketplace installs, `<marketplace-name>` supports the official marketplace (`antigravity-plugins-official`):
 
-```
+```text
 /plugin install <plugin-name>@antigravity-plugins-official
 /plugin install <local-path>
 /plugin enable <plugin-name>
@@ -137,7 +139,7 @@ Outside an interactive TUI session, the Antigravity CLI exposes the `agy plugin`
 
 *   **Install a plugin**: Install from the official marketplace (`antigravity-plugins-official`), a GitHub repository URL, or a local directory:
     
-    ```
+    ```bash
     # Install from the official marketplace (<marketplace-name> only supports antigravity-plugins-official)
     agy plugin install <plugin-name>@antigravity-plugins-official
     
@@ -153,7 +155,7 @@ Outside an interactive TUI session, the Antigravity CLI exposes the `agy plugin`
     
 *   **List installed plugins**: View all installed plugins, their enabled or disabled state, version, source, and component counts. Pass `--json` to output the list as a JSON array with full component names (`skills`, `agents`, `rules`, `mcpServers`, and `hooks`) and installation paths:
     
-    ```
+    ```bash
     # Human-readable summary of installed plugins
     agy plugin list
     
@@ -163,7 +165,7 @@ Outside an interactive TUI session, the Antigravity CLI exposes the `agy plugin`
     
     Running `agy plugin list` outputs a summary of installed plugins and component counts:
     
-    ```
+    ```text
     Installed plugins:
     - gcalendar (enabled, 0.0.3)
         Source:     antigravity-plugins-official
@@ -178,7 +180,7 @@ Outside an interactive TUI session, the Antigravity CLI exposes the `agy plugin`
     
     Running `agy plugin list --json` outputs the full details in JSON format:
     
-    ```
+    ```json
     [
       {
         "name": "gcalendar",
@@ -215,14 +217,14 @@ Outside an interactive TUI session, the Antigravity CLI exposes the `agy plugin`
     
 *   **Enable or disable a plugin**: Toggle a plugin without removing its files:
     
-    ```
+    ```bash
     agy plugin disable <plugin_name>
     agy plugin enable <plugin_name>
     ```
     
 *   **Uninstall a plugin**: Remove the plugin files and clean up configuration registries:
     
-    ```
+    ```bash
     agy plugin uninstall <plugin_name>
     ```
     
@@ -231,7 +233,7 @@ Outside an interactive TUI session, the Antigravity CLI exposes the `agy plugin`
 
 When installed, the CLI stages plugin assets in your global configuration directory:
 
-```
+```text
 ~/.gemini/antigravity-cli/plugins/<plugin_name>/
 ```
 

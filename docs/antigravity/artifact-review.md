@@ -1,5 +1,7 @@
 # Artifact review
 
+Available on: Antigravity App
+
 When starting a new agent conversation, you can choose between two primary execution modes that determine how changes are proposed and reviewed:
 
 *   **Planning mode**: The agent plans thoroughly before executing tasks. In this mode, the agent organizes its work in [task groups](/docs/ide/agent-side-panel), produces structured implementation plans called [artifacts](/docs/artifacts), and thoroughly researches the codebase for optimal quality.

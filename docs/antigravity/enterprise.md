@@ -73,7 +73,7 @@ For headless environments and automated terminal workflows, Antigravity supports
 
 1.  Generate local Application Default Credentials for your project using the Google Cloud SDK:
     
-    ```
+    ```bash
     gcloud auth application-default login --project {GCP_PROJECT}
     ```
     
@@ -83,13 +83,13 @@ For headless environments and automated terminal workflows, Antigravity supports
     
     *   **Antigravity CLI**: Export `AGY_ADC_AUTH=true` before running `agy` (run `unset AGY_ADC_AUTH` to sign out):
         
-        ```
+        ```bash
         export AGY_ADC_AUTH=true
         ```
         
     *   **Antigravity App and IDE**: Launch from a terminal with `AGY_ADC_AUTH=true`, or set `"enableAdc": true` in `~/.gemini/config/config.json`:
         
-        ```
+        ```json
         {
           "userSettings": {
             "enableAdc": true
@@ -136,14 +136,14 @@ Once enabled for your project, models appear in your client shortly after your a
 *   **Antigravity App and IDE extensions**: Open the **Model picker** in the chat composer and select your preferred model (third-party models appear under **Other Models**). **Anthropic Claude Opus 5.5** and **Anthropic Claude Sonnet 5.5** are available at four thinking levels—`Low`, `Medium` (default), `High`, and `Max`—and each level appears as a separate entry in the model picker (for example, **Claude Opus 5.5 (High)**). Higher levels give the model more room to reason on complex tasks, but use more tokens.
 *   **Antigravity CLI (`agy`)**: Start a session with `--model` or switch mid-session with the `/model` slash command:
     
-    ```
+    ```bash
     agy --model claude-opus-5-5-medium
     agy --model claude-sonnet-5-5-medium
     ```
     
     You can also specify a base model ID and use the `--effort` flag (or `/effort` mid-session, requires `agy` `v1.2.11` or later) to set the reasoning level (`low`, `medium`, `high`, `max`):
     
-    ```
+    ```bash
     agy --model claude-opus-5-5-medium --effort high
     agy --model claude-sonnet-5-5-medium --effort max
     ```
@@ -288,13 +288,13 @@ When contacting Google Cloud Support, include the diagnostic log file from your 
 
 *   **Antigravity CLI (Linux and macOS)**:
     
-    ```
+    ```bash
     ~/.gemini/antigravity-cli/cli.log
     ```
     
 *   **Antigravity App (macOS)**:
     
-    ```
+    ```bash
     ~/Library/Logs/Antigravity/language_server.log
     ```
     

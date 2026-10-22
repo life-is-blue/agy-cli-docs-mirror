@@ -1,5 +1,7 @@
 # Marketplace
 
+Available on: Antigravity App, Antigravity CLI
+
 The Marketplace lets you discover, install, and manage curated [plugins](/docs/plugins) that extend your agent with reusable [skills](/docs/skills), [MCP servers](/docs/mcp), [rules](/docs/rules), and [subagents](/docs/subagents).
 
 Note
@@ -48,7 +50,7 @@ Any plugins you install in the Antigravity App automatically sync and appear in 
 
 In the Antigravity CLI, open the interactive plugin manager using the `/plugin` slash command (or its alias `/plugins`):
 
-```
+```text
 /plugin
 ```
 
@@ -113,20 +115,20 @@ In addition to the interactive panel, `/plugin` supports inline commands to `ins
 
 *   **Install from the official marketplace or a local directory**: Run the following commands (`<marketplace-name>` supports the official marketplace, `antigravity-plugins-official`):
     
-    ```
+    ```text
     /plugin install <plugin-name>@antigravity-plugins-official
     /plugin install <local-path>
     ```
     
     For example, running `/plugin install firebase@antigravity-plugins-official` outputs:
     
-    ```
+    ```text
     Successfully installed plugin "firebase" from "antigravity-plugins-official".
     ```
     
 *   **Manage and list plugins inline**: Run the following commands:
     
-    ```
+    ```text
     /plugin uninstall <plugin-name>
     /plugin enable <plugin-name>
     /plugin disable <plugin-name>
@@ -142,33 +144,33 @@ Outside an interactive TUI session, you can install and manage plugins directly 
 
 *   **Install from the official marketplace**: Specify `<plugin-name>@antigravity-plugins-official` (`<marketplace-name>` only supports the official marketplace, `antigravity-plugins-official`), or pass a bare `<plugin-name>`, which defaults to `<plugin-name>@antigravity-plugins-official`:
     
-    ```
+    ```bash
     agy plugin install firebase@antigravity-plugins-official
     agy plugin install firebase
     ```
     
 *   **Install from a GitHub link**: Clone and stage a plugin directly from a GitHub repository URL:
     
-    ```
+    ```bash
     agy plugin install https://github.com/<owner>/<repo>
     ```
     
 *   **Install from a local directory**: Stage a local plugin folder into your profile:
     
-    ```
+    ```bash
     agy plugin install </path/to/local/plugin>
     ```
     
 *   **List installed plugins**: Run `agy plugin list` for a human-readable summary of installed plugins and their component counts, or pass `--json` to output a JSON array with installation paths and component names:
     
-    ```
+    ```bash
     agy plugin list
     agy plugin list --json
     ```
     
 *   **Enable, disable, or uninstall plugins**:
     
-    ```
+    ```bash
     agy plugin enable <plugin-name>
     agy plugin disable <plugin-name>
     agy plugin uninstall <plugin-name>

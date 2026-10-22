@@ -1,5 +1,7 @@
 # Schedule command (/schedule)
 
+Available on: Antigravity App, Antigravity CLI, Antigravity IDE
+
 Set a one-time timer or a recurring cron schedule that wakes the agent with an instruction, without blocking the conversation while it waits.
 
 ## Overview
@@ -20,7 +22,7 @@ Type `/schedule` followed by when the agent should wake up and what it should do
 
 Type the command in the composer:
 
-```
+```text
 /schedule in 10 minutes, check whether the deploy to staging finished and summarize any errors
 ```
 
@@ -30,7 +32,7 @@ The schedule appears in the conversation as a **Timed** or **Scheduled** step wh
 
 Type the command in the interactive prompt:
 
-```
+```bash
 /schedule every weekday at 9am, run git fetch, list stale local branches, and summarize open PR reviews
 ```
 
@@ -52,7 +54,7 @@ A timer waits for a fixed duration and then fires once:
 
 Timers are useful for “check back in N minutes” workflows. With a `TimerCondition`, the timer is cancelled early when a matching message arrives, such as a subagent finishing, and that message itself wakes the agent, so it doesn’t wait the full duration unnecessarily.
 
-```
+```text
 /schedule wait up to 5 minutes for the test subagent to report back, then check its results either way
 ```
 
@@ -69,7 +71,7 @@ A cron schedule fires repeatedly on a standard five-field cron expression:
 
 Set `IsDaemon` only for an independent standing job. Non-daemon schedules are tied to the task that created them. When `MaxIterations` is reached, the agent is notified that the schedule completed.
 
-```
+```text
 /schedule every 2 minutes for the next 30 minutes, poll the CI status for PR #482 and tell me when it goes green
 ```
 
