@@ -1,5 +1,7 @@
 # Authenticate
 
+Available on: Antigravity App, Antigravity CLI, IDE extensions
+
 Antigravity uses a unified authentication layer across **Antigravity App**, **Antigravity CLI**, **Antigravity for IDEs**, and the **Antigravity SDK**. Signing in on one local surface shares your credentials across your local environment.
 
 Need to install Antigravity first?
@@ -42,7 +44,7 @@ For automated or headless workflows, you can authenticate Antigravity App using 
 
 1.  Generate local Application Default Credentials for your project:
     
-    ```
+    ```bash
     gcloud auth application-default login --project {GCP_PROJECT}
     ```
     
@@ -50,7 +52,7 @@ For automated or headless workflows, you can authenticate Antigravity App using 
     *   Launch from a terminal with `export AGY_ADC_AUTH=true`.
     *   Or enable the `enableAdc` user setting in `~/.gemini/config/config.json`:
         
-        ```
+        ```json
         {
           "userSettings": {
             "enableAdc": true
@@ -92,7 +94,7 @@ To use a Gemini API key, you have to set a provider and an environment variable 
 
 1.  Set `modelProvider` to `gemini` in `~/.gemini/antigravity-cli/settings.json`:
     
-    ```
+    ```json
     {
       "modelProvider": "gemini"
     }
@@ -100,7 +102,7 @@ To use a Gemini API key, you have to set a provider and an environment variable 
     
 2.  Export your key as `GEMINI_API_KEY`:
     
-    ```
+    ```bash
     export GEMINI_API_KEY="your-api-key"
     ```
     
@@ -108,7 +110,7 @@ To use a Gemini API key, you have to set a provider and an environment variable 
     
 3.  Start the CLI:
     
-    ```
+    ```bash
     agy
     ```
     
@@ -123,7 +125,7 @@ The CLI skips the sign-in screen and opens the main interface directly. The head
 
 To send model requests to a different Gemini-compatible endpoint, set the `GOOGLE_GEMINI_BASE_URL` environment variable:
 
-```
+```bash
 export GOOGLE_GEMINI_BASE_URL="https://your-endpoint.example.com"
 ```
 
@@ -151,13 +153,13 @@ For headless enterprise environments and automated terminal workflows, Antigravi
 
 1.  Generate local ADC credentials for your project:
     
-    ```
+    ```bash
     gcloud auth application-default login --project {GCP_PROJECT}
     ```
     
 2.  Enable ADC in the CLI by setting `AGY_ADC_AUTH=true` (and optionally `GOOGLE_CLOUD_QUOTA_PROJECT` and `GOOGLE_CLOUD_LOCATION`):
     
-    ```
+    ```bash
     export AGY_ADC_AUTH=true
     ```
     
@@ -167,7 +169,7 @@ For headless enterprise environments and automated terminal workflows, Antigravi
 
 Terminating your session clears active credentials and local cache directories. To disconnect your account and purge saved authentication profiles from your operating system’s keyring, run the following command in the CLI prompt box:
 
-```
+```text
 /logout
 ```
 
@@ -195,7 +197,7 @@ In editors that configure external agents via JSON settings ([IntelliJ-based IDE
 
 For individual Google AI subscription plans (including Free, Pro, and Ultra):
 
-```
+```json
 {
   "auth": {
     "type": "oauth-personal"
@@ -207,7 +209,7 @@ For individual Google AI subscription plans (including Free, Pro, and Ultra):
 
 Reach out to your cloud administrator for your GCP Project ID and Region (Enterprise support for JetBrains, Zed, and Xcode is currently in Preview):
 
-```
+```json
 {
   "auth": {
     "type": "oauth-business"
@@ -223,7 +225,7 @@ Reach out to your cloud administrator for your GCP Project ID and Region (Enterp
 
 Authenticate using a Gemini API key:
 
-```
+```json
 {
   "auth": {
     "type": "gemini-api-key"
@@ -235,7 +237,7 @@ Authenticate using a Gemini API key:
 
 Authenticate with Gemini Enterprise using an API Key or Application Default Credentials (ADC) (Preview). When using ADC, specify your GCP Project ID and Region:
 
-```
+```json
 {
   "auth": {
     "type": "agent-platform"
@@ -255,13 +257,13 @@ The **Google Antigravity SDK** (`google-antigravity`) supports the following aut
 
 1.  **Gemini API Key**: Set your Gemini API key in the environment before initializing `Agent`:
     
-    ```
+    ```bash
     export GEMINI_API_KEY="your_api_key_here"
     ```
     
 2.  **Gemini Enterprise (Google Cloud / Vertex AI)**: Set `vertex=True` in `LocalAgentConfig` alongside your GCP `project` and `location` to route requests through the Gemini Enterprise API (`aiplatform.googleapis.com`):
     
-    ```
+    ```python
     from google.antigravity import Agent, LocalAgentConfig
     
     config = LocalAgentConfig(
@@ -273,7 +275,7 @@ The **Google Antigravity SDK** (`google-antigravity`) supports the following aut
     
     Or configure Gemini Enterprise via environment variables and Application Default Credentials:
     
-    ```
+    ```bash
     export GOOGLE_GENAI_USE_VERTEXAI=True
     export GOOGLE_CLOUD_PROJECT="your-gcp-project"
     export GOOGLE_CLOUD_LOCATION="us-central1"
@@ -288,7 +290,7 @@ The **Google Antigravity SDK** (`google-antigravity`) supports the following aut
 
 [
 
-rocket\_launchGet Started
+Get Started
 
 Quickstart
 
@@ -296,7 +298,7 @@ Install Antigravity and complete your first end-to-end agent workflow.
 
 ](/docs/getting-started)[
 
-psychologyModels
+Models
 
 Choose a model
 
@@ -304,7 +306,7 @@ Configure Gemini 4 Argon, Gemini 3.1 Pro, Gemini 3.8 Flash, Claude, and reasonin
 
 ](/docs/models)[
 
-cloudCloud & APIs
+Cloud & APIs
 
 Build with Google
 

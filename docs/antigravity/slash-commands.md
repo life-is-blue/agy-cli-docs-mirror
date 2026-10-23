@@ -1,5 +1,7 @@
 # Slash commands overview
 
+Available on: Antigravity App, Antigravity CLI
+
 Slash commands provide quick shortcuts for invoking specialized agent workflows, reasoning modes, interactive planning tools, and background automations. These commands operate consistently across both the **Google Antigravity App** (Desktop and Web) and the **Antigravity CLI**.
 
 Note
@@ -32,7 +34,7 @@ The following table provides a complete reference for all public slash commands:
 | [`/teamwork-preview`](/docs/teamwork) | Reasoning | Collaborative agent teams for repo-scale migrations, simulation, and research. | Paid plans | Hours to days |
 | [`/goal`](/docs/commands/goal) | Reasoning | Autonomous execution until the goal is achieved without intermediate pauses. | All plans | Minutes to hours |
 | [`/plan`](/docs/plan) | Planning | Researches code, conducts requirement interviews, and drafts a reviewable plan artifact. | All plans | Minutes |
-| `/grill-me` | Planning | Conducts an interactive interview to align on design details and edge cases. | All plans | Minutes |
+| [`/grill-me`](/docs/commands/grill-me) | Planning | Interviews you one question at a time, with a recommended answer for each, to align on design details and edge cases. | All plans | Minutes |
 | [`/learn`](/docs/commands/learn) | Customization | Distills session feedback and corrections into persistent Rules or Skills. | All plans | Immediate |
 | [`/plugin`](/docs/plugins) | Customization | Opens the interactive [Plugins Manager](/docs/marketplace) or manages and creates plugins. | All plans | Immediate |
 | [`/schedule`](/docs/commands/schedule) | Automation | Schedules an instruction as a one-time timer or recurring cron job. | All plans | Scheduled |
@@ -49,7 +51,7 @@ Activates the on-demand three-tier multi-agent reasoning hierarchy (`Orchestrato
 
 To invoke Boost for an algorithmic optimization, run the following command:
 
-```
+```text
 /boost Optimize the sparse matrix multiplication routine using SIMD intrinsics and benchmark throughput.
 ```
 
@@ -61,7 +63,7 @@ Initiates the multi-agent framework for multi-day engineering campaigns, subsyst
 
 To launch a multi-agent migration, run the following command:
 
-```
+```text
 /teamwork-preview Migrate our REST backend from Express to Fastify with full test parity and benchmarks.
 ```
 
@@ -73,7 +75,7 @@ Instructs the agent to work continuously until the specified objective is fully 
 
 To run a test suite repair autonomously, run the following command:
 
-```
+```text
 /goal Fix all failing unit tests in the authentication package and ensure 100% pass rate.
 ```
 
@@ -109,13 +111,13 @@ Use `/plan` in the following scenarios:
 
 To plan a specific task, run `/plan` with your objective:
 
-```
+```text
 /plan Refactor our authentication middleware to support OIDC token verification with JWKS caching
 ```
 
 To begin an interactive discovery session for the current workspace context without a predefined prompt:
 
-```
+```text
 /plan
 ```
 
@@ -123,13 +125,15 @@ For complete workflow details, refer to the [Plan slash command guide](/docs/pla
 
 ### /grill-me
 
-Prompts the agent to interview you before writing code. The agent asks targeted questions about architecture, error handling, performance targets, and backward compatibility to eliminate ambiguity.
+Has the agent interview you about a task before it starts work. The agent asks one question at a time and recommends an answer for each. It explores the codebase instead of asking you anything the code can answer, and keeps going until you share the same understanding of the task.
 
 To align on design constraints, run the following command:
 
-```
+```text
 /grill-me I want to redesign the notification dispatch queue to support priority scheduling.
 ```
+
+To turn your answers into a reviewable plan, stack it with [`/plan`](/docs/plan) (`/plan /grill-me <task>`). For complete workflow details, refer to the [Grill me command guide](/docs/commands/grill-me).
 
 * * *
 
@@ -141,7 +145,7 @@ Analyzes recent corrections, user feedback, and debugging resolutions from your 
 
 To capture recent session patterns into persistent rules, run the following command:
 
-```
+```text
 /learn Save our database transaction retry pattern as a project rule for all future database changes.
 ```
 
@@ -153,7 +157,7 @@ Manages installed plugins, browses the [Marketplace](/docs/marketplace), and pac
 
 In the **Antigravity CLI**, running `/plugin` (or its alias `/plugins`) opens the interactive Plugins Manager panel with **Installed** and **Discover** tabs, or executes inline subcommands directly (`<marketplace-name>` supports the official marketplace, `antigravity-plugins-official`):
 
-```
+```text
 /plugin
 /plugin install <plugin-name>@antigravity-plugins-official
 /plugin install <local-path>
@@ -174,7 +178,7 @@ Configures the agent to execute a prompt at a specified future time or on a recu
 
 To set up a daily cleanup routine, run the following command:
 
-```
+```text
 /schedule "0 9 * * 1-5" Run git fetch, prune stale local branches, and summarize pending PR reviews.
 ```
 
@@ -190,7 +194,7 @@ Spawns a sandboxed Chrome browser subagent capable of navigating web pages, read
 
 To verify a local web server layout, run the following command:
 
-```
+```text
 /browser Open http://localhost:3000/dashboard, verify that the analytics charts render, and capture a screenshot.
 ```
 
@@ -202,7 +206,7 @@ Submits an out-of-band query that runs in a lightweight background thread withou
 
 To ask an aside while an implementation is running, run the following command:
 
-```
+```text
 /btw Which file did you say defines the UserSession interface?
 ```
 
@@ -219,7 +223,7 @@ The following decision guide outlines when to use each command based on your tas
 | **Complex bug, race condition, or algorithmic puzzle** | [`/boost`](/docs/boost) | Multi-agent deep reasoning with isolated verification loops. |
 | **Multi-day project, repository migration, or research** | [`/teamwork-preview`](/docs/teamwork) | Collaborative agent teams with scoping interviews and milestone roadmaps. |
 | **Feature requiring review before making code edits** | [`/plan`](/docs/plan) | Researches code, interviews requirements, and generates a reviewable plan. |
-| **Vague requirements needing architectural alignment** | `/grill-me` | Conducts a step-by-step interview to clarify edge cases and constraints. |
+| **Vague requirements needing architectural alignment** | [`/grill-me`](/docs/commands/grill-me) | Conducts a step-by-step interview to clarify edge cases and constraints. |
 | **Task that should run continuously until 100% complete** | [`/goal`](/docs/commands/goal) | Autonomous execution without turn-by-turn confirmation pauses. |
 | **Distill recent corrections into permanent project rules** | [`/learn`](/docs/commands/learn) | Analyzes session patterns and writes persistent rules and skills. |
 | **Discover, install, or manage plugins and marketplace bundles** | [`/plugin`](/docs/plugins) | Interactive [Plugins Manager](/docs/marketplace) in the CLI and conversational plugin management. |
@@ -253,6 +257,6 @@ Explore related documentation and guides:
 *   [Schedule command (`/schedule`)](/docs/commands/schedule): Set one-shot timers and recurring cron schedules within a conversation.
 *   [Browser command (`/browser`)](/docs/commands/browser): Delegate web tasks and UI verification to the browser subagent.
 *   [Implementation plans artifact guide](/docs/implementation-plan): Master reviewable planning artifacts and structured workflows.
-*   [Rules (`/learn`)](/docs/rules): Persist project-wide patterns and conventions.
+*   [Rules](/docs/rules): Persist project-wide patterns and conventions.
 *   [Plugins (`/plugin`)](/docs/plugins) and [Marketplace](/docs/marketplace): Discover, install, and package reusable agent extensions.
 *   [Sidecars and scheduled tasks (`/schedule`)](/docs/sidecars): Automate routine maintenance with cron expressions.

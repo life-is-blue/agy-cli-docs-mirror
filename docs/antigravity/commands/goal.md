@@ -70,7 +70,7 @@ Goal mode is only as good as the completion criteria you give it. The following 
 
 *   **Name the evidence**: “all tests in `packages/api` pass,” “`npm run build` exits with zero errors,” or “p95 latency in the benchmark is under 50 ms.”
 *   **Scope the work**: list the packages, services, or files in scope so the agent doesn’t stop early or expand indefinitely.
-*   **Plan first for big changes**: run [`/plan`](/docs/plan) or `/grill-me` before `/goal` to align on the approach, then hand the approved plan to goal mode for execution.
+*   **Plan first for big changes**: run [`/plan`](/docs/plan) or [`/grill-me`](/docs/commands/grill-me) before `/goal` to align on the approach, then hand the approved plan to goal mode for execution.
 *   **Pair with a timer**: for recurring check-ins during a long goal, use [`/schedule`](/docs/commands/schedule) to have the agent report progress on an interval.
 
 ## Next steps

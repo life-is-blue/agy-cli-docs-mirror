@@ -1,5 +1,7 @@
 # Browser command (/browser)
 
+Available on: Antigravity App, Antigravity CLI
+
 Hand a web task to the built-in **`browser` subagent**, which drives Google Chrome to navigate pages, interact with your running app, inspect the console and network, and capture screenshots and recordings.
 
 ## Overview
@@ -25,7 +27,7 @@ Type `/browser` followed by the task. Describe a clear end condition so the suba
 
 Type the command in the composer:
 
-```
+```text
 /browser Open http://localhost:3000, resize to a 390px-wide mobile viewport, verify the navigation drawer opens and closes, and capture a screenshot of each state
 ```
 
@@ -35,7 +37,7 @@ The subagent’s progress appears in the subagent panel. Screenshots and the ses
 
 Type the command in the interactive prompt:
 
-```
+```bash
 /browser Open http://localhost:3000/dashboard, verify that the analytics charts render, and report any console errors
 ```
 
@@ -63,25 +65,25 @@ The following prompts show typical `/browser` workflows:
 
 *   **Verify a UI fix**:
     
-    ```
+    ```text
     /browser Reload http://localhost:5173/settings and confirm the save button is no longer disabled after editing the display name
     ```
     
 *   **Reproduce a console error**:
     
-    ```
+    ```text
     /browser Go to http://localhost:3000/checkout, add any item to the cart, and report the full text and stack of any console errors
     ```
     
 *   **Check responsive and slow-network behavior**:
     
-    ```
+    ```text
     /browser Load http://localhost:3000 with a Slow 3G network profile and a 375px viewport, then screenshot the hero section once it finishes loading
     ```
     
 *   **Research documentation**:
     
-    ```
+    ```text
     /browser Open the Astro docs for content collections and summarize how to define a schema with zod
     ```
     

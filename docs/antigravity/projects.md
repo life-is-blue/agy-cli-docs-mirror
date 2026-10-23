@@ -40,7 +40,7 @@ When starting a new conversation in a project, you choose how the agent interact
 
 Settings and permissions are both scoped at the project level:
 
-*   **Settings**: When a project is created, it starts with the **Inherit General** permission preset, following your global permission settings, with read and write access to all of your project’s folders. On macOS and Linux under the **Default** preset, terminal commands run without prompting inside the [terminal sandbox](/docs/sandbox) and require approval to run outside it; on Windows, the agent asks for permission to run terminal commands. These settings can be modified and apply to all agents within this project.
+*   **Settings**: When a project is created, it starts with the **Inherit Global** permission preset, following your global permission settings, with read and write access to all of your project’s folders. Under the **Default** preset, terminal commands run without prompting inside the [terminal sandbox](/docs/sandbox) and require approval to run outside it. With the [previous permission settings](/docs/agent-settings#previous-permission-settings), the agent asks for permission to run terminal commands. These settings can be modified and apply to all agents within this project.
 *   **Permissions**: Projects inherit global permissions, and you can augment them at the project level so agents only have the exact access required for that specific project’s tasks.
 
 #### Workflows using projects

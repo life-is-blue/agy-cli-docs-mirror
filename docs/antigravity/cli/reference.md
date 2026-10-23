@@ -1,6 +1,6 @@
 # CLI commands
 
-Review tables listing all TUI slash commands, default keyboard shortcuts, and JSON configuration parameters.
+Review tables listing all TUI slash commands, default keyboard shortcuts, command-line flags, and JSON configuration parameters.
 
 ## Core slash commands
 
@@ -16,6 +16,7 @@ Type `/` inside the prompt box to open the typeahead command selection menu.
 | **[`/btw`](/docs/cli/commands/btw) `<query>`** | Utilities | — | Ask a [side question in the background](/docs/cli/commands/btw) without interrupting the main conversation. |
 | **[`/changelog`](/docs/cli/commands/changelog)** | Utilities | — | Open the [interactive release notes viewer](/docs/cli/commands/changelog) or print CLI changes in headless mode. |
 | **`/clear`** | Utilities | `/new` | Clear the terminal and reset active conversation contexts. |
+| **[`/codesearch`](/docs/cli/commands/codesearch) `<query>`** | Utilities | `/cs`, `/search` | Open the [interactive Code Search panel](/docs/cli/commands/codesearch) to search code across the workspace. |
 | **`/config`** | Configurations | `/settings` | Open the interactive Settings Editor overlay. |
 | **[`/context`](/docs/cli/commands/context)** | Utilities | — | Open the [context usage visualization panel](/docs/cli/commands/context). |
 | **`/copy [n|btw]`** | Utilities | — | Copy the last agent response, the n-th most recent response, or the latest [`/btw`](/docs/cli/commands/btw) answer. |
@@ -23,10 +24,10 @@ Type `/` inside the prompt box to open the typeahead command selection menu.
 | **[`/diff`](/docs/cli/commands/diff)** | Utilities | — | Open the [interactive diff viewer](/docs/cli/commands/diff) to view changes, turns, and commits. |
 | **[`/effort`](/docs/cli/commands/effort) `[level]`** | Configurations | — | Set or inspect the active model’s [reasoning effort level](/docs/cli/commands/effort) (`low` through `max`, depending on the model). |
 | **`/exit`** | Core | `/quit` | Close the TUI session and restore your host shell. |
-| **`/fast`** | Configurations | — | Enable fast mode (bypass reasoning plans) for quick actions. |
 | **`/feedback`** | Utilities | — | Open the feedback submission panel. |
 | **`/fork`** | Conversations | `/branch` | Clone the current conversation thread into a new parallel session. |
 | **[`/goal`](/docs/commands/goal)** `<objective>` | Reasoning | — | Run autonomously until the [goal is verified complete](/docs/commands/goal), without intermediate pauses. |
+| **[`/grill-me`](/docs/commands/grill-me)** `[task]` | Planning | — | Have the agent [interview you](/docs/commands/grill-me) one question at a time, with a recommended answer for each, before it starts work. |
 | **`/help`** | Utilities | — | Open the help panel showing commands and shortcuts. |
 | **`/hooks`** | Tools & Tasks | — | Browse active pre-flight/post-format script hooks. |
 | **`/keybindings`** | Configurations | — | Open the interactive Keyboard Shortcut Editor. |
@@ -36,7 +37,7 @@ Type `/` inside the prompt box to open the typeahead command selection menu.
 | **`/model`** | Configurations | — | Choose your preferred reasoning model (persists across sessions). |
 | **`/open <path>`** | Utilities | — | Force the path to open inside your default system editor. |
 | **[`/permissions`](/docs/cli/commands/permissions)** | Configurations | — | Open the interactive tool permissions manager panel. |
-| **`/planning`** | Configurations | — | Enable multi-turn plan generation mode for complex engineering tasks. |
+| **[`/plan`](/docs/plan)** `[task]` | Planning | — | Explore the codebase, clarify requirements, and draft a reviewable [Implementation Plan](/docs/implementation-plan). |
 | **[`/plugin`](/docs/plugins?tab=cli)** | Tools & Tasks | `/plugins` | Open the interactive [Plugins Manager](/docs/marketplace?tab=cli) or run inline `install`, `uninstall`, `enable`, `disable`, and `list` commands. |
 | **`/rename <name>`** | Conversations | — | Rename the current session thread. |
 | **[`/remote-control`](/docs/remote-control?tab=cli#interactive-mode) \[on/off\]** | Utilities | — | Toggle Remote Control for the active terminal session. |
@@ -72,18 +73,19 @@ These keys are active when writing instructions inside the prompt box.
 
 | Key | TUI Command | Action Behavior |
 | :-- | :-- | :-- |
-| **`Enter`** | `prompt.submit` | Submits your prompt or active menu selection to the agent. |
-| **`Shift+Enter`** / **`Ctrl+J`** | `prompt.newline` | Inserts a clean newline without submitting. |
-| **`Ctrl+V`** | `prompt.paste` | Pastes graphic media files or clipboard blocks into the prompt. |
-| **`Ctrl+O`** | `prompt.toggle_trajectory` | Expands or collapses detailed tool reasoning outputs. |
-| **`Ctrl+R`** | `prompt.open_review` | Opens the Artifact Review panel. |
-| **`Ctrl+G`** | `prompt.external_editor` | Launches your default `$EDITOR` shell to compose your prompt. |
-| **`Alt+J`** | `prompt.teleport_agent` | Instantly switches focus to the next subagent awaiting confirmation. |
-| **`Ctrl+K`** | `prompt.fast_approve` | Instantly approves the pending subagent action listed in the status alert. |
-| **`Ctrl+A`** | `prompt.cursor_start` | Moves the prompt insertion cursor to the beginning of the line. |
-| **`Ctrl+E`** | `prompt.cursor_end` | Moves the prompt insertion cursor to the end of the line. |
-| **`Ctrl+Z`** | `prompt.undo_text` | Reverts the last edit. |
-| **`Ctrl+Shift+Z`** | `prompt.redo_text` | Redoes the last undone text operation. |
+| **`Enter`** | `cli.enter` | Submits your prompt or active menu selection to the agent. |
+| **`Shift+Enter`** / **`Ctrl+J`** | `prompt.insert_newline` | Inserts a clean newline without submitting. |
+| **`Shift+Tab`** | `cli.cycle_mode` | Cycles between execution modes (`default` > `accept-edits` > `auto` > `plan`; `auto` only where available). |
+| **`Ctrl+V`** | `edit.paste` | Pastes graphic media files or clipboard blocks into the prompt. |
+| **`Ctrl+O`** | `view.toggle_trajectory` | Expands or collapses detailed tool reasoning outputs. |
+| **`Ctrl+R`** | `view.review_artifact` | Opens the Artifact Review panel. |
+| **`Ctrl+G`** | `edit.open_editor` | Launches your default `$EDITOR` shell to compose your prompt. |
+| **`Alt+J`** | `subagent.jump_to_waiting` | Instantly switches focus to the next subagent awaiting confirmation. |
+| **`Ctrl+K`** | `subagent.approve_fast` | Instantly approves the pending subagent action listed in the status alert. |
+| **`Ctrl+A`** | `—` | Moves the prompt insertion cursor to the beginning of the line. |
+| **`Ctrl+E`** | `—` | Moves the prompt insertion cursor to the end of the line. |
+| **`Ctrl+_`** / **`Ctrl+Shift+-`** | `edit.undo` | Reverts the last edit. |
+| **`Ctrl+Shift+Z`** | `edit.redo` | Redoes the last undone text operation. |
 | **`Ctrl+D`** | `—` | Forward delete (only when the prompt box is non-empty). |
 | **`F5`** | `voice.start_dictation` | Starts or stops [voice dictation](/docs/cli/commands/voice). |
 
@@ -94,8 +96,8 @@ These keys are active inside select panels, menus, and scrollable text boxes.
 | Key | TUI Command | Action Behavior |
 | :-- | :-- | :-- |
 | **`↑`** / **`↓`** | `navigation.up` / `navigation.down` | Scrolls highlighted selections up or down by one item. |
-| **`PgUp`** / **`Shift+↑`** | `navigation.page_up` | Scrolls the active text viewport up by one page block. |
-| **`PgDn`** / **`Shift+↓`** | `navigation.page_down` | Scrolls the active text viewport down by one page block. |
+| **`PgUp`** / **`Shift+↑`** | `navigation.page_up` / `navigation.half_page_up` | Scrolls the active text viewport up by one page block. |
+| **`PgDn`** / **`Shift+↓`** | `navigation.page_down` / `navigation.half_page_down` | Scrolls the active text viewport down by one page block. |
 | **`←`** / **`→`** | `navigation.left` / `navigation.right` | Swaps pages inside multipage structures (like the Session Picker). |
 | **`Tab`** | `navigation.tab` | Confirms the highlighted slash-command autofill option. |
 
@@ -109,45 +111,95 @@ These keys are active during confirmation prompts.
 | **`n`** | `confirm.no` | Rejects the proposed tool, command, or active artifact. |
 | **`A`** | `—` | (Inside Review panel) Approves all generated artifacts in one action (built-in shortcut). |
 
+## Command-line flags
+
+Pass startup flags when launching `agy` to configure the session or run non-interactively:
+
+| Flag | Default | Description |
+| :-- | :-- | :-- |
+| **`--mode`** | `""` | Set the agent [execution mode](/docs/cli/modes) for this session: `accept-edits`, `auto` (Preview; `v1.3.5+` on macOS and Linux, `v1.4.4+` on Windows; requires the terminal sandbox; not available for business or enterprise accounts), or `plan`. |
+| **`--model`** | — | Select the model for the current CLI session (refer to `agy models`). |
+| **`--effort`** | — | Set the [reasoning effort](/docs/cli/commands/effort) for the current CLI session (`low` through `max`, depending on the model). |
+| **`--agent`** | — | Select the agent for the current CLI session (refer to `agy agents`). |
+| **`--add-dir`** | `[]` | Add a directory to the workspace (repeatable). |
+| **`-c`**, **`--continue`** | `false` | Continue the most recent conversation. |
+| **`--conversation`** | — | Resume a previous conversation by ID. |
+| **`-i`**, **`--prompt-interactive`** | — | Run an initial prompt interactively and continue the session. |
+| **`-p`**, **`--print`**, **`--prompt`** | — | Run a single prompt non-interactively in [headless mode](/docs/cli/headless) and print the response. |
+| **`--output-format`** | `text` | Output format for print mode (`text`, `json`, `stream-json`). |
+| **`--input-format`** | `text` | Input format for print mode (`text`, `stream-json`). |
+| **`--json-schema`** | — | JSON schema string or path to a schema file to enforce structured output in print mode. |
+| **`--print-timeout`** | `0s` | Optional time limit for print mode (`0` waits until the turn completes). |
+| **`--disable-slash-commands`** | `false` | Disable slash command and skill expansion in print mode. |
+| **`--sandbox`** | `false` | Run in a terminal sandbox with OS containment restrictions enabled (in `v1.4.4+`, no effect if the sandbox isn’t available on your machine). |
+| **`--dangerously-skip-permissions`** | `false` | Auto-approve all tool permission requests without prompting. |
+| **`--remote-control`** | `false` | Create a [Remote Control](/docs/remote-control?tab=cli) connection for the CLI session on startup. |
+| **`--project`** | — | Project ID or project name for the current CLI session. |
+| **`--new-project`** | `false` | Create a new project for this session. |
+| **`--log-file`** | — | Override the CLI log file path. |
+
 ## Configuration keys (`settings.json`)
 
-This section lists the primary settings key names, data types, system defaults, and expected parameters.
+This section lists every key you can set in `~/.gemini/antigravity-cli/settings.json`, with its type and default. A key you leave out uses its default. For how the CLI reads and saves the file, and for the keys that take an object, refer to [CLI settings](/docs/settings?tab=cli).
 
 ### Example `settings.json`
 
-```
+```json
 {
+    "agentMode": "auto",
     "colorScheme": "tokyo night",
     "altScreenMode": "always",
-    "toolPermission": "request-review",
+    "toolPermission": "proceed-in-sandbox",
     "notifications": true,
     "enableTerminalSandbox": true
 }
 ```
 
+To get autocomplete and validation in editors such as VS Code, add `"$schema": "https://antigravity.google/schemas/v1/settings.json"` at the top of the file. For details, refer to [Editor autocomplete and validation](/docs/settings?tab=cli#editor-autocomplete-and-validation).
+
 | Option Key Name | Value Type | System Default | Parameter Characteristics & Options |
 | :-- | :-- | :-- | :-- |
+| **`agentMode`** | string | `""` (default mode) | Default startup [execution mode](/docs/cli/modes): `""` (standard `default` mode), `"accept-edits"` (auto-approve workspace file edits), `"auto"` (Preview; `v1.3.5+` on macOS and Linux, `v1.4.4+` on Windows; requires the terminal sandbox; auto-approves edits, runs commands in the terminal sandbox by default, and automatically checks any command that needs to run outside the sandbox so safe, reversible commands run without prompting while irreversible actions still prompt; not available for business or enterprise accounts), or `"plan"` (research and outline steps before writing code). Can be overridden per session with `--mode`. |
 | **`colorScheme`** | string | `"terminal"` | Color theme: `"light"`, `"solarized light"`, `"colorblind-friendly light"`, `"dark"`, `"solarized dark"`, `"colorblind-friendly dark"`, `"tokyo night"`, or `"terminal"` (inherits native shell colors). |
-| **`altScreenMode`** | string | `"default"` | Screen buffer usage: `"default"` (adaptive inline/altscreen), `"always"` (force alternate screen buffer), or `"never"` (force inline sequential output). |
-| **`toolPermission`** | string | `"request-review"` | Global safety presets: `"request-review"` (prompts for write/bash/web tools), `"proceed-in-sandbox"` (auto-proceed inside sandbox), `"always-proceed"` (never prompts), or `"strict"` (prompts for all non-read tools). |
-| **`artifactReviewPolicy`** | string | `"asks-for-review"` | Code review policy: `"asks-for-review"` (always prompts before writing code), `"agent-decides"` (prompts dynamically), or `"always-proceed"` (never prompts). |
-| **`notifications`** | boolean | `false` | Emits system desktop and terminal bell chime notifications upon task completions. |
-| **`showTips`** | boolean | `true` | Displays helpful agentic tips above the prompt panel during generation turns. |
+| **`altScreenMode`** | string | `"default"` | Screen buffer usage: `"default"` (renders the conversation inline and opens full-screen views in the alternate screen), `"always"` (runs the whole TUI in the alternate screen), or `"never"` (never uses the alternate screen; available only in `settings.json`). |
+| **`toolPermission`** | string | `"request-review"` | Global safety presets: `"request-review"` (prompts for write, bash, web, and MCP tools unless an allow rule covers them), `"proceed-in-sandbox"` (runs terminal commands without prompting when the sandbox is on and the command runs inside it; in `v1.4.4+`, behaves like `"request-review"` if the sandbox isn’t available), `"always-proceed"` (runs commands, web requests, and MCP tools without prompting unless an ask or deny rule matches), or `"strict"` (prompts before every tool action, including file reads, even if an allow rule matches). Deny rules apply in every mode. |
+| **`artifactReviewPolicy`** | string | `"asks-for-review"` | Whether the agent waits for your review when it asks for feedback on an artifact, such as an implementation plan: `"asks-for-review"` (always waits), `"agent-decides"` (currently the same as `"asks-for-review"`), or `"always-proceed"` (never waits). Doesn’t affect file edits. |
+| **`notifications`** | boolean | `false` | Rings the terminal bell and shows a desktop notification when the agent needs your approval or an answer, or finishes its turn. |
+| **`showTips`** | boolean | `true` | Displays helpful usage tips while the agent is generating responses. |
 | **`showFeedbackSurvey`** | boolean | `true` | Displays periodic quality feedback surveys upon active task completions. |
-| **`editor`** | string | `"auto"` | Target text editor utility: `"auto"` (consults system `$EDITOR`), `"vim"`, `"emacs"`, or custom text labels. |
+| **`editor`** | string | `"auto"` | External editor for opening artifacts and files and for composing prompts (`Ctrl+G`): `"auto"` (uses `$EDITOR`, then falls back to `vim`, or to `edit` and `notepad` on Windows), `"vim"`, `"emacs"`, or any other editor command. |
 | **`editorMode`** | string | `"default"` | Prompt editing model: `"default"` (flat text editing) or `"vim"` (modal editing). Distinct from `editor`, which selects an external program. Refer to [Vim editor mode](/docs/cli/vim-editor-mode). |
 | **`vimInsertFirst`** | boolean | `false` | Starts Vim editing in Insert mode and makes a bare `Enter` submit. Requires `editorMode` set to `"vim"`. |
-| **`allowNonWorkspaceAccess`** | boolean | `false` | Permits the agent’s file read and write tools to navigate outside recognized Git/workspace roots. |
-| **`enableTerminalSandbox`** | boolean | `false` | Restricts all local execution commands launched by agents to OS containment rings. |
-| **`useG1Credits`** | boolean | `false` | _External builds only._ Uses personal AI credits for model calls once plan quotas are exhausted. |
-| **`enableTelemetry`** | boolean | `true` | Permits metric collection and crash log streaming to improve tool reliability. |
-| **`verbosity`** | string | `"high"` | Visual verbosity level: `"high"` (renders full thoughts and tool outputs) or `"low"` (displays only minimal visual progress indicators). |
+| **`allowNonWorkspaceAccess`** | boolean | `false` | Lets the agent read and edit files outside your workspace folders, subject to `toolPermission`, `agentMode`, and your permission rules. |
+| **`enableTerminalSandbox`** | boolean | `false` | Restricts all local execution commands launched by agents to OS containment rings (in `v1.4.4+`, no effect if the sandbox isn’t available on your machine). |
+| **`useG1Credits`** | boolean | `false` | Uses your AI credits for model requests after your plan’s quota runs out. Not available for business accounts. |
+| **`verbosity`** | string | `"medium"` | Visual verbosity level: `"high"` (renders every tool call, command, and thought in full), `"medium"` (groups related tool calls and thoughts into summaries while keeping commands and responses visible), or `"low"` (renders only responses and collapses tool activity into a token usage summary). |
 | **`runningLightSpeed`** | string | `"medium"` | Visual running light progress animation speed: `"fast"`, `"medium"`, `"slow"`, or `"off"`. |
+| **`copyOnSelect`** | boolean | `true` | In alt-screen mode, copies text to the clipboard when you release a mouse selection. When `false`, the artifact viewer uses your terminal’s own text selection. |
+| **`hideActiveItems`** | boolean | `false` | Hides the list of active subagents and background tasks below the prompt box (**Show Active Tasks** in `/config`). |
+| **`pickerGrouping`** | string | `"none"` | How the [`/resume`](/docs/cli/commands/resume) picker lists conversations: `"none"` (one list, most recent first) or `"grouped"` (grouped by workspace). |
+| **`queuedMessages`** | string | `"queue"` | What happens to a message you send while the agent is working: `"queue"` (held until the current turn ends) or `"send-immediately"` (interrupts the agent and sends it right away). |
+| **`clearScrollbackOnResize`** | boolean | `true` | In inline rendering, clears your terminal’s scrollback when the CLI redraws the conversation, such as after you resize the window. |
+| **`disableSlashCommands`** | boolean | `false` | In [headless mode](/docs/cli/headless) (`-p`), sends prompts that start with `/` as typed instead of running slash commands or skills. Same as `--disable-slash-commands`. |
+| **`historySize`** | integer | `2000` | Prompt history entries kept on disk, trimmed when the CLI exits: `-1` keeps every entry, and `0` clears the history. |
+| **`model`** | string | `""` | The model you chose with `/model`, saved by its label. |
+| **`modelProvider`** | string | `""` | `"gemini"` sends model requests directly to the Gemini API with the key in `GEMINI_API_KEY` ([Using a Gemini API key](/docs/install#using-a-gemini-api-key)). |
+| **`trustedWorkspaces`** | string\[\] | `[]` | Folders you chose to trust when the CLI asked. The CLI adds entries for you. |
+| **`useTerminalCursor`** | boolean | `false` | Uses your terminal’s own cursor shape instead of a block cursor. |
+| **`permissions`** | object | — | Allow, ask, and deny rules for the agent’s tools. Refer to [`permissions`](/docs/settings?tab=cli#permissions). |
+| **`statusLine`** | object | — | Custom status line script. Refer to [`statusLine` and `title`](/docs/settings?tab=cli#statusline-and-title). |
+| **`title`** | object | — | Custom terminal title script. Refer to [`statusLine` and `title`](/docs/settings?tab=cli#statusline-and-title). |
+| **`sandboxProxy`** | object | — | HTTP proxy for sandboxed terminal commands. Refer to [`sandboxProxy`](/docs/settings?tab=cli#sandboxproxy). |
+| **`customModelsConfig`** | object | — | Extra models for the Gemini API key setup. Refer to [`customModelsConfig` and `gcp`](/docs/settings?tab=cli#custommodelsconfig-and-gcp). |
+| **`gcp`** | object | — | Saved by the **Use a Google Cloud project** sign-in. Refer to [`customModelsConfig` and `gcp`](/docs/settings?tab=cli#custommodelsconfig-and-gcp). |
+
+**Enable Telemetry** in `/config` has no `settings.json` key: the CLI saves that choice with your account.
 
 ## Next steps
 
 Learn how to safely deploy permission policies, sandboxes, and customize plugins:
 
-*   **[Permissions and sandbox](/docs/cli/sandbox)**: Enforce command-line containment rules.
-*   **[Plugins and skills](/docs/cli/plugins)**: Create your own custom skills slash commands.
-*   **[Installation and auth](/docs/cli/install)**: Update your CLI installation.
+*   **[CLI settings](/docs/settings?tab=cli)**: Use the interactive `/config` panel, choose a rendering mode, and see how the CLI reads and saves `settings.json`.
+*   **[Permissions and sandbox](/docs/sandbox?tab=cli)**: Enforce command-line containment rules.
+*   **[Plugins and skills](/docs/plugins?tab=cli)**: Create your own custom skills slash commands.
+*   **[Installation and auth](/docs/install)**: Update your CLI installation.

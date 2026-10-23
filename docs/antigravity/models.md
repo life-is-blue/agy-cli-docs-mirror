@@ -1,5 +1,7 @@
 # Choose a model
 
+Available on: Antigravity App, Antigravity CLI, Antigravity IDE
+
 Antigravity gives you access to leading frontier reasoning models from Google DeepMind and partner providers. You can switch models at any time and choose a thinking level (`Low`, `Medium`, or `High`) to balance response speed for quick edits against deeper multi-step reasoning for complex architecture and debugging tasks.
 
 ## Select a model

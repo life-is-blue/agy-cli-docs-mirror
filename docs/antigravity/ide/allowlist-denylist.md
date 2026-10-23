@@ -1,5 +1,7 @@
 # Allowlist and denylist
 
+Available on: Antigravity IDE
+
 The browser uses a two-layer security system to control which URLs can be accessed:
 
 *   **Denylist**: Denies dangerous or malicious URLs.
@@ -15,7 +17,7 @@ The denylist is maintained and enforced using the Google Superroots BadUrlsCheck
 
 ### Allowlist
 
-The allowlist is a local text file that you can edit to explicitly trust specific URLs.
+The allowlist is a local text file (`~/.gemini/antigravity/browserAllowlist.txt`) that you can edit to explicitly trust specific URLs.
 
 ![Allowlist](/assets/image/docs/browser-allowlist.png)
 

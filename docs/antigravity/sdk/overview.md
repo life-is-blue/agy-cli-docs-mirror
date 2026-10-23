@@ -8,19 +8,19 @@ If you’re looking for the managed cloud REST/gRPC API instead of the local Pyt
 
 Install the SDK package using `pip` and configure your API key to get started:
 
-```
+```bash
 pip install google-antigravity
 ```
 
 Set your Gemini API key in your environment:
 
-```
+```bash
 export GEMINI_API_KEY="your_api_key_here"
 ```
 
 Initialize an `Agent` and start a conversation:
 
-```
+```python
 import asyncio
 from google.antigravity import Agent, LocalAgentConfig
 
@@ -38,7 +38,7 @@ if __name__ == "__main__":
 
 To connect the SDK to Gemini Enterprise, set `vertex=True` in `LocalAgentConfig` alongside your GCP `project` and `location`:
 
-```
+```python
 from google.antigravity import Agent, LocalAgentConfig
 
 config = LocalAgentConfig(
@@ -54,7 +54,7 @@ async with Agent(config) as agent:
 
 Environment variables are also supported:
 
-```
+```bash
 export GOOGLE_GENAI_USE_VERTEXAI=True
 export GOOGLE_CLOUD_PROJECT="your-gcp-project"
 export GOOGLE_CLOUD_LOCATION="us-central1"
@@ -69,7 +69,7 @@ The `Agent` class manages binary discovery, tool execution, and session lifecycl
 
 For example, you can configure an agent with custom system instructions to interact using a specific persona:
 
-```
+```python
 import asyncio
 from google.antigravity import Agent, LocalAgentConfig
 

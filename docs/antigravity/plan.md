@@ -1,5 +1,7 @@
 # Plan (/plan)
 
+Available on: Antigravity App, Antigravity CLI
+
 The `/plan` command facilitates structured planning, codebase exploration, and requirements discovery before jumping directly into code execution. For non-trivial tasks, `/plan` ensures complex changes are well-understood, properly scoped, and organized before files are modified.
 
 * * *
@@ -47,13 +49,13 @@ You can invoke `/plan` with a specific task prompt or without arguments to start
 
 Type `/plan` followed by your goal in the prompt input:
 
-```
+```text
 /plan Refactor our authentication middleware to support OIDC token verification with JWKS caching
 ```
 
 To start an interactive discovery session for the current workspace context without a predefined prompt:
 
-```
+```text
 /plan
 ```
 
@@ -63,13 +65,13 @@ The agent inspects your current active file and recent conversation history, the
 
 Type `/plan` directly into the interactive prompt:
 
-```
+```bash
 /plan Add rate limiting middleware to all public API endpoints using Redis token buckets
 ```
 
 You can also run `/plan` without arguments:
 
-```
+```bash
 /plan
 ```
 
@@ -97,7 +99,7 @@ Antigravity provides complementary commands depending on task scope and complexi
 | Command | Primary Focus | Best For | Plan Tier |
 | :-- | :-- | :-- | :-- |
 | **`/plan`** | **Requirements discovery and reviewable plans** | Scoping complex tasks, refactors, and multi-file changes before modifying code | All plans |
-| **`/grill-me`** | **Socratic design interviews** | Deep requirement alignment and edge-case probing before drafting designs | All plans |
+| **[`/grill-me`](/docs/commands/grill-me)** | **Socratic design interviews** | Deep requirement alignment and edge-case probing before drafting designs | All plans |
 | **[`/boost`](/docs/boost)** | **Multi-agent deep reasoning** | Hard concurrency bugs, race conditions, and algorithmic optimizations | Paid plans |
 | **[`/teamwork-preview`](/docs/teamwork)** | **Collaborative agent teams** | Long-horizon campaigns, repository migrations, and open-ended research | Paid plans |
 

@@ -1,5 +1,7 @@
 # Separate Chrome profile
 
+Available on: Antigravity IDE
+
 To isolate the browser from your general browsing, it operates in a [separate Chrome profile](https://support.google.com/chrome/answer/2364824).
 
 Because Chrome profiles are isolated, this profile doesn’t share any cookies or sign-in information from your normal browsing profile. However, all sign-ins persist so that whenever you open the browser in the future, your accounts remain signed in.

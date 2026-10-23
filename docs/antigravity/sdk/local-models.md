@@ -19,20 +19,20 @@ Follow these steps to install the dependencies and import the model checkpoint:
 
 1.  Create and activate a virtual environment:
     
-    ```
+    ```bash
     python3 -m venv .venv
     source .venv/bin/activate
     ```
     
 2.  Install the SDK and the `litert-lm` package:
     
-    ```
+    ```bash
     pip install google-antigravity litert-lm
     ```
     
 3.  Use the `litert-lm` CLI to import the Gemma 4 26B A4B checkpoint:
     
-    ```
+    ```bash
     litert-lm import \
       --from-huggingface-repo=litert-community/gemma-4-26B-A4B-it-litert-lm \
       gemma-4-26B-A4B-it-gpu.litertlm \
@@ -43,7 +43,7 @@ Follow these steps to install the dependencies and import the model checkpoint:
     
     > **Note:** On macOS, if `litert-lm import` fails with an SSL certificate verification error, install `certifi` and export `SSL_CERT_FILE` before retrying:
     > 
-    > ```
+    > ```bash
     > pip install certifi
     > export SSL_CERT_FILE=$(python3 -c "import certifi; print(certifi.where())")
     > ```
@@ -55,7 +55,7 @@ Once you have configured LiteRT, run a local LiteRT agent by passing the `.liter
 
 > **Note:** Use the full path to your model file or use `os.path.expanduser()` because tilde (`~`) isn’t expanded automatically.
 
-```
+```python
 import asyncio
 import os
 
@@ -82,7 +82,7 @@ if __name__ == "__main__":
 
 If you want to let the local agent edit files and run shell commands in a project directory, set `workspaces` and attach a tool policy. For example:
 
-```
+```python
 import asyncio
 import os
 
@@ -135,7 +135,7 @@ To connect to an external local server that exposes an OpenAI-compatible API (su
 
 For example, you can connect an agent to a local Ollama server running Gemma 4:
 
-```
+```python
 import asyncio
 from google.antigravity import Agent, LocalOpenAIAgentConfig
 
