@@ -7,6 +7,7 @@
   - [Boost deep reasoning (/boost)](antigravity/boost.md)
   - [Browser command (/browser)](antigravity/commands/browser.md)
   - [Goal command (/goal)](antigravity/commands/goal.md)
+  - [Grill me command (/grill-me)](antigravity/commands/grill-me.md)
   - [Learn command (/learn)](antigravity/commands/learn.md)
   - [Schedule command (/schedule)](antigravity/commands/schedule.md)
   - [Feature overview](antigravity/features.md)

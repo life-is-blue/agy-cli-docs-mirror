@@ -24,7 +24,7 @@ Hooks intercept agent actions right before or immediately after execution. They 
 You can define hooks in any of the following locations:
 
 *   **Workspace level**: `.agents/hooks.json` at your project root.
-*   **Global level**: `~/.gemini/config/hooks.json` or inside your primary `~/.gemini/antigravity-cli/settings.json` file.
+*   **Global level**: `~/.gemini/config/hooks.json`. Hooks in `~/.gemini/antigravity-cli/settings.json` aren’t loaded.
 *   **Plugin level**: Packaged inside an installed plugin’s `hooks.json` file.
 
 You can inspect all loaded and active hooks interactively inside the TUI by typing:

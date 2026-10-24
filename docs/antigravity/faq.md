@@ -311,7 +311,7 @@ Refer to the [Plans](/docs/plans) documentation for more details.
 
 ## How do I upgrade to a paid Google AI plan?
 
-Some models (such as Gemini 4 Argon, Claude Opus 5.5, and Claude Sonnet 5.5) require a paid **Google AI Pro** or **Google AI Ultra** subscription and are not included in free trials. To upgrade:
+Some models require a paid **Google AI Pro** or **Google AI Ultra** subscription and are not included in free trials. To upgrade:
 
 *   **Free or Google AI Plus users**: Subscribe to a paid **Google AI Pro** or **Google AI Ultra** plan on [Google One](https://one.google.com/ai).
 *   **Google AI Pro trial users**: [Submit a request to cancel your trial](https://one.google.com/support) and switch to a paid **Google AI Pro** plan, or upgrade directly to a paid **Google AI Ultra** plan on [Google One](https://one.google.com/ai). For memberships through third-party partners, Pixel Pass, or Google Fi, [learn how to manage third-party subscriptions](https://support.google.com/googleone/answer/15801606).

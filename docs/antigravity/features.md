@@ -26,8 +26,8 @@ Scheduled tasks let you plan ahead with your projects. Using the Gemini 3.8 Flas
 
 Antigravity puts you in the driver’s seat with robust security controls:
 
-*   **Interactive approvals**: By default, agents request your explicit permission before running terminal commands outside the isolated [Terminal sandbox](/docs/sandbox) (macOS and Linux) or before running any terminal command (Windows).
-*   **Bounded access**: By default, your agent can only read and write within the provided folders of a project. If you broaden your permission settings (for example, the “Turbo” preset on macOS and Linux, or the “Full machine” or “Unrestricted” security presets on Windows), the agent has read and write access over your full machine.
+*   **Interactive approvals**: By default, agents request your explicit permission before running terminal commands outside the isolated [Terminal sandbox](/docs/sandbox). With the [previous permission settings](/docs/agent-settings#previous-permission-settings), agents ask before running any terminal command.
+*   **Bounded access**: By default, your agent can only read and write within the provided folders of a project. If you broaden your permission settings (for example, the “Turbo” preset, or the “Full machine” or “Turbo mode” presets in the previous permission settings), the agent has read and write access over your full machine.
 
 ### Voice transcription
 

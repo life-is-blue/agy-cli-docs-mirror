@@ -12,19 +12,19 @@ Welcome to Google Antigravity! Follow the instructions in this guide to get star
     
     macOSmacOS 12 (Monterey) or later (Apple Silicon or 64-bit Intel)
     
-    [Download for Apple Silicon](https://storage.googleapis.com/antigravity-public/antigravity-hub/2.25.0-6535192714805248/darwin-arm/Antigravity.dmg)[Download for Intel](https://storage.googleapis.com/antigravity-public/antigravity-hub/2.25.0-6535192714805248/darwin-x64/Antigravity.dmg)
+    [Download for Apple Silicon](https://storage.googleapis.com/antigravity-public/antigravity-hub/2.26.0-6546645232517120/darwin-arm/Antigravity.dmg)[Download for Intel](https://storage.googleapis.com/antigravity-public/antigravity-hub/2.26.0-6546645232517120/darwin-x64/Antigravity.dmg)
     
     Open the downloaded `Antigravity.dmg` disk image and drag **Antigravity** into your **Applications** folder. If you are upgrading an existing installation, select **Replace** when prompted instead of **Keep Both**.
     
     WindowsWindows 10 (64-bit) or Windows 11
     
-    [Download for x64](https://storage.googleapis.com/antigravity-public/antigravity-hub/2.25.0-6535192714805248/windows-x64/Antigravity-x64.exe)[Download for ARM64](https://storage.googleapis.com/antigravity-public/antigravity-hub/2.25.0-6535192714805248/windows-arm/Antigravity-arm64.exe)
+    [Download for x64](https://storage.googleapis.com/antigravity-public/antigravity-hub/2.26.0-6546645232517120/windows-x64/Antigravity-x64.exe)[Download for ARM64](https://storage.googleapis.com/antigravity-public/antigravity-hub/2.26.0-6546645232517120/windows-arm/Antigravity-arm64.exe)
     
     Run the downloaded `.exe` installer and follow the guided setup wizard.
     
     Linuxglibc >= 2.28, glibcxx >= 3.4.25 (Ubuntu 20+, Debian 10+, Fedora 36+, RHEL 8+)
     
-    [Download for x64](https://storage.googleapis.com/antigravity-public/antigravity-hub/2.25.0-6535192714805248/linux-x64/Antigravity.tar.gz)[Download for ARM64](https://storage.googleapis.com/antigravity-public/antigravity-hub/2.25.0-6535192714805248/linux-arm/Antigravity.tar.gz)
+    [Download for x64](https://storage.googleapis.com/antigravity-public/antigravity-hub/2.26.0-6546645232517120/linux-x64/Antigravity.tar.gz)[Download for ARM64](https://storage.googleapis.com/antigravity-public/antigravity-hub/2.26.0-6546645232517120/linux-arm/Antigravity.tar.gz)
     
     Extract the archive with `tar -xzf Antigravity.tar.gz` and launch `./Antigravity`.
     
@@ -294,7 +294,7 @@ Navigate to any codebase directory in your terminal and start a session:
 | Command | Description |
 | :-- | :-- |
 | [`/goal`](/docs/commands/goal) | Runs the task autonomously until completion without pausing for intermediate input. |
-| `/grill-me` | Prompts the agent to interview you about requirements before beginning implementation. |
+| [`/grill-me`](/docs/commands/grill-me) | Prompts the agent to interview you about requirements before beginning implementation. |
 | [`/schedule`](/docs/commands/schedule) | Runs an instruction as a one-time delayed task or recurring cron schedule. |
 | [`/browser`](/docs/commands/browser) | Initiates browser debugging and research actions in Google Chrome. |
 | [`/plugin`](/docs/plugins) | Manages installed [Marketplace](/docs/marketplace) plugins or creates and configures custom plugin bundles. |

@@ -60,16 +60,32 @@ Type `/mcp` inside the prompt panel and press Enter to open the interactive **MC
 
 #### Global and workspace server configs
 
-Unlike legacy setups, Antigravity CLI separates MCP definitions into dedicated, sparse configurations:
+Antigravity CLI loads MCP server definitions from two configuration files:
 
-*   **Global server setups**: Configured in `~/.gemini/config/mcp_config.json`.
-*   **Workspace local setups**: Configured in your active project under `.agents/mcp_config.json`.
+*   **Global configuration**: `~/.gemini/config/mcp_config.json`, which applies to all your projects.
+*   **Workspace configuration**: `<workspace>/.agents/mcp_config.json`, which applies only to that workspace.
 
-You can modify these files directly with your custom [MCP server configuration](/docs/mcp#mcp-configuration-structure).
+Enabled [plugins](/docs/plugins) can also add MCP servers.
 
-Note
+Edit either file directly using the standard [MCP server configuration structure](/docs/mcp#mcp-configuration-structure). For example, the following entry connects to a remote server and raises its [timeout](/docs/mcp#mcp-server-timeouts) to 600 seconds (10 minutes) for long-running tools:
 
-**Remote connection schema**: When declaring remote SSE, Streamable HTTP, or WebSocket-based MCP connections, you must define the `serverUrl` field. Legacy fields like `url` or `httpUrl` aren’t supported.
+```json
+{
+  "mcpServers": {
+    "my-remote-server": {
+      "serverUrl": "https://api.example.com/mcp/",
+      "headers": {
+        "Authorization": "Bearer YOUR_API_TOKEN"
+      },
+      "timeoutSeconds": 600
+    }
+  }
+}
+```
+
+Remote servers
+
+Remote MCP servers must use the Streamable HTTP transport. Set the server’s endpoint in `serverUrl` (`url` also works). The legacy HTTP+SSE transport and the `httpUrl` field aren’t supported.
 
 ### Antigravity IDE
 
@@ -98,7 +114,7 @@ In Python applications built using the [Antigravity SDK](/docs/sdk/overview), yo
 
 ## MCP configuration structure
 
-Whether configuring custom servers for the Antigravity App, Antigravity IDE, or Antigravity CLI, the configuration file follows a standardized format. The file contains a single `mcpServers` object where you define each server you want to connect to:
+Whether configuring custom servers for the Antigravity App, Antigravity IDE, or Antigravity CLI, `mcp_config.json` follows a standardized JSON schema. The root object contains an `mcpServers` map where each key is a unique server identifier:
 
 ```json
 {
@@ -122,23 +138,52 @@ Whether configuring custom servers for the Antigravity App, Antigravity IDE, or 
 
 ### MCP configuration properties
 
-Each server entry under `mcpServers` supports the following properties.
+Each server entry under `mcpServers` must specify **one transport property** (`command` for a local `stdio` server, or `serverUrl` for a remote Streamable HTTP server) and can include any of the optional properties below:
 
-Require one of the following transport properties:
+| Property | Type | Default | Description |
+| :-- | :-- | :-- | :-- |
+| **`command`** | `string` | _Required for `stdio`_ | Executable path or command name used to launch a local `stdio` MCP server process. |
+| **`serverUrl`** | `string` | _Required for remote_ | Endpoint URL of a remote MCP server that uses the Streamable HTTP transport. You can also use `url`. |
+| **`args`** | `string[]` | `[]` | Command-line arguments passed to the `command` executable (`stdio` transport only). |
+| **`env`** | `object` | `{}` | Key-value map of environment variables injected into the local `stdio` server process. |
+| **`cwd`** | `string` | — | Working directory used when spawning a local `stdio` server process. |
+| **`headers`** | `object` | `{}` | Custom HTTP request headers sent with remote `serverUrl` connections (for example, `Authorization` or API key headers). |
+| **`authProviderType`** | `string` | — | Built-in authentication provider. Set to `"google_credentials"` to attach Google Application Default Credentials (ADC). |
+| **`oauth`** | `object` | — | Manual OAuth 2.0 client credentials (`clientId` and optional `clientSecret`) for remote servers that do not support Dynamic Client Registration (DCR). |
+| **`disabled`** | `boolean` | `false` | When `true`, suspends the server connection without removing its configuration from `mcp_config.json`. |
+| **`enabledTools`** | `string[]` | — | Allowlist of tool names exposed to the agent from this server. When set, all other tools on the server are hidden. |
+| **`disabledTools`** | `string[]` | `[]` | Denylist of tool names withheld from the agent. |
+| **`timeoutSeconds`** | `integer` | `180` per tool call, `300` to connect | Timeout, in seconds, for connecting to the server and listing its tools, and for each tool call. A negative value, such as `-1`, turns both off. See [MCP server timeouts](/docs/mcp#mcp-server-timeouts). |
 
-*   **`command`** (string): Path to the executable for `stdio` transport.
-*   **`serverUrl`** (string): URL for remote `Streamable HTTP` or `SSE` servers.
+### MCP server timeouts
 
-Configure any of the following optional properties:
+By default, Antigravity waits up to 5 minutes for an MCP server to connect and list its tools, and up to 3 minutes for each tool call. A tool call that runs longer fails with an error that names the server and the limit, for example:
 
-*   **`args`** (array of strings): Command-line arguments for `stdio` transport.
-*   **`env`** (object): Environment variables for the `stdio` server process.
-*   **`cwd`** (string): Working directory for `stdio` servers.
-*   **`headers`** (object): Custom HTTP headers for remote servers.
-*   **`authProviderType`** (string): Authentication provider. Supports `"google_credentials"` for Google Application Default Credentials (ADC).
-*   **`oauth`** (object): OAuth client credentials (`clientId`, `clientSecret`).
-*   **`disabled`** (boolean): Temporarily disable a server without removing its configuration.
-*   **`disabledTools`** (array of strings): Tool names to withhold from the model.
+```text
+MCP tool call to server "sqlite-explorer" timed out after 3m0s
+```
+
+If a server’s tools need more time, set `timeoutSeconds` in that server’s entry:
+
+*   A positive value, in seconds, replaces both limits. For example, `600` lets each tool call run for up to 10 minutes.
+*   A negative value, such as `-1`, turns off both limits.
+*   `0`, or leaving `timeoutSeconds` unset, keeps the defaults.
+
+Because the same value limits how long the server has to connect, a small value can stop a slow-starting server from connecting.
+
+The following example lets each tool call on the `sqlite-explorer` server run for up to 10 minutes:
+
+```json
+{
+  "mcpServers": {
+    "sqlite-explorer": {
+      "command": "node",
+      "args": ["/usr/local/bin/sqlite-mcp-server.js"],
+      "timeoutSeconds": 600
+    }
+  }
+}
+```
 
 ## MCP authentication
 
@@ -315,7 +360,7 @@ The MCP Store features direct integrations for a wide variety of developer platf
 *   [Splunk](https://splunkbase.splunk.com/app/7931)
 *   [Wiz](https://www.wiz.io/blog/introducing-wiz-mcp)
 
-**Analytics, AI, and cloud (32 servers):**
+**Analytics, AI, and cloud (33 servers):**
 
 *   [Airweave](https://github.com/airweave-ai/airweave)
 *   [Antimetal](https://docs.antimetal.com/connect)
@@ -330,6 +375,7 @@ The MCP Store features direct integrations for a wide variety of developer platf
 *   [Firebase](https://firebase.google.com/docs/ai-assistance/mcp-server)
 *   [Fiscal.ai](https://docs.fiscal.ai/docs/guides/mcp-integration)
 *   [Google Cloud Quotas](https://cloud.google.com/docs/quotas/overview)
+*   [Google Developer Knowledge](https://developers.google.com/knowledge/mcp)
 *   [Grafana Cloud](https://github.com/grafana/ai-marketplace/tree/main/plugins/grafana-cloud-mcp)
 *   [Guidepoint](https://github.com/guidepointglobal/mcp-skills-plugins)
 *   [Harvey](https://developers.harvey.ai/guides/harvey_mcp)
@@ -349,3 +395,19 @@ The MCP Store features direct integrations for a wide variety of developer platf
 *   [Sequential Thinking](https://github.com/modelcontextprotocol/servers/tree/main/src/sequentialthinking)
 *   [Stripe](https://github.com/stripe/agent-toolkit/tree/main/modelcontextprotocol)
 *   [Windsor AI](https://windsor.ai/documentation/windsor-mcp/)
+
+### Example: search Google developer docs
+
+The [Google Developer Knowledge MCP server](https://developers.google.com/knowledge/mcp) lets Antigravity search and read official, up-to-date Google developer documentation, including Android, Firebase, Google Cloud, Google Maps Platform, and the Antigravity docs on this site, so the agent can check the current API before it writes code rather than relying only on its training data. It exposes three tools: `search_documents`, `get_documents`, and `answer_query`.
+
+Install **Google Developer Knowledge** from the MCP Store as described in [Getting started by surface](#getting-started-by-surface). It connects with your Google credentials, so no API key is needed. For other setups, such as Antigravity CLI or a shared workspace config, follow the [Antigravity steps](https://developers.google.com/knowledge/mcp?tab=google-antigravity#configure-ide) in the Developer Knowledge documentation.
+
+Once connected, you can ask the agent to ground its work in the docs. For example:
+
+```text
+Look up the current Antigravity hooks documentation and add a PreToolUse hook that blocks shell commands which modify files outside this workspace.
+```
+
+Tip
+
+Pair the server with the [`retrieving-developer-knowledge`](https://developers.google.com/knowledge/mcp#agent-skill) agent skill, which tells the agent which tool to pick and how to fall back to the [Developer Knowledge API](https://developers.google.com/knowledge/api) if the MCP server isn’t available.

@@ -28,6 +28,10 @@
         "slug": "antigravity/commands/goal"
       },
       {
+        "label": "Grill me command (/grill-me)",
+        "slug": "antigravity/commands/grill-me"
+      },
+      {
         "label": "Learn command (/learn)",
         "slug": "antigravity/commands/learn"
       },

@@ -298,6 +298,8 @@ Experience the model selector directly below. Antigravity lets you adjust reason
 
 [Model specs and limits](/docs/models/)
 
+† Available with paid Google AI Pro plans or on trial with eligible premium devices. To switch to a paid Google AI Pro plan, [submit a request](https://one.google.com/support).
+
 * * *
 
 ## Product comparison

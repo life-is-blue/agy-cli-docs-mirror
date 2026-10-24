@@ -8,6 +8,8 @@ Antigravity gives you access to leading frontier reasoning models from Google De
 
 You can select which reasoning model you want to use from the model selector menu under the conversation prompt box:
 
+† Available with paid Google AI Pro plans or on trial with eligible premium devices. To switch to a paid Google AI Pro plan, [submit a request](https://one.google.com/support).
+
 Your choice of reasoning model persists between messages within a conversation. If you change the reasoning model while the agent is running, it continues to use the previously selected reasoning model until it completes its steps for that turn (or until you cancel the current execution).
 
 ## Reasoning model
@@ -16,7 +18,7 @@ For the core reasoning model, Antigravity offers leading frontier models. Availa
 
 | Model | Free & Google AI Plus | Google AI Pro | Google AI Ultra | Enterprise |
 | --- | --- | --- | --- | --- |
-| [Gemini 4 Argon](/blog/gemini-4-argon-in-google-antigravity)\*\*\* | ❌ | ✅\*\* | ✅ | ✅ |
+| [Gemini 4 Argon](/blog/gemini-4-argon-in-google-antigravity)\*\*\* | ❌ | ✅† | ✅ | ✅ |
 | [Gemini 3.8 Flash](/blog/gemini-3-8-flash-in-google-antigravity) | ✅ | ✅ | ✅ | ✅ |
 | [Gemini 3.7 Flash](/blog/gemini-3-7-flash-in-google-antigravity) | ❌ | ❌ | ❌ | ✅ |
 | [Gemini 3.6 Flash](/blog/gemini-3-6-flash-in-google-antigravity) | ❌ | ❌ | ❌ | ✅ |
@@ -32,6 +34,8 @@ For the core reasoning model, Antigravity offers leading frontier models. Availa
 \*\* Available on Google AI Pro for non-trial subscriptions only. To cancel your trial and switch to a paid Google AI Pro plan, [submit a request](https://one.google.com/support).
 
 \*\*\* Not available in Antigravity IDE. Available in the Antigravity App, Antigravity CLI, and IDE extensions.
+
+† Available with paid Google AI Pro plans or on trial with eligible premium devices. To switch to a paid Google AI Pro plan, [submit a request](https://one.google.com/support).
 
 To learn more about reasoning model rate limits, refer to the [plans page](/docs/plans). If you are using Antigravity with Gemini Enterprise, see [Supported models in Gemini Enterprise](/docs/enterprise#supported-models-in-gemini-enterprise).
 
