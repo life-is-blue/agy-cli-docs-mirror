@@ -6,9 +6,48 @@ New versions roll out gradually and may take a few days to reach all users.
 
 ## Antigravity App
 
-### [v2.25.0](/releases?tab=hub&version=2.25.0 "View release 2.25.0")
+### [v2.26.0](/releases?tab=hub&version=2.26.0 "View release 2.26.0")
 
 Latest
+
+October 22, 2026
+
+### Notifications settings, docked question prompts, and conversation palette filters
+
+This release adds a Notifications page in Settings with sound and volume controls, docks question and permission prompts above the message box so you can keep typing, and adds sort and filter options to the conversations palette. It includes 8 improvements and 15 fixes.
+
+**Improvements:**
+
+*   You can now manage notification preferences, toggle completion sounds, and adjust agent sound volume from the new Notifications page in Settings.
+*   Question prompts and permission requests now dock above the message box instead of replacing it, so you can keep typing or queue a follow-up message while a prompt is open.
+*   The Conversations palette (Cmd+P on macOS, Ctrl+P on Windows and Linux) now includes a filter and sort menu to sort by Last Updated or Last Prompt and filter by unread, automations, or archived conversations.
+*   Installed MCP servers on a plugin's page now include a Configure button so you can fill in or update their declared variables without turning the plugin off and on again.
+*   When installing a plugin that conflicts with an existing one, the conflict dialog now shows preview cards for both plugins and offers a single Replace action.
+*   Suggested prompts on a plugin's page now display the plugin's logo and automatically install or enable the plugin when selected.
+*   The more-actions menu on conversations in the sidebar now includes Pin and Archive alongside their keyboard shortcuts, matching the context menu.
+*   When signed in with Application Default Credentials, the Account page in Settings now marks the plan with (ADC), hides license management, and explains how to switch accounts on the disabled Sign Out button.
+
+**Fixes:**
+
+*   Fixed an issue where signing out of an Application Default Credentials session and signing in with Google continued using the ADC credentials until the app restarted.
+*   Fixed an issue where a failed undo on a conversation turn silently reset the transcript and overwrote your draft in the message box instead of showing an error notification.
+*   Fixed an issue where returning to a conversation could reopen a file tab you had already closed in the side panel.
+*   Fixed an issue where opening an artifact in the side panel showed an empty view instead of a loading spinner while its contents loaded.
+*   Fixed an issue where long-running turns with multiple background wakeups rendered as several consecutive Worked for rows with nothing visible between them.
+*   Fixed an issue where socket disconnect errors after waking from sleep or changing Wi-Fi networks stopped the agent instead of retrying automatically.
+*   Fixed an issue where user-configured variables were not substituted into HTTP request headers for plugin MCP servers.
+*   Fixed an issue where selecting See more on a Marketplace plugin shelf revealed only six items at a time and displayed fluctuating remaining counts.
+*   Fixed an issue where action buttons in the plugin and skill detail dialog sat on a separate row under the description and shifted layout after installation.
+*   Fixed an issue where the scrollbar overlapped the search icon in the Add MCP Server dialog on macOS.
+*   Fixed an issue where single-line and multi-line LaTeX display math blocks inside list items and paragraphs failed to render as block equations or broke list numbering.
+*   Fixed an issue where menu tooltips and submenus could cover the rows directly below them when horizontal space was tight.
+*   Fixed an issue where you could send a message from the new-conversation screen into a project that had been deleted.
+*   Fixed an issue where viewing Git diffs for files in subdirectories failed on Windows because of backslash path separators.
+*   Fixed an issue where the side panel Overview labelled plugin views as Plugins instead of Extensions.
+
+---
+
+### [v2.25.0](/releases?tab=hub&version=2.25.0 "View release 2.25.0")
 
 October 20, 2026
 
