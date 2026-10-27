@@ -120,10 +120,6 @@ For authentication options or enterprise configurations, consult the **[Authenti
     
     **Antigravity IDE:**
     
-    Note
-    
-    **Note**: Gemini 4 Argon is not available in Antigravity IDE. To use Gemini 4 Argon, install the [Antigravity App](/download#antigravity-2), [Antigravity CLI](/docs/cli/install), or [IDE extensions](/docs/ide/extensions).
-    
     [Download Antigravity IDE](/download#antigravity-ide)
     
     **Requirements:** macOS 12 (Monterey)+, Windows 10 (64-bit)+, or Linux / Googlebook (glibc >= 2.28, glibcxx >= 3.4.25).

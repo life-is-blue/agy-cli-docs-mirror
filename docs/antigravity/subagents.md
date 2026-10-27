@@ -157,7 +157,7 @@ Using [`/teamwork-preview`](/docs/teamwork) coordinates a team of specialized AI
 
 ### Asynchronous execution model
 
-To maximize developer velocity, Antigravity CLI leverages a multi-threaded asynchronous execution architecture. Instead of locking your terminal session during long-running builds, massive codebase search sweeps, or complex multi-file edits, the primary agent delegates these operations to parallel **subagents** or background **tasks**.
+To maximize developer velocity, Antigravity CLI leverages a multi-threaded asynchronous execution architecture. Instead of locking your terminal session during long-running builds, massive codebase search sweeps, or complex multi-file edits, the primary agent delegates these operations to parallel **subagents** or background **tasks**. The main agent decides which tools and permissions each subagent gets, including whether it can use MCP tools and whether it can write files.
 
 This delegation model ensures you never have to wait on high-latency AI processes. You can continue drafting code, submitting prompts, or inspecting files while multiple autonomous background threads execute validation tasks in parallel.
 

@@ -196,7 +196,7 @@ Equip your AI coding agent with Google Maps Platform knowledge and workflows to 
 
 Cloud & Data
 
-### Google Cloud
+### Google Cloud Developer
 
 Details
 

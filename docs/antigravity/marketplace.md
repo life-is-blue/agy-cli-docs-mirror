@@ -14,7 +14,7 @@ Note
 
 To browse and install Marketplace plugins in the Antigravity App, follow these steps:
 
-1.  In the left sidebar, click the **Customizations** tab (below **Scheduled Tasks**):
+1.  In the left sidebar, click the **Customizations** tab (below **Automations**):
     
     ![Customization tab](/assets/image/docs/plugins/customization-tab.png)
     
@@ -70,6 +70,10 @@ Use the **Discover** tab to browse the Marketplace catalog and install new plugi
     *   Marketplace name
     *   Version
 *   **Install or uninstall**: Press Ctrl + S on an uninstalled plugin to install it, or press Ctrl + S on an installed plugin to uninstall it.
+
+The following example shows the **Discover** tab with the details of a selected plugin expanded:
+
+![The Discover tab of the CLI plugin manager listing Marketplace plugins with their descriptions, the Install from local directory option at the top, and the details of the selected flutter plugin expanded](/assets/image/docs/plugins/plugin-discover-tab.png)
 
 ##### After installation
 

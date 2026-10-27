@@ -57,7 +57,6 @@
   - [Voice dictation (/voice)](antigravity/cli/commands/voice.md)
   - [Managing conversations](antigravity/cli/conversations.md)
   - [CLI AI credits](antigravity/cli/credits.md)
-  - [Features](antigravity/cli/features.md)
   - [Migration](antigravity/cli/gcli-migration.md)
   - [Headless mode](antigravity/cli/headless.md)
   - [Choose an execution mode](antigravity/cli/modes.md)

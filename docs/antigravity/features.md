@@ -1,91 +1,251 @@
-# Antigravity App features
+# Antigravity features
 
-Available on: Antigravity App
+Available on: Antigravity App, Antigravity CLI
+
+The Antigravity App and the Antigravity CLI run the same agent, so most features work on both. This page starts with the features they share, and then covers the features that are specific to the [Antigravity App](#antigravity-app-features) and the [Antigravity CLI](#antigravity-cli-features).
+
+## Features in the App and CLI
+
+Where a feature works differently in the App and the CLI, select your surface in the tabs. Your choice applies to every tab on this page and is remembered across the docs.
 
 ### Projects
 
-In the Antigravity App, agents work in **projects** (previously in Agent Manager, agents were strictly mapped to a single workspace folder):
+Agents work in **projects**, which define the folders an agent can access and the settings and permissions it uses.
+
+### Antigravity App
 
 *   **Worktree support**: Projects natively support Git worktrees, allowing agents to operate in isolated background folders.
-*   **Scoped settings**: Settings are scoped, allowing you to have different security settings per project. This means you can have a more permissive setting for a trusted project and a more restrictive security setting for an untrusted folder. The three main presets are “Default”, “Full machine”, and “Unrestricted” (refer to the **Settings** tab for the full list).
-*   **Scoped permissions**: Attach permission grants to projects to control what the agents are allowed to access. Permissions manually granted during a conversation can persist, allowing the agent to learn trusted actions and enabling a more seamless experience over time.
+*   **Scoped settings**: Settings are scoped, allowing you to have different security settings per project. This means you can have a more permissive setting for a trusted project and a more restrictive security setting for an untrusted folder. For the available presets, refer to [Permission presets](/docs/permissions#permission-presets).
+*   **Scoped permissions**: Attach permission grants to projects to control what the agents are allowed to access. Permissions manually granted during a conversation can persist, allowing the agent to learn trusted actions over time.
 *   **Multi-folder access**: You can configure a project to work in multiple folders, allowing agents to operate across different codebases within the same conversation.
 
-### Conversations outside of projects
+### Antigravity CLI
 
-Start quick, one-off conversations outside of any project. These sessions run in an isolated local scratch folder. They have their own settings and permissions in addition to inheriting from global permissions.
+*   **Default project**: Conversations run in the `default-cli-project` unless you start the CLI with `--project=<project_id>` or `--new-project`.
+*   **Resumed conversations**: When you resume a conversation with `/resume` or `--conversation`, the CLI uses that conversation’s project.
+*   **Fork a conversation**: Run `/fork <project_id>` to continue a copy of the current conversation in another project.
 
-### Scheduled tasks
-
-Scheduled tasks let you plan ahead with your projects. Using the Gemini 3.8 Flash model, you can schedule messages to be sent to your agents while you’re away:
-
-*   **Repeatable**: Set up time-based triggers to start conversations periodically.
-*   **Minute-level precision**: Tasks repeat on the exact minute you set them.
+[Learn more about projects](/docs/projects).
 
 ### Secure by default
 
-Antigravity puts you in the driver’s seat with robust security controls:
+By default, agents ask before sensitive actions and limit their file access to your project’s folders. The details differ by surface:
+
+### Antigravity App
 
 *   **Interactive approvals**: By default, agents request your explicit permission before running terminal commands outside the isolated [Terminal sandbox](/docs/sandbox). With the [previous permission settings](/docs/agent-settings#previous-permission-settings), agents ask before running any terminal command.
 *   **Bounded access**: By default, your agent can only read and write within the provided folders of a project. If you broaden your permission settings (for example, the “Turbo” preset, or the “Full machine” or “Turbo mode” presets in the previous permission settings), the agent has read and write access over your full machine.
 
-### Voice transcription
+### Antigravity CLI
 
-Antigravity features built-in live voice transcription, allowing you to prompt agents and leave feedback using natural speech.
+*   **Interactive approvals**: The default `request-review` permission asks before the agent writes files, runs shell commands, or uses web tools, unless one of your allow rules matches.
+*   **Terminal sandbox**: The [terminal sandbox](/docs/sandbox) is off by default. Turn it on with `enableTerminalSandbox` in `settings.json` or the `--sandbox` flag. `auto` mode turns it on automatically.
+*   **Files outside your workspace**: The agent asks before it reads or edits files outside your workspace folders. To treat those files like workspace files, turn on `allowNonWorkspaceAccess`.
 
-To use voice transcription:
+[Learn more about permissions](/docs/permissions) and [the terminal sandbox](/docs/sandbox).
 
-*   **Start or stop**: Click the microphone button next to the text input box to start recording, and click it again to stop.
-*   **Live view**: As you speak, your words are transcribed in real time directly into the input field.
-*   **Shortcut**: You can start recording by pressing Ctrl + M. Once you’re done, press Ctrl + M to stop recording.
+### Subagents
 
-Voice transcription includes the following key features:
+The main agent can delegate work, such as research, builds, or test runs, to subagents. Each subagent starts with a clean context and runs in its own conversation, in parallel with your main conversation.
 
-*   **Smart cleanup**: Speak naturally without worrying about pauses or perfect phrasing. Once you stop recording, the system automatically cleans up the transcription, resolving self-corrections, repetitions, and filler words into a cohesive prompt.
-*   **Conversational awareness**: Because the model has context from your conversation, you can use project-specific terminology and expect accurate results.
+### Antigravity App
 
-Voice input is available across all primary interaction surfaces:
+In the side panel’s **Overview**, open **Subagents** and select a subagent to follow its conversation.
 
-*   **Agent input**: For starting conversations and sending prompt updates.
-*   **Artifact comments**: For leaving precise, inline feedback on plans, code diffs, and deliverables.
+### Antigravity CLI
 
-### JSON hooks
+*   **Monitor and approve**: Open the `/agents` panel to monitor subagents and approve their requests.
+*   **Jump to approvals**: Press Alt+J to jump to the next subagent that’s waiting for approval.
+*   **Approve in place**: Press Ctrl+K to approve a pending request without leaving the main conversation.
 
-JSON hooks allow you to execute custom local shell scripts at critical stages of an Antigravity agent’s execution cycle. You can intercept and control the agent’s behavior before tool calls, after model responses, or at loop stopping conditions—configured globally or per workspace using simple JSON files.
+[Learn more about subagents](/docs/subagents).
 
-[Explore the JSON hooks and rules documentation](/docs/hooks).
+### Browser subagent
 
-### Browser
-
-The reworked browser subagent in the Antigravity App includes the following capabilities:
+The browser subagent drives Google Chrome to test and debug web pages:
 
 *   **On-demand**: Invoke the browser subagent through the [`/browser` command](/docs/commands/browser).
 *   **Chrome DevTools integration**: Integrate natively with Chrome DevTools MCP.
 *   **Video recording**: Record browser sessions as WebM videos.
 
+### Slash commands
+
+Type `/` in the App’s message box or the CLI’s prompt box to run commands such as [`/plan`](/docs/plan), [`/grill-me`](/docs/commands/grill-me), [`/goal`](/docs/commands/goal), [`/boost`](/docs/boost), [`/schedule`](/docs/commands/schedule), and [`/teamwork-preview`](/docs/teamwork). Some commands are available on only one surface, and `/boost` and `/teamwork-preview` require a paid plan.
+
+[Browse all slash commands](/docs/slash-commands).
+
+### Voice transcription
+
+Antigravity features built-in live voice transcription, allowing you to prompt agents and leave feedback using natural speech.
+
+### Antigravity App
+
+*   **Start or stop**: Click the microphone button next to the message box to start recording, and click it again to stop. You can also press Ctrl+M to start recording, and press it again to stop.
+*   **Live view**: As you speak, your words are transcribed in real time directly into the message box.
+*   **Conversational awareness**: Antigravity gives the speech recognizer your recent conversation and the text around your cursor, so project-specific terms are more likely to come through correctly.
+*   **Where it works**: Use voice in the message box to start conversations and send prompt updates, and in artifact comments to leave precise, inline feedback on plans, code diffs, and deliverables.
+
+### Antigravity CLI
+
+*   **Start dictation**: Run `/voice` (alias `/record`) or press F5. Your words appear in the prompt box, where you can edit them before you send.
+*   **Dictate over SSH**: When the CLI runs on a remote machine, run `agy mic-serve` on your local machine to stream your microphone to it.
+*   **Availability**: Voice dictation in the CLI isn’t currently available for business or enterprise accounts.
+
+[Learn more about voice dictation in the CLI](/docs/cli/commands/voice).
+
 ### Remote Control
 
-Antigravity App Remote Control allows you to drive and monitor your desktop agent sessions across multiple machines from any web browser:
+Remote Control allows you to drive and monitor your Antigravity App sessions and Antigravity CLI instances across multiple machines from any web browser:
 
-*   **Untethered mobility**: Launch long-running agent workflows on your desktop workstation and continue monitoring or approving actions from a mobile device or laptop.
-*   **Local context retained**: Keep full access to your workstation’s local filesystem, toolchains, credentials, and Git worktrees without duplicating environments.
-*   **Proactive push notifications**: Receive browser push notifications when tasks complete or when your input is needed.
+*   **Work from any device**: Start long-running agent work on your workstation, and then monitor it or approve actions from a phone or laptop.
+*   **Keep your local setup**: Agents keep full access to your workstation’s files, toolchains, credentials, and Git worktrees, without a separate environment.
+*   **Get notified**: Receive browser push notifications when tasks complete or when your input is needed.
 
-[Learn more about Antigravity App Remote Control](/docs/remote-control).
+To turn on Remote Control:
+
+### Antigravity App
+
+In **Settings**, open **Application** and turn on **Enable Remote Control**. You can then enter a **Device Name** to identify the machine.
+
+### Antigravity CLI
+
+*   **Current session**: Run `/remote-control` to turn on Remote Control for the active terminal session, and `/remote-control off` to turn it off.
+*   **New session**: Start the CLI with the `--remote-control` flag.
+*   **Always-on machine**: Run `agy remote-control start` to keep a headless CLI instance available in the background.
+
+[Learn more about Remote Control](/docs/remote-control).
+
+### Skills, rules, and MCP servers
+
+Extend what the agent knows and can do. These customizations work in both the App and the CLI:
+
+*   **[Skills](/docs/skills)**: Give the agent folders of instructions, each with a `SKILL.md` file, that it follows when working on specific tasks.
+*   **[Rules](/docs/rules)**: Set persistent instructions, coding standards, and architectural constraints that apply to every conversation.
+*   **[MCP servers](/docs/mcp)**: Connect the agent to local developer tools, databases, and remote APIs through the Model Context Protocol.
+
+### JSON hooks
+
+JSON hooks allow you to execute custom local shell scripts at critical stages of an Antigravity agent’s execution cycle. You can intercept and control the agent’s behavior before tool calls, after model responses, or at loop stopping conditions—configured globally or per workspace using simple JSON files.
+
+[Learn more about hooks](/docs/hooks).
+
+### Plugins
+
+Plugins are namespaced bundles that can contain skills, agents, rules, MCP servers, and hooks as a single deployable unit.
+
+### Antigravity App
+
+In the left sidebar, click **Customizations**, and then open the **Marketplace** tab to browse and install plugins. Plugins that you install in the App also appear in the CLI.
+
+### Antigravity CLI
+
+*   **Plugin manager**: Run `/plugin` to open the plugin manager, and press Tab to switch between the **Installed** and **Discover** tabs.
+*   **From your shell**: Run `agy plugin install <plugin-name>` to install a plugin, and use `agy plugin list`, `enable`, `disable`, and `uninstall` to manage your plugins.
+
+[Learn more about plugins](/docs/plugins) and [the Marketplace](/docs/marketplace).
+
+## Antigravity App features
+
+These features are specific to the Antigravity App.
+
+### Conversations outside of projects
+
+Start quick, one-off conversations outside of any project. These sessions run in a local scratch folder. They have their own settings and permissions in addition to inheriting from global permissions.
+
+### Automations
+
+Automations (previously called scheduled tasks) let you plan ahead with your projects by sending messages to your agents on a schedule, even while you’re away. Open them from **Automations** in the left sidebar:
+
+*   **Repeatable**: Set up time-based triggers to start conversations periodically.
+*   **Model tier**: Each automation runs on the model tier you choose: Flash Lite, Flash (the default), or Pro.
+*   **Approximate timing**: Runs start close to their scheduled time rather than on the exact minute. Antigravity spreads them out by up to 10% of the interval, and by no more than 15 minutes.
+*   **Run on demand**: Run an automation right away with **Run Now** from its menu, or select **Create with Prompt** to have the agent walk you through setting up a new one.
+
+For a timer or recurring check inside a single conversation, in either the App or the CLI, use the [`/schedule` command](/docs/commands/schedule).
+
+### Built-in browser
+
+Use the built-in browser to check your running app or read documentation in the side panel, next to your conversation, and to point the agent to exactly what you see on a page.
+
+![The Antigravity App with a conversation on the left, where the agent answers with a localhost link to a Bookmarks web app, and the built-in browser in the side panel on the right showing that app](/assets/image/docs/browser/built-in-browser.png)
+
+*   **Open a page**: Click a web link in an agent response. To open a new browser tab, press Cmd+T (macOS) or Ctrl+T (Windows and Linux), or click **+** in the side panel, and then choose **Browser**. To open a link in your default browser instead, hold Cmd (macOS) or Ctrl (Windows and Linux) while you click it.
+*   **Go to a URL or search**: Type in the address bar. For local servers that don’t use HTTPS, include `http://`, for example `http://localhost:3000`.
+*   **Navigate**: Use **Back**, **Forward**, and **Reload** in the toolbar, or click **Open in external browser** to open the current page in your default browser. Right-click a link to open it in a new tab or in your external browser.
+*   **Keep sign-ins separate**: The built-in browser keeps its own cookies and sign-ins, separate from your Chrome profile.
+
+To point the agent to part of a page, select text and click **Comment** (C) to leave feedback, or **Quote** (Cmd+L on macOS, Ctrl+L on Windows and Linux) to add the text to your message. The agent receives the page URL and the selected text with your next message.
+
+![Text selected on a web page in the built-in browser, with a popup that offers Comment (C) and Quote (Ctrl+L)](/assets/image/docs/browser/built-in-browser-comment.png)
+
+To have the agent browse and test pages for you, use the [`/browser` command](/docs/commands/browser), which runs the browser subagent in Google Chrome.
+
+### PDF viewer
+
+PDF files open in the side panel, so you can read a spec or paper next to your conversation and point the agent to specific passages. To open a PDF from your project, click it in an agent response, or click **+** in the side panel, choose **Open File**, and search for the PDF. Links to PDFs on the web open in the built-in browser.
+
+![A Bookmarks API guide PDF open in the side panel of the Antigravity App, with a toolbar at the bottom for page thumbnails, page navigation, zoom, and fit mode](/assets/image/docs/pdf/pdf-viewer.png)
+
+*   **Navigate**: Use the toolbar at the bottom of the PDF to show page thumbnails, change pages, zoom, and fit the page or the width. To search the PDF, download it, or copy its path, use the **More actions** menu at the top.
+*   **Comment or quote**: Select text and click **Comment** (C) or **Quote** (Cmd+L on macOS, Ctrl+L on Windows and Linux), the same as on a web page.
 
 ### Integrated terminal
 
-The Antigravity App provides terminal support directly from the sidebar. Access the terminal at any time by clicking the terminal button () or by using the Ctrl/Cmd + \` keyboard shortcut.
+Open a terminal in the side panel: click **+** and choose **Terminal**. To show or hide the terminal at any time, press Cmd+J (macOS) or Ctrl+J (Windows and Linux).
 
 ### Version control system (VCS) panel
 
-The Antigravity App provides a Git-native VCS review panel directly from the sidebar. Access the panel at any time by clicking the version control button () to perform the following actions:
+The Antigravity App provides a Git-native **Review** pane for the changes in your project. Open it from any conversation by clicking **Review** () in the **Overview** panel, and then perform the following actions:
 
-*   **Review panel diffs**:
-    *   **Uncommitted diffs**: View all staged and unstaged working tree changes.
-    *   **Branch diffs**: Review changes made on the current branch.
-    *   **Agent edits**: Inspect diffs originating specifically from agent tool edits.
-*   **File actions**: Stage, unstage, or discard changes per file.
+*   **Compare views**:
+    *   **Uncommitted**: View all staged and unstaged working tree changes.
+    *   **Branch**: Review all changes made on the current branch.
+    *   **Agent Edits**: Inspect the files that the agent modified in the conversation.
+*   **File actions**: Stage, unstage, or discard unstaged changes per file.
 *   **Repo actions**:
-    *   **Commit**: Create local commits with the option to automatically generate commit messages.
+    *   **Commit**: Create local commits, with a generated commit message if you leave the message empty.
+    *   **Amend**: Add changes to the latest commit.
     *   **Push**: Send branch commits to a remote repository.
+*   **Feedback**: Comment on lines in a diff to send feedback to the agent.
+
+## Antigravity CLI features
+
+These features are specific to the Antigravity CLI.
+
+### Terminal UI and commands
+
+Run `agy` to work with the agent in an interactive terminal UI. Besides the shared slash commands, the CLI has commands for managing your session, such as `/resume`, `/rewind`, `/model`, `/context`, `/codesearch`, `/tasks`, and `/usage`.
+
+*   **Keyboard shortcuts**: Customize shortcuts with `/keybindings`, or edit prompts with modal Vim keybindings in [Vim editor mode](/docs/cli/vim-editor-mode).
+*   **Execution modes**: [Choose an execution mode](/docs/cli/modes) to control whether the CLI pauses to ask before it modifies files or runs commands.
+
+[Browse all CLI commands](/docs/cli/reference).
+
+### Review changes with `/diff`
+
+Run `/diff` to open the interactive diff viewer, where you can inspect workspace changes, commit history, and the changes from each agent turn, and add line-by-line comments to steer the agent’s next steps.
+
+[Learn more about the diff viewer](/docs/cli/commands/diff).
+
+### Headless mode
+
+Run the CLI non-interactively to script agent tasks, integrate with CI pipelines, and capture machine-readable output. Pass a prompt with `-p` (or its aliases `--print` and `--prompt`) to run it once and exit.
+
+[Learn more about headless mode](/docs/cli/headless).
+
+### Customize with `settings.json`
+
+Configure the CLI in `~/.gemini/antigravity-cli/settings.json`. For example, in addition to your permission mode, you can define specific commands that the agent is allowed or denied to run:
+
+```json
+{
+  "permissions": {
+    "allow": ["command(git)", "command(npm test)"],
+    "deny": ["command(rm -rf)"]
+  }
+}
+```
+
+You can also pipe live agent metadata (JSON that contains the current working directory, active model, token usage, state, and more) into your own shell scripts to generate a custom [status line](/docs/cli/statusline) or [terminal window title](/docs/cli/title).
+
+[Learn more about CLI settings](/docs/settings?tab=cli).

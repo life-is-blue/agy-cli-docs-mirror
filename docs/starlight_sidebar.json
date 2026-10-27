@@ -234,10 +234,6 @@
         "slug": "antigravity/cli/credits"
       },
       {
-        "label": "Features",
-        "slug": "antigravity/cli/features"
-      },
-      {
         "label": "Migration",
         "slug": "antigravity/cli/gcli-migration"
       },

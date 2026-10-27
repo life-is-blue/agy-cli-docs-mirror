@@ -13,9 +13,9 @@ As AI agents take on larger-scope tasks—such as full-subsystem refactorings, e
 You can enable Remote Control directly from the Antigravity App settings:
 
 1.  Open the **Settings** panel by pressing `Cmd + ,` (or `Ctrl + ,` on Linux and Windows), or click **Settings** at the bottom of the left sidebar.
-2.  Navigate to the **App** section.
+2.  Navigate to the **Application** section.
 3.  Toggle **Enable Remote Control** to **On**.
-4.  _(Optional)_ Set a custom **Nickname** (for example, `workstation-primary` or `server-machine`) to easily identify this machine in your instance list.
+4.  _(Optional)_ Enter a **Device Name** (for example, `workstation-primary` or `server-machine`) to easily identify this machine in your instance list.
 
 #### Connecting from a web browser
 

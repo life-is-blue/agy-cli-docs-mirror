@@ -1108,7 +1108,7 @@ Antigravity 2.0 Launch bug fixes.
 
 ## Antigravity CLI
 
-### [v1.4.0](/download#antigravity-cli "View release 1.4.0")
+### [v1.4.0](/releases?tab=cli&version=1.4.0 "View release 1.4.0")
 
 Latest
 
@@ -1135,7 +1135,7 @@ Adds terminal status reporting over OSC 7501, the alt+m shortcut to toggle betwe
 
 ---
 
-### [v1.3.6](/download#antigravity-cli "View release 1.3.6")
+### [v1.3.6](/releases?tab=cli&version=1.3.6 "View release 1.3.6")
 
 October 15, 2026
 
@@ -1164,7 +1164,7 @@ Adds support for Claude Opus 5.5 and Claude Sonnet 5.5 via Application Default C
 
 ---
 
-### [v1.3.5](/download#antigravity-cli "View release 1.3.5")
+### [v1.3.5](/releases?tab=cli&version=1.3.5 "View release 1.3.5")
 
 October 14, 2026
 
@@ -1186,7 +1186,7 @@ Introduces Auto mode to approve safe file edits and commands autonomously with s
 
 ---
 
-### [v1.3.4](/download#antigravity-cli "View release 1.3.4")
+### [v1.3.4](/releases?tab=cli&version=1.3.4 "View release 1.3.4")
 
 October 13, 2026
 
@@ -1216,7 +1216,7 @@ Adds a --json flag to plugin listings, allows selecting base models without an e
 
 ---
 
-### [v1.3.3](/download#antigravity-cli "View release 1.3.3")
+### [v1.3.3](/releases?tab=cli&version=1.3.3 "View release 1.3.3")
 
 October 10, 2026
 
@@ -1253,7 +1253,7 @@ Adds pinned prompt headers during transcript scrolling, support for MCP servers 
 
 ---
 
-### [v1.3.2](/download#antigravity-cli "View release 1.3.2")
+### [v1.3.2](/releases?tab=cli&version=1.3.2 "View release 1.3.2")
 
 October 8, 2026
 
@@ -1279,7 +1279,7 @@ Introduces /plugin, an interactive manager for the official Antigravity plugin m
 
 ---
 
-### [v1.3.1](/download#antigravity-cli "View release 1.3.1")
+### [v1.3.1](/releases?tab=cli&version=1.3.1 "View release 1.3.1")
 
 October 7, 2026
 
@@ -1307,7 +1307,7 @@ Enhances `/diff` file view navigation with preserved cursor positions, cross-fil
 
 ---
 
-### [v1.3.0](/download#antigravity-cli "View release 1.3.0")
+### [v1.3.0](/releases?tab=cli&version=1.3.0 "View release 1.3.0")
 
 October 6, 2026
 
@@ -1327,7 +1327,7 @@ Updates the default `Verbosity` setting to `medium` to group related tool calls 
 
 ---
 
-### [v1.2.17](/download#antigravity-cli "View release 1.2.17")
+### [v1.2.17](/releases?tab=cli&version=1.2.17 "View release 1.2.17")
 
 October 5, 2026
 
@@ -1347,7 +1347,7 @@ Introduces dismissible announcement cards above the prompt for model launches an
 
 ---
 
-### [v1.2.16](/download#antigravity-cli "View release 1.2.16")
+### [v1.2.16](/releases?tab=cli&version=1.2.16 "View release 1.2.16")
 
 October 3, 2026
 
@@ -1376,7 +1376,7 @@ Adds left/right arrow shortcuts to cycle settings in `/config`, improves altscre
 
 ---
 
-### [v1.2.15](/download#antigravity-cli "View release 1.2.15")
+### [v1.2.15](/releases?tab=cli&version=1.2.15 "View release 1.2.15")
 
 October 2, 2026
 
@@ -1406,7 +1406,7 @@ Adds prebuilt native Android binaries for Termux, reduces memory allocations dur
 
 ---
 
-### [v1.2.14](/download#antigravity-cli "View release 1.2.14")
+### [v1.2.14](/releases?tab=cli&version=1.2.14 "View release 1.2.14")
 
 September 30, 2026
 
@@ -1431,7 +1431,7 @@ Adds a configurable Queued Messages option in `/config`, supports running `remot
 
 ---
 
-### [v1.2.13](/download#antigravity-cli "View release 1.2.13")
+### [v1.2.13](/releases?tab=cli&version=1.2.13 "View release 1.2.13")
 
 September 29, 2026
 
@@ -1451,7 +1451,7 @@ Adopts server-requested retry delays for API rate limits while halting early on 
 
 ---
 
-### [v1.2.12](/download#antigravity-cli "View release 1.2.12")
+### [v1.2.12](/releases?tab=cli&version=1.2.12 "View release 1.2.12")
 
 September 27, 2026
 
@@ -1472,7 +1472,7 @@ Coalesces bursts of scroll events to reduce latency in full-screen views, termin
 
 ---
 
-### [v1.2.11](/download#antigravity-cli "View release 1.2.11")
+### [v1.2.11](/releases?tab=cli&version=1.2.11 "View release 1.2.11")
 
 September 25, 2026
 
@@ -1493,7 +1493,7 @@ Introduces reasoning effort level controls selectable with `--effort` or `/effor
 
 ---
 
-### [v1.2.10](/download#antigravity-cli "View release 1.2.10")
+### [v1.2.10](/releases?tab=cli&version=1.2.10 "View release 1.2.10")
 
 September 24, 2026
 
@@ -1520,7 +1520,7 @@ Introduces medium verbosity mode to group related tool calls into concise summar
 
 ---
 
-### [v1.2.9](/download#antigravity-cli "View release 1.2.9")
+### [v1.2.9](/releases?tab=cli&version=1.2.9 "View release 1.2.9")
 
 September 23, 2026
 
@@ -1551,7 +1551,7 @@ Introduces direct `@` prompt syntax with interactive autocomplete, adds Vim coun
 
 ---
 
-### [v1.2.8](/download#antigravity-cli "View release 1.2.8")
+### [v1.2.8](/releases?tab=cli&version=1.2.8 "View release 1.2.8")
 
 September 22, 2026
 
@@ -1578,7 +1578,7 @@ Improves context compaction by spreading user-request budgets proportionally acr
 
 ---
 
-### [v1.2.7](/download#antigravity-cli "View release 1.2.7")
+### [v1.2.7](/releases?tab=cli&version=1.2.7 "View release 1.2.7")
 
 September 19, 2026
 
@@ -1607,7 +1607,7 @@ Introduces inline Kitty graphics rendering for LaTeX math and Mermaid diagrams i
 
 ---
 
-### [v1.2.6](/download#antigravity-cli "View release 1.2.6")
+### [v1.2.6](/releases?tab=cli&version=1.2.6 "View release 1.2.6")
 
 September 18, 2026
 
@@ -1633,7 +1633,7 @@ Introduces session-scoped Remote Control using `--remote-control` and `/remote-c
 
 ---
 
-### [v1.2.5](/download#antigravity-cli "View release 1.2.5")
+### [v1.2.5](/releases?tab=cli&version=1.2.5 "View release 1.2.5")
 
 September 17, 2026
 
@@ -1656,7 +1656,7 @@ Introduces automatic subagent roster and instruction injection for custom Markdo
 
 ---
 
-### [v1.2.4](/download#antigravity-cli "View release 1.2.4")
+### [v1.2.4](/releases?tab=cli&version=1.2.4 "View release 1.2.4")
 
 September 16, 2026
 
@@ -1685,7 +1685,7 @@ Adds `/skills reload` for live skill discovery, introduces fuzzy search and auto
 
 ---
 
-### [v1.2.3](/download#antigravity-cli "View release 1.2.3")
+### [v1.2.3](/releases?tab=cli&version=1.2.3 "View release 1.2.3")
 
 September 15, 2026
 
@@ -1706,7 +1706,7 @@ Introduces `/copy btw` to copy side-question responses directly to the clipboard
 
 ---
 
-### [v1.2.2](/download#antigravity-cli "View release 1.2.2")
+### [v1.2.2](/releases?tab=cli&version=1.2.2 "View release 1.2.2")
 
 September 12, 2026
 
@@ -1731,7 +1731,7 @@ Enhances startup migration diagnostics for unsandboxed permission rules, speeds 
 
 ---
 
-### [v1.2.1](/download#antigravity-cli "View release 1.2.1")
+### [v1.2.1](/releases?tab=cli&version=1.2.1 "View release 1.2.1")
 
 September 11, 2026
 
@@ -1756,7 +1756,7 @@ Introduces `excludeDefaultComponents` for custom agent Markdown definitions, add
 
 ---
 
-### [v1.2.0](/download#antigravity-cli "View release 1.2.0")
+### [v1.2.0](/releases?tab=cli&version=1.2.0 "View release 1.2.0")
 
 September 10, 2026
 
@@ -1782,7 +1782,7 @@ Introduces remote-control service manager subcommands to run the CLI as a persis
 
 ---
 
-### [v1.1.28](/download#antigravity-cli "View release 1.1.28")
+### [v1.1.28](/releases?tab=cli&version=1.1.28 "View release 1.1.28")
 
 September 9, 2026
 
@@ -1814,7 +1814,7 @@ Improves resilience to transient model API errors with extended exponential back
 
 ---
 
-### [v1.1.27](/download#antigravity-cli "View release 1.1.27")
+### [v1.1.27](/releases?tab=cli&version=1.1.27 "View release 1.1.27")
 
 September 5, 2026
 
@@ -1843,7 +1843,7 @@ Introduces /model for running one-off prompts with alternative models, adds conv
 
 ---
 
-### [v1.1.26](/download#antigravity-cli "View release 1.1.26")
+### [v1.1.26](/releases?tab=cli&version=1.1.26 "View release 1.1.26")
 
 September 4, 2026
 
@@ -1868,7 +1868,7 @@ Adds half-page scrolling (Ctrl+D / Ctrl+U) to the artifact viewer, adds the pick
 
 ---
 
-### [v1.1.25](/download#antigravity-cli "View release 1.1.25")
+### [v1.1.25](/releases?tab=cli&version=1.1.25 "View release 1.1.25")
 
 September 3, 2026
 
@@ -1894,7 +1894,7 @@ Adds an opt-in workspace-grouped view to the `/resume` picker with `Ctrl+F` togg
 
 ---
 
-### [v1.1.24](/download#antigravity-cli "View release 1.1.24")
+### [v1.1.24](/releases?tab=cli&version=1.1.24 "View release 1.1.24")
 
 September 2, 2026
 
@@ -1917,7 +1917,7 @@ Improves `/mcp` panel arrow key navigation and action cycling, adds support for 
 
 ---
 
-### [v1.1.23](/download#antigravity-cli "View release 1.1.23")
+### [v1.1.23](/releases?tab=cli&version=1.1.23 "View release 1.1.23")
 
 September 1, 2026
 
@@ -1946,7 +1946,7 @@ Improves `/model` autocompletion with Tab acceptance, reduces subagent streaming
 
 ---
 
-### [v1.1.22](/download#antigravity-cli "View release 1.1.22")
+### [v1.1.22](/releases?tab=cli&version=1.1.22 "View release 1.1.22")
 
 August 27, 2026
 
@@ -1973,7 +1973,7 @@ Adds direct `/model` switching with inline ghost text autocompletion, dynamic `/
 
 ---
 
-### [v1.1.21](/download#antigravity-cli "View release 1.1.21")
+### [v1.1.21](/releases?tab=cli&version=1.1.21 "View release 1.1.21")
 
 August 26, 2026
 
@@ -2000,7 +2000,7 @@ Adds `/voice` dictation with `mic-serve` SSH forwarding, embedded ripgrep for co
 
 ---
 
-### [v1.1.20](/download#antigravity-cli "View release 1.1.20")
+### [v1.1.20](/releases?tab=cli&version=1.1.20 "View release 1.1.20")
 
 August 25, 2026
 
@@ -2025,7 +2025,7 @@ Adds skill icon branding with Unicode alignment in catalogs and slash commands, 
 
 ---
 
-### [v1.1.19](/download#antigravity-cli "View release 1.1.19")
+### [v1.1.19](/releases?tab=cli&version=1.1.19 "View release 1.1.19")
 
 August 22, 2026
 
@@ -2044,7 +2044,7 @@ Introduces automatic free port selection for `--remote-control`, environment con
 
 ---
 
-### [v1.1.18](/download#antigravity-cli "View release 1.1.18")
+### [v1.1.18](/releases?tab=cli&version=1.1.18 "View release 1.1.18")
 
 August 22, 2026
 
@@ -2072,7 +2072,7 @@ Adds support for passing project names to `--project`, customizable keybindings 
 
 ---
 
-### [v1.1.17](/download#antigravity-cli "View release 1.1.17")
+### [v1.1.17](/releases?tab=cli&version=1.1.17 "View release 1.1.17")
 
 August 20, 2026
 
@@ -2092,7 +2092,7 @@ Consolidated agent execution harness for consistent tool, hook, and prompt behav
 
 ---
 
-### [v1.1.16](/download#antigravity-cli "View release 1.1.16")
+### [v1.1.16](/releases?tab=cli&version=1.1.16 "View release 1.1.16")
 
 August 20, 2026
 
@@ -2126,7 +2126,7 @@ August 20, 2026
 
 ---
 
-### [v1.1.15](/download#antigravity-cli "View release 1.1.15")
+### [v1.1.15](/releases?tab=cli&version=1.1.15 "View release 1.1.15")
 
 August 19, 2026
 
@@ -2156,7 +2156,7 @@ Stream-JSON print input mode for persistent session drivers, direct rule file co
 
 ---
 
-### [v1.1.14](/download#antigravity-cli "View release 1.1.14")
+### [v1.1.14](/releases?tab=cli&version=1.1.14 "View release 1.1.14")
 
 August 18, 2026
 
@@ -2186,7 +2186,7 @@ Fast return path for enterprise sign-in, support for OAuth client ID metadata do
 
 ---
 
-### [v1.1.13](/download#antigravity-cli "View release 1.1.13")
+### [v1.1.13](/releases?tab=cli&version=1.1.13 "View release 1.1.13")
 
 August 14, 2026
 
@@ -2223,7 +2223,7 @@ Direct `GEMINI_API_KEY` authentication support, `/codesearch` fallback resilienc
 
 ---
 
-### [v1.1.12](/download#antigravity-cli "View release 1.1.12")
+### [v1.1.12](/releases?tab=cli&version=1.1.12 "View release 1.1.12")
 
 August 11, 2026
 
@@ -2265,7 +2265,7 @@ Artifact outline viewer navigation, print-mode read-only slash commands, machine
 
 ---
 
-### [v1.1.11](/download#antigravity-cli "View release 1.1.11")
+### [v1.1.11](/releases?tab=cli&version=1.1.11 "View release 1.1.11")
 
 August 7, 2026
 
@@ -2299,7 +2299,7 @@ Vim modal editing mode with Normal, Insert, Visual, and Visual Line modes, Vim-a
 
 ---
 
-### [v1.1.10](/download#antigravity-cli "View release 1.1.10")
+### [v1.1.10](/releases?tab=cli&version=1.1.10 "View release 1.1.10")
 
 August 3, 2026
 
@@ -2333,7 +2333,7 @@ Gemini Enterprise Business sign-in, Workforce Identity Federation (WIF) and Appl
 
 ---
 
-### [v1.1.9](/download#antigravity-cli "View release 1.1.9")
+### [v1.1.9](/releases?tab=cli&version=1.1.9 "View release 1.1.9")
 
 July 31, 2026
 
@@ -2360,7 +2360,7 @@ Added slash-command and skill expansion in print mode, non-blocking background M
 
 ---
 
-### [v1.1.8](/download#antigravity-cli "View release 1.1.8")
+### [v1.1.8](/releases?tab=cli&version=1.1.8 "View release 1.1.8")
 
 July 28, 2026
 
@@ -2380,7 +2380,7 @@ Added structured output formats (`json`, `stream-json`) for print mode, support 
 
 ---
 
-### [v1.1.7](/download#antigravity-cli "View release 1.1.7")
+### [v1.1.7](/releases?tab=cli&version=1.1.7 "View release 1.1.7")
 
 July 24, 2026
 
@@ -2402,7 +2402,7 @@ Improved permission prompts for compound shell commands, and fixed disabled plug
 
 ---
 
-### [v1.1.6](/download#antigravity-cli "View release 1.1.6")
+### [v1.1.6](/releases?tab=cli&version=1.1.6 "View release 1.1.6")
 
 July 24, 2026
 
@@ -2436,7 +2436,7 @@ Added support for defining custom agents in Markdown format (`agent.md`), option
 
 ---
 
-### [v1.1.5](/download#antigravity-cli "View release 1.1.5")
+### [v1.1.5](/releases?tab=cli&version=1.1.5 "View release 1.1.5")
 
 July 21, 2026
 
@@ -2465,7 +2465,7 @@ Added `/effort` command and `--effort` flag for reasoning effort selection, stab
 
 ---
 
-### [v1.1.4](/download#antigravity-cli "View release 1.1.4")
+### [v1.1.4](/releases?tab=cli&version=1.1.4 "View release 1.1.4")
 
 July 18, 2026
 
@@ -2488,7 +2488,7 @@ Added slash command stacking (chaining multiple commands in a single prompt), di
 
 ---
 
-### [v1.1.3](/download#antigravity-cli "View release 1.1.3")
+### [v1.1.3](/releases?tab=cli&version=1.1.3 "View release 1.1.3")
 
 July 16, 2026
 
@@ -2520,7 +2520,7 @@ New `/codesearch` command for regex workspace searches, copy-on-select, async sk
 
 ---
 
-### [v1.1.2](/download#antigravity-cli "View release 1.1.2")
+### [v1.1.2](/releases?tab=cli&version=1.1.2 "View release 1.1.2")
 
 July 13, 2026
 
@@ -2545,7 +2545,7 @@ Added full-screen diffs for file creations, OAuth authorization code pasting in 
 
 ---
 
-### [v1.1.1](/download#antigravity-cli "View release 1.1.1")
+### [v1.1.1](/releases?tab=cli&version=1.1.1 "View release 1.1.1")
 
 July 10, 2026
 
@@ -2573,7 +2573,7 @@ Added `--agent` flag, in-file keyword search for artifacts, recursive subagent u
 
 ---
 
-### [v1.1.0](/download#antigravity-cli "View release 1.1.0")
+### [v1.1.0](/releases?tab=cli&version=1.1.0 "View release 1.1.0")
 
 July 8, 2026
 
@@ -2603,7 +2603,7 @@ Public release of mode cycling, default request-review mode with interactive lin
 
 ---
 
-### [v1.0.16](/download#antigravity-cli "View release 1.0.16")
+### [v1.0.16](/releases?tab=cli&version=1.0.16 "View release 1.0.16")
 
 July 2, 2026
 
@@ -2625,7 +2625,7 @@ Auto-scrolling background task logs, automatic client-side generation retries, a
 
 ---
 
-### [v1.0.15](/download#antigravity-cli "View release 1.0.15")
+### [v1.0.15](/releases?tab=cli&version=1.0.15 "View release 1.0.15")
 
 July 1, 2026
 
@@ -2650,7 +2650,7 @@ New interactive status bar for subagents and background tasks, clipboard image p
 
 ---
 
-### [v1.0.14](/download#antigravity-cli "View release 1.0.14")
+### [v1.0.14](/releases?tab=cli&version=1.0.14 "View release 1.0.14")
 
 June 30, 2026
 
@@ -2673,7 +2673,7 @@ Indefinite goals support, subagent auto-approval mode for artifacts, and directo
 
 ---
 
-### [v1.0.13](/download#antigravity-cli "View release 1.0.13")
+### [v1.0.13](/releases?tab=cli&version=1.0.13 "View release 1.0.13")
 
 June 27, 2026
 
@@ -2696,7 +2696,7 @@ Optimistic slash command rendering, strict non-regex permission matching, and un
 
 ---
 
-### [v1.0.12](/download#antigravity-cli "View release 1.0.12")
+### [v1.0.12](/releases?tab=cli&version=1.0.12 "View release 1.0.12")
 
 June 24, 2026
 
@@ -2721,7 +2721,7 @@ Added `--project` launch flags, dynamic OSC8 terminal hyperlinks, reverse diff c
 
 ---
 
-### [v1.0.11](/download#antigravity-cli "View release 1.0.11")
+### [v1.0.11](/releases?tab=cli&version=1.0.11 "View release 1.0.11")
 
 June 24, 2026
 
@@ -2753,7 +2753,7 @@ Added `ctrl+c` interrupt and exit handling, parallel `/resume` metadata caching,
 
 ---
 
-### [v1.0.10](/download#antigravity-cli "View release 1.0.10")
+### [v1.0.10](/releases?tab=cli&version=1.0.10 "View release 1.0.10")
 
 June 19, 2026
 
@@ -2782,7 +2782,7 @@ Expanded ARM64 device compatibility, added builtin `antigravity_guide` skill, an
 
 ---
 
-### [v1.0.9](/download#antigravity-cli "View release 1.0.9")
+### [v1.0.9](/releases?tab=cli&version=1.0.9 "View release 1.0.9")
 
 June 17, 2026
 
@@ -2807,7 +2807,7 @@ Automatic Git submodule resolution for plugins, read-only access for builtin ski
 
 ---
 
-### [v1.0.8](/download#antigravity-cli "View release 1.0.8")
+### [v1.0.8](/releases?tab=cli&version=1.0.8 "View release 1.0.8")
 
 June 12, 2026
 
@@ -2840,7 +2840,7 @@ Replay slash command history with Up arrow, redesigned Models & Quota page, and 
 
 ---
 
-### [v1.0.7](/download#antigravity-cli "View release 1.0.7")
+### [v1.0.7](/releases?tab=cli&version=1.0.7 "View release 1.0.7")
 
 June 9, 2026
 
@@ -2870,7 +2870,7 @@ Configurable MCP server connection timeouts, accurate line-numbered artifact gut
 
 ---
 
-### [v1.0.6](/download#antigravity-cli "View release 1.0.6")
+### [v1.0.6](/releases?tab=cli&version=1.0.6 "View release 1.0.6")
 
 June 6, 2026
 
@@ -2894,7 +2894,7 @@ Path autocompletion for `/open` and `/add-dir`, optimistic chat prompt rendering
 
 ---
 
-### [v1.0.5](/download#antigravity-cli "View release 1.0.5")
+### [v1.0.5](/releases?tab=cli&version=1.0.5 "View release 1.0.5")
 
 June 3, 2026
 
@@ -2920,7 +2920,7 @@ Added `--model` launch flag, interactive `/permissions` editor, and URL-configur
 
 ---
 
-### [v1.0.4](/download#antigravity-cli "View release 1.0.4")
+### [v1.0.4](/releases?tab=cli&version=1.0.4 "View release 1.0.4")
 
 June 1, 2026
 

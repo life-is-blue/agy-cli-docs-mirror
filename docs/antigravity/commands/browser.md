@@ -2,7 +2,7 @@
 
 Available on: Antigravity App, Antigravity CLI
 
-Hand a web task to the built-in **`browser` subagent**, which drives Google Chrome to navigate pages, interact with your running app, inspect the console and network, and capture screenshots and recordings.
+Hand a web task to the **`browser` subagent**, which drives Google Chrome to navigate pages, interact with your running app, inspect the console and network, and capture screenshots and recordings.
 
 ## Overview
 
