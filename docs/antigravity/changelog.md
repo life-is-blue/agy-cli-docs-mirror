@@ -6,9 +6,94 @@ New versions roll out gradually and may take a few days to reach all users.
 
 ## Antigravity App
 
-### [v2.26.0](/releases?tab=hub&version=2.26.0 "View release 2.26.0")
+### [v2.28.0](/releases?tab=hub&version=2.28.0 "View release 2.28.0")
 
 Latest
+
+October 27, 2026
+
+### Built-in browser and attachments of any file type
+
+This release adds a built-in browser that opens web pages in the side panel, a built-in PDF viewer, attachments of any file type, and word and character highlighting in diffs. It also adds a shortcut to reopen closed side panel tabs. It includes 19 improvements and 15 fixes.
+
+**Improvements:**
+
+*   Antigravity now has a built-in browser. Web pages open in a browser tab in the side panel, and the panel widens when a page opens so sites are less likely to switch to their narrow mobile layout.
+*   Links you open from a conversation open in the built-in browser by default. To use your external browser instead, change Open Links In under Settings > General, or right-click a link to pick either browser or copy the link.
+*   The built-in browser's address bar shows whether your connection to a site is secure, with its certificate details, or a Not secure warning. Its tabs also keep each site's icon as you move between pages.
+*   PDF files now open in a built-in PDF viewer, both in the file viewer and when an artifact is a PDF, so you can read them without leaving Antigravity.
+*   You can now attach files of any type, such as videos, design files, or programs, up to 20 MB. Files that used to be rejected as an unsupported format are attached as files, and the agent reads them from where they are saved.
+*   Diffs now highlight the exact words and characters that changed within a line, including in edits that span several lines, and added text is easier to see in dark mode.
+*   New status icons show when the agent is working, running a background command, or waiting on your answer, and a conversation keeps showing as working while its subagents run. The conversation hover card also shows states such as Action required, Working, and Unread.
+*   You can now reopen side panel tabs you closed, at their previous position and scroll point, with Cmd+Shift+T on macOS or Ctrl+Shift+T on Windows and Linux.
+*   You can now move the open conversation up or down in the sidebar with Alt+Shift+Up and Alt+Shift+Down (Option+Shift on macOS), including into Pinned and other sections.
+*   Selecting a quote in a message now scrolls the conversation to the quoted text and briefly highlights it.
+*   Long commands in the background command view are now syntax highlighted and collapsed to three lines, with a toggle to expand them when they overflow and a Copy button.
+*   Screen readers now announce what the agent is doing while it works, including how long it has been thinking, each response, and when a turn is canceled or fails.
+*   In windows narrower than 1024 pixels, the sidebar and side panel no longer open side by side. Opening the side panel hides the sidebar, and the sidebar button closes the side panel, so the conversation keeps its room.
+*   The Wide conversation width setting is now wider, at 960 pixels, so it makes better use of large screens.
+*   Hooks you define now receive the current user message, so a hook can check a prompt before the agent acts on it.
+*   Web addresses in notifications are now links you can open, such as the appeal form link in an account error message.
+*   The sidebar and side panel buttons now appear filled while their panel is open, so you can tell at a glance which panels are showing.
+*   Improved performance while responses stream in and when switching between conversations.
+*   The project picker opens and responds much faster when you have hundreds of projects.
+
+**Fixes:**
+
+*   Fixed an issue where a conversation could switch to a different model after Antigravity restarted or reconnected.
+*   Fixed an issue where some enterprise accounts on macOS and Windows were not kept signed in after a restart, because the saved sign-in was too large for the system keychain.
+*   Fixed an issue where subagents asked again about a command or website you had already approved with Always allow or for the conversation, and where choosing to always allow something when not in a project was not saved.
+*   Fixed an issue where the built-in browser showed an error screen instead of pages that returned an error code but still had content, such as security checks and custom 404 pages, or kept showing an old error after you switched tabs.
+*   Fixed an issue where a failed plugin install, removal, or toggle on the Marketplace tab showed no error there, and the error appeared later on another plugin's page.
+*   Fixed an issue where installing a plugin failed with no way forward when its folder held a broken copy, such as one left by a failed update. The install dialog now offers Replace.
+*   Fixed an issue where some plugin MCP servers whose command starts with ./ failed to start when they set a working folder other than the plugin's own folder.
+*   Fixed an issue where the conversation jumped to the bottom when you quoted an earlier passage or when a queued message was sent, so you lost your place.
+*   Fixed an issue where mentions and quotes in a queued follow-up message showed as raw text instead of pills.
+*   Fixed an issue where a turn that was still running could collapse its latest Worked for section and hide the Working indicator.
+*   Fixed an issue where bold, italic, and strikethrough text next to punctuation in Chinese, Japanese, or Korean showed the raw markdown markers.
+*   Fixed an issue where pasted GIF images were rejected by models that do not accept GIFs.
+*   Fixed an issue where holding Backspace to clear a search in the command palette also removed its category, such as Files or Conversations.
+*   Fixed an issue where the media viewer's copy, download, and close buttons and zoom control looked like dark gray blobs in light mode.
+*   Fixed an issue where the send button changed size and shifted when the message box finished loading.
+
+---
+
+### [v2.27.0](/releases?tab=hub&version=2.27.0 "View release 2.27.0")
+
+October 26, 2026
+
+### Markdown previews and overview sections in new side panel tabs
+
+This release shows Markdown code blocks as a rendered preview with a Raw toggle and fills a new side panel tab with the conversation's overview sections. It includes 5 improvements and 14 fixes.
+
+**Improvements:**
+
+*   Opening a new tab in the side panel now shows the conversation's overview sections, with documents and artifacts first, and the search bar stays pinned at the top while you scroll.
+*   Markdown code blocks in responses now show a rendered preview by default, with a Raw toggle to switch back to the source.
+*   Improved performance when opening and working in long conversations.
+*   Disabled plugins now show an Enable button on their details page, so you can turn them back on without opening the more-actions menu.
+*   The search boxes on the Marketplace and Installed tabs in Customizations now include a clear button that resets the search in one step.
+
+**Fixes:**
+
+*   Fixed an issue where subagents and custom agents in Auto mode asked you to approve every command that ran outside the sandbox, instead of only the risky ones.
+*   Fixed an issue where the chat or sign-in screen briefly flashed at startup while Antigravity checked for a saved session.
+*   Fixed an issue where an invalid saved session at startup kept later sign-in attempts from working, and where the license or project picker did not reappear when a selection was still needed.
+*   Fixed an issue where images and videos embedded in responses showed "Preview unavailable" when they used relative file paths.
+*   Fixed an issue where copying a Mermaid diagram or some SVG images produced a small, low-resolution image, and where Copy Image failed on SVG artifacts.
+*   Fixed an issue where Mermaid diagrams were missing from documents exported as PDF.
+*   Fixed an issue where a Markdown code block that contained its own code blocks ended early and broke the formatting of the rest of the response.
+*   Fixed an issue where text between two shell variables, such as $HOME, was displayed as a math formula.
+*   Fixed an issue where the list in the model selector's View Usage panel jumped while your quota refreshed.
+*   Fixed an issue where changing the telemetry or marketing email settings could be undone by a slow server response.
+*   Fixed an issue where long words in the header of a question prompt ran outside the card.
+*   Fixed an issue where installing or updating a plugin could fail right after that plugin was updated in the Marketplace.
+*   Fixed an issue where plugins that list their skills as a single folder path failed to load.
+*   Fixed an issue where inline HTML previews in a conversation did not refresh when the agent changed the file.
+
+---
+
+### [v2.26.0](/releases?tab=hub&version=2.26.0 "View release 2.26.0")
 
 October 22, 2026
 
@@ -4053,9 +4138,33 @@ This release focuses on significant enhancements to the Model Context Protocol (
 
 ## Antigravity IDE
 
-### [v2.5.5](/releases?tab=ide&version=2.5.5 "View release 2.5.5")
+### [v2.6.0](/releases?tab=ide&version=2.6.0 "View release 2.6.0")
 
 Latest
+
+October 26, 2026
+
+### Gemini 4 Argon, Refreshed Agent Interface, and Inline Diff Shortcuts
+
+Gemini 4 Argon is now available in the IDE, alongside a refreshed agent interface and architecture, keyboard shortcuts for inline diffs, inline editor comments, and faster multi-window startup.
+
+**Improvements:**
+
+*   Enabled Gemini 4 Argon in Antigravity IDE for eligible tiers, bringing Google's next-generation reasoning model directly into your development workflow.
+*   Updated the agent interface and architecture powered by the built-in Antigravity extension, delivering faster startup, automatic background updates, and seamless feature parity.
+*   Added keyboard shortcuts (`Alt+Enter` or `Option+Enter` to accept, `Alt+Shift+Enter` or `Option+Shift+Enter` to reject) to accept or reject focused inline diff changes.
+*   Added inline code comments directly from the editor (`Ctrl+Alt+M` / `Cmd+Alt+M`) to queue feedback for your next prompt.
+*   Added drag-and-drop support for files or screenshots directly onto the Agent panel.
+*   Improved multi-window startup performance and reduced background network traffic.
+
+**Fixes:**
+
+*   Fixed file drops onto the chat panel failing or getting dropped on macOS and Linux.
+*   Restored open conversations automatically by reconnecting if the background service is interrupted.
+
+---
+
+### [v2.5.5](/releases?tab=ide&version=2.5.5 "View release 2.5.5")
 
 August 13, 2026
 

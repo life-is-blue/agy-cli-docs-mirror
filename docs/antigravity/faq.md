@@ -1,8 +1,24 @@
 # FAQ
 
-## Why can I not authenticate into Google Antigravity?
+## Why can’t I sign in with my personal Google Account?
 
-Google Antigravity is currently available for personal Google Accounts in approved geographies. Try using an `@gmail.com` email address if you experience issues with Google Workspace accounts.
+Personal Google Accounts (such as `@gmail.com` addresses) can use Google Antigravity on any plan, including the free tier. If sign-in fails, check the following:
+
+*   **Location**: Your account must be associated with a country or territory where Antigravity is available. Refer to [What is Google Antigravity’s geographical availability?](#what-is-google-antigravitys-geographical-availability) to check your country.
+*   **Age**: Antigravity is unavailable to users under 18. Refer to [Why is my age unverified?](#why-is-my-age-unverified) if you believe this to be in error.
+*   **Account type**: Work or school accounts managed by an organization, such as Google Workspace accounts, aren’t personal Google Accounts. To sign in with one, refer to [Why can’t I sign in with my enterprise account?](#why-cant-i-sign-in-with-my-enterprise-account)
+
+## Why can’t I sign in with my enterprise account?
+
+Enterprise accounts, such as Google Workspace and Gemini Enterprise accounts, are managed by your organization. Your administrator must give your account access to Antigravity before you can sign in. If sign-in fails, check the following:
+
+*   **Google Workspace accounts**: Your Workspace administrator must explicitly provision Antigravity for your account. If it isn’t provisioned, sign-in fails. Contact your Workspace administrator to request access, or sign in with a personal Google Account instead.
+*   **Gemini Enterprise license**: Choose **Business account** when you sign in. Your organization’s Google Cloud administrator must assign you a Gemini Enterprise license or the required IAM role. If no licenses appear when you sign in, contact your administrator.
+*   **AI developer tools**: AI developer tools may be turned off by default in Gemini Enterprise. Your administrator must turn them on for the region where your subscription is provisioned.
+*   **Identity**: If your email address exists with more than one identity provider, sign in with the identity that matches your Gemini Enterprise license.
+*   **Product**: Enterprise sign-in works in the Antigravity App, Antigravity CLI, and Antigravity IDE extensions, but not in the standalone Antigravity IDE.
+
+For Gemini Enterprise setup steps and more troubleshooting, refer to [Antigravity in Gemini Enterprise](/docs/enterprise#common-sign-in-and-license-issues).
 
 ## Why is my age unverified?
 

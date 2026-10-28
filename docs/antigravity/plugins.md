@@ -83,6 +83,36 @@ A plugin can contain any of the following components:
 *   `mcp_config.json`: Declarations connecting Antigravity to external tool servers.
 *   `hooks.json`: Event handlers executing shell commands before or after tool calls.
 
+### Plugin path variables
+
+To keep a plugin self-contained, reference these variables in the plugin’s `mcp_config.json` instead of hardcoding absolute paths. Antigravity replaces them with absolute paths when it loads the plugin:
+
+| Variable | Resolves to |
+| :-- | :-- |
+| `${PLUGIN_ROOT}` | The absolute path of the plugin directory. Use it to point to scripts and other files that ship with the plugin. |
+| `${PLUGIN_DATA}` | The absolute path of a persistent data directory that Antigravity creates for the plugin. Use it for SQLite databases, cache files, and other state that must persist across sessions. |
+
+The data directory lives outside your workspace, so plugin state stays separate from your project files.
+
+The following example starts a local MCP server from a script inside the plugin, and passes both paths to the server process as environment variables so the server code can read them:
+
+```json
+{
+  "mcpServers": {
+    "my-local-mcp-server": {
+      "command": "python3",
+      "args": ["${PLUGIN_ROOT}/scripts/mcp_server.py"],
+      "env": {
+        "PLUGIN_ROOT": "${PLUGIN_ROOT}",
+        "PLUGIN_DATA": "${PLUGIN_DATA}"
+      }
+    }
+  }
+}
+```
+
+For all `mcp_config.json` properties, refer to [MCP configuration structure](/docs/mcp#mcp-configuration-structure).
+
 ## Managing plugins by surface
 
 Follow the instructions below to install and manage plugins on your preferred surface:
@@ -93,7 +123,7 @@ Follow the instructions below to install and manage plugins on your preferred su
 
 The Antigravity App provides curated plugins that you can browse and install directly from the application interface:
 
-1.  Open the **Customizations** tab, located below the **Scheduled Tasks** tab in the left sidebar.
+1.  Open the **Customizations** tab, located below the **Automations** tab in the left sidebar.
 2.  Switch between the **Marketplace** view (which displays all plugins available to you) and the **Installed** tab (which displays only your installed plugins).
 3.  In the **Marketplace** tab, click the **+** button to install a plugin, or click a plugin’s name to view what is included in the bundle (such as [skills](/docs/skills), [MCP servers](/docs/mcp), [rules](/docs/rules), and [agents](/docs/subagents)).
 

@@ -34,7 +34,7 @@ By default, agents ask before sensitive actions and limit their file access to y
 ### Antigravity App
 
 *   **Interactive approvals**: By default, agents request your explicit permission before running terminal commands outside the isolated [Terminal sandbox](/docs/sandbox). With the [previous permission settings](/docs/agent-settings#previous-permission-settings), agents ask before running any terminal command.
-*   **Bounded access**: By default, your agent can only read and write within the provided folders of a project. If you broaden your permission settings (for example, the “Turbo” preset, or the “Full machine” or “Turbo mode” presets in the previous permission settings), the agent has read and write access over your full machine.
+*   **Bounded access**: By default, your agent can only read and write within the provided folders of a project. If you broaden your permission settings (for example, by choosing the **Turbo** preset), the agent has read and write access over your full machine.
 
 ### Antigravity CLI
 
