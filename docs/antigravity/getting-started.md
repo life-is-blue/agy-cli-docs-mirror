@@ -12,19 +12,19 @@ Welcome to Google Antigravity! Follow the instructions in this guide to get star
     
     macOSmacOS 12 (Monterey) or later (Apple Silicon or 64-bit Intel)
     
-    [Download for Apple Silicon](https://storage.googleapis.com/antigravity-public/antigravity-hub/2.28.0-6410674700681216/darwin-arm/Antigravity.dmg)[Download for Intel](https://storage.googleapis.com/antigravity-public/antigravity-hub/2.28.0-6410674700681216/darwin-x64/Antigravity.dmg)
+    [Download for Apple Silicon](https://storage.googleapis.com/antigravity-public/antigravity-hub/2.28.1-6709500728705024/darwin-arm/Antigravity.dmg)[Download for Intel](https://storage.googleapis.com/antigravity-public/antigravity-hub/2.28.1-6709500728705024/darwin-x64/Antigravity.dmg)
     
     Open the downloaded `Antigravity.dmg` disk image and drag **Antigravity** into your **Applications** folder. If you are upgrading an existing installation, select **Replace** when prompted instead of **Keep Both**.
     
     WindowsWindows 10 (64-bit) or Windows 11
     
-    [Download for x64](https://storage.googleapis.com/antigravity-public/antigravity-hub/2.28.0-6410674700681216/windows-x64/Antigravity-x64.exe)[Download for ARM64](https://storage.googleapis.com/antigravity-public/antigravity-hub/2.28.0-6410674700681216/windows-arm/Antigravity-arm64.exe)
+    [Download for x64](https://storage.googleapis.com/antigravity-public/antigravity-hub/2.28.1-6709500728705024/windows-x64/Antigravity-x64.exe)[Download for ARM64](https://storage.googleapis.com/antigravity-public/antigravity-hub/2.28.1-6709500728705024/windows-arm/Antigravity-arm64.exe)
     
     Run the downloaded `.exe` installer and follow the guided setup wizard.
     
     Linuxglibc >= 2.28, glibcxx >= 3.4.25 (Ubuntu 20+, Debian 10+, Fedora 36+, RHEL 8+)
     
-    [Download for x64](https://storage.googleapis.com/antigravity-public/antigravity-hub/2.28.0-6410674700681216/linux-x64/Antigravity.tar.gz)[Download for ARM64](https://storage.googleapis.com/antigravity-public/antigravity-hub/2.28.0-6410674700681216/linux-arm/Antigravity.tar.gz)
+    [Download for x64](https://storage.googleapis.com/antigravity-public/antigravity-hub/2.28.1-6709500728705024/linux-x64/Antigravity.tar.gz)[Download for ARM64](https://storage.googleapis.com/antigravity-public/antigravity-hub/2.28.1-6709500728705024/linux-arm/Antigravity.tar.gz)
     
     Extract the archive with `tar -xzf Antigravity.tar.gz` and launch `./Antigravity`.
     
@@ -118,6 +118,14 @@ For authentication options or enterprise configurations, consult the **[Authenti
     
     Open **Xcode** > **Settings** (Cmd+,), select the **Intelligence** panel, and click **Get** next to **Antigravity**. See the [Xcode guide](/docs/ide/extensions/xcode).
     
+    **Eclipse:**
+    
+    [Install from Eclipse Marketplace](https://marketplace.eclipse.org/content/google-antigravity)
+    
+    **Requirements:** Eclipse 2026-06 or later on macOS, Linux, or Windows (Public Preview).
+    
+    Select **Help** > **Eclipse Marketplace…**, search for **Google Antigravity**, click **Install**, and restart Eclipse when prompted. Check out the [Eclipse guide](/docs/ide/extensions/eclipse).
+    
     **Antigravity IDE:**
     
     [Download Antigravity IDE](/download#antigravity-ide)
@@ -136,7 +144,7 @@ For authentication options or enterprise configurations, consult the **[Authenti
     
     ![Open the editor from the Agent Manager in Antigravity IDE](/assets/image/docs/agent-manager-open-editor.png)
     
-2.  Sign in with your personal Google Account or **Gemini Enterprise** credentials (Enterprise support is available in IDE extensions—GA in VS Code and Visual Studio, and in **Preview** for JetBrains, Zed, and Xcode) when prompted in the Antigravity panel or settings.
+2.  Sign in with your personal Google Account or **Gemini Enterprise** credentials (Enterprise support is available in IDE extensions—GA in VS Code and Visual Studio, and in **Preview** for JetBrains, Zed, Xcode, and Eclipse) when prompted in the Antigravity panel or settings.
 
 ### Antigravity SDK
 
@@ -226,7 +234,7 @@ Navigate to any codebase directory in your terminal and start a session:
 ### For IDEs
 
 1.  Open your workspace folder, repository, or solution in your preferred editor.
-2.  Open the Antigravity panel or agent view in your IDE (for example, click the Antigravity icon in the VS Code Activity Bar, press Ctrl+, Ctrl+A in Visual Studio, or select Antigravity in JetBrains AI, Zed External Agents, or Xcode Intelligence).
+2.  Open the Antigravity panel or agent view in your IDE (for example, click the Antigravity icon in the VS Code Activity Bar, press Ctrl+, Ctrl+A in Visual Studio, select **Antigravity** > **Toggle Chat** in Eclipse, or select Antigravity in JetBrains AI, Zed External Agents, or Xcode Intelligence).
 3.  Enter a task prompt in the conversation panel to start an agent session that shares context and [customizations](/docs/skills) with the rest of the Antigravity ecosystem.
 4.  Inspect interactive implementation plans, review granular inline diffs, and execute multi-step engineering tasks directly inside your editor.
 
@@ -330,6 +338,7 @@ Navigate to any codebase directory in your terminal and start a session:
 | **Zed** | ⌘⇧P / Ctrl + Shift + P → `agent: open settings` | Open Agent settings to configure **External Agents** |
 | **JetBrains** | **JetBrains AI** > **Settings** > **Agents** | Install or configure the **Antigravity** agent |
 | **Xcode** | ⌘, → **Intelligence** | Manage and authenticate **Antigravity** in Xcode Settings |
+| **Eclipse** | ⌘⌥E / Ctrl + Alt + K | Toggle the **Antigravity** chat view |
 
 #### Authentication configuration
 

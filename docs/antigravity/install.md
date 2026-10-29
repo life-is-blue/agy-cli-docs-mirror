@@ -184,10 +184,10 @@ When executing the CLI installation scripts (see [Quickstart](/docs/getting-star
 
 #### Unified sign-in across IDE extensions
 
-Antigravity uses a unified authentication system across all [IDE extensions](/docs/ide/extensions) ([Visual Studio Code](/docs/ide/extensions/vscode), [IntelliJ-based IDEs](/docs/ide/extensions/jetbrains), [Visual Studio](/docs/ide/extensions/visual-studio), [Zed](/docs/ide/extensions/zed), and [Xcode](/docs/ide/extensions/xcode)), the Antigravity CLI, and Antigravity App.
+Antigravity uses a unified authentication system across all [IDE extensions](/docs/ide/extensions) ([Visual Studio Code](/docs/ide/extensions/vscode), [IntelliJ-based IDEs](/docs/ide/extensions/jetbrains), [Visual Studio](/docs/ide/extensions/visual-studio), [Zed](/docs/ide/extensions/zed), [Xcode](/docs/ide/extensions/xcode), and [Eclipse](/docs/ide/extensions/eclipse)), the Antigravity CLI, and Antigravity App.
 
 *   **Individual developers**: Click the Antigravity icon in your editor’s activity bar or tool window (or select **Antigravity** and use the **…** button under **Xcode** > **Settings** > **Intelligence** in Xcode) and click **Sign In** to complete authentication in your default web browser.
-*   **Enterprise teams & organizations**: Click **Sign In** and select **Sign in with Gemini Enterprise** (or choose **Business account** → **Continue with Google Cloud** / BYOID), then select your target **Google Cloud Project** and **Region** (`global`, `us`, or `eu`). Gemini Enterprise authentication for JetBrains IDEs, Zed, and Xcode is currently in **Preview**.
+*   **Enterprise teams & organizations**: Click **Sign In** and select **Sign in with Gemini Enterprise** (or choose **Business account** → **Continue with Google Cloud** / BYOID), then select your target **Google Cloud Project** and **Region** (`global`, `us`, or `eu`). Gemini Enterprise authentication for JetBrains IDEs, Zed, Xcode, and Eclipse is currently in **Preview**.
 
 #### Agent configuration (`auth.type`)
 
@@ -207,7 +207,7 @@ For individual Google AI subscription plans (including Free, Pro, and Ultra):
 
 ### Gemini Enterprise
 
-Reach out to your cloud administrator for your GCP Project ID and Region (Enterprise support for JetBrains, Zed, and Xcode is currently in Preview):
+Reach out to your cloud administrator for your GCP Project ID and Region (Enterprise support for JetBrains, Zed, Xcode, and Eclipse is currently in Preview):
 
 ```json
 {

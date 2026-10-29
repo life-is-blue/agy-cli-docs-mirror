@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-28T04:29:47Z",
+  "generated_at": "2026-10-29T04:45:47Z",
   "tool": "scripts/fetch_agy_docs.py",
   "strict_fetch": false,
   "is_degraded": true,
@@ -102,9 +102,9 @@
       "slug": "changelog",
       "label": "Changelog",
       "url": "https://antigravity.google/docs/changelog.md",
-      "sha256": "d06fdda9f512bdaa72622689b077ea8c79c2795326387992ebf45ac3448abea3",
-      "bytes": 387682,
-      "fetched_at": "2026-10-28T04:29:39Z",
+      "sha256": "789fdc634dd264d507ff9674aa6ce64d36d64f88dabf77681f0f25a26dd9c641",
+      "bytes": 445836,
+      "fetched_at": "2026-10-29T04:45:34Z",
       "sidebar_label": "Changelog"
     },
     "antigravity/cli/artifacts.md": {
@@ -754,9 +754,9 @@
       "slug": "enterprise",
       "label": "Enterprise",
       "url": "https://antigravity.google/docs/enterprise.md",
-      "sha256": "2eabc845e297ab1846872cecb15eccedefcc47c9707b5bf13ba8a05d72271b56",
-      "bytes": 22596,
-      "fetched_at": "2026-10-22T03:39:45Z",
+      "sha256": "bbfe7568f380ba3f43141bfaec78d250b19a3e39c61ba3895d7f7613f48e1825",
+      "bytes": 22646,
+      "fetched_at": "2026-10-29T04:45:34Z",
       "sidebar_label": "Enterprise"
     },
     "antigravity/faq.md": {
@@ -810,9 +810,9 @@
       "slug": "getting-started",
       "label": "Get started",
       "url": "https://antigravity.google/docs/getting-started.md",
-      "sha256": "5489eb80b1fea86ab9249e062d60abca8c8ac6a34d94a57ddf35085000faae83",
-      "bytes": 17779,
-      "fetched_at": "2026-10-28T04:29:39Z",
+      "sha256": "d1a3a92e83158d3e5ae489f29720176b96246b915115cc461a1940ef93df1c90",
+      "bytes": 18352,
+      "fetched_at": "2026-10-29T04:45:34Z",
       "sidebar_label": "Get started"
     },
     "antigravity/home.md": {
@@ -1230,9 +1230,9 @@
       "slug": "install",
       "label": "Authenticate",
       "url": "https://antigravity.google/docs/install.md",
-      "sha256": "3be19414cbcdd3565ac0c1a10ae166c2fe0bb86fbcfa2264ddb7318735f29475",
-      "bytes": 13365,
-      "fetched_at": "2026-10-23T03:44:36Z",
+      "sha256": "677cdb18c0c06883db6757b81f15a2d33513cae1a354761536b48724998a19cc",
+      "bytes": 13424,
+      "fetched_at": "2026-10-29T04:45:34Z",
       "sidebar_label": "Authenticate"
     },
     "antigravity/marketplace.md": {
@@ -1286,9 +1286,9 @@
       "slug": "overview",
       "label": "Choose your Antigravity",
       "url": "https://antigravity.google/docs/overview.md",
-      "sha256": "b5b5c669b6fb47a44a37f517771f8ada9834ef7c70c11d76f2bd086aa59e9e38",
-      "bytes": 14221,
-      "fetched_at": "2026-10-24T03:38:39Z",
+      "sha256": "bf01eaf139b6c9385c1860a07212dc22e9e3574b2e1ba9f2b8e1746a12d804b1",
+      "bytes": 14230,
+      "fetched_at": "2026-10-29T04:45:34Z",
       "sidebar_label": "Choose your Antigravity"
     },
     "antigravity/permissions.md": {
