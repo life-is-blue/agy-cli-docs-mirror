@@ -287,11 +287,15 @@ Navigate to any codebase directory in your terminal and start a session:
 
 | Action | macOS | Windows / Linux | Description |
 | :-- | :-- | :-- | :-- |
-| **Conversation picker** | ⌘K | Ctrl + K | Search and switch between active agent threads |
-| **File search** | ⌘P | Ctrl + P | Fuzzy search and navigate files across the workspace |
-| **Focus input** | ⌘L | Ctrl + L | Jump cursor focus directly into the agent prompt box |
+| **Conversation picker** | ⌘K | Ctrl + K | Search past conversations by title or full text and switch to one |
+| **File search** | ⌘P | Ctrl + P | Search files in the current project by name and open one |
+| **Commands** | ⌘⇧P | Ctrl + Shift + P | Search and run app commands |
+| **Find** | ⌘F | Ctrl + F | Find text in the current conversation or open file |
+| **Focus input** | ⌘L | Ctrl + L | Jump cursor focus directly into the message box |
 | **New conversation** | ⌘N | Ctrl + N | Start a fresh autonomous agent session |
-| **Cycle conversations** | ⌥ Up / Down | Alt + Up / Down | Move to previous or next conversation in history |
+| **Previous or next conversation** | ⌥ Up / Down | Alt + Up / Down | Move to the previous or next conversation in the sidebar |
+
+For more about searching conversations, files, and commands, see [Search and command palette](/docs/search).
 
 #### Core slash commands
 

@@ -52,7 +52,7 @@ Before presenting the final outcome, the reasoning pipeline aggregates findings 
 
 The following table compares the three primary execution modes in Antigravity:
 
-| Dimension | Default Agent | 🚀 Boost (`/boost`) | 👥 Teamwork (`/teamwork-preview`) |
+| Dimension | Default Agent | 🚀 Boost (`/boost`) | 👥 Teamwork (`/teamwork`) |
 | :-- | :-- | :-- | :-- |
 | **Primary focus** | Full-spectrum interactive coding and pair programming | **Deep reasoning and tricky bugs** | Autonomous multi-day agent teams |
 | **Task horizon** | Seconds to minutes | **Seconds to hours** | Hours to days |
@@ -138,6 +138,6 @@ Boost respects all standard Antigravity security policies:
 Explore related documentation and guides:
 
 *   **[Slash commands catalog](/docs/slash-commands)**: Review all available slash commands across Antigravity surfaces.
-*   **[Teamwork agent teams (`/teamwork-preview`)](/docs/teamwork)**: Learn how collaborative agent teams tackle large-scale migrations.
+*   **[Teamwork agent teams (`/teamwork`)](/docs/teamwork)**: Learn how collaborative agent teams tackle large-scale migrations.
 *   **[Subagents overview](/docs/subagents)**: Learn how asynchronous subagent workers operate in parallel.
 *   **[Antigravity CLI reference](/docs/cli/reference)**: Explore terminal keybindings and the command reference for the CLI.

@@ -331,7 +331,7 @@ SDK
 | [Programmatic Python SDK](/docs/sdk/overview/) |  |  |  |  |
 | [Remote control & headless execution](/docs/remote-control/) |  |  |  |  |
 | [Workspace & Git worktree isolation](/docs/projects/) |  |  |  |  |
-| [Multi-agent swarms (/teamwork-preview)](/docs/teamwork/) |  |  |  |  |
+| [Multi-agent swarms (/teamwork)](/docs/teamwork/) |  |  |  |  |
 | [Deep reasoning mode (/boost)](/docs/boost/) |  |  |  |  |
 | [Interactive visual artifacts & diffs](/docs/artifacts/) |  |  |  |  |
 | [Sandboxed Chromium browser automation](/docs/ide/browser/) |  |  |  |  |

@@ -31,7 +31,7 @@ The following table provides a complete reference for all public slash commands:
 | Command | Category | Description | Plan Tier | Horizon |
 | :-- | :-- | :-- | :-- | :-- |
 | [`/boost`](/docs/boost) | Reasoning | Multi-agent deep reasoning for complex bugs, race conditions, and algorithms. | Paid plans | Seconds to hours |
-| [`/teamwork-preview`](/docs/teamwork) | Reasoning | Collaborative agent teams for repo-scale migrations, simulation, and research. | Paid plans | Hours to days |
+| [`/teamwork`](/docs/teamwork) | Reasoning | Collaborative agent teams for repo-scale migrations, simulation, and research. | Paid plans | Hours to days |
 | [`/goal`](/docs/commands/goal) | Reasoning | Autonomous execution until the goal is achieved without intermediate pauses. | All plans | Minutes to hours |
 | [`/plan`](/docs/plan) | Planning | Researches code, conducts requirement interviews, and drafts a reviewable plan artifact. | All plans | Minutes |
 | [`/grill-me`](/docs/commands/grill-me) | Planning | Interviews you one question at a time, with a recommended answer for each, to align on design details and edge cases. | All plans | Minutes |
@@ -40,6 +40,7 @@ The following table provides a complete reference for all public slash commands:
 | [`/schedule`](/docs/commands/schedule) | Automation | Schedules an instruction as a one-time timer or recurring cron job. | All plans | Scheduled |
 | [`/browser`](/docs/commands/browser) | Tools | Launches a sandboxed browser subagent for web research and UI inspection. | All plans | Minutes |
 | [`/btw`](/docs/cli/commands/btw) | Tools | Asks a quick contextual question in the background without pausing work. | All plans | Immediate |
+| [`/generative_ui`](/docs/commands/generative-ui) | Tools | Builds interactive widgets, such as diagrams, charts, and explainers, as HTML artifacts or inline in the conversation. Antigravity App only. | All plans | Minutes |
 
 * * *
 
@@ -57,14 +58,14 @@ To invoke Boost for an algorithmic optimization, run the following command:
 
 For detailed architectural documentation and CLI keybindings, refer to the [Boost deep reasoning guide](/docs/boost) and the [CLI reference](/docs/cli/reference).
 
-### /teamwork-preview
+### /teamwork
 
 Initiates the multi-agent framework for multi-day engineering campaigns, subsystem rewrites, and open-ended scientific research. Begins with an interactive scoping interview led by the Sentinel to draft a binding specification plan.
 
 To launch a multi-agent migration, run the following command:
 
 ```text
-/teamwork-preview Migrate our REST backend from Express to Fastify with full test parity and benchmarks.
+/teamwork Migrate our REST backend from Express to Fastify with full test parity and benchmarks.
 ```
 
 For complete multi-agent lifecycle documentation and engineering patterns, refer to the [Teamwork agent teams guide](/docs/teamwork).
@@ -212,6 +213,18 @@ To ask an aside while an implementation is running, run the following command:
 
 For CLI card navigation, history browsing, and `/copy btw` clipboard support, refer to the [Side question (`/btw`) command guide](/docs/cli/commands/btw).
 
+### /generative\_ui
+
+Has the agent build an interactive widget, such as a diagram, chart, or step-by-step explainer, as an HTML artifact that you open in the side panel. Compact widgets can also appear inline in the conversation. Available in the Antigravity App only.
+
+To see how a request moves through your middleware, run the following command:
+
+```text
+/generative_ui Show a simple left-to-right diagram of a request going from the client through requireApiKey and the bookmarks router to the database, with a toggle for a valid or invalid API key. Use icons, short labels, and no code.
+```
+
+For placement, sizing, and sandbox details, refer to the [Generative UI command guide](/docs/commands/generative-ui).
+
 * * *
 
 ## Command selection guide
@@ -221,7 +234,7 @@ The following decision guide outlines when to use each command based on your tas
 | Primary Objective | Recommended Command | Key Capability |
 | :-- | :-- | :-- |
 | **Complex bug, race condition, or algorithmic puzzle** | [`/boost`](/docs/boost) | Multi-agent deep reasoning with isolated verification loops. |
-| **Multi-day project, repository migration, or research** | [`/teamwork-preview`](/docs/teamwork) | Collaborative agent teams with scoping interviews and milestone roadmaps. |
+| **Multi-day project, repository migration, or research** | [`/teamwork`](/docs/teamwork) | Collaborative agent teams with scoping interviews and milestone roadmaps. |
 | **Feature requiring review before making code edits** | [`/plan`](/docs/plan) | Researches code, interviews requirements, and generates a reviewable plan. |
 | **Vague requirements needing architectural alignment** | [`/grill-me`](/docs/commands/grill-me) | Conducts a step-by-step interview to clarify edge cases and constraints. |
 | **Task that should run continuously until 100% complete** | [`/goal`](/docs/commands/goal) | Autonomous execution without turn-by-turn confirmation pauses. |
@@ -230,6 +243,7 @@ The following decision guide outlines when to use each command based on your tas
 | **Web research, UI validation, and layout inspection** | [`/browser`](/docs/commands/browser) | Sandboxed Chrome browser subagent for live page interactions. |
 | **One-shot countdown timer or recurring background schedule** | [`/schedule`](/docs/commands/schedule) | Runs instructions in the background on cron schedules. |
 | **Quick side query without pausing primary agent work** | [`/btw`](/docs/cli/commands/btw) | Lightweight out-of-band query executed in the background. |
+| **Visual explanation, diagram, chart, or clickable prototype** | [`/generative_ui`](/docs/commands/generative-ui) | Interactive HTML widgets in the side panel or inline in the conversation (Antigravity App only). |
 
 * * *
 
@@ -250,12 +264,13 @@ Explore related documentation and guides:
 
 *   [Boost deep reasoning (`/boost`)](/docs/boost): Dive deep into the three-tier multi-agent reasoning hierarchy.
 *   [Plan slash command (`/plan`)](/docs/plan): Conduct structured planning, requirement discovery, and interactive interviews.
-*   [Teamwork agent teams (`/teamwork-preview`)](/docs/teamwork): Learn how collaborative agent teams tackle large-scale migrations.
+*   [Teamwork agent teams (`/teamwork`)](/docs/teamwork): Learn how collaborative agent teams tackle large-scale migrations.
 *   [Side question command (`/btw`)](/docs/cli/commands/btw): Ask quick background questions without adding to your conversation history.
 *   [Goal command (`/goal`)](/docs/commands/goal): Run long-horizon tasks autonomously until every deliverable is verified.
 *   [Learn command (`/learn`)](/docs/commands/learn): Persist session corrections as rules and skills through a reviewable proposal.
 *   [Schedule command (`/schedule`)](/docs/commands/schedule): Set one-shot timers and recurring cron schedules within a conversation.
 *   [Browser command (`/browser`)](/docs/commands/browser): Delegate web tasks and UI verification to the browser subagent.
+*   [Generative UI command (`/generative_ui`)](/docs/commands/generative-ui): Have the agent show answers as interactive widgets in the Antigravity App.
 *   [Implementation plans artifact guide](/docs/implementation-plan): Master reviewable planning artifacts and structured workflows.
 *   [Rules](/docs/rules): Persist project-wide patterns and conventions.
 *   [Plugins (`/plugin`)](/docs/plugins) and [Marketplace](/docs/marketplace): Discover, install, and package reusable agent extensions.

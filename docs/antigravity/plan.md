@@ -101,7 +101,7 @@ Antigravity provides complementary commands depending on task scope and complexi
 | **`/plan`** | **Requirements discovery and reviewable plans** | Scoping complex tasks, refactors, and multi-file changes before modifying code | All plans |
 | **[`/grill-me`](/docs/commands/grill-me)** | **Socratic design interviews** | Deep requirement alignment and edge-case probing before drafting designs | All plans |
 | **[`/boost`](/docs/boost)** | **Multi-agent deep reasoning** | Hard concurrency bugs, race conditions, and algorithmic optimizations | Paid plans |
-| **[`/teamwork-preview`](/docs/teamwork)** | **Collaborative agent teams** | Long-horizon campaigns, repository migrations, and open-ended research | Paid plans |
+| **[`/teamwork`](/docs/teamwork)** | **Collaborative agent teams** | Long-horizon campaigns, repository migrations, and open-ended research | Paid plans |
 
 * * *
 
@@ -113,4 +113,4 @@ Explore related planning and automation documentation:
 *   [Artifact review policies](/docs/artifact-review): Configure review behavior and auto-proceed settings.
 *   [Slash commands catalog](/docs/slash-commands): Explore the complete catalog of slash commands.
 *   [Boost deep reasoning (`/boost`)](/docs/boost): Leverage multi-agent reasoning loops for tough engineering challenges.
-*   [Teamwork agent teams (`/teamwork-preview`)](/docs/teamwork): Run collaborative agent teams for repository-scale projects.
+*   [Teamwork agent teams (`/teamwork`)](/docs/teamwork): Run collaborative agent teams for repository-scale projects.

@@ -15,6 +15,7 @@ Artifacts are primarily generated during the agent’s **Planning mode** and are
 The desktop app features a visual sidebar and review pane specifically optimized for displaying, organizing, and managing rich artifacts:
 
 *   **Capabilities**: You can inspect interactive plans, review visual code diffs, and play back browser recordings of the agent’s UI actions directly within the app interface.
+*   **Interactive HTML**: You can open interactive widgets that the agent builds, for example with [`/generative_ui`](/docs/commands/generative-ui), and use them in the side panel.
 
 ### Antigravity CLI
 

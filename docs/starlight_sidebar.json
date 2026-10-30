@@ -16,12 +16,24 @@
         "slug": "antigravity/artifacts"
       },
       {
+        "label": "Mentions and quoting",
+        "slug": "antigravity/at-mentions"
+      },
+      {
         "label": "Boost deep reasoning (/boost)",
         "slug": "antigravity/boost"
       },
       {
+        "label": "Build plugins",
+        "slug": "antigravity/build-plugins"
+      },
+      {
         "label": "Browser command (/browser)",
         "slug": "antigravity/commands/browser"
+      },
+      {
+        "label": "Generative UI command (/generative_ui)",
+        "slug": "antigravity/commands/generative-ui"
       },
       {
         "label": "Goal command (/goal)",
@@ -80,6 +92,10 @@
         "slug": "antigravity/remote-control"
       },
       {
+        "label": "Review changes",
+        "slug": "antigravity/review-changes"
+      },
+      {
         "label": "Rules",
         "slug": "antigravity/rules"
       },
@@ -90,6 +106,10 @@
       {
         "label": "Screenshots",
         "slug": "antigravity/screenshots"
+      },
+      {
+        "label": "Search and command palette",
+        "slug": "antigravity/search"
       },
       {
         "label": "Settings",
@@ -112,7 +132,7 @@
         "slug": "antigravity/subagents"
       },
       {
-        "label": "Teamwork agent teams (/teamwork-preview)",
+        "label": "Teamwork agent teams (/teamwork)",
         "slug": "antigravity/teamwork"
       },
       {
@@ -326,7 +346,7 @@
         "slug": "antigravity/ide/browser-recordings"
       },
       {
-        "label": "Review changes",
+        "label": "Review changes in the editor",
         "slug": "antigravity/ide/review-changes-editor"
       },
       {

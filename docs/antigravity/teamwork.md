@@ -1,12 +1,12 @@
-# Teamwork agent teams (/teamwork-preview)
+# Teamwork agent teams (/teamwork)
 
 Available on: Antigravity App, Antigravity CLI
 
-The `/teamwork-preview` command runs a collaborative multi-agent team designed for large software projects, complex simulations, and deep research tasks. When work spans multiple days, involves refactoring across dozens of files, or tackles open-ended math and systems challenges, Teamwork coordinates specialized agents to deliver thoroughly tested, working results.
+The `/teamwork` command runs a collaborative multi-agent team designed for large software projects, complex simulations, and deep research tasks. When work spans multiple days, involves refactoring across dozens of files, or tackles open-ended math and systems challenges, Teamwork coordinates specialized agents to deliver thoroughly tested, working results.
 
 Note
 
-**Plan availability**: The `/teamwork-preview` command is available on **paid plans** across the Google Antigravity App and the Antigravity CLI.
+**Plan availability**: The `/teamwork` command is available on **paid plans** across the Google Antigravity App and the Antigravity CLI.
 
 * * *
 
@@ -117,26 +117,26 @@ Teamwork includes built-in safeguards to ensure parallel agent work remains safe
 
 * * *
 
-## How to use /teamwork-preview
+## How to use /teamwork
 
 Select your surface to launch a Teamwork session:
 
 ### Antigravity App
 
-Start a new conversation and invoke `/teamwork-preview` with your goal:
+Start a new conversation and invoke `/teamwork` with your goal:
 
 ```text
-/teamwork-preview Migrate our REST API service from Express to Fastify, including full test coverage, TypeScript typing, and benchmark validation.
+/teamwork Migrate our REST API service from Express to Fastify, including full test coverage, TypeScript typing, and benchmark validation.
 ```
 
 Your agent starts the Phase 1 scoping interview and generates the prompt artifact. Once you approve the prompt, the multi-agent team begins autonomous execution.
 
 ### Antigravity CLI
 
-In the terminal interface, run `/teamwork-preview` at the prompt:
+In the terminal interface, run `/teamwork` at the prompt:
 
 ```bash
-/teamwork-preview Design and implement a cycle-accurate memory controller with lockstep simulation tests.
+/teamwork Design and implement a cycle-accurate memory controller with lockstep simulation tests.
 ```
 
 You can monitor active subagents, jump directly to subagents waiting for approval using Alt+J, or inspect milestone progress in the project plan and progress artifacts in real time.

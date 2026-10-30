@@ -94,7 +94,7 @@ Configure the `trigger` key to control how and when a rule is loaded into contex
     * Never reuse a deleted field number; always mark both the field number and name as `reserved`.
     ```
     
-*   **`manual`** _(explicit `@` mention only)_: Antigravity never loads these rules automatically. The agent injects the rule only when you explicitly `@`\-mention it in chat (ideal for release checklists or audit rubrics).
+*   **`manual`** _(explicit `@` mention only)_: Antigravity never loads these rules automatically. Antigravity adds the rule to your message only when you [`@`\-mention it](/docs/at-mentions) (ideal for release checklists or audit rubrics). The Antigravity CLI doesn’t support rule mentions.
     
 
 ## Advanced features and limits

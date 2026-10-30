@@ -29,6 +29,13 @@ To browse and install Marketplace plugins in the Antigravity App, follow these s
 4.  Click **+** on the plugin card to install it.
     
 
+### Configure plugin credentials (API keys and OAuth)
+
+Some plugins connect to external services that require authentication before their MCP tools can run:
+
+*   **API tokens and configuration variables**: If a plugin requires an API key, token, or workspace URL, toggling the plugin on in **Customizations > Installed** opens a setup dialog prompting for each variable (with a direct link to generate or look up your token).
+*   **OAuth sign-in**: If a plugin uses OAuth 2.0, Antigravity opens your browser to complete sign-in when the plugin’s MCP server connects.
+
 ### Manage installed plugins
 
 To inspect, toggle, or uninstall existing plugins:
@@ -37,9 +44,9 @@ To inspect, toggle, or uninstall existing plugins:
     
     ![Installed plugins](/assets/image/docs/plugins/installed-plugins.png)
     
-2.  Click the toggle switch beside any plugin to enable or disable it.
+2.  Click the **⋮** menu beside any installed plugin (or open the plugin card) to enable, disable, or configure it.
     
-3.  To uninstall a plugin, click the plugin card and select **Uninstall**.
+3.  Select **Uninstall** from the **⋮** menu (or on the plugin detail page) to remove a plugin.
     
 
 Any plugins you install in the Antigravity App automatically sync and appear in the Antigravity CLI’s **Installed** tab.
@@ -87,7 +94,7 @@ Once a plugin is installed, the interface updates as follows:
 Use the **Installed** tab to inspect and manage the plugins you have installed:
 
 *   **Search installed plugins**: Start typing to filter your installed plugins.
-*   **Enable or disable**: Press Space on an installed plugin to toggle it between enabled and disabled.
+*   **Enable or disable**: Press Space on an installed plugin to toggle it between enabled and disabled. If the plugin declares required MCP credentials (`variables`), pressing Space opens an interactive prompt to fill in those values before enabling the plugin.
 *   **View plugin details**: Press Enter on an installed plugin to expand its details view. The details view displays the following information:
     *   Description
     *   Skills (if applicable)
@@ -146,11 +153,17 @@ In addition to the interactive panel, `/plugin` supports inline commands to `ins
 
 Outside an interactive TUI session, you can install and manage plugins directly from your shell using `agy plugin`:
 
-*   **Install from the official marketplace**: Specify `<plugin-name>@antigravity-plugins-official` (`<marketplace-name>` only supports the official marketplace, `antigravity-plugins-official`), or pass a bare `<plugin-name>`, which defaults to `<plugin-name>@antigravity-plugins-official`:
+*   **Install from the official marketplace**: Once signed in to `agy`, specify `<plugin-name>@antigravity-plugins-official` (`<marketplace-name>` only supports the official marketplace, `antigravity-plugins-official`), or pass a bare `<plugin-name>`, which defaults to `<plugin-name>@antigravity-plugins-official`:
     
     ```bash
     agy plugin install firebase@antigravity-plugins-official
     agy plugin install firebase
+    ```
+    
+    Running either command outputs:
+    
+    ```text
+    Installed plugin "firebase" from antigravity-plugins-official
     ```
     
 *   **Install from a GitHub link**: Clone and stage a plugin directly from a GitHub repository URL:
@@ -182,11 +195,26 @@ Outside an interactive TUI session, you can install and manage plugins directly 
 
 * * *
 
+## Using installed plugins
+
+Once a plugin is installed and enabled, its bundled capabilities are available in your workspace automatically:
+
+| Component | How to use it in your workflow |
+| :-- | :-- |
+| **Starter prompts** | In the Antigravity App (**Customizations > Installed**), open a plugin’s detail view and click any **suggested prompt chip** to start a guided task immediately. |
+| **[Skills](/docs/skills)** | Ask for a task in natural language—Antigravity loads relevant plugin skills on demand using progressive disclosure—or invoke a skill explicitly in chat with `/<skill-name>`. |
+| **[MCP servers](/docs/mcp)** | Ask the agent to query or act on the connected service (such as Jira, Figma, Datadog, Stripe, or Firebase). Bundled MCP tools (namespaced as `<plugin-name>_<server-name>`) are available automatically while the plugin is enabled. |
+| **[Custom agents & subagents](/docs/subagents)** | The main agent delegates specialized tasks (such as security reviews or accessibility audits) to bundled subagents automatically. You can also run a plugin’s custom agent directly as your primary session agent via the agent selector in the App, `/agents` in the CLI, or `agy --agent <agent-name>` from your terminal (run `agy agents` to list all available agents). |
+| **[Rules](/docs/rules) & [Hooks](/docs/hooks)** | Run automatically in the background while the plugin is enabled—enforcing coding conventions, SDK standards, and pre- or post-tool policy checks without manual invocation. |
+
+* * *
+
 ## Next steps
 
 Explore related documentation and guides:
 
-*   **[Get your plugin in the marketplace](https://forms.gle/2EX5RFYPoJe1UgxR9)**: Fill out this interest form to learn more about how to get your plugin listed in the Antigravity Marketplace.
-*   **[Plugins](/docs/plugins)**: Learn how to author custom `plugin.json` manifests and package your own plugins.
+*   **[Plugins](/docs/plugins)**: Learn how to configure, use, and manage installed plugins across the Antigravity App, Antigravity CLI, and Antigravity IDE.
+*   **[Build plugins](/docs/build-plugins)**: Author `plugin.json` manifests, bundle skills, MCP servers, custom agents, rules, and hooks, and validate your plugin locally with `agy plugin validate --strict`.
+*   **[Get your plugin in the marketplace](https://forms.gle/2EX5RFYPoJe1UgxR9)**: Fill out this interest form to submit your validated plugin to the Antigravity Marketplace.
 *   **[Build with Google](/docs/build-with-google)**: Explore curated Google plugins for Firebase, Android, Flutter, Chrome DevTools, BigQuery, and more.
 *   **[CLI reference](/docs/cli/reference)**: View all slash commands and keyboard shortcuts in the Antigravity CLI.

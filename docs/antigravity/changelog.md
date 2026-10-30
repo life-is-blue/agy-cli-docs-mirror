@@ -3243,7 +3243,7 @@ Initial public release of the Antigravity CLI.
 
 ## IDE Extensions
 
-VS CodeVisual StudioJetBrainsZedXcode
+VS CodeVisual StudioJetBrainsZedXcodeEclipse
 
 [Extension docs→](/docs/ide/extensions/vscode)
 
@@ -4461,6 +4461,60 @@ Introduces the Google Antigravity Agent Client Protocol (ACP) server (`antigravi
 
 *   Fixed session reliability and workspace hygiene by storing conversation artifacts under `/antigravity-acp` instead of the user's project directory, expanding `~` in session `cwd` paths, automatically recovering sessions from closed local backend WebSocket connections, stripping stale thought signatures on session resume, removing the 60-second request timeout on long-running permission prompts, and sending `.json` attachments as `text/plain` on Gemini Enterprise.
 *   Fixed duplicate or spurious permission prompts on file edits and `ask_question`, suppressed internal policy-denial text and MCP schema cache reads from streaming into assistant responses, and surfaced actionable error messages for MCP server initialization failures, missing `GEMINI_API_KEY` or Gemini Enterprise license setup, and quota exhaustion.
+
+---
+
+### [v1.0.0](/docs/ide/extensions/eclipse "View Eclipse extension docs")
+
+Latest
+
+October 27, 2026
+
+### Initial release of Antigravity for Eclipse with agentic chat, side-by-side diff review, artifact previews, workspace trust, and theme synchronization.
+
+Introduces Antigravity for Eclipse with an embedded agentic chat view, side-by-side compare editor diffs, interactive artifact previews, smart project import suggestions, workspace trust controls, and automatic Eclipse theme synchronization.
+
+**Improvements:**
+
+*   Added the Antigravity chat view, a top-level Antigravity menu, a main toolbar toggle button, and automatic first-launch view docking alongside the Eclipse editor area.
+*   Added editor, Terminal, and Console context menu actions to send selected code or terminal output to Antigravity chat, along with automatic tracking of open editors and cursor selection.
+*   Added cross-platform keyboard shortcuts and two-key chords to toggle Antigravity chat (`Ctrl+Alt+K` on Windows and Linux, `Cmd+Option+E` on macOS), focus the prompt input, send selections to chat, return focus to the active editor (`Escape` or `F12`), and accept or reject agent steps.
+*   Added side-by-side Eclipse Compare editor diff review for agent file edits with Accept and Reject actions, divergence detection for unsaved editor buffers, and single-step undo via **Edit > Undo Antigravity Agent Edit**.
+*   Added dedicated Eclipse editor tabs for previewing agent-generated artifacts (such as implementation plans and markdown reports) and managing Antigravity account settings and feedback.
+*   Added automatic workspace synchronization across open Package Explorer and Project Explorer projects, in-place workspace switching, and smart import notifications when agent turns create new Maven, Gradle, or Eclipse projects.
+*   Added workspace trust verification before starting the background agent or sharing project paths, with an untrusted-project banner, composer lock, **Window > Preferences > Google Antigravity** trust management, and synchronization with the Antigravity CLI trust store.
+*   Added automatic theme and font synchronization between the Eclipse workbench (including Dark, Light, and OS system-default themes) and embedded Antigravity views.
+*   Added automatic background download, checksum verification, and lifecycle management for the local Antigravity server, external browser sign-in handoff, and diagnostic setup views with copyable package commands when WebKitGTK or Edge WebView2 dependencies are missing.
+*   Added the **Window > Preferences > Google Antigravity** page for configuring startup timeouts, automatic file opening, and account telemetry preferences, along with **Antigravity > View Third-Party Notices** and automatic Eclipse update site registration.
+
+**Fixes:**
+
+*   Fixed chat input caret navigation after sending selections to chat, `Shift+Enter` newline insertion on macOS and Linux, and two-step `Escape` focus return from the chat input to the active editor.
+*   Fixed sign-in, sign-out, and preference updates in the Antigravity Settings tab so open chat and artifact views update immediately without reopening the view.
+*   Fixed light-theme color mismatches when the Eclipse UI thread is busy during startup and prevented serif font fallback in the Antigravity view on macOS.
+*   Fixed rejecting agent file edits so both open editor buffers and on-disk files revert cleanly without re-displaying resolved changes.
+*   Fixed orphaned empty Settings tabs after unexpected IDE exits and ensured open Antigravity views and editors close cleanly when uninstalling the plugin.
+*   Fixed sign-in card clipping and scrolling in narrow Eclipse side panes and prevented chat input height collapse when opening an untrusted project.
+
+---
+
+Model launch
+
+### Gemini 4 Argon
+
+Gemini 4 Argon is built for the most complex software engineering and knowledge work.
+
+[ Read on the Antigravity blog](/blog/gemini-4-argon-in-google-antigravity)
+
+---
+
+Model launch
+
+### Gemini 3.8 Flash
+
+Gemini 3.8 Flash builds on 3.7 Flash as an everyday model for agentic development, with thinking levels that trade reasoning depth for lower latency.
+
+[ Read on the Antigravity blog](/blog/gemini-3-8-flash-in-google-antigravity)
 
 ---
 

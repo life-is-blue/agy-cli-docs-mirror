@@ -2,132 +2,91 @@
 
 Available on: Antigravity App, Antigravity CLI, Antigravity IDE
 
-Plugins package reusable skills, background subagents, linting rules, Model Context Protocol (MCP) servers, and lifecycle hooks into a single deployable asset.
+Plugins package reusable [skills](/docs/skills), [Model Context Protocol (MCP) servers](/docs/mcp), [custom agents and subagents](/docs/subagents), [rules](/docs/rules), and [lifecycle hooks](/docs/hooks) into a single versioned unit. You can install curated plugins from the [Antigravity Marketplace](/docs/marketplace), install plugins from a GitHub repository or local directory, or [build and publish your own plugins](/docs/build-plugins).
 
-## Directory structure
-
-A plugin is a directory containing a required manifest file (`plugin.json`) and optional subdirectories for different customization types:
-
-```text
-plugins/<plugin-name>/
-├── plugin.json       # Required marker and manifest file
-├── mcp_config.json   # Optional MCP server definitions
-├── hooks.json        # Optional hooks definition
-├── skills/           # Optional skills directory
-│   └── <skill-name>/
-│       └── SKILL.md
-├── agents/           # Optional subagent definition templates
-│   └── <agent-name>.md
-└── rules/            # Optional rules directory
-    └── <rule-name>.md
-```
-
-### Manifest file (`plugin.json`)
-
-Every plugin requires a `plugin.json` file at its root to identify the directory as a plugin and define its metadata:
-
-```json
-{
-  "$schema": "https://antigravity.google/schemas/v1/plugin.json",
-  "name": "my-custom-plugin",
-  "description": "A brief description of what my plugin does."
-}
-```
-
-#### Field reference
-
-| Field | Type | Required | Description |
-| :-- | :-- | :-- | :-- |
-| `name` | String | **Yes** (CLI) / Optional (Antigravity App and IDE) | The unique, machine-readable name of the plugin (matches `^[a-zA-Z0-9-_]+$`). Required when managing plugins using Antigravity CLI commands; defaults to the folder name if omitted in the Antigravity App or Antigravity IDE. |
-| `description` | String | No | A brief human-readable description of the plugin’s purpose, displayed in plugin listings. |
-
-#### Automatic validation
-
-To enable automatic autocomplete and validation in editors like VS Code or JetBrains IDEs, include the `$schema` key pointing to the official schema URL:
-
-```json
-"$schema": "https://antigravity.google/schemas/v1/plugin.json"
-```
-
-#### Full JSON schema
-
-```json
-{
-  "$schema": "https://antigravity.google/schemas/v1/plugin.json",
-  "title": "Antigravity Plugin Manifest",
-  "description": "Schema for Antigravity plugin manifest files (plugin.json)",
-  "type": "object",
-  "properties": {
-    "name": {
-      "type": "string",
-      "description": "The unique, machine-readable name of the plugin. Must contain only alphanumeric characters, hyphens, and underscores.",
-      "pattern": "^[a-zA-Z0-9-_]+$"
-    },
-    "description": {
-      "type": "string",
-      "description": "A brief human-readable description of the plugin's purpose and capabilities."
-    }
-  },
-  "required": ["name"],
-  "additionalProperties": false
-}
-```
-
-### Supported components
-
-A plugin can contain any of the following components:
-
-*   `skills/`: Subdirectories containing a `SKILL.md` file with instructions for the agent.
-*   `agents/`: Markdown files defining custom subagents and persona configurations.
-*   `rules/`: Markdown files defining behavioral constraints or style guidelines.
-*   `mcp_config.json`: Declarations connecting Antigravity to external tool servers.
-*   `hooks.json`: Event handlers executing shell commands before or after tool calls.
-
-### Plugin path variables
-
-To keep a plugin self-contained, reference these variables in the plugin’s `mcp_config.json` instead of hardcoding absolute paths. Antigravity replaces them with absolute paths when it loads the plugin:
-
-| Variable | Resolves to |
+| Goal | Guide |
 | :-- | :-- |
-| `${PLUGIN_ROOT}` | The absolute path of the plugin directory. Use it to point to scripts and other files that ship with the plugin. |
-| `${PLUGIN_DATA}` | The absolute path of a persistent data directory that Antigravity creates for the plugin. Use it for SQLite databases, cache files, and other state that must persist across sessions. |
+| **Browse the Marketplace catalog** | **[Marketplace](/docs/marketplace)** — discover, install, and configure Google and partner plugins in the App and CLI. |
+| **Use and manage installed plugins** | **This page** — learn [what plugins bundle](#what-a-plugin-bundles), [how to use installed plugins](#using-installed-plugins), and [how to manage plugins by surface](#managing-plugins-by-surface). |
+| **Build, validate, and publish a plugin** | **[Build plugins](/docs/build-plugins)** — follow the 3-step quickstart, `plugin.json` manifest schema, component authoring guides, `agy plugin validate --strict`, and Marketplace submission. |
 
-The data directory lives outside your workspace, so plugin state stays separate from your project files.
+## What a plugin bundles
 
-The following example starts a local MCP server from a script inside the plugin, and passes both paths to the server process as environment variables so the server code can read them:
+A single plugin can bundle any combination of five customization components:
 
-```json
-{
-  "mcpServers": {
-    "my-local-mcp-server": {
-      "command": "python3",
-      "args": ["${PLUGIN_ROOT}/scripts/mcp_server.py"],
-      "env": {
-        "PLUGIN_ROOT": "${PLUGIN_ROOT}",
-        "PLUGIN_DATA": "${PLUGIN_DATA}"
-      }
-    }
-  }
-}
-```
+| Component | How it extends Antigravity |
+| :-- | :-- |
+| **[Skills](/docs/skills)** | Task-specific workflows, helper scripts, and reference docs loaded on demand or invoked explicitly via `/<skill-name>`. |
+| **[MCP servers](/docs/mcp)** | Remote HTTPS or local `stdio` Model Context Protocol tool servers (`<plugin-name>_<server-name>`), including OAuth sign-in and user-prompted API key variables. |
+| **[Custom agents & subagents](/docs/subagents)** | Specialized agents with dedicated system prompts, model tiers, and tool allowlists that can run as background subagents or as your primary session agent. |
+| **[Rules](/docs/rules)** | Persistent coding conventions, architectural constraints, or file-glob-scoped instructions. |
+| **[Lifecycle hooks](/docs/hooks)** | Synchronous shell commands or prompt evaluations that inspect, block, or augment agent lifecycle events and tool calls. |
 
-For all `mcp_config.json` properties, refer to [MCP configuration structure](/docs/mcp#mcp-configuration-structure).
+## Using installed plugins
+
+Once a plugin is installed and enabled, its bundled components are available across your workspace sessions automatically:
+
+### Starter prompts and skills
+
+*   **Starter prompt chips**: In the Antigravity App (**Customizations > Marketplace** or **Customizations > Installed**), open a plugin’s detail page and click any **suggested prompt chip** at the top of the page to start a guided task immediately:
+    
+    ![Plugin detail view showing starter prompt chips, component tabs, and README documentation](/assets/image/docs/plugins/plugin-card.png)
+    
+*   **Automatic skill loading**: Describe your task in natural language. At session startup, Antigravity loads only the `name` and `description` of each enabled plugin skill and reads the full `SKILL.md` instructions on demand when your prompt matches.
+    
+*   **Slash command invocation**: Type `/<skill-name>` in chat (for example, `/dart-add-unit-test` or `/hello`) to trigger a plugin skill explicitly.
+    
+
+### MCP tools and credential setup
+
+*   **Calling MCP tools**: Ask the agent to query or act on the connected service (such as Firebase, Dart and Flutter, Stripe, Datadog, Figma, or Jira). Bundled MCP tools are namespaced as `<plugin-name>_<server-name>`.
+*   **API keys and configuration variables**: If a plugin declares required configuration variables (such as an API token or project URL), installing the plugin via the CLI leaves it disabled until configured. Toggling the plugin on in **Customizations > Installed** (or pressing Space on the plugin in the CLI’s `/plugin` **Installed** tab) opens a setup dialog prompting for each variable.
+*   **OAuth sign-in**: If a plugin uses OAuth 2.0 without required configuration variables, it installs in an enabled state and prompts you in the browser to complete sign-in when its MCP server connects.
+
+### Custom agents and subagents
+
+*   **Automatic background delegation**: When `subagent: true` (the default), the primary agent automatically delegates specialized tasks—such as security reviews, accessibility audits, or framework migrations—to the plugin’s bundled subagents in the background.
+*   **Running a plugin agent directly**: When `mainAgent: true` (the default), you can select the plugin’s custom agent as your primary session agent:
+    *   **Antigravity App**: Choose the agent from the agent selector in the conversation view or under **Customizations > Installed > Custom Agents**.
+    *   **Antigravity CLI (interactive)**: Run `/agents` to inspect and switch agents.
+    *   **Antigravity CLI (shell)**: List all available agents (including plugin agents) and launch a session with a specific agent:
+        
+        ```bash
+        # List built-in, workspace, and plugin agents
+        agy agents
+        
+        # Start an interactive or headless session with a plugin agent
+        agy --agent <agent-name>
+        ```
+        
+
+### Rules and lifecycle hooks
+
+*   **Rules**: Always-on plugin rules and glob- or model-triggered rules apply automatically whenever the plugin is enabled.
+*   **Lifecycle hooks**: Bundled `PreToolUse`, `PostToolUse`, `SessionStart`, and `Stop` hooks run automatically in the background while the plugin is enabled.
+
+* * *
 
 ## Managing plugins by surface
 
-Follow the instructions below to install and manage plugins on your preferred surface:
+Follow the instructions below to install, configure, enable, disable, or uninstall plugins on your preferred surface:
 
 ### Antigravity App
 
-#### Marketplace and bundled plugins
+#### Browse and manage plugins in the App
 
-The Antigravity App provides curated plugins that you can browse and install directly from the application interface:
+1.  Open the **Customizations** tab, located below **Automations** in the left sidebar.
+    
+2.  Use the top segmented toggle to switch between **Marketplace** (all available plugins) and **Installed** (your installed plugins, skills, rules, and custom agents):
+    
+    ![Installed plugins tab in Customizations](/assets/image/docs/plugins/installed-plugins.png)
+    
+3.  In the **Marketplace** tab, click **+** on a plugin card to install it, or click the card to inspect its starter prompts, **Overview**, **Skills**, **MCP**, **Agents**, and **Rules** tabs before clicking **Add**.
+    
+4.  In the **Installed** tab, click the **⋮** menu beside any plugin (or open the plugin card) to enable, disable, or uninstall it.
+    
 
-1.  Open the **Customizations** tab, located below the **Automations** tab in the left sidebar.
-2.  Switch between the **Marketplace** view (which displays all plugins available to you) and the **Installed** tab (which displays only your installed plugins).
-3.  In the **Marketplace** tab, click the **+** button to install a plugin, or click a plugin’s name to view what is included in the bundle (such as [skills](/docs/skills), [MCP servers](/docs/mcp), [rules](/docs/rules), and [agents](/docs/subagents)).
-
-For a complete walkthrough of plugin discovery and cross-surface synchronization, refer to the [Marketplace guide](/docs/marketplace).
+For a complete step-by-step walkthrough with screenshots, refer to the [Marketplace guide](/docs/marketplace).
 
 Note
 
@@ -135,7 +94,7 @@ Note
 
 #### Manual plugin installation
 
-You can install custom plugins by placing their directories in either of the following locations:
+You can also install custom or local plugins by placing their directories in either of the following locations:
 
 *   **Workspace level**: Place your plugin folder in `.agents/plugins/` at the root of your workspace. The plugin activates only when working in that project.
 *   **Global level**: Place your plugin folder in `~/.gemini/config/plugins/`. The plugin activates across all workspaces on your workstation.
@@ -165,9 +124,9 @@ Note
 
 #### CLI shell subcommands (`agy plugin`)
 
-Outside an interactive TUI session, the Antigravity CLI exposes the `agy plugin` subcommand pipeline to install and manage extensions from your shell:
+Outside an interactive TUI session, the Antigravity CLI exposes the `agy plugin` subcommand pipeline to install, inspect, validate, and manage plugins from your shell:
 
-*   **Install a plugin**: Install from the official marketplace (`antigravity-plugins-official`), a GitHub repository URL, or a local directory:
+*   **Install a plugin**: Install from the official marketplace (`antigravity-plugins-official`, requires an active `agy` sign-in session), a GitHub repository URL, or a local directory:
     
     ```bash
     # Install from the official marketplace (<marketplace-name> only supports antigravity-plugins-official)
@@ -181,6 +140,14 @@ Outside an interactive TUI session, the Antigravity CLI exposes the `agy plugin`
     
     # Install from a local plugin directory
     agy plugin install </path/to/local/plugin>
+    ```
+    
+*   **Import extensions from Gemini CLI or Claude Code**: Migrate existing extensions from `~/.gemini/extensions/` or `~/.claude/plugins/` (or pass a specific directory path):
+    
+    ```bash
+    agy plugin import
+    agy plugin import gemini
+    agy plugin import claude
     ```
     
 *   **List installed plugins**: View all installed plugins, their enabled or disabled state, version, source, and component counts. Pass `--json` to output the list as a JSON array with full component names (`skills`, `agents`, `rules`, `mcpServers`, and `hooks`) and installation paths:
@@ -197,15 +164,15 @@ Outside an interactive TUI session, the Antigravity CLI exposes the `agy plugin`
     
     ```text
     Installed plugins:
-    - gcalendar (enabled, 0.0.3)
+    - firebase (enabled, 1.0.3)
+        Source:     antigravity-plugins-official
+        Components: 13 skills, 1 agent
+    - flutter (enabled, 1.0.6)
+        Source:     antigravity-plugins-official
+        Components: 25 skills, 1 agent, 2 rules, 1 MCP server
+    - gcalendar (enabled, 0.0.7)
         Source:     antigravity-plugins-official
         Components: 1 skill
-    - gdocs (disabled, 0.0.3)
-        Source:     antigravity-plugins-official
-        Components: 1 skill
-    - workspace (enabled, 1.0.0)
-        Source:     gemini-cli
-        Components: 1 MCP server
     ```
     
     Running `agy plugin list --json` outputs the full details in JSON format:
@@ -213,33 +180,29 @@ Outside an interactive TUI session, the Antigravity CLI exposes the `agy plugin`
     ```json
     [
       {
+        "name": "firebase",
+        "enabled": true,
+        "version": "1.0.3",
+        "source": "antigravity-plugins-official",
+        "path": "/home/user/.gemini/config/plugins/firebase",
+        "skills": [
+          "firebase-ai-logic",
+          "firebase-app-hosting",
+          "firebase-auth-basics",
+          "firebase-basics"
+        ],
+        "agents": [
+          "firebase"
+        ]
+      },
+      {
         "name": "gcalendar",
         "enabled": true,
-        "version": "0.0.3",
+        "version": "0.0.7",
         "source": "antigravity-plugins-official",
         "path": "/home/user/.gemini/config/plugins/gcalendar",
         "skills": [
           "gcalendar"
-        ]
-      },
-      {
-        "name": "gdocs",
-        "enabled": false,
-        "version": "0.0.3",
-        "source": "antigravity-plugins-official",
-        "path": "/home/user/.gemini/config/plugins/gdocs",
-        "skills": [
-          "gdocs"
-        ]
-      },
-      {
-        "name": "workspace",
-        "enabled": true,
-        "version": "1.0.0",
-        "source": "gemini-cli",
-        "path": "/home/user/.gemini/config/plugins/workspace",
-        "mcpServers": [
-          "WorkspaceMCP"
         ]
       }
     ]
@@ -258,23 +221,21 @@ Outside an interactive TUI session, the Antigravity CLI exposes the `agy plugin`
     agy plugin uninstall <plugin_name>
     ```
     
+*   **Validate a plugin directory**: Validate `plugin.json`, component frontmatter, MCP server and hook configurations, and logo paths (`--strict` treats warnings as errors):
+    
+    ```bash
+    agy plugin validate ./my-plugin
+    agy plugin validate --strict ./my-plugin
+    ```
+    
 
 #### CLI filesystem location
 
 When installed, the CLI stages plugin assets in your global configuration directory:
 
 ```text
-~/.gemini/antigravity-cli/plugins/<plugin_name>/
+~/.gemini/config/plugins/<plugin_name>/
 ```
-
-#### Next steps
-
-Explore related documentation and guides:
-
-*   [Marketplace](/docs/marketplace?tab=cli)
-*   [Migration from Gemini CLI](/docs/cli/gcli-migration)
-*   [Troubleshooting](/docs/cli/troubleshooting)
-*   [Permissions and sandbox](/docs/sandbox?tab=cli)
 
 ### Antigravity IDE
 
@@ -285,3 +246,30 @@ In the standalone Antigravity IDE, plugins can be loaded locally or globally:
 *   **Workspace level**: Save plugin folders to `.agents/plugins/` in your project root.
 *   **Global level**: Save plugin folders to `~/.gemini/config/plugins/` to activate them across all IDE windows.
 *   **Editor settings**: Access the **Customizations** dropdown from the agent side panel to review active plugin components and inspect loaded skills.
+
+* * *
+
+## Build and publish your own plugin
+
+A plugin is a self-contained directory defined by a `plugin.json` manifest (or `.antigravity-plugin/plugin.json`) alongside optional skills, MCP server configurations, custom agents, rules, and lifecycle hooks:
+
+```json
+{
+  "$schema": "https://antigravity.google/schemas/v1/plugin.json",
+  "name": "my-first-plugin",
+  "displayName": "My First Plugin",
+  "version": "1.0.0",
+  "description": "Starter plugin that bundles custom skills and MCP tools.",
+  "logo": "assets/logo.svg",
+  "suggestedPrompts": [
+    "Run a readiness check on the current project"
+  ]
+}
+```
+
+Ready to create a custom plugin for your team or publish a partner integration to the Antigravity Marketplace? Continue to **[Build plugins](/docs/build-plugins)** for:
+
+*   **[Quickstart: create your first plugin](/docs/build-plugins#quickstart-create-your-first-plugin)**
+*   **[`plugin.json` manifest reference and full JSON schema](/docs/build-plugins#manifest-file-pluginjson)**
+*   **[Authoring skills, MCP servers, custom agents, rules, and hooks](/docs/build-plugins#authoring-plugin-components)**
+*   **[Validating locally (`agy plugin validate --strict`) and submitting to the Marketplace](/docs/build-plugins#validating-and-publishing-plugins)**

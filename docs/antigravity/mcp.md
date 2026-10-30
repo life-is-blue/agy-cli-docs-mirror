@@ -65,7 +65,7 @@ Antigravity CLI loads MCP server definitions from two configuration files:
 *   **Global configuration**: `~/.gemini/config/mcp_config.json`, which applies to all your projects.
 *   **Workspace configuration**: `<workspace>/.agents/mcp_config.json`, which applies only to that workspace.
 
-Enabled [plugins](/docs/plugins) can also add MCP servers.
+Enabled [plugins](/docs/plugins) can also add MCP servers (defined in a plugin’s `<plugin-root>/mcp.json` file; see [Build plugins](/docs/build-plugins#mcp-servers)).
 
 Edit either file directly using the standard [MCP server configuration structure](/docs/mcp#mcp-configuration-structure). For example, the following entry connects to a remote server and raises its [timeout](/docs/mcp#mcp-server-timeouts) to 600 seconds (10 minutes) for long-running tools:
 
@@ -115,6 +115,10 @@ In Python applications built using the [Antigravity SDK](/docs/sdk/overview), yo
 ## MCP configuration structure
 
 Whether configuring custom servers for the Antigravity App, Antigravity IDE, or Antigravity CLI, `mcp_config.json` follows a standardized JSON schema. The root object contains an `mcpServers` map where each key is a unique server identifier:
+
+Standalone configs vs. plugin bundles
+
+Standalone user (`~/.gemini/config/mcp_config.json`) and workspace (`<workspace>/.agents/mcp_config.json`) configurations use `mcp_config.json`. When bundling MCP servers inside a [plugin](/docs/plugins), place the `mcpServers` configuration in `<plugin-root>/mcp.json` instead (see [Build plugins](/docs/build-plugins#mcp-servers)).
 
 ```json
 {

@@ -70,9 +70,23 @@ The browser subagent drives Google Chrome to test and debug web pages:
 
 ### Slash commands
 
-Type `/` in the App’s message box or the CLI’s prompt box to run commands such as [`/plan`](/docs/plan), [`/grill-me`](/docs/commands/grill-me), [`/goal`](/docs/commands/goal), [`/boost`](/docs/boost), [`/schedule`](/docs/commands/schedule), and [`/teamwork-preview`](/docs/teamwork). Some commands are available on only one surface, and `/boost` and `/teamwork-preview` require a paid plan.
+Type `/` in the App’s message box or the CLI’s prompt box to run commands such as [`/plan`](/docs/plan), [`/grill-me`](/docs/commands/grill-me), [`/goal`](/docs/commands/goal), [`/boost`](/docs/boost), [`/schedule`](/docs/commands/schedule), and [`/teamwork`](/docs/teamwork). Some commands are available on only one surface, and `/boost` and `/teamwork` require a paid plan.
 
 [Browse all slash commands](/docs/slash-commands).
+
+### Mentions and quoting
+
+Point the agent at the right context so it doesn’t have to search for it.
+
+### Antigravity App
+
+Type `@` in the message box to mention files, folders, rules, and past conversations, or select text in a response, file, diff, or artifact and click **Quote** to add it to your next message.
+
+### Antigravity CLI
+
+Type `@` in the prompt box to mention files and directories, or start your prompt with `@` and a subagent’s name to send that subagent a message.
+
+[Learn more about mentions and quoting](/docs/at-mentions).
 
 ### Voice transcription
 
@@ -152,6 +166,12 @@ These features are specific to the Antigravity App.
 
 Start quick, one-off conversations outside of any project. These sessions run in a local scratch folder. They have their own settings and permissions in addition to inheriting from global permissions.
 
+### Search and command palette
+
+Press Cmd+K (macOS) or Ctrl+K (Windows and Linux) to search past conversations by title, project, and full text, including your prompts and the agent’s responses. The same command palette also finds files in your project, runs app commands, and starts a conversation in another project.
+
+[Learn more about search and the command palette](/docs/search).
+
 ### Automations
 
 Automations (previously called scheduled tasks) let you plan ahead with your projects by sending messages to your agents on a schedule, even while you’re away. Open them from **Automations** in the left sidebar:
@@ -207,6 +227,8 @@ The Antigravity App provides a Git-native **Review** pane for the changes in you
     *   **Amend**: Add changes to the latest commit.
     *   **Push**: Send branch commits to a remote repository.
 *   **Feedback**: Comment on lines in a diff to send feedback to the agent.
+
+[Learn more about reviewing changes](/docs/review-changes).
 
 ## Antigravity CLI features
 

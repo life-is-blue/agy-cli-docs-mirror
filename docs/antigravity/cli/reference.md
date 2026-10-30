@@ -47,7 +47,7 @@ Type `/` inside the prompt box to open the typeahead command selection menu.
 | **`/skills`** | Tools & Tasks | — | Browse loaded local and global Agent Skills. Run `/skills reload` to reload skills from disk. |
 | **[`/statusline`](/docs/cli/commands/statusline)** | Configurations | — | Open the Status Bar customization overlay. |
 | **`/tasks`** | Tools & Tasks | — | Open the Task Manager panel to monitor background shell execution logs. |
-| **[`/teamwork-preview`](/docs/teamwork)** `<task>` | Reasoning | `/teamwork` | Launch [collaborative multi-agent teams](/docs/teamwork) for long-horizon projects (paid plans). |
+| **[`/teamwork`](/docs/teamwork)** `<task>` | Reasoning | — | Launch [collaborative multi-agent teams](/docs/teamwork) for long-horizon projects (paid plans). |
 | **[`/title`](/docs/cli/commands/title) \[on/off\]** | Configurations | — | Toggle or set terminal window title updates. |
 | **[`/usage`](/docs/cli/commands/usage)** | Utilities | `/quota` | Display model quota usage. |
 | **[`/voice`](/docs/cli/commands/voice)** | Utilities | `/record` | Dictate a prompt using your microphone. |
