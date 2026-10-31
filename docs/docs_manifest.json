@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-30T04:45:32Z",
+  "generated_at": "2026-10-31T04:30:04Z",
   "tool": "scripts/fetch_agy_docs.py",
   "strict_fetch": false,
   "is_degraded": true,
@@ -15,8 +15,8 @@
   "sidebar_file": "docs/starlight_sidebar.json",
   "summary_file": "docs/SUMMARY.md",
   "stats": {
-    "total_pages": 89,
-    "successful_pages": 89,
+    "total_pages": 90,
+    "successful_pages": 90,
     "failed_pages": 0,
     "removed_files": 0,
     "invariants_passed": true
@@ -130,9 +130,9 @@
       "slug": "changelog",
       "label": "Changelog",
       "url": "https://antigravity.google/docs/changelog.md",
-      "sha256": "267df8a888599603368595e2c35374e5bf2af6cae0698956f92800db2a37740b",
-      "bytes": 450092,
-      "fetched_at": "2026-10-30T04:45:24Z",
+      "sha256": "a2248885a0dc404604b14c33205561f26c0aeb915c184a51e2f9c266cd990649",
+      "bytes": 489594,
+      "fetched_at": "2026-10-31T04:29:58Z",
       "sidebar_label": "Changelog"
     },
     "antigravity/cli/artifacts.md": {
@@ -410,9 +410,9 @@
       "slug": "cli/gcli-migration",
       "label": "Migration",
       "url": "https://antigravity.google/docs/cli/gcli-migration.md",
-      "sha256": "39fcb32695334a92186f67198f25410e57d14f1a4e6aab6d1817dae73eecb121",
-      "bytes": 4850,
-      "fetched_at": "2026-10-23T03:44:36Z",
+      "sha256": "274f710218da668d4da9c9a6d7c2db0f55cbb0d1fd498e58e8a94553ca2ccf42",
+      "bytes": 4873,
+      "fetched_at": "2026-10-31T04:29:58Z",
       "sidebar_label": "Migration"
     },
     "antigravity/cli/getting-started.md": {
@@ -768,9 +768,9 @@
       "slug": "commands/learn",
       "label": "Learn command (/learn)",
       "url": "https://antigravity.google/docs/commands/learn.md",
-      "sha256": "3443529dea8d66e15e492ed5c9016537f1c8b249011c09d91e0816b59f15ce70",
-      "bytes": 4910,
-      "fetched_at": "2026-10-22T03:39:45Z",
+      "sha256": "de915a75f0ef445c4f394101810736322fa3552a00131ef9be218ec6691ca8e3",
+      "bytes": 4900,
+      "fetched_at": "2026-10-31T04:29:58Z",
       "sidebar_label": "Learn command (/learn)"
     },
     "antigravity/commands/schedule.md": {
@@ -786,6 +786,20 @@
       "bytes": 5707,
       "fetched_at": "2026-10-22T03:39:45Z",
       "sidebar_label": "Schedule command (/schedule)"
+    },
+    "antigravity/customization-discovery.md": {
+      "source": "antigravity",
+      "section": "Antigravity App",
+      "category_path": [
+        "Antigravity App"
+      ],
+      "slug": "customization-discovery",
+      "label": "Customization discovery",
+      "url": "https://antigravity.google/docs/customization-discovery.md",
+      "sha256": "65a2a4c43fa6e5f11d9c27853457ce7adb4f6b6f8ec8242671c7fc3b0b728aad",
+      "bytes": 15983,
+      "fetched_at": "2026-10-31T04:29:58Z",
+      "sidebar_label": "Customization discovery"
     },
     "antigravity/enterprise.md": {
       "source": "antigravity",
@@ -852,9 +866,9 @@
       "slug": "getting-started",
       "label": "Get started",
       "url": "https://antigravity.google/docs/getting-started.md",
-      "sha256": "ab52499dd149618f05b49f3134959e5c4893905d87ed39bea95b69bd4d130164",
+      "sha256": "d33d3e2f09cf0c131f67d0811fcaf6493d7463c895b1fd294caccdddfb47e750",
       "bytes": 18658,
-      "fetched_at": "2026-10-30T04:45:24Z",
+      "fetched_at": "2026-10-31T04:29:58Z",
       "sidebar_label": "Get started"
     },
     "antigravity/home.md": {
@@ -1370,9 +1384,9 @@
       "slug": "plans",
       "label": "Plans",
       "url": "https://antigravity.google/docs/plans.md",
-      "sha256": "b3962a073ffe885bfb11639013c6f11c339b247b105ebeff1f72ad2bf6ae8a2c",
-      "bytes": 2829,
-      "fetched_at": "2026-10-15T03:35:31Z",
+      "sha256": "4f84af7cdd019d2379963a08926f15424020eec2ff5f47f46a081d97013afd65",
+      "bytes": 2830,
+      "fetched_at": "2026-10-31T04:29:58Z",
       "sidebar_label": "Plans"
     },
     "antigravity/plugins.md": {
@@ -1454,9 +1468,9 @@
       "slug": "rules",
       "label": "Rules",
       "url": "https://antigravity.google/docs/rules.md",
-      "sha256": "41096d02138ba7d04abe18b231119c2c5ed8702c21115c7fea658a27cbdb966e",
-      "bytes": 10074,
-      "fetched_at": "2026-10-30T04:45:24Z",
+      "sha256": "da142a2920f0b8dae56a6a7fc1a2bcedb46bcfe929ef5e24d0ad3e956880fbb3",
+      "bytes": 10363,
+      "fetched_at": "2026-10-31T04:29:58Z",
       "sidebar_label": "Rules"
     },
     "antigravity/sandbox.md": {
@@ -1664,9 +1678,9 @@
       "slug": "skills",
       "label": "Agent skills",
       "url": "https://antigravity.google/docs/skills.md",
-      "sha256": "4e8ffce75d759a1760498e5b416acf4afb239009b1177033cba84de839df11f2",
-      "bytes": 6547,
-      "fetched_at": "2026-10-22T03:39:45Z",
+      "sha256": "c9062d3683bfffaa144736ce3330fe96989d412d80b73b5c47f0d48467793dbf",
+      "bytes": 7120,
+      "fetched_at": "2026-10-31T04:29:58Z",
       "sidebar_label": "Agent skills"
     },
     "antigravity/slash-commands.md": {

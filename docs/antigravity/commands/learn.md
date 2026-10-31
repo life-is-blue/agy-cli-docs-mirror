@@ -60,7 +60,7 @@ The agent still classifies and scopes the lesson, but skips the discovery step.
 
 | Type | Workspace scope | Global scope |
 | :-- | :-- | :-- |
-| **Rule** | `AGENTS.md` or `GEMINI.md` in the workspace, a subdirectory, or `.agents/`, or `.agents/rules/<name>.md` | `~/.gemini/AGENTS.md`, `~/.gemini/GEMINI.md`, `~/.gemini/config/AGENTS.md`, `~/.gemini/config/GEMINI.md`, or `~/.gemini/config/rules/<name>.md` |
+| **Rule** | `AGENTS.md` or `GEMINI.md` in the workspace folder or `.agents/`, or `.agents/rules/<name>.md` | `~/.gemini/AGENTS.md`, `~/.gemini/GEMINI.md`, `~/.gemini/config/AGENTS.md`, `~/.gemini/config/GEMINI.md`, or `~/.gemini/config/rules/<name>.md` |
 | **Skill** | `.agents/skills/<name>/SKILL.md` | `~/.gemini/config/skills/<name>/SKILL.md` |
 
 Note

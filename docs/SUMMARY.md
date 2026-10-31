@@ -13,6 +13,7 @@
   - [Grill me command (/grill-me)](antigravity/commands/grill-me.md)
   - [Learn command (/learn)](antigravity/commands/learn.md)
   - [Schedule command (/schedule)](antigravity/commands/schedule.md)
+  - [Customization discovery](antigravity/customization-discovery.md)
   - [Feature overview](antigravity/features.md)
   - [Hooks](antigravity/hooks.md)
   - [Plan](antigravity/implementation-plan.md)

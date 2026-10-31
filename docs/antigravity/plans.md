@@ -34,7 +34,7 @@ Usage limits for this service are subject to modification. These adjustments may
 
 ## Overages
 
-Users on Google AI Pro or Ultra plans can use [purchased AI credits](http://one.google.com/ai/credits) (or any one-time promotional credits) for additional overage usage above the baseline quota. AI credits are consumed at standard Gemini Enterprise consumption pricing.
+Users on Google AI Pro or Ultra plans can use [purchased AI credits](https://one.google.com/ai/credits) (or any one-time promotional credits) for additional overage usage above the baseline quota. AI credits are consumed at standard Gemini Enterprise consumption pricing.
 
 Once you exhaust the baseline quota for a particular model, credit usage is controlled by the **AI Credit Overages** user setting, which you can set to one of the following options:
 

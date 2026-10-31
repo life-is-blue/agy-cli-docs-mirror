@@ -6,9 +6,27 @@ New versions roll out gradually and may take a few days to reach all users.
 
 ## Antigravity App
 
-### [v2.28.1](/releases?tab=hub&version=2.28.1 "View release 2.28.1")
+### [v2.28.2](/releases?tab=hub&version=2.28.2 "View release 2.28.2")
 
 Latest
+
+October 29, 2026
+
+### Partner plugins in the Marketplace and plugin sign-in
+
+This release brings plugins from partners such as Figma, Linear, Notion, and Stripe to the Marketplace, with a new Featured spotlight. You can also sign in to a plugin's account right after you add it.
+
+**Improvements:**
+
+*   The Marketplace now includes plugins from partners such as Canva, Figma, Linear, Notion, Stripe, Supabase, and Vercel, on new shelves including Developer Tools, Productivity & Project Management, and Cloud Hosting & Deployment.
+*   The Marketplace has a new Featured spotlight that highlights plugins such as Firebase, Notion, Linear, and Stripe.
+*   Plugins that connect to an account now have an Accounts tab on their page, where you can add, reconnect, or disconnect accounts. Adding one of these plugins from a shelf, the Featured spotlight, or its page takes you straight to its sign-in. This isn't available yet for business and enterprise accounts.
+*   When a plugin would help with your task, the agent can now find it in the Marketplace and suggest it in the conversation with a card for adding it. This isn't available yet for business and enterprise accounts.
+*   There's no longer a separate Conversation History page. Search your conversations with the search button at the top left, and find archived conversations in the filter menu in the sidebar.
+
+---
+
+### [v2.28.1](/releases?tab=hub&version=2.28.1 "View release 2.28.1")
 
 October 28, 2026
 
@@ -1258,9 +1276,282 @@ Antigravity 2.0 Launch bug fixes.
 
 ## Antigravity CLI
 
-### [v1.4.0](/releases?tab=cli&version=1.4.0 "View release 1.4.0")
+### [v1.4.10](/releases?tab=cli&version=1.4.10 "View release 1.4.10")
 
 Latest
+
+October 29, 2026
+
+### Low-bandwidth terminal scrollback streaming, post-startup memory reclamation, accurate compaction size metrics, and automatic image resizing
+
+Reduces terminal streaming output by ~70% using native scrollback and batched text wrapping, reclaims ~100 MB of startup memory after launch, reports full post-compaction context size in /context, and automatically resizes large attached images to prevent request size errors.
+
+**Improvements:**
+
+*   Improved streaming of agent replies: lines that scroll off the top of the screen are now scrolled into your terminal's scrollback instead of repainting the whole screen, and text wrapping writes whole runs of text at a time, so streaming writes about 70% fewer bytes to the terminal and stays much smoother over slow SSH connections.
+*   Improved memory use shortly after startup: the CLI now returns about 100 MB of memory left over from startup to the operating system 15 seconds after the interactive UI opens; print and headless modes are unaffected.
+*   Improved the after-compaction size shown in the compaction marker and in `/context` to also count what the summary carries into the next prompt, such as your earlier requests and artifact, subagent, and running-task snapshots, so it is closer to the real size; the `(N summary)` label still shows the summary alone.
+
+**Fixes:**
+
+*   Fixed subagents losing the task their parent agent gave them, and the parent's ID, after their context was compacted, including with `/compact`; a subagent's summary now keeps the parent agent's 10 most recent messages.
+*   Fixed conversations with many or large images, such as screenshots or pasted images, being rejected for exceeding the model's request size limit: images are now capped at 2000 pixels per side and large PNGs are sent as JPEGs when that is much smaller, and an image saved as JPEG but labeled PNG, such as a pasted image or browser screenshot, is no longer rejected for a mismatched type.
+*   Fixed the `/browser` subagent not receiving the current page's snapshot when the selected page belongs to an isolated browser context, such as a page opened with `isolatedContext` or attached from an Incognito window.
+
+---
+
+### [v1.4.9](/releases?tab=cli&version=1.4.9 "View release 1.4.9")
+
+October 28, 2026
+
+### Native terminal image paste and drag-and-drop, categorized marketplace shelves in /plugin, and per-origin Google app URL permissions
+
+Adds native terminal shortcut and drag-and-drop image attachment (including over SSH with X11 or Wayland forwarding), organizes the /plugin Discover tab into marketplace shelves, validates plugin names and logos in agy plugin validate, and separates execute\_url approvals for sensitive Google apps.
+
+**Improvements:**
+
+*   Added image pasting through your terminal's own paste shortcut, such as `Cmd+V` or `Ctrl+Shift+V` with only an image copied, and by dragging image files into the prompt, which attaches them instead of inserting their paths; image paste now also works over SSH with X11 or Wayland forwarding, and the CLI's paste key now says `No image or video found in the clipboard` when there is nothing to attach and names the clipboard tool to install, such as `wl-clipboard` on Wayland, when one is missing.
+*   Improved the `/plugin` Discover tab to group marketplace plugins into the same sections as the Antigravity plugin marketplace instead of one flat list, listing a plugin under every section it belongs to.
+*   Improved `agy plugin validate` to warn when a plugin's `name` isn't lowercase kebab-case, such as `Neo4j` or `foo_bar`, which the marketplace can't publish, and to suggest a valid name, failing under `--strict`; it now also checks the plugin's `logo`, noting when `plugin.json` has none and warning when the logo path is blank, uses backslashes, is absolute or points outside the plugin, sits in a folder the marketplace bundle leaves out such as `.github/`, or is a URL that won't be shown, with the same checks for context provider `iconUri` values.
+*   Improved the position indicator under long `/diff` lists to say what it counts, such as `[1-44 of 195 files]` in `All Changes` and `[1-44 of 195 rows]` in `Per Turn`, where turn headers count as rows, so it no longer appears to disagree with the file count.
+*   Improved Auto mode's review of commands that would leave the terminal sandbox: the reviewer now knows whether the working directory is inside a Git or other repository, so it no longer spends its time budget running `git status` in folders that aren't repositories and times out less often.
+*   Changed `execute_url` permissions so approving a Google site such as `www.google.com` or `cloud.google.com` no longer also allows sensitive Google apps such as `mail.google.com`, `docs.google.com`, `drive.google.com`, `accounts.google.com`, or `console.cloud.google.com`; each of these now needs its own approval.
+
+**Fixes:**
+
+*   Fixed always-allow rules for multi-line commands, such as a `python -c` or `node -e` script spanning several lines, never taking effect, which made the CLI ask again every time and pile up unusable entries in your settings; existing multi-line rules now apply.
+*   Fixed onboarding screens being cut off in small terminals and hiding their buttons: text and links now wrap to the terminal width, the color preview is cropped or hidden in very narrow terminals, the banner only shows when the whole step fits, and a step that is still too tall scrolls with `Shift+↑`/`Shift+↓` or `PgUp`/`PgDn` while the buttons stay visible.
+*   Fixed Vim mode's `r`, `f`, `F`, `t`, and `T` canceling when the target character is a space, so `r`, `f`, and `df` now work, commands on an empty last line acting on the line above, and a half-typed operator such as `d` carrying over after you submit a prompt.
+*   Fixed invisible U+FFF9 and U+FFFA characters reaching the terminal around wrapped code in agent replies, which made some terminals and multiplexers draw boxes or leave stale characters on screen.
+*   Fixed conversations failing every later model request with `INVALID_MEDIA` after the agent viewed a corrupt image or one with text in front of its header, such as a screenshot captured with `adb exec-out screencap -p > screenshot.png` that also captured a warning; such images are now rejected with an error that says where the real image header starts, so the agent can fix the command.
+*   Fixed conversations getting stuck failing on every turn after a tool result was left without its matching tool call, such as after older history was trimmed; unmatched tool calls and results are now left out of the request.
+*   Fixed conversations with certain models on a Google Cloud project failing for the rest of the conversation once the system prompt, tools, or an earlier message changed after a thinking block; outdated thinking blocks are now dropped instead of rejected.
+*   Fixed the `/browser` subagent not receiving the current page's snapshot at the start of each turn with Chrome DevTools MCP 1.11 and later, because the snapshot request left out the now-required page ID and failed silently.
+
+---
+
+### [v1.4.8](/releases?tab=cli&version=1.4.8 "View release 1.4.8")
+
+October 27, 2026
+
+### Turn navigation shortcuts and progressive loading in /diff, longer Auto mode review timeouts, and detailed plugin install summaries
+
+Adds \[ and \] turn-jump shortcuts and progressive background loading to /diff, extends Auto mode sandbox review timeouts, and expands agy plugin install and validate output, alongside fixes for failed tool call error reporting, forked /goal cancellation, and Windows clipboard image paste.
+
+**Improvements:**
+
+*   Added `[` and `]` to the `Per Turn` tab in `/diff` to jump to the first file of the previous or next turn, wrapping around at either end, in both the file list and the file view; the `All Changes` and `Per Turn` key-hint footers now wrap onto a second row on narrow terminals instead of being cut off.
+*   Improved how quickly `/diff` opens in large repositories and long conversations: `All Changes` and `Commit Tree` appear as soon as tracked changes are ready, showing `checking for untracked files…` while untracked files load in the background, and `Per Turn` shows the newest turns first and loads older ones in the background with a `checking N older turn(s)…` indicator, caching finished turns so reopening `/diff` only recomputes the latest one.
+*   Improved `/diff` in checkouts with large untracked files: binary files and untracked files over 1 MB are listed with a note such as `binary file` or `7.3 MB, over the 1 MB limit` instead of being read into memory, untracked files containing lines that start with `++` followed by a space are no longer shown incorrectly, and a file deleted while `/diff` is loading no longer makes the whole file list fail.
+*   Improved Auto mode's review of commands that would leave the terminal sandbox: it now has more time to decide and stops any single slow check after 10 seconds, so it times out less often and asks you to approve safe commands less often.
+*   Improved `agy plugin install` output to name each installed skill, agent, rule, command, MCP server, and hook, to stop listing component types the plugin doesn't contain as skipped, and to print the folder the plugin was installed to, adding `(replaced existing installation)` when it overwrote an earlier copy.
+*   Improved `agy plugin validate` to check the `author`, `homepage`, and `repository` fields in `plugin.json`, warning when `author` is neither a name string nor a `{"name", "url"}` object or when a URL isn't a valid `https://` link, and plugin listings now show the author's name when `author` is written as an object instead of leaving it blank.
+*   Improved resuming a conversation to use about 10% less CPU by not rendering already finished tool calls a second time.
+
+**Fixes:**
+
+*   Fixed failed tool calls, including calls to a tool that doesn't exist and canceled or interrupted calls, being passed back to the agent as ordinary results; the agent now sees them as errors and can recover on its next step.
+*   Fixed conversations forked from one with an active `/goal`, including `/btw` side questions and forked subagents, inheriting that goal and being unable to stop; the inherited goal is now canceled at the fork point.
+*   Fixed subagents failing to run when their custom agent's `name` contains a colon.
+*   Fixed deleting a conversation leaving its running subagents, their saved history, and their shared or branched workspaces behind; they are now stopped and cleaned up with it.
+*   Fixed a memory leak in long sessions with plugins that run sidecars, where every sidecar run left a background task running for the rest of the session.
+*   Fixed pasting images on Windows when they were copied from a browser, Snipping Tool, or another app that puts PNG or V5 bitmap data on the clipboard, and pasting now retries when another app briefly holds the clipboard.
+
+---
+
+### [v1.4.7](/releases?tab=cli&version=1.4.7 "View release 1.4.7")
+
+October 24, 2026
+
+### Hook stdin lastUserInput field, seasonal Halloween theme, 10 KB on-demand MCP tool outputs, and ADC customization loading fix
+
+Passes lastUserInput to hook stdin payloads, adds an opt-in seasonal Halloween theme in /config, increases on-demand MCP tool inline output limits to 10 KB, and reduces headless -p CPU overhead, alongside fixes for ADC customization loading and per-user MCP OAuth token isolation.
+
+**Improvements:**
+
+*   Added `lastUserInput` to the JSON that hook commands receive on stdin, so a hook can inspect the latest message you sent, for example to screen prompts before the agent acts on them.
+*   Added a temporary opt-in Halloween theme: turn on `Seasonal Themes` in `/config`, a row shown only while the theme is in season, for a Halloween startup banner, a moon-phase spinner, and a themed running light and prompt box borders.
+*   Improved Auto mode to ask for approval less often on routine commands, such as cleaning up temporary files, stopping a local process, or running a code formatter.
+*   Improved headless `-p` runs to use much less CPU, especially for long answers and when you have many saved conversations: they no longer build the conversation search index or render the transcript for display, and no longer start your custom status line and window title commands, none of which print mode shows.
+*   Improved rendering speed while a response streams, when a permission prompt appears, and when you resize the window.
+*   Improved MCP tools that are loaded on demand to return results of up to 10 KB directly to the agent; previously anything over 4 KB was saved to a file that the agent had to read in an extra step.
+*   Improved the `/help` shortcuts tab by leaving out basic navigation keys such as the arrow keys, so the more useful shortcuts are easier to find.
+
+**Fixes:**
+
+*   Fixed skills, rules, custom agents, plugins, plugin MCP servers, and hooks not loading when you sign in with Application Default Credentials (`AGY_ADC_AUTH`).
+*   Fixed conversations compacting over and over when a single message, tool output, or attached document was too large to fit in the context.
+*   Fixed long links that wrap inside a Markdown table cell being linked only on their first line, to a truncated URL, so the whole link can now be clicked or copied. Tables in the default `Terminal` color scheme now use box-drawing borders instead of ASCII `|`, matching the other color schemes.
+*   Fixed copying a long command that wraps across rows in a code block or inline code, which now copies as a single line instead of with a line break at each wrap point; wrapped code-block lines also now break between words and keep the block's indentation.
+*   Fixed Vim mode's `r` replace, in Normal and Visual mode, leaving part of a collapsed `[Pasted text #N]` placeholder behind; the whole placeholder is now replaced.
+*   Fixed plugin and MCP server sign-ins not being saved on macOS and Windows when the token was too large for the system keychain; such tokens are now stored in the CLI's private secrets file.
+*   Fixed plugin MCP servers that sign in with OAuth being able to use a token saved by another user of the same computer account, or keeping the previous user's connection after you switch accounts or sign out. Their tokens now belong to the signed-in user and these servers reconnect when the user changes, so you may need to sign in to them again.
+
+---
+
+### [v1.4.6](/releases?tab=cli&version=1.4.6 "View release 1.4.6")
+
+October 23, 2026
+
+### Plugin MCP server configuration UI, stronger sandbox credential protections, word-level /diff highlights, and subagent permission inheritance
+
+Adds a Configure MCP servers action for installed plugins in /plugin, restricts sandbox access to ~/.docker, ~/.kube, and ~/\_netrc credentials by default, preserves attached media across compaction summaries, and highlights word-level edits in /diff.
+
+**Improvements:**
+
+*   Added a `Configure MCP servers...` row for installed plugins in `/plugin`, so you can set or change a plugin's MCP server variables at any time without disabling and re-enabling it; plugins with missing values show `⚠ needs setup`, each server shows `✓ configured` or the variables it still needs, and saving restarts an enabled plugin's servers so the new values take effect.
+*   Improved terminal sandbox defaults to protect more credentials: sandboxed commands can no longer read or modify `~/.docker`, `~/.kube`, or `~/_netrc` unless you grant access explicitly. Previously `~/.docker` and `~/.kube` were writable inside the sandbox, so sandboxed commands that use Docker registry or Kubernetes cluster credentials now need an explicit grant.
+*   Improved context compaction, including `/compact`, to keep images, PDFs, and other files you attached in the conversation summary, so the agent can still see them after older history is summarized.
+*   Improved permission prompts so that allowing an action for the conversation, in the main agent or in a subagent, applies across the main conversation and all of its subagents instead of asking again for the same action.
+*   Improved the in-progress status line to show what the agent is waiting on, such as initializing MCP servers or retrying an unavailable model (for example `Model unavailable (attempt 2/10), retrying in 12s` with a live countdown), instead of a generic working label.
+*   Improved `/diff` to highlight the exact words that changed within each modified line, in every color scheme.
+*   Improved `agy plugin validate`: it now has `--help`, checks a plugin's context providers (missing `label` or `command`, invalid or duplicate triggers, unknown fields, missing command files), warns about `skills` entries in `plugin.json` that don't exist or contain no `SKILL.md`, and reports every `SKILL.md` the plugin loader skips, including skills listed through `plugin.json` or `skills.json`.
+
+**Fixes:**
+
+*   Fixed terminal commands occasionally failing to start with `argument list too long` when the model returned a very large reasoning signature with the tool call.
+*   Fixed text cursors drifting away from the insertion point after wide characters (CJK, emoji), tabs, other Unicode spaces, and on soft-wrapped lines, including `Up`/`Down` landing on the wrong row, in the prompt and in the settings, permission amend, plugin setup, feedback, hooks, and artifact search boxes.
+*   Fixed the `Esc disabled during file edits` warning naming the wrong reject key when the prompt shows an extra choice, such as for edits outside the workspace in accept-edits mode.
+*   Fixed sign-in not persisting across restarts on macOS and Windows for enterprise accounts, because the saved credential exceeded the system keychain's size limit.
+
+---
+
+### [v1.4.5](/releases?tab=cli&version=1.4.5 "View release 1.4.5")
+
+October 22, 2026
+
+### Streamlined collapsed thought blocks, folded-line match counts in /diff search, jittered cron schedules, and lower idle CPU usage
+
+Refines collapsed thought blocks in agent responses, counts hidden matches inside folded lines during /diff search, adds per-schedule jitter offsets to recurring cron schedules, and cuts idle and streaming CPU usage, alongside fixes for content safety retry loops and marketplace plugin download retries.
+
+**Improvements:**
+
+*   Improved how agent responses read: a blank line now separates the collapsed thought block from the response, and once the response starts, the collapsed thought shows only its `Thought for …` header instead of repeating a snippet of the thinking; expand it to see the full thinking.
+*   Improved `/` search in the `/diff` file view to count matches inside folded unchanged lines, such as `match 2/5 · +3 hidden` or `no matches · +1 hidden`, and the `f` hint now reads `show N hidden matches`.
+*   Improved `/diff`'s `Commit Tree` to mark the selected commit with the same `>` cursor and selection color as `All Changes` and `Per Turn` instead of a highlighted bar, and made `Per Turn` start with the cursor on the first file instead of its turn header.
+*   Improved recurring cron schedules created with the agent's `schedule` tool to fire at a consistent per-schedule offset instead of exactly on the cron boundary, to avoid traffic spikes: schedules that repeat within a day, such as every 30 minutes or hourly, now fire somewhere within their period, fixed-time schedules such as daily at 9:00 still fire within their scheduled minute, and the agent can request exact timing when a schedule needs it. `@every` schedules are unchanged.
+*   Improved idle CPU usage by pausing screen refreshes while nothing on screen changes, roughly halving the CLI's CPU use when it is idle.
+*   Improved CPU usage while a response streams by skipping redundant screen updates and refreshing the credit balance less often.
+*   Improved rendering speed for long conversations, and made long conversations load faster when you resume them.
+*   Improved startup CPU usage when the CLI refreshes its conversation summaries.
+*   Improved memory usage by allocating storage for the prompt and other text inputs as you type instead of reserving it up front.
+
+**Fixes:**
+
+*   Fixed the agent silently retrying, potentially without end, when a model response was blocked by content safety filters.
+*   Fixed plugins failing to load when `plugin.json` gives `skills` as a single path string, such as `"skills": "./skills/"`, instead of an array, as some plugins written for other tools do.
+*   Fixed marketplace plugin installs and automatic updates failing with a checksum mismatch or network error when a download was briefly stale or interrupted; the CLI now retries the download once.
+
+---
+
+### [v1.4.4](/releases?tab=cli&version=1.4.4 "View release 1.4.4")
+
+October 21, 2026
+
+### Windows 11 Auto mode, /diff whole-file toggle and hunk folding, and streaming performance optimizations
+
+Adds Auto mode on Windows 11 24H2+, whole-file toggle and hunk folding in /diff with combined per-turn file diffs, root conversation ID metadata on MCP tool calls, and streaming CPU/memory optimizations, alongside fixes for subagent plugin inheritance, Remote Control tablet layouts, and prompt undo behavior.
+
+**Improvements:**
+
+*   Added Auto mode on Windows 11 version 24H2 and later for personal Google Accounts, selectable via `--mode auto`, `Agent Mode` in `/config`, `Shift+Tab`, or Remote Control Settings (`Agent` remains the default).
+*   Added whole-file toggle (`f`) and hunk folding (`Ctrl+O`) to `Commit Tree` and `Per Turn` views in `/diff`, and consolidated `Per Turn` diffs so multiple edits to a file in one turn appear as a single combined diff.
+*   Added `_meta["antigravity.google/root_conversation_id"]` to MCP `tools/call` requests so MCP servers receive the top-level conversation ID even when a tool is called from a nested subagent.
+*   Improved Auto mode's review of commands that leave the terminal sandbox to include the assistant's preceding question on short replies like `yes`, check every subcommand in pipelines, and prompt before destructive Git or file commands.
+*   Improved `agy plugin validate` with stricter checks across `plugin.json`, MCP server configs, `hooks.json`, and sidecar manifests for invalid JSON syntax, unknown fields, bad variable placeholders, unrecognized hook tool matchers, and missing hook scripts.
+*   Improved CPU and memory usage while streaming responses by caching streamed code-block syntax tokens, rendered Markdown blocks, and inline file-edit confirmation diffs across frames.
+*   Improved `/compact` and automatic compaction to retain tool declarations on summarization requests so the model API reuses its cached prompt prefix.
+*   Improved Remote Control on tablets and foldables to use the multi-pane layout with touch-sized controls instead of collapsing to the phone view, and kept popovers open while dragging scrollbars.
+
+**Fixes:**
+
+*   Fixed subagents losing plugins inherited from the parent session, and fixed plugin-bundled subagents with `plugins.inherit_user: false` and restricted MCP tools failing to start with `mcp spec not found for provider`.
+*   Fixed rules and `SKILL.md` skills loading twice when discovered from both a standalone customization folder and an enabled plugin.
+*   Fixed long rows wrapping instead of truncating at the terminal width in `/diff`'s `Commit Tree` and `Per Turn` lists, and `Per Turn` headers truncating prompts at 50 characters.
+*   Fixed the prompt box staying mid-screen after closing panels, dropdowns, or inline prompts, and blank gaps appearing above the prompt in `Medium` verbosity mode.
+*   Fixed `Ctrl+Z` undo in the prompt mishandling pasted text, merging typing with recalled history entries, recording no-op `Backspace` or `Delete` steps, and truncating characters near emoji.
+*   Fixed MCP client sessions and background connection routines leaking when `tools/list` failed during server startup or when the CLI shut down while a server was connecting.
+*   Fixed the system prompt's user rules wording so `GEMINI.md` and `AGENTS.md` rules explicitly override earlier built-in instructions instead of only instructions that follow them.
+*   Fixed supported media attachments with parameterized MIME types such as `audio/webm; codecs=opus` being rejected as unsupported.
+*   Fixed several UI issues in Remote Control, including clipped headers and dialogs on phones, iOS Safari zoom on input focus, `Enable Telemetry` and `Marketing Emails` reverting while Settings loads, and dragged URLs losing query or `#` parameters.
+*   Fixed rendering and export bugs in Remote Control, including broken nested code blocks, `$VAR` shell variables parsed as LaTeX, broken media previews, blurry or blank diagrams in `Copy Image` and `Export as PDF`, and background-tab timer drift.
+
+---
+
+### [v1.4.3](/releases?tab=cli&version=1.4.3 "View release 1.4.3")
+
+October 20, 2026
+
+### Interactive /diff search, hook and sidecar plugin validation, and CJK/emoji cursor handling fixes
+
+Adds live / search across the /diff file list and file view, expands agy plugin validate to inspect hooks, sidecars, and component manifests, formats task timer durations in human-readable units, and resolves multiple subagent, Windows plugin update, and CJK/emoji cursor positioning issues.
+
+**Improvements:**
+
+*   Added `/` search to the `/diff` file list and file view: matches are highlighted as you type, the search prompt shows how many matches the diff and each file contain, `Enter` jumps to the first match, and `n`/`N` step through matches one at a time across every file, with `match A/B` in the file view header. `n`/`N` in the artifact viewer now also step through matches one at a time, including several on the same line, instead of jumping from line to line.
+*   Improved `agy plugin validate` to also check a plugin's hooks, sidecars, and component lists: it reports an error when `hooks.json`, a `sidecar.json`, or a `skills.json`, `rules.json`, `agents.json`, or `sidecars.json` file can't be parsed, and warns about unknown hook events, hook matchers that aren't valid regular expressions and so never match, a `hooks/hooks.json` file (which isn't read), list entries with no path or with a path missing from the plugin, `commands/` folders and `workflows/` Markdown files (which plugins don't load), and a Claude Code-style top-level `"hooks"` key, which loads as a single hook named `hooks`.
+*   Improved timer labels in `/tasks` and the active task list to show durations in days, hours, minutes, and seconds, such as `1d 2h timer` or `5m timer`, instead of raw seconds such as `93784s timer`.
+
+**Fixes:**
+
+*   Fixed Gemini 4 Argon not shown in `/model` and `--model` when you connect with a `GEMINI_API_KEY`.
+*   Fixed the CLI offering options that need the terminal sandbox on systems where it can't run, such as Linux systems that block unprivileged user namespaces and Windows before Windows 11 24H2.
+*   Fixed subagents and custom agents in Auto mode asking you to approve every command that would leave the terminal sandbox; like the main agent's, their commands are now first reviewed by a separate agent, so safe commands run without asking and risky ones still prompt you.
+*   Fixed the agent losing track of its most recently started subagents after a conversation was compacted, because the summary included each subagent's full initial prompt and was cut off before their conversation IDs; the summary now keeps only each subagent's type, role, and result, which also leaves more room in the context window.
+*   Fixed a `PostToolUse` hook that fails to run, for example because its command is missing, exits with an error, times out, or prints invalid JSON, marking the tool call it follows as failed even though the tool succeeded; the failure is now logged and the tool keeps its result.
+*   Fixed the agent failing to create empty files such as `__init__.py` or `.gitkeep`, and failing to write or edit regular project files with `... is not a valid artifact path` when the model sent blank artifact details.
+*   Fixed updating or reinstalling a marketplace plugin on Windows leaving it half-deleted when another `agy` session, the Antigravity desktop app, or the Remote Control background service had it open; the installed plugin now stays intact until the new copy is in place, and the previous version is restored if the replacement fails.
+*   Fixed `agy plugin install` and `agy plugin import` writing color codes into piped or redirected output, ignoring `NO_COLOR`, and showing raw codes in older Windows consoles; like `agy plugin validate`, they now use color only in a terminal and follow `NO_COLOR`, `CLICOLOR`, and `CLICOLOR_FORCE`.
+*   Fixed Remote Control on iPhone and iPad asking you to accept the `Security Notice & Data Use` terms and showing the `Enable Notifications` prompt again every time you reopened it; it now remembers your answers, along with your theme, layout, and dismissed tips.
+*   Fixed the prompt cursor appearing in the wrong place after resizing the terminal (sometimes on the `↑ N more lines` indicator or below the input box), when a slash command's completion hint didn't fit on the last line of the prompt (the hint is now shortened or left out), when the prompt was taller than the terminal, after pressing `Up` or `Down` onto a line with CJK characters or emoji, and after entering Vim visual mode, which also rewrapped the text.
+*   Fixed the cursor drifting on lines with emoji such as 👩‍💻, 👍🏽, or ⚠️ inside tmux 3.6 and later, and after returning from your external editor (`Ctrl+G`) or a `Ctrl+Z` suspend in terminals that support grapheme-cluster widths.
+*   Fixed the cursor drifting and lines wrapping too early under Japanese, Chinese, or Korean locales such as `LANG=ja_JP.UTF-8` when text contains characters like `→`, `…`, `─`, or `•`, which parts of the CLI counted as two columns wide while the rest drew them as one.
+*   Fixed `Left`, `Right`, `Backspace`, and `Delete` in the prompt and other text boxes moving over or deleting only part of an emoji such as 👩‍💻 or 👍🏽, a flag, or a letter with a combining accent, and fixed text boxes cutting off a wide character, such as a CJK character or emoji, at the end of a wrapped line instead of moving it to the next line.
+*   Fixed lines containing combining marks or other zero-width characters wrapping too early or leaving blank rows in `/diff` and the inline diff preview, and being cut off with `…` too soon in `/artifact` previews.
+
+---
+
+### [v1.4.2](/releases?tab=cli&version=1.4.2 "View release 1.4.2")
+
+October 18, 2026
+
+### Remote Control daemon mode conversation history fix
+
+Fixes an issue where conversation history did not appear in Remote Control when running in daemon mode.
+
+**Fixes:**
+
+*   Fixed conversation history not showing in Remote Control in daemon mode.
+
+---
+
+### [v1.4.1](/releases?tab=cli&version=1.4.1 "View release 1.4.1")
+
+October 17, 2026
+
+### Plugin validation for skills, subagents, and rules, syntax-highlighted inline diff previews, and prompt rendering optimizations
+
+Expands agy plugin validate to check skills, subagents, and rules, adds syntax highlighting and background tints to inline diff previews, reduces CPU usage during prompt rendering, and fixes Business account telemetry settings, Windows sandbox fallback, and network socket retry handling.
+
+**Improvements:**
+
+*   Improved `agy plugin validate` to also check a plugin's skills, subagents, and rules: for skills, it errors on a `SKILL.md` with missing or invalid frontmatter and warns when `name` or `description` is missing, when `name` doesn't match its folder, when the body is over the 24 KB limit, or when a skill in `skills/` is skipped because an earlier skill has the same name; for subagents, it errors on an `agents/` Markdown file with invalid frontmatter or a missing `name` or `description`, an unparseable `agent.json`, or a name reserved for a built-in agent, and warns on duplicate agent names, Markdown files in `agents/` without frontmatter, and `agent.json` files, which the CLI ignores; and for rules, it errors on a rule with invalid frontmatter or without a valid `trigger` (skipping a `README.md` in `rules/` without frontmatter), and warns on a `model_decision` rule without a `description`, a `glob` rule without `globs`, content cut to fit the 24 KB limit, or an `AGENTS.md` or `GEMINI.md` at the plugin root instead of in `rules/`.
+*   Improved the inline diff preview when the agent asks to edit or create a file so it renders like the `/diff` file view, with syntax highlighting for your color scheme, background tints on added and removed lines (picked from your terminal's light or dark background when using the `Terminal` color scheme), and an untinted line-number gutter.
+*   Improved CPU usage while typing and while the agent is working by rendering the prompt area once per frame, reusing measured line widths for unchanged rows across frames, and rendering the animated status line in styled runs instead of one character at a time.
+
+**Fixes:**
+
+*   Fixed `Enable Telemetry` in `/config` remaining editable for Business accounts (such as Google Cloud project and Application Default Credentials sign-in via `AGY_ADC_AUTH`), where prompts, content, and model responses are never collected: the row now shows `off (disabled)` and explains why, and first-run setup with `AGY_ADC_AUTH` now shows the Google Cloud Platform Terms of Service without the consumer telemetry opt-in checkbox.
+*   Fixed agent commands failing to start on Windows versions that don't support the terminal sandbox (Windows 10 and Windows 11 before version 24H2) when a sandboxed permission mode was selected: the CLI now turns off the terminal sandbox and falls back to asking before running commands, and the Remote Control browser Settings modal hides sandboxed permission options on those systems.
+*   Fixed socket disconnect errors such as `broken pipe`, `software caused connection abort`, `network is down`, and `http2: client connection lost` (for example after laptop sleep or a Wi-Fi change) stopping the turn with `Agent execution terminated due to error.` instead of retrying automatically and reporting a network error if retries fail.
+*   Fixed an MCP server continuing to show as `Ready` in `/mcp` after its process exited unexpectedly, which left later tool calls failing with `client is closing: EOF`; the server is now marked as `Error` and its closed session is removed.
+*   Fixed large structured tool outputs (such as JSON results from MCP tools) bypassing the per-step token limit while still being counted as truncated, which could push long conversations past the model's context window before automatic compaction ran.
+*   Fixed clickable links in agent responses whose URL contains `;` opening a URL cut off at the first `;` in terminals and multiplexers that split link sequences on semicolons.
+*   Fixed `/title` and `/remote-control` rejecting `on` and `off` when typed with uppercase letters, such as `/title ON` or `/remote-control Off`.
+
+---
+
+### [v1.4.0](/releases?tab=cli&version=1.4.0 "View release 1.4.0")
 
 October 16, 2026
 
@@ -4520,9 +4811,33 @@ Gemini 3.8 Flash builds on 3.7 Flash as an everyday model for agentic developmen
 
 ## Antigravity SDK
 
-### [v0.1.22](/download#antigravity-sdk "View release 0.1.22")
+### [v0.1.23](/download#antigravity-sdk "View release 0.1.23")
 
 Latest
+
+October 26, 2026
+
+### Programmatic workflow tool calls, multi-turn workflow agents, LiteRT conversation caching, and custom system instruction titles
+
+Google Antigravity Python SDK v0.1.23 expands dynamic workflow orchestration with programmatic tool execution, reusable multi-turn workflow agents, and structured workflow input arguments, while adding multi-turn conversation caching for local LiteRT models and custom section titles for replacement system instructions. This release also improves OpenAPI/JSON Schema metadata preservation, deterministic tool path normalization, media home-directory expansion, and workflow JSON-RPC stream resilience.
+
+**Improvements:**
+
+*   **Programmatic Tool Execution, Multi-Turn Agents & Workflow Args (`beta.workflows`)**: Execute built-in and custom tools programmatically via `beta.workflows.call_tool`, run stateful multi-turn workflow agents with `WorkflowAgent` (`beta.workflows.agent`), and pass structured runtime inputs via `beta.workflows.args` and `agent.beta.run_workflow(..., args=...)`.
+*   **Multi-Turn Conversation Caching (`LiteRTAgentConfig`)**: Enable multi-turn conversation caching and KV cache reuse in `LiteRTAgentConfig`'s local loopback server to reduce latency and resource overhead across consecutive model turns and tool calls.
+*   **Custom System Instruction Section Titles (`CustomSystemInstructions`)**: Configure an optional `title` on `CustomSystemInstructions` to render custom prompt instructions under dedicated `<title>` XML tags rather than the generic `<System>` section.
+*   **Tool Schemas**: Preserved literal metadata fields (`title`, `description`, `summary`, `format`, `pattern`) without altering type-like strings and added `read_only` (`readOnly`) and `write_only` (`writeOnly`) OpenAPI/JSON Schema keyword mappings.
+*   **Tool Execution & Argument Normalization**: Stripped injected `ToolContext` parameters from public callable annotations in `ToolRunner`, cached callable signatures in `_coerce_args`, and normalized wire tool path arguments and `canonical_path` in a single deterministic pass.
+*   **Tool Responses**: Serialized custom tool JSON responses without ASCII escaping (`ensure_ascii=False`) so non-ASCII UTF-8 text is delivered to the model unescaped.
+*   **Media Loaders & MIME Validation**: Expanded user home directory (`~`) prefixes in `from_file` media loaders and normalized MIME type strings via case-insensitive, whitespace-trimmed validation.
+
+**Fixes:**
+
+*   **Workflow Execution & Validation**: Prevented `stderr` output from corrupting workflow JSON-RPC streams, rejected `print()` calls during `@beta.workflows.define` AST validation while preserving trailing expression nodes, generalized temporary workflow script materialization fallback across read-only workspace mounts, and fixed `ToolExecutionError` argument ordering in `Agent.run_workflow`.
+
+---
+
+### [v0.1.22](/download#antigravity-sdk "View release 0.1.22")
 
 October 12, 2026
 

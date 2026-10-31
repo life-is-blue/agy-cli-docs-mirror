@@ -12,7 +12,7 @@ Skills are reusable packages of knowledge that extend what the agent can do. Eac
 *   **Best practices**: Conventions, style guidelines, and checklists to follow.
 *   **Scripts and resources**: Optional helper scripts and data schemas the agent can execute.
 
-When you start a conversation, the agent sees a list of available skills with their names and descriptions. If a skill looks relevant to your task, the agent reads the full instructions and follows them.
+On every turn, the agent sees a list of available skills with their names and descriptions. If a skill looks relevant to your task, the agent reads the full instructions and follows them.
 
 Note
 
@@ -69,7 +69,7 @@ Write your description in third person and include keywords that help the agent 
 
 Skills follow a **progressive disclosure** pattern:
 
-1.  **Discovery**: When a conversation starts, the agent sees a list of available skills with their names and descriptions.
+1.  **Discovery**: On every turn, the agent sees a list of available skills with their names and descriptions.
 2.  **Activation**: If a skill looks relevant to your task, the agent reads the full `SKILL.md` content.
 3.  **Execution**: The agent follows the skill’s instructions while working on your task.
 
@@ -110,7 +110,7 @@ The Antigravity App loads skills from two primary locations:
 
 Each scope serves a distinct purpose:
 
-*   **Workspace skills**: Scoped to a single project and committed to version control to share across your engineering team.
+*   **Workspace skills**: Scoped to a single project and committed to version control to share across your engineering team. Antigravity also reads `.agents/skills/` in each parent folder up to the repository root.
 *   **Global skills**: Available across all projects on your workstation.
 
 #### Invoking skills in the Antigravity App
@@ -118,7 +118,7 @@ Each scope serves a distinct purpose:
 You can invoke skills in the Antigravity App in two ways:
 
 *   **Autonomous invocation**: The agent automatically reads and follows relevant skills based on your prompt.
-*   **Manual slash command**: Type `/<skill-name>` in the prompt panel to explicitly invoke a skill.
+*   **Manual slash command**: Type `/<skill-name>` in the message box to explicitly invoke a skill.
 
 ### Antigravity CLI
 
@@ -129,12 +129,14 @@ The Antigravity CLI features full support for local and global agent skills:
 | Location | Scope |
 | :-- | :-- |
 | `<workspace-root>/.agents/skills/<skill-folder>/` | Workspace-specific |
-| `~/.gemini/antigravity-cli/skills/<skill-folder>/` | Global (all workspaces) |
-| `~/.gemini/antigravity-cli/plugins/<name>/skills/` | Plugin-provided skills |
+| `~/.gemini/config/skills/<skill-folder>/` | Global (all workspaces, shared with the Antigravity App) |
+| `~/.gemini/config/plugins/<plugin-folder>/skills/` | Plugin-provided skills ([Plugins](/docs/plugins)) |
+
+Antigravity also reads `.agents/skills/` in each parent folder up to the repository root. The Antigravity CLI also loads skills from `~/.gemini/antigravity-cli/skills/` and `~/.gemini/skills/`, which the Antigravity App doesn’t read. For details, see [Customization discovery](/docs/customization-discovery?tab=cli#check-what-antigravity-loaded).
 
 #### Slash command conversion
 
-Whenever you define a skill, the CLI **automatically converts it into a slash command** inside the interactive TUI. For example, creating a skill named `deploy-staging` immediately makes `/deploy-staging` available in the prompt box.
+Whenever you define a skill, the CLI **automatically converts it into a slash command** inside the interactive TUI. For example, creating a skill named `deploy-staging` makes `/deploy-staging` available in the prompt box. If you add a skill while the CLI is running, run `/skills reload` or start a new conversation to update the slash commands.
 
 #### Managing skills with plugins
 

@@ -52,6 +52,10 @@
         "slug": "antigravity/commands/schedule"
       },
       {
+        "label": "Customization discovery",
+        "slug": "antigravity/customization-discovery"
+      },
+      {
         "label": "Feature overview",
         "slug": "antigravity/features"
       },
