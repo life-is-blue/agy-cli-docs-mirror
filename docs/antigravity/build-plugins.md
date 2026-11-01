@@ -81,7 +81,7 @@ plugins/<plugin-name>/
 ├── assets/                   # Optional visual assets (for example, assets/logo.svg)
 │   └── logo.svg
 ├── scripts/                  # Optional helper scripts (executable 0755 in Marketplace bundles)
-├── mcp.json                  # Optional MCP server definitions
+├── mcp_config.json           # Optional MCP server definitions
 ├── hooks.json                # Optional lifecycle hooks definition
 ├── skills/                   # Optional skills directory
 │   └── <skill-name>/
@@ -95,7 +95,7 @@ plugins/<plugin-name>/
     └── <rule-name>.md        # Optional frontmatter-configured rule
 ```
 
-*   **Manifest location (`plugin.json` or `.antigravity-plugin/plugin.json`)**: Place `plugin.json` at `<plugin-root>/plugin.json` for standalone Antigravity plugins, or inside `<plugin-root>/.antigravity-plugin/plugin.json` for multi-provider repositories that also ship `.claude-plugin/plugin.json` or `.cursor-plugin/plugin.json` (`.antigravity-plugin/plugin.json` takes precedence over root `plugin.json`). Keep component directories (`skills/`, `agents/`, `rules/`, `scripts/`, `mcp.json`, and `hooks.json`) at `<plugin-root>`.
+*   **Manifest location (`plugin.json` or `.antigravity-plugin/plugin.json`)**: Place `plugin.json` at `<plugin-root>/plugin.json` for standalone Antigravity plugins, or inside `<plugin-root>/.antigravity-plugin/plugin.json` for multi-provider repositories that also ship `.claude-plugin/plugin.json` or `.cursor-plugin/plugin.json` (`.antigravity-plugin/plugin.json` takes precedence over root `plugin.json`). Keep component directories (`skills/`, `agents/`, `rules/`, `scripts/`, `mcp_config.json`, and `hooks.json`) at `<plugin-root>`.
     
 *   **Pre-install documentation (`README.md`)**: Include a `README.md` at `<plugin-root>/README.md` (or `.antigravity-plugin/README.md`) to document setup prerequisites, included tools, and example workflows in the Marketplace detail view before installation:
     
@@ -232,7 +232,7 @@ A plugin can bundle any combination of the following components relative to `<pl
 | Component | Default path | Purpose |
 | :-- | :-- | :-- |
 | **[Skills](#agent-skills)** | `skills/<skill-name>/SKILL.md` | Task-specific procedural instructions, scripts, and reference docs loaded on demand or via `/<skill-name>`. |
-| **[MCP servers](#mcp-servers)** | `mcp.json` | Remote HTTPS or local `stdio` Model Context Protocol tool servers, including OAuth and user-prompted credential variables. |
+| **[MCP servers](#mcp-servers)** | `mcp_config.json` | Remote HTTPS or local `stdio` Model Context Protocol tool servers, including OAuth and user-prompted credential variables. |
 | **[Subagents](#subagents)** | `agents/<agent-name>.md` | Specialized custom agents and subagents with dedicated system prompts, model tiers, and tool allowlists. |
 | **[Rules](#rules)** | `rules/AGENTS.md` or `rules/<rule-name>.md` | Persistent behavioral constraints, domain guardrails, or glob-scoped coding standards. |
 | **[Lifecycle hooks](#lifecycle-hooks)** | `hooks.json` | Synchronous shell commands or prompt evaluations that inspect, block, or augment agent lifecycle events and tool calls. |
@@ -310,7 +310,7 @@ description: >-
 
 ### MCP servers
 
-Plugins can bundle [MCP server](/docs/mcp) definitions using the standard `mcpServers` object structure in `<plugin-root>/mcp.json`. At runtime, each server key `<server-key>` is namespaced with the plugin name as `<plugin-name>_<server-key>`.
+Plugins can bundle [MCP server](/docs/mcp) definitions using the standard `mcpServers` object structure in `<plugin-root>/mcp_config.json`. At runtime, each server key `<server-key>` is namespaced with the plugin name as `<plugin-name>_<server-key>`.
 
 *   **Remote HTTPS (`url` / `serverUrl`) vs. local `stdio` (`command` + `args`)**: Prefer remote HTTPS MCP endpoints or cross-platform Node.js scripts (`"command": "node"`) so your plugin works across macOS, Linux, and Windows.
 *   **User-prompted credentials (`variables`) and OAuth (`oauth`)**: Declare `variables` inside a server entry (`mcpServers.<server>.variables`) to prompt users for API keys in a setup dialog before enabling the plugin, or configure `oauth` for browser-based sign-in.
@@ -514,7 +514,7 @@ Verify the following requirements before sharing or submitting your plugin:
 | **Plugin naming & branding** | `name` is lowercase `kebab-case` (`^[a-z0-9]+(-[a-z0-9]+)*$`), and `name` / `displayName` represent your product or service without leading with `"Antigravity"`, `"Gemini"`, `"Claude"`, or `"Cursor"`. |
 | **Skill folder names** | Each `SKILL.md` frontmatter `name` matches its parent directory name (`skills/<name>/SKILL.md`). |
 | **Rule `globs` format** | `globs` in `rules/<rule>.md` is a comma-separated string (`"**/*.tf, **/*.yaml"`), not a YAML array. |
-| **MCP `variables` scope** | `variables` is declared inside `mcpServers.<server>.variables` (not at the root of `mcp.json`), and `PLUGIN_ROOT` / `PLUGIN_DATA` are not duplicated in `"env"`. |
+| **MCP `variables` scope** | `variables` is declared inside `mcpServers.<server>.variables` in `mcp_config.json` (not at the root of `mcp_config.json`), and `PLUGIN_ROOT` / `PLUGIN_DATA` are not duplicated in `"env"`. |
 | **Hooks structure & paths** | `<plugin-root>/hooks.json` wraps event arrays in a named hook object, uses relative script paths (`./scripts/...`) rather than `${PLUGIN_ROOT}`, and uses a flat handler array for `Stop`, `SessionStart`, `PreInvocation`, and `PostInvocation`. |
 | **Bundled local logo & executables** | `logo` in `plugin.json` points to a bundled 1:1 square file inside the plugin (such as `"assets/logo.svg"`), and helper executables are placed under `scripts/` so they retain `0755` permissions in Marketplace bundles. |
 

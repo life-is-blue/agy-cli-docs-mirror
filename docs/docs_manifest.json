@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-31T04:30:04Z",
+  "generated_at": "2026-11-01T04:50:27Z",
   "tool": "scripts/fetch_agy_docs.py",
   "strict_fetch": false,
   "is_degraded": true,
@@ -102,9 +102,9 @@
       "slug": "build-plugins",
       "label": "Build plugins",
       "url": "https://antigravity.google/docs/build-plugins.md",
-      "sha256": "cb503ebe98256df040cda82abd60d6233d691ce02b0d05e5e8b7d10ccc8ed197",
-      "bytes": 28537,
-      "fetched_at": "2026-10-30T04:45:24Z",
+      "sha256": "5a1df6d41249a6c86cf0568742cf9a0db03a6618177d0ec026c03e56476fe623",
+      "bytes": 28586,
+      "fetched_at": "2026-11-01T04:50:16Z",
       "sidebar_label": "Build plugins"
     },
     "antigravity/build-with-google.md": {
@@ -796,9 +796,9 @@
       "slug": "customization-discovery",
       "label": "Customization discovery",
       "url": "https://antigravity.google/docs/customization-discovery.md",
-      "sha256": "65a2a4c43fa6e5f11d9c27853457ce7adb4f6b6f8ec8242671c7fc3b0b728aad",
-      "bytes": 15983,
-      "fetched_at": "2026-10-31T04:29:58Z",
+      "sha256": "ad17fd95ed873820f870daff76091d697e02981733a1aa6ddf7ed256387e5021",
+      "bytes": 16025,
+      "fetched_at": "2026-11-01T04:50:16Z",
       "sidebar_label": "Customization discovery"
     },
     "antigravity/enterprise.md": {
@@ -1314,9 +1314,9 @@
       "slug": "mcp",
       "label": "MCP",
       "url": "https://antigravity.google/docs/mcp.md",
-      "sha256": "561d96fafbf8ae61a1c3b57d96cdd51163580eec630c915feea9f9b9830e39fe",
-      "bytes": 20797,
-      "fetched_at": "2026-10-30T04:45:24Z",
+      "sha256": "409501289977910a6933cc5bf5a549e97a6976a934cb30aefcae3fb1ae8b732b",
+      "bytes": 20491,
+      "fetched_at": "2026-11-01T04:50:16Z",
       "sidebar_label": "MCP"
     },
     "antigravity/models.md": {

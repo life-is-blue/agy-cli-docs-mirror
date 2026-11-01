@@ -247,7 +247,7 @@ Check the following:
 
 *   **Location**: the file is in one of the folders listed in [Where Antigravity looks](#where-antigravity-looks), in the workspace folder or a parent folder up to the repository root.
 *   **Depth**: the item sits one level inside its folder, or a manifest names it.
-*   **File name**: skills use `SKILL.md`, rules and custom agents end in `.md`, and each plugin has a `plugin.json` file in its folder or in its `.antigravity-plugin/` or `.gemini-plugin/` subfolder.
+*   **File name**: skills use `SKILL.md`, rules and custom agents end in `.md`, MCP server configs use `mcp_config.json`, and each plugin has a `plugin.json` file in its folder or in its `.antigravity-plugin/` or `.gemini-plugin/` subfolder.
 *   **Frontmatter**: `SKILL.md` and each rule file in `rules/` start with a YAML frontmatter block, and each rule sets a valid `trigger`. For details, see [Rules](/docs/rules#yaml-frontmatter-and-activation-modes).
 *   **Manifest**: the JSON is valid, the paths are absolute or relative to the right folder, and no `exclude` pattern matches the item.
 *   **Name conflicts**: another skill or custom agent with the same name doesn’t take priority. See [Which customization wins](#which-customization-wins).
