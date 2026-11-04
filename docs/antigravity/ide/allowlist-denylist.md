@@ -11,7 +11,7 @@ The browser uses a two-layer security system to control which URLs can be access
 
 ### Denylist
 
-The denylist is maintained and enforced using the Google Superroots BadUrlsChecker service. When the browser attempts to navigate to a URL, it checks the hostname against the server-side denylist using an RPC.
+Google maintains and enforces the denylist on its servers. Before the browser opens a URL, Antigravity checks the hostname against this server-side denylist.
 
 **Note:** If the server is unavailable, access is denied by default.
 

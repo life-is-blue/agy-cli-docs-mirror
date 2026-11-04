@@ -12,19 +12,19 @@ Welcome to Google Antigravity! Follow the instructions in this guide to get star
     
     macOSmacOS 12 (Monterey) or later (Apple Silicon or 64-bit Intel)
     
-    [Download for Apple Silicon](https://storage.googleapis.com/antigravity-public/antigravity-hub/2.28.2-5937220255875072/darwin-arm/Antigravity.dmg)[Download for Intel](https://storage.googleapis.com/antigravity-public/antigravity-hub/2.28.2-5937220255875072/darwin-x64/Antigravity.dmg)
+    [Download for Apple Silicon](https://storage.googleapis.com/antigravity-public/antigravity-hub/2.29.0-5723181030440960/darwin-arm/Antigravity.dmg)[Download for Intel](https://storage.googleapis.com/antigravity-public/antigravity-hub/2.29.0-5723181030440960/darwin-x64/Antigravity.dmg)
     
     Open the downloaded `Antigravity.dmg` disk image and drag **Antigravity** into your **Applications** folder. If you are upgrading an existing installation, select **Replace** when prompted instead of **Keep Both**.
     
     WindowsWindows 10 (64-bit) or Windows 11
     
-    [Download for x64](https://storage.googleapis.com/antigravity-public/antigravity-hub/2.28.2-5937220255875072/windows-x64/Antigravity-x64.exe)[Download for ARM64](https://storage.googleapis.com/antigravity-public/antigravity-hub/2.28.2-5937220255875072/windows-arm/Antigravity-arm64.exe)
+    [Download for x64](https://storage.googleapis.com/antigravity-public/antigravity-hub/2.29.0-5723181030440960/windows-x64/Antigravity-x64.exe)[Download for ARM64](https://storage.googleapis.com/antigravity-public/antigravity-hub/2.29.0-5723181030440960/windows-arm/Antigravity-arm64.exe)
     
     Run the downloaded `.exe` installer and follow the guided setup wizard.
     
     Linuxglibc >= 2.28, glibcxx >= 3.4.25 (Ubuntu 20+, Debian 10+, Fedora 36+, RHEL 8+)
     
-    [Download for x64](https://storage.googleapis.com/antigravity-public/antigravity-hub/2.28.2-5937220255875072/linux-x64/Antigravity.tar.gz)[Download for ARM64](https://storage.googleapis.com/antigravity-public/antigravity-hub/2.28.2-5937220255875072/linux-arm/Antigravity.tar.gz)
+    [Download for x64](https://storage.googleapis.com/antigravity-public/antigravity-hub/2.29.0-5723181030440960/linux-x64/Antigravity.tar.gz)[Download for ARM64](https://storage.googleapis.com/antigravity-public/antigravity-hub/2.29.0-5723181030440960/linux-arm/Antigravity.tar.gz)
     
     Extract the archive with `tar -xzf Antigravity.tar.gz` and launch `./Antigravity`.
     
@@ -214,22 +214,19 @@ Navigate to any codebase directory in your terminal and start a session:
     Write a simple python script to fetch web page text
     ```
     
-    The agent indexes the workspace, develops an implementation plan, and displays proposed changes for your review.
+    The agent indexes the workspace and creates `main.py` in your workspace (in `auto` mode, the default where the terminal sandbox is available, workspace edits and sandboxed commands run automatically; in `default` mode, press Y when prompted to approve file creation).
     
-3.  Open the **Artifact Review** screen to inspect the proposed code:
+3.  Inspect diffs or review artifacts at any time:
     
-    Press Ctrl + R when notified to review generated artifacts:
-    
-    *   Navigate to the newly created `main.py` using ↑/↓, or press Tab from the main prompt to inspect inline diffs.
-    *   Press Y to approve the creation of `main.py`.
-    *   Press Esc to close the review panel and return to the primary prompt.
+    *   Run `/diff` to open the interactive diff viewer and inspect the changes made in each turn, or press Ctrl + R when notified to review generated artifacts such as implementation plans (press Esc to return to the prompt).
+    *   Press Shift + Tab inside the prompt box if you want to switch between `auto`, `plan`, `default`, and `accept-edits` [execution modes](/docs/cli/modes).
 4.  Execute a test command with the agent to verify the output:
     
     ```text
     Run the python script and show me the output
     ```
     
-    Press Y to confirm and execute `python3 main.py`. Once finished, press Ctrl + D (or type `/exit`) to close the TUI session.
+    In `auto` mode, the agent runs `python3 main.py` inside the terminal sandbox automatically (in `default` mode, press Y to confirm execution). Once finished, press Ctrl + D (or type `/exit`) to close the TUI session.
 
 ### For IDEs
 
@@ -314,7 +311,8 @@ For more about searching conversations, files, and commands, see [Search and com
 | Command | Description |
 | :-- | :-- |
 | `agy` | Launches the interactive TUI in the current directory. |
-| `agy "prompt"` | Launches a session with an initial prompt. |
+| `agy -i "prompt"` | Launches an interactive session with an initial prompt. |
+| `agy -p "prompt"` | Runs a single prompt non-interactively and prints the response. |
 | `/agents` | Switches between active background subagents. |
 | `/statusline` | Toggles or configures the terminal status line display. |
 | `/usage` | Displays current model credit consumption and quota limits. |

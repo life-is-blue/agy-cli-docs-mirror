@@ -32,7 +32,7 @@ Global settings apply across all workspaces:
 
 *   **Account settings**: Manage authentication sessions and toggle telemetry (enable or disable sharing interaction logs to improve models).
 *   **Global permissions**: Centralized default tool boundaries that apply to all conversations:
-    *   **Permission Preset**: Choose **Request Review**, **Default**, **Auto (Preview)** (`v2.23.0+`), or **Turbo**. You can also choose a preset from the permissions picker in the message box composer (`v2.23.0+`), which changes your global preset, or the project’s preset if the project overrides it. To remove a project override, choose **Use Global Settings**.
+    *   **Permission Preset**: Choose **Request Review**, **Default**, **Auto** (_default_; `v2.23.0+` on macOS and Linux, `v2.26.0+` on Windows), or **Turbo**. You can also choose a preset from the permissions picker in the message box composer (`v2.23.0+`), which changes your global preset, or the project’s preset if the project overrides it. To remove a project override, choose **Use Global Settings**.
     *   Fine-grained allow, ask, and deny rules (refer to **[Agent permissions](/docs/permissions)**).
 *   **Appearance**: Customize visual themes and panel layouts.
 *   **Browser integration**: Configure how the agent interacts with web surfaces.
@@ -51,7 +51,7 @@ Project settings apply exclusively within the scope of a specific project:
     *   **Local**: Select this in the new conversation view to work directly in the existing folders.
     *   **Worktree**: Select this to start a new worktree in the folders. If a folder does not have Git, the existing local folder is used instead.
 *   **Agent settings**: Configure project-specific agent behaviors:
-    *   **Permission settings** (updated permission system): Choose the project’s **Permission Preset**—**Inherit Global**, **Request Review**, **Default**, **Auto (Preview)** (`v2.23.0+`), or **Turbo**—controlling how the agent runs shell commands, accesses files, and uses the [terminal sandbox](/docs/sandbox) (refer to **[Agent permissions](/docs/permissions)** and **[Agent settings](/docs/agent-settings)**).
+    *   **Permission settings** (updated permission system): Choose the project’s **Permission Preset**—**Inherit Global**, **Request Review**, **Default**, **Auto** (`v2.23.0+` on macOS and Linux, `v2.26.0+` on Windows), or **Turbo**—controlling how the agent runs shell commands, accesses files, and uses the [terminal sandbox](/docs/sandbox) (refer to **[Agent permissions](/docs/permissions)** and **[Agent settings](/docs/agent-settings)**).
     *   **Terminal execution policy** ([previous permission settings](/docs/agent-settings#previous-permission-settings)): Control how the agent runs shell commands.
     *   **Outside of folder file access policy** (previous permission settings): Define how the agent accesses files outside the project boundary (Always Allow, Always Ask, or Always Deny).
     *   **Sandbox mode** (previous permission settings): Toggle the terminal sandbox container on or off within the custom security preset (refer to **[Terminal sandbox](/docs/sandbox)**).
@@ -197,12 +197,12 @@ The interactive settings panel (`/config`) and `settings.json` allow you to cust
 Manage how the agent interacts with your system and codebase:
 
 *   **Agent Mode (`agentMode`)**: Controls the session execution mode for file edits, command evaluation, and planning (can also be set per session with `--mode` or cycled with Shift + Tab; refer to [Choose an execution mode](/docs/cli/modes)):
-    *   `default` (the default; leave `agentMode` unset): Prompts for interactive diff review before modifying or creating files.
-    *   `accept-edits`: Automatically approves workspace file edits and creations.
-    *   `auto` (Preview): Automatically approves workspace file edits, runs terminal commands inside the [terminal sandbox](/docs/sandbox) by default, and automatically evaluates commands that need to run outside the sandbox so safe, reversible commands run without prompting while risky or irreversible commands pause for approval (shown as `auto` in the bottom-right status bar and `Auto mode: edits & safe commands auto-approved (shift+tab to cycle)` in the prompt input box).
+    *   `auto` (default where available): Automatically approves workspace file edits, runs terminal commands inside the [terminal sandbox](/docs/sandbox) by default, and automatically evaluates commands that need to run outside the sandbox so safe, reversible commands run without prompting while risky or irreversible commands pause for approval (shown as `auto` in the bottom-right status bar and `Auto mode: edits & safe commands auto-approved (shift+tab to cycle)` in the prompt input box).
+    *   `default` (select `default` in `/config`, or `""` in `settings.json`; used when `auto` isn’t available): Prompts for interactive diff review before modifying or creating files, and follows `toolPermission` for commands.
+    *   `accept-edits`: Automatically approves workspace file edits and creations while continuing to follow `toolPermission` for commands.
     *   `plan`: Prepends `/plan` so the agent analyzes the codebase and outlines a plan before making edits.
-*   **Tool Permission (`toolPermission`)**: Controls when the agent asks for your approval before it uses a tool, such as running a terminal command. Deny rules in your [permissions](#permissions) block an action in every mode:
-    *   `request-review` (default): Prompts for your approval before running write, bash, web, or MCP tools, unless an allow rule covers the action.
+*   **Tool Permission (`toolPermission`)**: Controls when the agent asks for your approval before it uses a tool outside `auto` mode (and for `strict` and `always-proceed` overrides). Deny rules in your [permissions](#permissions) block an action in every mode:
+    *   `request-review` (default `toolPermission` value): Prompts for your approval before running write, bash, web, or MCP tools, unless an allow rule covers the action.
     *   `proceed-in-sandbox`: Runs terminal commands without prompting when Sandbox Mode is on and the command runs inside the terminal sandbox; otherwise prompts for review.
     *   `strict`: Prompts before every tool action, including file reads, even when an allow rule matches (overrides `auto` mode).
     *   `always-proceed`: Runs terminal commands, web requests, and MCP tools without prompting, except actions that match an ask or deny rule (highest risk, use with caution; overrides `auto` mode).
@@ -210,12 +210,12 @@ Manage how the agent interacts with your system and codebase:
     *   `asks-for-review` (default; **asks for review** in `/config`): The agent always waits for your review.
     *   `agent-decides` (**agent decides**): Currently works the same as `asks-for-review`.
     *   `always-proceed` (**always proceeds**): The agent continues without waiting for your review.
-*   **Sandbox Mode (`enableTerminalSandbox`)**: When enabled (`on`), restricts all agent-initiated terminal commands to a secure OS container. When `agentMode` is set to `auto`, the terminal sandbox is enabled automatically and only commands that need to run outside the sandbox are evaluated for automatic approval.
+*   **Sandbox Mode (`enableTerminalSandbox`)**: When enabled (`on`), restricts all agent-initiated terminal commands to a secure OS container. When `auto` mode is active (the default where available), the terminal sandbox is enabled automatically and only commands that need to run outside the sandbox are evaluated for automatic approval.
 *   **Non-Workspace Access (`allowNonWorkspaceAccess`)**: When enabled (`on`), lets the agent read and edit files outside your workspace folders, subject to your Tool Permission, Agent Mode, and permission rules. Set to `off` by default for safety.
 
 Note
 
-`auto` mode is available in `v1.3.5+` on **macOS and Linux** and `v1.4.4+` on **Windows**, except for business and enterprise accounts. If `agentMode` is set to `auto` where `auto` isn’t available, the CLI starts in `default` mode. Starting in `v1.4.4`, if the sandbox isn’t available on your machine (for example, on Windows 10, earlier Windows 11 builds, or Linux hosts and some containers that block unprivileged user namespaces), Sandbox Mode has no effect, `/config` hides it along with `proceed-in-sandbox` and `auto`, and a saved `proceed-in-sandbox` behaves like `request-review`.
+`auto` mode is the default in `v1.3.5+` on **macOS and Linux** and `v1.4.4+` on **Windows** for personal accounts when the terminal sandbox is available. Business and enterprise accounts, or machines where `auto` isn’t available, start in `default` mode (`request-review`). Starting in `v1.4.4`, if the sandbox isn’t available on your machine (for example, on Windows 10, earlier Windows 11 builds, or Linux hosts and some containers that block unprivileged user namespaces), Sandbox Mode has no effect, `/config` hides it along with `proceed-in-sandbox` and `auto`, and a saved `proceed-in-sandbox` behaves like `request-review`.
 
 #### Display and rendering
 

@@ -220,5 +220,6 @@ Review the following solutions for common headless daemon issues:
 
 Explore related documentation and guides:
 
+*   [Remote Agents](/docs/remote-agents): Run agent sessions in an isolated remote environment without keeping a local machine online.
 *   [Settings overview](/docs/settings): Explore configuration options across Antigravity.
 *   [Permissions and security](/docs/permissions): Configure permission presets and tool access rules.

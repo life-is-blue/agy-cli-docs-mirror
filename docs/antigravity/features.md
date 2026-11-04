@@ -33,13 +33,13 @@ By default, agents ask before sensitive actions and limit their file access to y
 
 ### Antigravity App
 
-*   **Interactive approvals**: By default, agents request your explicit permission before running terminal commands outside the isolated [Terminal sandbox](/docs/sandbox). With the [previous permission settings](/docs/agent-settings#previous-permission-settings), agents ask before running any terminal command.
+*   **Interactive approvals**: By default (under the **Auto** preset, where the [Terminal sandbox](/docs/sandbox) is available), commands run inside the sandbox without prompting, and commands that need to run outside the sandbox are evaluated automatically so safe, reversible commands proceed while risky or irreversible actions ask for your approval (under the **Default** preset, all commands outside the sandbox ask for approval). With the [previous permission settings](/docs/agent-settings#previous-permission-settings), agents ask before running any terminal command.
 *   **Bounded access**: By default, your agent can only read and write within the provided folders of a project. If you broaden your permission settings (for example, by choosing the **Turbo** preset), the agent has read and write access over your full machine.
 
 ### Antigravity CLI
 
-*   **Interactive approvals**: The default `request-review` permission asks before the agent writes files, runs shell commands, or uses web tools, unless one of your allow rules matches.
-*   **Terminal sandbox**: The [terminal sandbox](/docs/sandbox) is off by default. Turn it on with `enableTerminalSandbox` in `settings.json` or the `--sandbox` flag. `auto` mode turns it on automatically.
+*   **Interactive approvals**: By default (`auto` mode, where the [terminal sandbox](/docs/sandbox) is available on personal accounts), the CLI approves workspace file edits automatically, runs shell commands inside the sandbox, and evaluates commands outside the sandbox so risky or irreversible actions ask for your approval (web and MCP tools still ask unless one of your allow rules matches). Where `auto` mode isn’t available—such as for business and enterprise accounts or on machines without the sandbox—the CLI starts in `default` mode (`request-review`), which asks before writing files or running shell commands.
+*   **Terminal sandbox**: Enabled automatically in `auto` mode (the default where available). In other modes, the [terminal sandbox](/docs/sandbox) is off by default; turn it on with `enableTerminalSandbox` in `settings.json` or the `--sandbox` flag.
 *   **Files outside your workspace**: The agent asks before it reads or edits files outside your workspace folders. To treat those files like workspace files, turn on `allowNonWorkspaceAccess`.
 
 [Learn more about permissions](/docs/permissions) and [the terminal sandbox](/docs/sandbox).
@@ -98,10 +98,12 @@ Antigravity features built-in live voice transcription, allowing you to prompt a
 *   **Live view**: As you speak, your words are transcribed in real time directly into the message box.
 *   **Conversational awareness**: Antigravity gives the speech recognizer your recent conversation and the text around your cursor, so project-specific terms are more likely to come through correctly.
 *   **Where it works**: Use voice in the message box to start conversations and send prompt updates, and in artifact comments to leave precise, inline feedback on plans, code diffs, and deliverables.
+*   **Talk with the agent**: To have a spoken, two-way conversation with the agent instead of dictating, use [voice mode](/docs/voice-mode).
 
 ### Antigravity CLI
 
-*   **Start dictation**: Run `/voice` (alias `/record`) or press F5. Your words appear in the prompt box, where you can edit them before you send.
+*   **Talk with the agent**: Run `/voice live` or press F6 to start [voice mode](/docs/voice-mode), a spoken, two-way conversation with the agent.
+*   **Start dictation**: Run `/voice dictate` or `/record`, or press F5. Your words appear in the prompt box, where you can edit them before you send.
 *   **Dictate over SSH**: When the CLI runs on a remote machine, run `agy mic-serve` on your local machine to stream your microphone to it.
 *   **Availability**: Voice dictation in the CLI isn’t currently available for business or enterprise accounts.
 
@@ -162,6 +164,16 @@ In the left sidebar, click **Customizations**, and then open the **Marketplace**
 
 These features are specific to the Antigravity App.
 
+### Remote Agents
+
+Remote Agents run your agent sessions and tools in an isolated, Google-managed remote environment so tasks continue executing even when your local machine is asleep or offline:
+
+*   **Remote workspaces and resources**: Create remote projects connected to GitHub repositories, Google Drive files, and uploaded files.
+*   **Access from anywhere**: Start and monitor remote conversations from the Antigravity App or any desktop or mobile browser at [antigravity.google.com](https://antigravity.google.com).
+*   **Availability**: Available to **Google AI Pro** and **Google AI Ultra** subscribers signed in with a personal Google Account.
+
+[Learn more about Remote Agents](/docs/remote-agents).
+
 ### Conversations outside of projects
 
 Start quick, one-off conversations outside of any project. These sessions run in a local scratch folder. They have their own settings and permissions in addition to inheriting from global permissions.
@@ -171,6 +183,16 @@ Start quick, one-off conversations outside of any project. These sessions run in
 Press Cmd+K (macOS) or Ctrl+K (Windows and Linux) to search past conversations by title, project, and full text, including your prompts and the agent’s responses. The same command palette also finds files in your project, runs app commands, and starts a conversation in another project.
 
 [Learn more about search and the command palette](/docs/search).
+
+### Voice mode
+
+Talk with the agent out loud, and hear it answer in real time. With Antigravity voice mode, powered by the **Gemini Live** model, click **Start Voice mode** in an empty message box to start a spoken conversation in which you can do the following:
+
+*   **Give and steer tasks**: Ask for work, add details or corrections while the agent works, or tell it to stop.
+*   **Answer by voice**: Allow or deny permission prompts and answer the agent’s questions without clicking. Destructive actions still need a click on screen.
+*   **Hear progress when you want it**: The agent works quietly by default. Ask it to keep you posted, and how often.
+
+[Learn more about voice mode](/docs/voice-mode).
 
 ### Automations
 

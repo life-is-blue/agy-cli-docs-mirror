@@ -28,19 +28,19 @@ The **permission preset** controls how agent actions are approved. Your configur
 | :-- | :-- | :-- | :-- | :-- |
 | **Request Review** | Disabled | Always ask | Workspace only | Ask |
 | **Default** | Enabled | Allowed in sandbox; ask outside | Workspace + temp dirs | Ask |
-| **Auto (Preview)** | Enabled | Allowed in sandbox; checked automatically outside | Workspace + temp dirs | Ask |
+| **Auto** _(default)_ | Enabled | Allowed in sandbox; checked automatically outside | Workspace + temp dirs | Ask |
 | **Turbo** | Disabled | Allowed (unrestricted) | Full filesystem | Allowed |
 
 The two presets that use the sandbox work as follows:
 
-*   **Default** (_“Ask before sensitive operations.”_): Terminal commands run inside the isolated **[Terminal sandbox](/docs/sandbox)** with access restricted to your workspace and temp directories and **no network access**. When a command needs network connectivity or host resources, the agent requests to run it outside the sandbox—prompting for your approval unless covered by a `command(...)` allow rule.
-*   **Auto (Preview)** (_“Automatically decide if commands run.”_): Commands also run inside the terminal sandbox by default. When a command needs to run outside the sandbox, Antigravity automatically evaluates it so safe, reversible commands run without prompting, while risky or irreversible commands still ask for your approval.
+*   **Auto** (_“Automatically decide if commands run.”_; default): Selected by default when the terminal sandbox is available. Commands run inside the isolated **[Terminal sandbox](/docs/sandbox)** with access restricted to your workspace and temp directories and **no network access**. When a command needs network connectivity or host resources outside the sandbox, Antigravity automatically evaluates it so safe, reversible commands run without prompting, while risky or irreversible commands still ask for your approval.
+*   **Default** (_“Ask before sensitive operations.”_): Commands also run inside the terminal sandbox by default. When a command needs to run outside the sandbox, the agent always prompts for your approval unless covered by a `command(...)` allow rule.
 
 Refer to **[Agent settings](/docs/agent-settings)** for more detail on each preset.
 
 Note
 
-**Auto (Preview)** is available in `v2.23.0+`. It isn’t currently available for business or enterprise accounts, including [Antigravity in Gemini Enterprise](/docs/enterprise).
+**Auto** (labeled **Auto (Preview)** in earlier versions) is the default preset where available (`v2.23.0+` on macOS and Linux, `v2.26.0+` on Windows, when the [Terminal sandbox](/docs/sandbox) is available). It isn’t currently available for business or enterprise accounts, including [Antigravity in Gemini Enterprise](/docs/enterprise); where **Auto** isn’t available, Antigravity uses **Default** (or **Request Review** if the sandbox isn’t available).
 
 #### Change your permission preset
 
@@ -123,7 +123,7 @@ When the agent encounters an operation requiring approval (**Ask** mode), an int
 
 #### Terminal commands and the sandbox
 
-Under the **Default** and **Auto (Preview)** presets, the agent runs terminal commands inside an isolated [Terminal sandbox](/docs/sandbox), which by default has access only to your workspace and system temp directories, and no network access. Commands can run without manual approval in the sandbox, and your permission grants can further shape what the sandbox can reach:
+Under the **Auto** and **Default** presets, the agent runs terminal commands inside an isolated [Terminal sandbox](/docs/sandbox), which by default has access only to your workspace and system temp directories, and no network access. Commands can run without manual approval in the sandbox, and your permission grants can further shape what the sandbox can reach:
 
 *   Paths granted under `read_file` dynamically populate the sandbox’s read-only filesystem allowlist.
 *   Paths granted under `write_file` dynamically populate the sandbox’s read-write filesystem allowlist.
@@ -131,14 +131,14 @@ Under the **Default** and **Auto (Preview)** presets, the agent runs terminal co
 
 Because some commands cannot run in the sandbox—for example, those requiring network access—the agent can still choose to run commands outside the sandbox:
 
-*   **Default**: Such commands prompt for your approval unless already allowed or denied by a `command` rule.
-*   **Auto (Preview)** (`v2.23.0+`): Antigravity automatically evaluates commands that need to run outside the sandbox so safe, reversible commands proceed without prompting, while risky or irreversible commands still require approval.
+*   **Auto** _(default)_: Antigravity automatically evaluates commands that need to run outside the sandbox so safe, reversible commands proceed without prompting, while risky or irreversible commands still require approval.
+*   **Default**: Commands outside the sandbox prompt for your approval unless already allowed or denied by a `command` rule.
 
 #### Default system behaviors and guardrails
 
 When an action isn’t explicitly listed in your Allow, Deny, or Ask lists, Antigravity falls back to secure system defaults:
 
-1.  **Commands**: Under the **Default** preset, commands run without prompting inside the sandbox and require approval to run outside it. Under **Auto (Preview)**, safe commands outside the sandbox run without prompting, while sensitive or irreversible commands pause for approval.
+1.  **Commands**: By default (under the **Auto** preset), commands run without prompting inside the sandbox, and safe, reversible commands outside the sandbox also run without prompting while sensitive or irreversible commands pause for approval. Under the **Default** preset, all commands outside the sandbox require approval.
 2.  **Workspace files**: Reading and writing files inside your active project directory is allowed without prompting, while non-workspace files require approval.
 3.  **Web browsing defaults to Ask**: Actions for `read_url` and `execute_url` default to **Ask**. Before the agent navigates to or actuates on any web page, it pauses and prompts for your explicit approval unless an allow rule is configured.
 4.  **MCP tools default to Ask**: Unconfigured MCP tool calls prompt for approval.
@@ -382,23 +382,25 @@ On Windows shells like PowerShell or Command Prompt, commands that can’t be cl
 
 When an action isn’t explicitly listed in your `allow`, `deny`, or `ask` lists, the system falls back to secure system defaults:
 
-1.  **Workspaces are auto-allowed**: In standard operation, reading and writing files inside your active project directory is automatically allowed.
-2.  **Web browsing defaults to Ask**: Actions for `read_url` and `execute_url` default to **Ask**. Before the agent navigates to or actuates on any web page, it pauses and prompts for your approval unless an allow rule is configured.
-3.  **Unconfigured actions default to Ask**: All other unconfigured actions (`command`, `mcp`, `execute_url`, and non-workspace files) default to **Ask**, subject to your active execution mode and `toolPermission` setting.
+1.  **Workspaces are auto-allowed**: In standard operation, reading and writing files inside your active project directory is automatically allowed (and approved without interactive diff prompts in `auto` and `accept-edits` modes).
+2.  **Commands run in the sandbox in `auto` mode**: When `auto` mode is active (the default where available), commands run inside the [Terminal sandbox](/docs/sandbox) without prompting, and commands that need to run outside the sandbox are evaluated automatically so only risky or irreversible actions pause for approval.
+3.  **Web browsing defaults to Ask**: Actions for `read_url` and `execute_url` default to **Ask**. Before the agent navigates to or actuates on any web page, it pauses and prompts for your approval unless an allow rule is configured.
+4.  **Other unconfigured actions default to Ask**: Unconfigured `mcp` tools, non-workspace file access, and commands outside `auto` mode default to **Ask**, subject to your active execution mode and `toolPermission` setting.
 
 ### Execution modes and the terminal sandbox
 
 Your fine-grained `allow`, `ask`, and `deny` rules always take precedence (`Deny > Ask > Allow`). For operations not covered by an explicit rule, Antigravity CLI evaluates your active [execution mode](/docs/cli/modes) (`--mode` or `agentMode` in `settings.json`) and `toolPermission` policy:
 
-*   **`auto` mode (`--mode=auto` or `"agentMode": "auto"`, Preview)**: Automatically approves workspace file edits and runs terminal commands inside the [Terminal sandbox](/docs/sandbox) by default. When a command needs to run outside the sandbox, Antigravity CLI automatically evaluates it so safe, reversible commands run without prompting, while risky or irreversible commands still pause for your approval. When active, the bottom-right status bar displays `auto` and the prompt placeholder reads `Auto mode: edits & safe commands auto-approved (shift+tab to cycle)`.
+*   **`auto` mode (`--mode=auto` or `"agentMode": "auto"`, default)**: Automatically approves workspace file edits and runs terminal commands inside the [Terminal sandbox](/docs/sandbox) by default. When a command needs to run outside the sandbox, Antigravity CLI automatically evaluates it so safe, reversible commands run without prompting, while risky or irreversible commands still pause for your approval. When active, the bottom-right status bar displays `auto` and the prompt placeholder reads `Auto mode: edits & safe commands auto-approved (shift+tab to cycle)`.
 *   **`accept-edits` mode (`--mode=accept-edits`)**: Automatically approves workspace file edits and creations while continuing to evaluate shell commands against your `toolPermission` policy and fine-grained rules.
+*   **`default` mode (select `default` in `/config`)**: Prompts for interactive diff review before modifying or creating files, and evaluates shell commands against your `toolPermission` policy (`request-review` by default).
 *   **`toolPermission` overrides**: `strict` and `always-proceed` (`--dangerously-skip-permissions`) take precedence over `auto` mode. Outside `auto` mode, `proceed-in-sandbox` runs sandboxed commands without prompting and asks before commands outside the sandbox. Starting in `v1.4.4`, if the sandbox isn’t available on your machine, `proceed-in-sandbox` behaves like `request-review` (refer to [Terminal sandbox](/docs/sandbox)).
 
 Refer to **[Choose an execution mode](/docs/cli/modes)** for details on switching modes with Shift + Tab, `--mode`, or `/config`.
 
 Note
 
-`auto` mode is available in `v1.3.5+` on **macOS and Linux** and `v1.4.4+` on **Windows**, wherever the terminal sandbox is available.
+`auto` mode is the default execution mode where available (`v1.3.5+` on **macOS and Linux** and `v1.4.4+` on **Windows**, when the terminal sandbox is available and you’re signed in with a personal account). Where `auto` mode isn’t available—such as for business and enterprise accounts or on machines without the terminal sandbox—the CLI starts in `default` mode (`request-review`).
 
 * * *
 

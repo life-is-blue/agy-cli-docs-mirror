@@ -6,9 +6,60 @@ New versions roll out gradually and may take a few days to reach all users.
 
 ## Antigravity App
 
-### [v2.28.2](/releases?tab=hub&version=2.28.2 "View release 2.28.2")
+### [v2.29.0](/releases?tab=hub&version=2.29.0 "View release 2.29.0")
 
 Latest
+
+November 3, 2026
+
+### Jupyter notebook viewer, redesigned Automations, voice mode, and remote agents
+
+This release adds a native Jupyter notebook viewer, redesigned Home and Automations pages, and downloads and browsing history in the built-in browser. Voice mode, powered by Gemini Live, and remote agents, which run conversations in the cloud, are starting to roll out.
+
+**Improvements:**
+
+*   Jupyter notebook .ipynb files now open natively in the file viewer, rendering code cells, Markdown, tables, images, and cell outputs without leaving Antigravity.
+*   Voice mode, powered by Gemini Live, lets you talk to Antigravity and hand requests to the agent by voice. Start it from the button in an empty message box. Voice mode is rolling out gradually, so you may not see it yet.
+*   Remote agents are starting to roll out to Google AI Ultra and Pro subscribers. Conversations in a cloud project run in the cloud instead of on your computer, and you can also open them at antigravity.google.com/remote.
+*   The new-conversation page now greets you at the top and pins the message box to the bottom. Single-repo projects combine branch and Git worktree selection into one menu, and the agent picker now lives inside the model menu.
+*   The Automations page now organizes automations into Scheduled, Always on, and Paused lists with Next run and Last run times, plain-menu schedule pickers, in-page details, and a full-page creation form.
+*   Long conversations in the conversation navigator now label each collapsed chapter card with a short AI-generated title instead of only a date.
+*   The built-in browser now saves downloads directly to your downloads folder without blocking prompts, shows progress in a toolbar downloads drawer, and lets you choose a default download folder under Settings > General.
+*   Typing in the built-in browser's address bar now suggests matching pages from your browsing history, and you can clear saved history under Settings > General.
+*   The built-in browser has a redesigned address bar with clearer connection security indicators, a thin loading progress bar along the top of the page, and an in-page prompt dialog when a site asks for text input.
+*   You can now open a web address or search Google from the side panel's New Tab page, drag links into the side panel to open them in the built-in browser, and close tabs to the left from a tab's menu.
+*   Settings > Appearance now includes a Fill option that expands conversations to the full width of the center pane, a Font menu to switch between System UI, Inter, and Google Sans, and a Screen Reader Mode toggle under Accessibility.
+*   If you haven't picked your own, Antigravity now uses the Onyx theme and the Google Sans font. You can change both under Settings > Appearance.
+*   You can now customize keyboard shortcuts in Settings > Shortcuts, and reset any of them to the default.
+*   Code blocks and diffs now load syntax highlighting on demand across 173 languages, and the file tree and tabs include file icons for more than 30 additional languages and config formats.
+*   The Overview panel's Review row and the Review tab header now show total added and deleted line counts across changed files in your Git repository.
+*   Opening antigravity:// links can now jump directly to a plugin or skill in the Marketplace, or open a new conversation with the prompt filled in for you to review and send.
+*   The Git branch menu now adds a search box when a repository has more than 15 branches, refreshes automatically when you return to the window, and shows the checked-out commit hash when in detached HEAD state.
+*   Agent question cards can now be collapsed while you read earlier messages and are automatically canceled if you send a new reply instead, and each permission preset in the message box now has its own icon.
+*   In conversation search, you can now unarchive an archived conversation directly from its row, and the Automations filter includes archived automation runs.
+*   Opening an image from a Markdown carousel now lets you step through every slide in the full-screen viewer, and Mermaid diagrams open in the same viewer with zoom, copy, and download controls.
+*   Plugins that support optional API keys for higher rate limits now work right away without requiring an API key to be configured first.
+*   Antigravity now launches faster on cold start, and opening or closing the sidebar and side panel animates smoothly without layout jumps.
+
+**Fixes:**
+
+*   Fixed an issue where Antigravity did not restore its window size, position, maximized state, or full-screen state after restarting.
+*   Fixed an issue on macOS where dragging the window from gaps between buttons or static breadcrumbs in the title bar did not move the window.
+*   Fixed an issue where Sign in with Google redirects and OAuth sign-in popups failed inside the built-in browser.
+*   Fixed an issue where the built-in browser shifted its address bar layout when switching between tabs.
+*   Fixed an issue where mailto: links and links that open external apps failed with a "File not found" error instead of opening your mail app or asking before opening the external app.
+*   Fixed an issue where some file types such as .json were blocked from being attached, dragged in-app images inserted links instead of image attachments, and draft image previews failed to load on Windows.
+*   Fixed an issue where sending a message while the agent was idle could place it in the queue instead of starting a turn right away, and where editing a queued message did not load its text into the message box immediately.
+*   Fixed an issue where switching to a deleted Git branch could overwrite a file of the same name, and where Git worktrees created for subagents did not carry over uncommitted local changes.
+*   Fixed an issue where subagent rows in a conversation and subagent tabs in the side panel stopped updating their live working or waiting status.
+*   Fixed an issue where conversations from deleted local project folders disappeared from the sidebar when project grouping was off, and where selecting a sidebar conversation while holding Shift opened the external browser.
+*   Fixed an issue where shell variables in command approval options and dollar prices in Markdown tables or sentences broke text and math formatting.
+*   Fixed an issue where generated Hebrew conversation titles could contain stray Arabic characters, and where switching Marketplace tabs briefly flashed the full catalog while a search was active.
+*   Fixed an issue where a background conversation database watcher could loop repeatedly and cause high CPU usage.
+
+---
+
+### [v2.28.2](/releases?tab=hub&version=2.28.2 "View release 2.28.2")
 
 October 29, 2026
 
@@ -1276,9 +1327,48 @@ Antigravity 2.0 Launch bug fixes.
 
 ## Antigravity CLI
 
-### [v1.4.10](/releases?tab=cli&version=1.4.10 "View release 1.4.10")
+### [v1.4.12](/releases?tab=cli&version=1.4.12 "View release 1.4.12")
 
 Latest
+
+October 30, 2026
+
+### Optional plugin API key providers and streaming Markdown table scrollback alignment
+
+Adds optional API key support in plugin auth.json configurations for services with unauthenticated free tiers, and keeps streaming Markdown tables in the live view until complete so terminal scrollback renders with aligned column widths.
+
+**Improvements:**
+
+*   Added `"optional": true` for API key providers in a plugin's `auth.json`, for services that work without a key but raise rate limits with one: when you haven't set the key, the plugin's commands now see the variable as unset and make unauthenticated requests at the free rate limit, instead of failing with `401` errors or asking you to sign in.
+
+**Fixes:**
+
+*   Fixed Markdown tables in long streaming replies leaving misaligned borders and repeated text in your terminal scrollback: a table's rows now stay in the live view until the table is complete, so they reach scrollback with their final column widths.
+
+---
+
+### [v1.4.11](/releases?tab=cli&version=1.4.11 "View release 1.4.11")
+
+October 30, 2026
+
+### Google Cloud billing model selection, PreInvocation hook termination, JSON finished\_reason reporting, and Claude plugin MCP import fixes
+
+Adds Google Cloud sign-in billing model selection (Gemini subscription or Pay As You Go), PreInvocation hook turn termination and custom error messages, a finished\_reason field in JSON output modes, collapsible shelves in the /plugin Discover tab, and expanded Claude Code marketplace plugin and remote MCP server import.
+
+**Improvements:**
+
+*   Added a billing model choice after you sign in with Google Cloud, so you can pick either a Gemini subscription or Pay As You Go.
+*   Added `terminationBehavior` to `PreInvocation` hooks: returning `"terminate"` stops the turn before the model is called, for example to block a prompt that contains sensitive data, and hooks can now inject an `errorMessage` whose `userMessage` is shown to you without being sent to the model, which also makes a `-p` run exit with a non-zero code.
+*   Added a `finished_reason` field to the result of `--output-format json` and `stream-json` runs that says why a turn ended early, `print_timeout` when `--print-timeout` expired and the response is partial, `interrupted` when the run was canceled such as with `Ctrl+C`, or `error` for any other failure, so scripts can tell a cut-off answer from a complete one; the field is omitted when the turn finishes normally.
+*   Improved the `/plugin` Discover tab for long shelves: each shelf now shows its first 6 plugins followed by a `⋯ N more — enter to show` row, `Ctrl+E` expands or collapses the shelf under the cursor, and `[` and `]` jump to the previous or next shelf.
+
+**Fixes:**
+
+*   Fixed `agy plugin import claude` printing `No claude extensions found.` for plugins installed from a Claude Code marketplace: it now reads Claude Code's list of installed plugins, skipping plugins disabled in Claude Code's settings and plugins installed for a single project only, and imported plugins now keep their remote MCP servers (`"type": "http"` with `url` and `headers`) and servers from `.mcp.json` files without an `mcpServers` wrapper, expand `${CLAUDE_PLUGIN_ROOT}` to the installed plugin's directory, and list servers that can't be converted, such as ones using the legacy SSE transport, with a warning instead of reporting them as installed.
+
+---
+
+### [v1.4.10](/releases?tab=cli&version=1.4.10 "View release 1.4.10")
 
 October 29, 2026
 

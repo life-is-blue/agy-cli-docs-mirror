@@ -92,6 +92,10 @@
         "slug": "antigravity/projects"
       },
       {
+        "label": "Remote Agents",
+        "slug": "antigravity/remote-agents"
+      },
+      {
         "label": "Remote Control",
         "slug": "antigravity/remote-control"
       },
@@ -140,6 +144,10 @@
         "slug": "antigravity/teamwork"
       },
       {
+        "label": "Voice mode",
+        "slug": "antigravity/voice-mode"
+      },
+      {
         "label": "Walkthrough",
         "slug": "antigravity/walkthrough"
       }
@@ -185,6 +193,10 @@
     "label": "Antigravity CLI",
     "collapsed": true,
     "items": [
+      {
+        "label": "Agent Client Protocol (ACP)",
+        "slug": "antigravity/cli/acp"
+      },
       {
         "label": "Reviewing artifacts",
         "slug": "antigravity/cli/artifacts"
@@ -246,7 +258,7 @@
         "slug": "antigravity/cli/commands/usage"
       },
       {
-        "label": "Voice dictation (/voice)",
+        "label": "Voice mode and dictation (/voice)",
         "slug": "antigravity/cli/commands/voice"
       },
       {

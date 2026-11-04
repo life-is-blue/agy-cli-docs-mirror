@@ -23,6 +23,7 @@
   - [Plan (/plan)](antigravity/plan.md)
   - [Plugins](antigravity/plugins.md)
   - [Projects](antigravity/projects.md)
+  - [Remote Agents](antigravity/remote-agents.md)
   - [Remote Control](antigravity/remote-control.md)
   - [Review changes](antigravity/review-changes.md)
   - [Rules](antigravity/rules.md)
@@ -35,6 +36,7 @@
   - [Slash commands overview](antigravity/slash-commands.md)
   - [Custom subagents](antigravity/subagents.md)
   - [Teamwork agent teams (/teamwork)](antigravity/teamwork.md)
+  - [Voice mode](antigravity/voice-mode.md)
   - [Walkthrough](antigravity/walkthrough.md)
 - Get Started
   - [Build with Google](antigravity/build-with-google.md)
@@ -45,6 +47,7 @@
 - Changelog
   - [Changelog](antigravity/changelog.md)
 - Antigravity CLI
+  - [Agent Client Protocol (ACP)](antigravity/cli/acp.md)
   - [Reviewing artifacts](antigravity/cli/artifacts.md)
   - [CLI best practices](antigravity/cli/best-practices.md)
   - [Agents command (/agents)](antigravity/cli/commands/agents.md)
@@ -60,7 +63,7 @@
   - [Status line command (/statusline)](antigravity/cli/commands/statusline.md)
   - [Window title command (/title)](antigravity/cli/commands/title.md)
   - [Model quotas (/usage)](antigravity/cli/commands/usage.md)
-  - [Voice dictation (/voice)](antigravity/cli/commands/voice.md)
+  - [Voice mode and dictation (/voice)](antigravity/cli/commands/voice.md)
   - [Managing conversations](antigravity/cli/conversations.md)
   - [CLI AI credits](antigravity/cli/credits.md)
   - [Migration](antigravity/cli/gcli-migration.md)

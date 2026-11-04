@@ -29,7 +29,7 @@ For the core reasoning model, Antigravity offers leading frontier models. Availa
 | Claude Opus 4.6 (thinking)\* | ✅ | ✅ | ❌ | ❌ |
 | GPT-OSS-120b\* | ✅ | ✅ | ✅ | ❌ |
 
-\* Will be removed on November 2, 2026.
+\* Will be removed on November 18, 2026.
 
 \*\* Available on Google AI Pro for non-trial subscriptions only. To cancel your trial and switch to a paid Google AI Pro plan, [submit a request](https://one.google.com/support).
 

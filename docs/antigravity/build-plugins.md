@@ -383,7 +383,6 @@ tools:
   - view_file
   - grep_search
   - find_by_name
-  - code_search
   - send_message
 inheritMcp: true
 ---
@@ -482,7 +481,7 @@ Command hooks run with their working directory (`cwd`) set to `<plugin-root>`, r
 | `PreInvocation` | Before the model processes a user turn | _(none — flat handler array)_ | Return `{"injectSteps": [...]}` to attach dynamic context before model generation. |
 | `PostInvocation` | After the model finishes its response turn | _(none — flat handler array)_ | Return `{"injectSteps": [...], "terminationBehavior": "force_continue"}` for post-turn checks. |
 | `PreToolUse` | Before a tool executes | Tool name regex (`"run_command"`, `"mcp:.*"`) | Return `{"decision": "deny", "reason": "..."}` to block, `"ask"` / `"force_ask"` to prompt, or `"overwrite": {...}` to rewrite arguments. |
-| `PostToolUse` | After a tool completes | Tool name regex | Return `{"overwriteResult": "..."}` to redact or transform tool output (`"command"` hooks only). |
+| `PostToolUse` | After a tool completes | Tool name regex | Receives the tool call and any error (not the tool output). Use it to log or audit tool calls, and return `{}`. |
 | `Stop` | Before the agent loop finishes | _(none — flat handler array)_ | Return `{"decision": "block", "reason": "..."}` to prevent completion until checks pass, or `"continue"`. |
 
 * * *
