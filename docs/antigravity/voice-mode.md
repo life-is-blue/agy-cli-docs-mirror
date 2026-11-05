@@ -61,7 +61,7 @@ To start voice mode, do the following:
 
 1.  With the message box empty, click **Start Voice mode**. It’s the round button with sound bars next to the dictation microphone, and it appears only while the message box is empty. When the agent is idle, it appears in place of **Send**. While the agent is working, it appears next to the button that stops the agent.
     
-    ![The message box in the Antigravity App with the bookmarks project and main branch above an empty prompt, the Gemini 4 Argon Medium model and Default permission pickers, the dictation microphone, and the round Start Voice mode button with its tooltip](/assets/image/docs/voice-mode/voice-mode-start-button.png)
+    ![The message box in the Antigravity App with an empty prompt, the Gemini Pro Next model and Default permission pickers, the dictation microphone, and the round Start Voice mode button with its tooltip](/assets/image/docs/voice-mode/voice-mode-start-button.png)
     
 2.  If the Antigravity App asks for access to your microphone, allow it.
     
@@ -176,7 +176,7 @@ To mute or unmute the agent’s voice from the keyboard, press Shift+Option+M on
 
 When you switch to a different conversation while voice mode is on, voice mode keeps going, and a floating dock appears in the corner of the window so that you can still control it:
 
-![The floating voice mode dock next to the message box: a pencil button, a glowing orb with the tooltip Back to Project Tag Filter Explained, a microphone button, and a red button that ends voice mode](/assets/image/docs/voice-mode/voice-mode-dock.png)
+![The floating voice mode dock next to the message box: a pencil button, a glowing orb with the tooltip Back to Fix Tag Filter Clearing Bug, a microphone button, and a red button that ends voice mode](/assets/image/docs/voice-mode/voice-mode-dock.png)
 
 From the dock, you can do the following:
 
@@ -203,11 +203,11 @@ While voice mode is on, the window that you’re talking in doesn’t play notif
 
 When voice mode ends, the conversation shows a **Stopped voice chat** marker with how long voice mode was on, and a **Voice transcript** card:
 
-![In the conversation, a Stopped voice chat · 2m 02s divider above a Voice transcript card that shows 9 AM · 2m 02s and an Open button](/assets/image/docs/voice-mode/voice-mode-transcript.png)
+![In the conversation, a Stopped voice chat · 3m 35s divider above a Voice transcript card that shows 8 PM · 3m 35s and an Open button](/assets/image/docs/voice-mode/voice-mode-transcript.png)
 
 To read what you and the agent said, click **Open** on the card. The **Voice transcript** pane opens next to the conversation. To copy the whole transcript, click **Copy transcript** at the top of the pane.
 
-![The Voice transcript pane: the spoken request Hey, so the tag filter isn't clearing when I hit clear. Can you fix it and just let me know when it's done? at 9 AM, the agent's reply I'll check into that code right now., a Worked for 1m row, and the spoken result, with a Copy transcript button at the top](/assets/image/docs/voice-mode/voice-mode-transcript-pane.png)
+![The Voice transcript pane: the spoken request The tag filter isn't clearing when I hit clear. Can you fix it and just let me know when it's done? at 8 PM, the agent's reply I'll look into the code to see why the tag filter isn't clearing properly., a Worked for 2m row, and the spoken result, with a Copy transcript button at the top](/assets/image/docs/voice-mode/voice-mode-transcript-pane.png)
 
 The transcript is saved on your computer, and it’s deleted when you delete the conversation.
 
@@ -232,7 +232,7 @@ To dictate a prompt instead, end voice mode first, and then run `/voice dictate`
 
 Voice settings are in **Settings** > **General** > **Voice mode**:
 
-![The Voice mode section in Settings, with a Voice row described as The voice used in Voice mode. Powered by Gemini Live. that shows Arlo and a Change button, a Microphone row set to System default, and a Volume row described as How loud Antigravity's voice is. with a slider at 100%](/assets/image/docs/voice-mode/voice-mode-settings-voice.png)
+![The Voice mode section in Settings, with a Voice row described as The voice used in Voice mode. Powered by Gemini Live. that shows Fola and a Change button, a Microphone row set to System default, and a Volume row described as How loud Antigravity's voice is. with a slider at 100%](/assets/image/docs/voice-mode/voice-mode-settings-voice.png)
 
 To change your voice settings, do the following:
 

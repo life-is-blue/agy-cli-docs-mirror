@@ -33,13 +33,13 @@ By default, agents ask before sensitive actions and limit their file access to y
 
 ### Antigravity App
 
-*   **Interactive approvals**: By default (under the **Auto** preset, where the [Terminal sandbox](/docs/sandbox) is available), commands run inside the sandbox without prompting, and commands that need to run outside the sandbox are evaluated automatically so safe, reversible commands proceed while risky or irreversible actions ask for your approval (under the **Default** preset, all commands outside the sandbox ask for approval). With the [previous permission settings](/docs/agent-settings#previous-permission-settings), agents ask before running any terminal command.
+*   **Interactive approvals**: By default, commands run inside the isolated [Terminal sandbox](/docs/sandbox) without prompting, and agents request your explicit permission before running terminal commands outside it. Under the **Auto** preset, commands outside the sandbox are evaluated automatically so safe, reversible commands proceed while risky or irreversible actions ask for your approval. With the [previous permission settings](/docs/agent-settings#previous-permission-settings), agents ask before running any terminal command.
 *   **Bounded access**: By default, your agent can only read and write within the provided folders of a project. If you broaden your permission settings (for example, by choosing the **Turbo** preset), the agent has read and write access over your full machine.
 
 ### Antigravity CLI
 
-*   **Interactive approvals**: By default (`auto` mode, where the [terminal sandbox](/docs/sandbox) is available on personal accounts), the CLI approves workspace file edits automatically, runs shell commands inside the sandbox, and evaluates commands outside the sandbox so risky or irreversible actions ask for your approval (web and MCP tools still ask unless one of your allow rules matches). Where `auto` mode isn’t available—such as for business and enterprise accounts or on machines without the sandbox—the CLI starts in `default` mode (`request-review`), which asks before writing files or running shell commands.
-*   **Terminal sandbox**: Enabled automatically in `auto` mode (the default where available). In other modes, the [terminal sandbox](/docs/sandbox) is off by default; turn it on with `enableTerminalSandbox` in `settings.json` or the `--sandbox` flag.
+*   **Interactive approvals**: The default `request-review` permission asks before the agent writes files, runs shell commands, or uses web tools, unless one of your allow rules matches. In [`auto` mode](/docs/cli/modes), the CLI approves workspace file edits, runs shell commands inside the [terminal sandbox](/docs/sandbox), and evaluates commands outside the sandbox so only risky or irreversible actions ask for your approval.
+*   **Terminal sandbox**: The [terminal sandbox](/docs/sandbox) is off by default. Turn it on with `enableTerminalSandbox` in `settings.json` or the `--sandbox` flag. `auto` mode turns it on automatically.
 *   **Files outside your workspace**: The agent asks before it reads or edits files outside your workspace folders. To treat those files like workspace files, turn on `allowNonWorkspaceAccess`.
 
 [Learn more about permissions](/docs/permissions) and [the terminal sandbox](/docs/sandbox).
@@ -131,6 +131,26 @@ In **Settings**, open **Application** and turn on **Enable Remote Control**. You
 
 [Learn more about Remote Control](/docs/remote-control).
 
+### Remote Agents
+
+Remote Agents run your agent sessions and tools in an isolated, Google-managed remote environment so tasks continue executing even when your local machine is asleep or offline:
+
+*   **Remote workspaces and resources**: Create remote projects connected to GitHub repositories, Google Drive files, and uploaded files.
+*   **Access from anywhere**: Start and monitor remote conversations from the Antigravity App, the Antigravity CLI, or any desktop or mobile browser at [antigravity.google.com](https://antigravity.google.com).
+*   **Availability**: Available to **Google AI Pro** and **Google AI Ultra** subscribers signed in with a personal Google Account.
+
+To start a remote conversation:
+
+### Antigravity App
+
+In the left sidebar, click **+** next to **Projects** and select **New Remote Project**, or open [antigravity.google.com](https://antigravity.google.com) in any browser.
+
+### Antigravity CLI
+
+Start the CLI with the `--remote-agent` flag. Add `--project` to open a specific remote project, and run `/projects` to create remote projects and attach resources.
+
+[Learn more about Remote Agents](/docs/remote-agents).
+
 ### Skills, rules, and MCP servers
 
 Extend what the agent knows and can do. These customizations work in both the App and the CLI:
@@ -163,16 +183,6 @@ In the left sidebar, click **Customizations**, and then open the **Marketplace**
 ## Antigravity App features
 
 These features are specific to the Antigravity App.
-
-### Remote Agents
-
-Remote Agents run your agent sessions and tools in an isolated, Google-managed remote environment so tasks continue executing even when your local machine is asleep or offline:
-
-*   **Remote workspaces and resources**: Create remote projects connected to GitHub repositories, Google Drive files, and uploaded files.
-*   **Access from anywhere**: Start and monitor remote conversations from the Antigravity App or any desktop or mobile browser at [antigravity.google.com](https://antigravity.google.com).
-*   **Availability**: Available to **Google AI Pro** and **Google AI Ultra** subscribers signed in with a personal Google Account.
-
-[Learn more about Remote Agents](/docs/remote-agents).
 
 ### Conversations outside of projects
 
@@ -218,7 +228,7 @@ Use the built-in browser to check your running app or read documentation in the 
 
 To point the agent to part of a page, select text and click **Comment** (C) to leave feedback, or **Quote** (Cmd+L on macOS, Ctrl+L on Windows and Linux) to add the text to your message. The agent receives the page URL and the selected text with your next message.
 
-![Text selected on a web page in the built-in browser, with a popup that offers Comment (C) and Quote (Ctrl+L)](/assets/image/docs/browser/built-in-browser-comment.png)
+![Text selected on a web page in the built-in browser, with a popup that offers Comment C and Quote ⌘L](/assets/image/docs/browser/built-in-browser-comment.png)
 
 To have the agent browse and test pages for you, use the [`/browser` command](/docs/commands/browser), which runs the browser subagent in Google Chrome.
 

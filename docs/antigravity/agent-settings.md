@@ -13,21 +13,21 @@ Configure how the Antigravity agent executes terminal commands, modifies files, 
 This setting controls how agent actions—terminal commands, file access, MCP tools, and web page reads—are approved using a **permission preset**:
 
 *   **Request Review** (_“Every command requires approval.”_): The sandbox is off and every terminal command requires approval. The agent can read and write the workspace, and needs approval for anything else.
-*   **Default** (_“Ask before sensitive operations.”_): Commands run without prompting inside the [Terminal sandbox](/docs/sandbox); running outside the sandbox requires approval. The agent can read and write the workspace and temp directories, and needs approval for anything else.
-*   **Auto** (_“Automatically decide if commands run.”_; default): Selected by default when the [Terminal sandbox](/docs/sandbox) is available. Commands run without prompting inside the sandbox, and the agent can read and write workspace and temporary directories without asking. When a command needs to run outside the sandbox, Antigravity automatically evaluates it so safe, reversible commands proceed without prompting while risky or irreversible actions still pause for your approval.
+*   **Default** (_“Ask before sensitive operations.”_; default): Commands run without prompting inside the [Terminal sandbox](/docs/sandbox); running outside the sandbox requires approval. The agent can read and write the workspace and temp directories, and needs approval for anything else.
+*   **Auto** (_“Automatically decide if commands run.”_): Commands run without prompting inside the [Terminal sandbox](/docs/sandbox), and the agent can read and write workspace and temporary directories without asking. When a command needs to run outside the sandbox, Antigravity automatically evaluates it so safe, reversible commands proceed without prompting while risky or irreversible actions still pause for your approval.
 *   **Turbo** (_“Run all commands without restrictions.”_): All commands run without prompting with no isolation or restrictions, and the agent has full read and write access to your filesystem.
 
 Your configured allow, deny, and ask permission rules are layered on top of the preset and always take precedence. To learn more, refer to **[Agent permissions](/docs/permissions)**.
 
 Note
 
-**Auto** (labeled **Auto (Preview)** in earlier versions) is the default preset where available (`v2.23.0+` on macOS and Linux, `v2.26.0+` on Windows, when the [Terminal sandbox](/docs/sandbox) is available). It isn’t currently available for business or enterprise accounts, including [Antigravity in Gemini Enterprise](/docs/enterprise); where **Auto** isn’t available, Antigravity uses **Default** (or **Request Review** if the sandbox isn’t available).
+**Default** is selected by default (**Request Review** if the [Terminal sandbox](/docs/sandbox) isn’t available). **Auto** (shown as **Auto (Preview)** in version 2.29.0 and earlier) is available in `v2.23.0+` on macOS and Linux and `v2.26.0+` on Windows when the sandbox is available. It isn’t currently available for business or enterprise accounts, including [Antigravity in Gemini Enterprise](/docs/enterprise).
 
 #### Change your permission preset
 
 You can change the preset in three places:
 
-*   **For all projects**: Open **Settings** > **General** > **Global Permissions** > **Permission Preset**.
+*   **For all projects**: Open **Settings** > **General** > **Global Permissions** > **Permission Preset** (**Permissions** > **This Computer** if remote agents are available to you).
 *   **For a single project**: Override the global preset under **Settings** > **Projects**. Projects default to **Inherit Global**, which follows your global preset.
 *   **From the message box** (`v2.23.0+`): Choose a preset from the permissions picker. The picker changes your global preset, or the project’s preset if the project overrides it. To remove a project override, choose **Use Global Settings**.
 
@@ -69,8 +69,8 @@ This setting restricts agent terminal commands to an isolated sandbox:
 Antigravity CLI lets you configure how the agent edits files, runs shell commands, and enforces workspace boundaries through `/config` (`/settings`), `~/.gemini/antigravity-cli/settings.json`, or command-line flags:
 
 *   **Agent Mode (`agentMode` / `--mode`)**: Controls the session execution mode (cycle during a session with Shift + Tab):
-    *   `auto` (default where available): Automatically approves workspace file edits, runs terminal commands inside the [Terminal sandbox](/docs/sandbox) by default, and automatically evaluates commands that need to run outside the sandbox so safe, reversible commands run without prompting while risky or irreversible commands pause for approval. When active, the bottom-right status bar shows `auto` and the prompt input displays `Auto mode: edits & safe commands auto-approved (shift+tab to cycle)`.
-    *   `default` (select `default` in `/config`, or `""` in `settings.json`; used when `auto` isn’t available): Prompts for interactive diff review before modifying or creating files, and follows `toolPermission` for commands.
+    *   `default` (the default; select `default` in `/config`, or leave `agentMode` unset or `""` in `settings.json`): Prompts for interactive diff review before modifying or creating files, and follows `toolPermission` for commands.
+    *   `auto`: Automatically approves workspace file edits, runs terminal commands inside the [Terminal sandbox](/docs/sandbox) by default, and automatically evaluates commands that need to run outside the sandbox so safe, reversible commands run without prompting while risky or irreversible commands pause for approval. When active, the bottom-right status bar shows `auto` and the prompt input displays `Auto mode: edits & safe commands auto-approved (shift+tab to cycle)`.
     *   `accept-edits`: Automatically approves workspace file edits and creations while continuing to follow `toolPermission` for commands.
     *   `plan`: Analyzes the codebase and outlines a plan before making edits.
 *   **Tool Permission (`toolPermission`)**: Controls the baseline authorization policy for tools outside `auto` mode (and for `strict` and `always-proceed` overrides):
@@ -83,7 +83,7 @@ Antigravity CLI lets you configure how the agent edits files, runs shell command
 
 Note
 
-`auto` mode is the default in `v1.3.5+` on **macOS and Linux** and `v1.4.4+` on **Windows** for personal accounts when the terminal sandbox is available. Business and enterprise accounts, or machines where the terminal sandbox isn’t available, start in `default` mode (`request-review`). Starting in `v1.4.4`, if the terminal sandbox isn’t available on your machine, `auto` and `proceed-in-sandbox` aren’t offered, and Sandbox Mode has no effect. To learn more, refer to **[Terminal sandbox](/docs/sandbox)**.
+`auto` mode is available in `v1.3.5+` on **macOS and Linux** and `v1.4.4+` on **Windows**, except for business and enterprise accounts. Starting in `v1.4.4`, if the terminal sandbox isn’t available on your machine, `auto` and `proceed-in-sandbox` aren’t offered, and Sandbox Mode has no effect. To learn more, refer to **[Terminal sandbox](/docs/sandbox)**.
 
 ### Example configuration
 

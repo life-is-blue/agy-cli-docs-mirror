@@ -11,23 +11,23 @@ When working in **Planning mode**, the artifact review policy controls how you i
 
 ## Artifact review policy
 
-You can customize the review workflow in the **Agent** tab of the **Settings** pane. Choose between two policies:
+You can customize the review workflow with **Plan Review Policy** in **Settings** > **General**. Choose between two policies:
 
 ### Request review (recommended)
 
-The agent always halts and requests your explicit approval before proceeding with proposed changes:
+Shown as **Always Ask** in Settings. The agent always halts and requests your explicit approval before proceeding with proposed changes:
 
 *   When the agent generates an implementation plan or code diff, it pauses execution and notifies you.
 *   This allows you to thoroughly review the proposed changes, add inline comments, and verify the plan in your workspace.
 *   Once you’re satisfied, you can approve the plan to let the agent proceed.
 
-![Settings Review Policy Manual](/assets/image/docs/agent/settings-review-policy-manual.png)
+![An Implementation Plan card in an Antigravity App conversation, followed by Proceeded with Implementation Plan after the plan was approved](/assets/image/docs/agent/settings-review-policy-manual.png)
 
 ### Always proceed
 
-The agent never halts for manual review and immediately proceeds with executing its plans:
+Shown as **Always Proceed** in Settings. This setting doesn’t make the agent continue past a plan. When you ask for a plan with [`/plan`](/docs/plan), the agent always stops and waits for your approval, whatever your review policy is:
 
-*   When the agent decides to request a review, it immediately bypasses the pause and continues with the implementation.
-*   Use this if you want a fully autonomous workflow and don’t need to manually verify plans before code is modified.
+*   To have the agent keep going after it writes a plan, say so in your prompt.
+*   With **Always Proceed**, the plan’s card might not show a **Proceed** button. To approve the plan, reply in the message box, for example with `proceed`.
 
-![Settings Review Policy Proceed](/assets/image/docs/agent/settings-review-policy-proceed.png)
+![The Plan Review Policy setting under Agent Behavior in Settings > General, set to Always Proceed](/assets/image/docs/agent/settings-review-policy-proceed.png)

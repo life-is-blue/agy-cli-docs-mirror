@@ -238,6 +238,7 @@ All hooks receive the following system metadata fields in their input payload on
  |
 | `artifactDirectoryPath` | string | The absolute path to the directory containing all conversation artifacts and screenshots. |
 | `modelName` | string | The name or identifier of the model handling the invocation (for example, `gemini-3.6-flash-medium`). |
+| `lastUserInput` | string | The most recent user prompt in the conversation. |
 
 * * *
 
@@ -249,7 +250,7 @@ Fires once when a new conversation session starts, before the first model invoca
 
 | Field | Type | Description |
 | :-- | :-- | :-- |
-| _(Common fields)_ |  | Includes `conversationId`, `workspacePaths`, `transcriptPath`, `artifactDirectoryPath`, `modelName`. |
+| _(Common fields)_ |  | Includes `conversationId`, `workspacePaths`, `transcriptPath`, `artifactDirectoryPath`, `modelName`, and `lastUserInput`. |
 
 **Output fields (stdout)**:
 
@@ -299,7 +300,7 @@ Fires before a tool is executed.
 | `toolCall.name` | string | The name of the tool being executed (for example, `run_command`). |
 | `toolCall.args` | object | Arguments passed to the tool call. |
 | `stepIdx` | integer | The 0-based index of the current step in the trajectory. |
-| _(Common fields)_ |  | Includes `conversationId`, `workspacePaths`, `transcriptPath`, `artifactDirectoryPath`, `modelName`. |
+| _(Common fields)_ |  | Includes `conversationId`, `workspacePaths`, `transcriptPath`, `artifactDirectoryPath`, `modelName`, and `lastUserInput`. |
 
 **Output fields (stdout)**:
 
@@ -362,7 +363,7 @@ Fires after a tool completes.
 | `toolCall` | object | Details of the executed tool call (`name` and `args`). |
 | `stepIdx` | integer | The 0-based index of the completed step. |
 | `error` | string | Optional. The detailed runtime error message if the tool call failed. Empty if successful. |
-| _(Common fields)_ |  | Includes `conversationId`, `workspacePaths`, `transcriptPath`, `artifactDirectoryPath`, `modelName`. |
+| _(Common fields)_ |  | Includes `conversationId`, `workspacePaths`, `transcriptPath`, `artifactDirectoryPath`, `modelName`, and `lastUserInput`. |
 
 **Output fields (stdout)**: Returns an empty JSON object `{}`.
 
@@ -404,20 +405,23 @@ Fires before the model is called.
 | :-- | :-- | :-- |
 | `invocationNum` | integer | The 0-indexed sequence number of the current model invocation (the first invocation is 0). |
 | `initialNumSteps` | integer | The number of steps currently in the trajectory. |
-| _(Common fields)_ |  | Includes `conversationId`, `workspacePaths`, `transcriptPath`, `artifactDirectoryPath`, `modelName`. |
+| _(Common fields)_ |  | Includes `conversationId`, `workspacePaths`, `transcriptPath`, `artifactDirectoryPath`, `modelName`, and `lastUserInput`. |
 
 **Output fields (stdout)**:
 
 | Field | Type | Description |
 | :-- | :-- | :-- |
 | `injectSteps` | array of objects | **Optional.** List of steps to inject into the conversation trajectory before the model is called. |
+| `terminationBehavior` | string | **Optional.** Controls the execution flow before calling the model:  
+\- `"terminate"`: Stops execution immediately before calling the model (pair with an injected `errorMessage` to display a block message).  
+\- `""` (or omitted): Proceeds to the model call (default). |
 
 Each object in the `injectSteps` array can have one of the following fields:
 
 *   **`systemMessage`** (object): An out-of-band system instruction for the agent (for example, `{"systemMessage": "Remember to lint", "metadata": {"source": "policy"}}`).
 *   **`userMessage`** (string): A message from you.
 *   **`ephemeralMessage`** (string): A transient system message.
-*   **`toolCall`** (object): A tool call to execute.
+*   **`errorMessage`** (object): Displays an error message without sending it to the model (for example, `{"userMessage": "Prompt blocked by policy."}`). Marks the turn as errored with a non-zero exit code in non-interactive `-p` mode, and does not stop execution on its own unless paired with `"terminationBehavior": "terminate"`.
 
 **Example**:
 
@@ -431,15 +435,31 @@ Each object in the `injectSteps` array can have one of the following fields:
   "workspacePaths": ["/workspace/project"],
   "transcriptPath": "~/.gemini/antigravity/brain/ec33ebf9-0cba-4100-8142-c61503f6c587/.system_generated/logs/transcript.jsonl",
   "artifactDirectoryPath": "~/.gemini/antigravity/brain/ec33ebf9-0cba-4100-8142-c61503f6c587",
-  "modelName": "gemini-3.6-flash-medium"
+  "modelName": "gemini-3.6-flash-medium",
+  "lastUserInput": "Fix the failing unit test"
 }
 ```
 
-*   **Output (stdout)**:
+*   **Output (stdout)** (injecting transient context):
 
 ```json
 {
   "injectSteps": [{"ephemeralMessage": "Remember to lint"}]
+}
+```
+
+*   **Output (stdout)** (blocking a prompt before calling the model):
+
+```json
+{
+  "injectSteps": [
+    {
+      "errorMessage": {
+        "userMessage": "Prompt blocked by policy."
+      }
+    }
+  ],
+  "terminationBehavior": "terminate"
 }
 ```
 
@@ -487,7 +507,7 @@ Fires when the execution loop terminates.
 | `terminationReason` | string | The reason why the execution is stopping (for example, `"model_stop"`, `"max_steps_exceeded"`, `"error"`). |
 | `error` | string | Optional. The error message if termination was caused by a system error. |
 | `fullyIdle` | boolean | **Required.** `true` if the agent is completely finished and all background commands or asynchronous tasks have completed. `false` if active background tasks are still running. |
-| _(Common fields)_ |  | Includes `conversationId`, `workspacePaths`, `transcriptPath`, `artifactDirectoryPath`, `modelName`. |
+| _(Common fields)_ |  | Includes `conversationId`, `workspacePaths`, `transcriptPath`, `artifactDirectoryPath`, `modelName`, and `lastUserInput`. |
 
 **Output fields (stdout)**:
 

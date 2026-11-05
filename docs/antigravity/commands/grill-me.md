@@ -18,13 +18,13 @@ Type `/grill-me` followed by the task you want to discuss. Describe the outcome 
 
 Type the command in the message box:
 
-```text
+```prompt
 /grill-me Add per-user rate limiting to the bookmarks API
 ```
 
 Each question appears in a card above the message box, with the agent’s recommended answer listed first:
 
-![A /grill-me question in the Antigravity App, shown in a card above the message box, asking whether rate limits should be tiered by plan and what limits to use, with the recommended answer first, an Other field with Skip and Submit buttons, and a close button at the top right](/assets/image/docs/commands/grill-me-app-question.png)
+![A /grill-me question in the Antigravity App, shown in a card above the message box, asking which of the plan limits from the API guide to enforce, with the recommended answer first, an Other field with Skip and Submit buttons, and a close button at the top right](/assets/image/docs/commands/grill-me-app-question.png)
 
 Select an answer, or type your own in **Other (write your answer)**, and then click **Submit**. Click **Skip** to skip the question, or click the close button (**X**) at the top right of the card to cancel the questionnaire and stop the agent.
 
@@ -38,7 +38,7 @@ In versions earlier than 2.26.0, each question replaces the message box, and **C
 
 Type the command in the interactive prompt:
 
-```text
+```prompt
 /grill-me Add per-user rate limiting to the bookmarks API
 ```
 
@@ -65,11 +65,11 @@ If you run `/grill-me` without a task, the agent typically explores the workspac
 
 To turn your answers into a plan you can review, stack [`/plan`](/docs/plan) and `/grill-me` in the same prompt:
 
-```text
+```prompt
 /plan /grill-me Add per-user rate limiting to the bookmarks API
 ```
 
-The agent interviews you one question at a time, then writes an [implementation plan](/docs/implementation-plan) based on your answers. Unless your [artifact review policy](/docs/artifact-review) is set to [Always proceed](/docs/artifact-review#always-proceed), the agent then waits for you to review and approve the plan before it changes any code. In the Antigravity App, click **Proceed** to approve it.
+The agent interviews you one question at a time, then writes an [implementation plan](/docs/implementation-plan) based on your answers. The agent then waits for you to review and approve the plan before it changes any code, whatever your [artifact review policy](/docs/artifact-review) is. In the Antigravity App, click **Proceed** to approve it.
 
 ## When to use `/grill-me`
 

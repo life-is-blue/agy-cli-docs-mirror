@@ -16,17 +16,17 @@ To browse and install Marketplace plugins in the Antigravity App, follow these s
 
 1.  In the left sidebar, click the **Customizations** tab (below **Automations**):
     
-    ![Customization tab](/assets/image/docs/plugins/customization-tab.png)
+    ![The left sidebar of the Antigravity App with Customizations selected below New Conversation and Automations](/assets/image/docs/plugins/customization-tab.png)
     
 2.  Click the **Marketplace** tab to view available plugins:
     
-    ![Marketplace tab](/assets/image/docs/plugins/marketplace-plugins.png)
+    ![The Marketplace tab of the Customizations page in the Antigravity App, with a search box, the featured Notion plugin with Add and Details buttons, and the Google Workspace plugins](/assets/image/docs/plugins/marketplace-plugins.png)
     
 3.  Click any plugin card to inspect its details and bundled capabilities:
     
-    ![Plugin details view](/assets/image/docs/plugins/plugin-card.png)
+    ![The Dart and Flutter plugin detail view in the Antigravity App, with an Add button, starter prompts, Overview, Skills, MCP, Agents, and Rules tabs, and the plugin's README](/assets/image/docs/plugins/plugin-card.png)
     
-4.  Click **+** on the plugin card to install it.
+4.  Click **Add** to install the plugin. You can also click **+** next to a plugin in the **Marketplace** list to install it without opening its details.
     
 
 ### Configure plugin credentials (API keys and OAuth)
@@ -42,7 +42,7 @@ To inspect, toggle, or uninstall existing plugins:
 
 1.  In the **Customizations** panel, click the **Installed** tab:
     
-    ![Installed plugins](/assets/image/docs/plugins/installed-plugins.png)
+    ![The Installed tab of the Customizations page in the Antigravity App, with five installed plugins, two of them marked Sign in required, above the Skills & Rules list](/assets/image/docs/plugins/installed-plugins.png)
     
 2.  Click the **⋮** menu beside any installed plugin (or open the plugin card) to enable, disable, or configure it.
     

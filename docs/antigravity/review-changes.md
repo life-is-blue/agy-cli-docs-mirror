@@ -19,7 +19,7 @@ The pane opens as a **Review** tab in the side panel, next to the conversation. 
 
 In this example, the agent added a route and a test. The route file is staged, and the test file has unstaged changes:
 
-![The Review pane in the Antigravity App with Uncommitted selected. The diff of bookmarks.js, marked Staged with +12 -0, shows a new route in green below a +6 more lines button. The route returns one bookmark by ID, or a 404 not\_found error if there's no match. The sidebar lists bookmarks.js under Staged Changes and bookmarks.test.js under Changes, each with an M status letter](/assets/image/docs/review-changes/review-changes-app-pane.png)
+![The Review pane in the Antigravity App with Uncommitted selected. The diff of bookmarks.js, marked Staged with +10 -0, shows a new route in green below a +6 more lines button. The route returns one bookmark by ID, or a 404 not\_found error if there's no match. The sidebar lists bookmarks.js under Staged Changes and bookmarks.test.js under Changes, each with an M status letter](/assets/image/docs/review-changes/review-changes-app-pane.png)
 
 Each file in the sidebar shows a status letter. Hover over the letter to see its meaning:
 
@@ -76,7 +76,7 @@ Comment on specific lines to tell the agent what to change:
 
 Your comment appears below the lines it refers to, where you can edit or delete it:
 
-![An inline comment in the Review pane of the Antigravity App. Below line 20 of bookmarks.js, which returns a 404 not\_found error, a comment card reads Return 400 with error invalid\_id when the id is not a number, with Delete and Edit Comment buttons](/assets/image/docs/review-changes/review-changes-app-comment.png)
+![An inline comment in the Review pane of the Antigravity App. Below line 18 of bookmarks.js, which returns a 404 not\_found error, a comment card reads Return 400 with error invalid\_id when the id is not a number, with Delete and Edit Comment buttons](/assets/image/docs/review-changes/review-changes-app-comment.png)
 
 Comments are attached to your next message, and a chip such as **1 Comment** appears above the message box. Hover over the chip to preview your comments. Send the message, with or without more text, and the agent receives each comment with its file and line numbers.
 

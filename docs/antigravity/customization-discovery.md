@@ -197,7 +197,7 @@ To see everything that applies to a project, do the following:
 
 The section shows how many tokens your customizations use, followed by lists of **Skills**, **Rules**, **Plugins**, and **Custom Agents**. Built-in skills, the skills and custom agents in your personal folder, and your personal `AGENTS.md` and `GEMINI.md` files (each listed as **user\_global**) have a **Global** badge and appear at the top of their lists. Other skills, rules, and custom agents, including the rules in `~/.gemini/config/rules/`, have no badge unless the project has several folders; then the project’s items show their folder name. Plugins always show a **Global** or **Workspace** badge. The following example shows the **Skills** and **Rules** lists for the `bookmarks-api` project:
 
-![The Settings dialog in the Antigravity App with bookmarks-api selected under Projects, showing the Skills list with fix-lint-errors and write-commit-message badged Global followed by the workspace skills add-endpoint, migrate-schema, and seed-data, and the Rules list with user\_global badged Global followed by AGENTS.md, api-conventions.md, api-keys.md, and plain-language.md](/assets/image/docs/customization-discovery/app-project-customizations.png)
+![The Customizations section of the bookmarks-api project in the Antigravity App settings, showing the end of the Skills list, with write-commit-message badged Global followed by the workspace skills add-endpoint, migrate-schema, and seed-data, and the Rules list with user\_global badged Global followed by AGENTS.md, api-conventions.md, api-keys.md, and plain-language.md](/assets/image/docs/customization-discovery/app-project-customizations.png)
 
 To see where a personal customization came from, do the following:
 

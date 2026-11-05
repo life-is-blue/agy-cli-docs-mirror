@@ -82,7 +82,7 @@ The **Files** category matches file names and paths, not file contents. To find 
 
 Press Cmd+Shift+P (macOS) or Ctrl+Shift+P (Windows and Linux) to list the commands that are available in the current view. Each command shows its keyboard shortcut, if it has one. Type to filter the list, and then press Enter to run the selected command. For example, typing `conversation` lists the commands whose names contain that word:
 
-![The Commands category of the command palette filtered by the word conversation, listing commands such as New Conversation, Open Conversation Picker, and Open Conversation History, each with its keyboard shortcut on the right.](/assets/image/docs/search/commands-palette.png)
+![The Commands category of the command palette filtered by the word conversation, listing commands such as New Conversation, Move Conversation Up, Open Conversation Picker, and Split Conversation Vertically, each with its keyboard shortcut on the right.](/assets/image/docs/search/commands-palette.png)
 
 Some commands appear only when a conversation is open, such as **Pin This Conversation**, **Archive This Conversation**, and **Find in Conversation**. To see the main keyboard shortcuts, go to **Settings** > **Shortcuts**.
 

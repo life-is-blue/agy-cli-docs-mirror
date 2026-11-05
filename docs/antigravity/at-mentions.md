@@ -20,9 +20,9 @@ This table compares the Antigravity App and the Antigravity CLI:
 
 #### Mention files and folders
 
-Type `@` in the message box, followed by part of a file or folder name. A bare `@` lists only the **Rules** and **Conversation** categories. As you type, the menu narrows to matching categories, files, and folders from your project, and to matching artifacts in the current conversation, such as an implementation plan. Matching is fuzzy, so `@bkmk` finds `bookmarks.js`. For example, typing `@ru` lists the **Rules** category, the `routes` folder, and matching files:
+Type `@` in the message box, followed by part of a file or folder name. A bare `@` lists only the **Rules** and **Conversation** categories. As you type, the menu narrows to matching categories, files, and folders from your project, and to matching artifacts in the current conversation, such as an implementation plan. Matching is fuzzy, so `@bkmk` finds `bookmarks.js`. For example, typing `@ru` lists the **Rules** category, matching plugins, and matching files and folders:
 
-![The @ menu above the Antigravity App message box after typing @ru, listing the Rules category followed by the routes folder and the users.js, tags.js, bookmarks.js, and auth.js files, each with its folder path](/assets/image/docs/at-mentions/app-mention-menu.png)
+![The @ menu above the Antigravity App message box after typing @ru, with Rules under Browse, the Firebase plugin under Plugins, and the rules folder, rules.json, and routes folder under Files, each with its folder path](/assets/image/docs/at-mentions/app-mention-menu.png)
 
 Press ↑ or ↓ to highlight a result, and then press Enter or Tab to select it, or click it. The mention appears in your prompt as a chip with its icon and name. To start a mention without typing `@`, click **Add Context** (**+**) in the message box and select **Mentions**.
 
@@ -44,7 +44,7 @@ Select a conversation to add it to your prompt as a chip with the conversation�
 
 Quote part of an agent response to ask a follow-up about exactly that text. When you select text in a response, a popup shows **Quote** and its keyboard shortcut:
 
-![A bullet point in an Antigravity App response selected, with a Quote Ctrl+L popup below the selection; the user message above it contains a bookmarks.js file chip](/assets/image/docs/at-mentions/app-quote-selection.png)
+![A bullet point in an Antigravity App response selected, with a Quote ⌘L popup next to the selection; the user message above it contains a bookmarks.js file chip](/assets/image/docs/at-mentions/app-quote-selection.png)
 
 1.  Select text in an agent response.
 2.  Click **Quote** in the popup, or press Cmd+L or Cmd+I on macOS, or Ctrl+L or Ctrl+I on Windows and Linux.

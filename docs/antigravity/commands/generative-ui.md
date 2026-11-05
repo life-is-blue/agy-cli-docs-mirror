@@ -24,13 +24,13 @@ When you use `/generative_ui`, the agent:
 
 Type `/generative_ui` in the message box, followed by what you want to see. You can also type `/` and select **generative\_ui** from the menu.
 
-```text
+```prompt
 /generative_ui Show a simple left-to-right diagram of a request going from the client through requireApiKey and the bookmarks router to the database, with a toggle for a valid or invalid API key. Use icons, short labels, and no code.
 ```
 
 In this example, the agent reads the relevant code, builds a compact widget, and embeds it in its response. The diagram shows each stage of the request, from the client through `requireApiKey` and the bookmarks router to the database. A toggle switches between a valid and an invalid API key. With a valid key, the request reaches the database and gets a `200 OK` response:
 
-![A request flow widget embedded in an agent response in the Antigravity App, with a Valid Key and Invalid Key toggle set to Valid Key, four connected stages for Client, requireApiKey, Bookmarks Router, and Database, and a response bar that shows 200 OK](/assets/image/docs/commands/generative-ui-inline-widget.png)
+![A request flow widget embedded in an agent response in the Antigravity App, with a Valid Key and Invalid Key toggle set to Valid Key, four stages with icons for Client, requireApiKey, Bookmarks Router, and Database joined by arrows labeled Valid key, Allowed, and Query, and a response bar that shows 200 OK](/assets/image/docs/commands/generative-ui-inline-widget.png)
 
 The response ends with a card for the widget’s artifact, which shows its title and a short summary.
 
@@ -45,13 +45,13 @@ By default, the agent shares a widget as a standalone artifact. It embeds a widg
 
 To choose the placement yourself, say so in your request. For example, to get an inline widget:
 
-```text
+```prompt
 /generative_ui Show which status code each bookmarks route returns as an inline widget
 ```
 
 To get a standalone artifact:
 
-```text
+```prompt
 /generative_ui Build a multi-tab dashboard of bookmark activity with sample data as a standalone artifact
 ```
 
@@ -59,7 +59,7 @@ To get a standalone artifact:
 
 Every widget is saved as an HTML artifact, including inline widgets. To open one, click its artifact card in the conversation. The widget opens in the side panel, where you can use it at full size. In this example, the toggle is set to an invalid key, so the request stops at `requireApiKey` with a `401 Unauthorized` response and never reaches the router or the database:
 
-![The same request flow widget opened as an artifact in the side panel of the Antigravity App, with the toggle set to Invalid Key, so the requireApiKey stage shows 401 Rejected, the Bookmarks Router and Database stages show Skipped and Untouched, and the response bar shows 401 Unauthorized](/assets/image/docs/commands/generative-ui-artifact-panel.png)
+![The same request flow widget opened as an artifact in the side panel of the Antigravity App, with the toggle set to Invalid Key, so the requireApiKey stage shows 401 Rejected, the arrow after it is labeled Blocked, the Bookmarks Router and Database stages show Skipped, and the response bar shows 401 Unauthorized](/assets/image/docs/commands/generative-ui-artifact-panel.png)
 
 The conversation’s artifacts are also listed under **Artifacts** in the **Overview** panel at the top right of the conversation. To save a copy of the HTML file, click **More actions** (the three-dot menu) at the top of the artifact, and then click **Export Artifact**. The exported file doesn’t include the Antigravity App’s theme colors, so it can look different when you open it in a browser.
 
@@ -74,19 +74,19 @@ Generative UI works well for anything that’s clearer when you can see it and i
 
 For example, to visualize a data model:
 
-```text
+```prompt
 /generative_ui Visualize the users and bookmarks tables and how they relate
 ```
 
 To chart sample data in the agent’s response:
 
-```text
+```prompt
 /generative_ui Chart how many bookmarks each user has saved, using sample data, as an inline widget
 ```
 
 To prototype a screen before you build it:
 
-```text
+```prompt
 /generative_ui Build a clickable prototype of a bookmark manager screen as a standalone artifact
 ```
 

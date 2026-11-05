@@ -12,17 +12,17 @@ Latest
 
 November 3, 2026
 
-### Jupyter notebook viewer, redesigned Automations, voice mode, and remote agents
+### Voice mode, remote agents, redesigned Automations, and Jupyter notebook viewer
 
-This release adds a native Jupyter notebook viewer, redesigned Home and Automations pages, and downloads and browsing history in the built-in browser. Voice mode, powered by Gemini Live, and remote agents, which run conversations in the cloud, are starting to roll out.
+Voice mode, powered by Gemini Live, and remote agents, which run conversations in the cloud, are starting to roll out. This release also adds redesigned Home and Automations pages, a native Jupyter notebook viewer, and downloads and browsing history in the built-in browser.
 
 **Improvements:**
 
-*   Jupyter notebook .ipynb files now open natively in the file viewer, rendering code cells, Markdown, tables, images, and cell outputs without leaving Antigravity.
 *   Voice mode, powered by Gemini Live, lets you talk to Antigravity and hand requests to the agent by voice. Start it from the button in an empty message box. Voice mode is rolling out gradually, so you may not see it yet.
 *   Remote agents are starting to roll out to Google AI Ultra and Pro subscribers. Conversations in a cloud project run in the cloud instead of on your computer, and you can also open them at antigravity.google.com/remote.
 *   The new-conversation page now greets you at the top and pins the message box to the bottom. Single-repo projects combine branch and Git worktree selection into one menu, and the agent picker now lives inside the model menu.
 *   The Automations page now organizes automations into Scheduled, Always on, and Paused lists with Next run and Last run times, plain-menu schedule pickers, in-page details, and a full-page creation form.
+*   Jupyter notebook .ipynb files now open natively in the file viewer, rendering code cells, Markdown, tables, images, and cell outputs without leaving Antigravity.
 *   Long conversations in the conversation navigator now label each collapsed chapter card with a short AI-generated title instead of only a date.
 *   The built-in browser now saves downloads directly to your downloads folder without blocking prompts, shows progress in a toolbar downloads drawer, and lets you choose a default download folder under Settings > General.
 *   Typing in the built-in browser's address bar now suggests matching pages from your browsing history, and you can clear saved history under Settings > General.

@@ -49,7 +49,7 @@ You can invoke `/plan` with a specific task prompt or without arguments to start
 
 Type `/plan` followed by your goal in the prompt input:
 
-```text
+```prompt
 /plan Refactor our authentication middleware to support OIDC token verification with JWKS caching
 ```
 
@@ -65,7 +65,7 @@ The agent inspects your current active file and recent conversation history, the
 
 Type `/plan` directly into the interactive prompt:
 
-```bash
+```prompt
 /plan Add rate limiting middleware to all public API endpoints using Redis token buckets
 ```
 

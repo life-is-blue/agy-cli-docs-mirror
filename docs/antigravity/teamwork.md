@@ -125,7 +125,7 @@ Select your surface to launch a Teamwork session:
 
 Start a new conversation and invoke `/teamwork` with your goal:
 
-```text
+```prompt
 /teamwork Migrate our REST API service from Express to Fastify, including full test coverage, TypeScript typing, and benchmark validation.
 ```
 
@@ -135,7 +135,7 @@ Your agent starts the Phase 1 scoping interview and generates the prompt artifac
 
 In the terminal interface, run `/teamwork` at the prompt:
 
-```bash
+```prompt
 /teamwork Design and implement a cycle-accurate memory controller with lockstep simulation tests.
 ```
 

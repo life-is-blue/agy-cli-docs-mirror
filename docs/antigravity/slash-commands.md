@@ -52,7 +52,7 @@ Activates the on-demand three-tier multi-agent reasoning hierarchy (`Orchestrato
 
 To invoke Boost for an algorithmic optimization, run the following command:
 
-```text
+```prompt
 /boost Optimize the sparse matrix multiplication routine using SIMD intrinsics and benchmark throughput.
 ```
 
@@ -64,7 +64,7 @@ Initiates the multi-agent framework for multi-day engineering campaigns, subsyst
 
 To launch a multi-agent migration, run the following command:
 
-```text
+```prompt
 /teamwork Migrate our REST backend from Express to Fastify with full test parity and benchmarks.
 ```
 
@@ -76,7 +76,7 @@ Instructs the agent to work continuously until the specified objective is fully 
 
 To run a test suite repair autonomously, run the following command:
 
-```text
+```prompt
 /goal Fix all failing unit tests in the authentication package and ensure 100% pass rate.
 ```
 
@@ -112,7 +112,7 @@ Use `/plan` in the following scenarios:
 
 To plan a specific task, run `/plan` with your objective:
 
-```text
+```prompt
 /plan Refactor our authentication middleware to support OIDC token verification with JWKS caching
 ```
 
@@ -130,7 +130,7 @@ Has the agent interview you about a task before it starts work. The agent asks o
 
 To align on design constraints, run the following command:
 
-```text
+```prompt
 /grill-me I want to redesign the notification dispatch queue to support priority scheduling.
 ```
 
@@ -146,7 +146,7 @@ Analyzes recent corrections, user feedback, and debugging resolutions from your 
 
 To capture recent session patterns into persistent rules, run the following command:
 
-```text
+```prompt
 /learn Save our database transaction retry pattern as a project rule for all future database changes.
 ```
 
@@ -179,7 +179,7 @@ Configures the agent to execute a prompt at a specified future time or on a recu
 
 To set up a daily cleanup routine, run the following command:
 
-```text
+```prompt
 /schedule "0 9 * * 1-5" Run git fetch, prune stale local branches, and summarize pending PR reviews.
 ```
 
@@ -195,7 +195,7 @@ Spawns a sandboxed Chrome browser subagent capable of navigating web pages, read
 
 To verify a local web server layout, run the following command:
 
-```text
+```prompt
 /browser Open http://localhost:3000/dashboard, verify that the analytics charts render, and capture a screenshot.
 ```
 
@@ -219,7 +219,7 @@ Has the agent build an interactive widget, such as a diagram, chart, or step-by-
 
 To see how a request moves through your middleware, run the following command:
 
-```text
+```prompt
 /generative_ui Show a simple left-to-right diagram of a request going from the client through requireApiKey and the bookmarks router to the database, with a toggle for a valid or invalid API key. Use icons, short labels, and no code.
 ```
 

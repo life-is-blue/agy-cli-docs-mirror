@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-04T05:12:38Z",
+  "generated_at": "2026-11-05T05:33:48Z",
   "tool": "scripts/fetch_agy_docs.py",
   "strict_fetch": false,
   "is_degraded": true,
@@ -32,9 +32,9 @@
       "slug": "agent-settings",
       "label": "Agent settings",
       "url": "https://antigravity.google/docs/agent-settings.md",
-      "sha256": "0205a648980086ceed7b94df0325c9917598af21dd2199e6ef283b684198ced5",
-      "bytes": 7969,
-      "fetched_at": "2026-11-04T05:12:24Z",
+      "sha256": "487e5cd199b0fd9a581d5436d245b334a2fdddb62c143d45fda28e8929f5db28",
+      "bytes": 7776,
+      "fetched_at": "2026-11-05T05:33:37Z",
       "sidebar_label": "Agent settings"
     },
     "antigravity/artifact-review.md": {
@@ -46,9 +46,9 @@
       "slug": "artifact-review",
       "label": "Artifact review",
       "url": "https://antigravity.google/docs/artifact-review.md",
-      "sha256": "9695951512683bf41dc483f027048f6658d7821ef2ad3a4886a5827db0d95273",
-      "bytes": 2029,
-      "fetched_at": "2026-10-22T03:39:45Z",
+      "sha256": "b1b9a1d254a00b9ae3b8a08a2fe0a0c24d96aeb846ad03f9c63a5acda1dd5341",
+      "bytes": 2397,
+      "fetched_at": "2026-11-05T05:33:37Z",
       "sidebar_label": "Artifact review"
     },
     "antigravity/artifacts.md": {
@@ -74,9 +74,9 @@
       "slug": "at-mentions",
       "label": "Mentions and quoting",
       "url": "https://antigravity.google/docs/at-mentions.md",
-      "sha256": "506489f1d8f64f775c44bba217e38e4b6f466383c16d76740e9b664c21d4dbb9",
-      "bytes": 9069,
-      "fetched_at": "2026-10-30T04:45:24Z",
+      "sha256": "c7c5ce35d869f7f0e96f53b3d6ceae40fb75ed491bba781e1bb201260177dcb5",
+      "bytes": 9086,
+      "fetched_at": "2026-11-05T05:33:37Z",
       "sidebar_label": "Mentions and quoting"
     },
     "antigravity/boost.md": {
@@ -88,9 +88,9 @@
       "slug": "boost",
       "label": "Boost deep reasoning (/boost)",
       "url": "https://antigravity.google/docs/boost.md",
-      "sha256": "adc0d5747aee73f3a67350bd69f6b3d93b43cf6fc1582062009669e7639ecf15",
-      "bytes": 7157,
-      "fetched_at": "2026-10-30T04:45:24Z",
+      "sha256": "f7d41199ae824f586ab51a9b490dc82e8f9cad04fd76747b2cb4a47889d3d6d2",
+      "bytes": 7169,
+      "fetched_at": "2026-11-05T05:33:37Z",
       "sidebar_label": "Boost deep reasoning (/boost)"
     },
     "antigravity/build-plugins.md": {
@@ -102,9 +102,9 @@
       "slug": "build-plugins",
       "label": "Build plugins",
       "url": "https://antigravity.google/docs/build-plugins.md",
-      "sha256": "87449615fcbadb9700bb46f64f3a56f657456b698a8a75a3ea47086891df0bac",
-      "bytes": 28585,
-      "fetched_at": "2026-11-04T05:12:24Z",
+      "sha256": "18bdf986e0bad59d5e921baec9e47f0da809cd3fc15073933a4b3fe65936f857",
+      "bytes": 28851,
+      "fetched_at": "2026-11-05T05:33:37Z",
       "sidebar_label": "Build plugins"
     },
     "antigravity/build-with-google.md": {
@@ -130,9 +130,9 @@
       "slug": "changelog",
       "label": "Changelog",
       "url": "https://antigravity.google/docs/changelog.md",
-      "sha256": "f4617de0cbaab3eec54b0596c5d5d526c24b8c88861ed83eb51a090fc5efdbf9",
-      "bytes": 499774,
-      "fetched_at": "2026-11-04T05:12:24Z",
+      "sha256": "9bd3ae189b15e23ba47dd0916dc8ea6648b19777219df4d43feecb36b4a54b75",
+      "bytes": 499779,
+      "fetched_at": "2026-11-05T05:33:37Z",
       "sidebar_label": "Changelog"
     },
     "antigravity/cli/acp.md": {
@@ -172,9 +172,9 @@
       "slug": "cli/best-practices",
       "label": "CLI best practices",
       "url": "https://antigravity.google/docs/cli/best-practices.md",
-      "sha256": "1ca4500d180a2fe522d8db9a28c07086ed240ab1b750ce959cd3e7ff31935db6",
-      "bytes": 5859,
-      "fetched_at": "2026-11-04T05:12:24Z",
+      "sha256": "e8c376760ee6c3b8ac798987a8c4835b914598b2e942d12b74a4d6421c5bf962",
+      "bytes": 5748,
+      "fetched_at": "2026-11-05T05:33:37Z",
       "sidebar_label": "CLI best practices"
     },
     "antigravity/cli/commands/agents.md": {
@@ -452,9 +452,9 @@
       "slug": "cli/headless",
       "label": "Headless mode",
       "url": "https://antigravity.google/docs/cli/headless.md",
-      "sha256": "d3535326368a744a1aa9fb7e7fc3c299a4fc780206da76de92ee891932759022",
-      "bytes": 27948,
-      "fetched_at": "2026-11-04T05:12:24Z",
+      "sha256": "238e4282518932e56f3ab9835b0569868cbc55cdd51df959f766e18234d9937c",
+      "bytes": 27859,
+      "fetched_at": "2026-11-05T05:33:37Z",
       "sidebar_label": "Headless mode"
     },
     "antigravity/cli/install.md": {
@@ -495,9 +495,9 @@
       "slug": "cli/modes",
       "label": "Choose an execution mode",
       "url": "https://antigravity.google/docs/cli/modes.md",
-      "sha256": "7f5a74faab9d3d7a6dfc7014f5689605db54ec31d79c36ca875e47771c371344",
-      "bytes": 11972,
-      "fetched_at": "2026-11-04T05:12:24Z",
+      "sha256": "cfa059d221264d1f17bed0f6ccc1131f070619dfd094fe52fccbbe71f517c42a",
+      "bytes": 11791,
+      "fetched_at": "2026-11-05T05:33:37Z",
       "sidebar_label": "Choose an execution mode"
     },
     "antigravity/cli/overview.md": {
@@ -581,9 +581,9 @@
       "slug": "cli/reference",
       "label": "CLI commands",
       "url": "https://antigravity.google/docs/cli/reference.md",
-      "sha256": "4c5a93e62e617f3715765cd3823afba9ac79f510bd53692788e046a8f271f134",
-      "bytes": 21326,
-      "fetched_at": "2026-11-04T05:12:24Z",
+      "sha256": "18fcf0baf33fae6af4f0ef3415caf8762c9b9e2d68adc5ee5cc01be424e35521",
+      "bytes": 21686,
+      "fetched_at": "2026-11-05T05:33:37Z",
       "sidebar_label": "CLI commands"
     },
     "antigravity/cli/sandbox.md": {
@@ -726,9 +726,9 @@
       "slug": "commands/browser",
       "label": "Browser command (/browser)",
       "url": "https://antigravity.google/docs/commands/browser.md",
-      "sha256": "1057b0dc44db01ae16461976148ede1c63d31cdbe05fc2a4fcc6b889d9f0dcfb",
-      "bytes": 5199,
-      "fetched_at": "2026-10-27T04:03:04Z",
+      "sha256": "38c499f3a3d6283790c4914b8ae2a8ace2aa9d0fb1b932b03a1698fc5180a3fe",
+      "bytes": 5987,
+      "fetched_at": "2026-11-05T05:33:37Z",
       "sidebar_label": "Browser command (/browser)"
     },
     "antigravity/commands/generative-ui.md": {
@@ -740,9 +740,9 @@
       "slug": "commands/generative-ui",
       "label": "Generative UI command (/generative_ui)",
       "url": "https://antigravity.google/docs/commands/generative-ui.md",
-      "sha256": "549310064ff0c7b3c12bd1545e34b59b91354ecad877e667a6ad10d89a0f7b06",
-      "bytes": 7270,
-      "fetched_at": "2026-10-30T04:45:24Z",
+      "sha256": "a2fbcfe3ab28a88c6ae180e36bb2814a8ab821d058a4f4263e09addd24b8fd46",
+      "bytes": 7363,
+      "fetched_at": "2026-11-05T05:33:37Z",
       "sidebar_label": "Generative UI command (/generative_ui)"
     },
     "antigravity/commands/goal.md": {
@@ -754,9 +754,9 @@
       "slug": "commands/goal",
       "label": "Goal command (/goal)",
       "url": "https://antigravity.google/docs/commands/goal.md",
-      "sha256": "1ab9c6225f7eb46e8dd8953a37f4ac520ecc706a32dd83440de40af5bc05b61d",
-      "bytes": 5183,
-      "fetched_at": "2026-10-23T03:44:36Z",
+      "sha256": "7f1e653821651d0158910c253c7dad84c78c0682a5b0b174080cef7ef1105bfb",
+      "bytes": 5187,
+      "fetched_at": "2026-11-05T05:33:37Z",
       "sidebar_label": "Goal command (/goal)"
     },
     "antigravity/commands/grill-me.md": {
@@ -768,9 +768,9 @@
       "slug": "commands/grill-me",
       "label": "Grill me command (/grill-me)",
       "url": "https://antigravity.google/docs/commands/grill-me.md",
-      "sha256": "5fab224ef4e6e54d70e8e386dd33b3aeb9cfb51ae793ad93aadfe2bfffc3806d",
-      "bytes": 5739,
-      "fetched_at": "2026-10-24T03:38:39Z",
+      "sha256": "2de3da9eb4a97144f539ebcf29db139f521773772314de6521af654fbd5f5f4a",
+      "bytes": 5672,
+      "fetched_at": "2026-11-05T05:33:37Z",
       "sidebar_label": "Grill me command (/grill-me)"
     },
     "antigravity/commands/learn.md": {
@@ -782,9 +782,9 @@
       "slug": "commands/learn",
       "label": "Learn command (/learn)",
       "url": "https://antigravity.google/docs/commands/learn.md",
-      "sha256": "de915a75f0ef445c4f394101810736322fa3552a00131ef9be218ec6691ca8e3",
-      "bytes": 4900,
-      "fetched_at": "2026-10-31T04:29:58Z",
+      "sha256": "f64ee81e7787000b42174ff25de1ae74f0f5f4b1cf5f944c6183f80e709d5f05",
+      "bytes": 4902,
+      "fetched_at": "2026-11-05T05:33:37Z",
       "sidebar_label": "Learn command (/learn)"
     },
     "antigravity/commands/schedule.md": {
@@ -796,9 +796,9 @@
       "slug": "commands/schedule",
       "label": "Schedule command (/schedule)",
       "url": "https://antigravity.google/docs/commands/schedule.md",
-      "sha256": "84ca7994cf6b532e2cd8c948f4129dc31f6c1cd628392f3dac945869ce7c4208",
-      "bytes": 5707,
-      "fetched_at": "2026-10-22T03:39:45Z",
+      "sha256": "f5fff7f1979adaad8c0107a946209a4f5770d2c6c82d57f775fe11b94e75677a",
+      "bytes": 5713,
+      "fetched_at": "2026-11-05T05:33:37Z",
       "sidebar_label": "Schedule command (/schedule)"
     },
     "antigravity/customization-discovery.md": {
@@ -810,9 +810,9 @@
       "slug": "customization-discovery",
       "label": "Customization discovery",
       "url": "https://antigravity.google/docs/customization-discovery.md",
-      "sha256": "ad17fd95ed873820f870daff76091d697e02981733a1aa6ddf7ed256387e5021",
-      "bytes": 16025,
-      "fetched_at": "2026-11-01T04:50:16Z",
+      "sha256": "dbc634ac50874343088958c3ea68bd742e0b5a055b5146972b54778eca1f9e14",
+      "bytes": 16019,
+      "fetched_at": "2026-11-05T05:33:37Z",
       "sidebar_label": "Customization discovery"
     },
     "antigravity/enterprise.md": {
@@ -852,9 +852,9 @@
       "slug": "features",
       "label": "Feature overview",
       "url": "https://antigravity.google/docs/features.md",
-      "sha256": "572e15dec91ed400dc243b250db8c1e025fa3b237c3b90b5b65e15a7b35510f8",
-      "bytes": 19915,
-      "fetched_at": "2026-11-04T05:12:24Z",
+      "sha256": "64ccfac261718bb4b54aa9fff32fa065870db639a7528964a1358835d6eff626",
+      "bytes": 20062,
+      "fetched_at": "2026-11-05T05:33:37Z",
       "sidebar_label": "Feature overview"
     },
     "antigravity/firebase-studio-migration.md": {
@@ -880,9 +880,9 @@
       "slug": "getting-started",
       "label": "Get started",
       "url": "https://antigravity.google/docs/getting-started.md",
-      "sha256": "af598c0662c3d56924a32892dc953d28350820f6fdefa51b35717996de294c84",
-      "bytes": 19054,
-      "fetched_at": "2026-11-04T05:12:24Z",
+      "sha256": "d23c9cdeca34a69765b6a35b108167ee743846427b2273e6fda22a13e9a82418",
+      "bytes": 19477,
+      "fetched_at": "2026-11-05T05:33:37Z",
       "sidebar_label": "Get started"
     },
     "antigravity/home.md": {
@@ -908,9 +908,9 @@
       "slug": "hooks",
       "label": "Hooks",
       "url": "https://antigravity.google/docs/hooks.md",
-      "sha256": "a37e4c8295a321cfa22a7f6af4876bdb2cbdb376256a0bbb3cc8a2d5e663dbbc",
-      "bytes": 19544,
-      "fetched_at": "2026-10-24T03:38:39Z",
+      "sha256": "245e32c8ad69d6b4a07c95025e3309e9ae5cc6d479cfcecfdcc7802e996885f6",
+      "bytes": 20637,
+      "fetched_at": "2026-11-05T05:33:37Z",
       "sidebar_label": "Hooks"
     },
     "antigravity/ide/agent-side-panel.md": {
@@ -1286,9 +1286,9 @@
       "slug": "implementation-plan",
       "label": "Plan",
       "url": "https://antigravity.google/docs/implementation-plan.md",
-      "sha256": "7f5c85f4db6b4d958c5f96eecee1fe124bff8b526d117b7ba04841fbcf722ff0",
-      "bytes": 2206,
-      "fetched_at": "2026-10-22T03:39:45Z",
+      "sha256": "2059366dff27ea602b8a78f64a163d4e8abc5d64c1861ed62f229ac4016ee40a",
+      "bytes": 3135,
+      "fetched_at": "2026-11-05T05:33:37Z",
       "sidebar_label": "Plan"
     },
     "antigravity/install.md": {
@@ -1314,9 +1314,9 @@
       "slug": "marketplace",
       "label": "Marketplace",
       "url": "https://antigravity.google/docs/marketplace.md",
-      "sha256": "a03cb33042250d42545124e7272072c66bb0e4a6d8dca8f77e6e0a0a1ba07f10",
-      "bytes": 10361,
-      "fetched_at": "2026-10-30T04:45:24Z",
+      "sha256": "015cd4b394bc23e7c233f2253f3b80c79b8979e643835c099551d3c3cdc9a703",
+      "bytes": 11018,
+      "fetched_at": "2026-11-05T05:33:37Z",
       "sidebar_label": "Marketplace"
     },
     "antigravity/mcp.md": {
@@ -1328,9 +1328,9 @@
       "slug": "mcp",
       "label": "MCP",
       "url": "https://antigravity.google/docs/mcp.md",
-      "sha256": "409501289977910a6933cc5bf5a549e97a6976a934cb30aefcae3fb1ae8b732b",
-      "bytes": 20491,
-      "fetched_at": "2026-11-01T04:50:16Z",
+      "sha256": "aa2c1c7b0579214e161efa1022cff239ad435c975744e54bd18d12247c6ad372",
+      "bytes": 23896,
+      "fetched_at": "2026-11-05T05:33:37Z",
       "sidebar_label": "MCP"
     },
     "antigravity/models.md": {
@@ -1370,9 +1370,9 @@
       "slug": "permissions",
       "label": "Permissions",
       "url": "https://antigravity.google/docs/permissions.md",
-      "sha256": "2df8b3143aebbd44eb090e9dfb93bce15da9a0f625a4ee75df13be1b03dedb38",
-      "bytes": 33101,
-      "fetched_at": "2026-11-04T05:12:24Z",
+      "sha256": "0c83768a7fc89eeebb82f68024471268fbdcbacceafa77a71ebeb73fb10f48f3",
+      "bytes": 33069,
+      "fetched_at": "2026-11-05T05:33:37Z",
       "sidebar_label": "Permissions"
     },
     "antigravity/plan.md": {
@@ -1384,9 +1384,9 @@
       "slug": "plan",
       "label": "Plan (/plan)",
       "url": "https://antigravity.google/docs/plan.md",
-      "sha256": "16c45f90991d7ad96bd2780dab77edd2e8225bd3757b54086577cc626a4b4299",
-      "bytes": 6155,
-      "fetched_at": "2026-10-30T04:45:24Z",
+      "sha256": "ed99ba5e72808c1953f2e0f8b5ea4449657c677faec8a0f93bc6ea3f454528e8",
+      "bytes": 6159,
+      "fetched_at": "2026-11-05T05:33:37Z",
       "sidebar_label": "Plan (/plan)"
     },
     "antigravity/plans.md": {
@@ -1412,9 +1412,9 @@
       "slug": "plugins",
       "label": "Plugins",
       "url": "https://antigravity.google/docs/plugins.md",
-      "sha256": "b9a4b3cd56141a6458261695475b572460767b2ce3c9444826399623bcf209db",
-      "bytes": 13867,
-      "fetched_at": "2026-10-30T04:45:24Z",
+      "sha256": "4882d2c60c789215674ec15da47abaf88066132b8235e5f6de8df3167c12a56e",
+      "bytes": 14074,
+      "fetched_at": "2026-11-05T05:33:37Z",
       "sidebar_label": "Plugins"
     },
     "antigravity/projects.md": {
@@ -1426,9 +1426,9 @@
       "slug": "projects",
       "label": "Projects",
       "url": "https://antigravity.google/docs/projects.md",
-      "sha256": "29264eac72fb206492fa8500cf906e1b1ae14d9fdadf2e819348b470a338b37e",
-      "bytes": 5700,
-      "fetched_at": "2026-11-04T05:12:24Z",
+      "sha256": "d8be37ff1d0ab878d5a695d5d5839d83240b55d509986a72f789ba2a82de3d06",
+      "bytes": 5640,
+      "fetched_at": "2026-11-05T05:33:37Z",
       "sidebar_label": "Projects"
     },
     "antigravity/remote-agents.md": {
@@ -1440,9 +1440,9 @@
       "slug": "remote-agents",
       "label": "Remote Agents",
       "url": "https://antigravity.google/docs/remote-agents.md",
-      "sha256": "ef9877c38a6c4a9ed298472efaeb027642580cf8be2f237e81ee44165db47ed2",
-      "bytes": 6535,
-      "fetched_at": "2026-11-04T05:12:24Z",
+      "sha256": "bfa798da59fd9345eff1a6d2e55ac522ed2d32e62b1a967d2e4aad8d4d93a6f6",
+      "bytes": 14407,
+      "fetched_at": "2026-11-05T05:33:37Z",
       "sidebar_label": "Remote Agents"
     },
     "antigravity/remote-control.md": {
@@ -1468,9 +1468,9 @@
       "slug": "review-changes",
       "label": "Review changes",
       "url": "https://antigravity.google/docs/review-changes.md",
-      "sha256": "a2ff464c89b212f47ca4c79538506d87c4a65f63994cc73c9a647c3686cb7d66",
+      "sha256": "ef032feabe63f3eaa38aa7461525dac410831266fcd0babff5b424131d91e177",
       "bytes": 9345,
-      "fetched_at": "2026-10-30T04:45:24Z",
+      "fetched_at": "2026-11-05T05:33:37Z",
       "sidebar_label": "Review changes"
     },
     "antigravity/rules-workflows.md": {
@@ -1510,9 +1510,9 @@
       "slug": "sandbox",
       "label": "Terminal sandbox",
       "url": "https://antigravity.google/docs/sandbox.md",
-      "sha256": "efd9fbe81ebe1f57aaa7f3170b9b3d529c96053970cee28b70c9d626caae7631",
-      "bytes": 15401,
-      "fetched_at": "2026-11-04T05:12:24Z",
+      "sha256": "9a799d3edcabbefa848514692d82213b011eebee07f1795f360bd3f2395bb0e2",
+      "bytes": 15242,
+      "fetched_at": "2026-11-05T05:33:37Z",
       "sidebar_label": "Terminal sandbox"
     },
     "antigravity/screenshots.md": {
@@ -1524,9 +1524,9 @@
       "slug": "screenshots",
       "label": "Screenshots",
       "url": "https://antigravity.google/docs/screenshots.md",
-      "sha256": "1125ec324030418658dfde869989f396722730dee489c8d22837ca86b072bf19",
-      "bytes": 599,
-      "fetched_at": "2026-10-22T03:39:45Z",
+      "sha256": "e81f5d2d9a878864707a2ed6c52047ca0981a3a5a3fe8878cf3734eefbb5b064",
+      "bytes": 2275,
+      "fetched_at": "2026-11-05T05:33:37Z",
       "sidebar_label": "Screenshots"
     },
     "antigravity/sdk/lifecycle.md": {
@@ -1664,9 +1664,9 @@
       "slug": "search",
       "label": "Search and command palette",
       "url": "https://antigravity.google/docs/search.md",
-      "sha256": "9e2fa778bea2769d653a90fce7f5970c18d4eb8dcf31ec77aca368df5dc2ecba",
-      "bytes": 9940,
-      "fetched_at": "2026-10-30T04:45:24Z",
+      "sha256": "5703a47c6942fe4f1fc955e23564ce3fe75d830a8f490b708ce57cc09ab180cc",
+      "bytes": 9966,
+      "fetched_at": "2026-11-05T05:33:37Z",
       "sidebar_label": "Search and command palette"
     },
     "antigravity/settings.md": {
@@ -1678,9 +1678,9 @@
       "slug": "settings",
       "label": "Settings",
       "url": "https://antigravity.google/docs/settings.md",
-      "sha256": "34e2ec3f108e9d4e27856ace3ed5478ac9ed9a9975a7857beafa2d925fe4f2f6",
-      "bytes": 33546,
-      "fetched_at": "2026-11-04T05:12:24Z",
+      "sha256": "1c48657b2a1c4469e4017139ae6b9cf6eb3854eb2a61ace1c85e2df3f3332e10",
+      "bytes": 33434,
+      "fetched_at": "2026-11-05T05:33:37Z",
       "sidebar_label": "Settings"
     },
     "antigravity/sidecars.md": {
@@ -1720,9 +1720,9 @@
       "slug": "slash-commands",
       "label": "Slash commands overview",
       "url": "https://antigravity.google/docs/slash-commands.md",
-      "sha256": "74011181e2eba4e62cc87e8e317b1568d2ff52e48e7211202963f50d518d6c1e",
-      "bytes": 16252,
-      "fetched_at": "2026-10-30T04:45:24Z",
+      "sha256": "dfa7d72f5f5ba22ae7cdb7f971100739adf47ece1111bac514492d64a1e7eaba",
+      "bytes": 16270,
+      "fetched_at": "2026-11-05T05:33:37Z",
       "sidebar_label": "Slash commands overview"
     },
     "antigravity/subagents.md": {
@@ -1748,9 +1748,9 @@
       "slug": "teamwork",
       "label": "Teamwork agent teams (/teamwork)",
       "url": "https://antigravity.google/docs/teamwork.md",
-      "sha256": "6451a98a558ba1d19c00c3a2bcb8fa5cc2705fdc39be6e9eac803e13c964be10",
-      "bytes": 11146,
-      "fetched_at": "2026-10-30T04:45:24Z",
+      "sha256": "91b516996431ac31e6aeb76e1fcbca01c799a0b9cb70bc27099c04654afe70a7",
+      "bytes": 11150,
+      "fetched_at": "2026-11-05T05:33:37Z",
       "sidebar_label": "Teamwork agent teams (/teamwork)"
     },
     "antigravity/voice-mode.md": {
@@ -1762,9 +1762,9 @@
       "slug": "voice-mode",
       "label": "Voice mode",
       "url": "https://antigravity.google/docs/voice-mode.md",
-      "sha256": "408aab78a84686eac4f6ed7e7fe33fa954d89430805aa631655dbb567fe7bbcd",
-      "bytes": 23425,
-      "fetched_at": "2026-11-04T05:12:24Z",
+      "sha256": "c6a21b9b022ee3b98e4b9b36236dc6dd3920bbf4820dcc33ce4f2222c8142374",
+      "bytes": 23404,
+      "fetched_at": "2026-11-05T05:33:37Z",
       "sidebar_label": "Voice mode"
     },
     "antigravity/walkthrough.md": {
@@ -1776,9 +1776,9 @@
       "slug": "walkthrough",
       "label": "Walkthrough",
       "url": "https://antigravity.google/docs/walkthrough.md",
-      "sha256": "875315fcab9262bdf38e3cfc0119856b904079c138cfa2e92adf64f35f9bf25b",
-      "bytes": 718,
-      "fetched_at": "2026-10-22T03:39:45Z",
+      "sha256": "cd88cdc4bb022190ad6dfc7726517131ab17a6721b27937f4b57f70d090c789d",
+      "bytes": 1392,
+      "fetched_at": "2026-11-05T05:33:37Z",
       "sidebar_label": "Walkthrough"
     }
   }

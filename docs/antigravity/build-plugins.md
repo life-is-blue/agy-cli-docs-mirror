@@ -99,7 +99,7 @@ plugins/<plugin-name>/
     
 *   **Pre-install documentation (`README.md`)**: Include a `README.md` at `<plugin-root>/README.md` (or `.antigravity-plugin/README.md`) to document setup prerequisites, included tools, and example workflows in the Marketplace detail view before installation:
     
-    ![Plugin details view showing suggestedPrompts chips, component tabs, and rendered README.md](/assets/image/docs/plugins/plugin-card.png)
+    ![A plugin detail view in the Antigravity App showing the suggestedPrompts as starter prompts, the Overview, Skills, MCP, Agents, and Rules tabs, and the rendered README.md](/assets/image/docs/plugins/plugin-card.png)
     
 
 ### Manifest file (`plugin.json`)
@@ -363,7 +363,7 @@ When a plugin declares MCP `variables`, installing it via `agy plugin install` l
 
 Bundled MCP servers appear in the **MCP** tab on the plugin detail page:
 
-![Plugin detail view showing the MCP tab for a bundled MCP server](/assets/image/docs/plugins/plugin-mcp-tab.png)
+![The MCP tab of the Dart and Flutter plugin detail view in the Antigravity App, listing the bundled dart-mcp-server](/assets/image/docs/plugins/plugin-mcp-tab.png)
 
 ### Subagents
 
@@ -410,7 +410,7 @@ Once a plugin is installed, you can list its bundled agents from your terminal w
 
 Bundled custom agents and subagents appear in the **Agents** tab on the plugin detail page:
 
-![Plugin detail view showing the Agents tab for a bundled custom agent](/assets/image/docs/plugins/plugin-agents-tab.png)
+![The Agents tab of the Dart and Flutter plugin detail view in the Antigravity App, listing the bundled flutter\_a11y\_agent custom agent](/assets/image/docs/plugins/plugin-agents-tab.png)
 
 ### Rules
 
@@ -440,7 +440,7 @@ description: Terraform and infrastructure naming conventions
 
 Bundled rules appear in the **Rules** tab on the plugin detail page:
 
-![Plugin detail view showing the Rules tab for a bundled rule](/assets/image/docs/plugins/plugin-rules-tab.png)
+![The Rules tab of the Dart and Flutter plugin detail view in the Antigravity App, listing the bundled flutter-hot-reload.md rule](/assets/image/docs/plugins/plugin-rules-tab.png)
 
 ### Lifecycle hooks
 

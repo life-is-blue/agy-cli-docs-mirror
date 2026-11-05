@@ -2,7 +2,7 @@
 
 Available on: Antigravity App, Antigravity CLI
 
-Hand a web task to the **`browser` subagent**, which drives Google Chrome to navigate pages, interact with your running app, inspect the console and network, and capture screenshots and recordings.
+Hand a web task to the **`browser` subagent**, which drives Google Chrome to navigate pages, interact with your running app, inspect the console and network, capture screenshots, and record video of its actions on a page.
 
 ## Overview
 
@@ -10,9 +10,9 @@ Many development tasks end in a browser: confirming that a layout fix rendered, 
 
 The `browser` subagent is purpose-built for this work:
 
-*   **Real Chrome, real DevTools**: the subagent controls Google Chrome through the Chrome DevTools MCP server, which Antigravity starts automatically when the subagent is invoked. No manual setup is required.
+*   **Real Chrome, real DevTools**: the subagent controls your own Google Chrome through the Chrome DevTools MCP server, which Antigravity starts automatically when the subagent is invoked. Chrome must already be running with remote debugging turned on; refer to [Set up Chrome](#set-up-chrome).
 *   **Isolated context**: like other [subagents](/docs/subagents), it runs in its own conversation with a clean context window, so long page snapshots and console logs don’t crowd out your main conversation.
-*   **Recorded sessions**: every browser session is recorded and saved to the conversation’s artifacts as a WebM video. The recording is generated asynchronously, and the agent lets you know when it’s available.
+*   **Session recordings**: when the subagent interacts with a page, such as clicking, typing, or filling in a form, Antigravity can record those actions and save a WebM video to the subagent’s artifacts after it finishes, so you can play back what it did. Sessions that only open pages or take screenshots don’t produce a recording.
 *   **On demand only**: the `browser` subagent is hidden from the agent’s normal subagent list. The main agent uses it only when you invoke `/browser`.
 
 Note
@@ -27,23 +27,31 @@ Type `/browser` followed by the task. Describe a clear end condition so the suba
 
 Type the command in the composer:
 
-```text
+```prompt
 /browser Open http://localhost:3000, resize to a 390px-wide mobile viewport, verify the navigation drawer opens and closes, and capture a screenshot of each state
 ```
 
-The subagent’s progress appears in the subagent panel. Screenshots and the session recording are added to the conversation’s artifacts when the task completes.
+Click the subagent’s name in your conversation to follow its progress in the side panel. Screenshots appear in its steps; to comment on one, ask the agent to save it to the conversation’s artifacts. For details, refer to [Screenshots](/docs/screenshots).
 
 ### Antigravity CLI
 
 Type the command in the interactive prompt:
 
-```bash
+```prompt
 /browser Open http://localhost:3000/dashboard, verify that the analytics charts render, and report any console errors
 ```
 
 Press Alt+J or run `/agents` to switch into the subagent’s conversation and watch it work.
 
-The first time the subagent connects, Chrome asks you to allow remote debugging. Accept the prompt so the subagent can attach to the browser.
+## Set up Chrome
+
+The subagent attaches to Google Chrome (version 144 or later) that’s already running on your computer. It doesn’t launch Chrome for you, and Chrome doesn’t need to be signed in. Before you run `/browser`:
+
+1.  Open Google Chrome.
+2.  Go to `chrome://inspect/#remote-debugging`.
+3.  Turn on **Allow remote debugging for this browser instance**.
+
+If remote debugging is off, the App shows **Remote Debugging Required** with these steps. When the subagent connects, Chrome asks you to allow remote debugging. Accept the prompt so the subagent can attach to the browser.
 
 ## What the browser subagent can do
 
@@ -65,25 +73,25 @@ The following prompts show typical `/browser` workflows:
 
 *   **Verify a UI fix**:
     
-    ```text
+    ```prompt
     /browser Reload http://localhost:5173/settings and confirm the save button is no longer disabled after editing the display name
     ```
     
 *   **Reproduce a console error**:
     
-    ```text
+    ```prompt
     /browser Go to http://localhost:3000/checkout, add any item to the cart, and report the full text and stack of any console errors
     ```
     
 *   **Check responsive and slow-network behavior**:
     
-    ```text
+    ```prompt
     /browser Load http://localhost:3000 with a Slow 3G network profile and a 375px viewport, then screenshot the hero section once it finishes loading
     ```
     
 *   **Research documentation**:
     
-    ```text
+    ```prompt
     /browser Open the Astro docs for content collections and summarize how to define a schema with zod
     ```
     

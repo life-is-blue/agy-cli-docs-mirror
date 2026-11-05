@@ -35,7 +35,7 @@ The agent reviews the recent conversation, identifies what to retain, and propos
 
 To point the agent at exactly what to capture, add an instruction:
 
-```text
+```prompt
 /learn always run vitest with --pool=forks in this repo
 ```
 

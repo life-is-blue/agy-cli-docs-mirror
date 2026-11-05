@@ -1,6 +1,6 @@
 # Remote Agents
 
-Available on: Antigravity App
+Available on: Antigravity App, Antigravity CLI
 
 Antigravity Remote Agents run your agent sessions and tools in an isolated, Google-managed remote environment rather than on your local machine.
 
@@ -23,9 +23,11 @@ Antigravity provides two ways to work with agents remotely depending on where yo
 
 ## Getting started
 
-You can launch and manage Remote Agents from the **Antigravity App** on your desktop or directly from any web browser at [antigravity.google.com](https://antigravity.google.com).
+You can launch and manage Remote Agents from the **Antigravity App** on your desktop, from the **Antigravity CLI** in your terminal, or directly from any web browser at [antigravity.google.com](https://antigravity.google.com).
 
-### Start in the Antigravity App
+### Antigravity App
+
+#### Start in the Antigravity App
 
 To create a remote project alongside your local projects in the Antigravity App, do the following:
 
@@ -40,7 +42,7 @@ You can also start a remote project directly from a GitHub repository in the mes
 2.  Select **Remote** > **GitHub Repositories**. If you have not connected your GitHub account yet, click **Connect GitHub** to authorize access.
 3.  Choose a repository from the list. Antigravity automatically selects an existing remote project for that repository or creates a new one.
 
-### Start on the web
+#### Start on the web
 
 To use Remote Agents from a desktop or mobile browser without installing a local application, do the following:
 
@@ -48,9 +50,127 @@ To use Remote Agents from a desktop or mobile browser without installing a local
 2.  Sign in with a personal Google Account on an eligible plan (Google AI Pro or Google AI Ultra).
 3.  Enter a prompt in the message box to start a standalone remote conversation, or click **Create Project** next to **Projects** in the left sidebar to configure a project with GitHub repositories, Google Drive files, or uploaded files.
 
-### Switch between Remote Agents and Remote Control
+#### Switch between Remote Agents and Remote Control
 
 If you also use [Remote Control](/docs/remote-control) to connect to local Antigravity App or Antigravity CLI instances, use the instance switcher on [antigravity.google.com](https://antigravity.google.com) (in the left sidebar above **Settings** on desktop browsers, or in the top bar on mobile) to switch between **Remote Conversations** and any of your connected host machines.
+
+### Antigravity CLI
+
+#### Start a remote agent session
+
+To run your Antigravity CLI conversations on Remote Agents, do the following:
+
+1.  Make sure that you’re running Antigravity CLI 1.4.12 or later. To update the CLI, run `agy update`.
+    
+2.  Sign in to the CLI with a personal Google Account on an eligible plan (see **Availability**). The CLI shows the signed-in account and its plan when it starts, and in `/help`.
+    
+3.  Start the CLI with the `--remote-agent` flag:
+    
+    ```bash
+    agy --remote-agent
+    ```
+    
+4.  Enter a prompt to start a remote conversation.
+    
+
+Every conversation that you start in the session runs on a remote agent, and the status line shows `remote` and the name of the remote project. Because the agent runs remotely, it keeps working on a task even if your machine goes to sleep or loses its connection, and you can continue the conversation later from the CLI, the Antigravity App, or the web.
+
+Note
+
+A remote agent works in its own remote environment, not in the directory where you start the CLI, so it can’t read or change files on your machine. To give it code and files to work with, attach them to its remote project as described in [Attach repositories and files](#attach-repositories-and-files).
+
+#### Choose a remote project
+
+The first time that you start a remote agent session on a machine, the CLI creates a remote project named `CLI Project (<hostname>)` for that machine and opens new conversations in it. Later remote agent sessions on the same machine and account reuse that project.
+
+To open conversations in a different remote project, such as one that you created in the Antigravity App or on the web, pass the project’s name or ID with `--project`:
+
+```bash
+agy --remote-agent --project="My remote project"
+```
+
+If no remote project has that name or ID, the CLI shows a warning and uses the machine’s default remote project instead.
+
+To create a new remote project named after the current directory, pass `--new-project`:
+
+```bash
+agy --remote-agent --new-project
+```
+
+To switch projects during a session, run `/projects`, select a project, press `Enter`, choose **Switch to project**, and confirm. The CLI starts a new conversation in that project.
+
+#### Attach repositories and files
+
+Remote agents work with the resources attached to their remote project. To create a remote project with resources from the CLI, do the following:
+
+1.  Run `/projects` and select **\+ New project…** at the top of the list.
+2.  Enter a name for the project, and then press the right arrow key to choose its resources.
+3.  Attach any of the following resources:
+    *   **GitHub**: Select GitHub and press `Enter`. If you haven’t connected GitHub yet, sign in to it in your browser. Then select the repositories to attach.
+    *   **Google Drive**: Select Google Drive and press `Enter`, signing in if you haven’t connected it yet. Then select **\+ Add a Drive file by link…** and paste a link to a Google Docs, Sheets, Slides, or Drive file.
+    *   **Uploaded files**: Select **Upload Files**, then **\+ Add a local file…**, and enter the path of a file on your machine.
+4.  Press `Ctrl+S` to create the project.
+
+To change the resources of an existing remote project, run `/projects`, select the project, press `Enter`, and choose **Edit**. These are the same resources that you can manage in the Antigravity App and on the web. For details, see [Remote projects and resources](#remote-projects-and-resources).
+
+#### Resume remote conversations
+
+Remote agent conversations are stored with your remote projects rather than on your machine. To continue your most recent remote agent conversation, run the following command:
+
+```bash
+agy --remote-agent -c
+```
+
+To resume a specific remote agent conversation, pass its ID:
+
+```bash
+agy --remote-agent --conversation=<conversation_id>
+```
+
+When you exit a remote agent session, the CLI prints the command that resumes your conversation. During a session, run `/resume` to choose from your remote agent conversations.
+
+Note
+
+A session started with `--remote-agent` opens only remote agent conversations, and a session started without it opens only local conversations. To resume a local conversation, start the CLI without `--remote-agent`.
+
+#### Remote agent settings
+
+Remote agent sessions use your [CLI settings](/docs/settings?tab=cli) from `settings.json`, such as your color scheme, verbosity, and editor mode, except for permissions. For permissions, remote agents follow your remote agent settings, which apply to all of your remote agent sessions.
+
+In a remote agent session, `/config` splits your settings into two tabs. Press `Tab` to switch between them:
+
+*   **TUI**: Your CLI settings. This tab hides the settings that your remote agent settings replace: **Agent Mode**, **Tool Permission**, **Artifact Review**, **Sandbox Mode**, and **Non-Workspace Access**.
+*   **Remote Agent**: Your remote agent settings:
+    *   **Permission Preset**: Controls which actions the agent can take. `default` asks before sensitive operations, `request review` asks before every command, and `always-proceed (turbo)` runs all commands without restrictions.
+    *   **Plan Review Policy**: Controls whether the agent asks you to review its documents, such as implementation plans: `always ask` or `always proceed`.
+
+To manage the allow, deny, and ask rules that remote agents follow, run `/permissions`. In a remote agent session, it shows your remote agent rules instead of your local rules.
+
+Unless you change it, the permission preset is `always-proceed (turbo)`, so remote agents run commands without asking for approval. Remote agent sessions always use the default [execution mode](/docs/cli/modes), so plan, accept-edits, and auto mode aren’t available.
+
+#### Features not available in remote agent sessions
+
+The following CLI features aren’t available in remote agent sessions yet:
+
+*   Print mode (`--print`)
+*   Code search (`/codesearch`)
+*   `/diff`, `/fork`, `/rewind`, and `/btw`
+*   Voice dictation (`/voice`)
+*   Running terminal commands yourself with `!`
+*   Sending messages to subagents with `@`
+*   MCP servers, plugins, and agent skills installed on your machine
+
+If you run a slash command that isn’t available, the CLI reports that it’s not available in remote agent sessions.
+
+#### CLI troubleshooting
+
+Review the following solutions for common issues with remote agent sessions:
+
+*   **Remote conversations don’t start**: Make sure that you’re signed in to the CLI with a personal Google Account on an eligible plan (see **Availability**). Run `/help` to see the signed-in account.
+*   **`Project Not Found` warning**: No remote project has the name or ID that you passed with `--project`, so the CLI uses this machine’s default remote project instead. Run `/projects` to see the names of your remote projects.
+*   **`is a local conversation` warning**: The ID that you passed with `--conversation` belongs to a local conversation. Start the CLI without `--remote-agent` to resume it.
+*   **`@` suggests sending a message first**: A remote agent’s environment starts with the conversation. After you send the first message, `@` suggests files from the remote agent’s environment.
+*   **`Not available in remote agent sessions.`**: The command isn’t supported in remote agent sessions yet. For the full list, see [Features not available in remote agent sessions](#features-not-available-in-remote-agent-sessions).
 
 ## Remote projects and resources
 
@@ -60,6 +180,8 @@ While local [projects](/docs/projects) mount directories from your workstation u
 *   **Google Drive**: Select files or folders from your Google Drive (using the Google Drive Picker on the web interface or the Drive file list in the Antigravity App), such as Google Docs, Sheets, Slides, PDFs, or folders. The remote agent reads attached Drive files on demand during conversations.
 *   **Uploaded files**: Upload local files from your device (up to 8 MiB per file, 50 files and 100 MiB per project, and 2 GiB total across your account), including source code, text and data files, images, PDFs, and `.zip` archives. Uploaded files persist across conversations in the project and are staged under `/home/antigravity/upload`.
 
+In the Antigravity CLI, run `/projects` to attach and remove resources. For details, see [Attach repositories and files](#attach-repositories-and-files).
+
 ## Plugins and credentials
 
 Remote Agents support [plugins](/docs/plugins) that connect your agent to external tools and services:
@@ -67,6 +189,8 @@ Remote Agents support [plugins](/docs/plugins) that connect your agent to extern
 1.  Open **Customizations** in the left sidebar and select the **Marketplace** tab (under **Apps**, or **Installed** once connected).
 2.  Browse available plugins, such as **GitHub**, **Google Drive**, **Google Docs**, **Google Sheets**, **Google Slides**, and **Google Calendar**.
 3.  Click **Connect** next to a plugin to authorize your account with OAuth.
+
+In a remote agent session in the Antigravity CLI, run `/plugin` to connect plugins from the **Discover** tab and manage them in the **Installed** tab.
 
 Your OAuth credentials are encrypted at rest and tokens are securely injected when the remote agent makes requests to authorized services.
 

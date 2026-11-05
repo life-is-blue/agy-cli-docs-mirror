@@ -25,7 +25,7 @@ Type `/goal` followed by the objective you want the agent to pursue. Write the o
 
 Type the command in the composer:
 
-```text
+```prompt
 /goal Migrate the auth package from session cookies to OAuth2 and make sure all unit and integration tests pass
 ```
 
@@ -35,7 +35,7 @@ An **Active Goal** indicator appears above the composer while the goal is runnin
 
 Type the command in the interactive prompt:
 
-```bash
+```prompt
 /goal Migrate the auth package from session cookies to OAuth2 and make sure all unit and integration tests pass
 ```
 

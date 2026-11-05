@@ -132,9 +132,9 @@ For authentication options or enterprise configurations, consult the **[Authenti
     
     **Requirements:** macOS 12 (Monterey)+, Windows 10 (64-bit)+, or Linux / Googlebook (glibc >= 2.28, glibcxx >= 3.4.25).
     
-    Download the standalone **Antigravity IDE** installer for your platform from [antigravity.google/download](/download). When a new version is available, Antigravity IDE downloads it in the background and prompts you to click **Restart to Update**:
+    Download the standalone **Antigravity IDE** installer for your platform from [antigravity.google/download](/download). When a new version is available on macOS or Windows, Antigravity IDE downloads it in the background and prompts you to click **Restart to Update** (a system-wide Windows installation shows **Install Update** instead). On Linux, an **Update Available** button appears in the title bar and a badge appears on your account icon. Click **Update Available** for instructions: if you installed Antigravity IDE with a package manager such as apt, update it through your system’s update process; if you installed it from the tarball, download the new tarball yourself:
     
-    ![Restart to update notification in Antigravity IDE](/assets/image/docs/restart-to-update.png)
+    ![The Antigravity IDE title bar on Linux, with a 1 badge on the account icon and an Update Available button next to it](/assets/image/docs/ide-update-badge-linux.png)
     
     **Basic navigation (Editor & Agent Manager):** Open the Agent Manager from the editor using the button on the top bar or Cmd+E (Ctrl+E on Windows/Linux):
     
@@ -210,11 +210,11 @@ Navigate to any codebase directory in your terminal and start a session:
     
 2.  Enter your first task prompt and press Enter:
     
-    ```text
+    ```prompt
     Write a simple python script to fetch web page text
     ```
     
-    The agent indexes the workspace and creates `main.py` in your workspace (in `auto` mode, the default where the terminal sandbox is available, workspace edits and sandboxed commands run automatically; in `default` mode, press Y when prompted to approve file creation).
+    The agent indexes the workspace and creates `main.py` in your workspace. Press Y when prompted to approve the file creation (in `auto` mode, workspace edits and sandboxed commands run automatically).
     
 3.  Inspect diffs or review artifacts at any time:
     
@@ -226,7 +226,7 @@ Navigate to any codebase directory in your terminal and start a session:
     Run the python script and show me the output
     ```
     
-    In `auto` mode, the agent runs `python3 main.py` inside the terminal sandbox automatically (in `default` mode, press Y to confirm execution). Once finished, press Ctrl + D (or type `/exit`) to close the TUI session.
+    Press Y to confirm and run `python3 main.py` (in `auto` mode, the agent runs it inside the terminal sandbox automatically). Once finished, press Ctrl + D (or type `/exit`) to close the TUI session.
 
 ### For IDEs
 

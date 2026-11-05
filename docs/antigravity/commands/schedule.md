@@ -22,7 +22,7 @@ Type `/schedule` followed by when the agent should wake up and what it should do
 
 Type the command in the composer:
 
-```text
+```prompt
 /schedule in 10 minutes, check whether the deploy to staging finished and summarize any errors
 ```
 
@@ -32,7 +32,7 @@ The schedule appears in the conversation as a **Timed** or **Scheduled** step wh
 
 Type the command in the interactive prompt:
 
-```bash
+```prompt
 /schedule every weekday at 9am, run git fetch, list stale local branches, and summarize open PR reviews
 ```
 
@@ -71,7 +71,7 @@ A cron schedule fires repeatedly on a standard five-field cron expression:
 
 Set `IsDaemon` only for an independent standing job. Non-daemon schedules are tied to the task that created them. When `MaxIterations` is reached, the agent is notified that the schedule completed.
 
-```text
+```prompt
 /schedule every 2 minutes for the next 30 minutes, poll the CI status for PR #482 and tell me when it goes green
 ```
 
