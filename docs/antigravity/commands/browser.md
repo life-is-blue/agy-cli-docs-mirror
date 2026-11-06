@@ -17,7 +17,7 @@ The `browser` subagent is purpose-built for this work:
 
 Note
 
-The `browser` subagent isn’t available in the Antigravity IDE, and your organization’s administrator can disable browser access, in which case `/browser` doesn’t appear in the command menu. For browser features in the Antigravity IDE, refer to the [IDE browser overview](/docs/ide/browser).
+Your organization’s administrator can disable browser access, in which case `/browser` doesn’t appear in the command menu. `/browser` also works in the Antigravity IDE; for IDE-specific notes, refer to the [IDE browser overview](/docs/ide/browser).
 
 ## Run a browser task
 
@@ -66,6 +66,13 @@ The subagent has access to a focused set of Chrome DevTools tools:
 | **Emulate conditions** | Resize the viewport and emulate device and network conditions, such as throttled connections and CPU slowdown. |
 
 Running JavaScript in the page (`evaluate_script`) prompts for your approval by default. All other browser tools are allowed automatically for the subagent. You can adjust this in your [tool permissions](/docs/permissions).
+
+In the Antigravity App, go to **Settings** > **General** and scroll to the **Browser Subagent** section for two more controls:
+
+*   **Browser Javascript Execution Policy**: Choose whether the subagent can run custom JavaScript in the page. **Request Review** (the default) asks for your approval first, **Always Proceed** runs scripts without asking, and **Disabled** blocks them.
+*   **Browser Actuation Rules**: Click **Edit** to list the sites that the subagent can open without asking, or must never open. For details, refer to [Allowlist and denylist](/docs/ide/allowlist-denylist).
+
+If your organization’s administrator has disabled the browser subagent, the section shows a notice instead of these settings. In the Antigravity IDE, the same settings are on the **Browser** page of **Antigravity - Settings**; refer to the [IDE browser overview](/docs/ide/browser).
 
 ## Example tasks
 

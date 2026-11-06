@@ -2,56 +2,42 @@
 
 Available on: Antigravity IDE
 
-This guide covers the core navigation and completion tools: **Supercomplete**, **Tab-to-Jump**, and **Tab-to-Import**.
+This guide covers the core navigation and completion tools: **Supercomplete** and **Tab-to-Jump**.
 
 ## Supercomplete
 
 Supercomplete provides code suggestions in a region near your current cursor position.
 
-![Supercomplete](/assets/image/docs/editor/supercomplete.png)
+![Supercomplete in main.py after a punctuation parameter is added to greet: it suggests a default value of "!" for the parameter and replaces the hard-coded ! in the f-string with punctuation](/assets/image/docs/editor/supercomplete.png)
 
 ### How it works
 
 Supercomplete includes the following capabilities:
 
 *   **File-wide suggestions**: Suggestions can modify code throughout the document, handling tasks like changing variable names or updating separate function definitions simultaneously.
-*   **Accepting**: Press `Tab` to accept the changes.
+*   **Inline preview**: Suggested insertions appear as gray text in the editor, and suggested deletions are highlighted in red and struck through.
+*   **Missing imports**: Supercomplete can also suggest a missing import at the top of the file.
+*   **Accepting**: Press `Tab` to accept the changes, or press `Esc` to dismiss them.
 
 ## Tab-to-Jump
 
 Tab-to-Jump is a fluid navigation tool that suggests the next logical place in your document to move your cursor to.
 
-![Tab-to-Jump](/assets/image/docs/editor/tab_to_jump.png)
+![main.py after math is renamed to math\_lib on lines 1 and 4, with a Tab to Jump label at the end of line 9, where math.e still uses the old name](/assets/image/docs/editor/tab_to_jump.png)
 
 ### How it works
 
 Tab-to-Jump works in the following ways:
 
-*   **Navigation**: A **Tab to jump** icon appears, offering to move your cursor to your next logical edit location. Press `Tab` to immediately move your cursor to that location.
-*   **Accepting**: Press `Tab` to accept the jump.
-
-## Tab-to-Import
-
-Tab-to-Import handles missing dependencies without breaking your flow.
-
-![Tab-to-Import](/assets/image/docs/editor/tab_to_import.png)
-
-### How it works
-
-Tab-to-Import works in the following ways:
-
-*   **Detection**: If you type a class or function that isn’t imported, Antigravity suggests the import.
-*   **Action**: Press `Tab` to complete the word and immediately add the import statement to the top of the file.
+*   **Navigation**: A **Tab to Jump** label appears at the end of the line where Antigravity predicts your next edit, for example after you accept a suggestion.
+*   **Accepting**: Press `Tab` to immediately move your cursor to that location.
 
 ## Settings
 
-In your settings, you can customize the behavior of these features:
+To customize these features, click **Tab Settings** in the status bar:
 
-*   **Enable or disable features**: You can individually turn off Autocomplete, Tab-to-Jump, Supercomplete, or Tab-to-Import.
-*   **Tab speed**: Controls the responsiveness of suggestions:
+*   **Suggestions in Editor**: Turns Tab suggestions in the editor on or off.
+*   **Tab Speed**: Controls the responsiveness of suggestions:
+    *   `Fast`: Provides rapid-fire suggestions. This is the default.
     *   `Slow`: Waits for more context before suggesting.
-    *   `Default`: Offers a balanced pace.
-    *   `Fast`: Provides rapid-fire suggestions.
-*   **Highlight inserted text**: When enabled, text inserted using Tab is highlighted so you can track changes easily.
-*   **Clipboard context**: When enabled, Antigravity uses the contents of your clipboard to improve completion accuracy.
-*   **Allow gitignored files**: Enables Tab features (suggestions and jumping) within files listed in your `.gitignore` file. Tab ignores gitignored files only if Git is installed.
+*   **Tab to Jump**: Turns Tab-to-Jump on or off.

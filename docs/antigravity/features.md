@@ -66,7 +66,7 @@ The browser subagent drives Google Chrome to test and debug web pages:
 
 *   **On-demand**: Invoke the browser subagent through the [`/browser` command](/docs/commands/browser).
 *   **Chrome DevTools integration**: Integrate natively with Chrome DevTools MCP.
-*   **Video recording**: Record browser sessions as WebM videos.
+*   **Video recording**: Can record the subagent’s actions as a WebM video when it interacts with a page.
 
 ### Slash commands
 
@@ -194,6 +194,12 @@ Press Cmd+K (macOS) or Ctrl+K (Windows and Linux) to search past conversations b
 
 [Learn more about search and the command palette](/docs/search).
 
+### Side panel and Overview panel
+
+Open artifacts, files, diffs, terminals, subagent conversations, and web pages as tabs in the side panel, next to your conversation. The **Overview** panel at the top right of each conversation lists the changes, artifacts, subagents, and links that the conversation produced, so you can open any of them in one click. To work in two conversations at once, split the window.
+
+[Learn more about the side panel and the Overview panel](/docs/side-panel).
+
 ### Voice mode
 
 Talk with the agent out loud, and hear it answer in real time. With Antigravity voice mode, powered by the **Gemini Live** model, click **Start Voice mode** in an empty message box to start a spoken conversation in which you can do the following:
@@ -219,7 +225,7 @@ For a timer or recurring check inside a single conversation, in either the App o
 
 Use the built-in browser to check your running app or read documentation in the side panel, next to your conversation, and to point the agent to exactly what you see on a page.
 
-![The Antigravity App with a conversation on the left, where the agent answers with a localhost link to a Bookmarks web app, and the built-in browser in the side panel on the right showing that app](/assets/image/docs/browser/built-in-browser.png)
+![The Antigravity App with a conversation on the left, where the agent summarizes the Gemini 4 Argon announcement and links to it, and the built-in browser in the side panel on the right showing that blog post on antigravity.google with its hero image](/assets/image/docs/browser/built-in-browser.png)
 
 *   **Open a page**: Click a web link in an agent response. To open a new browser tab, press Cmd+T (macOS) or Ctrl+T (Windows and Linux), or click **+** in the side panel, and then choose **Browser**. To open a link in your default browser instead, hold Cmd (macOS) or Ctrl (Windows and Linux) while you click it.
 *   **Go to a URL or search**: Type in the address bar. For local servers that don’t use HTTPS, include `http://`, for example `http://localhost:3000`.
@@ -240,6 +246,12 @@ PDF files open in the side panel, so you can read a spec or paper next to your c
 
 *   **Navigate**: Use the toolbar at the bottom of the PDF to show page thumbnails, change pages, zoom, and fit the page or the width. To search the PDF, download it, or copy its path, use the **More actions** menu at the top.
 *   **Comment or quote**: Select text and click **Comment** (C) or **Quote** (Cmd+L on macOS, Ctrl+L on Windows and Linux), the same as on a web page.
+
+### Jupyter notebooks
+
+Open `.ipynb` files in the side panel to view rendered Markdown cells, syntax-highlighted code cells with execution counts, and inline text, image, and error outputs. Use the **Preview** / **Raw** toggle in the header to inspect the underlying JSON, or add inline comments on cells to send feedback to the agent.
+
+[Learn more about Jupyter notebooks](/docs/jupyter-notebooks).
 
 ### Integrated terminal
 

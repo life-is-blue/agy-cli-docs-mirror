@@ -136,13 +136,9 @@ For authentication options or enterprise configurations, consult the **[Authenti
     
     ![The Antigravity IDE title bar on Linux, with a 1 badge on the account icon and an Update Available button next to it](/assets/image/docs/ide-update-badge-linux.png)
     
-    **Basic navigation (Editor & Agent Manager):** Open the Agent Manager from the editor using the button on the top bar or Cmd+E (Ctrl+E on Windows/Linux):
+    **Basic navigation (Editor & Agent panel):** The agent runs in the **Agent** side panel on the right side of the editor. Press Cmd+L (Ctrl+L on Windows/Linux) to move to the panel. From the editor, this also adds the selected lines (or the current line) to your prompt as context. Press Cmd+Shift+L (Ctrl+Shift+L) to start a new conversation. To show or hide the panel, click **Toggle Agent** in the title bar:
     
-    ![Open the Agent Manager from the Antigravity IDE editor](/assets/image/docs/editor-open-agent-manager.png)
-    
-    From the Agent Manager, open the editor from any workspace using **Focus Editor** in the workspace dropdown menu, the **Open Editor** buttons, or Cmd+E (Ctrl+E on Windows/Linux):
-    
-    ![Open the editor from the Agent Manager in Antigravity IDE](/assets/image/docs/agent-manager-open-editor.png)
+    ![The Antigravity IDE editor with the Agent side panel open on the right, showing a new conversation with Gemini 4 Argon Medium selected in the model picker](/assets/image/docs/editor-open-agent-manager.png)
     
 2.  Sign in with your personal Google Account or **Gemini Enterprise** credentials (Enterprise support is available in IDE extensions—GA in VS Code and Visual Studio, and in **Preview** for JetBrains, Zed, Xcode, and Eclipse) when prompted in the Antigravity panel or settings.
 

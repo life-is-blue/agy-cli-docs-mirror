@@ -1327,9 +1327,66 @@ Antigravity 2.0 Launch bug fixes.
 
 ## Antigravity CLI
 
-### [v1.4.12](/releases?tab=cli&version=1.4.12 "View release 1.4.12")
+### [v1.5.1](/releases?tab=cli&version=1.5.1 "View release 1.5.1")
 
 Latest
+
+November 5, 2026
+
+### Broader ACP model access, faster terminal exits, sandbox OAuth hardening, and Windows fixes.
+
+Antigravity CLI 1.5.1 expands model availability across all ACP clients, speeds up terminal command completion when background processes stay open, hardens plugin OAuth token protection in the sandbox, and resolves several ACP session, Windows encoding/CRLF, and plugin authentication bugs.
+
+**Improvements:**
+
+*   Changed `agy acp` to offer every model available to your account to every ACP client, where previously only a fixed list of editors were offered models other than Gemini.
+*   Changed the tabs in `/config` during `--remote-agent` sessions from `Local` and `Remote` to `TUI` and `Remote Agent`, so it is clear that one configures the terminal UI and the other the remote agent; the settings on each tab are unchanged.
+*   Improved how quickly the agent moves on after a terminal command exits while a background process it started still holds the command's output open, which now takes at most about 1 second instead of 5.
+*   Improved subagent rows above the prompt so a subagent that is blocked waiting on you names the tool it is waiting on, such as `Blocked · AskQuestion`, instead of `Blocked · Processing...`.
+*   Improved how plugin OAuth credentials are protected in the terminal sandbox: a plugin's real token now replaces its stand-in only in a request's `Authorization` header, so a command can no longer get a website to echo the real token back by sending the stand-in in another header or in the URL.
+
+**Fixes:**
+
+*   Fixed several `agy acp` session bugs: closing, reloading, or resuming a session while a prompt runs now ends that prompt as `cancelled` instead of leaving it hanging, cancelling a prompt no longer also stops the next prompt sent right after it, `session/update` notifications no longer arrive after the `session/prompt` reply for that prompt, and permission requests and question forms now close when they are answered elsewhere or their prompt ends, instead of blocking later prompts or receiving their answers.
+*   Fixed file edits on Windows failing with `target content not found` in files that use CRLF line endings, so edits now match whichever line endings the file uses and the lines they insert keep the file's line endings.
+*   Fixed agent-run commands on Windows failing or returning garbled text when their output contains non-ASCII characters, by running Python in UTF-8 mode (`PYTHONUTF8=1`, unless you have set `PYTHONUTF8` yourself) and switching PowerShell's output encoding to UTF-8.
+*   Fixed stdio MCP servers on Windows leaving their child processes running after the server stops, which could lock plugin folders and make plugin upgrades fail because the files were in use.
+*   Fixed `agy plugin` commands being unavailable, with no plugin marketplaces listed, when you sign in with Application Default Credentials (`AGY_ADC_AUTH`) or through an enterprise model gateway.
+*   Fixed the built-in `browser` agent being listed among the agents you can start a conversation with, since it is meant to run only as a subagent, which it still does.
+*   Fixed copy-on-select and `/copy` inside GNU screen, so copied text now reaches your clipboard and long selections no longer leave stray characters in the terminal.
+
+---
+
+### [v1.5.0](/releases?tab=cli&version=1.5.0 "View release 1.5.0")
+
+November 4, 2026
+
+### Added ACP server mode, remote agent sessions, local project management, and MCP plugin sign-in
+
+Antigravity CLI 1.5.0 introduces `agy acp` to run as an Agent Client Protocol server for editors, `--remote-agent` for running conversations on remote agents, and local project management in `/projects`. This release also adds sign-in flows for partner plugin MCP servers, supports tool calls in `/btw` side questions, improves headless background task handling, and fixes several UI, API retry, and plugin upgrade issues.
+
+**Improvements:**
+
+*   Added `acp` to `agy --help`: `agy acp` runs the CLI as an Agent Client Protocol (ACP) server over stdio, so editors can use it as their agent, with images and embedded file context in prompts, steering a running turn by sending another prompt, `default`, `accept-edits`, and `plan` session modes, `session/resume` restoring a session without replaying its history, each session keeping its own model and thinking level, and Google sign-in from a terminal with `agy acp --login` for editors connected over SSH or without a browser.
+*   Added `--remote-agent` to `agy --help`, which runs the session's conversations on remote agents instead of this machine, where `--project` names a remote project by ID or name and otherwise conversations open in your default remote project; in these sessions `@`\-mention completion now searches the remote agent's files, artifacts that can't be shown in the terminal get an `Open in browser` link, the header shows `remote workspace` instead of your local directory, the `/` menu no longer offers skills from this machine, and the Remote tab in `/config` shows the conversation's own permission preset when it has one.
+*   Added local projects to `/projects`, so in a local session you can list your projects with the current one marked, create one from a name and a set of folders given as absolute, `~`, or workspace-relative paths, rename a project or change its folders, and switch to a project, which adds its folders to the workspace and starts a new conversation.
+*   Added sign-in for a partner plugin's MCP servers when you install it from `/plugin`, with a `Connect` screen for each server that opens its sign-in page (`Esc` skips), a `⚠ needs sign-in` marker and a `Sign-in:` row for the plugin in the Installed tab, and the third-party developer tools notice for partner plugins at the end of the Discover list, in a plugin's details, and after `agy plugin install` or `/plugin install`.
+*   Added a built-in `${HOME}` variable to plugin `sidecar.json` templates, so a sidecar can name paths under the user's home directory in `workspaceUris` and `accessGrants`, such as `file://${HOME}/worktrees`; a sidecar argument named `HOME` still takes precedence.
+*   Changed headless `-p` runs without `--print-timeout` to wait for background tasks to finish, where they previously stopped them after a hidden 30-minute limit and exited with success; when `--print-timeout` cuts a turn short, the run now exits with code `3`, prints an `AGY_ERROR` line naming the tasks it terminated, and writes a `[agy] print timeout after ...` line to stderr.
+*   Changed `/btw` side questions to be able to call tools, such as reading files or searching, showing each call live in the `/btw` card and a `Called N tools` summary once the answer is done, while any tool call that would ask for permission is denied automatically; this fixes side questions failing with an empty-response error when the model wanted to use a tool.
+*   Changed the `no flickering (altscreen)` option under `Rendering Mode` in `/config` to `full screen (altscreen)`; the saved setting is unchanged.
+*   Improved the error for a stdio MCP server whose command isn't installed, which now says, for example, `"uvx" is not installed or not on PATH, install it or set "command" to its full path` instead of a raw `executable file not found in $PATH` error.
+*   Improved Auto mode's review of commands that would leave the terminal sandbox so it times out and asks less often on safe commands, such as uploads that don't request a review, stopping a job the agent started, installing or removing packages from a registry, and removing files that can be restored from version control.
+
+**Fixes:**
+
+*   Fixed `/diff` drawing an empty `↕ ···` fold divider at the top of new files and of edits starting at line 1, where nothing was folded away, and fixed undo in the prompt bringing back a message you had already sent, and undo in `!` shell or `:` search mode bringing back prompt text that `Enter` would then run as a command or search.
+*   Fixed conversations using a `GEMINI_API_KEY` re-sending a prompt forever when the API's safety filter blocks it, which now ends the turn with a content-filter message, and the `pro` and `flash` subagents on that connection running models two generations older instead of Gemini 4 Argon and Gemini 3.8 Flash.
+*   Fixed certain models failing a turn on rate-limit (`429`) and server (`5xx`) errors instead of retrying them, now honoring the server's `Retry-After` header, and fixed plugin auto-upgrades of a plugin installed under a different folder name, such as after a rename, writing to a new folder and retrying on every startup instead of updating the existing folder in place.
+
+---
+
+### [v1.4.12](/releases?tab=cli&version=1.4.12 "View release 1.4.12")
 
 October 30, 2026
 
@@ -3628,9 +3685,38 @@ VS CodeVisual StudioJetBrainsZedXcodeEclipse
 
 [Extension docs→](/docs/ide/extensions/vscode)
 
-### [v1.10.0](/docs/ide/extensions/vscode "View Visual Studio Code extension docs")
+### [v1.11.0](/docs/ide/extensions/vscode "View Visual Studio Code extension docs")
 
 Latest
+
+November 2, 2026
+
+### Clickable terminal context pills, status bar and editor menus, scoped diff review commands, and multi-window sign-in sync
+
+Introduces clickable terminal context pills with snippet previews and dedicated terminal shortcuts, adds quick-access status bar, editor context, and view title menus, disambiguates diff accept and reject commands by scope, and delivers faster Cloud Workstation startup alongside multi-turn diff review, Auto Save, and multi-window authentication fixes.
+
+**Improvements:**
+
+*   Improved **Antigravity: Add Terminal Selection or Output to Chat** (`antigravity.insertTerminalSnippet`, `Ctrl+L` or `Ctrl+Alt+L` on Windows and Linux when text is selected, `Ctrl+Alt+L` when no text is selected, and `Cmd+L` on macOS) with a dedicated bottom terminal context-menu group, clickable `:` composer pills that focus the originating terminal on click, fallback `terminal:` pills on fresh terminals, and lossless clipboard preservation when `terminal.integrated.copyOnSelection` is enabled.
+*   Added three quick-access command surfaces in VS Code: a grouped status bar menu (**Antigravity: Show Menu**, `antigravity.statusMenu`) for Chat, Review, Settings, Help, and Account actions, an **Antigravity** editor right-click submenu with selection, comment, inline diff, and panel focus commands, and **New Conversation** (`+`), **Provide Feedback**, and **More Actions...** (`...`) actions in the Antigravity view title bar.
+*   Updated diff review commands in the Command Palette and **Antigravity** editor context submenu to clearly distinguish target scope across **Accept Focused Change** / **Reject Focused Change** (`antigravity.inlineDiff.acceptFocusedHunk` / `antigravity.inlineDiff.rejectFocusedHunk`, `Alt+Enter` / `Alt+Shift+Enter` on Windows and Linux or `Option+Enter` / `Option+Shift+Enter` on macOS), **Accept Changes in Current File** / **Reject Changes in Current File** (`antigravity.inlineDiff.acceptAll` / `antigravity.inlineDiff.rejectAll`), and **Accept Changes in All Files** / **Reject Changes in All Files** (`antigravity.acceptAllChanges` / `antigravity.rejectAllChanges`), hiding commands that do not apply to the current editor state.
+*   Improved startup in Cloud Shell and Cloud Workstations by using the pre-installed `/usr/bin/agy` binary directly when present, avoiding redundant binary downloads into `$HOME` and enabling startup in restricted-VPC workstations without internet egress.
+*   Updated onboarding billing and license selection copy to present **Subscription** ("Use Antigravity through your Gemini subscription.") and **Choose a Subscription** alongside updated pay-as-you-go billing descriptions.
+
+**Fixes:**
+
+*   Fixed multi-turn diff review tracking when follow-up prompts are queued while an agent turn is still editing files so Non-Cumulative mode (`antigravity.autoAcceptOnChat: true`) automatically accepts earlier-turn background files and shows only the latest turn's diff on re-edited files, while Cumulative mode (`antigravity.autoAcceptOnChat: false`) keeps all modified files open in **Changes Overview** and merges same-file edits against the initial baseline.
+*   Fixed false `"The content of the file is newer"` save conflicts and dirty editor tab indicators when staging inline diff reviews with Auto Save (`files.autoSave: afterDelay`) or manual Save (`Ctrl+S` / `Cmd+S`), and preserved background inline diff reviews across closed tabs and preview-tab navigation.
+*   Fixed inline diff reviews on new files and pure-addition edits with `files.autoSave: off` stripping trailing newlines or mismatching `CRLF` line endings and leaving the editor tab marked unsaved.
+*   Fixed side-by-side diff reviews (`antigravity.enableInlineDiff: false`) and the **Files With Changes** overview bar displaying `+0 -0` on in-place line replacements instead of actual line-level insertion and deletion counts.
+*   Fixed signing in, signing out, or switching Google Accounts in one VS Code window leaving other open VS Code windows showing stale account state in the sidebar chat, **Account** settings tab, and status bar until reload.
+*   Fixed **Antigravity: Sign In** appearing instead of **Antigravity: Sign Out** in the Command Palette and view title menu when running with older backend CLI builds (`<= 1.4.7`), and suppressed premature sign-in or sign-out menu items until authentication status is initialized.
+*   Fixed startup failures on Windows when an OS-allocated ephemeral port collides with a Hyper-V, WSL2, or system reserved port range (`WSAEACCES`) by automatically retrying once on a fresh ephemeral port without showing a false-positive crash error.
+*   Fixed **Provide Feedback** and **Give Feedback** entry points appearing in the Command Palette, view title bar, status menu, and Settings for Gemini Enterprise accounts where consumer feedback submission is disabled.
+
+---
+
+### [v1.10.0](/docs/ide/extensions/vscode "View Visual Studio Code extension docs")
 
 October 26, 2026
 
@@ -3970,9 +4056,31 @@ Introduces the 1.0.0 release of Antigravity for VS Code, bringing an agentic AI 
 
 ---
 
-### [v1.0.261026.0](/docs/ide/extensions/visual-studio "View Visual Studio extension docs")
+### [v1.0.261102.0](/docs/ide/extensions/visual-studio "View Visual Studio extension docs")
 
 Latest
+
+November 2, 2026
+
+### Inline diffs enabled by default with syntax highlighting, Tools Options configuration, review card diffs, Help menu feedback
+
+Introduces in-editor inline diffs enabled by default with syntax-highlighted deletion blocks, read-only side-by-side diff views from conversation review cards, and a **Help > Antigravity: Provide Feedback** command in Visual Studio.
+
+**Improvements:**
+
+*   Enabled syntax highlighting for deleted code blocks within inline diff views.
+*   Added the **Enable In-Place Inline Diff** setting (enabled by default) under **Tools > Options > Antigravity > General** to review agent code changes inline with per-hunk and file-level **Accept** and **Reject** controls.
+*   Added support for opening read-only side-by-side file comparisons directly from conversation review cards and deduplicated open comparison tabs.
+*   Added the **Help > Antigravity: Provide Feedback** command for eligible accounts.
+
+**Fixes:**
+
+*   Resolved an issue where reopening a document with an active diff session failed to rebind the editor buffer.
+*   Fixed an issue where the editor typing caret remained visible during active inline diff sessions.
+
+---
+
+### [v1.0.261026.0](/docs/ide/extensions/visual-studio "View Visual Studio extension docs")
 
 October 26, 2026
 

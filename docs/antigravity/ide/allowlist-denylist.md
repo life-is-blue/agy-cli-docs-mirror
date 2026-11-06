@@ -1,30 +1,36 @@
 # Allowlist and denylist
 
-Available on: Antigravity IDE
+Available on: Antigravity App, Antigravity IDE
 
-The browser uses a two-layer security system to control which URLs can be accessed:
+Antigravity asks you before the browser subagent opens a site that you haven’t allowed. To decide ahead of time, add sites to the **Browser Actuation Rules**: allow the sites that the subagent can open without asking, and deny the ones that it must never open.
 
-*   **Denylist**: Denies dangerous or malicious URLs.
-*   **Allowlist**: Explicitly allows trusted URLs.
+## When the subagent opens a new site
 
-## How it works
+When the subagent tries to open a page on a site that has no rule, Antigravity asks you to choose one of the following:
 
-### Denylist
+| Option | What it does |
+| :-- | :-- |
+| **Yes, allow this time** | Allows the site for the rest of the subagent’s current task. |
+| **Yes, allow** _domain_ **in this conversation** | Allows the site until the conversation ends. |
+| **Yes, always allow** _domain_ | Adds an allow rule for the site to your Browser Actuation Rules. |
+| **No** | Denies the request. You can tell the agent what to do instead. |
 
-Google maintains and enforces the denylist on its servers. Before the browser opens a URL, Antigravity checks the hostname against this server-side denylist.
+## Edit the rules
 
-**Note:** If the server is unavailable, access is denied by default.
+To open the rules:
 
-### Allowlist
+*   **Antigravity App**: Go to **Settings** > **General**, and in the **Browser Subagent** section, click **Edit** next to **Browser Actuation Rules**.
+*   **Antigravity IDE**: Click **Antigravity - Settings** in the status bar, select **Browser**, and then click **Edit** next to **Browser Actuation Rules**.
 
-The allowlist is a local text file (`~/.gemini/antigravity/browserAllowlist.txt`) that you can edit to explicitly trust specific URLs.
+Next to **Execute URLs**, click **Add**, choose **Allow**, **Ask**, or **Deny**, and enter a site, such as `https://example.com`. To change or delete a rule, click **Edit** or **Remove** next to it.
 
-![Allowlist](/assets/image/docs/browser-allowlist.png)
+## How rules match
 
-The allowlist is initialized with only `localhost`, and you can edit it at any time.
+*   A rule matches the domain and all its subdomains. It doesn’t match paths, so a rule for `example.com` also covers `docs.example.com` and every page on both.
+*   A deny rule wins over an allow rule for the same site.
+*   Some Google sites that hold your data, such as `accounts.google.com`, `mail.google.com`, `docs.google.com`, and `drive.google.com`, need their own rule. A rule for `google.com` doesn’t cover them.
+*   These rules apply to the browser subagent. Web pages that the agent reads without the browser are controlled by **Network Access Rules** in [Permissions](/docs/permissions).
 
-When the browser attempts to navigate to a URL that isn’t on the allowlist, it prompts you with an **Always allow** button. Clicking this button adds the URL to the allowlist and enables the browser to open and interact with the web page, as shown in the following example:
+## Rules set by your organization
 
-![Always Allow](/assets/image/docs/always-allow-url.png)
-
-You can also add or remove URLs from the allowlist manually. However, the denylist always takes precedence: you cannot allowlist a URL that appears on the denylist.
+If your organization’s administrator sets the domains that the browser subagent can use, the subagent can’t open any other site. The administrator’s domains appear under **Organization Allowed Domains (Read-Only)** in the Browser Actuation Rules, and Antigravity still asks before opening them unless you add an allow rule. If your administrator disables the browser subagent, the **Browser Subagent** section of the settings shows a notice instead of the rules.

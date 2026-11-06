@@ -8,20 +8,8 @@ Google Antigravity can open, read, and actuate a local Chrome browser, enabling 
 
 ## Core mechanisms
 
-Using the specialized [Browser Subagent](/docs/subagents), Antigravity operates on browser tabs as needed, capturing screenshots and saving action videos as interactive artifacts.
+Type [`/browser`](/docs/commands/browser) in the Agent panel to hand a task to the browser subagent. The subagent drives your own Google Chrome through the Chrome DevTools MCP server, which Antigravity IDE starts with `npx`. Before you use it, install [Node.js](https://nodejs.org/) so that `npx` is on your `PATH`, and start Chrome with remote debugging turned on, as described in [Set up Chrome](/docs/commands/browser#set-up-chrome).
 
-To completely disable browser tools, toggle the **Browser Tools** setting in the **Browser** section of the user settings.
+The subagent can take screenshots, and when it interacts with a page, it can record its actions as a WebM video. For details, refer to [Browser recordings](/docs/ide/browser-recordings).
 
-* * *
-
-## Deep dive
-
-Explore the key security and privacy features of Antigravity’s browser integration:
-
-Allowlist and denylist
-
-Learn about the two-layer security model (denylist and allowlist) used to control URL access. [Read the allowlist and denylist guide](/docs/ide/allowlist-denylist)
-
-Isolated profile
-
-Understand how the agent executes inside a completely separate Chrome profile to protect your personal data. [Read the isolated profile guide](/docs/ide/separate-chrome-profile)
+To control what the subagent can do, click **Antigravity - Settings** in the status bar and select **Browser**. **Browser Javascript Execution Policy** controls whether the agent can run custom JavaScript in the page, and **Browser Actuation Rules** sets the URLs the subagent is allowed or denied.

@@ -61,7 +61,7 @@ To start voice mode, do the following:
 
 1.  With the message box empty, click **Start Voice mode**. It’s the round button with sound bars next to the dictation microphone, and it appears only while the message box is empty. When the agent is idle, it appears in place of **Send**. While the agent is working, it appears next to the button that stops the agent.
     
-    ![The message box in the Antigravity App with an empty prompt, the Gemini Pro Next model and Default permission pickers, the dictation microphone, and the round Start Voice mode button with its tooltip](/assets/image/docs/voice-mode/voice-mode-start-button.png)
+    ![The message box in the Antigravity App with an empty prompt, the Gemini 4 Argon Medium model and Default permission pickers, the dictation microphone, and the round Start Voice mode button with its tooltip](/assets/image/docs/voice-mode/voice-mode-start-button.png)
     
 2.  If the Antigravity App asks for access to your microphone, allow it.
     

@@ -84,7 +84,7 @@ Each action matches its target as follows:
 *   **`read_file`**: Matches absolute paths or paths relative to project workspace roots. Grants recursive read access to all contained files and folders. Using `read_file(*)` matches all files on the system.
 *   **`write_file`**: Same as `read_file`. Implicitly grants `read_file` for the exact same target path.
 *   **`read_url`**: Matches hostnames and subdomains (for example, `google.com` covers `mail.google.com`). Ignores URL path segments. Using `read_url(*)` matches any domain.
-*   **`execute_url`**: Covers actuating on web elements (clicking, typing) or driving interactive browser workflows on a domain.
+*   **`execute_url`**: Covers the browser subagent opening a page on a domain, for example when it navigates to a URL or opens a new page. Matches hostnames and subdomains and ignores URL path segments. A `read_url` grant doesn’t cover it.
 *   **`command`**: Matches by exact word or token prefix literally by default. To match by regular expression, start the target with the `regex:` prefix (each whitespace-separated token is evaluated as an anchored regular expression `^(?:pattern)$`, for example, `command(regex:npm run (build.*))`). Covers execution both inside and outside the sandbox.
 *   **`mcp`**: Matches exact MCP tools or all tools on a specified server (applies equally to local and remote MCP servers). Using `mcp(*)` matches any tool.
 
@@ -100,10 +100,10 @@ Standard shell composition still prefix-matches normally: pipelines, `&&`/`||`/`
 
 ##### Understanding read\_url and execute\_url across the platform
 
-The `read_url` permission governs outbound web connectivity across three distinct areas of Antigravity:
+Antigravity checks `read_url` and `execute_url` in three areas:
 
 1.  **Web page reading**: When the agent fetches web page Markdown for research, it checks your `read_url` grants.
-2.  **Browser subagent and tool**: When driving Chrome sessions, `read_url` authorizes loading and viewing the target domain. However, interactive UI actuation (clicking buttons, typing text) is governed independently by `execute_url`.
+2.  **Browser subagent**: When the browser subagent opens a page, it checks your `execute_url` grants for that domain, not `read_url`. For details, refer to [Allowlist and denylist](/docs/ide/allowlist-denylist).
 3.  **Terminal sandboxing**: Any domain granted under `read_url` is compiled directly into the sandbox’s outbound network allowlist, permitting commands like `curl` or `npm` to connect to authorized hosts.
 
 ##### Cross-platform command and path matching
@@ -140,7 +140,7 @@ When an action isn’t explicitly listed in your Allow, Deny, or Ask lists, Anti
 
 1.  **Commands**: Under the **Default** preset, commands run without prompting inside the sandbox and require approval to run outside it. Under **Auto**, safe commands outside the sandbox run without prompting, while sensitive or irreversible commands pause for approval.
 2.  **Workspace files**: Reading and writing files inside your active project directory is allowed without prompting, while non-workspace files require approval.
-3.  **Web browsing defaults to Ask**: Actions for `read_url` and `execute_url` default to **Ask**. Before the agent navigates to or actuates on any web page, it pauses and prompts for your explicit approval unless an allow rule is configured.
+3.  **Web browsing defaults to Ask**: Actions for `read_url` and `execute_url` default to **Ask**. Before the agent reads or opens a web page, it pauses and prompts for your explicit approval unless an allow rule is configured.
 4.  **MCP tools default to Ask**: Unconfigured MCP tool calls prompt for approval.
 
 Note
@@ -175,7 +175,7 @@ The following examples show rules for the **Ask list**, which defines actions th
 
 ```text
 command(*)                         # Prompt all commands
-execute_url(aws.amazon.com)        # Prompt AWS console actuation
+execute_url(aws.amazon.com)        # Prompt before opening AWS pages
 mcp(sql/execute_mutation)          # Prompt modifying SQL queries
 ```
 
@@ -216,7 +216,7 @@ Each action matches its target as follows:
 *   **`read_file`**: Matches absolute paths or paths relative to project workspace roots. Grants recursive read access to all contained files and folders. Using `read_file(*)` matches all files on the system.
 *   **`write_file`**: Same as `read_file`. Implicitly grants `read_file` for the exact same target path.
 *   **`read_url`**: Matches hostnames and subdomains (for example, `google.com` covers `mail.google.com`). Ignores URL path segments. Using `read_url(*)` matches any domain.
-*   **`execute_url`**: Covers actuating on web elements (clicking, typing) or driving interactive browser workflows on a domain.
+*   **`execute_url`**: Covers the browser subagent opening a page on a domain, for example when it navigates to a URL or opens a new page. Matches hostnames and subdomains and ignores URL path segments. A `read_url` grant doesn’t cover it.
 *   **`command`**: Matches by exact word or token prefix literally by default. To match by regular expression, start the target with the `regex:` prefix (each whitespace-separated token is evaluated as an anchored regular expression `^(?:pattern)$`, for example, `command(regex:npm run (build.*))`).
 *   **`unsandboxed`**: Matches command prefixes word-by-word literally by default (or with `regex:`). Commands matching this grant execute outside container isolation when terminal sandboxing is enabled.
 *   **`mcp`**: Matches exact MCP tools or all tools on a specified server (applies equally to local and remote MCP servers). Using `mcp(*)` matches any tool.
@@ -233,10 +233,10 @@ Standard shell composition still prefix-matches normally: pipelines, `&&`/`||`/`
 
 ##### Understanding read\_url and execute\_url across the platform
 
-The `read_url` permission governs outbound web connectivity across three distinct areas of Antigravity:
+Antigravity checks `read_url` and `execute_url` in three areas:
 
 1.  **Web page reading**: When the agent fetches web page Markdown for research, it checks your `read_url` grants.
-2.  **Browser subagent and tool**: When driving Chrome sessions, `read_url` authorizes loading and viewing the target domain. However, interactive UI actuation (clicking buttons, typing text) is governed independently by `execute_url`.
+2.  **Browser subagent**: When the browser subagent opens a page, it checks your `execute_url` grants for that domain, not `read_url`. For details, refer to [Allowlist and denylist](/docs/ide/allowlist-denylist).
 3.  **Terminal sandboxing**: In sandbox mode, any domain granted under `read_url` is compiled directly into the container’s outbound network allowlist (`AllowedDomains`), permitting commands like `curl` or `npm` to connect to authorized hosts.
 
 ##### Cross-platform command and path matching
@@ -272,7 +272,7 @@ When an action isn’t explicitly listed in your Allow, Deny, or Ask lists, Anti
 
 1.  **Commands default to Ask**: Unconfigured terminal commands (`command` and `unsandboxed`) require manual approval unless configured to run without prompting in your settings.
 2.  **Workspace files**: Reading and writing files inside your active project directory is allowed without prompting, while non-workspace files require approval.
-3.  **Web browsing defaults to Ask**: Actions for `read_url` and `execute_url` default to **Ask**. Before the agent navigates to or actuates on any web page, it pauses and prompts for your explicit approval unless an allow rule is configured.
+3.  **Web browsing defaults to Ask**: Actions for `read_url` and `execute_url` default to **Ask**. Before the agent reads or opens a web page, it pauses and prompts for your explicit approval unless an allow rule is configured.
 4.  **MCP tools default to Ask**: Unconfigured MCP tool calls prompt for approval.
 
 Note
@@ -307,7 +307,7 @@ The following examples show rules for the **Ask list**, which defines actions th
 
 ```text
 command(*)                         # Prompt all commands
-execute_url(aws.amazon.com)        # Prompt AWS console actuation
+execute_url(aws.amazon.com)        # Prompt before opening AWS pages
 mcp(sql/execute_mutation)          # Prompt modifying SQL queries
 ```
 
@@ -352,7 +352,7 @@ The matching algorithm for each action is as follows:
 *   **`read_file`**: Matches absolute paths or paths relative to workspace roots. Grants recursive read access to all contained files and folders. `read_file(*)` matches all files on the system.
 *   **`write_file`**: Same as `read_file`. Implicitly grants `read_file` for the exact same target path.
 *   **`read_url`**: Matches hostnames and subdomains (for example, `google.com` covers `mail.google.com`). Ignores URL path segments. `read_url(*)` matches any domain.
-*   **`execute_url`**: Covers actuating on web elements (clicking, typing) or driving interactive browser workflows on a domain.
+*   **`execute_url`**: Covers the browser subagent opening a page on a domain, for example when it navigates to a URL or opens a new page. Matches hostnames and subdomains and ignores URL path segments. A `read_url` grant doesn’t cover it.
 *   **`command`**: Matches command prefixes word-by-word literally by default. If you want to use a regular expression, add the `regex:` prefix (for example, `command(regex:npm run (build|lint|test))`). Covers the command whether it runs inside or outside the terminal sandbox.
 *   **`unsandboxed`**: Business and enterprise accounts only. Other accounts ignore `unsandboxed` rules and show a warning; use `command` instead. Matches command prefixes word-by-word literally by default (or with `regex:`). Commands matching this grant execute outside container isolation when terminal sandboxing is enabled.
 *   **`mcp`**: Matches exact MCP tools or all tools on a specified server (applies to local and remote MCP servers). `mcp(*)` matches any tool.
@@ -384,7 +384,7 @@ When an action isn’t explicitly listed in your `allow`, `deny`, or `ask` lists
 
 1.  **Workspaces are auto-allowed**: In standard operation, reading and writing files inside your active project directory is automatically allowed (and approved without interactive diff prompts in `auto` and `accept-edits` modes).
 2.  **Commands run in the sandbox in `auto` mode**: When `auto` mode is active, commands run inside the [Terminal sandbox](/docs/sandbox) without prompting, and commands that need to run outside the sandbox are evaluated automatically so only risky or irreversible actions pause for approval.
-3.  **Web browsing defaults to Ask**: Actions for `read_url` and `execute_url` default to **Ask**. Before the agent navigates to or actuates on any web page, it pauses and prompts for your approval unless an allow rule is configured.
+3.  **Web browsing defaults to Ask**: Actions for `read_url` and `execute_url` default to **Ask**. Before the agent reads or opens a web page, it pauses and prompts for your approval unless an allow rule is configured.
 4.  **Other unconfigured actions default to Ask**: Unconfigured `mcp` tools, non-workspace file access, and commands outside `auto` mode default to **Ask**, subject to your active execution mode and `toolPermission` setting.
 
 ### Execution modes and the terminal sandbox

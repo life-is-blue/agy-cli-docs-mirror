@@ -2,10 +2,8 @@
 
 Available on: Antigravity IDE
 
-Every time the browser subagent interacts with the browser, it can generate a recording of the agent’s actions for your review. When available, you can view this playback at the bottom of the browser step UI.
+In Antigravity IDE, the browser subagent runs when you type [`/browser`](/docs/commands/browser) in the Agent panel. It drives your own Google Chrome through the Chrome DevTools MCP server, so Chrome must already be running with remote debugging turned on. For setup steps, refer to [Set up Chrome](/docs/commands/browser#set-up-chrome).
 
-![Browser Recording Capture Tool](/assets/image/docs/artifacts/browser-recording-capture.png)
+When the subagent interacts with a page, such as clicking, typing, or filling in a form, Antigravity IDE can record those actions as a WebM video. Recording isn’t guaranteed: sessions that only open pages or take screenshots don’t produce a recording, and a session that interacts with a page might not produce one either.
 
-All browser recordings are also saved as recording artifacts for your review. This view loops through the browser subagent’s actions.
-
-![Browser Recording Artifact](/assets/image/docs/artifacts/browser-recording-artifact.png)
+When a recording is produced, it’s saved as `recording.webm` in the browser subagent’s artifacts after the subagent finishes, and the agent lets you know it’s available.

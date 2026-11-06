@@ -26,4 +26,4 @@ Your comments are attached to your next message and appear as a chip, such as **
 
 Once you proceed or submit a review, the agent continues its work, either iterating on the implementation plan and requesting another review or beginning implementation.
 
-![The conversation in the Antigravity App after clicking Proceed, showing Proceeded with 2 Comments, the agent's summary of the endpoint and tests it added, a Walkthrough card, and a 2 files changed +30 -0 row with a Review button](/assets/image/docs/artifacts/artifact-implementation-plan-proceeded.png)
+![The conversation in the Antigravity App after clicking Proceed, showing Proceeded with 2 Comments, the agent's summary of the endpoint and tests it added, a Walkthrough card, and a 3 files changed +38 -0 row with a Review button](/assets/image/docs/artifacts/artifact-implementation-plan-proceeded.png)

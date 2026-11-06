@@ -68,6 +68,10 @@
         "slug": "antigravity/implementation-plan"
       },
       {
+        "label": "Jupyter notebooks",
+        "slug": "antigravity/jupyter-notebooks"
+      },
+      {
         "label": "Marketplace",
         "slug": "antigravity/marketplace"
       },
@@ -122,6 +126,10 @@
       {
         "label": "Settings",
         "slug": "antigravity/settings"
+      },
+      {
+        "label": "Side panel and Overview panel",
+        "slug": "antigravity/side-panel"
       },
       {
         "label": "Sidecars",
@@ -366,7 +374,7 @@
         "slug": "antigravity/ide/review-changes-editor"
       },
       {
-        "label": "Separate Chrome profile",
+        "label": "Chrome profile",
         "slug": "antigravity/ide/separate-chrome-profile"
       },
       {
