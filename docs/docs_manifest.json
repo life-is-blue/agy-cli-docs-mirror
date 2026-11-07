@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-06T05:31:15Z",
+  "generated_at": "2026-11-07T04:59:18Z",
   "tool": "scripts/fetch_agy_docs.py",
   "strict_fetch": false,
   "is_degraded": true,
@@ -130,9 +130,9 @@
       "slug": "changelog",
       "label": "Changelog",
       "url": "https://antigravity.google/docs/changelog.md",
-      "sha256": "42c569b22405a052b9bdcf9442c48b6ee51f3beff0482409c570a57c905ad834",
+      "sha256": "6c39abc0cfa19f4bf6eba1ca067bce4350d241913b5850df5cb78ca2bd6e93e1",
       "bytes": 514746,
-      "fetched_at": "2026-11-06T05:31:05Z",
+      "fetched_at": "2026-11-07T04:59:10Z",
       "sidebar_label": "Changelog"
     },
     "antigravity/cli/acp.md": {
@@ -810,9 +810,9 @@
       "slug": "customization-discovery",
       "label": "Customization discovery",
       "url": "https://antigravity.google/docs/customization-discovery.md",
-      "sha256": "dbc634ac50874343088958c3ea68bd742e0b5a055b5146972b54778eca1f9e14",
-      "bytes": 16019,
-      "fetched_at": "2026-11-05T05:33:37Z",
+      "sha256": "cc50d3e5731d404bea8e652d1249849d130d96fbc9389a336e288395f03eab41",
+      "bytes": 16098,
+      "fetched_at": "2026-11-07T04:59:10Z",
       "sidebar_label": "Customization discovery"
     },
     "antigravity/enterprise.md": {
@@ -852,9 +852,9 @@
       "slug": "features",
       "label": "Feature overview",
       "url": "https://antigravity.google/docs/features.md",
-      "sha256": "7cdb84a50c68c5cd2358747ea640465fa4cb4d03456b3e51b8a0a94bd183c6b4",
-      "bytes": 21048,
-      "fetched_at": "2026-11-06T05:31:05Z",
+      "sha256": "99dcbe4da996fea0cdcc369889bbb5a89ac2a47f94a4b6428f2345fcb0549b47",
+      "bytes": 21041,
+      "fetched_at": "2026-11-07T04:59:10Z",
       "sidebar_label": "Feature overview"
     },
     "antigravity/firebase-studio-migration.md": {
@@ -1272,9 +1272,9 @@
       "slug": "ide/workflows",
       "label": "Workflows",
       "url": "https://antigravity.google/docs/ide/workflows.md",
-      "sha256": "6442d381b1d39eb8d95af34698aa1546ab73c60b0f01c30c40bef836bc77b070",
-      "bytes": 2445,
-      "fetched_at": "2026-10-22T03:39:45Z",
+      "sha256": "a4369cc247c9a18603810f659ec71de3a49c185954fc5bc250d85dc0b2eea295",
+      "bytes": 2388,
+      "fetched_at": "2026-11-07T04:59:10Z",
       "sidebar_label": "Workflows"
     },
     "antigravity/implementation-plan.md": {
@@ -1342,9 +1342,9 @@
       "slug": "mcp",
       "label": "MCP",
       "url": "https://antigravity.google/docs/mcp.md",
-      "sha256": "aa2c1c7b0579214e161efa1022cff239ad435c975744e54bd18d12247c6ad372",
-      "bytes": 23896,
-      "fetched_at": "2026-11-05T05:33:37Z",
+      "sha256": "a4cdbaa98aeb7ebb2bc09cac894304e5e3f19fdfaa6c82a3c081def6100b8c92",
+      "bytes": 27549,
+      "fetched_at": "2026-11-07T04:59:10Z",
       "sidebar_label": "MCP"
     },
     "antigravity/models.md": {
@@ -1790,9 +1790,9 @@
       "slug": "voice-mode",
       "label": "Voice mode",
       "url": "https://antigravity.google/docs/voice-mode.md",
-      "sha256": "e48209aed63a81cda1ae50c0376e25f2b803f589f1136f37fee8675ac68dee14",
-      "bytes": 23410,
-      "fetched_at": "2026-11-06T05:31:05Z",
+      "sha256": "0a16d8ef593c7134ffd1121b1336ccffd3ccee9a1e922db584d6901ec60a9433",
+      "bytes": 23403,
+      "fetched_at": "2026-11-07T04:59:10Z",
       "sidebar_label": "Voice mode"
     },
     "antigravity/walkthrough.md": {

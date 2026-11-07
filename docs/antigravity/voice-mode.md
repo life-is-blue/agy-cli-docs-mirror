@@ -2,7 +2,7 @@
 
 Available on: Antigravity App, Antigravity CLI
 
-Talk with the agent out loud, and hear it answer in real time. With **Antigravity voice mode**, powered by the **Gemini Live** model, you speak to Antigravity the way you’d talk to a teammate on a call: give it a task, steer the work while it runs, and answer permission prompts without clicking.
+Talk with the agent out loud, and hear it answer in real time. With **voice mode in Antigravity**, enabled by **Gemini Live**, you speak to Antigravity the way you’d talk to a teammate on a call: give it a task, steer the work while it runs, and answer permission prompts without clicking.
 
 ## Antigravity App
 

@@ -202,7 +202,7 @@ Open artifacts, files, diffs, terminals, subagent conversations, and web pages a
 
 ### Voice mode
 
-Talk with the agent out loud, and hear it answer in real time. With Antigravity voice mode, powered by the **Gemini Live** model, click **Start Voice mode** in an empty message box to start a spoken conversation in which you can do the following:
+Talk with the agent out loud, and hear it answer in real time. With voice mode in Antigravity, enabled by **Gemini Live**, click **Start Voice mode** in an empty message box to start a spoken conversation in which you can do the following:
 
 *   **Give and steer tasks**: Ask for work, add details or corrections while the agent works, or tell it to stop.
 *   **Answer by voice**: Allow or deny permission prompts and answer the agent’s questions without clicking. Destructive actions still need a click on screen.

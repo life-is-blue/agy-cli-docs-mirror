@@ -14,11 +14,11 @@ November 3, 2026
 
 ### Voice mode, remote agents, redesigned Automations, and Jupyter notebook viewer
 
-Voice mode, powered by Gemini Live, and remote agents, which run conversations in the cloud, are starting to roll out. This release also adds redesigned Home and Automations pages, a native Jupyter notebook viewer, and downloads and browsing history in the built-in browser.
+Voice mode, enabled by Gemini Live, and remote agents, which run conversations in the cloud, are starting to roll out. This release also adds redesigned Home and Automations pages, a native Jupyter notebook viewer, and downloads and browsing history in the built-in browser.
 
 **Improvements:**
 
-*   Voice mode, powered by Gemini Live, lets you talk to Antigravity and hand requests to the agent by voice. Start it from the button in an empty message box. Voice mode is rolling out gradually, so you may not see it yet.
+*   Voice mode, enabled by Gemini Live, lets you talk to Antigravity and hand requests to the agent by voice. Start it from the button in an empty message box. Voice mode is rolling out gradually, so you may not see it yet.
 *   Remote agents are starting to roll out to Google AI Ultra and Pro subscribers. Conversations in a cloud project run in the cloud instead of on your computer, and you can also open them at antigravity.google.com/remote.
 *   The new-conversation page now greets you at the top and pins the message box to the bottom. Single-repo projects combine branch and Git worktree selection into one menu, and the agent picker now lives inside the model menu.
 *   The Automations page now organizes automations into Scheduled, Always on, and Paused lists with Next run and Last run times, plain-menu schedule pickers, in-page details, and a full-page creation form.

@@ -4,7 +4,7 @@ Available on: Antigravity IDE
 
 Changes to workflows
 
-We are accelerating bringing a more powerful, dynamic way to define and use workflows. Current workflows will stop working on **October 19, 2026**, and will be shortly followed with instructions on how to transition to the new workflows system. In the meantime, you can also migrate existing workflows to **[Agent skills](/docs/ide/skills)** using the **[Workflows to skills migration guide](/docs/migration/workflows-to-skills)** or the [`/migrate-workflows`](/docs/migration/workflows-to-skills#using-migrate-workflows) slash command in chat.
+Workflows are deprecated, and a new workflows system is on the way. Your current workflows keep working for now. To move them to **[Agent skills](/docs/ide/skills)**, follow the manual steps in the **[Workflows to skills migration guide](/docs/migration/workflows-to-skills#manual-migration-guide)**. The [`/migrate-workflows`](/docs/migration/workflows-to-skills#using-migrate-workflows) command, which automates the migration, is available only in the Antigravity App 2.12.0 and later.
 
 Workflows enable you to define a series of steps to guide the agent through a repetitive set of tasks, such as deploying a service or responding to PR comments. These workflows are saved as Markdown files, giving you a repeatable way to run key processes. Once saved, you can invoke workflows in the agent using a slash command with the format `/workflow-name`.
 

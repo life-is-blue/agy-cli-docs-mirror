@@ -149,6 +149,7 @@ Each server entry under `mcpServers` must specify **one transport property** (`c
 | **`disabled`** | `boolean` | `false` | When `true`, suspends the server connection without removing its configuration from `mcp_config.json`. |
 | **`enabledTools`** | `string[]` | — | Allowlist of tool names exposed to the agent from this server. When set, all other tools on the server are hidden. |
 | **`disabledTools`** | `string[]` | `[]` | Denylist of tool names withheld from the agent. |
+| **`tools`** | `object` | — | Per-tool settings keyed by tool name (`tools.<toolName>`). `eager` (boolean) registers the tool upfront instead of lazily (see [Tool loading](/docs/mcp#tool-loading-lazy-vs-eager)). `background` (`"off"` or `"always"`) controls background execution: `"always"` runs the tool’s calls as background tasks, and `"off"` runs them in the foreground. |
 | **`timeoutSeconds`** | `integer` | `180` per tool call, `300` to connect | Timeout, in seconds, for connecting to the server and listing its tools, and for each tool call. A negative value, such as `-1`, turns both off. See [MCP server timeouts](/docs/mcp#mcp-server-timeouts). |
 
 ### MCP server timeouts
@@ -180,6 +181,57 @@ The following example lets each tool call on the `sqlite-explorer` server run fo
   }
 }
 ```
+
+## Tool loading: lazy vs. eager
+
+Connected MCP servers can expose dozens of tools with large JSON schemas. Loading every tool definition into the model’s context window on every turn consumes tokens and increases latency, even when those tools aren’t used. To keep context usage low, Antigravity supports both **lazy** and **eager** tool loading.
+
+### Lazy loading (default)
+
+By default, all enabled MCP tools are **lazy-loaded**:
+
+1.  **Schema caching on disk**: When an MCP server connects, Antigravity writes each tool’s JSON schema (`name`, `description`, and `parameters`) to `<app-data-dir>/mcp/<serverName>/<toolName>.json` (`~/.gemini/antigravity/mcp/<serverName>/` in the Antigravity App and Antigravity IDE, or `~/.gemini/antigravity-cli/mcp/<serverName>/` in the Antigravity CLI), along with an optional `instructions.md` file if the server provides instructions during initialization.
+2.  **Compact system prompt**: Antigravity includes the exact `<app-data-dir>/mcp/<serverName>` directory path in the agent’s system prompt (so you don’t need to know the path for the agent to work) and lists each server’s tool names, grouped under `Eager` and `Lazy`, instead of full declarations.
+3.  **On-demand invocation**: When the agent needs a lazy-loaded tool, it reads `<app-data-dir>/mcp/<serverName>/<toolName>.json` to inspect the tool’s parameters and then invokes the tool through the built-in `call_mcp_tool` tool (passing `ServerName`, `ToolName`, and `Arguments`).
+
+### Eager loading
+
+When an enabled tool is configured with `"eager": true`, Antigravity registers its full description and parameter schema upfront in the model’s native tool declarations as `mcp_<serverName>_<toolName>` (listed under `Eager` in the system prompt).
+
+*   **Direct invocation**: The agent calls `mcp_<serverName>_<toolName>` directly in a single turn without reading the schema file from disk or calling `call_mcp_tool`.
+*   **Higher token footprint**: Because the tool’s full schema is sent to the model on every turn, reserve eager loading for frequently used core tools where saving an extra file-read step outweighs the per-turn token cost.
+
+Note
+
+If Antigravity is unable to write a server’s tool schema files to disk during initialization, it automatically falls back to eagerly loading all enabled tools for that server.
+
+### Configure eager tools
+
+To eagerly load specific tools from an MCP server, add a `tools` map to the server’s entry in `mcp_config.json` and set `"eager": true` for each tool you want pre-registered:
+
+```json
+{
+  "mcpServers": {
+    "sqlite-explorer": {
+      "command": "node",
+      "args": ["/usr/local/bin/sqlite-mcp-server.js"],
+      "env": {
+        "SQLITE_DB_PATH": "/var/data/app.db"
+      },
+      "tools": {
+        "read_query": {
+          "eager": true
+        },
+        "list_tables": {
+          "eager": true
+        }
+      }
+    }
+  }
+}
+```
+
+Any enabled tools on the server not listed with `"eager": true` remain lazy-loaded by default. Eager vs. lazy loading is evaluated after `enabledTools` and `disabledTools` are applied, so `"eager": true` only affects enabled tools; a tool marked `"eager": true` that is also in `disabledTools`, or missing from a non-empty `enabledTools` list, stays hidden.
 
 ## MCP authentication
 
