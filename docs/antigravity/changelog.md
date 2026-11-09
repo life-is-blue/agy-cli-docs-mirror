@@ -6,9 +6,26 @@ New versions roll out gradually and may take a few days to reach all users.
 
 ## Antigravity App
 
-### [v2.29.0](/releases?tab=hub&version=2.29.0 "View release 2.29.0")
+### [v2.29.1](/releases?tab=hub&version=2.29.1 "View release 2.29.1")
 
 Latest
+
+November 6, 2026
+
+### Voice mode fixes for sign-in, links, and transcripts
+
+This release fixes several voice mode issues. Voice mode now asks you to sign in again when your sign-in needs an update, and it sees the links and @ mentions in messages you type.
+
+**Fixes:**
+
+*   Fixed an issue where voice mode showed "Couldn't connect" when your sign-in needed an update. It now asks you to sign in again.
+*   Fixed an issue where voice mode couldn't see links and @ mentions in messages you typed, and skipped messages that contained only a link.
+*   Fixed an issue where voice mode could attach something you said earlier in a call to your latest words, which sometimes kept it from answering.
+*   Fixed an issue where, after a brief drop in a voice call, the transcript could show parts of a reply you never heard.
+
+---
+
+### [v2.29.0](/releases?tab=hub&version=2.29.0 "View release 2.29.0")
 
 November 3, 2026
 
