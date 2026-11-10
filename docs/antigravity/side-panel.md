@@ -14,6 +14,10 @@ To show or hide the panel, click **Toggle Overview Panel** at the top right of t
 
 When there isn’t enough room next to the conversation, for example when the side panel is open in a small window, the Overview panel hides. Click **Toggle Overview Panel** to open it over the conversation, and press Esc or click outside it to close it again.
 
+Note
+
+In the **Knowledge Work** [interface layout](/docs/settings#interface-layout) (`v2.30.0+`), the **Overview** panel stays hidden until a conversation produces output, omits the **Review** and **Terminal** rows and **Customize Sections** menu, labels the **Files** sidebar tree **Folders**, and focuses on **Documents**, **Artifacts**, **Links**, **Uploads**, and **Background Tasks**.
+
 ### Rows at the top
 
 | Row | What it does |

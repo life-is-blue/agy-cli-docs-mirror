@@ -30,6 +30,7 @@ Settings are organized into four distinct scopes to keep configurations clean an
 
 Global settings apply across all workspaces:
 
+*   **Interface layout** (`v2.30.0+`, personal Google Accounts): Switch between the **Knowledge Work** and **Software Engineering** [interface layouts](#interface-layout) under **General** > **Interface Layout**.
 *   **Account settings**: Manage authentication sessions and toggle telemetry (enable or disable sharing interaction logs to improve models).
 *   **Global permissions**: Centralized default tool boundaries that apply to all conversations:
     *   **Permission Preset**: Choose **Request Review**, **Default** (_default_), **Auto** (`v2.23.0+` on macOS and Linux, `v2.26.0+` on Windows), or **Turbo**. You can also choose a preset from the permissions picker in the message box composer (`v2.23.0+`), which changes your global preset, or the project’s preset if the project overrides it. To remove a project override, choose **Use Global Settings**.
@@ -71,6 +72,27 @@ Access shortcuts and feedback tools:
 
 *   **Shortcuts**: View and customize keyboard shortcut configurations.
 *   **Feedback**: Access the feedback form to send reports directly to the team.
+
+### Interface layout
+
+When signed in with a personal Google Account, **Settings** > **General** > **Interface Layout** (`v2.30.0+`) lets you choose between two interface configurations for the Antigravity App:
+
+*   **Knowledge Work**: _Simplified interface for research, writing, and everyday tasks._ Keeps focus on conversation, documents, artifacts, and folder outputs while hiding Git, terminal, and code-diff controls.
+*   **Software Engineering**: _Full interface for coding, developer tools, and managing agents._ Exposes Git worktrees and branch controls, inline diffs and change review, integrated terminals, subagent cards, and full customization lists.
+
+![The General page in Antigravity App Settings showing Interface Layout with Knowledge Work selected next to Software Engineering, followed by Global Permissions and Execution](/assets/image/docs/settings-interface-layout.png)
+
+During [first-launch setup](/docs/getting-started) with a personal Google Account, Antigravity picks an initial layout based on the role you select (**Knowledge Work** for _Knowledge Work_, _Science_, _Design_, and _Other_; **Software Engineering** for _Software Engineering_ and _Data & Analytics_), or starts in **Software Engineering** if you click **Skip**. Business and [Gemini Enterprise](/docs/enterprise) accounts always use the **Software Engineering** layout, and **Interface Layout** is not shown in settings.
+
+Switching layouts updates open and new conversations immediately without restarting the app. Both layouts run the exact same agent and support the same [models](/docs/models), [permission presets](/docs/permissions), [skills](/docs/skills), [rules](/docs/rules), [MCP servers](/docs/mcp), and [plugins](/docs/plugins)—switching only changes which controls are shown in the interface:
+
+| Area | Software Engineering | Knowledge Work |
+| :-- | :-- | :-- |
+| **Projects and folders** | Prompts for **Local** or **New worktree** mode on Git repos; shows Git branch pickers, GitHub controls, and **Open in IDE**; forks can target a new worktree. | Runs directly in your project’s folders without worktree or Git branch prompts; hides GitHub and **Open in IDE** controls; forks stay in the current folder (_Fork conversation in this folder_). |
+| **Conversation and approvals** | Keeps expandable `Worked for` tool groups, inline code diffs, line counts, and subagent cards in the thread; permission prompts include raw command-rule editors. | Shows a live progress line while the agent works that clears once the response finishes, keeping focus on replies and artifacts; permission prompts present plain-language summaries. |
+| **Side panel and Overview panel** | **Overview** includes **Review**, **Files**, **Terminal**, and **Extensions** rows, a **Customize Sections** menu, and sections for **Subagents**, **Background Tasks**, **Goals**, **Documents**, **Artifacts**, **Links**, **Modified Files**, and **Uploads**. | **Overview** stays hidden until the conversation produces output, omits **Review**, **Terminal**, and **Customize Sections**, labels the **Files** sidebar tree **Folders**, and focuses on **Documents**, **Artifacts**, **Links**, **Uploads**, and **Background Tasks**. |
+| **Customizations (`Installed` tab)** | Lists installed **Plugins**, **Skills & Rules**, **Custom Agents**, and **MCP Servers**. | Lists installed **Plugins** only (installed skills, rules, custom agents, and MCP tools remain active in the background). |
+| **Settings** | Displays developer subsections (**Terminal**, **Workspaces**, and **Labs**) and detailed permission rules directly. | Tucks advanced permission rules and developer subsections behind **Advanced Settings** in **Settings** > **General** and project settings, and hides the **Appearance** > **Conversation Steps** toggle and code syntax preview. |
 
 ### Data collection settings
 

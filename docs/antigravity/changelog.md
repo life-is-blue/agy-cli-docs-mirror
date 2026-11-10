@@ -6,11 +6,79 @@ New versions roll out gradually and may take a few days to reach all users.
 
 ## Antigravity App
 
-### [v2.29.1](/releases?tab=hub&version=2.29.1 "View release 2.29.1")
+### [v2.30.0](/releases?tab=hub&version=2.30.0 "View release 2.30.0")
 
 Latest
 
-November 6, 2026
+November 9, 2026
+
+### Knowledge Work interface and a setup tailored to your work
+
+This release adds a Knowledge Work layout with a simpler interface for research, writing, and everyday tasks. When you first sign in, Antigravity now asks what kind of work you do and suggests ways to start. Voice mode and remote agents have also finished rolling out. It includes 27 improvements and 25 fixes.
+
+**Improvements:**
+
+*   You can now switch to a simpler Knowledge Work layout for research, writing, and everyday tasks in Settings > General > Interface Layout, except on business and enterprise accounts. It hides code changes and developer tools, folds the agent's progress updates into one line, and describes commands in plain language.
+*   When you first sign in, Antigravity now asks what best describes your work, such as Software Engineering, Knowledge Work, Data & Analytics, Science, or Design, and sets up a matching layout. Home then suggests ways to start, and selecting one adds any plugin it needs and fills in the prompt.
+*   Voice mode has finished rolling out and is now available to everyone except business and enterprise accounts.
+*   Remote agents have finished rolling out to Google AI Ultra subscribers and to Google AI Pro subscribers on a paid plan. The GitHub repository picker for cloud projects also has a new Configure on GitHub link for giving Antigravity access to more of your repositories.
+*   Antigravity can now bring over your MCP servers, skills, custom commands, subagents, and instruction files from coding agents such as Claude Code, Codex, and Cursor into a plugin you own. Ask the agent to import your setup to get started.
+*   The sidebar and title bar now share one background, and your conversation and side panel sit on it as a card with rounded corners, including in split view.
+*   Your messages now appear as chat bubbles on the right side of the conversation.
+*   You can now write bulleted and numbered lists in the message box by starting a line with a dash or "1." and a space, using Shift+Enter for the next item and Tab to indent. Lists keep their formatting when you copy and paste them.
+*   Tables in responses now fit the width of the conversation instead of scrolling sideways.
+*   The permission preset you pick in the message box now applies only to that conversation, so changing it no longer affects your other conversations. This doesn't apply to business and enterprise accounts.
+*   The Auto permission preset is no longer marked Preview, and business accounts without admin controls now get it too, along with the updated permissions system that other accounts already use and a notice that explains the change. Accounts with admin controls keep their current permissions.
+*   When links open in the built-in browser, holding Cmd (Ctrl on Windows and Linux) while selecting a link, or using the middle mouse button, now opens it in a background tab. Hold Shift to open it in your default browser.
+*   The built-in browser now warns you with a "Your connection is not private" page when a site's security certificate has a problem, and you can clear a site's cookies and data from the site information menu in the address bar.
+*   Websites in the built-in browser can now connect to USB, serial, and other hardware devices. When a site asks, pick a device from the list under the address bar and select Connect.
+*   Built-in browser settings now have their own Browser page in Settings.
+*   Comment and Quote for text you select in the built-in browser are now in the page's right-click menu, so a button no longer pops up over the page each time you select text. They also work on more websites.
+*   When Voice mode can't use your microphone, it now tells you why, such as no microphone found or access turned off in your system settings, and on macOS and Windows it links to the privacy settings. If your microphone goes silent during a call, it tries to reconnect and offers a Reconnect button.
+*   Notices that a background task finished or that a subagent sent a message now appear inside the turn's Worked for section, so conversations stay compact.
+*   When two files open in the side panel share a name, their tabs now also show the folder, and background task tabs show a short summary instead of the raw command.
+*   Files, artifacts, and folders open in the side panel now have a Refresh button that reloads their latest contents.
+*   Added and removed lines in code changes use new colors that keep syntax highlighting readable, and fully added or removed lines now stand out from lines that changed only in part.
+*   Plugins you mention with @ in a message now show their logo, and you can hover over one to see its description.
+*   A plugin's Accounts tab now appears sooner and shows why signing in failed, for example when you denied access in your browser. Plugin accounts aren't available for business and enterprise accounts.
+*   If an MCP server can't start because its command isn't installed, Antigravity now tells you which command is missing and how to fix it.
+*   When you type or paste the exact path of a file or folder in your project after @, it now appears first in the Files list.
+*   The terms you see when you first sign in have new wording and now let you sign up for news and tips by email. Business and enterprise accounts see the same terms as before.
+*   Improved performance of the conversation sidebar and of the app when you have many conversations. Switching to a conversation with many artifacts is faster, and Antigravity finishes starting up sooner.
+
+**Fixes:**
+
+*   Fixed an issue where signing in to a Google account in the built-in browser with a passkey on your phone, by scanning a QR code, failed with a message about Bluetooth.
+*   Fixed an issue where a built-in browser tab that failed to load while in the background showed a blank page instead of an error page when you switched back to it.
+*   Fixed an issue where the built-in browser's Download Location setting didn't show your computer's actual Downloads folder, for example on Windows, when you hadn't picked one.
+*   Fixed an issue where built-in browser tabs showed a generic globe instead of the site's icon for some sites, such as python.org, and for pages on your local network.
+*   Fixed an issue where Voice mode looked unresponsive while your microphone started, and replayed its start sound each time a call reconnected.
+*   Fixed an issue where voice dictation could drop the last words you said when you stopped recording, and where Chinese and Japanese dictation briefly showed spaces between characters.
+*   Fixed an issue where, in cloud conversations, scrolling up in a long conversation stopped before the first message, and the first message of a new conversation briefly disappeared.
+*   Fixed an issue where the conversation navigator highlighted the wrong turn near the end of a conversation, or disappeared when Conversation Width was set to Fill.
+*   Fixed an issue where zooming in or using a narrow window could push the side panel or its tabs past the edge of the window, and where the find bar slid under the Overview panel in wide windows.
+*   Fixed an issue where the Review tab showed "Diff contents are no longer available" for changes made by subagents.
+*   Fixed an issue where some SVG files showed up blank when opened in the file viewer, and where selected text in the file viewer was nearly invisible in dark mode.
+*   Fixed an issue where the agent sometimes put a stray backslash before dollar amounts, and where code in a response could gain extra angle brackets when square brackets were followed by parentheses.
+*   Fixed an issue where a queued follow-up message was sent right away, starting a new turn, while subagents or background tasks were still running.
+*   Fixed an issue where Python and PowerShell commands that the agent ran on Windows could fail or show garbled text when their output contained emoji or non-English characters.
+*   Fixed an issue where sign-in stayed on the account eligibility screen for several minutes after you verified your account in the browser.
+*   Fixed an issue where a project in the sidebar said "No conversations yet" when all of its conversations were pinned.
+*   Fixed an issue where View > Reset Zoom in the menu bar did nothing on Windows and Linux.
+*   Fixed an issue where the Legacy Light and Legacy Dark themes didn't use their original colors.
+*   Fixed an issue where asking a side question with /btw in a subagent's conversation could fail with an error.
+*   Fixed an issue where signing in to an MCP server could fail if a new conversation turn started before you finished.
+*   Fixed an issue where automatic updates sometimes left a Marketplace plugin on its old version, and where MCP servers on Windows left helper processes running that could make plugin updates fail.
+*   Fixed an issue where selecting Sign in on a plugin's card in a conversation showed "No plugin found" for a plugin you added yourself.
+*   Fixed an issue where business and enterprise accounts that reached a usage limit saw personal plan upgrade prompts, and where accounts with AI credits were told to upgrade instead of being offered AI credit overages.
+*   Fixed an issue where screen readers didn't announce the names of some switches in Settings, such as Enable Sandbox Mode.
+*   Fixed an issue where business and enterprise accounts with an invalid cloud project ID couldn't see or change it in Settings > Account.
+
+---
+
+### [v2.29.1](/releases?tab=hub&version=2.29.1 "View release 2.29.1")
+
+November 7, 2026
 
 ### Voice mode fixes for sign-in, links, and transcripts
 
@@ -100,7 +168,7 @@ October 28, 2026
 
 ### Conversation navigator and third party tools notice
 
-This release adds a conversation navigator for jumping between turns, a notice about third party developer tools on the Marketplace tab and on the pages of plugins from other developers, and each plugin's developer, version, and links on its page.
+This release adds a conversation navigator, so you can jump to any turn in a long conversation. The Marketplace now also shows a notice about third party developer tools.
 
 **Improvements:**
 
@@ -1344,9 +1412,76 @@ Antigravity 2.0 Launch bug fixes.
 
 ## Antigravity CLI
 
-### [v1.5.1](/releases?tab=cli&version=1.5.1 "View release 1.5.1")
+### [v1.5.3](/releases?tab=cli&version=1.5.3 "View release 1.5.3")
 
 Latest
+
+November 7, 2026
+
+### Subagent model display, plugin hook env vars, non-UTF-8 file handling, and terminal security
+
+This release displays each subagent's model in the UI and status line JSON, adds PLUGIN\_ROOT and PLUGIN\_DATA environment variables to plugin hooks, and resolves bugs related to symlinked plugins, non-UTF-8 file encodings, and terminal sandbox security.
+
+**Improvements:**
+
+*   Added each subagent's model next to its name in the subagent rows above the prompt and in `/agents` (hidden on narrow terminals), with the full model and effort in a subagent's detail view, and a `model` field on each `subagents` entry in the status line JSON; `/agents` now shows a single `Tip: Press enter on a subagent to view details.` line instead of repeating `[view details]` on every row.
+*   Added the `PLUGIN_ROOT` and `PLUGIN_DATA` environment variables to hook commands that come from a plugin, pointing to the plugin's folder and its persistent data folder, so plugin hooks can use files bundled with the plugin and keep state between runs; `agy plugin validate` no longer warns that these variables are not set for hooks.
+*   Changed the error shown when Vertex AI reports that the selected model does not exist or that your Google Cloud project cannot use it, which now reads `The requested model was not found, or your project does not have access to it.` instead of the raw API error.
+*   Improved the plugin sign-in screen in `/plugin`, which now indents the sign-in link like the surrounding text and sets it apart with a blank line, no longer underlines trailing blank space in wrapped links, and uses the plugin's display name from `plugin.json`, such as `Canva` instead of `canva`.
+*   Improved `agy plugin validate` so the `category` field in `plugin.json` is accepted instead of reported as an unknown field, with a warning only when it is not a non-empty string.
+*   Improved auto-generated conversation titles, which now keep abbreviations and acronyms from your request as written instead of guessing what they stand for.
+
+**Fixes:**
+
+*   Fixed `agy plugin uninstall`, `agy plugin enable`, `agy plugin disable`, and uninstalling from `/plugin` failing for plugins installed as symbolic links, such as plugins installed from Antigravity, or for plugins whose names contain spaces or symbols such as `c++-tools`, and `agy plugin list` shows symlinked plugins again.
+*   Fixed agent turns failing with `http2: timeout awaiting response headers` when the model took more than 60 seconds to start responding, which are now retried.
+*   Fixed every model request failing with a 404 error when an enterprise model gateway URL ended in `/v1beta`, even though the model list loaded; a trailing `/v1beta` in the gateway URL is now ignored.
+*   Fixed the agent's requests to sign in to a plugin being dropped from the conversation, so when a plugin needs a sign-in the CLI now shows a line such as `⚠ The plugin needs you to sign in. Open /plugin to sign in.`
+*   Fixed the agent's file tools mishandling text that is not UTF-8, mostly on Windows: reading a UTF-16 or legacy code-page file now returns its text instead of treating it as binary, edits keep a file's UTF-8 byte order mark or UTF-16 encoding, and PowerShell scripts (`.ps1`, `.psm1`, `.psd1`) with non-ASCII text are written with a UTF-8 byte order mark so Windows PowerShell 5.1 reads them correctly.
+*   Fixed a message sent during a turn with the `Send Immediately` queued-messages mode briefly disappearing from the conversation and reappearing when it arrived just as the turn ended.
+*   Fixed hooks receiving a placeholder or empty model name when the session uses a custom model, so hooks now get the name of the model actually in use.
+*   Fixed files larger than the remote read limit being silently cut off in `--remote-agent` sessions, which now load in full up to 20 MiB and report an error above that instead of showing partial content.
+*   Fixed `agy acp` sessions exiting before the agent backend finished shutting down when the client closed the connection, which could interrupt saving conversation data.
+*   Fixed a security issue where a command run in the terminal sandbox could change environment state later loaded by persistent terminal commands run outside the sandbox, and hardened persistent terminal IDs against path traversal.
+*   Fixed garbled characters in tool-call summaries when the CLI shortens file paths that contain non-ASCII characters.
+*   Fixed paths that share a prefix with your home directory, such as `/home/alice` when your home is `/home/al`, showing with a mangled `~` prefix in the `/context` file list and the keybindings reset hint.
+
+---
+
+### [v1.5.2](/releases?tab=cli&version=1.5.2 "View release 1.5.2")
+
+November 6, 2026
+
+### Cloud plugin skills in remote sessions, native macOS Option shortcuts, and security hardening.
+
+Antigravity CLI 1.5.2 brings cloud plugin skills to remote agent sessions, enables macOS Option-key shortcuts out of the box, tightens permission and plugin security boundaries, and resolves several issues with MCP OAuth, subagent permissions, and remote file uploads.
+
+**Improvements:**
+
+*   Added skills from the cloud plugins you connected with `/plugin` to `--remote-agent` sessions, so they now appear in the `/` menu and can be typed at the start of a message, `/skills` lists them grouped by plugin under `Remote agent skills`, and `/skills reload` lists them again.
+*   Changed the default for macOS Option-key shortcuts such as `alt+m`, which now work out of the box without setting Option to act as Alt in your terminal, where previously pressing them did nothing or typed a character such as `µ`; set `AGY_CLI_MAC_OPTION_AS_ALT=0` to go back to the old behavior.
+*   Changed `--dangerously-skip-permissions` so commands on the built-in list of protected commands are no longer approved automatically and go through the usual checks, while every other command still runs without asking.
+*   Changed `--dangerously-skip-permissions` and plugin agents set to auto-allow so they no longer approve terminal commands or file access outside the workspace when your Gemini Enterprise administrator requires those to be reviewed, and headless runs now deny such requests instead.
+*   Changed the prompt shown when the agent asks for access to a file outside the workspace, which now reads `Allow access to this file?` and offers to always allow or deny that one path for the conversation or in `settings.json`, instead of turning on access to everything outside the workspace.
+*   Improved `agy -p` runs so they no longer make a background model request to generate a conversation title that print mode never shows.
+*   Improved Remote Control connections, which now retry a brief network or server error while setting up a new connection instead of dropping it.
+*   Improved `agy plugin validate` so an unknown field under `extensions["com.google.antigravity"]` in `plugin.json` is reported as a warning that the field is ignored instead of an error, and the plugin's other extension settings are still checked.
+*   Improved protection against malicious plugins: `agy plugin` import, install, uninstall, enable, and disable now reject plugin names that are not safe file names with `invalid plugin name`, and refuse to write outside the plugins folder or through symbolic links, so an imported plugin can no longer overwrite other configuration files such as `mcp_config.json`.
+*   Improved protection against untrusted repositories: plugins and skills listed in a workspace's `.agents/plugins.json` or `.agents/skills.json` now load only from inside the workspace or its repository root, and entries that point elsewhere through absolute paths, `../`, or symbolic links are skipped.
+
+**Fixes:**
+
+*   Fixed subagents stalling for about 60 seconds on file permissions under `--dangerously-skip-permissions`, so reads and writes outside the workspace now go through without a prompt, and headless `-p` runs with the flag no longer wait on any remaining interaction, while your explicit deny rules still apply.
+*   Fixed signing in to an MCP server that uses OAuth failing with `Invalid PKCE code_verifier` when the server reconnected during sign-in, such as when `/mcp` reloaded servers or a new turn started, so the sign-in link you already opened keeps working.
+*   Fixed MCP tools that declare their own `explanation`, `toolSummary`, `toolAction`, or `waitForPreviousTools` parameter receiving calls without that argument, so the value the model sends now reaches the tool.
+*   Fixed the agent re-running a failed turn in a rapid loop when messages were queued at the moment it hit an error, so queued messages now wait for your next message.
+*   Fixed the `/` menu listing the commands and skills of a default agent instead of those of the agent the session actually runs, so in `agy acp` sessions it now shows that session's agent, including a custom agent's commands.
+*   Fixed adding PDFs, other binary files, or files larger than about 8 MB to a remote project from `/projects` in `--remote-agent` sessions, which failed and now upload successfully.
+*   Fixed voice dictation in Chinese and Japanese showing a space between every character in the live draft before the final transcript arrived, and fullwidth Latin words losing the spaces between them.
+
+---
+
+### [v1.5.1](/releases?tab=cli&version=1.5.1 "View release 1.5.1")
 
 November 5, 2026
 

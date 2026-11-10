@@ -12,19 +12,19 @@ Welcome to Google Antigravity! Follow the instructions in this guide to get star
     
     macOSmacOS 12 (Monterey) or later (Apple Silicon or 64-bit Intel)
     
-    [Download for Apple Silicon](https://storage.googleapis.com/antigravity-public/antigravity-hub/2.29.1-5241471524274176/darwin-arm/Antigravity.dmg)[Download for Intel](https://storage.googleapis.com/antigravity-public/antigravity-hub/2.29.1-5241471524274176/darwin-x64/Antigravity.dmg)
+    [Download for Apple Silicon](https://storage.googleapis.com/antigravity-public/antigravity-hub/2.30.0-6386428939206656/darwin-arm/Antigravity.dmg)[Download for Intel](https://storage.googleapis.com/antigravity-public/antigravity-hub/2.30.0-6386428939206656/darwin-x64/Antigravity.dmg)
     
     Open the downloaded `Antigravity.dmg` disk image and drag **Antigravity** into your **Applications** folder. If you are upgrading an existing installation, select **Replace** when prompted instead of **Keep Both**.
     
     WindowsWindows 10 (64-bit) or Windows 11
     
-    [Download for x64](https://storage.googleapis.com/antigravity-public/antigravity-hub/2.29.1-5241471524274176/windows-x64/Antigravity-x64.exe)[Download for ARM64](https://storage.googleapis.com/antigravity-public/antigravity-hub/2.29.1-5241471524274176/windows-arm/Antigravity-arm64.exe)
+    [Download for x64](https://storage.googleapis.com/antigravity-public/antigravity-hub/2.30.0-6386428939206656/windows-x64/Antigravity-x64.exe)[Download for ARM64](https://storage.googleapis.com/antigravity-public/antigravity-hub/2.30.0-6386428939206656/windows-arm/Antigravity-arm64.exe)
     
     Run the downloaded `.exe` installer and follow the guided setup wizard.
     
     Linuxglibc >= 2.28, glibcxx >= 3.4.25 (Ubuntu 20+, Debian 10+, Fedora 36+, RHEL 8+)
     
-    [Download for x64](https://storage.googleapis.com/antigravity-public/antigravity-hub/2.29.1-5241471524274176/linux-x64/Antigravity.tar.gz)[Download for ARM64](https://storage.googleapis.com/antigravity-public/antigravity-hub/2.29.1-5241471524274176/linux-arm/Antigravity.tar.gz)
+    [Download for x64](https://storage.googleapis.com/antigravity-public/antigravity-hub/2.30.0-6386428939206656/linux-x64/Antigravity.tar.gz)[Download for ARM64](https://storage.googleapis.com/antigravity-public/antigravity-hub/2.30.0-6386428939206656/linux-arm/Antigravity.tar.gz)
     
     Extract the archive with `tar -xzf Antigravity.tar.gz` and launch `./Antigravity`.
     
@@ -35,6 +35,20 @@ Welcome to Google Antigravity! Follow the instructions in this guide to get star
     Google Antigravity comes pre-installed on Googlebooks. Open Google Play to install updates or reinstall the application.
     
 2.  Launch Google Antigravity from your applications launcher or menu.
+    
+3.  Sign in and choose how you want to set up your workspace:
+    
+    *   **Personal Google Accounts** (`v2.30.0+`): After signing in through your browser, Antigravity asks what best describes your work—**Software Engineering**, **Knowledge Work**, **Data & Analytics**, **Science**, **Design**, or **Other** (click **Skip** to start with the default **Software Engineering** setup):
+        
+        ![First-launch role selection screen in Antigravity App asking What best describes your work? with Knowledge Work selected and a Continue button](/assets/image/docs/onboarding-role-selection.png)
+        
+        Your selection sets the initial [interface layout](/docs/settings#interface-layout) (**Knowledge Work** for _Knowledge Work_, _Science_, _Design_, and _Other_; **Software Engineering** for _Software Engineering_ and _Data & Analytics_) and surfaces up to three dismissible starter prompts above the Home message box after you confirm the **Terms & Data Use** notice:
+        
+        ![Home message box in Antigravity App with three starter prompts for Google Calendar, Google Drive, and Google Slides](/assets/image/docs/onboarding-starter-suggestions.png)
+        
+        No plugins are installed when you pick a role—clicking a starter prompt installs its paired [Marketplace](/docs/marketplace) plugin in the background if needed, prefills `@<Plugin>` and the prompt without sending it, and selects the first `<...>` placeholder so you can edit it first (connected services such as Google Calendar, Drive, Slides, or Figma prompt you to sign in when you run the prompt). Selecting **Software Engineering** also includes **Bring over my setup from other Agentic Developer Tools** to import MCP servers, skills, rules, and instructions from Claude Code, Codex, Cursor, and Gemini CLI. You can dismiss any suggestion or switch layouts anytime in **Settings** > **General** > **[Interface Layout](/docs/settings#interface-layout)**.
+        
+    *   **Gemini Enterprise & Google Cloud accounts**: Choose **Business account** during [sign-in](/docs/install) and select your assigned license and Google Cloud project.
 
 ### Antigravity CLI
 
@@ -186,12 +200,19 @@ For authentication options or enterprise configurations, consult the **[Authenti
 Agents operate within **Projects**, which define the repository boundaries, file scopes, and security permissions for your workspaces.
 
 1.  Click the **New Project** icon (folder with a plus sign) in the left sidebar.
+    
 2.  Click **Add Folder** to select one or more local Git repositories or working directories.
+    
 3.  Click **Create**.
+    
 4.  Type your instruction in the prompt input (for example: `Add unit tests for the authentication handlers`) and press Enter.
-5.  Choose a **Mode** in the setup modal to boot up your agent:
+    
+5.  Choose a **Mode** in the setup modal to boot up your agent (in the **Software Engineering** [interface layout](/docs/settings#interface-layout)):
+    
     *   **Local mode**: The agent operates directly in your active folders.
     *   **New worktree mode**: The agent operates in an isolated Git worktree.
+    
+    In the **Knowledge Work** [interface layout](/docs/settings#interface-layout), conversations run directly in your project’s folders without prompting for a Git worktree—or you can start chatting directly from **Home** without creating a project first.
 
 ### Antigravity CLI
 

@@ -21,7 +21,7 @@ Select your surface below to authenticate your account, switch credentials, or c
 1.  Launch **Antigravity App**.
 2.  Click **Sign in** to open the browser authentication flow.
 3.  Complete the browser-based OAuth flow using your personal Google Account (Free, Pro, or Ultra plan).
-4.  Once authenticated, the browser redirects back to Antigravity App and initializes your workspace.
+4.  Once authenticated, the browser redirects back to Antigravity App. On first launch (`v2.30.0+`), select what best describes your work (or click **Skip** for the default **Software Engineering** setup) and confirm **Terms & Data Use** to configure your initial [interface layout](/docs/settings#interface-layout) and starter prompts on **Home** (refer to [Get started](/docs/getting-started)).
 
 #### Gemini Enterprise & Google Cloud Account
 

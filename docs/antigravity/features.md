@@ -184,6 +184,12 @@ In the left sidebar, click **Customizations**, and then open the **Marketplace**
 
 These features are specific to the Antigravity App.
 
+### Knowledge Work and interface layouts
+
+With a personal Google Account, switch between the **Knowledge Work** layout (focused on conversation, documents, artifacts, and folder outputs) and the **Software Engineering** layout (with Git worktrees, change review, terminals, and subagent cards) in **Settings** > **General** > **Interface Layout** (`v2.30.0+`). Both interface layouts share the same agent, models, permissions, skills, MCP servers, and plugins.
+
+[Learn more about Knowledge Work and interface layouts](/docs/settings#interface-layout).
+
 ### Conversations outside of projects
 
 Start quick, one-off conversations outside of any project. These sessions run in a local scratch folder. They have their own settings and permissions in addition to inheriting from global permissions.

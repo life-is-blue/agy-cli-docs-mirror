@@ -36,6 +36,8 @@ When starting a new conversation in a project, you choose how the agent interact
 *   **Local mode**: The agent works directly in your active local folders or Git checkouts. Best for quick, interactive edits in your current working folder.
 *   **New worktree mode**: Creates a new Git worktree for the conversation. Best for complex tasks, keeping your active working folder untouched and preventing parallel subagents from conflicting.
 
+In the **Knowledge Work** [interface layout](/docs/settings#interface-layout) (`v2.30.0+`), new conversations run directly in your project’s folders without showing the worktree selector.
+
 #### Scoped settings and permissions
 
 Settings and permissions are both scoped at the project level:
