@@ -47,6 +47,8 @@ Type `/` inside the prompt box to open the typeahead command selection menu.
 | **`/skills`** | Tools & Tasks | — | Browse loaded local and global Agent Skills. Run `/skills reload` to reload skills from disk. |
 | **[`/statusline`](/docs/cli/commands/statusline)** | Configurations | — | Open the Status Bar customization overlay. |
 | **`/tasks`** | Tools & Tasks | — | Open the Task Manager panel to monitor background shell execution logs. |
+| **[`/swarm`](/docs/swarm)** `<task>` | Reasoning | — | Run a [swarm](/docs/swarm) of named workers and a verifier that coordinate on a shared message board. |
+| **[`/swarm board`](/docs/swarm#live-board)** | Reasoning | — | Open the [live swarm board](/docs/swarm#live-board) full screen (Alt+S). |
 | **[`/teamwork`](/docs/teamwork)** `<task>` | Reasoning | — | Launch [collaborative multi-agent teams](/docs/teamwork) for long-horizon projects (paid plans). |
 | **[`/title`](/docs/cli/commands/title) \[on/off\]** | Configurations | — | Toggle or set terminal window title updates. |
 | **[`/usage`](/docs/cli/commands/usage)** | Utilities | `/quota` | Display model quota usage. |
@@ -82,6 +84,8 @@ These keys are active when writing instructions inside the prompt box.
 | **`Ctrl+G`** | `edit.open_editor` | Launches your default `$EDITOR` shell to compose your prompt. |
 | **`Alt+J`** | `subagent.jump_to_waiting` | Instantly switches focus to the next subagent awaiting confirmation. |
 | **`Ctrl+K`** | `subagent.approve_fast` | Instantly approves the pending subagent action listed in the status alert. |
+| **`Alt+S`** | `swarm.board` | Opens the [live swarm board](/docs/swarm#live-board) full screen. |
+| **`Alt+X`** | `swarm.dismiss` | Dismisses a finished swarm’s [status row](/docs/swarm#live-status-line). |
 | **`Ctrl+A`** | `—` | Moves the prompt insertion cursor to the beginning of the line. |
 | **`Ctrl+E`** | `—` | Moves the prompt insertion cursor to the end of the line. |
 | **`Ctrl+_`** / **`Ctrl+Shift+-`** | `edit.undo` | Reverts the last edit. |

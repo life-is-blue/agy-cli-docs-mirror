@@ -148,6 +148,10 @@
         "slug": "antigravity/subagents"
       },
       {
+        "label": "Swarm (/swarm)",
+        "slug": "antigravity/swarm"
+      },
+      {
         "label": "Teamwork agent teams (/teamwork)",
         "slug": "antigravity/teamwork"
       },

@@ -6,9 +6,64 @@ New versions roll out gradually and may take a few days to reach all users.
 
 ## Antigravity App
 
-### [v2.30.0](/releases?tab=hub&version=2.30.0 "View release 2.30.0")
+Model launch·November 10, 2026
+
+### Gemini 4 Carbon
+
+Gemini 4 Carbon is our strongest model for long-horizon software engineering, knowledge work, scientific discovery, and cybersecurity.
+
+[ Read on the Antigravity blog](/blog/gemini-4-carbon-in-google-antigravity)
+
+---
+
+### [v2.31.0](/releases?tab=hub&version=2.31.0 "View release 2.31.0")
 
 Latest
+
+November 9, 2026
+
+### /swarm, Font size setting, split-view plugins, and browser download approvals
+
+This release adds a font size setting, lets you open plugin views next to a conversation in split view, and asks for your approval before the browser agent downloads a file. It also brings call summaries to voice mode and Google Cloud project autocomplete to Pay-As-You-Go setup. It includes 11 improvements and 18 fixes.
+
+**Improvements:**
+
+*   You can now use /swarm to coordinate multiple subagents over a message board to complete long-horizon tasks.
+*   You can now change the interface font size to 12, 14, or 16 pixels in Settings > Appearance. The code preview in each theme card is now collapsible.
+*   Full-page plugin views can now share a split view with a conversation, so opening a conversation from a plugin no longer navigates away from it. The window title bar, including the update button, now stays visible on full-page plugin views.
+*   When the browser agent tries to download a file, the download now pauses until you approve it.
+*   Pages controlled by the browser agent can no longer lock your mouse pointer or keyboard.
+*   When a voice call ends, its transcript card now shows a short summary of the call. Answers you speak during a multi-question prompt now move the question card forward, and answering on the card tells voice mode to skip to the next question.
+*   Pay-As-You-Go setup and license switching in Settings now suggest your Google Cloud projects as you type instead of requiring you to enter the project ID by hand.
+*   Installing a plugin or skill from a plugin card in the agent's latest reply now resumes the conversation automatically.
+*   If you use remote agents, creating a project now offers a This Computer or Remote choice in one wizard instead of a separate New Remote Project item.
+*   You can now scroll the conversation and side panels line by line with the Up and Down arrow keys.
+*   MCP App file viewers can now save changes to local files, so a diagram or design editor plugin can edit the file it opened.
+
+**Fixes:**
+
+*   Fixed an issue where sign-in could get stuck on Signing in... for some personal accounts.
+*   Fixed an issue where conversations from a project whose settings file was missing disappeared from the sidebar when it was grouped by project.
+*   Fixed an issue where content loading above the visible area made your reading position jump while you were scrolled up in a conversation.
+*   Fixed an issue where, with Always Proceed set for artifact reviews, an artifact that asked for feedback hid its Proceed button and left the agent waiting.
+*   Fixed an issue where voice mode kept failing for up to two minutes after one failed connection attempt.
+*   Fixed an issue where file and artifact previews in the side panel could show stale contents after the file changed.
+*   Fixed an issue where switching tabs in the side panel lost each tab's scroll position.
+*   Fixed an issue where plugin panels showed blank in pinned side panel tabs, covered the edges of the side panel, or stayed on screen over a maximized side panel.
+*   Fixed an issue where a plugin's context providers were missing after you added it from its full-page details screen.
+*   Fixed an issue where a plugin that declared extra fields in its manifest lost all of its context providers.
+*   Fixed an issue where plugin panels could not play sound until you interacted with them.
+*   Fixed an issue where conversation titles sometimes guessed what an abbreviation in your first message stood for instead of keeping it as written.
+*   Fixed an issue where opening a PDF larger than the display limit showed a second, raw error under the message saying the file is too large.
+*   Fixed an issue where network error messages showed an internal service address instead of a plain explanation.
+*   Fixed an issue where requests failed when a thinking model took more than a minute to start responding.
+*   Fixed an issue where a model your Google Cloud project cannot access returned a raw error instead of a message explaining the access problem.
+*   Fixed an issue where a custom model gateway failed when its base URL ended in /v1beta, or reported an empty response when a thinking model returned only reasoning before its answer.
+*   Fixed an issue where messages displayed as chat bubbles were cut off sharply at the top of the conversation instead of fading out.
+
+---
+
+### [v2.30.0](/releases?tab=hub&version=2.30.0 "View release 2.30.0")
 
 November 9, 2026
 
@@ -368,7 +423,7 @@ Launch the updated side panel from the overview button during an active conversa
 
 ---
 
-Model launch
+Model launch·October 13, 2026
 
 ### Gemini 4 Argon
 
@@ -797,7 +852,7 @@ Enterprise users can now access Google's flagship Gemini 3.8 Flash reasoning mod
 
 ---
 
-Model launch
+Model launch·September 2, 2026
 
 ### Gemini 3.8 Flash
 
@@ -974,7 +1029,7 @@ This update introduces Remote Control to drive and monitor agent sessions on you
 
 ---
 
-Model launch
+Model launch·August 13, 2026
 
 ### Gemini 3.7 Flash
 
@@ -1206,7 +1261,7 @@ Added preview tabs, attachment support for .json, .md, and .csv files, MCP timeo
 
 ---
 
-Model launch
+Model launch·July 21, 2026
 
 ### Gemini 3.6 Flash
 
@@ -1384,7 +1439,7 @@ Added integration with Antigravity IDE.
 
 ---
 
-Model launch
+Model launch·May 19, 2026
 
 ### Gemini 3.5 Flash
 
@@ -1411,6 +1466,16 @@ Antigravity 2.0 Launch bug fixes.
 ---
 
 ## Antigravity CLI
+
+Model launch·November 10, 2026
+
+### Gemini 4 Carbon
+
+Gemini 4 Carbon is our strongest model for long-horizon software engineering, knowledge work, scientific discovery, and cybersecurity.
+
+[ Read on the Antigravity blog](/blog/gemini-4-carbon-in-google-antigravity)
+
+---
 
 ### [v1.5.3](/releases?tab=cli&version=1.5.3 "View release 1.5.3")
 
@@ -1926,7 +1991,7 @@ Introduces Auto mode to approve safe file edits and commands autonomously with s
 
 ---
 
-Model launch
+Model launch·October 13, 2026
 
 ### Gemini 4 Argon
 
@@ -2644,7 +2709,7 @@ Adds an opt-in workspace-grouped view to the `/resume` picker with `Ctrl+F` togg
 
 ---
 
-Model launch
+Model launch·September 2, 2026
 
 ### Gemini 3.8 Flash
 
@@ -2983,7 +3048,7 @@ Direct `GEMINI_API_KEY` authentication support, `/codesearch` fallback resilienc
 
 ---
 
-Model launch
+Model launch·August 13, 2026
 
 ### Gemini 3.7 Flash
 
@@ -3206,7 +3271,7 @@ Added support for defining custom agents in Markdown format (`agent.md`), option
 
 ---
 
-Model launch
+Model launch·July 21, 2026
 
 ### Gemini 3.6 Flash
 
@@ -3727,7 +3792,7 @@ SQLite conversation database format, terminal LaTeX math rendering, and centrali
 
 ---
 
-Model launch
+Model launch·May 19, 2026
 
 ### Gemini 3.5 Flash
 
@@ -3837,6 +3902,16 @@ VS CodeVisual StudioJetBrainsZedXcodeEclipse
 
 [Extension docs→](/docs/ide/extensions/vscode)
 
+Model launch·November 10, 2026
+
+### Gemini 4 Carbon
+
+Gemini 4 Carbon is our strongest model for long-horizon software engineering, knowledge work, scientific discovery, and cybersecurity.
+
+[ Read on the Antigravity blog](/blog/gemini-4-carbon-in-google-antigravity)
+
+---
+
 ### [v1.11.0](/docs/ide/extensions/vscode "View Visual Studio Code extension docs")
 
 Latest
@@ -3919,7 +3994,7 @@ Introduces keyboard shortcuts for accepting or rejecting focused inline diff hun
 
 ---
 
-Model launch
+Model launch·October 13, 2026
 
 ### Gemini 4 Argon
 
@@ -4143,7 +4218,7 @@ Introduces a status bar shortcut for Settings, new configuration options for aut
 
 ---
 
-Model launch
+Model launch·September 2, 2026
 
 ### Gemini 3.8 Flash
 
@@ -4205,6 +4280,16 @@ Introduces the 1.0.0 release of Antigravity for VS Code, bringing an agentic AI 
 *   Fixed agent diff handling so switching conversations or editing files externally preserves user changes in a read-only diff view instead of overwriting the file, and prevented background agent edits from stealing editor focus.
 *   Fixed the **Proceed** button in planning mode, directory navigation in the VS Code Explorer, and `BigInt` message serialization in webview communication.
 *   Addressed other minor user interface issues.
+
+---
+
+Model launch·November 10, 2026
+
+### Gemini 4 Carbon
+
+Gemini 4 Carbon is our strongest model for long-horizon software engineering, knowledge work, scientific discovery, and cybersecurity.
+
+[ Read on the Antigravity blog](/blog/gemini-4-carbon-in-google-antigravity)
 
 ---
 
@@ -4271,7 +4356,7 @@ Fixes an issue where the Antigravity chat panel could hang indefinitely in a "Wo
 
 ---
 
-Model launch
+Model launch·October 13, 2026
 
 ### Gemini 4 Argon
 
@@ -4409,7 +4494,7 @@ Introduces updated Visual Studio Marketplace extension categories and search tag
 
 ---
 
-Model launch
+Model launch·September 2, 2026
 
 ### Gemini 3.8 Flash
 
@@ -4472,6 +4557,16 @@ Introduces the initial release of the Google Antigravity extension for Visual St
 
 ---
 
+Model launch·November 10, 2026
+
+### Gemini 4 Carbon
+
+Gemini 4 Carbon is our strongest model for long-horizon software engineering, knowledge work, scientific discovery, and cybersecurity.
+
+[ Read on the Antigravity blog](/blog/gemini-4-carbon-in-google-antigravity)
+
+---
+
 ### [v1.4.1](/docs/ide/extensions/jetbrains "View JetBrains extension docs")
 
 Latest
@@ -4494,7 +4589,7 @@ Groups multi-effort Claude model variants under the `thinking_level` selector, e
 
 ---
 
-Model launch
+Model launch·October 13, 2026
 
 ### Gemini 4 Argon
 
@@ -4614,7 +4709,7 @@ Introduces automatic session model fallback when enterprise-allowed models chang
 
 ---
 
-Model launch
+Model launch·September 2, 2026
 
 ### Gemini 3.8 Flash
 
@@ -4683,6 +4778,16 @@ Introduces the Google Antigravity Agent Client Protocol (ACP) server (`antigravi
 
 ---
 
+Model launch·November 10, 2026
+
+### Gemini 4 Carbon
+
+Gemini 4 Carbon is our strongest model for long-horizon software engineering, knowledge work, scientific discovery, and cybersecurity.
+
+[ Read on the Antigravity blog](/blog/gemini-4-carbon-in-google-antigravity)
+
+---
+
 ### [v1.4.1](/docs/ide/extensions/zed "View Zed extension docs")
 
 Latest
@@ -4705,7 +4810,7 @@ Groups multi-effort Claude model variants under the `thinking_level` selector, e
 
 ---
 
-Model launch
+Model launch·October 13, 2026
 
 ### Gemini 4 Argon
 
@@ -4825,7 +4930,7 @@ Introduces automatic session model fallback when enterprise-allowed models chang
 
 ---
 
-Model launch
+Model launch·September 2, 2026
 
 ### Gemini 3.8 Flash
 
@@ -4894,6 +4999,16 @@ Introduces the Google Antigravity Agent Client Protocol (ACP) server (`antigravi
 
 ---
 
+Model launch·November 10, 2026
+
+### Gemini 4 Carbon
+
+Gemini 4 Carbon is our strongest model for long-horizon software engineering, knowledge work, scientific discovery, and cybersecurity.
+
+[ Read on the Antigravity blog](/blog/gemini-4-carbon-in-google-antigravity)
+
+---
+
 ### [v1.4.1](/docs/ide/extensions/xcode "View Xcode extension docs")
 
 Latest
@@ -4916,7 +5031,7 @@ Groups multi-effort Claude model variants under the `thinking_level` selector, e
 
 ---
 
-Model launch
+Model launch·October 13, 2026
 
 ### Gemini 4 Argon
 
@@ -5036,7 +5151,7 @@ Introduces automatic session model fallback when enterprise-allowed models chang
 
 ---
 
-Model launch
+Model launch·September 2, 2026
 
 ### Gemini 3.8 Flash
 
@@ -5105,6 +5220,16 @@ Introduces the Google Antigravity Agent Client Protocol (ACP) server (`antigravi
 
 ---
 
+Model launch·November 10, 2026
+
+### Gemini 4 Carbon
+
+Gemini 4 Carbon is our strongest model for long-horizon software engineering, knowledge work, scientific discovery, and cybersecurity.
+
+[ Read on the Antigravity blog](/blog/gemini-4-carbon-in-google-antigravity)
+
+---
+
 ### [v1.0.0](/docs/ide/extensions/eclipse "View Eclipse extension docs")
 
 Latest
@@ -5139,7 +5264,7 @@ Introduces Antigravity for Eclipse with an embedded agentic chat view, side-by-s
 
 ---
 
-Model launch
+Model launch·October 13, 2026
 
 ### Gemini 4 Argon
 
@@ -5149,7 +5274,7 @@ Gemini 4 Argon is built for the most complex software engineering and knowledge 
 
 ---
 
-Model launch
+Model launch·September 2, 2026
 
 ### Gemini 3.8 Flash
 
@@ -5308,7 +5433,7 @@ This release introduces first-class conversation compaction controls using `Comp
 
 ---
 
-Model launch
+Model launch·September 2, 2026
 
 ### Gemini 3.8 Flash
 
@@ -5426,7 +5551,7 @@ The 0.1.13 release introduces pre-tool argument modification capabilities in lif
 
 ---
 
-Model launch
+Model launch·August 13, 2026
 
 ### Gemini 3.7 Flash
 
@@ -5527,7 +5652,7 @@ Release 0.1.9 of the Google Antigravity Python SDK adds model-call retry/backoff
 
 ---
 
-Model launch
+Model launch·July 21, 2026
 
 ### Gemini 3.6 Flash
 
@@ -5854,7 +5979,7 @@ Fixed installation location when installed using Antigravity 1.0.
 
 ---
 
-Model launch
+Model launch·May 19, 2026
 
 ### Gemini 3.5 Flash
 
@@ -5989,7 +6114,7 @@ Stability and UI improvements.
 
 ---
 
-Model launch
+Model launch·February 26, 2026
 
 ### Nano Banana 2
 
@@ -6056,7 +6181,7 @@ Bug fixes and stability improvements.
 
 ---
 
-Model launch
+Model launch·February 19, 2026
 
 ### Gemini 3.1 Pro
 

@@ -136,7 +136,7 @@ Subagents inherit safety configurations from their parent agent to maintain secu
 
 ### Multi-agent orchestrators
 
-Antigravity provides two advanced multi-agent orchestrators designed for different task scales and execution horizons.
+Antigravity provides advanced multi-agent orchestrators designed for different task scales and execution horizons.
 
 #### Boost deep reasoning (`/boost`)
 
@@ -153,6 +153,14 @@ Note
 **Plan availability**: The `/teamwork` command is available on **paid plans** across the Google Antigravity App and the Antigravity CLI.
 
 Using [`/teamwork`](/docs/teamwork) coordinates a team of specialized AI agents designed for large software projects, multi-file refactoring, and complex research. The team handles milestone decomposition, parallel implementation, and independent verification checks, allowing you to define the high-level goals while the platform manages agent coordination. Learn more in the [Teamwork documentation](/docs/teamwork).
+
+#### Swarm (`/swarm`)
+
+Note
+
+**Plan availability**: The `/swarm` command is available on **Google AI Pro** and **Google AI Ultra** plans across the Antigravity App and the Antigravity CLI.
+
+Running [`/swarm`](/docs/swarm) turns your conversation into a coordinator that splits a task across named workers, usually with a verifier that reviews and tests their changes. Unlike subagents, which report privately to the agent that started them, swarm workers coordinate on one shared message board with `@mentions`, and idle workers wait without using tokens until someone mentions them. Learn more in the [Swarm documentation](/docs/swarm).
 
 ## Antigravity CLI
 

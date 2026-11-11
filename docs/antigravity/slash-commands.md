@@ -32,6 +32,7 @@ The following table provides a complete reference for all public slash commands:
 | :-- | :-- | :-- | :-- | :-- |
 | [`/boost`](/docs/boost) | Reasoning | Multi-agent deep reasoning for complex bugs, race conditions, and algorithms. | Paid plans | Seconds to hours |
 | [`/teamwork`](/docs/teamwork) | Reasoning | Collaborative agent teams for repo-scale migrations, simulation, and research. | Paid plans | Hours to days |
+| [`/swarm`](/docs/swarm) | Reasoning | Named workers and a verifier split a task and coordinate on a shared message board. | Google AI Pro and Ultra | Minutes to hours |
 | [`/goal`](/docs/commands/goal) | Reasoning | Autonomous execution until the goal is achieved without intermediate pauses. | All plans | Minutes to hours |
 | [`/plan`](/docs/plan) | Planning | Researches code, conducts requirement interviews, and drafts a reviewable plan artifact. | All plans | Minutes |
 | [`/grill-me`](/docs/commands/grill-me) | Planning | Interviews you one question at a time, with a recommended answer for each, to align on design details and edge cases. | All plans | Minutes |
@@ -69,6 +70,20 @@ To launch a multi-agent migration, run the following command:
 ```
 
 For complete multi-agent lifecycle documentation and engineering patterns, refer to the [Teamwork agent teams guide](/docs/teamwork).
+
+### /swarm
+
+Turns your conversation into the coordinator of a swarm: named workers that each own one piece of the task, plus a verifier that reviews and tests their changes. The workers coordinate on a shared message board with `@mentions`, and idle workers wait without using tokens until someone mentions them.
+
+To split a test expansion across workers, run the following command:
+
+```prompt
+/swarm Add unit tests for src/utils/date.ts and src/utils/currency.ts in parallel, and have a verifier run npm test.
+```
+
+In the Antigravity CLI, run `/swarm board` or press Alt+S to open the live board full screen.
+
+For how to monitor the board, message workers, and choose between multi-agent commands, refer to the [Swarm guide](/docs/swarm).
 
 ### /goal
 
@@ -235,6 +250,7 @@ The following decision guide outlines when to use each command based on your tas
 | :-- | :-- | :-- |
 | **Complex bug, race condition, or algorithmic puzzle** | [`/boost`](/docs/boost) | Multi-agent deep reasoning with isolated verification loops. |
 | **Multi-day project, repository migration, or research** | [`/teamwork`](/docs/teamwork) | Collaborative agent teams with scoping interviews and milestone roadmaps. |
+| **Large task that splits across independent files or packages** | [`/swarm`](/docs/swarm) | Parallel named workers and a verifier coordinating on a shared message board. |
 | **Feature requiring review before making code edits** | [`/plan`](/docs/plan) | Researches code, interviews requirements, and generates a reviewable plan. |
 | **Vague requirements needing architectural alignment** | [`/grill-me`](/docs/commands/grill-me) | Conducts a step-by-step interview to clarify edge cases and constraints. |
 | **Task that should run continuously until 100% complete** | [`/goal`](/docs/commands/goal) | Autonomous execution without turn-by-turn confirmation pauses. |

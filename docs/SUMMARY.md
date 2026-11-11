@@ -37,6 +37,7 @@
   - [Agent skills](antigravity/skills.md)
   - [Slash commands overview](antigravity/slash-commands.md)
   - [Custom subagents](antigravity/subagents.md)
+  - [Swarm (/swarm)](antigravity/swarm.md)
   - [Teamwork agent teams (/teamwork)](antigravity/teamwork.md)
   - [Voice mode](antigravity/voice-mode.md)
   - [Walkthrough](antigravity/walkthrough.md)
