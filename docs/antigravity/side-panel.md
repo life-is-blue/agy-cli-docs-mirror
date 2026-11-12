@@ -38,7 +38,7 @@ Below the rows, the panel groups what the conversation produced into sections:
 | **Goals** | The conversation’s goals, with running goals first. For details, refer to [Goals](/docs/commands/goal). |
 | **Documents** | PDFs, Office files, and Google Workspace links from the conversation. |
 | **Artifacts** | The [artifacts](/docs/artifacts) that the agent created, such as an implementation plan or a walkthrough. Click one to open it in a tab. |
-| **Links** | Web pages that the agent shared as artifacts. Click one to open it in the built-in browser. It appears only when the agent has saved a link. |
+| **Links** | Web pages that the agent shared as artifacts. Click one to open it in the [built-in browser](/docs/browser). It appears only when the agent has saved a link. |
 | **Modified Files** | The files that changed. Click one to open its diff. This section is hidden by default. |
 | **Uploads** | Files that you attached to your prompts, other than PDFs. This section is hidden by default. |
 
@@ -60,7 +60,7 @@ A file that you open from a search or from the file tree opens as a preview tab,
 
 Click **New Tab** (**+**) after the last tab, or press Cmd+T on macOS or Ctrl+T on Windows and Linux. The New Tab page shows the following:
 
-*   **Search or enter a URL**: Type to search your open tabs, the files in your project, and the conversation’s subagents, artifacts, and background tasks. You can also type a web address or search terms, and then choose **Open** followed by the address, or **Search Google for** followed by your terms, to open the page in the [built-in browser](/docs/features#built-in-browser).
+*   **Search or enter a URL**: Type to search your open tabs, the files in your project, and the conversation’s subagents, artifacts, and background tasks. You can also type a web address or search terms, and then choose **Open** followed by the address, or **Search Google for** followed by your terms, to open the page in the [built-in browser](/docs/browser#use-the-built-in-browser-manually).
 *   **Review**, **Open File**, **Terminal**, and **Browser**: Open the Review tab, search for a file to open, start a terminal, or open a browser tab. **Open File** opens the **Files** category of the [command palette](/docs/search#find-files).
 *   The conversation’s Overview sections, such as **Artifacts**.
 

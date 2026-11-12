@@ -36,7 +36,7 @@ Global settings apply across all workspaces:
     *   **Permission Preset**: Choose **Request Review**, **Default** (_default_), **Auto** (`v2.23.0+` on macOS and Linux, `v2.26.0+` on Windows), or **Turbo**. You can also choose a preset from the permissions picker in the message box composer (`v2.23.0+`), which changes your global preset, or the project’s preset if the project overrides it. To remove a project override, choose **Use Global Settings**.
     *   Fine-grained allow, ask, and deny rules (refer to **[Agent permissions](/docs/permissions)**).
 *   **Appearance**: Customize visual themes and panel layouts.
-*   **Browser integration**: Configure how the agent interacts with web surfaces.
+*   **Browser** (`v2.30.0+`): Configure **Open Links In**, **Download Location**, **Browsing History**, and **Browser Actuation Rules** under **Settings** > **Browser** (refer to **[Browser use](/docs/browser#configure-browser-settings)**).
 *   **Model usage**: Choose and configure default reasoning models.
 *   **Customizations**: Manage Model Context Protocol (MCP) servers, custom skills, and plugins.
 
@@ -384,7 +384,7 @@ To completely disable a default hotkey, map its action to an empty array `[]`. I
 
 Note
 
-**Protected keys**: Crucial navigation shortcuts such as `cli.exit` (Ctrl + D / Ctrl + C) and `cli.enter` (Enter) are protected by the system and cannot be disabled.
+**Protected keys**: The system protects three navigation actions, which you can’t disable: `cli.exit` (Ctrl + D), `cli.escape` (Esc / Ctrl + C), and `cli.enter` (Enter).
 
 #### Restoring defaults
 

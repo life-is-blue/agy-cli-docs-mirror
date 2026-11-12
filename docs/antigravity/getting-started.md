@@ -10,7 +10,7 @@ Welcome to Google Antigravity! Follow the instructions in this guide to get star
 
 1.  Download the Google Antigravity installer for your operating system (or view all builds at [antigravity.google/download](/download)):
     
-    macOSmacOS 12 (Monterey) or later (Apple Silicon or 64-bit Intel)
+    macOSmacOS 13 (Ventura) or later (Apple Silicon or 64-bit Intel)
     
     [Download for Apple Silicon](https://storage.googleapis.com/antigravity-public/antigravity-hub/2.31.0-6379060755038208/darwin-arm/Antigravity.dmg)[Download for Intel](https://storage.googleapis.com/antigravity-public/antigravity-hub/2.31.0-6379060755038208/darwin-x64/Antigravity.dmg)
     
@@ -104,7 +104,7 @@ For authentication options or enterprise configurations, consult the **[Authenti
     
     **Requirements:** Visual Studio Code 1.90 or later on macOS, Linux, or Windows.
     
-    Open the Extensions sidebar (Cmd+Shift+X on macOS or Ctrl+Shift+X on Windows/Linux), search for **Google Antigravity**, and click **Install**. See the [VS Code extension guide](/docs/ide/extensions/vscode).
+    Open the Extensions sidebar (Cmd + Shift + X on macOS or Ctrl + Shift + X on Windows/Linux), search for **Google Antigravity**, and click **Install**. See the [VS Code extension guide](/docs/ide/extensions/vscode).
     
     **JetBrains:**
     
@@ -124,13 +124,13 @@ For authentication options or enterprise configurations, consult the **[Authenti
     
     **Requirements:** Zed version 0.140.0 or later on macOS or Linux.
     
-    Open the Command Palette (Cmd+Shift+P / Ctrl+Shift+P), run `agent: open settings`, and navigate to **External Agents** > **Add** > **Install from Registry** to install **Antigravity**. See the [Zed guide](/docs/ide/extensions/zed).
+    Open the Command Palette (Cmd + Shift + P / Ctrl + Shift + P), run `agent: open settings`, and navigate to **External Agents** > **Add** > **Install from Registry** to install **Antigravity**. See the [Zed guide](/docs/ide/extensions/zed).
     
     **Xcode:**
     
     **Requirements:** Xcode 27 beta 6 or later on macOS.
     
-    Open **Xcode** > **Settings** (Cmd+,), select the **Intelligence** panel, and click **Get** next to **Antigravity**. See the [Xcode guide](/docs/ide/extensions/xcode).
+    Open **Xcode** > **Settings** (Cmd + ,), select the **Intelligence** panel, and click **Get** next to **Antigravity**. See the [Xcode guide](/docs/ide/extensions/xcode).
     
     **Eclipse:**
     
@@ -150,7 +150,7 @@ For authentication options or enterprise configurations, consult the **[Authenti
     
     ![The Antigravity IDE title bar on Linux, with a 1 badge on the account icon and an Update Available button next to it](/assets/image/docs/ide-update-badge-linux.png)
     
-    **Basic navigation (Editor & Agent panel):** The agent runs in the **Agent** side panel on the right side of the editor. Press Cmd+L (Ctrl+L on Windows/Linux) to move to the panel. From the editor, this also adds the selected lines (or the current line) to your prompt as context. Press Cmd+Shift+L (Ctrl+Shift+L) to start a new conversation. To show or hide the panel, click **Toggle Agent** in the title bar:
+    **Basic navigation (Editor & Agent panel):** The agent runs in the **Agent** side panel on the right side of the editor. Press Cmd + L (Ctrl + L on Windows/Linux) to move to the panel. From the editor, this also adds the selected lines (or the current line) to your prompt as context. Press Cmd + Shift + L (Ctrl + Shift + L) to start a new conversation. To show or hide the panel, click **Toggle Agent** in the title bar:
     
     ![The Antigravity IDE editor with the Agent side panel open on the right, showing a new conversation with Gemini 4 Argon Medium selected in the model picker](/assets/image/docs/editor-open-agent-manager.png)
     
@@ -248,7 +248,7 @@ Navigate to any codebase directory in your terminal and start a session:
 ### For IDEs
 
 1.  Open your workspace folder, repository, or solution in your preferred editor.
-2.  Open the Antigravity panel or agent view in your IDE (for example, click the Antigravity icon in the VS Code Activity Bar, press Ctrl+, Ctrl+A in Visual Studio, select **Antigravity** > **Toggle Chat** in Eclipse, or select Antigravity in JetBrains AI, Zed External Agents, or Xcode Intelligence).
+2.  Open the Antigravity panel or agent view in your IDE (for example, click the Antigravity icon in the VS Code Activity Bar, press Ctrl + \\, Ctrl + Alt + L in Visual Studio, select **Antigravity** > **Toggle Chat** in Eclipse, or select Antigravity in JetBrains AI, Zed External Agents, or Xcode Intelligence).
 3.  Enter a task prompt in the conversation panel to start an agent session that shares context and [customizations](/docs/skills) with the rest of the Antigravity ecosystem.
 4.  Inspect interactive implementation plans, review granular inline diffs, and execute multi-step engineering tasks directly inside your editor.
 
@@ -301,13 +301,13 @@ Navigate to any codebase directory in your terminal and start a session:
 
 | Action | macOS | Windows / Linux | Description |
 | :-- | :-- | :-- | :-- |
-| **Conversation picker** | ⌘K | Ctrl + K | Search past conversations by title or full text and switch to one |
-| **File search** | ⌘P | Ctrl + P | Search files in the current project by name and open one |
-| **Commands** | ⌘⇧P | Ctrl + Shift + P | Search and run app commands |
-| **Find** | ⌘F | Ctrl + F | Find text in the current conversation or open file |
-| **Focus input** | ⌘L | Ctrl + L | Jump cursor focus directly into the message box |
-| **New conversation** | ⌘N | Ctrl + N | Start a fresh autonomous agent session |
-| **Previous or next conversation** | ⌥ Up / Down | Alt + Up / Down | Move to the previous or next conversation in the sidebar |
+| **Conversation picker** | Cmd + K | Ctrl + K | Search past conversations by title or full text and switch to one |
+| **File search** | Cmd + P | Ctrl + P | Search files in the current project by name and open one |
+| **Commands** | Cmd + Shift + P | Ctrl + Shift + P | Search and run app commands |
+| **Find** | Cmd + F | Ctrl + F | Find text in the current conversation or open file |
+| **Focus input** | Cmd + L | Ctrl + L | Jump cursor focus directly into the message box |
+| **New conversation** | Cmd + N | Ctrl + N | Start a fresh autonomous agent session |
+| **Previous or next conversation** | Option + ↑ / ↓ | Alt + ↑ / ↓ | Move to the previous or next conversation in the sidebar |
 
 For more about searching conversations, files, and commands, see [Search and command palette](/docs/search).
 
@@ -318,7 +318,7 @@ For more about searching conversations, files, and commands, see [Search and com
 | [`/goal`](/docs/commands/goal) | Runs the task autonomously until completion without pausing for intermediate input. |
 | [`/grill-me`](/docs/commands/grill-me) | Prompts the agent to interview you about requirements before beginning implementation. |
 | [`/schedule`](/docs/commands/schedule) | Runs an instruction as a one-time delayed task or recurring cron schedule. |
-| [`/browser`](/docs/commands/browser) | Initiates browser debugging and research actions in Google Chrome. |
+| [`/browser`](/docs/commands/browser) | Delegates live UI testing, screenshots, and web inspection to the [browser subagent](/docs/browser) (built-in browser on personal accounts `v2.30.0+`, or Google Chrome). |
 | [`/plugin`](/docs/plugins) | Manages installed [Marketplace](/docs/marketplace) plugins or creates and configures custom plugin bundles. |
 
 ### Antigravity CLI
@@ -352,12 +352,12 @@ For more about searching conversations, files, and commands, see [Search and com
 
 | IDE | Shortcut / Command | Action |
 | :-- | :-- | :-- |
-| **VS Code** | ⌘⇧X / Ctrl + Shift + X | Open Extensions sidebar to install or manage **Google Antigravity** |
-| **Visual Studio** | Ctrl+, Ctrl+A | Open the Antigravity tool window |
-| **Zed** | ⌘⇧P / Ctrl + Shift + P → `agent: open settings` | Open Agent settings to configure **External Agents** |
+| **VS Code** | Cmd + Shift + X / Ctrl + Shift + X | Open Extensions sidebar to install or manage **Google Antigravity** |
+| **Visual Studio** | Ctrl + \\, Ctrl + Alt + L | Open the Antigravity tool window |
+| **Zed** | Cmd + Shift + P / Ctrl + Shift + P → `agent: open settings` | Open Agent settings to configure **External Agents** |
 | **JetBrains** | **JetBrains AI** > **Settings** > **Agents** | Install or configure the **Antigravity** agent |
-| **Xcode** | ⌘, → **Intelligence** | Manage and authenticate **Antigravity** in Xcode Settings |
-| **Eclipse** | ⌘⌥E / Ctrl + Alt + K | Toggle the **Antigravity** chat view |
+| **Xcode** | Cmd + , → **Intelligence** | Manage and authenticate **Antigravity** in Xcode Settings |
+| **Eclipse** | Cmd + Option + E / Ctrl + Alt + K | Toggle the **Antigravity** chat view |
 
 #### Authentication configuration
 

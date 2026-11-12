@@ -76,6 +76,7 @@ The following table lists the supported permission actions, their target formats
 | `write_file` | `write_file(/path)` or `write_file(*)` | **Ask** (Allowed in workspace) |
 | `read_url` | `read_url(domain)` or `read_url(*)` | **Ask** |
 | `execute_url` | `execute_url(domain)` or `execute_url(*)` | **Ask** |
+| `download_url` | `download_url(domain)` or `download_url(*)` | **Ask** |
 | `command` | `command(prefix)`, `command(regex:pattern)`, or `command(*)` | **Ask** (Allowed in sandbox under the Default and Auto presets) |
 | `mcp` | `mcp(server/tool)`, `mcp(server/*)`, or `mcp(*)` | **Ask** |
 
@@ -84,7 +85,8 @@ Each action matches its target as follows:
 *   **`read_file`**: Matches absolute paths or paths relative to project workspace roots. Grants recursive read access to all contained files and folders. Using `read_file(*)` matches all files on the system.
 *   **`write_file`**: Same as `read_file`. Implicitly grants `read_file` for the exact same target path.
 *   **`read_url`**: Matches hostnames and subdomains (for example, `google.com` covers `mail.google.com`). Ignores URL path segments. Using `read_url(*)` matches any domain.
-*   **`execute_url`**: Covers the browser subagent opening a page on a domain, for example when it navigates to a URL or opens a new page. Matches hostnames and subdomains and ignores URL path segments. A `read_url` grant doesn’t cover it.
+*   **`execute_url`**: Covers the [browser subagent](/docs/browser) opening or redirecting to a page on a domain. Matches hostnames and regular subdomains and ignores URL path segments, while isolating `localhost` by `:port` (for example, `localhost:3000` is separate from `localhost:8080`) and requiring explicit rules for sensitive Google subdomains (such as `mail.google.com`, `docs.google.com`, `drive.google.com`, and `console.cloud.google.com`). A `read_url` grant doesn’t cover it.
+*   **`download_url`**: Covers the built-in browser agent in the Antigravity App downloading files from a domain (configurable under **Browser Actuation Rules** in `v2.30.0+`, with interactive download prompts in `v2.31.0+`). Uses the same domain, `localhost:port`, and sensitive Google subdomain matching rules as `execute_url` (`data:` and `blob:` downloads always ask once, and executable or active-markup file types are blocked). Refer to [Browser use permissions and safety guardrails](/docs/browser#permissions-and-safety-guardrails).
 *   **`command`**: Matches by exact word or token prefix literally by default. To match by regular expression, start the target with the `regex:` prefix (each whitespace-separated token is evaluated as an anchored regular expression `^(?:pattern)$`, for example, `command(regex:npm run (build.*))`). Covers execution both inside and outside the sandbox.
 *   **`mcp`**: Matches exact MCP tools or all tools on a specified server (applies equally to local and remote MCP servers). Using `mcp(*)` matches any tool.
 
@@ -103,7 +105,7 @@ Standard shell composition still prefix-matches normally: pipelines, `&&`/`||`/`
 Antigravity checks `read_url` and `execute_url` in three areas:
 
 1.  **Web page reading**: When the agent fetches web page Markdown for research, it checks your `read_url` grants.
-2.  **Browser subagent**: When the browser subagent opens a page, it checks your `execute_url` grants for that domain, not `read_url`. For details, refer to [Allowlist and denylist](/docs/ide/allowlist-denylist).
+2.  **Browser subagent**: When the browser subagent opens a page or triggers a file download, it checks your `execute_url` and `download_url` grants for that domain, not `read_url` (and every file upload requires one-time approval, even in **Turbo**). For details, refer to [Browser use](/docs/browser#permissions-and-safety-guardrails) and [Allowlist and denylist](/docs/ide/allowlist-denylist).
 3.  **Terminal sandboxing**: Any domain granted under `read_url` is compiled directly into the sandbox’s outbound network allowlist, permitting commands like `curl` or `npm` to connect to authorized hosts.
 
 ##### Cross-platform command and path matching
@@ -207,6 +209,7 @@ The following table lists the supported permission actions in the previous permi
 | `write_file` | `write_file(/path)` or `write_file(*)` | **Ask** (Allowed in workspace) |
 | `read_url` | `read_url(domain)` or `read_url(*)` | **Ask** |
 | `execute_url` | `execute_url(domain)` or `execute_url(*)` | **Ask** |
+| `download_url` | `download_url(domain)` or `download_url(*)` | **Ask** |
 | `command` | `command(prefix)`, `command(regex:pattern)`, or `command(*)` | **Ask** |
 | `unsandboxed` | `unsandboxed(prefix)`, `unsandboxed(regex:pattern)`, or `unsandboxed(*)` | **Ask** |
 | `mcp` | `mcp(server/tool)`, `mcp(server/*)`, or `mcp(*)` | **Ask** |
@@ -216,7 +219,8 @@ Each action matches its target as follows:
 *   **`read_file`**: Matches absolute paths or paths relative to project workspace roots. Grants recursive read access to all contained files and folders. Using `read_file(*)` matches all files on the system.
 *   **`write_file`**: Same as `read_file`. Implicitly grants `read_file` for the exact same target path.
 *   **`read_url`**: Matches hostnames and subdomains (for example, `google.com` covers `mail.google.com`). Ignores URL path segments. Using `read_url(*)` matches any domain.
-*   **`execute_url`**: Covers the browser subagent opening a page on a domain, for example when it navigates to a URL or opens a new page. Matches hostnames and subdomains and ignores URL path segments. A `read_url` grant doesn’t cover it.
+*   **`execute_url`**: Covers the [browser subagent](/docs/browser) opening or redirecting to a page on a domain. Matches hostnames and regular subdomains and ignores URL path segments, while isolating `localhost` by `:port` (for example, `localhost:3000` is separate from `localhost:8080`) and requiring explicit rules for sensitive Google subdomains (such as `mail.google.com`, `docs.google.com`, `drive.google.com`, and `console.cloud.google.com`). A `read_url` grant doesn’t cover it.
+*   **`download_url`**: Covers the built-in browser agent in the Antigravity App downloading files from a domain (configurable under **Browser Actuation Rules** in `v2.30.0+`, with interactive download prompts in `v2.31.0+`). Uses the same domain, `localhost:port`, and sensitive Google subdomain matching rules as `execute_url` (`data:` and `blob:` downloads always ask once, and executable or active-markup file types are blocked). Refer to [Browser use permissions and safety guardrails](/docs/browser#permissions-and-safety-guardrails).
 *   **`command`**: Matches by exact word or token prefix literally by default. To match by regular expression, start the target with the `regex:` prefix (each whitespace-separated token is evaluated as an anchored regular expression `^(?:pattern)$`, for example, `command(regex:npm run (build.*))`).
 *   **`unsandboxed`**: Matches command prefixes word-by-word literally by default (or with `regex:`). Commands matching this grant execute outside container isolation when terminal sandboxing is enabled.
 *   **`mcp`**: Matches exact MCP tools or all tools on a specified server (applies equally to local and remote MCP servers). Using `mcp(*)` matches any tool.
@@ -236,7 +240,7 @@ Standard shell composition still prefix-matches normally: pipelines, `&&`/`||`/`
 Antigravity checks `read_url` and `execute_url` in three areas:
 
 1.  **Web page reading**: When the agent fetches web page Markdown for research, it checks your `read_url` grants.
-2.  **Browser subagent**: When the browser subagent opens a page, it checks your `execute_url` grants for that domain, not `read_url`. For details, refer to [Allowlist and denylist](/docs/ide/allowlist-denylist).
+2.  **Browser subagent**: When the browser subagent opens a page or triggers a file download, it checks your `execute_url` and `download_url` grants for that domain, not `read_url` (and every file upload requires one-time approval, even in **Turbo**). For details, refer to [Browser use](/docs/browser#permissions-and-safety-guardrails) and [Allowlist and denylist](/docs/ide/allowlist-denylist).
 3.  **Terminal sandboxing**: In sandbox mode, any domain granted under `read_url` is compiled directly into the container’s outbound network allowlist (`AllowedDomains`), permitting commands like `curl` or `npm` to connect to authorized hosts.
 
 ##### Cross-platform command and path matching

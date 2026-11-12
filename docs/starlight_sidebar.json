@@ -24,8 +24,24 @@
         "slug": "antigravity/boost"
       },
       {
+        "label": "Browser use",
+        "slug": "antigravity/browser"
+      },
+      {
         "label": "Build plugins",
         "slug": "antigravity/build-plugins"
+      },
+      {
+        "label": "Customizations command (/agy-customizations)",
+        "slug": "antigravity/commands/agy-customizations"
+      },
+      {
+        "label": "Antigravity guide command (/antigravity-guide)",
+        "slug": "antigravity/commands/antigravity-guide"
+      },
+      {
+        "label": "Automation command (/automation)",
+        "slug": "antigravity/commands/automation"
       },
       {
         "label": "Browser command (/browser)",

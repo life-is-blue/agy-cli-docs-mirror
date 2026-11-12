@@ -53,7 +53,7 @@ This workflow uses the Antigravity agent to autonomously handle project transfor
 2.  Follow the export method based on the window that appears:
     
     *   If a **Zip and Download** button appears, click it.
-    *   Otherwise, open the Command Palette (`Cmd+Shift+P` on macOS or `Ctrl+Shift+P` on ChromeOS, Windows, or Linux) and run the **Firebase Studio: Zip & Download** command.
+    *   Otherwise, open the Command Palette (Cmd + Shift + P on macOS or Ctrl + Shift + P on ChromeOS, Windows, or Linux) and run the **Firebase Studio: Zip & Download** command.
 3.  Extract the folder locally and open it in Antigravity.
     
 4.  In the Agent pane within Antigravity, enter the following prompt. To optimize your workflow and conserve tokens, we recommend selecting the **Gemini Flash** model, which is designed for speed and efficiency in high-volume transformation tasks like file conversion:

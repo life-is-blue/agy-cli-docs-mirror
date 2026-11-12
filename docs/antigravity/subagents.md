@@ -13,7 +13,7 @@ The parent agent calls the `invoke_subagent` tool to spawn a new concurrent sess
 *   **Workspace options**: The subagent can either inherit the same workspace as its parent (`inherit`), create an isolated Git worktree (`branch`), or share directory storage (`share`).
 *   **Context isolation**: The subagent runs using the specified model tier but does not inherit the parent’s existing conversation history (context window), starting with a clean slate.
 *   **Execution**: Once invoked, the subagent immediately begins executing its task. A parent agent can invoke multiple subagents concurrently.
-*   **Monitoring**: You can directly monitor the progress of any subagent by clicking into its conversation in the subagent panel or pressing `Alt+J` in the CLI.
+*   **Monitoring**: You can directly monitor the progress of any subagent by clicking into its conversation in the subagent panel or pressing Alt + J in the CLI.
 *   **Direct messages**: To give a subagent new instructions without going through the parent agent, open its conversation and type in its message box. Refer to [Mentions and quoting](/docs/at-mentions).
 
 ### Built-in subagents
@@ -21,7 +21,7 @@ The parent agent calls the `invoke_subagent` tool to spawn a new concurrent sess
 Antigravity comes pre-packaged with several specialized subagents out of the box:
 
 *   **`research`**: Optimized for codebase research, file navigation, and structural exploration.
-*   **`browser`**: Operates sandboxed web browsers to perform interactive browser testing (invoked exclusively using the [`/browser` slash command](/docs/commands/browser)).
+*   **`browser`**: Opens and interacts with web pages for UI playtesting, visual screenshots, and console or network inspection. On personal Google Accounts in the Antigravity App (`v2.30.0+`), the main agent can launch single or parallel `browser` subagents automatically in the built-in browser, or you can invoke [`/browser`](/docs/commands/browser) directly; in the Antigravity CLI and on business or enterprise accounts, invoke `/browser` to connect to Google Chrome. Refer to [Browser use](/docs/browser).
 *   **`self`**: A direct clone of the calling agent, sharing identical system instructions and toolsets.
 
 ### Custom subagents
@@ -97,7 +97,7 @@ Subagents run asynchronously in the background. At any point during a session, a
 
 The subagent is actively executing its task, calling tools, and generating responses:
 
-*   **Cancellation**: You can cancel a running subagent by clicking **Stop Subagent** in the subagent panel (or pressing `k` in the CLI).
+*   **Cancellation**: You can cancel a running subagent by clicking **Stop Subagent** in the subagent panel (or pressing k in the CLI).
 *   **Parent control**: The parent agent can interrupt a subagent by sending a message or terminating it.
 
 #### Idle
@@ -233,14 +233,14 @@ The tasks tracking list lets you perform the following actions:
 
 To reduce context-switching friction when subagents require manual interaction or tool authorizations, Antigravity CLI integrates high-efficiency shortcut paths.
 
-#### Detailed “teleport” navigation (`Alt+J`)
+#### Detailed “teleport” navigation (Alt+J)
 
 When a subagent encounters a tool requiring approval (for example, writing a file or running a database migration), a status bar notification blinks:
 
 *   Press Alt + J inside the main prompt panel to immediately jump from your current conversation directly into the Detail View of the next subagent awaiting your approval.
 *   Confirm or reject the action, and press Esc to return to your primary thread.
 
-#### ”Fast-path” confirmations (`Ctrl+K`)
+#### ”Fast-path” confirmations (Ctrl+K)
 
 To authorize an agent action immediately without leaving your active workspace:
 

@@ -334,7 +334,7 @@ SDK
 | [Multi-agent swarms (/teamwork)](/docs/teamwork/) |  |  |  |  |
 | [Deep reasoning mode (/boost)](/docs/boost/) |  |  |  |  |
 | [Interactive visual artifacts & diffs](/docs/artifacts/) |  |  |  |  |
-| [Sandboxed Chromium browser automation](/docs/ide/browser/) |  |  |  |  |
+| [Sandboxed Chromium browser automation](/docs/browser/) |  |  |  |  |
 | [Custom skills (SKILL.md) & rule files](/docs/skills/) |  |  |  |  |
 | [Model Context Protocol (MCP) clients](/docs/mcp/) |  |  |  |  |
 | [Scheduled tasks & cron sidecars](/docs/sidecars/) |  |  |  |  |

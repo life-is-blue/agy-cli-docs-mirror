@@ -24,7 +24,7 @@ November 9, 2026
 
 ### /swarm, Font size setting, split-view plugins, and browser download approvals
 
-This release adds a font size setting, lets you open plugin views next to a conversation in split view, and asks for your approval before the browser agent downloads a file. It also brings call summaries to voice mode and Google Cloud project autocomplete to Pay-As-You-Go setup. It includes 11 improvements and 18 fixes.
+This release adds a font size setting, lets you open plugin views next to a conversation in split view, and asks for your approval before the browser agent downloads a file. It also brings call summaries to voice mode and Google Cloud project autocomplete to Pay-As-You-Go setup. It includes 10 improvements and 18 fixes.
 
 **Improvements:**
 
@@ -38,7 +38,6 @@ This release adds a font size setting, lets you open plugin views next to a conv
 *   Installing a plugin or skill from a plugin card in the agent's latest reply now resumes the conversation automatically.
 *   If you use remote agents, creating a project now offers a This Computer or Remote choice in one wizard instead of a separate New Remote Project item.
 *   You can now scroll the conversation and side panels line by line with the Up and Down arrow keys.
-*   MCP App file viewers can now save changes to local files, so a diagram or design editor plugin can edit the file it opened.
 
 **Fixes:**
 
@@ -628,7 +627,7 @@ Type `/plan` and the agent drafts a plan you can read and edit before it writes 
 *   **Custom agents can declare their own hooks.** A Markdown agent can list hook files in its front matter with a `hooks:` entry. Paths may be relative to the agent, relative to the project, or absolute.
 *   **Save Video.** Right-click a video anywhere it appears — in the chat, the file viewer, a browser recording, or the full-screen preview — and choose Save Video.
 *   **Rules no longer crowd out everything else.** Rules get their own 20,000-token budget, so a large rules file stops pushing your skills, subagents and MCP tools out of the agent's context. A rule over budget is listed by file path and description for the agent to open when relevant, instead of being cut short.
-*   **Per-project configuration moved.** Repository customization settings now load from `/.gemini/config.json`. The older `.agents/settings.json` is no longer read — move any `personal_customization_dir` entry into the new file.
+*   **Per-project configuration moved.** Repository customization settings now load from `<project>/.gemini/config.json`. The older `.agents/settings.json` is no longer read — move any `personal_customization_dir` entry into the new file.
 *   **Paste properly into the chat box.** Right-clicking the chat input and choosing Paste handles images and rich text, keeping links as markdown, instead of only plain text. Pasting over a selected attachment no longer drops the pasted text.
 *   **Slash commands and plugins read like products.** The pill inserted when you pick a slash command shows the skill's proper name and logo instead of its raw command name, and the built-in Google plugins show readable names — Chrome DevTools, Google Maps Platform, Gemini API, Android CLI, Data Agent Kit, Modern Web Guidance, Google Antigravity SDK.
 *   **Fewer link cards you did not ask for.** The agent surfaces a link card in the conversation only when there is something to open or act on, such as a review it created, a document it edited, or a local server it started. Links it merely consulted are bookmarked to the sidebar quietly.
@@ -1477,9 +1476,65 @@ Gemini 4 Carbon is our strongest model for long-horizon software engineering, kn
 
 ---
 
-### [v1.5.3](/releases?tab=cli&version=1.5.3 "View release 1.5.3")
+### [v1.5.5](/releases?tab=cli&version=1.5.5 "View release 1.5.5")
 
 Latest
+
+November 10, 2026
+
+### Added agent swarms preview, `/swarm board`, Gemini 4 Carbon support, and plugin import fixes.
+
+Antigravity CLI 1.5.5 introduces a preview of agent swarms with `/swarm` and `/swarm board`, adds Gemini 4 Carbon models when using Application Default Credentials, enforces HTTPS for remote enterprise model gateways, and resolves issues with plugin imports, subagent worktrees, and headless run shutdowns.
+
+**Improvements:**
+
+*   Added swarms as a preview: start one with `/swarm <task>` and the agent becomes a coordinator that adds worker agents, each in its own conversation, which work on the task in parallel and collaborate through a shared message board; workers can be forked from an existing member's conversation, run on any model in the `/model` picker, and pause instead of retrying when their model runs out of quota, and a monitor worker alerts the coordinator when the whole swarm stalls. `/swarm` is labeled `(Preview & Quota Heavy)` in the `/` menu because every worker is a separate agent that uses your quota.
+*   Added `/swarm board`, a full-screen live view of the current swarm that also opens with `alt+s` (rebindable as `swarm.board`), with a `Roster` of members showing each one's state and model, a `Posts` feed, and a `Message` pane that renders the selected post as Markdown; `tab` and `shift+tab` move between panes, `z` zooms the focused pane, `enter` shows or hides the message, `[` and `]` step through posts, `p` filters the feed to one member's posts and the posts that mention them, `o` opens a member's subagent details, `f` follows new posts, and `esc` backs out.
+*   Added a `● Swarm(<title>)` row to the active-items tray below the prompt while a swarm runs, showing the latest post and the post count and then `Done` when the swarm finishes; press `Enter` on the row to open `/swarm board`, or `alt+x` (`swarm.dismiss`) to dismiss it.
+*   Added the `ANTIGRAVITY_DISABLE_EMBEDDED_RIPGREP` environment variable, which you can set to `true` to stop the CLI from extracting and running its bundled `ripgrep`, for example when endpoint security software blocks it, so searches use a `ripgrep` on your `PATH` or the built-in search instead.
+*   Added Gemini 4 Carbon (Low, Medium, and High) to `/model` and `--model` when you sign in with Application Default Credentials (`AGY_ADC_AUTH`).
+*   Changed enterprise model gateway URLs to require `https://` unless the gateway runs on the same machine (`localhost`, `127.0.0.0/8`, or `::1`); a remote gateway configured with a plain `http://` URL is now rejected with an error instead of receiving your prompts unencrypted.
+
+**Fixes:**
+
+*   Fixed `agy plugin import` turning Claude Code plugin commands into skills that did not load or were all named `SKILL`; each command now becomes a skill named after its folder, including commands with no frontmatter or with Claude Code-style values such as `argument-hint: [base branch] [focus]`, and `agy plugin validate` no longer warns about the leftover `commands/` folder.
+*   Fixed `agy plugin import` copying certain plugin's `hooks/hooks.json` unchanged, which caused the plugin's hooks to be skipped; `PreToolUse`, `PostToolUse`, `Stop`, and startup `SessionStart` hooks are now converted, with tool names in matchers mapped to built-in tools (for example `Bash` to `run_command`) and a default 60-second timeout, and hooks with no equivalent are listed as warnings in the import summary.
+*   Fixed `agy -p` headless runs sometimes never exiting after printing their result when a background task, such as conversation title generation, got stuck; the CLI now finishes shutting down within 30 seconds.
+*   Fixed `/teamwork` writing run state into `.agents/teamwork/` in your working directory, where two runs in the same workspace could overwrite each other; each run now keeps its state in its own folder under the CLI's app data directory.
+*   Fixed links to files in agent responses showing only the file name, which made the file's location impossible to tell in terminals that cannot open clickable links, such as Terminal.app, `screen`, or over SSH; labels now show the path relative to your working directory, relative to `~/`, or the absolute path.
+*   Fixed enterprise model gateways that validate the request format rejecting every request, because the CLI sent a non-standard `sessionId` field in Gemini-format requests.
+*   Fixed subagents and swarm workers that get their own copy of a Git repository starting from the last commit and losing your uncommitted work; their worktree now includes your staged, unstaged, and untracked changes, and agents outside version control can give a subagent or worker an isolated copy of the workspace folder, for folders up to 100,000 entries and 4 GiB.
+
+---
+
+### [v1.5.4](/releases?tab=cli&version=1.5.4 "View release 1.5.4")
+
+November 10, 2026
+
+### Auto mode for ACP sessions, enriched hook JSON input, faster sandbox reviews, and stability fixes
+
+Antigravity CLI 1.5.4 introduces Auto mode support for ACP editor sessions, expands hook JSON payloads with event metadata, speeds up Auto mode command reviews, and resolves stability issues across subagents, conversation paging, and authentication.
+
+**Improvements:**
+
+*   Added Auto mode to `agy acp` sessions, so editors can switch a session to `auto` wherever the CLI itself offers Auto mode; it approves edits inside the workspace and runs commands in the terminal sandbox, and still asks before commands that would leave the sandbox unless Auto mode's review clears them.
+*   Added `hookEventName`, `cwd`, and `toolCall.id` to the JSON input that hooks receive, so a single hook command can handle several events, knows the agent's working directory, and can match a `PostToolUse` call to its `PreToolUse` call.
+*   Improved Auto mode's review of commands that would leave the terminal sandbox so it decides faster and times out less often, by using a lighter-thinking Gemini Flash model for the review.
+
+**Fixes:**
+
+*   Fixed `agy acp` sessions dropping back to the default mode when an editor reloaded or resumed an open session, so a session in `accept-edits` no longer starts asking for permission on file writes again.
+*   Fixed `agy acp` turns hanging when a tool call needed a second permission approval, such as a command that asks again after its first approval; the editor now receives a new permission request instead of the turn waiting forever.
+*   Fixed crashes and freezes with subagents: the CLI no longer crashes when a subagent's question or approval prompt is drawn in a very narrow terminal or before the terminal size is known, a subagent's question no longer closes by itself while you are answering it, and opening a subagent's view no longer occasionally freezes the CLI.
+*   Fixed `PgUp` and `PgDn` in the conversation skipping text: paging down could jump past an entire message when a page ended exactly on a message boundary, and in `full screen (altscreen)` rendering mode the lines hidden under the pinned prompt header were scrolled past without ever being shown.
+*   Fixed a thought that follows a tool's result line, such as `Read 22 lines`, being indented as if it were part of that tool call in the expanded view (`Ctrl+O`).
+*   Fixed the `remote-control` background service staying disconnected for good when it started before the network was up, such as right after a reboot, and stopped it from printing a sign-in link it could not complete when checking the saved sign-in only hit a network error.
+*   Fixed the selected Gemini Enterprise plan being lost, and requests failing with permission errors, when the stored sign-in grew too large for the Windows Credential Manager or macOS Keychain; sign-ins that were already affected are repaired automatically the next time they load.
+*   Fixed the `Sign-in update needed` warning, which asks you to run `/logout` and sign in again when your sign-in is missing a newly required permission, not appearing in `--remote-agent` sessions, where only a `cloud conversations are not enabled` error was shown.
+
+---
+
+### [v1.5.3](/releases?tab=cli&version=1.5.3 "View release 1.5.3")
 
 November 7, 2026
 
@@ -1501,7 +1556,7 @@ This release displays each subagent's model in the UI and status line JSON, adds
 *   Fixed `agy plugin uninstall`, `agy plugin enable`, `agy plugin disable`, and uninstalling from `/plugin` failing for plugins installed as symbolic links, such as plugins installed from Antigravity, or for plugins whose names contain spaces or symbols such as `c++-tools`, and `agy plugin list` shows symlinked plugins again.
 *   Fixed agent turns failing with `http2: timeout awaiting response headers` when the model took more than 60 seconds to start responding, which are now retried.
 *   Fixed every model request failing with a 404 error when an enterprise model gateway URL ended in `/v1beta`, even though the model list loaded; a trailing `/v1beta` in the gateway URL is now ignored.
-*   Fixed the agent's requests to sign in to a plugin being dropped from the conversation, so when a plugin needs a sign-in the CLI now shows a line such as `⚠ The plugin needs you to sign in. Open /plugin to sign in.`
+*   Fixed the agent's requests to sign in to a plugin being dropped from the conversation, so when a plugin needs a sign-in the CLI now shows a line such as `⚠ The <plugin> plugin needs you to sign in. Open /plugin to sign in.`
 *   Fixed the agent's file tools mishandling text that is not UTF-8, mostly on Windows: reading a UTF-16 or legacy code-page file now returns its text instead of treating it as binary, edits keep a file's UTF-8 byte order mark or UTF-16 encoding, and PowerShell scripts (`.ps1`, `.psm1`, `.psd1`) with non-ASCII text are written with a UTF-8 byte order mark so Windows PowerShell 5.1 reads them correctly.
 *   Fixed a message sent during a turn with the `Send Immediately` queued-messages mode briefly disappearing from the conversation and reappearing when it arrived just as the turn ended.
 *   Fixed hooks receiving a placeholder or empty model name when the session uses a custom model, so hooks now get the name of the model actually in use.
@@ -1587,7 +1642,7 @@ Antigravity CLI 1.5.0 introduces `agy acp` to run as an Agent Client Protocol se
 *   Added `acp` to `agy --help`: `agy acp` runs the CLI as an Agent Client Protocol (ACP) server over stdio, so editors can use it as their agent, with images and embedded file context in prompts, steering a running turn by sending another prompt, `default`, `accept-edits`, and `plan` session modes, `session/resume` restoring a session without replaying its history, each session keeping its own model and thinking level, and Google sign-in from a terminal with `agy acp --login` for editors connected over SSH or without a browser.
 *   Added `--remote-agent` to `agy --help`, which runs the session's conversations on remote agents instead of this machine, where `--project` names a remote project by ID or name and otherwise conversations open in your default remote project; in these sessions `@`\-mention completion now searches the remote agent's files, artifacts that can't be shown in the terminal get an `Open in browser` link, the header shows `remote workspace` instead of your local directory, the `/` menu no longer offers skills from this machine, and the Remote tab in `/config` shows the conversation's own permission preset when it has one.
 *   Added local projects to `/projects`, so in a local session you can list your projects with the current one marked, create one from a name and a set of folders given as absolute, `~`, or workspace-relative paths, rename a project or change its folders, and switch to a project, which adds its folders to the workspace and starts a new conversation.
-*   Added sign-in for a partner plugin's MCP servers when you install it from `/plugin`, with a `Connect` screen for each server that opens its sign-in page (`Esc` skips), a `⚠ needs sign-in` marker and a `Sign-in:` row for the plugin in the Installed tab, and the third-party developer tools notice for partner plugins at the end of the Discover list, in a plugin's details, and after `agy plugin install` or `/plugin install`.
+*   Added sign-in for a partner plugin's MCP servers when you install it from `/plugin`, with a `Connect <plugin>` screen for each server that opens its sign-in page (`Esc` skips), a `⚠ needs sign-in` marker and a `Sign-in:` row for the plugin in the Installed tab, and the third-party developer tools notice for partner plugins at the end of the Discover list, in a plugin's details, and after `agy plugin install` or `/plugin install`.
 *   Added a built-in `${HOME}` variable to plugin `sidecar.json` templates, so a sidecar can name paths under the user's home directory in `workspaceUris` and `accessGrants`, such as `file://${HOME}/worktrees`; a sidecar argument named `HOME` still takes precedence.
 *   Changed headless `-p` runs without `--print-timeout` to wait for background tasks to finish, where they previously stopped them after a hidden 30-minute limit and exited with success; when `--print-timeout` cuts a turn short, the run now exits with code `3`, prints an `AGY_ERROR` line naming the tasks it terminated, and writes a `[agy] print timeout after ...` line to stderr.
 *   Changed `/btw` side questions to be able to call tools, such as reading files or searching, showing each call live in the `/btw` card and a `Called N tools` summary once the answer is done, while any tool call that would ask for permission is denied automatically; this fixes side questions failing with an empty-response error when the model wanted to use a tool.
@@ -1685,7 +1740,7 @@ Adds native terminal shortcut and drag-and-drop image attachment (including over
 
 *   Fixed always-allow rules for multi-line commands, such as a `python -c` or `node -e` script spanning several lines, never taking effect, which made the CLI ask again every time and pile up unusable entries in your settings; existing multi-line rules now apply.
 *   Fixed onboarding screens being cut off in small terminals and hiding their buttons: text and links now wrap to the terminal width, the color preview is cropped or hidden in very narrow terminals, the banner only shows when the whole step fits, and a step that is still too tall scrolls with `Shift+↑`/`Shift+↓` or `PgUp`/`PgDn` while the buttons stay visible.
-*   Fixed Vim mode's `r`, `f`, `F`, `t`, and `T` canceling when the target character is a space, so `r`, `f`, and `df` now work, commands on an empty last line acting on the line above, and a half-typed operator such as `d` carrying over after you submit a prompt.
+*   Fixed Vim mode's `r`, `f`, `F`, `t`, and `T` canceling when the target character is a space, so `r<space>`, `f<space>`, and `df<space>` now work, commands on an empty last line acting on the line above, and a half-typed operator such as `d` carrying over after you submit a prompt.
 *   Fixed invisible U+FFF9 and U+FFFA characters reaching the terminal around wrapped code in agent replies, which made some terminals and multiplexers draw boxes or leave stale characters on screen.
 *   Fixed conversations failing every later model request with `INVALID_MEDIA` after the agent viewed a corrupt image or one with text in front of its header, such as a screenshot captured with `adb exec-out screencap -p > screenshot.png` that also captured a warning; such images are now rejected with an error that says where the real image header starts, so the agent can fix the command.
 *   Fixed conversations getting stuck failing on every turn after a tool result was left without its matching tool call, such as after older history was trimmed; unmatched tool calls and results are now left out of the request.
@@ -1957,13 +2012,13 @@ Adds support for Claude Opus 5.5 and Claude Sonnet 5.5 via Application Default C
 **Fixes:**
 
 *   Fixed the agent hanging indefinitely when the model connection stalled: if no data arrives for 5 minutes the request is now canceled and retried automatically, and a stalled request no longer leaves an empty response step behind.
-*   Fixed questions asked by subagents and workflow agents being lost, which left the subagent waiting forever: the alert now reads `has a question` and shows it, and `Ctrl+K` or `a` in the subagent's view opens a question picker that sends your answer to that agent. Headless `-p` runs skip these questions so the subagent can continue.
+*   Fixed questions asked by subagents and workflow agents being lost, which left the subagent waiting forever: the alert now reads `<agent> has a question` and shows it, and `Ctrl+K` or `a` in the subagent's view opens a question picker that sends your answer to that agent. Headless `-p` runs skip these questions so the subagent can continue.
 *   Fixed agent shell commands hanging on an invisible editor when a version control command wants one, such as `git commit` without `-m` or `jj describe`: the CLI now sets `GIT_EDITOR`, `HGEDITOR`, and `JJ_EDITOR` to `false` for agent commands, so they fail right away instead.
 *   Fixed skills, rules, workflows, and Markdown agents failing to load with `mapping values are not allowed in this context` when an unquoted `description:` contains a colon, such as `description: Runs checks: formatters and linters.`
 *   Fixed Mermaid diagrams that start with YAML frontmatter, a `%%{init: ...}%%` directive, or `%%` comments, or that use Mermaid v11 syntax such as `id@{ shape: ..., label: ... }` nodes, showing as raw source instead of rendering in agent responses and the artifact viewer.
 *   Fixed the `@` file-mention dropdown staying open after a newline in a multi-line prompt, where it took over `Up`/`Down` and made `Enter` pick a file instead of inserting the newline.
 *   Fixed `/` search in the file and artifact viewer highlighting the wrong characters, or crashing, on lines with letters whose lowercase form has a different length such as `İ`; `n` and `N` now stop only on lines that show a highlight.
-*   Fixed long lines and file paths containing CJK or other multi-byte text turning into \` `characters in` /codesearch\` results; they are now cut cleanly with an ellipsis.
+*   Fixed long lines and file paths containing CJK or other multi-byte text turning into replacement characters in `/codesearch` results; they are now cut cleanly with an ellipsis.
 *   Fixed `agy plugin validate`, the summary `agy plugin install` prints, and marketplace previews in the `/plugin` Discover tab leaving out subagents a plugin declares in its root `agents.json`.
 *   Fixed plugin names and manifests being case-sensitive where the agent was not: `/plugin` subcommands such as `/plugin List` now work in any case instead of failing with `Unknown subcommand`, and a manifest named `Plugin.json` is now found by `agy plugin install`, `agy plugin validate`, and enable and disable.
 
@@ -1980,7 +2035,7 @@ Introduces Auto mode to approve safe file edits and commands autonomously with s
 **Improvements:**
 
 *   Added Auto mode, which approves file edits and safe commands without asking and still prompts before irreversible actions; commands that would leave the terminal sandbox are first reviewed by a separate agent. Choose it with `--mode auto`, from `Agent Mode` in `/config`, or by pressing `Shift+Tab` to cycle modes. Auto mode is available on Linux and macOS, with Windows support coming later.
-*   Added the `/compact` command to compact the conversation on demand and free up the context window: `/compact` on its own summarizes the conversation and ends the turn, and `/compact` summarizes it and then answers your message. While it runs the CLI shows a `Compacting conversation...` progress label that you can cancel with `Esc`, and when it finishes it shows how many steps were summarized and how much smaller the context became.
+*   Added the `/compact` command to compact the conversation on demand and free up the context window: `/compact` on its own summarizes the conversation and ends the turn, and `/compact <message>` summarizes it and then answers your message. While it runs the CLI shows a `Compacting conversation...` progress label that you can cancel with `Esc`, and when it finishes it shows how many steps were summarized and how much smaller the context became.
 *   Added syntax highlighting to the `/diff` file view, with token colors for each color scheme and a background tint on added and removed lines. With the `Terminal` color scheme the CLI detects whether your terminal has a light or dark background and picks matching colors. The color scheme previews in `/config` and first-run setup now show a sample exactly as `/diff` draws it.
 *   Added folding to the `/diff` file view: each hunk header now shows how many unchanged lines are hidden above it, `Ctrl+O` expands or collapses the fold nearest the cursor, and `f` switches between showing only the changes and the whole file. Both keys work on uncommitted changes when the file on disk still matches the diff, and the footer explains when they can't be used.
 *   Improved `/diff` performance on very large files by rendering only the rows on screen, so scrolling, expanding folds, and opening the whole file no longer freeze the CLI. Expanding folds and showing the whole file are turned off for files over 100,000 lines or 10 MB, and the footer says why.
@@ -2078,7 +2133,7 @@ Introduces /plugin, an interactive manager for the official Antigravity plugin m
 
 **Improvements:**
 
-*   Added `/plugin`, an interactive manager for the official Antigravity plugin marketplace: browse and install plugins that bundle skills, MCP servers, subagents, rules, and hooks, or install them from your shell without opening the CLI with `agy plugin install @antigravity-plugins-official`; install one straight from a folder on your computer with `+ Install from local directory...`; fill in any settings a plugin needs in a simple form before it turns on; and manage installed plugins with `/plugin install`, `uninstall`, `enable`, `disable`, and `list`.
+*   Added `/plugin`, an interactive manager for the official Antigravity plugin marketplace: browse and install plugins that bundle skills, MCP servers, subagents, rules, and hooks, or install them from your shell without opening the CLI with `agy plugin install <plugin-name>@antigravity-plugins-official`; install one straight from a folder on your computer with `+ Install from local directory...`; fill in any settings a plugin needs in a simple form before it turns on; and manage installed plugins with `/plugin install`, `uninstall`, `enable`, `disable`, and `list`.
 *   Added more options for plugin authors: keep the manifest in a `.antigravity-plugin/` or `.gemini-plugin/` folder, list skills in `plugin.json`, store data in a per-plugin folder available as `PLUGIN_DATA`, and ship command-line tools in a `bin/` folder that the agent can run by name.
 *   Improved plugin installs: the plugin list opens instantly, an interrupted install never leaves a half-installed plugin behind, and installing or removing plugins on Windows is more reliable.
 *   Improved plugin compatibility: plugins load every skill in their `skills/` folder, remote MCP servers start correctly once their settings are filled in, and a plugin's subagents can use the plugin's own MCP servers.
@@ -2341,11 +2396,11 @@ September 23, 2026
 
 ### Direct subagent messaging syntax, Vim numeric count multipliers, headless lifecycle handling, and concurrency fixes
 
-Introduces direct `@` prompt syntax with interactive autocomplete, adds Vim count multipliers across Normal and Visual modes, enhances headless execution lifecycle and task timeout handling, and fixes file-lock concurrency issues in conversation history databases along with streaming response stability fixes.
+Introduces direct `@<subagent> <message>` prompt syntax with interactive autocomplete, adds Vim count multipliers across Normal and Visual modes, enhances headless execution lifecycle and task timeout handling, and fixes file-lock concurrency issues in conversation history databases along with streaming response stability fixes.
 
 **Improvements:**
 
-*   Added `@` prompt syntax to send a message directly to a subagent conversation, with autocomplete listing running and completed subagents.
+*   Added `@<subagent> <message>` prompt syntax to send a message directly to a subagent conversation, with autocomplete listing running and completed subagents.
 *   Added Vim numeric count multipliers so counts apply to operators, motions, and actions in Normal and Visual modes, including `3dw`, `2d3w`, `3dd`, `3x`, `3rX`, `3p`, `3u`, `[count]G`/`gg`/`$`, and counted text objects such as `2di(`.
 *   Improved `GEMINI_API_KEY` sessions to reduce behavior discrepancies with the non-API-key sign-in path.
 *   Improved the artifact viewer to show a Left/Right pan hint in the footer when a wide diagram overflows the window.
@@ -2413,7 +2468,7 @@ Introduces inline Kitty graphics rendering for LaTeX math and Mermaid diagrams i
 
 **Fixes:**
 
-*   Fixed plugin skill slash commands being double-prefixed (`/::`) when a skill's frontmatter name already includes the plugin prefix, or being shadowed when multiple plugins define skills with the same short name.
+*   Fixed plugin skill slash commands being double-prefixed (`/<plugin>:<plugin>:<skill>`) when a skill's frontmatter name already includes the plugin prefix, or being shadowed when multiple plugins define skills with the same short name.
 *   Fixed plugin upgrades leaving old MCP server and sidecar processes running from deleted install directories, and pruned superseded plugin versions and staging directories from the marketplace cache on startup.
 *   Fixed disabled plugins disappearing from the `/plugin` list after enabled-only customization queries, and hardened plugin ID path validation on uninstall.
 *   Fixed terminal rendering and Kitty keyboard protocol stack handling on exit and screen clear by upgrading Bubble Tea to v2.0.9.
@@ -2440,9 +2495,9 @@ Introduces session-scoped Remote Control using `--remote-control` and `/remote-c
 **Fixes:**
 
 *   Fixed turns triggered from a connected Remote Control session or running across secondary workspaces executing without the CLI session's active permission mode, cycle mode, and non-workspace file access grants.
-*   Fixed artifacts in the Remote Control companion rendering as plain `.md` file links instead of rich artifact cards when the CLI's application data directory differs from the default bundle name.
+*   Fixed artifacts in the Remote Control companion rendering as plain `<name>.md` file links instead of rich artifact cards when the CLI's application data directory differs from the default bundle name.
 *   Fixed text selection in the full-screen artifact viewer capturing the line-number gutter and trailing padding; dragging across the viewer now highlights and copies only the document text, with `Ctrl+C` to re-copy an active selection, `Esc` to clear it, and `Shift`+drag for native terminal selection.
-*   Fixed submitting `/model` while a turn is already running switching the active model immediately in the middle of the in-flight turn; the one-shot model switch now waits until the queued prompt begins executing so the running turn and any earlier queued prompts finish on the session's original model.
+*   Fixed submitting `/model <name> <prompt>` while a turn is already running switching the active model immediately in the middle of the in-flight turn; the one-shot model switch now waits until the queued prompt begins executing so the running turn and any earlier queued prompts finish on the session's original model.
 *   Fixed file edits with diffs larger than 1 MiB exceeding the conversation storage limit and force-clearing the session; oversized edits now preserve their line-change statistics while omitting the raw diff body from stored conversation history and skipping the elided diff during `/rewind` reverts.
 *   Fixed `/rewind` conversation reverts and forks sweeping backward to an older workspace snapshot when recent snapshot commits were skipped, which could silently overwrite kept work; snapshot lookup now sweeps forward from the target step and falls back to step-by-step revert replay when no later snapshot exists.
 
@@ -2536,7 +2591,7 @@ Enhances startup migration diagnostics for unsandboxed permission rules, speeds 
 
 **Fixes:**
 
-*   Fixed MCP servers bundled inside plugins colliding with each other or with user-configured servers in `mcp_config.json` when they shared the same server name by automatically namespacing plugin MCP servers as `_`.
+*   Fixed MCP servers bundled inside plugins colliding with each other or with user-configured servers in `mcp_config.json` when they shared the same server name by automatically namespacing plugin MCP servers as `<plugin>_<server>`.
 *   Fixed a memory leak where opening or scanning conversations left background step-cache eviction goroutines running for the rest of the session, significantly reducing memory usage after opening `/resume` or switching conversations.
 *   Fixed `view_file` attempting to parse non-UTF-8 binary files as text or loading files larger than 100 MB into the model context; unsupported binary formats and oversized files are now rejected with a clear error before overflowing the context window.
 *   Fixed Gemini API (`GEMINI_API_KEY`) sessions dropping model thinking blocks from prior turns on subsequent user messages and failing to propagate thought signatures on text and thought parts.
@@ -2581,7 +2636,7 @@ Introduces remote-control service manager subcommands to run the CLI as a persis
 
 **Improvements:**
 
-*   Added `remote-control start`, `remote-control status`, and `remote-control stop` subcommands to register the CLI with your operating system's service manager as a background daemon that persists across logouts and reboots, including `--name` for custom instance labels and `--session` to scope to the active login session.
+*   Added `remote-control start`, `remote-control status`, and `remote-control stop` subcommands to register the CLI with your operating system's service manager as a background daemon that persists across logouts and reboots, including `--name <label>` for custom instance labels and `--session` to scope to the active login session.
 *   Improved half-page scrolling across all views (altscreen mode, diff viewer, and detail panels where `Ctrl+D` no longer triggers exit prompts) and added `Shift+Up` and `Shift+Down` default keybindings (`navigation.half_page_up` and `navigation.half_page_down`).
 
 **Fixes:**
@@ -2635,17 +2690,17 @@ September 5, 2026
 
 ### Mid-conversation model execution, custom agent subagent dependencies, and MCP parameter validation fixes
 
-Introduces /model for running one-off prompts with alternative models, adds conversation\_title metadata to status line scripts, adds subagent dependency declarations in custom agent Markdown frontmatter, and delivers fixes for MCP argument schema validation, headless permission handling, Vim normal mode shortcuts, and cross-conversation artifact access prompts.
+Introduces /model <name> <prompt> for running one-off prompts with alternative models, adds conversation\_title metadata to status line scripts, adds subagent dependency declarations in custom agent Markdown frontmatter, and delivers fixes for MCP argument schema validation, headless permission handling, Vim normal mode shortcuts, and cross-conversation artifact access prompts.
 
 **Improvements:**
 
-*   Added `/model` , which runs a single prompt on another model and then returns the session to the model it was using, so you can consult a different model mid-conversation without disturbing your saved default.
+*   Added `/model <name> <prompt>`, which runs a single prompt on another model and then returns the session to the model it was using, so you can consult a different model mid-conversation without disturbing your saved default.
 *   Added a `conversation_title` field to the JSON payload passed to custom status line and window title scripts, so they can show the active conversation's name and pick up renames immediately.
 *   Added an `agents` list to custom agent Markdown frontmatter, letting an agent declare the subagents it depends on using the same workspace-relative, absolute, and agent-relative path rules as `skills`.
 *   Improved `/model` to show a `[model]` argument hint as you type, so the command's arguments are discoverable without opening help.
 *   Improved the `/settings` panel so each Verbosity option explains itself as you highlight it, describing whether tool calls, commands, and thoughts are shown in full or collapsed into a token metrics table.
 *   Improved the sign-in and Google Cloud setup screens to use the CLI's standard styled key hints, which follow your color scheme and keybindings and drop the navigation hint when only one option is available.
-*   Changed `/model` to report `Model already set to` when the session is already using that model, instead of reporting a switch that did not happen.
+*   Changed `/model <name>` to report `Model already set to <name>` when the session is already using that model, instead of reporting a switch that did not happen.
 
 **Fixes:**
 
@@ -2736,7 +2791,7 @@ Improves `/mcp` panel arrow key navigation and action cycling, adds support for 
 *   Fixed duplicate agent entries appearing in the `/agents` picker when an agent with the same name is discovered across multiple configuration sources or plugins.
 *   Fixed tool initialization and agent startup failing when launched from an inaccessible or deleted working directory by using absolute URI schemes for in-memory parameter schemas.
 *   Fixed headless CLI invocations with piped standard output or standard error hanging on exit by setting `FD_CLOEXEC` on the preserved streams so child processes do not keep the caller's pipes open.
-*   Fixed MCP configuration parsing failing when `mcp_config.json` contains single-line (`//`) comments, multi-line (`/ /`) comments, or trailing commas.
+*   Fixed MCP configuration parsing failing when `mcp_config.json` contains single-line (`//`) comments, multi-line (`/* */`) comments, or trailing commas.
 *   Fixed orphaned annotation files accumulating in local storage when deleting conversations.
 *   Fixed `/btw` side questions in conversations with an active `/goal` being forced to continue and making unintended tool calls.
 
@@ -2748,11 +2803,11 @@ September 1, 2026
 
 ### Model autocompletion improvements, subagent streaming optimizations, and MCP tool resolution fixes
 
-Improves `/model` autocompletion with Tab acceptance, reduces subagent streaming telemetry overhead, and delivers stability fixes for prompt hooks, MCP tools in subagents, tool call IDs in request history, and OAuth token refreshes.
+Improves `/model <name>` autocompletion with Tab acceptance, reduces subagent streaming telemetry overhead, and delivers stability fixes for prompt hooks, MCP tools in subagents, tool call IDs in request history, and OAuth token refreshes.
 
 **Improvements:**
 
-*   Improved `/model` autocompletion to accept the proposed model name ghost text using `Tab`.
+*   Improved `/model <name>` autocompletion to accept the proposed model name ghost text using `Tab`.
 *   Reduced subagent streaming overhead by sending subagent trajectory metadata once per subtrajectory instead of with every step.
 
 **Fixes:**
@@ -2777,11 +2832,11 @@ August 27, 2026
 
 ### Model selection command arguments, reasoning effort autocompletion, transient retry handling, and UI performance fixes
 
-Adds direct `/model` switching with inline ghost text autocompletion, dynamic `/effort` hint completion, artifact filesystem event coalescing, and fixes for transient HTTP 502 retries, CPU redraw utilization, and Windows path resolution.
+Adds direct `/model <name>` switching with inline ghost text autocompletion, dynamic `/effort` hint completion, artifact filesystem event coalescing, and fixes for transient HTTP 502 retries, CPU redraw utilization, and Windows path resolution.
 
 **Improvements:**
 
-*   Added a `/model` argument to switch models by name, slug, or label and set defaults in one step with inline ghost text autocompletion.
+*   Added a `/model <name>` argument to switch models by name, slug, or label and set defaults in one step with inline ghost text autocompletion.
 *   Improved the `/effort` hint to complete typed text dynamically instead of displaying a static placeholder.
 *   Improved artifact handling in sessions generating many files by coalescing bursts of filesystem events into a single rescan.
 
@@ -3248,7 +3303,7 @@ Added support for defining custom agents in Markdown format (`agent.md`), option
 **Improvements:**
 
 *   Added support for defining custom agents using Markdown files (`agent.md`) with YAML frontmatter and H1-delimited system prompts. Markdown agents support `mainAgent`, `subagent`, `hidden`, `inheritMcp`, and `commandExecutionPolicy` frontmatter fields for fine-grained control over agent behavior. Dynamically defined subagents (using `define_subagent`) now also write Markdown format so they resolve correctly on external builds.
-*   Added an optional index argument to `/copy` so `/copy` copies the n-th most recent response to the clipboard, while `/copy` and `/copy 1` still copy the latest.
+*   Added an optional index argument to `/copy` so `/copy <n>` copies the n-th most recent response to the clipboard, while `/copy` and `/copy 1` still copy the latest.
 *   Improved `/codesearch` to render results progressively as they stream in, showing a live count while loading and letting you cancel an in-flight search with `Esc` instead of blocking until the whole search finishes.
 *   Improved default file access by granting read access to the system temporary directory out of the box, resolved correctly per platform, so agents no longer trigger permission prompts when reading temporary files.
 *   Improved support for markdown-based custom agents so custom agent management and selection behave more consistently.
@@ -3413,7 +3468,7 @@ Added `--agent` flag, in-file keyword search for artifacts, recursive subagent u
 *   Fixed `agy -p` hanging when run inside a shell script or subprocess by no longer reading stdin when a prompt is provided using a flag.
 *   Fixed a data race on the `/btw` cancellation function.
 *   Fixed interactive `/diff` viewer defects in Jujutsu (jj) workspaces by correctly prioritizing `.jj` over `.git` in colocated repos, fixing commit hash regex boundaries, and correctly highlighting active `@` graph nodes.
-*   Fixed workspace-local hooks defined in `/.agents/hooks.json` not loading after trusting a folder by reloading hooks whenever workspaces change.
+*   Fixed workspace-local hooks defined in `<workspace>/.agents/hooks.json` not loading after trusting a folder by reloading hooks whenever workspaces change.
 *   Fixed misaligned markdown tables containing file links in chat output.
 
 ---
@@ -3912,9 +3967,37 @@ Gemini 4 Carbon is our strongest model for long-horizon software engineering, kn
 
 ---
 
-### [v1.11.0](/docs/ide/extensions/vscode "View Visual Studio Code extension docs")
+### [v1.12.0](/docs/ide/extensions/vscode "View Visual Studio Code extension docs")
 
 Latest
+
+November 9, 2026
+
+### Background update checks, instant startup, remote sign-in port forwarding, and Windows recovery fixes
+
+Introduces background update checks with instant backend startup, adds automatic port tunneling for remote sign-in and in-conversation search shortcuts, and resolves Windows notification routing and background recovery issues.
+
+**Improvements:**
+
+*   Startup Readiness Budget: Increased the default backend startup readiness timeout from 30 to 60 seconds to improve startup reliability on Windows.
+*   Remote Workspace Sign-In: Added automatic port forwarding and authorization code fallback for sign-in across remote development environments.
+*   Fast Background Startup: Enabled immediate startup on installed backend binaries without blocking editor activation on release checks.
+*   Background Update Checks: Added recurring background release checks and a notification prompt to restart when an update is ready.
+*   Conversation Search Shortcuts: Added keyboard shortcuts to search within conversations when the Antigravity chat panel is focused.
+*   Screen Reader Navigation: Added visually hidden semantic headings to conversation messages to improve turn-by-turn navigation for screen readers.
+*   Enterprise Proxy Authentication: Added support for custom root certificate authorities and proxy configurations during extension sign-in.
+
+**Fixes:**
+
+*   Windows Recovery Handling: Fixed background recovery loops attempting doomed restarts during Windows desktop logoff or system shutdown.
+*   Backend Binary Management: Fixed an issue where opening multiple editor windows on shared release channels could cause unintended backend binary downgrades.
+*   Recovery Re-Download Prevention: Fixed an issue where transient recovery timeouts could wipe local metadata and trigger unnecessary binary re-downloads.
+*   Notification Window Routing: Fixed task completion notifications on Windows focusing the incorrect window across multi-window workspaces.
+*   Addressed other minor user interface issues.
+
+---
+
+### [v1.11.0](/docs/ide/extensions/vscode "View Visual Studio Code extension docs")
 
 November 2, 2026
 
@@ -3924,7 +4007,7 @@ Introduces clickable terminal context pills with snippet previews and dedicated 
 
 **Improvements:**
 
-*   Improved **Antigravity: Add Terminal Selection or Output to Chat** (`antigravity.insertTerminalSnippet`, `Ctrl+L` or `Ctrl+Alt+L` on Windows and Linux when text is selected, `Ctrl+Alt+L` when no text is selected, and `Cmd+L` on macOS) with a dedicated bottom terminal context-menu group, clickable `:` composer pills that focus the originating terminal on click, fallback `terminal:` pills on fresh terminals, and lossless clipboard preservation when `terminal.integrated.copyOnSelection` is enabled.
+*   Improved **Antigravity: Add Terminal Selection or Output to Chat** (`antigravity.insertTerminalSnippet`, `Ctrl+L` or `Ctrl+Alt+L` on Windows and Linux when text is selected, `Ctrl+Alt+L` when no text is selected, and `Cmd+L` on macOS) with a dedicated bottom terminal context-menu group, clickable `<terminal>: <snippet preview>` composer pills that focus the originating terminal on click, fallback `terminal:<name>` pills on fresh terminals, and lossless clipboard preservation when `terminal.integrated.copyOnSelection` is enabled.
 *   Added three quick-access command surfaces in VS Code: a grouped status bar menu (**Antigravity: Show Menu**, `antigravity.statusMenu`) for Chat, Review, Settings, Help, and Account actions, an **Antigravity** editor right-click submenu with selection, comment, inline diff, and panel focus commands, and **New Conversation** (`+`), **Provide Feedback**, and **More Actions...** (`...`) actions in the Antigravity view title bar.
 *   Updated diff review commands in the Command Palette and **Antigravity** editor context submenu to clearly distinguish target scope across **Accept Focused Change** / **Reject Focused Change** (`antigravity.inlineDiff.acceptFocusedHunk` / `antigravity.inlineDiff.rejectFocusedHunk`, `Alt+Enter` / `Alt+Shift+Enter` on Windows and Linux or `Option+Enter` / `Option+Shift+Enter` on macOS), **Accept Changes in Current File** / **Reject Changes in Current File** (`antigravity.inlineDiff.acceptAll` / `antigravity.inlineDiff.rejectAll`), and **Accept Changes in All Files** / **Reject Changes in All Files** (`antigravity.acceptAllChanges` / `antigravity.rejectAllChanges`), hiding commands that do not apply to the current editor state.
 *   Improved startup in Cloud Shell and Cloud Workstations by using the pre-installed `/usr/bin/agy` binary directly when present, avoiding redundant binary downloads into `$HOME` and enabling startup in restricted-VPC workstations without internet egress.
@@ -3954,7 +4037,7 @@ Introduces inline editor and diff commenting to queue feedback for the agent, ad
 **Improvements:**
 
 *   Added inline editor and diff commenting for the agent (`antigravity.enableComments`, enabled by default), providing `+` commenting gutters on local, remote, Git, and diff documents along with **Antigravity: Add Comment** (`antigravity.commentForSelection`, `Ctrl+Alt+M` on Windows and Linux or `Cmd+Alt+M` on macOS) and **Antigravity: Clear All Comments** (`antigravity.clearComments`) to queue line-scoped code comments for your next prompt.
-*   Added the **Antigravity: Sign Out** (`antigravity.signOut`) Command Palette command, added an **Open Antigravity panel** button to the **Authentication Required** card in standalone **Antigravity - Settings** tabs when signed out, and updated the status bar item to reflect live sign-in status ("Antigravity: Sign in" when signed out, or "Antigravity — signed in as \\" on hover when signed in) and route clicks to the sign-in sidebar (`antigravity.signIn`) or the `Antigravity:` command menu (`antigravity.statusMenu`).
+*   Added the **Antigravity: Sign Out** (`antigravity.signOut`) Command Palette command, added an **Open Antigravity panel** button to the **Authentication Required** card in standalone **Antigravity - Settings** tabs when signed out, and updated the status bar item to reflect live sign-in status ("Antigravity: Sign in" when signed out, or "Antigravity — signed in as <email>" on hover when signed in) and route clicks to the sign-in sidebar (`antigravity.signIn`) or the `Antigravity:` command menu (`antigravity.statusMenu`).
 *   Enabled automatic recovery by default when the language server crashes or stops responding, displaying an in-panel `"Reconnecting to Antigravity (attempt n of 3)..."` progress state and automatically reconnecting the chat sidebar and open secondary panels (**Settings**, **Artifact**, and **Terminal**) once the server recovers.
 *   Improved warm startup speed and multi-window binary management by caching verified backend binary and release-channel metadata in `~/.gemini/bin/agy.version.json`, coordinating concurrent updates across windows with `.agy-install.lock` so secondary windows start immediately on the existing binary while an upgrade downloads in the background, and treating 15-second version-check timeouts on existing binaries as valid instead of triggering a blocking re-download.
 *   Improved startup and mid-session error diagnostics by detecting unsupported Linux x86\_64 CPU instruction sets (`SIGILL` when `SSE4.1` or `SSE4.2` is missing in virtual machines) and incompatible backend CLI flags, skipping futile auto-recovery retries on non-retriable errors, and displaying actionable remediation steps (`-cpu host` / `x86-64-v3` or `antigravity.serverUrl`) directly in the error screen.
@@ -4293,9 +4376,29 @@ Gemini 4 Carbon is our strongest model for long-horizon software engineering, kn
 
 ---
 
-### [v1.0.261102.0](/docs/ide/extensions/visual-studio "View Visual Studio extension docs")
+### [v1.0.261109.0](/docs/ide/extensions/visual-studio "View Visual Studio extension docs")
 
 Latest
+
+November 9, 2026
+
+### Voice-to-text input support, smoother sign-in flow, and update and gateway reliability improvements.
+
+Introduces voice-to-text input support in Visual Studio and improves sign-in, update, and gateway reliability.
+
+**Improvements:**
+
+*   Voice Input: Enabled microphone access to support voice-to-text dictation within the chat tool window.
+
+**Fixes:**
+
+*   Sign-In Flow: Fixed an issue where completing sign-in prompted to open an external application instead of returning to the editor.
+*   Update Reliability: Fixed an issue where installed background components could be downgraded when checking for updates.
+*   Gateway Error Handling: Fixed an issue where reasoning responses from custom gateways could trigger an unexpected empty output error.
+
+---
+
+### [v1.0.261102.0](/docs/ide/extensions/visual-studio "View Visual Studio extension docs")
 
 November 2, 2026
 
@@ -4327,7 +4430,7 @@ Introduces `@terminal` context mentions and context-menu actions for Visual Stud
 
 **Improvements:**
 
-*   Added `@terminal` context integration in chat to reference open Visual Studio integrated terminals (such as Developer PowerShell and Developer Command Prompt) with up to 8 KB of recent terminal output, as well as non-empty **Output** window panes (`Output:` , up to 8 KB), with click-to-focus support from context pills.
+*   Added `@terminal` context integration in chat to reference open Visual Studio integrated terminals (such as Developer PowerShell and Developer Command Prompt) with up to 8 KB of recent terminal output, as well as non-empty **Output** window panes (`Output: <pane>`, up to 8 KB), with click-to-focus support from context pills.
 *   Added **Add Terminal/Output Selection to Chat** (`Ctrl+\, Ctrl+Alt+T`) to the **Output** window right-click context menu (falling back to the trailing 8 KB of pane output when no text is selected) and **Add Terminal Selection to Chat** to the integrated terminal's `Shift+Right-Click` menu, reading terminal selections directly without overwriting the system clipboard.
 *   Added **Send to Terminal** to the chat right-click context menu to insert selected commands or text directly at the active or newly opened integrated terminal prompt without auto-executing them, prompting for confirmation before inserting multi-line snippets.
 *   Added a bundled `CHANGELOG.md`, a Visual Studio Marketplace **Release Notes** link, and a **Help > Antigravity Changelog** menu command to open the Antigravity for Visual Studio release notes.
@@ -4768,12 +4871,12 @@ Introduces the Google Antigravity Agent Client Protocol (ACP) server (`antigravi
 
 *   Added Agent Client Protocol (`acp 0.11.0`) server support (`antigravity-acp`, **Google Antigravity**) for Xcode, JetBrains IDEs, Zed, and custom ACP clients, with multi-method authentication (`oauth-personal`, `oauth-business` for Gemini Enterprise, `gemini-api-key`, and `vertex-ai` / `agent-platform`), Hjson `settings.json` configuration (`auth.type`, `gcp.project`, `gcp.location`) with persistent `auth.type` selection, OS keychain OAuth credential storage on macOS with `0600` file fallback, and in-app `logout` / `/logout` command support.
 *   Added model and session mode (`default`, `auto_edit`, `yolo`) selection via ACP `configOptions` (`model` and `mode` selectors on `session/new`, `session/load`, `session/resume`, and `session/set_config_option`), with Gemini 3.7 Flash (`gemini-3.7-flash-high` default, `medium`, and `low`), Gemini 3.6 Flash, Gemini 3.5 Flash, and Gemini 3.1 Pro support and automatic session rebuilds across authentication-method switches.
-*   Added rich tool-call execution and permission streaming (`session/request_permission` with workspace-scoped `Allow Always` caching, reconciled single-row permission and execution updates, structured file diffs and affected locations, `run_command` exit codes and combined output, and inline base64 image previews for `generate_image`) alongside Model Context Protocol (MCP) server loading from `/config/mcp_config.json`, workspace skill (`~/.gemini/config/skills`) and `@file` reference resolution, and lifecycle hooks (`hooks.json`).
+*   Added rich tool-call execution and permission streaming (`session/request_permission` with workspace-scoped `Allow Always` caching, reconciled single-row permission and execution updates, structured file diffs and affected locations, `run_command` exit codes and combined output, and inline base64 image previews for `generate_image`) alongside Model Context Protocol (MCP) server loading from `<GEMINI_HOME>/config/mcp_config.json`, workspace skill (`~/.gemini/config/skills`) and `@file` reference resolution, and lifecycle hooks (`hooks.json`).
 *   Added Gemini Enterprise administrator policy enforcement (terminal command auto-execution policy, outside-workspace file-access `DENY` / `ALWAYS_ASK` / `NOT_ENFORCED` policy, custom MCP server enablement and `mcpAllowlist` filtering, and an administrator-gated `chrome_devtools` browser subagent with non-fatal `npx` preflight checks) plus interactive Workspace Trust verification before loading repository-local skills, hooks, or auto-approve modes.
 
 **Fixes:**
 
-*   Fixed session reliability and workspace hygiene by storing conversation artifacts under `/antigravity-acp` instead of the user's project directory, expanding `~` in session `cwd` paths, automatically recovering sessions from closed local backend WebSocket connections, stripping stale thought signatures on session resume, removing the 60-second request timeout on long-running permission prompts, and sending `.json` attachments as `text/plain` on Gemini Enterprise.
+*   Fixed session reliability and workspace hygiene by storing conversation artifacts under `<GEMINI_HOME>/antigravity-acp` instead of the user's project directory, expanding `~` in session `cwd` paths, automatically recovering sessions from closed local backend WebSocket connections, stripping stale thought signatures on session resume, removing the 60-second request timeout on long-running permission prompts, and sending `.json` attachments as `text/plain` on Gemini Enterprise.
 *   Fixed duplicate or spurious permission prompts on file edits and `ask_question`, suppressed internal policy-denial text and MCP schema cache reads from streaming into assistant responses, and surfaced actionable error messages for MCP server initialization failures, missing `GEMINI_API_KEY` or Gemini Enterprise license setup, and quota exhaustion.
 
 ---
@@ -4989,12 +5092,12 @@ Introduces the Google Antigravity Agent Client Protocol (ACP) server (`antigravi
 
 *   Added Agent Client Protocol (`acp 0.11.0`) server support (`antigravity-acp`, **Google Antigravity**) for Xcode, JetBrains IDEs, Zed, and custom ACP clients, with multi-method authentication (`oauth-personal`, `oauth-business` for Gemini Enterprise, `gemini-api-key`, and `vertex-ai` / `agent-platform`), Hjson `settings.json` configuration (`auth.type`, `gcp.project`, `gcp.location`) with persistent `auth.type` selection, OS keychain OAuth credential storage on macOS with `0600` file fallback, and in-app `logout` / `/logout` command support.
 *   Added model and session mode (`default`, `auto_edit`, `yolo`) selection via ACP `configOptions` (`model` and `mode` selectors on `session/new`, `session/load`, `session/resume`, and `session/set_config_option`), with Gemini 3.7 Flash (`gemini-3.7-flash-high` default, `medium`, and `low`), Gemini 3.6 Flash, Gemini 3.5 Flash, and Gemini 3.1 Pro support and automatic session rebuilds across authentication-method switches.
-*   Added rich tool-call execution and permission streaming (`session/request_permission` with workspace-scoped `Allow Always` caching, reconciled single-row permission and execution updates, structured file diffs and affected locations, `run_command` exit codes and combined output, and inline base64 image previews for `generate_image`) alongside Model Context Protocol (MCP) server loading from `/config/mcp_config.json`, workspace skill (`~/.gemini/config/skills`) and `@file` reference resolution, and lifecycle hooks (`hooks.json`).
+*   Added rich tool-call execution and permission streaming (`session/request_permission` with workspace-scoped `Allow Always` caching, reconciled single-row permission and execution updates, structured file diffs and affected locations, `run_command` exit codes and combined output, and inline base64 image previews for `generate_image`) alongside Model Context Protocol (MCP) server loading from `<GEMINI_HOME>/config/mcp_config.json`, workspace skill (`~/.gemini/config/skills`) and `@file` reference resolution, and lifecycle hooks (`hooks.json`).
 *   Added Gemini Enterprise administrator policy enforcement (terminal command auto-execution policy, outside-workspace file-access `DENY` / `ALWAYS_ASK` / `NOT_ENFORCED` policy, custom MCP server enablement and `mcpAllowlist` filtering, and an administrator-gated `chrome_devtools` browser subagent with non-fatal `npx` preflight checks) plus interactive Workspace Trust verification before loading repository-local skills, hooks, or auto-approve modes.
 
 **Fixes:**
 
-*   Fixed session reliability and workspace hygiene by storing conversation artifacts under `/antigravity-acp` instead of the user's project directory, expanding `~` in session `cwd` paths, automatically recovering sessions from closed local backend WebSocket connections, stripping stale thought signatures on session resume, removing the 60-second request timeout on long-running permission prompts, and sending `.json` attachments as `text/plain` on Gemini Enterprise.
+*   Fixed session reliability and workspace hygiene by storing conversation artifacts under `<GEMINI_HOME>/antigravity-acp` instead of the user's project directory, expanding `~` in session `cwd` paths, automatically recovering sessions from closed local backend WebSocket connections, stripping stale thought signatures on session resume, removing the 60-second request timeout on long-running permission prompts, and sending `.json` attachments as `text/plain` on Gemini Enterprise.
 *   Fixed duplicate or spurious permission prompts on file edits and `ask_question`, suppressed internal policy-denial text and MCP schema cache reads from streaming into assistant responses, and surfaced actionable error messages for MCP server initialization failures, missing `GEMINI_API_KEY` or Gemini Enterprise license setup, and quota exhaustion.
 
 ---
@@ -5210,12 +5313,12 @@ Introduces the Google Antigravity Agent Client Protocol (ACP) server (`antigravi
 
 *   Added Agent Client Protocol (`acp 0.11.0`) server support (`antigravity-acp`, **Google Antigravity**) for Xcode, JetBrains IDEs, Zed, and custom ACP clients, with multi-method authentication (`oauth-personal`, `oauth-business` for Gemini Enterprise, `gemini-api-key`, and `vertex-ai` / `agent-platform`), Hjson `settings.json` configuration (`auth.type`, `gcp.project`, `gcp.location`) with persistent `auth.type` selection, OS keychain OAuth credential storage on macOS with `0600` file fallback, and in-app `logout` / `/logout` command support.
 *   Added model and session mode (`default`, `auto_edit`, `yolo`) selection via ACP `configOptions` (`model` and `mode` selectors on `session/new`, `session/load`, `session/resume`, and `session/set_config_option`), with Gemini 3.7 Flash (`gemini-3.7-flash-high` default, `medium`, and `low`), Gemini 3.6 Flash, Gemini 3.5 Flash, and Gemini 3.1 Pro support and automatic session rebuilds across authentication-method switches.
-*   Added rich tool-call execution and permission streaming (`session/request_permission` with workspace-scoped `Allow Always` caching, reconciled single-row permission and execution updates, structured file diffs and affected locations, `run_command` exit codes and combined output, and inline base64 image previews for `generate_image`) alongside Model Context Protocol (MCP) server loading from `/config/mcp_config.json`, workspace skill (`~/.gemini/config/skills`) and `@file` reference resolution, and lifecycle hooks (`hooks.json`).
+*   Added rich tool-call execution and permission streaming (`session/request_permission` with workspace-scoped `Allow Always` caching, reconciled single-row permission and execution updates, structured file diffs and affected locations, `run_command` exit codes and combined output, and inline base64 image previews for `generate_image`) alongside Model Context Protocol (MCP) server loading from `<GEMINI_HOME>/config/mcp_config.json`, workspace skill (`~/.gemini/config/skills`) and `@file` reference resolution, and lifecycle hooks (`hooks.json`).
 *   Added Gemini Enterprise administrator policy enforcement (terminal command auto-execution policy, outside-workspace file-access `DENY` / `ALWAYS_ASK` / `NOT_ENFORCED` policy, custom MCP server enablement and `mcpAllowlist` filtering, and an administrator-gated `chrome_devtools` browser subagent with non-fatal `npx` preflight checks) plus interactive Workspace Trust verification before loading repository-local skills, hooks, or auto-approve modes.
 
 **Fixes:**
 
-*   Fixed session reliability and workspace hygiene by storing conversation artifacts under `/antigravity-acp` instead of the user's project directory, expanding `~` in session `cwd` paths, automatically recovering sessions from closed local backend WebSocket connections, stripping stale thought signatures on session resume, removing the 60-second request timeout on long-running permission prompts, and sending `.json` attachments as `text/plain` on Gemini Enterprise.
+*   Fixed session reliability and workspace hygiene by storing conversation artifacts under `<GEMINI_HOME>/antigravity-acp` instead of the user's project directory, expanding `~` in session `cwd` paths, automatically recovering sessions from closed local backend WebSocket connections, stripping stale thought signatures on session resume, removing the 60-second request timeout on long-running permission prompts, and sending `.json` attachments as `text/plain` on Gemini Enterprise.
 *   Fixed duplicate or spurious permission prompts on file edits and `ask_question`, suppressed internal policy-denial text and MCP schema cache reads from streaming into assistant responses, and surfaced actionable error messages for MCP server initialization failures, missing `GEMINI_API_KEY` or Gemini Enterprise license setup, and quota exhaustion.
 
 ---
@@ -5230,9 +5333,32 @@ Gemini 4 Carbon is our strongest model for long-horizon software engineering, kn
 
 ---
 
-### [v1.0.0](/docs/ide/extensions/eclipse "View Eclipse extension docs")
+### [v1.1.0](/docs/ide/extensions/eclipse "View Eclipse extension docs")
 
 Latest
+
+November 10, 2026
+
+### Terminal context in chat, changelog viewer menu, external link handling, and editor persistence fixes
+
+Introduces terminal context referencing in chat conversations, external link navigation from extension views, a dedicated changelog viewer, and key stability fixes across theme switching and editor persistence.
+
+**Improvements:**
+
+*   Terminal Context: Added support for referencing terminal and console output in chat conversations.
+*   Changelog Navigation: Added a View Changelog option to the Antigravity menu to view extension release notes.
+*   External Link Handling: Added support for opening web links and email addresses from extension views in the system browser.
+
+**Fixes:**
+
+*   Theme Synchronization: Fixed an issue where switching themes did not reliably update across all open extension views.
+*   Artifact Tab Restoration: Fixed an issue where open artifact tabs could restore as empty tabs following an unexpected restart.
+*   Feedback Options: Fixed an issue where the feedback menu option was incorrectly displayed.
+*   Addressed other minor user interface issues.
+
+---
+
+### [v1.0.0](/docs/ide/extensions/eclipse "View Eclipse extension docs")
 
 October 27, 2026
 
@@ -5458,7 +5584,7 @@ The 0.1.16 release updates the default model for new agents to `gemini-3.8-flash
 *   **Vertex AI Express Mode (API key support)**: Developers can now connect to Vertex AI using Express mode by providing an API key directly on `LocalAgentConfig(vertex=True, api_key="...")`, simplifying authentication without needing full GCP project/location ADC setup:
 *   **Support for callable class and dataclass tools**: The SDK's `ToolRunner` now inspects and executes tools defined as callable class instances (functors) and dataclass methods, enhancing flexibility for custom tool implementations:
 *   **OS sandbox opt-in for commands**: Added an `enable_sandbox` field to `RunCommandConfig` to allow developers to execute terminal commands within an OS-level sandbox environment:
-*   **Tool invocation argument flexibility**: `ToolWithSchema` and public callable proxies now accept both positional (`_args_`_) and keyword arguments (_`*kwargs`), matching standard Python function calling conventions.
+*   **Tool invocation argument flexibility**: `ToolWithSchema` and public callable proxies now accept both positional (`*args`) and keyword arguments (`**kwargs`), matching standard Python function calling conventions.
 *   **Support for `genai.Content` Media**: Introduced a structconverter to support media blocks from `genai.Content` objects within the SDK, enabling richer multimodal interactions.
 *   **MCP dependency compatibility widening**: The SDK now supports both `mcp>=1.0` and `mcp<3.0` dependencies.
 

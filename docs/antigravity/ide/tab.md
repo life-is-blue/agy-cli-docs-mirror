@@ -17,7 +17,7 @@ Supercomplete includes the following capabilities:
 *   **File-wide suggestions**: Suggestions can modify code throughout the document, handling tasks like changing variable names or updating separate function definitions simultaneously.
 *   **Inline preview**: Suggested insertions appear as gray text in the editor, and suggested deletions are highlighted in red and struck through.
 *   **Missing imports**: Supercomplete can also suggest a missing import at the top of the file.
-*   **Accepting**: Press `Tab` to accept the changes, or press `Esc` to dismiss them.
+*   **Accepting**: Press Tab to accept the changes, or press Esc to dismiss them.
 
 ## Tab-to-Jump
 
@@ -30,7 +30,7 @@ Tab-to-Jump is a fluid navigation tool that suggests the next logical place in y
 Tab-to-Jump works in the following ways:
 
 *   **Navigation**: A **Tab to Jump** label appears at the end of the line where Antigravity predicts your next edit, for example after you accept a suggestion.
-*   **Accepting**: Press `Tab` to immediately move your cursor to that location.
+*   **Accepting**: Press Tab to immediately move your cursor to that location.
 
 ## Settings
 

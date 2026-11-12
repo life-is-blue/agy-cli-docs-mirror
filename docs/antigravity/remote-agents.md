@@ -97,7 +97,7 @@ To create a new remote project named after the current directory, pass `--new-pr
 agy --remote-agent --new-project
 ```
 
-To switch projects during a session, run `/projects`, select a project, press `Enter`, choose **Switch to project**, and confirm. The CLI starts a new conversation in that project.
+To switch projects during a session, run `/projects`, select a project, press Enter, choose **Switch to project**, and confirm. The CLI starts a new conversation in that project.
 
 #### Attach repositories and files
 
@@ -106,12 +106,12 @@ Remote agents work with the resources attached to their remote project. To creat
 1.  Run `/projects` and select **\+ New project…** at the top of the list.
 2.  Enter a name for the project, and then press the right arrow key to choose its resources.
 3.  Attach any of the following resources:
-    *   **GitHub**: Select GitHub and press `Enter`. If you haven’t connected GitHub yet, sign in to it in your browser. Then select the repositories to attach.
-    *   **Google Drive**: Select Google Drive and press `Enter`, signing in if you haven’t connected it yet. Then select **\+ Add a Drive file by link…** and paste a link to a Google Docs, Sheets, Slides, or Drive file.
+    *   **GitHub**: Select GitHub and press Enter. If you haven’t connected GitHub yet, sign in to it in your browser. Then select the repositories to attach.
+    *   **Google Drive**: Select Google Drive and press Enter, signing in if you haven’t connected it yet. Then select **\+ Add a Drive file by link…** and paste a link to a Google Docs, Sheets, Slides, or Drive file.
     *   **Uploaded files**: Select **Upload Files**, then **\+ Add a local file…**, and enter the path of a file on your machine.
-4.  Press `Ctrl+S` to create the project.
+4.  Press Ctrl + S to create the project.
 
-To change the resources of an existing remote project, run `/projects`, select the project, press `Enter`, and choose **Edit**. These are the same resources that you can manage in the Antigravity App and on the web. For details, see [Remote projects and resources](#remote-projects-and-resources).
+To change the resources of an existing remote project, run `/projects`, select the project, press Enter, and choose **Edit**. These are the same resources that you can manage in the Antigravity App and on the web. For details, see [Remote projects and resources](#remote-projects-and-resources).
 
 #### Resume remote conversations
 
@@ -137,7 +137,7 @@ A session started with `--remote-agent` opens only remote agent conversations, a
 
 Remote agent sessions use your [CLI settings](/docs/settings?tab=cli) from `settings.json`, such as your color scheme, verbosity, and editor mode, except for permissions. For permissions, remote agents follow your remote agent settings, which apply to all of your remote agent sessions.
 
-In a remote agent session, `/config` splits your settings into two tabs. Press `Tab` to switch between them:
+In a remote agent session, `/config` splits your settings into two tabs. Press Tab to switch between them:
 
 *   **TUI**: Your CLI settings. This tab hides the settings that your remote agent settings replace: **Agent Mode**, **Tool Permission**, **Artifact Review**, **Sandbox Mode**, and **Non-Workspace Access**.
 *   **Remote Agent**: Your remote agent settings:

@@ -12,10 +12,10 @@ The command palette searches your past conversations, project files, projects, a
 
 | Category | macOS | Windows and Linux |
 | :-- | :-- | :-- |
-| **Conversations** | Cmd+K | Ctrl+K |
-| **Files** | Cmd+P | Ctrl+P |
-| **Projects** | Cmd+Shift+K | Ctrl+Shift+K |
-| **Commands** | Cmd+Shift+P | Ctrl+Shift+P |
+| **Conversations** | Cmd + K | Ctrl + K |
+| **Files** | Cmd + P | Ctrl + P |
+| **Projects** | Cmd + Shift + K | Ctrl + Shift + K |
+| **Commands** | Cmd + Shift + P | Ctrl + Shift + P |
 
 You can also open the **Conversations** category by clicking **Search Conversations** (the magnifying glass icon) next to the back and forward buttons at the top left of the window.
 
@@ -28,7 +28,7 @@ Use ↑ and ↓ to move through the results, press Enter to open the selected re
 
 ### Search past conversations
 
-Press Cmd+K (macOS) or Ctrl+K (Windows and Linux). With an empty search box, the palette lists your recent conversations, most recently updated first by default. When you type, the palette searches the following parts of each conversation:
+Press Cmd + K (macOS) or Ctrl + K (Windows and Linux). With an empty search box, the palette lists your recent conversations, most recently updated first by default. When you type, the palette searches the following parts of each conversation:
 
 *   The conversation title, including a title that you renamed.
 *   The conversation’s project name and the name of its folder (the first folder, if the project has several).
@@ -72,15 +72,15 @@ To give the agent context from an earlier conversation, type `@` in the message 
 
 ### Find files
 
-Press Cmd+P (macOS) or Ctrl+P (Windows and Linux), and then type part of a file name or path. Results show each file’s name and its path in the project. Select a file to open it in the side panel.
+Press Cmd + P (macOS) or Ctrl + P (Windows and Linux), and then type part of a file name or path. Results show each file’s name and its path in the project. Select a file to open it in the side panel.
 
 When the search box is empty, the palette shows **Recent Files** for the current conversation, such as files that the agent changed.
 
-The **Files** category matches file names and paths, not file contents. To find text inside a file, open the file and press Cmd+F or Ctrl+F, as described in [Find text in a conversation or file](#find-text-in-a-conversation-or-file).
+The **Files** category matches file names and paths, not file contents. To find text inside a file, open the file and press Cmd + F or Ctrl + F, as described in [Find text in a conversation or file](#find-text-in-a-conversation-or-file).
 
 ### Run commands
 
-Press Cmd+Shift+P (macOS) or Ctrl+Shift+P (Windows and Linux) to list the commands that are available in the current view. Each command shows its keyboard shortcut, if it has one. Type to filter the list, and then press Enter to run the selected command. For example, typing `conversation` lists the commands whose names contain that word:
+Press Cmd + Shift + P (macOS) or Ctrl + Shift + P (Windows and Linux) to list the commands that are available in the current view. Each command shows its keyboard shortcut, if it has one. Type to filter the list, and then press Enter to run the selected command. For example, typing `conversation` lists the commands whose names contain that word:
 
 ![The Commands category of the command palette filtered by the word conversation, listing commands such as New Conversation, Move Conversation Up, Open Conversation Picker, and Split Conversation Vertically, each with its keyboard shortcut on the right.](/assets/image/docs/search/commands-palette.png)
 
@@ -88,11 +88,11 @@ Some commands appear only when a conversation is open, such as **Pin This Conver
 
 ### Switch projects
 
-Press Cmd+Shift+K (macOS) or Ctrl+Shift+K (Windows and Linux), and then type part of a project name. Select a project to start a new conversation in it, or select **Outside of Project** to start a conversation that isn’t part of any project. To learn more, see [Projects](/docs/projects).
+Press Cmd + Shift + K (macOS) or Ctrl + Shift + K (Windows and Linux), and then type part of a project name. Select a project to start a new conversation in it, or select **Outside of Project** to start a conversation that isn’t part of any project. To learn more, see [Projects](/docs/projects).
 
 ### Find text in a conversation or file
 
-Press Cmd+F (macOS) or Ctrl+F (Windows and Linux) to open the **Find** bar for the view that has focus: the current conversation, or the file, artifact, or diff that’s open in the side panel. As you type, matches are highlighted and the bar shows which match is selected, such as **1 of 2**.
+Press Cmd + F (macOS) or Ctrl + F (Windows and Linux) to open the **Find** bar for the view that has focus: the current conversation, or the file, artifact, or diff that’s open in the side panel. As you type, matches are highlighted and the bar shows which match is selected, such as **1 of 2**.
 
 To narrow the matches, turn on any of these options:
 
@@ -102,7 +102,7 @@ To narrow the matches, turn on any of these options:
 | **Match Whole Word (ab)** | Matches only whole words. |
 | **Use Regular Expression (.\*)** | Treats your search text as a regular expression. |
 
-Press Enter to go to the next match and Shift+Enter to go to the previous match. Press Esc to close the **Find** bar.
+Press Enter to go to the next match and Shift + Enter to go to the previous match. Press Esc to close the **Find** bar.
 
 ## Antigravity CLI
 

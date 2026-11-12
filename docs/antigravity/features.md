@@ -55,18 +55,27 @@ In the side panel’s **Overview**, open **Subagents** and select a subagent to 
 ### Antigravity CLI
 
 *   **Monitor and approve**: Open the `/agents` panel to monitor subagents and approve their requests.
-*   **Jump to approvals**: Press Alt+J to jump to the next subagent that’s waiting for approval.
-*   **Approve in place**: Press Ctrl+K to approve a pending request without leaving the main conversation.
+*   **Jump to approvals**: Press Alt + J to jump to the next subagent that’s waiting for approval.
+*   **Approve in place**: Press Ctrl + K to approve a pending request without leaving the main conversation.
 
 [Learn more about subagents](/docs/subagents).
 
 ### Browser subagent
 
-The browser subagent drives Google Chrome to test and debug web pages:
+Let the `browser` subagent open pages, click through flows, inspect console and network errors, take screenshots, and verify visual fixes before completing a task:
 
-*   **On-demand**: Invoke the browser subagent through the [`/browser` command](/docs/commands/browser).
-*   **Chrome DevTools integration**: Integrate natively with Chrome DevTools MCP.
-*   **Video recording**: Can record the subagent’s actions as a WebM video when it interacts with a page.
+### Antigravity App
+
+*   **Built-in browser automation** (`v2.30.0+`, personal Google Accounts): Ask in plain language or run [`/browser`](/docs/commands/browser) to launch browser subagents directly inside the built-in browser—no Chrome install or setup required.
+*   **Parallel tabs and live handoff**: Run multiple `browser` subagents simultaneously in isolated tabs with an animated live cursor, zero focus theft, a one-click **Stop** takeover button, and pause-and-resume sign-in handoff.
+*   **Chrome DevTools on business and enterprise accounts**: Run [`/browser`](/docs/commands/browser) to drive your local Google Chrome (`v144+`) through Chrome DevTools MCP.
+
+### Antigravity CLI
+
+*   **On-demand via `/browser`**: Run [`/browser`](/docs/commands/browser) to drive local Google Chrome (`v144+`) through Chrome DevTools MCP in an isolated subagent context.
+*   **DevTools profiling and recordings**: Capture screenshots, console and network logs, performance traces, Lighthouse audits, and optional WebM session recordings.
+
+[Learn more about browser use](/docs/browser).
 
 ### Slash commands
 
@@ -94,7 +103,7 @@ Antigravity features built-in live voice transcription, allowing you to prompt a
 
 ### Antigravity App
 
-*   **Start or stop**: Click the microphone button next to the message box to start recording, and click it again to stop. You can also press Ctrl+M to start recording, and press it again to stop.
+*   **Start or stop**: Click the microphone button next to the message box to start recording, and click it again to stop. You can also press Ctrl + M to start recording, and press it again to stop.
 *   **Live view**: As you speak, your words are transcribed in real time directly into the message box.
 *   **Conversational awareness**: Antigravity gives the speech recognizer your recent conversation and the text around your cursor, so project-specific terms are more likely to come through correctly.
 *   **Where it works**: Use voice in the message box to start conversations and send prompt updates, and in artifact comments to leave precise, inline feedback on plans, code diffs, and deliverables.
@@ -196,7 +205,7 @@ Start quick, one-off conversations outside of any project. These sessions run in
 
 ### Search and command palette
 
-Press Cmd+K (macOS) or Ctrl+K (Windows and Linux) to search past conversations by title, project, and full text, including your prompts and the agent’s responses. The same command palette also finds files in your project, runs app commands, and starts a conversation in another project.
+Press Cmd + K (macOS) or Ctrl + K (Windows and Linux) to search past conversations by title, project, and full text, including your prompts and the agent’s responses. The same command palette also finds files in your project, runs app commands, and starts a conversation in another project.
 
 [Learn more about search and the command palette](/docs/search).
 
@@ -233,16 +242,14 @@ Use the built-in browser to check your running app or read documentation in the 
 
 ![The Antigravity App with a conversation on the left, where the agent summarizes the Gemini 4 Argon announcement and links to it, and the built-in browser in the side panel on the right showing that blog post on antigravity.google with its hero image](/assets/image/docs/browser/built-in-browser.png)
 
-*   **Open a page**: Click a web link in an agent response. To open a new browser tab, press Cmd+T (macOS) or Ctrl+T (Windows and Linux), or click **+** in the side panel, and then choose **Browser**. To open a link in your default browser instead, hold Cmd (macOS) or Ctrl (Windows and Linux) while you click it.
+*   **Open a page**: Click a web link in an agent response to open it in the built-in browser (`v2.30.0+`: hold Cmd on macOS or Ctrl on Windows and Linux—or middle-click—to open in a background tab, Cmd + Shift or Ctrl + Shift for a new foreground tab, or Shift to open in your default external browser). To open a blank browser tab, press Cmd + T (macOS) or Ctrl + T (Windows and Linux), or click **+** in the side panel, and then choose **Browser**.
 *   **Go to a URL or search**: Type in the address bar. For local servers that don’t use HTTPS, include `http://`, for example `http://localhost:3000`.
-*   **Navigate**: Use **Back**, **Forward**, and **Reload** in the toolbar, or click **Open in external browser** to open the current page in your default browser. Right-click a link to open it in a new tab or in your external browser.
-*   **Keep sign-ins separate**: The built-in browser keeps its own cookies and sign-ins, separate from your Chrome profile.
+*   **Navigate and capture**: Use **Back**, **Forward**, **Reload**, **Downloads**, **Add screenshot to conversation**, or **Open in external browser** in the toolbar. Click the connection security icon in the address bar to check certificate details or delete cookies and site data for that site (`v2.30.0+`).
+*   **Keep sign-ins separate**: The built-in browser keeps its own cookies and sign-ins per Antigravity account, separate from your Chrome profile. Configure link behavior, download folder, browsing history, and actuation rules in **Settings** > **Browser** (`v2.30.0+`).
 
-To point the agent to part of a page, select text and click **Comment** (C) to leave feedback, or **Quote** (Cmd+L on macOS, Ctrl+L on Windows and Linux) to add the text to your message. The agent receives the page URL and the selected text with your next message.
+To point the agent to part of a page (`v2.30.0+`), select text and right-click to choose **Comment** (or press C) to leave anchored feedback, or **Quote** (or press Cmd + L on macOS, Ctrl + L on Windows and Linux) to insert the selected passage and page URL into your message box.
 
-![Text selected on a web page in the built-in browser, with a popup that offers Comment C and Quote ⌘L](/assets/image/docs/browser/built-in-browser-comment.png)
-
-To have the agent browse and test pages for you, use the [`/browser` command](/docs/commands/browser), which runs the browser subagent in Google Chrome.
+On personal Google Accounts (`v2.30.0+`), the agent can also drive the built-in browser directly across single or parallel tabs—ask in plain language or run [`/browser`](/docs/commands/browser). On business and enterprise accounts, `/browser` connects to Google Chrome. [Learn more about browser use](/docs/browser).
 
 ### PDF viewer
 
@@ -251,7 +258,7 @@ PDF files open in the side panel, so you can read a spec or paper next to your c
 ![A Bookmarks API guide PDF open in the side panel of the Antigravity App, with a toolbar at the bottom for page thumbnails, page navigation, zoom, and fit mode](/assets/image/docs/pdf/pdf-viewer.png)
 
 *   **Navigate**: Use the toolbar at the bottom of the PDF to show page thumbnails, change pages, zoom, and fit the page or the width. To search the PDF, download it, or copy its path, use the **More actions** menu at the top.
-*   **Comment or quote**: Select text and click **Comment** (C) or **Quote** (Cmd+L on macOS, Ctrl+L on Windows and Linux), the same as on a web page.
+*   **Comment or quote**: Select text and click **Comment** (C) or **Quote** (Cmd + L on macOS, Ctrl + L on Windows and Linux), the same as on a web page.
 
 ### Jupyter notebooks
 
@@ -261,7 +268,7 @@ Open `.ipynb` files in the side panel to view rendered Markdown cells, syntax-hi
 
 ### Integrated terminal
 
-Open a terminal in the side panel: click **+** and choose **Terminal**. To show or hide the terminal at any time, press Cmd+J (macOS) or Ctrl+J (Windows and Linux).
+Open a terminal in the side panel: click **+** and choose **Terminal**. To show or hide the terminal at any time, press Cmd + J (macOS) or Ctrl + J (Windows and Linux).
 
 ### Version control system (VCS) panel
 

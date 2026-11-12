@@ -47,14 +47,14 @@ Quote part of an agent response to ask a follow-up about exactly that text. When
 ![A bullet point in an Antigravity App response selected, with a Quote ⌘L popup next to the selection; the user message above it contains a bookmarks.js file chip](/assets/image/docs/at-mentions/app-quote-selection.png)
 
 1.  Select text in an agent response.
-2.  Click **Quote** in the popup, or press Cmd+L or Cmd+I on macOS, or Ctrl+L or Ctrl+I on Windows and Linux.
+2.  Click **Quote** in the popup, or press Cmd + L or Cmd + I on macOS, or Ctrl + L or Ctrl + I on Windows and Linux.
 3.  Type your follow-up in the message box and send it.
 
 The quoted text appears as a chip in the message box, and the agent receives the full quoted text along with your message.
 
 ##### Quote from files, diffs, and artifacts
 
-When you select text in a file or diff in the side panel, or in an artifact such as an [implementation plan](/docs/implementation-plan), the popup shows **Comment** and **Quote**. To add the selection to the message box as a chip, click **Quote**, or press Cmd+L or Cmd+I on macOS, or Ctrl+L or Ctrl+I on Windows and Linux. What the chip shows depends on where you selected the text:
+When you select text in a file or diff in the side panel, or in an artifact such as an [implementation plan](/docs/implementation-plan), the popup shows **Comment** and **Quote**. To add the selection to the message box as a chip, click **Quote**, or press Cmd + L or Cmd + I on macOS, or Ctrl + L or Ctrl + I on Windows and Linux. What the chip shows depends on where you selected the text:
 
 *   **Files and diffs**: The chip shows the file name and line range, such as `bookmarks.js #L13-17`. The agent receives the file path and the line numbers.
 *   **Artifacts**: The chip shows the artifact name and the start of the selected text. The agent receives the selected text.

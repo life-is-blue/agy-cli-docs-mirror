@@ -33,7 +33,7 @@ The Antigravity App has two ways to use your voice:
 |  | Voice mode | Voice dictation |
 | :-- | :-- | :-- |
 | **What it does** | Holds a spoken conversation with the agent. | Types what you say into the message box. |
-| **How to start** | Click **Start Voice mode** in the message box. | Click the microphone in the message box, or press Ctrl+M. |
+| **How to start** | Click **Start Voice mode** in the message box. | Click the microphone in the message box, or press Ctrl + M. |
 | **How the agent answers** | Out loud, while its work appears in the conversation. | In writing, after you send the message. |
 | **When to use it** | You want to work hands-free, or talk a task through while the agent works. | You want to review and edit a prompt before you send it. |
 
@@ -168,9 +168,9 @@ While voice mode is on, the call bar at the top of the voice mode panel shows th
 | **Minimize** | Collapses the panel to just the call bar until voice mode ends. To show the whole panel again, click **Expand**. |
 | **End** | Ends voice mode. |
 
-To mute or unmute your microphone from the keyboard, press Option+M on macOS or Alt+M on Windows and Linux. The shortcut works while you type in the message box, but not while the cursor is in a terminal. While you’re muted, the Antigravity App sends silence instead of your microphone’s audio.
+To mute or unmute your microphone from the keyboard, press Option + M on macOS or Alt + M on Windows and Linux. The shortcut works while you type in the message box, but not while the cursor is in a terminal. While you’re muted, the Antigravity App sends silence instead of your microphone’s audio.
 
-To mute or unmute the agent’s voice from the keyboard, press Shift+Option+M on macOS or Alt+Shift+M on Windows and Linux.
+To mute or unmute the agent’s voice from the keyboard, press Shift + Option + M on macOS or Alt + Shift + M on Windows and Linux.
 
 #### Keep talking in another conversation
 
@@ -217,7 +217,7 @@ While voice mode is on, use these commands and keys:
 
 | To | Do this |
 | :-- | :-- |
-| Mute or unmute your microphone | Press F6 or Shift+F6, or run `/voice mute`. |
+| Mute or unmute your microphone | Press F6 or Shift + F6, or run `/voice mute`. |
 | End voice mode | Press Esc with an empty prompt while the agent is idle, press F7, or run `/voice stop`. |
 | Change the voice | Run `/voice speaker` followed by a voice name, such as `/voice speaker Arlo`. |
 | Change the volume | Run `/voice volume` with a value from 0 to 100. |
@@ -236,7 +236,7 @@ Voice settings are in **Settings** > **General** > **Voice mode**:
 
 To change your voice settings, do the following:
 
-1.  Open **Settings**: press Cmd+, on macOS or Ctrl+, on Windows and Linux, or click **Settings** at the bottom of the left sidebar. Then go to **General**.
+1.  Open **Settings**: press Cmd + , on macOS or Ctrl + , on Windows and Linux, or click **Settings** at the bottom of the left sidebar. Then go to **General**.
     
 2.  In the **Voice mode** section, do any of the following:
     
@@ -261,12 +261,12 @@ If you haven’t chosen a voice or volume in the CLI, it uses the ones that you 
 
 | Action | macOS | Windows and Linux |
 | :-- | :-- | :-- |
-| Mute or unmute your microphone in voice mode | Option+M | Alt+M |
-| Mute or unmute the agent’s voice in voice mode | Shift+Option+M | Alt+Shift+M |
+| Mute or unmute your microphone in voice mode | Option + M | Alt + M |
+| Mute or unmute the agent’s voice in voice mode | Shift + Option + M | Alt + Shift + M |
 | Hear the previous or next voice in the voice dialog | ← or → | ← or → |
 | Use the voice that’s playing in the voice dialog | Enter | Enter |
-| Move the dock, with its orb selected | Option+arrow key | Alt+arrow key |
-| Open Settings | Cmd+, | Ctrl+, |
+| Move the dock, with its orb selected | Option + ↑ / ↓ / ← / → | Alt + ↑ / ↓ / ← / → |
+| Open Settings | Cmd + , | Ctrl + , |
 
 In **Settings** > **Shortcuts**, the mute shortcuts are listed as **Mute Voice Mic** and **Mute Voice Speaker** under **Conversation**.
 
@@ -275,7 +275,7 @@ In **Settings** > **Shortcuts**, the mute shortcuts are listed as **Mute Voice M
 | Action | Key |
 | :-- | :-- |
 | Start voice mode, or mute or unmute your microphone | F6 |
-| Mute or unmute your microphone | Shift+F6 |
+| Mute or unmute your microphone | Shift + F6 |
 | End voice mode | F7, or Esc with an empty prompt while the agent is idle |
 | Dictate a prompt | F5 |
 

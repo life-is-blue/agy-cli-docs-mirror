@@ -139,7 +139,7 @@ In the terminal interface, run `/teamwork` at the prompt:
 /teamwork Design and implement a cycle-accurate memory controller with lockstep simulation tests.
 ```
 
-You can monitor active subagents, jump directly to subagents waiting for approval using Alt+J, or inspect milestone progress in the project plan and progress artifacts in real time.
+You can monitor active subagents, jump directly to subagents waiting for approval using Alt + J, or inspect milestone progress in the project plan and progress artifacts in real time.
 
 * * *
 

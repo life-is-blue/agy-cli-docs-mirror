@@ -2,9 +2,9 @@
 
 Available on: Antigravity App, Antigravity IDE
 
-The browser subagent can take a screenshot of the visible page or of a single element on it, for example to check how a page rendered. Ask for a screenshot in your prompt, or the subagent may take one on its own when the task calls for it.
+The [browser subagent](/docs/browser) can take a screenshot of the visible page or of a single element on it, for example to check how a page rendered. Ask for a screenshot in your prompt, or the subagent may take one on its own when the task calls for it. You can also click **Add screenshot to conversation** (the camera icon) in the Antigravity App’s built-in browser toolbar to attach a snapshot of the page you’re viewing directly to your prompt.
 
-To start the browser subagent, type `/browser` in the message box, select it from the menu, and describe the task. The subagent drives your own Google Chrome, which must already be running with remote debugging turned on. Chrome doesn’t need to be signed in. For setup steps, refer to the [Browser command](/docs/commands/browser).
+In the Antigravity App (`v2.30.0+`, personal Google Accounts), ask in plain language or type [`/browser`](/docs/commands/browser) followed by the task—the subagent runs directly inside the built-in browser with no external browser setup. On business and enterprise accounts (and in the Antigravity CLI), `/browser` connects to Google Chrome with remote debugging enabled; refer to [Set up Chrome](/docs/commands/browser#set-up-chrome).
 
 In your conversation, the subagent appears in a row that reads **Starting** or **Started**, followed by a name the agent gives it, such as “Web Browser Automation Agent”. Click that name, or the subagent in the **Subagents** section of the conversation overview, to open its conversation in the side panel. Each screenshot is a step labeled with a short summary of what the subagent captured. Expand the step to see the tool’s arguments, its result, and a thumbnail of the screenshot.
 

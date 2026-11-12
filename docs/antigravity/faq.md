@@ -340,6 +340,34 @@ Using third-party software, tools, or services to access Antigravity is a violat
 
 Antigravity CLI headless mode (`agy -p`) is intended for direct scripting and CI workflows. Wrapping `agy` inside third-party coding agents or applications, or automating account rotation, is not supported under consumer plans.
 
+## What programming languages and frameworks does Google Antigravity support?
+
+Google Antigravity supports any public text-based programming language or framework across the Antigravity App, Antigravity CLI, Antigravity IDE, and [Antigravity IDE extensions](/docs/ide/extensions). Supported languages and frameworks include:
+
+*   Angular
+*   C
+*   C++
+*   C#
+*   COBOL
+*   Dart
+*   FORTRAN
+*   Go
+*   Java
+*   JavaScript
+*   Kotlin
+*   Node
+*   PHP
+*   PL/I
+*   Python
+*   React
+*   Ruby
+*   Rust
+*   Spring
+*   SQL and database procedural languages, such as PL/SQL and T-SQL
+*   Swift / Objective-C
+*   TypeScript
+*   Visual Basic / VB.NET
+
 ## Does Google Antigravity currently support worktrees?
 
 Yes, you can use worktrees in the Antigravity App.

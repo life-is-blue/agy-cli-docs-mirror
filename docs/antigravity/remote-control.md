@@ -12,7 +12,7 @@ As AI agents take on larger-scope tasks—such as full-subsystem refactorings, e
 
 You can enable Remote Control directly from the Antigravity App settings:
 
-1.  Open the **Settings** panel by pressing `Cmd + ,` (or `Ctrl + ,` on Linux and Windows), or click **Settings** at the bottom of the left sidebar.
+1.  Open the **Settings** panel by pressing Cmd + , (or Ctrl + , on Linux and Windows), or click **Settings** at the bottom of the left sidebar.
 2.  Navigate to the **Application** section.
 3.  Toggle **Enable Remote Control** to **On**.
 4.  _(Optional)_ Enter a **Device Name** (for example, `workstation-primary` or `server-machine`) to easily identify this machine in your instance list.
@@ -97,7 +97,7 @@ agy --remote-control
 
 Interactive Remote Control is strictly tied to the running `agy` terminal process:
 
-*   **Automatic cleanup on exit**: When you exit the interactive CLI (`/exit`, `Ctrl+C`, or `Ctrl+D`) or close the terminal window, the Remote Control tunnel automatically terminates and the instance disappears from the dashboard.
+*   **Automatic cleanup on exit**: When you exit the interactive CLI (`/exit`, Ctrl + C, or Ctrl + D) or close the terminal window, the Remote Control tunnel automatically terminates and the instance disappears from the dashboard.
 *   **Concurrent terminal sessions**: Because each interactive CLI process generates its own session instance ID and session hostname, you can run `agy --remote-control` across multiple terminal tabs or project directories simultaneously.
 
 ##### Live bidirectional synchronization
@@ -105,7 +105,7 @@ Interactive Remote Control is strictly tied to the running `agy` terminal proces
 When you connect to your interactive CLI session using the Antigravity desktop UI in your browser, both surfaces stay synchronized in real time:
 
 *   **Shared live stream**: Prompts submitted from your remote device stream live into your local terminal TUI as they happen, and thoughts, tool executions, and diffs generated in the terminal appear live in the remote UI.
-*   **Cross-device tool approvals and questions**: When the agent pauses for a tool confirmation (`y`/`n`) or asks an interactive clarifying question, you can respond from either your local terminal or the remote UI.
+*   **Cross-device tool approvals and questions**: When the agent pauses for a tool confirmation (y/n) or asks an interactive clarifying question, you can respond from either your local terminal or the remote UI.
 *   **CLI-controlled settings**: You cannot toggle settings in the settings panel from the remote web interface; to change settings, use the CLI.
 
 * * *
@@ -197,7 +197,7 @@ Use the table below to choose between interactive Remote Control and the persist
 Review the following solutions for common interactive mode issues:
 
 *   **`Remote control is not enabled for your account.`**: Account or organization policy has not enabled the Remote Control feature flag. Contact your workspace administrator or verify that your account plan supports Remote Control.
-*   **Instance disappears from the web dashboard**: `/remote-control` and `agy --remote-control` create tunnels that automatically disconnect when the interactive terminal session exits (`/exit` or `Ctrl+C`), or when `/remote-control off` is run. To keep a machine reachable when no terminal is open, run `agy remote-control start` to install the headless daemon.
+*   **Instance disappears from the web dashboard**: `/remote-control` and `agy --remote-control` create tunnels that automatically disconnect when the interactive terminal session exits (`/exit` or Ctrl + C), or when `/remote-control off` is run. To keep a machine reachable when no terminal is open, run `agy remote-control start` to install the headless daemon.
 *   **Multiple CLI instances listed for the same machine**: Each interactive CLI session uses a distinct session hostname so you can control multiple terminal windows simultaneously.
 
 #### Headless daemon issues

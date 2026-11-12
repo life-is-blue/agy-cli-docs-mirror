@@ -37,11 +37,14 @@ The following table provides a complete reference for all public slash commands:
 | [`/plan`](/docs/plan) | Planning | Researches code, conducts requirement interviews, and drafts a reviewable plan artifact. | All plans | Minutes |
 | [`/grill-me`](/docs/commands/grill-me) | Planning | Interviews you one question at a time, with a recommended answer for each, to align on design details and edge cases. | All plans | Minutes |
 | [`/learn`](/docs/commands/learn) | Customization | Distills session feedback and corrections into persistent Rules or Skills. | All plans | Immediate |
+| [`/agy-customizations`](/docs/commands/agy-customizations) | Customization | Loads the customization reference so the agent can create, fix, or explain rules, skills, plugins, hooks, and MCP servers. | All plans | Immediate |
 | [`/plugin`](/docs/plugins) | Customization | Opens the interactive [Plugins Manager](/docs/marketplace) or manages and creates plugins. | All plans | Immediate |
+| [`/automation`](/docs/commands/automation) | Automation | Has the agent set up a scheduled background automation managed in the **Automations** tab. Antigravity App only. | All plans | Scheduled |
 | [`/schedule`](/docs/commands/schedule) | Automation | Schedules an instruction as a one-time timer or recurring cron job. | All plans | Scheduled |
-| [`/browser`](/docs/commands/browser) | Tools | Launches a sandboxed browser subagent for web research and UI inspection. | All plans | Minutes |
+| [`/browser`](/docs/commands/browser) | Tools | Launches a [browser subagent](/docs/browser) for live UI testing, screenshots, and web inspection (built-in browser on personal App accounts `v2.30.0+`, or Chrome DevTools MCP). | All plans | Minutes |
 | [`/btw`](/docs/cli/commands/btw) | Tools | Asks a quick contextual question in the background without pausing work. | All plans | Immediate |
 | [`/generative_ui`](/docs/commands/generative-ui) | Tools | Builds interactive widgets, such as diagrams, charts, and explainers, as HTML artifacts or inline in the conversation. Antigravity App only. | All plans | Minutes |
+| [`/antigravity-guide`](/docs/commands/antigravity-guide) | Tools | Answers questions about using Antigravity from the official documentation. | All plans | Immediate |
 
 * * *
 
@@ -167,6 +170,18 @@ To capture recent session patterns into persistent rules, run the following comm
 
 For the proposal workflow and the full list of rule and skill locations, refer to the [Learn command guide](/docs/commands/learn) and the [Rules documentation](/docs/rules).
 
+### /agy-customizations
+
+Loads the Antigravity Customization System Guide into the agent’s context for the rest of the conversation, so the agent works from the documented formats, discovery locations, and precedence rules when it creates, fixes, or explains rules, skills, plugins, hooks, and MCP servers. Available in the Antigravity App, the Antigravity CLI, and the Antigravity IDE.
+
+To build a customization with the reference loaded, describe what you want after the command:
+
+```prompt
+/agy-customizations create a PreToolUse hook that blocks git push --force
+```
+
+For what the reference covers and more examples, refer to the [Customizations command guide](/docs/commands/agy-customizations).
+
 ### /plugin
 
 Manages installed plugins, browses the [Marketplace](/docs/marketplace), and packages reusable skills, rules, subagents, MCP servers, and hooks into a single deployable plugin bundle.
@@ -188,6 +203,18 @@ For complete plugin manifest and marketplace documentation, refer to the [Plugin
 
 ## Automation and scheduling
 
+### /automation
+
+Has the agent set up a scheduled background automation (formerly called a Scheduled Task) in the **Google Antigravity App**. You can also start the same flow by selecting **Create with Prompt** in the **Automations** tab, which opens a new conversation with the command filled in for you to send. The agent asks for a cadence, day, and time, pins the schedule to an IANA timezone with `CRON_TZ=<zone>`, and writes a self-contained prompt. It then saves the automation to `~/.gemini/config/sidecars/<automation-id>/sidecar.json`, turned off until you turn it on in the **Automations** tab.
+
+To set up a weekly pull request check, run the following command:
+
+```prompt
+/automation every Monday at 9am Pacific time, check my open pull requests and list any with failing checks
+```
+
+For the full flow and how `/automation` compares with `/schedule`, refer to the [Automation command guide](/docs/commands/automation).
+
 ### /schedule
 
 Configures the agent to execute a prompt at a specified future time or on a recurring cron schedule using background scheduled tasks.
@@ -198,7 +225,7 @@ To set up a daily cleanup routine, run the following command:
 /schedule "0 9 * * 1-5" Run git fetch, prune stale local branches, and summarize pending PR reviews.
 ```
 
-For timer and cron parameters, managing active schedules, and how `/schedule` differs from persistent Automations, refer to the [Schedule command guide](/docs/commands/schedule) and the [Sidecars and scheduled tasks guide](/docs/sidecars).
+For timer and cron parameters and managing active schedules, refer to the [Schedule command guide](/docs/commands/schedule). For how `/schedule` differs from persistent automations, refer to [`/automation` compared with `/schedule`](/docs/commands/automation#automation-compared-with-schedule).
 
 * * *
 
@@ -206,7 +233,7 @@ For timer and cron parameters, managing active schedules, and how `/schedule` di
 
 ### /browser
 
-Spawns a sandboxed Chrome browser subagent capable of navigating web pages, reading documentation, inspecting DOM elements, capturing visual screenshots, and verifying frontend layouts.
+Delegates a task directly to the `browser` subagent to open pages, test flows, capture screenshots, and inspect console errors or network requests. On personal Google Accounts in the Antigravity App (`v2.30.0+`), it runs inside the App’s built-in browser with zero Chrome setup (where plain-language prompts also invoke `browser` subagents automatically); in the Antigravity CLI, the Antigravity IDE, and business or enterprise accounts, it connects to Google Chrome (`v144+`) through Chrome DevTools MCP.
 
 To verify a local web server layout, run the following command:
 
@@ -214,7 +241,7 @@ To verify a local web server layout, run the following command:
 /browser Open http://localhost:3000/dashboard, verify that the analytics charts render, and capture a screenshot.
 ```
 
-For the subagent’s full tool set, session recordings, and example tasks, refer to the [Browser command guide](/docs/commands/browser).
+For built-in browser workflows, parallel tabs, and sign-in handoff, refer to [Browser use](/docs/browser). For Chrome setup and DevTools profiling tools, refer to the [Browser command guide](/docs/commands/browser).
 
 ### /btw
 
@@ -240,6 +267,18 @@ To see how a request moves through your middleware, run the following command:
 
 For placement, sizing, and sandbox details, refer to the [Generative UI command guide](/docs/commands/generative-ui).
 
+### /antigravity-guide
+
+Gives the agent the official Antigravity documentation, with a quick reference for the Antigravity App, the Antigravity CLI, the Antigravity IDE, and the Antigravity SDK, so it can answer questions about using and configuring Antigravity. Available in the Antigravity App and the Antigravity CLI.
+
+To ask how to do something in Antigravity, run the following command:
+
+```prompt
+/antigravity-guide how do I run the CLI in headless mode in GitHub Actions with a JSON schema?
+```
+
+For what the reference covers and more examples, refer to the [Antigravity guide command guide](/docs/commands/antigravity-guide).
+
 * * *
 
 ## Command selection guide
@@ -255,11 +294,14 @@ The following decision guide outlines when to use each command based on your tas
 | **Vague requirements needing architectural alignment** | [`/grill-me`](/docs/commands/grill-me) | Conducts a step-by-step interview to clarify edge cases and constraints. |
 | **Task that should run continuously until 100% complete** | [`/goal`](/docs/commands/goal) | Autonomous execution without turn-by-turn confirmation pauses. |
 | **Distill recent corrections into permanent project rules** | [`/learn`](/docs/commands/learn) | Analyzes session patterns and writes persistent rules and skills. |
+| **Create or debug a rule, skill, plugin, hook, or MCP server** | [`/agy-customizations`](/docs/commands/agy-customizations) | Loads the customization reference so the agent follows the documented formats and locations. |
 | **Discover, install, or manage plugins and marketplace bundles** | [`/plugin`](/docs/plugins) | Interactive [Plugins Manager](/docs/marketplace) in the CLI and conversational plugin management. |
-| **Web research, UI validation, and layout inspection** | [`/browser`](/docs/commands/browser) | Sandboxed Chrome browser subagent for live page interactions. |
+| **Web research, UI validation, and layout inspection** | [`/browser`](/docs/commands/browser) | [Built-in browser](/docs/browser) (`v2.30.0+` App personal accounts) or Chrome DevTools MCP browser subagent for live page interactions. |
+| **Persistent scheduled background automation** | [`/automation`](/docs/commands/automation) | Creates a scheduled automation managed in the Automations tab. Antigravity App only. |
 | **One-shot countdown timer or recurring background schedule** | [`/schedule`](/docs/commands/schedule) | Runs instructions in the background on cron schedules. |
 | **Quick side query without pausing primary agent work** | [`/btw`](/docs/cli/commands/btw) | Lightweight out-of-band query executed in the background. |
 | **Visual explanation, diagram, chart, or clickable prototype** | [`/generative_ui`](/docs/commands/generative-ui) | Interactive HTML widgets in the side panel or inline in the conversation (Antigravity App only). |
+| **Question about how to use or configure Antigravity** | [`/antigravity-guide`](/docs/commands/antigravity-guide) | Answers from the official documentation for every Antigravity surface. |
 
 * * *
 
@@ -270,7 +312,7 @@ Public slash commands are supported across Antigravity developer surfaces:
 | Surface | Input Method | Navigation and Management |
 | :-- | :-- | :-- |
 | **Antigravity App (Desktop and Web)** | Type `/` in the prompt input or select from the command menu. | Model selector dropdown, Artifact review panel, Visual diff viewer. |
-| **Antigravity CLI** | Type `/` in the interactive prompt box. | `/agents` panel, Alt+J (switch threads), Ctrl+O (trajectory). |
+| **Antigravity CLI** | Type `/` in the interactive prompt box. | `/agents` panel, Alt + J (switch threads), Ctrl + O (trajectory). |
 
 * * *
 
@@ -282,8 +324,11 @@ Explore related documentation and guides:
 *   [Plan slash command (`/plan`)](/docs/plan): Conduct structured planning, requirement discovery, and interactive interviews.
 *   [Teamwork agent teams (`/teamwork`)](/docs/teamwork): Learn how collaborative agent teams tackle large-scale migrations.
 *   [Side question command (`/btw`)](/docs/cli/commands/btw): Ask quick background questions without adding to your conversation history.
+*   [Antigravity guide command (`/antigravity-guide`)](/docs/commands/antigravity-guide): Ask how to use or configure Antigravity and get answers from the official documentation.
 *   [Goal command (`/goal`)](/docs/commands/goal): Run long-horizon tasks autonomously until every deliverable is verified.
 *   [Learn command (`/learn`)](/docs/commands/learn): Persist session corrections as rules and skills through a reviewable proposal.
+*   [Customizations command (`/agy-customizations`)](/docs/commands/agy-customizations): Load the customization reference before building rules, skills, plugins, hooks, or MCP servers.
+*   [Automation command (`/automation`)](/docs/commands/automation): Set up a persistent scheduled automation with the agent’s help.
 *   [Schedule command (`/schedule`)](/docs/commands/schedule): Set one-shot timers and recurring cron schedules within a conversation.
 *   [Browser command (`/browser`)](/docs/commands/browser): Delegate web tasks and UI verification to the browser subagent.
 *   [Generative UI command (`/generative_ui`)](/docs/commands/generative-ui): Have the agent show answers as interactive widgets in the Antigravity App.

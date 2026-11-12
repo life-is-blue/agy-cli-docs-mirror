@@ -120,7 +120,48 @@ This directory includes the following subdirectories:
 }
 ```
 
-The first argument is a standard five-field cron expression. The remaining arguments are the command and arguments to run on the specified schedule.
+The first argument is a standard five-field cron expression. The remaining arguments are the command and arguments to run on the specified schedule. To pin the schedule to a timezone, prefix the expression with `CRON_TZ=<IANA zone>` (for example, `CRON_TZ=America/Los_Angeles 0 9 * * 1`).
+
+For `"builtin": "schedule"`, keep `restart_policy` at `always` (the default). `on-failure` and `never` only apply to one-shot `command` sidecars.
+
+### Automations
+
+Automations are scheduled sidecars that start a new agent conversation on each run. The [`/automation`](/docs/commands/automation) command creates them at `~/.gemini/config/sidecars/<automation-id>/sidecar.json`, and they’re listed in the **Automations** tab.
+
+An automation combines the `schedule` builtin with `agentapi new-conversation` and adds two optional fields:
+
+*   **`arguments`** (array of objects): Optional. Inputs you provide when you turn the automation on. Each entry has a `key`, a `description`, and either a `string_arg` (text, with an optional `default_value`) or a `workspace_arg` (a workspace folder). Reference a value as `${key}` in the prompt or in `workspace_uris`.
+*   **`agent_permissions`** (object): Optional. What the unattended agent may do without asking:
+    *   **`workspace_uris`** (array of strings): Workspace folders the agent can access.
+    *   **`access_grants`** (array of strings): Scoped, pre-approved permissions, such as `command(gh issue list)`, `read_file(/abs/path)`, `write_file(/abs/path)`, `mcp(<server>/<tool>)`, or `read_url(github.com)`.
+
+The following example shows an automation that checks open pull requests every Monday at 9:00 AM Pacific time in a workspace you choose when you turn it on:
+
+```json
+{
+  "display_name": "Weekly PR check",
+  "description": "Lists open pull requests with failing checks every Monday at 9:00 AM.",
+  "builtin": "schedule",
+  "args": [
+    "CRON_TZ=America/Los_Angeles 0 9 * * 1",
+    "agentapi",
+    "new-conversation",
+    "--",
+    "In ${repo_dir}, list my open pull requests with failing checks and summarize what's failing."
+  ],
+  "arguments": [
+    {
+      "key": "repo_dir",
+      "description": "Repository to check",
+      "workspace_arg": {}
+    }
+  ],
+  "agent_permissions": {
+    "workspace_uris": ["${repo_dir}"],
+    "access_grants": ["command(gh pr list)", "command(gh pr checks)"]
+  }
+}
+```
 
 ### `agentapi`
 
