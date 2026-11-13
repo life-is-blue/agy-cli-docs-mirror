@@ -59,11 +59,11 @@ Shall I run the checkout test suite to verify?
 
 Ask anything, @ to mention, / for actions
 
-Gemini 3.8 FlashMedium
+Gemini 4 HydrogenHigh
 
 Model
 
-Gemini 4 Carbon _High_Gemini 4 Argon _High_Gemini 3.8 Flash _Medium_Claude Sonnet 5.5 _Thinking_Claude Opus 5.5 _Thinking_GPT-OSS 120B _Medium_
+Gemini 4 Carbon _High_Gemini 4 Argon _High_Gemini 4 Hydrogen _High_Orchestrator _Carbon_Orchestrator _Argon_Gemini 3.8 Flash _Medium_Claude Sonnet 5.5 _Thinking_Claude Opus 5.5 _Thinking_GPT-OSS 120B _Medium_
 
 TerminalsProject
 
@@ -121,7 +121,7 @@ Antigravity CLI 1.2.14
 
 developer@example.com (Google AI Pro)
 
-Gemini 3.8 Flash (High)
+Gemini 4 Hydrogen (High)
 
 ~/projects/checkout-service
 
@@ -141,7 +141,7 @@ Edit(src/pricing/discounts.ts)(ctrl+o to expand)
 
 \>
 
-? for shortcutsGemini 3.8 Flash · high
+? for shortcutsGemini 4 Hydrogen · high
 
 A keyboard-first terminal client that runs Antigravity workflows in local shells, remote cloud environments, and SSH sessions.
 
@@ -168,11 +168,11 @@ Project ReviewComprehensive review report for Spring PetClinic application detai
 
 Ask anything, @ to mention, / for actions
 
-Gemini 3.8 Flash Medium
+Gemini 4 Hydrogen High
 
 Model
 
-Gemini 4 Carbon HighGemini 4 Argon HighGemini 3.8 Flash MediumClaude Sonnet 5.5 (Thinking)Claude Opus 5.5 (Thinking)GPT-OSS 120B (Medium)
+Gemini 4 Carbon HighGemini 4 Argon HighGemini 4 Hydrogen HighOrchestrator (Carbon)Orchestrator (Argon)Gemini 3.8 Flash MediumClaude Sonnet 5.5 (Thinking)Claude Opus 5.5 (Thinking)GPT-OSS 120B (Medium)
 
 Preview README.mdproject\_review.md
 
@@ -252,7 +252,7 @@ Frontier Gemini models
 
 Gemini 4 & 3.8
 
-Co-trained with Google DeepMind. Powering all local agents with frontier speed, configurable reasoning levels, and large context capacity across Gemini 4 Carbon, Gemini 4 Argon, Gemini 3.8 Flash, and Gemini 3.1 Pro.
+Co-trained with Google DeepMind. Powering all local agents with frontier speed, configurable reasoning levels, and large context capacity across Gemini 4 Carbon, Gemini 4 Argon, Gemini 4 Hydrogen, Gemini 3.8 Flash, and Gemini 3.1 Pro.
 
 [Model specifications](/docs/models/)
 

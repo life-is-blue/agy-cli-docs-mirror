@@ -6,6 +6,46 @@ New versions roll out gradually and may take a few days to reach all users.
 
 ## Antigravity App
 
+Model launch·November 12, 2026
+
+### Gemini 4 Hydrogen
+
+Gemini 4 Hydrogen brings fast, dependable coding and agentic execution across four reasoning effort levels, alongside Orchestrator for dynamic multi-model planning and execution with Gemini 4 Carbon.
+
+[ Read on the Antigravity blog](/blog/gemini-4-hydrogen-in-google-antigravity)
+
+---
+
+### [v2.31.2](/releases?tab=hub&version=2.31.2 "View release 2.31.2")
+
+Latest
+
+November 11, 2026
+
+### Gemini 4 Carbon when you sign in with Google Cloud credentials
+
+This release adds Gemini 4 Carbon to the model selector when you sign in with Google Cloud application default credentials.
+
+**Improvements:**
+
+*   When you sign in with Google Cloud application default credentials, you can now choose Gemini 4 Carbon at low, medium, or high thinking levels in the model selector.
+
+---
+
+### [v2.31.1](/releases?tab=hub&version=2.31.1 "View release 2.31.1")
+
+November 11, 2026
+
+### Gemini Enterprise sign-in fix on Windows
+
+This release fixes Gemini Enterprise sign-in on Windows for Workforce Identity Federation accounts, which could lose the selected license and fail requests.
+
+**Fixes:**
+
+*   Fixed an issue where, on Windows, signing in to Gemini Enterprise with a Workforce Identity Federation account could drop the license you selected, switch your plan to Agent Platform, and make requests fail with permission errors.
+
+---
+
 Model launch·November 10, 2026
 
 ### Gemini 4 Carbon
@@ -17,8 +57,6 @@ Gemini 4 Carbon is our strongest model for long-horizon software engineering, kn
 ---
 
 ### [v2.31.0](/releases?tab=hub&version=2.31.0 "View release 2.31.0")
-
-Latest
 
 November 9, 2026
 
@@ -1466,6 +1504,75 @@ Antigravity 2.0 Launch bug fixes.
 
 ## Antigravity CLI
 
+Model launch·November 12, 2026
+
+### Gemini 4 Hydrogen
+
+Gemini 4 Hydrogen brings fast, dependable coding and agentic execution across four reasoning effort levels, alongside Orchestrator for dynamic multi-model planning and execution with Gemini 4 Carbon.
+
+[ Read on the Antigravity blog](/blog/gemini-4-hydrogen-in-google-antigravity)
+
+---
+
+### [v1.5.7](/releases?tab=cli&version=1.5.7 "View release 1.5.7")
+
+Latest
+
+November 12, 2026
+
+### Default Agent Mode set to Auto, UI freeze fixes, and improved permission enforcement.
+
+Antigravity CLI 1.5.7 sets the default Agent Mode to Auto and resolves multiple issues including UI freezes during long output rendering, Windows browser sign-in failures, enterprise gateway compatibility for Gemini 4 Carbon, and strict enforcement of admin permission policies.
+
+**Improvements:**
+
+*   Changed the default `Agent Mode` from Default to Auto: sessions with no saved mode, including headless `-p` runs, now start in Auto wherever Auto mode is available and in Default elsewhere; to keep the previous behavior, choose Default for `Agent Mode` in `/config`, which saves `"agentMode": ""` to `settings.json`. A `Tool Permission` setting of `strict` now also takes precedence over Auto and accept-edits modes, so file edits still ask for approval under `strict`.
+
+**Fixes:**
+
+*   Fixed multi-second UI freezes, which also stalled streaming and window resizing, when a command printed a very long line without spaces; line wrapping now takes time proportional to the line's length.
+*   Fixed agent replies stalling for 20 seconds or more while a group of tool calls with long output was still animating its token counts; streamed steps now keep appearing while the group re-renders.
+*   Fixed the agent not noticing that a command it moved to the background was waiting for input, such as a password or `y/n` prompt printed before the command went to the background; the agent is now notified once that output settles instead of waiting silently.
+*   Fixed browser sign-in on Windows sometimes failing to complete because the CLI's local sign-in callback listened on only IPv4 or IPv6 while the browser redirected over the other; the callback now listens on both.
+*   Fixed Gemini 4 Carbon requests through an enterprise model gateway failing with an HTTP 400 `Thinking budget is not supported for this model` error; the CLI now sends Gemini 4 Carbon a thinking level and no longer leaves the Low, Medium, or High suffix in the model ID it sends to the gateway.
+*   Fixed a `PreToolUse` hook returning `auto_approve`, or a wildcard `command(*)` allow rule, bypassing an organization's admin-enforced review: commands that would leave the terminal sandbox, commands the admin policy holds for review, and file reads or writes outside the workspace under an "always ask" file-access policy now always ask for your approval.
+*   Fixed saved command allow and deny rules being ignored, so that every command asked for approval, when an organization's admin policy requires commands to run in the terminal sandbox but the machine has no OS sandbox; your saved rules now apply and unlisted commands still ask before running.
+*   Fixed background task details from `manage_task` losing their formatting when the task's recent output, or input sent to the task, contained Markdown code blocks or runs of backticks.
+*   Fixed Remote Control showing a link that could not be opened at the end of some agent replies, such as the swarm coordinator's link to the swarm UI; Remote Control now leaves these links out.
+
+---
+
+### [v1.5.6](/releases?tab=cli&version=1.5.6 "View release 1.5.6")
+
+November 11, 2026
+
+### Swarm board visuals, smarter Auto mode sandbox checks, Stop hook continuation, and gateway fixes
+
+Antigravity CLI 1.5.6 adds bee visuals to `/swarm board`, `continuation_active` tracking for Stop hooks, thought circulation controls for enterprise gateway models, and refined Auto mode sandbox checks alongside fixes for plugin installation, prompt undo cursor placement, and gateway tool calling.
+
+**Improvements:**
+
+*   Added the swarm's queen bee to the `/swarm board` header and a 🐝 beside each live member in the `Roster`; in terminals with Kitty graphics, such as Kitty and Ghostty, each member gets its own colored bee card that flaps while that member is working, and other terminals, including tmux, show the queen as pixel art when the window is at least 60×35.
+*   Added a `continuation_active` field to the JSON input of Stop hooks, which is `true` while the agent is already working on a continuation an earlier Stop hook requested, so a hook such as "run the tests before finishing" can tell it has already asked and avoid looping.
+*   Added a `supportsThoughtCirculation` option to admin-managed model entries (`models.list[]` in admin settings), so organizations can let non-Gemini models behind an enterprise model gateway reuse their reasoning from earlier turns; when it is unset, the model's default applies.
+*   Improved Auto mode's review of commands that would leave the terminal sandbox so it asks less often on safe reads: GitHub API reads, fetches into an existing clone, and single-file downloads such as `raw.githubusercontent.com` URLs no longer get the repository popularity, age, and release checks that cloning a repository still gets, host names that start with a digit are no longer mistaken for IP addresses, and reading `~/.ssh/config`, `known_hosts`, `authorized_keys`, or public keys (`*.pub`) is no longer treated as reading secrets, while private keys still are and sending any `.ssh` file elsewhere is still blocked.
+*   Improved `agy plugin validate` to warn when a plugin hook command uses `${PLUGIN_ROOT}` or `$PLUGIN_ROOT`, which older CLI versions do not set, and to suggest a relative path instead, since hooks already run in the plugin's folder; the warning fails validation only with `--strict`.
+*   Changed pay-as-you-go Google Cloud accounts that sign in with Application Default Credentials (`AGY_ADC_AUTH`) to use the same permission settings as other pay-as-you-go accounts, which makes Auto mode available to them; Gemini Enterprise accounts keep following their organization's admin-controlled permission settings, including their `unsandboxed(...)` deny and ask rules, and are not offered Auto mode.
+
+**Fixes:**
+
+*   Fixed undo and redo in the prompt, including `u` in Vim mode, moving the cursor to the end of the input; the cursor now returns to where the undone or redone edit was made.
+*   Fixed `agy plugin install` ignoring the skill folders that a Claude Code plugin lists in the `"skills"` field of its manifest; those skills are now installed and loaded, and the install summary warns about listed paths that are missing, contain no skill, or point outside the plugin.
+*   Fixed `agy plugin install` and `agy plugin import` leaving a half-copied plugin that still loaded as enabled when an install failed partway; installs are now swapped in all at once and the previous version is restored on failure, plugins containing symlinks that point outside the plugin, FIFOs, or device files are refused, and a command whose file name cannot be used as a skill folder name is skipped with a warning instead of failing the import.
+*   Fixed pressing `esc` in a swarm member's conversation opened from `/swarm board` with `o` dropping you back at the prompt; it now returns to the board with the same selection, filter, focused pane, and zoom.
+*   Fixed a swarm coordinator sometimes ending its turn with a one-line filler reply instead of its real answer after being sent back to re-read board posts it had already read, fixed a coordinator offering a `sidecar://` board link that the CLI cannot open instead of `/swarm board` on later turns of a swarm, and fixed `agy -p` runs that start a swarm pointing you to `/swarm board`, which headless runs cannot open.
+*   Fixed some models served through an enterprise model gateway being sent requests without native tool declarations, which kept the agent from calling tools reliably; every model in the gateway's catalog, including models listed in `AGY_LLM_GATEWAY_MODELS`, now gets native tool calls.
+*   Fixed custom Gemini models served through an enterprise model gateway or an admin model list, such as tuned models, cutting off long edits and file writes at 8,192 output tokens; they now default to the same 65,535-token output limit as built-in Gemini models, and an explicit admin `maxOutputTokens` value still takes precedence.
+*   Fixed duplicate approval prompts and sandbox errors for organizations that enforce sandbox mode on machines without an OS sandbox, such as some Windows hosts or Linux with user namespaces disabled; commands now ask for review once and then run.
+*   Fixed editing project rules with `/permissions` clearing the marker that records the project's permission rules as already migrated, which made the Antigravity app migrate them again and could drop `command(...)` allow rules when the sandbox is on.
+
+---
+
 Model launch·November 10, 2026
 
 ### Gemini 4 Carbon
@@ -1477,8 +1584,6 @@ Gemini 4 Carbon is our strongest model for long-horizon software engineering, kn
 ---
 
 ### [v1.5.5](/releases?tab=cli&version=1.5.5 "View release 1.5.5")
-
-Latest
 
 November 10, 2026
 
@@ -3957,6 +4062,16 @@ VS CodeVisual StudioJetBrainsZedXcodeEclipse
 
 [Extension docs→](/docs/ide/extensions/vscode)
 
+Model launch·November 12, 2026
+
+### Gemini 4 Hydrogen
+
+Gemini 4 Hydrogen brings fast, dependable coding and agentic execution across four reasoning effort levels, alongside Orchestrator for dynamic multi-model planning and execution with Gemini 4 Carbon.
+
+[ Read on the Antigravity blog](/blog/gemini-4-hydrogen-in-google-antigravity)
+
+---
+
 Model launch·November 10, 2026
 
 ### Gemini 4 Carbon
@@ -4366,6 +4481,16 @@ Introduces the 1.0.0 release of Antigravity for VS Code, bringing an agentic AI 
 
 ---
 
+Model launch·November 12, 2026
+
+### Gemini 4 Hydrogen
+
+Gemini 4 Hydrogen brings fast, dependable coding and agentic execution across four reasoning effort levels, alongside Orchestrator for dynamic multi-model planning and execution with Gemini 4 Carbon.
+
+[ Read on the Antigravity blog](/blog/gemini-4-hydrogen-in-google-antigravity)
+
+---
+
 Model launch·November 10, 2026
 
 ### Gemini 4 Carbon
@@ -4660,6 +4785,16 @@ Introduces the initial release of the Google Antigravity extension for Visual St
 
 ---
 
+Model launch·November 12, 2026
+
+### Gemini 4 Hydrogen
+
+Gemini 4 Hydrogen brings fast, dependable coding and agentic execution across four reasoning effort levels, alongside Orchestrator for dynamic multi-model planning and execution with Gemini 4 Carbon.
+
+[ Read on the Antigravity blog](/blog/gemini-4-hydrogen-in-google-antigravity)
+
+---
+
 Model launch·November 10, 2026
 
 ### Gemini 4 Carbon
@@ -4670,9 +4805,34 @@ Gemini 4 Carbon is our strongest model for long-horizon software engineering, kn
 
 ---
 
-### [v1.4.1](/docs/ide/extensions/jetbrains "View JetBrains extension docs")
+### [v1.5.0](/docs/ide/extensions/jetbrains "View JetBrains extension docs")
 
 Latest
+
+November 10, 2026
+
+### Multi-root workspace support, per-turn token breakdowns, expanded model options, and MCP tool and sign-in fixes
+
+Introduces multi-root workspace support and per-turn token usage breakdowns, expands available model options, and resolves MCP tool attribution and Linux sign-in issues.
+
+**Improvements:**
+
+*   Multi-Root Workspace Support: Added support for secondary project folders in multi-root workspaces across file tools, project skills, and session hooks.
+*   Per-Turn Token Breakdowns: Added end-of-turn token usage summaries covering input, output, thinking, and cached tokens.
+*   Context Window Reporting: Enabled immediate context window capacity updates when starting a session or switching models and thinking levels.
+*   Expanded Model Options: Expanded available model options across supported clients.
+
+**Fixes:**
+
+*   MCP Tool Attribution: Fixed MCP tool calls missing server and tool names in permission prompts, live streaming, and session history.
+*   Linux Sign-In Reliability: Fixed an issue on Linux where opening the browser during sign-in or running terminal commands could fail.
+*   IPv4 Environment Startup: Fixed an issue where the agent service failed to start in IPv4-only container and workstation environments.
+*   Sign-In Error Clarity: Fixed an issue where sign-in error messages displayed blank details when no verification link was needed.
+*   Session Cleanup Reliability: Fixed background subprocesses remaining open when session startup failed or disconnection was canceled.
+
+---
+
+### [v1.4.1](/docs/ide/extensions/jetbrains "View JetBrains extension docs")
 
 October 16, 2026
 
@@ -4881,6 +5041,16 @@ Introduces the Google Antigravity Agent Client Protocol (ACP) server (`antigravi
 
 ---
 
+Model launch·November 12, 2026
+
+### Gemini 4 Hydrogen
+
+Gemini 4 Hydrogen brings fast, dependable coding and agentic execution across four reasoning effort levels, alongside Orchestrator for dynamic multi-model planning and execution with Gemini 4 Carbon.
+
+[ Read on the Antigravity blog](/blog/gemini-4-hydrogen-in-google-antigravity)
+
+---
+
 Model launch·November 10, 2026
 
 ### Gemini 4 Carbon
@@ -4891,9 +5061,34 @@ Gemini 4 Carbon is our strongest model for long-horizon software engineering, kn
 
 ---
 
-### [v1.4.1](/docs/ide/extensions/zed "View Zed extension docs")
+### [v1.5.0](/docs/ide/extensions/zed "View Zed extension docs")
 
 Latest
+
+November 10, 2026
+
+### Multi-root workspace support, per-turn token breakdowns, expanded model options, and MCP tool and sign-in fixes
+
+Introduces multi-root workspace support and per-turn token usage breakdowns, expands available model options, and resolves MCP tool attribution and Linux sign-in issues.
+
+**Improvements:**
+
+*   Multi-Root Workspace Support: Added support for secondary project folders in multi-root workspaces across file tools, project skills, and session hooks.
+*   Per-Turn Token Breakdowns: Added end-of-turn token usage summaries covering input, output, thinking, and cached tokens.
+*   Context Window Reporting: Enabled immediate context window capacity updates when starting a session or switching models and thinking levels.
+*   Expanded Model Options: Expanded available model options across supported clients.
+
+**Fixes:**
+
+*   MCP Tool Attribution: Fixed MCP tool calls missing server and tool names in permission prompts, live streaming, and session history.
+*   Linux Sign-In Reliability: Fixed an issue on Linux where opening the browser during sign-in or running terminal commands could fail.
+*   IPv4 Environment Startup: Fixed an issue where the agent service failed to start in IPv4-only container and workstation environments.
+*   Sign-In Error Clarity: Fixed an issue where sign-in error messages displayed blank details when no verification link was needed.
+*   Session Cleanup Reliability: Fixed background subprocesses remaining open when session startup failed or disconnection was canceled.
+
+---
+
+### [v1.4.1](/docs/ide/extensions/zed "View Zed extension docs")
 
 October 16, 2026
 
@@ -5102,6 +5297,16 @@ Introduces the Google Antigravity Agent Client Protocol (ACP) server (`antigravi
 
 ---
 
+Model launch·November 12, 2026
+
+### Gemini 4 Hydrogen
+
+Gemini 4 Hydrogen brings fast, dependable coding and agentic execution across four reasoning effort levels, alongside Orchestrator for dynamic multi-model planning and execution with Gemini 4 Carbon.
+
+[ Read on the Antigravity blog](/blog/gemini-4-hydrogen-in-google-antigravity)
+
+---
+
 Model launch·November 10, 2026
 
 ### Gemini 4 Carbon
@@ -5112,9 +5317,34 @@ Gemini 4 Carbon is our strongest model for long-horizon software engineering, kn
 
 ---
 
-### [v1.4.1](/docs/ide/extensions/xcode "View Xcode extension docs")
+### [v1.5.0](/docs/ide/extensions/xcode "View Xcode extension docs")
 
 Latest
+
+November 10, 2026
+
+### Multi-root workspace support, per-turn token breakdowns, expanded model options, and MCP tool and sign-in fixes
+
+Introduces multi-root workspace support and per-turn token usage breakdowns, expands available model options, and resolves MCP tool attribution and Linux sign-in issues.
+
+**Improvements:**
+
+*   Multi-Root Workspace Support: Added support for secondary project folders in multi-root workspaces across file tools, project skills, and session hooks.
+*   Per-Turn Token Breakdowns: Added end-of-turn token usage summaries covering input, output, thinking, and cached tokens.
+*   Context Window Reporting: Enabled immediate context window capacity updates when starting a session or switching models and thinking levels.
+*   Expanded Model Options: Expanded available model options across supported clients.
+
+**Fixes:**
+
+*   MCP Tool Attribution: Fixed MCP tool calls missing server and tool names in permission prompts, live streaming, and session history.
+*   Linux Sign-In Reliability: Fixed an issue on Linux where opening the browser during sign-in or running terminal commands could fail.
+*   IPv4 Environment Startup: Fixed an issue where the agent service failed to start in IPv4-only container and workstation environments.
+*   Sign-In Error Clarity: Fixed an issue where sign-in error messages displayed blank details when no verification link was needed.
+*   Session Cleanup Reliability: Fixed background subprocesses remaining open when session startup failed or disconnection was canceled.
+
+---
+
+### [v1.4.1](/docs/ide/extensions/xcode "View Xcode extension docs")
 
 October 16, 2026
 
@@ -5320,6 +5550,16 @@ Introduces the Google Antigravity Agent Client Protocol (ACP) server (`antigravi
 
 *   Fixed session reliability and workspace hygiene by storing conversation artifacts under `<GEMINI_HOME>/antigravity-acp` instead of the user's project directory, expanding `~` in session `cwd` paths, automatically recovering sessions from closed local backend WebSocket connections, stripping stale thought signatures on session resume, removing the 60-second request timeout on long-running permission prompts, and sending `.json` attachments as `text/plain` on Gemini Enterprise.
 *   Fixed duplicate or spurious permission prompts on file edits and `ask_question`, suppressed internal policy-denial text and MCP schema cache reads from streaming into assistant responses, and surfaced actionable error messages for MCP server initialization failures, missing `GEMINI_API_KEY` or Gemini Enterprise license setup, and quota exhaustion.
+
+---
+
+Model launch·November 12, 2026
+
+### Gemini 4 Hydrogen
+
+Gemini 4 Hydrogen brings fast, dependable coding and agentic execution across four reasoning effort levels, alongside Orchestrator for dynamic multi-model planning and execution with Gemini 4 Carbon.
+
+[ Read on the Antigravity blog](/blog/gemini-4-hydrogen-in-google-antigravity)
 
 ---
 
@@ -5977,9 +6217,54 @@ This release focuses on significant enhancements to the Model Context Protocol (
 
 ## Antigravity IDE
 
-### [v2.6.0](/releases?tab=ide&version=2.6.0 "View release 2.6.0")
+Model launch·November 12, 2026
+
+### Gemini 4 Hydrogen
+
+Gemini 4 Hydrogen brings fast, dependable coding and agentic execution across four reasoning effort levels, alongside Orchestrator for dynamic multi-model planning and execution with Gemini 4 Carbon.
+
+[ Read on the Antigravity blog](/blog/gemini-4-hydrogen-in-google-antigravity)
+
+---
+
+### [v2.7.0](/releases?tab=ide&version=2.7.0 "View release 2.7.0")
 
 Latest
+
+November 12, 2026
+
+### Clickable terminal context pills, quick-access menus, clearer diff review commands, and multi-window sign-in sync
+
+Terminal selections now become clickable context pills in the Agent panel, new menus put Antigravity actions one click away, and diff review commands now say which changes they apply to. This release also fixes several diff review, Auto Save, and sign-in issues.
+
+**Improvements:**
+
+*   Added clickable terminal context pills: send a terminal selection or output to the chat (`Ctrl+L` on Windows and Linux, `Cmd+L` on macOS), see a snippet preview in the composer, and click the pill to jump back to the terminal it came from.
+*   Added quick-access menus for Antigravity actions in the status bar, in the editor right-click menu, and in the Agent panel title bar (**New Conversation**, **Provide Feedback**, and **More Actions...**).
+*   Renamed diff review commands to show what they apply to (**Focused Change**, **Current File**, or **All Files**) and hid commands that don't apply to the current editor.
+
+**Fixes:**
+
+*   Fixed diff review tracking when you queue a follow-up prompt while the agent is still editing files.
+*   Fixed false "The content of the file is newer" save conflicts and stuck unsaved tab indicators when reviewing inline diffs with Auto Save or manual save.
+*   Fixed inline diff reviews on new files stripping trailing newlines or changing `CRLF` line endings.
+*   Fixed side-by-side diff reviews and the **Files With Changes** bar showing `+0 -0` for replaced lines.
+*   Fixed signing in, signing out, or switching accounts in one window leaving other windows showing the old account until reload.
+*   Fixed startup failures on Windows when the chosen port fell in a Hyper-V, WSL2, or system-reserved port range.
+
+---
+
+Model launch·November 10, 2026
+
+### Gemini 4 Carbon
+
+Gemini 4 Carbon is our strongest model for long-horizon software engineering, knowledge work, scientific discovery, and cybersecurity.
+
+[ Read on the Antigravity blog](/blog/gemini-4-carbon-in-google-antigravity)
+
+---
+
+### [v2.6.0](/releases?tab=ide&version=2.6.0 "View release 2.6.0")
 
 October 26, 2026
 
@@ -6000,6 +6285,16 @@ Gemini 4 Argon is now available in the IDE, alongside a refreshed agent interfac
 
 *   Fixed file drops onto the chat panel failing or getting dropped on macOS and Linux.
 *   Restored open conversations automatically by reconnecting if the background service is interrupted.
+
+---
+
+Model launch·October 13, 2026
+
+### Gemini 4 Argon
+
+Gemini 4 Argon is built for the most complex software engineering and knowledge work.
+
+[ Read on the Antigravity blog](/blog/gemini-4-argon-in-google-antigravity)
 
 ---
 

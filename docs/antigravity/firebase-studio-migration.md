@@ -114,7 +114,7 @@ Antigravity uses agent skills to publish your app using Firebase best practices:
 
 There are several ways you can continue your development in Antigravity:
 
-*   **Running workflows**: In Antigravity, you can seamlessly execute workflows and continue your work with the model by typing `@workflows <workflow_name>` into the agentic chat panel.
+*   **Running skills**: In Antigravity, you can run a skill and continue your work with the model by typing `/<skill-name>` into the agentic chat panel. If you have existing workflows, [migrate them to skills](/docs/migration/workflows-to-skills).
 *   **App Hosting deployments**: You can seamlessly deploy your apps directly through the agent using agent skills, or by using the platform-agnostic Firebase CLI and GitHub.
 *   **Troubleshooting**: If you experience deployment issues, try re-authenticating with the Firebase CLI or verifying your project secrets.
 

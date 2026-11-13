@@ -446,7 +446,7 @@ Bundled rules appear in the **Rules** tab on the plugin detail page:
 
 Define synchronous [lifecycle hooks](/docs/hooks) in `<plugin-root>/hooks.json`. Each top-level key in `hooks.json` is a named hook group mapping to lifecycle event arrays (`PreToolUse` and `PostToolUse` wrap handlers in `{ "matcher": "...", "hooks": [...] }`, whereas `SessionStart`, `PreInvocation`, `PostInvocation`, and `Stop` take a flat array of hook handler objects).
 
-Command hooks run with their working directory (`cwd`) set to `<plugin-root>`, receive event context as JSON on `stdin`, and must exit with code **`0`** and write a JSON response object to `stdout` (for example, `{"decision": "deny", "reason": "..."}` in `PreToolUse` or `{"decision": "block", "reason": "..."}` in `Stop`). Any non-zero exit code is logged as a hook execution error and ignored (failing open):
+Command hooks run with their working directory (`cwd`) set to `<plugin-root>`, receive event context as JSON on `stdin`, and must exit with code **`0`** and write a JSON response object to `stdout` (for example, `{"decision": "deny", "reason": "..."}` in `PreToolUse` or `{"decision": "continue", "reason": "..."}` in `Stop`). Any non-zero exit code is logged as a hook execution error and ignored (failing open):
 
 ```json
 {
@@ -480,9 +480,9 @@ Command hooks run with their working directory (`cwd`) set to `<plugin-root>`, r
 | `SessionStart` | A new conversation is initialized | _(none — flat handler array)_ | Return `{"injectSteps": [{"userMessage": "..."}]}` to inject startup context. |
 | `PreInvocation` | Before the model processes a user turn | _(none — flat handler array)_ | Return `{"injectSteps": [...]}` to attach dynamic context before model generation. |
 | `PostInvocation` | After the model finishes its response turn | _(none — flat handler array)_ | Return `{"injectSteps": [...], "terminationBehavior": "force_continue"}` for post-turn checks. |
-| `PreToolUse` | Before a tool executes | Tool name regex (`"run_command"`, `"mcp:.*"`) | Return `{"decision": "deny", "reason": "..."}` to block, `"ask"` / `"force_ask"` to prompt, or `"overwrite": {...}` to rewrite arguments. |
+| `PreToolUse` | Before a tool executes | Tool name regex (`"run_command"`, `"mcp_.*"`) | Return `{"decision": "deny", "reason": "..."}` to block, `"ask"` / `"force_ask"` to prompt, or `"overwrite": {...}` to rewrite arguments. |
 | `PostToolUse` | After a tool completes | Tool name regex | Receives the tool call and any error (not the tool output). Use it to log or audit tool calls, and return `{}`. |
-| `Stop` | Before the agent loop finishes | _(none — flat handler array)_ | Return `{"decision": "block", "reason": "..."}` to prevent completion until checks pass, or `"continue"`. |
+| `Stop` | Before the agent loop finishes | _(none — flat handler array)_ | Return `{"decision": "continue", "reason": "..."}` to prevent completion and keep the agent running until checks pass, or `{}` to allow the stop. |
 
 * * *
 

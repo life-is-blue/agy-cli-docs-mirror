@@ -44,6 +44,12 @@ By default, agents ask before sensitive actions and limit their file access to y
 
 [Learn more about permissions](/docs/permissions) and [the terminal sandbox](/docs/sandbox).
 
+### Orchestrator
+
+Select **Orchestrator (Carbon)** or **Orchestrator (Argon)** in the model selector (or with `/model` in the CLI) to get the quality of a larger planner model with faster turnaround and fewer tokens used. The planner (Gemini 4 Carbon or Gemini 4 Argon) explores the codebase, plans the work, and reviews progress, while Gemini 4 Hydrogen carries out the edits, builds, and test runs, handing control back to the planner whenever the plan needs repair. Google AI Ultra includes both options, and Google AI Pro (paid plans, or trials with eligible premium devices) includes **Orchestrator (Argon)**.
+
+[Learn more about Orchestrator](/docs/models#orchestrator).
+
 ### Subagents
 
 The main agent can delegate work, such as research, builds, or test runs, to subagents. Each subagent starts with a clean context and runs in its own conversation, in parallel with your main conversation.

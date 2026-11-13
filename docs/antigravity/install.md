@@ -302,7 +302,7 @@ Models
 
 Choose a model
 
-Configure Gemini 4 Carbon, Gemini 4 Argon, Gemini 3.1 Pro, Gemini 3.8 Flash, Claude, and reasoning effort.
+Configure Gemini 4 Carbon, Gemini 4 Argon, Gemini 4 Hydrogen, Gemini 3.8 Flash, Gemini 3.1 Pro, Claude, and reasoning effort.
 
 ](/docs/models)[
 

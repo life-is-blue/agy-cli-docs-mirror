@@ -22,7 +22,7 @@ Type `/` inside the prompt box to open the typeahead command selection menu.
 | **`/config`** | Configurations | `/settings` | Open the interactive Settings Editor overlay. |
 | **[`/context`](/docs/cli/commands/context)** | Utilities | — | Open the [context usage visualization panel](/docs/cli/commands/context). |
 | **`/copy [n|btw]`** | Utilities | — | Copy the last agent response, the n-th most recent response, or the latest [`/btw`](/docs/cli/commands/btw) answer. |
-| **[`/credits`](/docs/cli/commands/credits)** | Account | — | View remaining G1 credits and purchase links. |
+| **[`/credits`](/docs/cli/commands/credits)** | Account | — | View remaining AI credits and purchase links. |
 | **[`/diff`](/docs/cli/commands/diff)** | Utilities | — | Open the [interactive diff viewer](/docs/cli/commands/diff) to view changes, turns, and commits. |
 | **[`/effort`](/docs/cli/commands/effort) `[level]`** | Configurations | — | Set or inspect the active model’s [reasoning effort level](/docs/cli/commands/effort) (`low` through `max`, depending on the model). |
 | **`/exit`** | Core | `/quit` | Close the TUI session and restore your host shell. |

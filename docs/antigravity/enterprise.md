@@ -39,11 +39,11 @@ After installing the [Antigravity App](/docs/getting-started), the [Antigravity 
 
 Google Antigravity uses a single sign-on (SSO) flow that automatically detects your assigned license tier:
 
-1.  Launch the **Antigravity App**, run `agy` in the **Antigravity CLI**, or open your **[IDE extension](/docs/ide/extensions)**.
+1.  Launch the **Antigravity App**, run `agy` (or run `/logout` inside `agy` to switch accounts) in the **Antigravity CLI**, or open your **[IDE extension](/docs/ide/extensions)**.
 2.  Select **Sign in** to open the browser authentication flow.
 3.  Choose **Business account** _(subject to the Google Cloud Terms of Service)_.
 4.  Select **Continue with Google Cloud** and complete authentication in your browser.
-5.  In the **License Selector**, confirm the Google Cloud project linked to your license and select it. Alternatively, select **Other** to self-assign a license by entering your project ID and selecting a location (`global`, `us`, or `eu`; saved to `~/.gemini/antigravity-cli/settings.json` in the CLI), or pass `agy --project PROJECT_ID` when launching the CLI.
+5.  In the **License Selector**, confirm the Google Cloud project linked to your license and select it. Alternatively, select **Other** (**Other License** in the App, or **Can’t find your subscription? Enter a Google Cloud project** in the CLI) to self-assign a license by entering your project ID and selecting a location (`global`, `us`, or `eu`). In the CLI, your project and location are saved under [`gcp`](/docs/settings?tab=cli#custommodelsconfig-and-gcp) in `~/.gemini/antigravity-cli/settings.json` to pre-fill future sign-ins.
 
 Note
 
@@ -116,6 +116,9 @@ Antigravity in Gemini Enterprise supports included first-party Gemini models and
 | --- | --- | --- |
 | [Gemini 4 Carbon](/blog/gemini-4-carbon-in-google-antigravity) | `gemini-4-carbon` | ✅ |
 | [Gemini 4 Argon](/blog/gemini-4-argon-in-google-antigravity) | `gemini-4-argon` | ✅ |
+| [Gemini 4 Hydrogen](/blog/gemini-4-hydrogen-in-google-antigravity) | `gemini-4-hydrogen` | ✅ |
+| [Orchestrator (Carbon)](/docs/models#orchestrator) | — | ❌ |
+| [Orchestrator (Argon)](/docs/models#orchestrator) | — | ❌ |
 | [Gemini 3.8 Flash](/blog/gemini-3-8-flash-in-google-antigravity) | `gemini-3.8-flash` | ✅ |
 | [Gemini 3.7 Flash](/blog/gemini-3-7-flash-in-google-antigravity) | `gemini-3.7-flash` | ✅ |
 | [Gemini 3.6 Flash](/blog/gemini-3-6-flash-in-google-antigravity) | `gemini-3.6-flash` | ✅ |
@@ -142,7 +145,7 @@ Once enabled for your project, models appear in your client shortly after your a
     agy --model claude-sonnet-5-5-medium
     ```
     
-    You can also specify a base model ID and use the `--effort` flag (or `/effort` mid-session, requires `agy` `v1.2.11` or later) to set the reasoning level (`low`, `medium`, `high`, `max`):
+    You can also specify a base model ID and use the `--effort` flag (or `/effort` mid-session, requires `agy` `v1.2.11` or later) to set the reasoning level (`low`, `medium`, `high`, `xhigh`, or `max`, depending on the model):
     
     ```bash
     agy --model claude-opus-5-5 --effort high
