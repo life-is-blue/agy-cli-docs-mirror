@@ -117,6 +117,29 @@ Teamwork includes built-in safeguards to ensure parallel agent work remains safe
 
 * * *
 
+## When to use /teamwork
+
+For everyday coding and quick questions, prompt the default agent directly. When a task benefits from multiple agents, compare Antigravity’s agent orchestrators and background subagents:
+
+|  | [Subagents](/docs/subagents) | [Boost (`/boost`)](/docs/boost) | [Swarm (`/swarm`)](/docs/swarm) | Teamwork (`/teamwork`) |
+| :-- | :-- | :-- | :-- | :-- |
+| **Best for** | Delegating a focused side task, such as codebase research, browser checks, or a test run | Hard bugs, race conditions, algorithms, and tricky refactors that need deep reasoning | Broad tasks that split cleanly across independent files, packages, or investigation tracks | **Multi-milestone projects, repository-scale migrations, simulations, and deep research** |
+| **How agents coordinate** | Each subagent runs in the background and reports back to the agent that started it | An orchestrator runs an iterative pipeline where workers implement, challenge, fix, and re-verify solutions | A coordinator splits the task across named workers and a verifier that talk on one shared message board | **A `Sentinel` and `Project Orchestrator` run specialized roles through a milestone plan with review gates** |
+| **How you start** | Automatic delegation or `@subagent` mention | `/boost <task>` (starts immediately) | `/swarm <task>` (starts immediately) | **`/teamwork <goal>`, followed by a scoping interview** |
+| **Workspace** | Current workspace (or an isolated branch or working copy when requested) | Current workspace across isolated subagent contexts | Current workspace by default, or per-worker working copies for overlapping edits | **Dedicated project directory (`~/teamwork_projects/{PROJECT_NAME}`) with exclusive file ownership** |
+| **Verification** | Parent agent checks the subagent’s reply | Improvement workers try to break prior attempts and run real tests before the orchestrator spot-checks | A dedicated `@verifier` worker reviews diffs and runs tests before sign-off | **Independent `Critic`, `Challenger`, `Auditor`, and `Success Auditor` gates verify each milestone** |
+| **Typical horizon** | Seconds to minutes | Seconds to hours | Minutes to hours | **Hours to days** |
+| **Plan tier** | All plans | Paid plans | Google AI Pro and Ultra | **Paid plans** |
+
+Use the following guidelines to choose the right approach:
+
+*   **Use `/teamwork` for long-horizon, multi-milestone projects**: Choose `/teamwork` when a project spans hours or days—such as a repository-wide migration, system simulation, or formal proof—and needs an upfront scoping interview, dedicated project directory, and milestone audit gates.
+*   **Use [`/swarm`](/docs/swarm) when the task is broad and divides cleanly**: Choose `/swarm` when work splits into independent pieces across separate files, packages, test suites, or research questions, and you want named workers and a verifier to coordinate immediately on a live message board you can monitor and steer.
+*   **Use [`/boost`](/docs/boost) when the problem is hard rather than broad**: Choose `/boost` for root-cause debugging, race conditions, algorithmic optimization, or tightly coupled refactors where an initial attempt should be challenged, fixed, and verified across multiple rounds.
+*   **Use [subagents](/docs/subagents) for focused background delegation**: Let your agent delegate a self-contained side task—such as codebase research, browser validation, or a test run—while you keep working in the main thread.
+
+* * *
+
 ## How to use /teamwork
 
 Select your surface to launch a Teamwork session:
@@ -147,7 +170,8 @@ You can monitor active subagents, jump directly to subagents waiting for approva
 
 Explore related documentation and guides:
 
-*   [Boost deep reasoning (`/boost`)](/docs/boost): Explore on-demand deep reasoning for interactive pair programming.
+*   [Swarm (`/swarm`)](/docs/swarm): Coordinate named workers and a verifier on a shared message board for parallel tasks.
+*   [Boost deep reasoning (`/boost`)](/docs/boost): Explore on-demand deep reasoning for tough debugging and algorithmic challenges.
 *   [Subagents architecture](/docs/subagents): Learn how background subagents execute parallel workstreams.
 *   [Slash commands overview](/docs/slash-commands): Explore the complete catalog of slash commands in Antigravity.
 *   [Implementation plans (`/plan`)](/docs/implementation-plan): Master reviewable planning artifacts and structured workflows.

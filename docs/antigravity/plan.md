@@ -94,13 +94,14 @@ For detailed instructions on artifact navigation and commenting workflows, refer
 
 ## Comparison of planning and reasoning modes
 
-Antigravity provides complementary commands depending on task scope and complexity:
+Antigravity provides complementary planning commands and multi-agent orchestrators depending on task scope and complexity:
 
 | Command | Primary Focus | Best For | Plan Tier |
 | :-- | :-- | :-- | :-- |
 | **`/plan`** | **Requirements discovery and reviewable plans** | Scoping complex tasks, refactors, and multi-file changes before modifying code | All plans |
 | **[`/grill-me`](/docs/commands/grill-me)** | **Socratic design interviews** | Deep requirement alignment and edge-case probing before drafting designs | All plans |
 | **[`/boost`](/docs/boost)** | **Multi-agent deep reasoning** | Hard concurrency bugs, race conditions, and algorithmic optimizations | Paid plans |
+| **[`/swarm`](/docs/swarm)** | **Parallel board coordination** | Broad tasks that split cleanly across independent files, packages, or investigation tracks | Google AI Pro and Ultra |
 | **[`/teamwork`](/docs/teamwork)** | **Collaborative agent teams** | Long-horizon campaigns, repository migrations, and open-ended research | Paid plans |
 
 * * *
@@ -113,4 +114,5 @@ Explore related planning and automation documentation:
 *   [Artifact review policies](/docs/artifact-review): Configure review behavior and auto-proceed settings.
 *   [Slash commands catalog](/docs/slash-commands): Explore the complete catalog of slash commands.
 *   [Boost deep reasoning (`/boost`)](/docs/boost): Leverage multi-agent reasoning loops for tough engineering challenges.
+*   [Swarm (`/swarm`)](/docs/swarm): Coordinate named workers and a verifier on a shared message board for parallel tasks.
 *   [Teamwork agent teams (`/teamwork`)](/docs/teamwork): Run collaborative agent teams for repository-scale projects.

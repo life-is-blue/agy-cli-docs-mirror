@@ -66,6 +66,12 @@ In the side panel’s **Overview**, open **Subagents** and select a subagent to 
 
 [Learn more about subagents](/docs/subagents).
 
+### Dynamic Workflows
+
+Run `/run-workflow <task>` to have the agent write a short Python script that orchestrates many agents, such as one reviewer per changed file or a test-then-fix pipeline. You approve the script, follow its phases and agents live, and can save the script to run it again later. Available on Google AI Pro and Google AI Ultra plans.
+
+[Learn more about Dynamic Workflows](/docs/dynamic-workflows).
+
 ### Browser subagent
 
 Let the `browser` subagent open pages, click through flows, inspect console and network errors, take screenshots, and verify visual fixes before completing a task:
@@ -85,7 +91,7 @@ Let the `browser` subagent open pages, click through flows, inspect console and 
 
 ### Slash commands
 
-Type `/` in the App’s message box or the CLI’s prompt box to run commands such as [`/plan`](/docs/plan), [`/grill-me`](/docs/commands/grill-me), [`/goal`](/docs/commands/goal), [`/boost`](/docs/boost), [`/schedule`](/docs/commands/schedule), [`/swarm`](/docs/swarm), and [`/teamwork`](/docs/teamwork). Some commands are available on only one surface, and `/boost` and `/teamwork` require a paid plan.
+Type `/` in the App’s message box or the CLI’s prompt box to run commands such as [`/plan`](/docs/plan), [`/grill-me`](/docs/commands/grill-me), [`/goal`](/docs/commands/goal), [`/boost`](/docs/boost), [`/schedule`](/docs/commands/schedule), [`/swarm`](/docs/swarm), and [`/teamwork`](/docs/teamwork). Some commands are available on only one surface, and `/boost`, `/swarm`, and `/teamwork` require a paid plan.
 
 [Browse all slash commands](/docs/slash-commands).
 

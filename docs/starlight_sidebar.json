@@ -72,6 +72,10 @@
         "slug": "antigravity/customization-discovery"
       },
       {
+        "label": "Dynamic Workflows (/run-workflow)",
+        "slug": "antigravity/dynamic-workflows"
+      },
+      {
         "label": "Feature overview",
         "slug": "antigravity/features"
       },

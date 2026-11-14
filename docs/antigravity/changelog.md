@@ -6,6 +6,48 @@ New versions roll out gradually and may take a few days to reach all users.
 
 ## Antigravity App
 
+### [v2.32.0](/releases?tab=hub&version=2.32.0 "View release 2.32.0")
+
+Latest
+
+November 13, 2026
+
+### Dynamic Workflows and new themes
+
+This release adds Dynamic Workflows, letting agents orchestrate parallel subagents and multi-step tasks in Python using the runtime bundled with the app. It also introduces Everforest Light and Dark themes, prompt navigation shortcuts, and stronger protections for agent-controlled browser tabs. It includes 11 improvements and 13 fixes.
+
+**Improvements:**
+
+*   You can now use Dynamic Workflows to orchestrate parallel subagents and multi-step tasks in Python using the Python runtime bundled with the app.
+*   You can now choose Everforest Light and Everforest Dark in theme settings for warm, lower-contrast reading and editing.
+*   You can now jump between previous and next prompts in a conversation using keyboard shortcuts from the composer or reading view, or customize them in Settings.
+*   You can now bind an optional Submit Prompt shortcut in Settings > Shortcuts to send dictated or drafted prompts without pressing Enter.
+*   You can now copy a sign-in link or paste a one-time authorization code during sign-in when an automatic browser redirect does not complete.
+*   The model selector menu now expands to fit available screen height and displays a Refresh button whenever models fail to load.
+*   Agent-controlled browser tabs now notify the agent and show a blocked status in the download drawer when a download is rejected for its file type.
+*   Cross-site frames inside agent-controlled browser tabs now load signed out, and stay hidden from the agent's screenshots and page snapshots unless explicitly allowed and targeted.
+*   Installed plugin cards and detail headers now display MCP server startup errors when a connection fails to start.
+*   Permission menus now explain when Default and Auto modes are hidden because terminal sandboxing is unavailable on the host.
+*   If you use remote agents, you can now clone Cloud GitHub repositories locally from the workspace picker and sign in to pull request links directly from the app.
+
+**Fixes:**
+
+*   Fixed an issue where some websites blocked the built-in browser because its user agent exposed an Electron token.
+*   Fixed an issue where quitting the desktop app could leave background processes running and where temporary file locks could prevent settings from saving.
+*   Fixed an issue where full-page plugin views turned blank or broke open tabs after restarting or updating a plugin.
+*   Fixed an issue where selecting the Sign in to Google Drive mention suggestion did not start sign-in.
+*   Fixed an issue where the Pin Conversation keyboard shortcut conflicted with Chrome tab groups on Linux and could not be rebound in Settings.
+*   Fixed an issue where filtering by Automations in the sidebar could hide plugin conversations.
+*   Fixed an issue where editing a queued message, reverting a conversation step, or restoring a draft flattened lists and dropped link pills.
+*   Fixed an issue where scrolling up through long conversations could stall or lose your place by loading smaller history pages earlier.
+*   Fixed an issue where bold Chinese, Japanese, and Korean text rendered at regular weight under the default font.
+*   Fixed an issue where opening a file from the Open File menu opened as a temporary preview tab that got replaced by the next file.
+*   Fixed an issue where reverting a conversation caused the last response toolbar and cards to briefly flicker away.
+*   Fixed an issue where long lines of hyphens in text could freeze accessibility announcements.
+*   Fixed an issue where the Saved confirmation for project shell setup scripts disappeared immediately after saving.
+
+---
+
 Model launch·November 12, 2026
 
 ### Gemini 4 Hydrogen
@@ -17,8 +59,6 @@ Gemini 4 Hydrogen brings fast, dependable coding and agentic execution across fo
 ---
 
 ### [v2.31.2](/releases?tab=hub&version=2.31.2 "View release 2.31.2")
-
-Latest
 
 November 11, 2026
 
@@ -1504,6 +1544,51 @@ Antigravity 2.0 Launch bug fixes.
 
 ## Antigravity CLI
 
+### [v1.5.8](/releases?tab=cli&version=1.5.8 "View release 1.5.8")
+
+Latest
+
+November 13, 2026
+
+### Gemini 4 Hydrogen & Carbon models, click-to-expand in full screen mode, and security fixes.
+
+Version 1.5.8 adds support for Gemini 4 Hydrogen and Gemini 4 Carbon models, introduces click-to-expand in full screen rendering mode, adds context window usage updates to ACP sessions, and delivers important security, Windows compatibility, and reliability fixes.
+
+**Improvements:**
+
+*   Added Gemini 4 Hydrogen (Low, Medium, High, and XHigh) and Gemini 4 Carbon (Low, Medium, and High) to `/model` and `--model` when you connect with a `GEMINI_API_KEY`, added Gemini 4 Hydrogen (Low, Medium, High, and XHigh) when you sign in with Application Default Credentials (`AGY_ADC_AUTH`), and added support for Gemini 4 Hydrogen through an enterprise model gateway.
+*   Added click-to-expand in the `full screen (altscreen)` rendering mode: clicking a tool group, a thought, a prompt's attached images, or multi-line command output now expands or collapses just that item, so you no longer have to use `Ctrl+O`. The default `Rendering Mode` is unchanged.
+*   Added context window usage updates to `agy acp` sessions, so editors such as JetBrains AI Chat can show how much of the model's context window the conversation is using; the value is sent when a session starts or is reloaded, after each model call, and after a model or thinking level change.
+*   Added support for two admin settings: `gateway.routeWebFetch` stops the agent's web page reads from going around an enterprise model gateway by disabling URL reading unless a `proxy.address` is configured, and `featureControls.remoteControlEnabled` lets an organization turn off Remote Control. With an enterprise model gateway, web pages are now fetched directly from your machine (through `proxy.address` when set) instead of through Google's fetch service.
+*   Improved the first message of a conversation in `--remote-agent` sessions, which no longer waits for its remote environment to start or resume: the CLI now prepares a new conversation's environment as soon as the session knows its remote project, and again after `/new` or switching projects, and starts a resumed conversation's idle environment in the background as soon as it opens with `--continue` or `--conversation=<id>`.
+
+**Fixes:**
+
+*   Fixed a security issue in the terminal sandbox's network proxy where a command could get around path-based network rules, such as those limiting where credentials are sent or which Git and API paths are allowed, by using percent-encoded slashes (`%2F`), backslashes, or `..` segments in a URL path; every way of reading the path is now checked against the rules, and the cleaned-up path is the one sent upstream.
+*   Fixed always-allow command rules on Windows so they can no longer be bypassed when the shell is `cmd`, `cmd.exe`, `powershell.exe`, `pwsh.exe`, or a full path to one of them. Commands run in PowerShell or Command Prompt now always need an exact match, because their quoting rules differ from POSIX shells. A command with hidden extra statements, such as `git status '&& del secret.txt'`, could otherwise be approved by a rule meant only for `git status`.
+*   Fixed permission rules for MCP tools, such as an `mcp(server/tool)` deny or ask rule, being ignored for MCP tools that are loaded up front (marked eager in `mcp_config.json`) and for the `/browser` subagent's Chrome DevTools tools; these tools now ask for approval or are blocked according to your rules, like other MCP tools.
+*   Fixed `/plugin`, `agy plugin`, and headless `-p` runs ignoring your organization's Gemini Enterprise admin controls for plugins: when an administrator disables plugins, installing, importing, or enabling one now fails with `plugins are disabled by your organization`, and when the plugin marketplace is disabled, marketplace catalogs are not fetched and marketplace installs fail; listing, disabling, and uninstalling plugins still work.
+*   Fixed hook commands on Windows that contain double quotes, such as `type "C:\my dir\deny.json"`, failing and being silently skipped, which let a `PreInvocation` or `PreToolUse` hook that should block the agent go unenforced; hook commands are now passed to `cmd.exe` exactly as written.
+*   Fixed files saved with a UTF-8 byte order mark (BOM), as Windows PowerShell, Visual Studio, and Notepad's "UTF-8 with BOM" option do, being silently ignored: `settings.json` and files passed to `--settings` are no longer rejected as malformed, a `hooks.json` no longer leaves `/hooks` empty with none of its hooks running, and custom agent and rule files no longer go missing from `/agents` and the agent picker or lose their frontmatter trigger.
+*   Fixed opening your external editor on Windows when `EDITOR` or the `Editor` setting is a normal Windows path such as `C:\Tools\ed.cmd` or `"C:\Program Files\Vim\vim.exe"`; backslashes were dropped, so `Ctrl+G`, `/open`, `/keybindings`, and artifact review failed with an `editor ... not found in PATH` error.
+*   Fixed `!` shell commands hanging forever with no output when the command wrote a lot to stderr, which was easy to hit on Windows with build tools that print progress or warnings to stderr; such commands now finish and show their stdout and stderr lines in the order they were written.
+*   Fixed agent turns failing when a network connection silently went stale or the network dropped a shared HTTP/2 connection, for example with `http2: client connection force closed via ClientConn.Close` or after a socket write error; model requests now retry on a fresh connection and, if retries run out, show the CLI's network error message. Slow model responses also no longer time out after 60 seconds when an organization's admin settings configure a proxy or custom CA certificate.
+*   Fixed the CLI sometimes never exiting after a session, and background requests such as generating a conversation title, worktree name, or commit message hanging, when the model answered one of those requests with an unexpectedly long reply.
+*   Fixed a single empty or corrupted queued message file, for example one left behind by an unclean shutdown, blocking every later message to the agent, so background task completions, timers, and subagent replies no longer silently stop reaching it; the unreadable file is set aside and the remaining messages are delivered.
+*   Fixed remote MCP servers that sign in with OAuth without a client secret signing you out as soon as the access token expired, typically after an hour; token refreshes now send the client ID the way the server requires, so you stay signed in, including with sign-ins saved by earlier versions.
+*   Fixed the agent telling you to click a Sign in button or use an Accounts tab, which the CLI doesn't have, when a plugin or plugin MCP server needs you to sign in; it now tells you to sign in with `/plugin` and then send a message to continue, and `/mcp` shows the same `/plugin` guidance for a server that is waiting on a sign-in.
+*   Fixed switching a conversation from a Gemini model to a custom or admin-managed non-Gemini model, such as Claude, failing with an `Invalid signature in thinking block` error.
+*   Fixed `/btw` and `/help` side questions failing with `stream timed out after 5m0s` while the side question was still working: they now run until they finish or you press `Esc`, which the `Thinking...` line and the "already in progress" message now mention, and a side question that needs an approval the card can't show stops right away and tells you to ask in the main conversation instead.
+*   Fixed `/learn` repeatedly appending to rule files such as `GEMINI.md` or `AGENTS.md` until they grew past the rule size limit, after which their endings were silently cut off on every turn. Before updating a rule, `/learn` now checks the documented size limits, and when an update would get close to or exceed them, it proposes condensing existing entries, splitting them into a scoped rule, or moving step-by-step guidance into a skill.
+*   Fixed follow-up turns in a `--json-schema` conversation resumed with `--conversation` ending on a plain-text reply with no structured result once an earlier turn had produced one; each new message now gets its own reminders to return the structured output, up to the usual limit per message.
+*   Fixed `/rewind` failing with a `step_index out of bounds` error when you pressed `Esc` while a turn was still starting and then rewound to remove that message.
+*   Fixed `/diff` showing a made-up change at the end of a turn's diff for files larger than 500 KB when an earlier edit changed the file's length; the two versions are now cut off at the same line, so the preview shows only real edits.
+*   Fixed `/` search in the artifact viewer missing text split across different styles, such as a sentence containing a number or inline code, and leaving the rest of a styled line unstyled after a highlighted match; the current match is also now easier to pick out from the other matches in every color scheme.
+*   Fixed status messages such as "Copied 3 lines (42 characters)" after selecting text, settings save errors, and permission reload notices never appearing when you use a custom status line; they now briefly replace your custom status line, which comes back once the message clears, without shifting the layout.
+*   Fixed the in-progress spinner line freezing until you restarted the CLI after you logged out while the agent was working and then signed back in; it now keeps animating.
+
+---
+
 Model launch·November 12, 2026
 
 ### Gemini 4 Hydrogen
@@ -1515,8 +1600,6 @@ Gemini 4 Hydrogen brings fast, dependable coding and agentic execution across fo
 ---
 
 ### [v1.5.7](/releases?tab=cli&version=1.5.7 "View release 1.5.7")
-
-Latest
 
 November 12, 2026
 

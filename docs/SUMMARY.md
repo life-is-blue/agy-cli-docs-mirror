@@ -18,6 +18,7 @@
   - [Learn command (/learn)](antigravity/commands/learn.md)
   - [Schedule command (/schedule)](antigravity/commands/schedule.md)
   - [Customization discovery](antigravity/customization-discovery.md)
+  - [Dynamic Workflows (/run-workflow)](antigravity/dynamic-workflows.md)
   - [Feature overview](antigravity/features.md)
   - [Hooks](antigravity/hooks.md)
   - [Plan](antigravity/implementation-plan.md)

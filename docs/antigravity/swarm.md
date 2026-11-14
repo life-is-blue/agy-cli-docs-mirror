@@ -204,19 +204,24 @@ The coordinator groups the failures, adds one worker per package, and wakes the 
 
 ## Choose between Swarm, Teamwork, Boost, and subagents
 
-Antigravity offers several ways to put more than one agent on a task:
+For everyday coding and quick questions, prompt the default agent directly. When a task benefits from multiple agents, compare Antigravity’s agent orchestrators and background subagents:
 
-|  | Subagents | `/boost` | `/swarm` | `/teamwork` |
+|  | [Subagents](/docs/subagents) | [Boost (`/boost`)](/docs/boost) | Swarm (`/swarm`) | [Teamwork (`/teamwork`)](/docs/teamwork) |
 | :-- | :-- | :-- | :-- | :-- |
-| **Best for** | Delegating a single side task, such as research or a test run | Hard bugs, algorithms, and tricky refactors that need deep reasoning | Work that splits across independent files, packages, or questions | Repository-scale migrations, long simulations, and research projects |
-| **How agents coordinate** | Each subagent reports back to the agent that started it | A layered hierarchy explores hypotheses and verifies solutions | Named workers and a verifier talk on one shared board | Specialized roles work through a milestone plan with audit gates |
-| **How you start** | The agent delegates on its own | `/boost <task>` | `/swarm <task>` | `/teamwork <goal>`, followed by a scoping interview |
-| **Typical horizon** | Seconds to minutes | Seconds to hours | Minutes to hours | Hours to days |
+| **Best for** | Delegating a focused side task, such as codebase research, browser checks, or a test run | Hard bugs, race conditions, algorithms, and tricky refactors that need deep reasoning | **Broad tasks that split cleanly across independent files, packages, or investigation tracks** | Multi-milestone projects, repository-scale migrations, simulations, and deep research |
+| **How agents coordinate** | Each subagent runs in the background and reports back to the agent that started it | An orchestrator runs an iterative pipeline where workers implement, challenge, fix, and re-verify solutions | **A coordinator splits the task across named workers and a verifier that talk on one shared message board** | A `Sentinel` and `Project Orchestrator` run specialized roles through a milestone plan with review gates |
+| **How you start** | Automatic delegation or `@subagent` mention | `/boost <task>` (starts immediately) | **`/swarm <task>` (starts immediately)** | `/teamwork <goal>`, followed by a scoping interview |
+| **Workspace** | Current workspace (or an isolated branch or working copy when requested) | Current workspace across isolated subagent contexts | **Current workspace by default, or per-worker working copies for overlapping edits** | Dedicated project directory (`~/teamwork_projects/{PROJECT_NAME}`) with exclusive file ownership |
+| **Verification** | Parent agent checks the subagent’s reply | Improvement workers try to break prior attempts and run real tests before the orchestrator spot-checks | **A dedicated `@verifier` worker reviews diffs and runs tests before sign-off** | Independent `Critic`, `Challenger`, `Auditor`, and `Success Auditor` gates verify each milestone |
+| **Typical horizon** | Seconds to minutes | Seconds to hours | **Minutes to hours** | Hours to days |
+| **Plan tier** | All plans | Paid plans | **Google AI Pro and Ultra** | Paid plans |
 
-*   Use [subagents](/docs/subagents) when one focused side task can run in the background while you keep working.
-*   Use [`/boost`](/docs/boost) when the problem is hard rather than large, and you want several lines of reasoning checked against each other.
-*   Use `/swarm` when the task is large but divides cleanly, and you want to watch and steer a team as it works.
-*   Use [`/teamwork`](/docs/teamwork) when the project spans many milestones and needs an upfront specification and strict verification before handoff.
+Use the following guidelines to choose the right approach:
+
+*   **Use [subagents](/docs/subagents) for focused background delegation**: Let your agent delegate a self-contained side task—such as codebase research, browser validation, or a test run—while you keep working in the main thread.
+*   **Use [`/boost`](/docs/boost) when the problem is hard rather than broad**: Choose `/boost` for root-cause debugging, race conditions, algorithmic optimization, or tightly coupled refactors where an initial attempt should be challenged, fixed, and verified across multiple rounds.
+*   **Use `/swarm` when the task is broad and divides cleanly**: Choose `/swarm` when work splits into independent pieces across separate files, packages, test suites, or research questions, and you want named workers and a verifier to coordinate on a live message board you can monitor and steer.
+*   **Use [`/teamwork`](/docs/teamwork) for long-horizon, multi-milestone projects**: Choose `/teamwork` when a project spans hours or days—such as a repository-wide migration, system simulation, or formal proof—and needs an upfront scoping interview, dedicated project directory, and milestone audit gates.
 
 * * *
 

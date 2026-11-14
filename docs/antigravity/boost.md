@@ -24,44 +24,49 @@ Modern software development involves problems spanning a wide spectrum of comple
 
 ## How Boost works
 
-When you invoke `/boost`, Antigravity initiates a three-phase multi-agent reasoning pipeline that decouples strategy formulation from isolated execution and verification:
+When you invoke `/boost`, Antigravity initiates a three-phase multi-agent reasoning pipeline that separates task routing from iterative execution and verification:
 
 ### Phase 1: Goal and strategy formulation
 
-The primary orchestrator receives your prompt, inspects workspace context, and formulates an execution strategy. It breaks down complex engineering challenges into discrete, verifiable subtasks and determines which specialized workstreams are required.
+The primary orchestrator receives your prompt, evaluates whether the task requires implementation (`DeepCoder`) or root-cause analysis (`DeepInvestigator`), and hands your verbatim task and relevant conversation context to a pipeline coordinator.
 
-### Phase 2: Parallel execution and verification
+### Phase 2: Iterative execution and challenge rounds
 
-The orchestrator dispatches focused subtasks to specialized subagents operating in clean, isolated scopes:
+The pipeline coordinator dispatches specialized workers in isolated subagent contexts:
 
-*   **Implementation workstreams**: Construct candidate code solutions, apply refactoring, and generate unit tests.
-*   **Investigation workstreams**: Perform root-cause debugging, trace execution call graphs, and analyze unfamiliar dependencies without modifying files.
-*   **Local verification**: Subagents execute build targets and test suites locally to validate hypotheses before reporting results.
+*   **Initial implementation or investigation**: A first-pass worker explores the codebase, implements a candidate change or traces the root cause, and runs the project’s test suite and edge-case checks.
+*   **Improvement rounds**: Follow-up improvement workers review the original requirements independently, attempt to break or find gaps in the prior worker’s output, fix any flaws, and re-run tests.
 
-### Phase 3: Synthesis and delivery
+### Phase 3: Independent verification and delivery
 
-Before presenting the final outcome, the reasoning pipeline aggregates findings and runs regression checks:
+Before presenting the final outcome, the primary orchestrator independently verifies the pipeline’s result:
 
-*   The orchestrator validates the combined solution against full test suites and edge cases.
-*   If an assertion fails, error diagnostics are fed back into the next iteration for automated correction.
-*   Once all tests and requirements pass, the pipeline delivers a concise summary with verified changes.
+*   The orchestrator spot-checks the code changes and test record against every requirement in your prompt.
+*   If any edge case, limitation, or test failure remains, the orchestrator starts another delegation round with the updated progress context.
+*   Once all requirements and tests pass, the orchestrator delivers a concise summary of the verified solution.
 
 * * *
 
 ## When to use /boost
 
-The following table compares the three primary execution modes in Antigravity:
+For everyday coding and quick questions, prompt the default agent directly. When a task benefits from multiple agents, compare Antigravity’s agent orchestrators and background subagents:
 
-| Dimension | Default Agent | 🚀 Boost (`/boost`) | 👥 Teamwork (`/teamwork`) |
-| :-- | :-- | :-- | :-- |
-| **Primary focus** | Full-spectrum interactive coding and pair programming | **Deep reasoning and tricky bugs** | Autonomous multi-day agent teams |
-| **Task horizon** | Seconds to minutes | **Seconds to hours** | Hours to days |
-| **Plan tier** | All plans | **Paid plans** | Paid plans |
-| **Scoping phase** | Single prompt | **Immediate execution** | Two-phase scoping interview |
-| **Architecture** | Single-agent direct loop | **Three-phase reasoning hierarchy** | Multi-role agent teams |
-| **Workspace model** | Shared working tree | **Ephemeral isolated worktrees** | Persistent isolated worktrees per milestone |
-| **Verification** | Single-pass tool check | **Multi-round independent verification** | Adversarial falsification and independent success audit |
-| **Best suited for** | Feature development, code navigation, refactoring, and general engineering workflows | **Tough concurrency bugs, algorithmic optimization, intricate multi-file refactors** | Subsystem builds, formal proofs, and autonomous OS-scale campaigns |
+|  | [Subagents](/docs/subagents) | Boost (`/boost`) | [Swarm (`/swarm`)](/docs/swarm) | [Teamwork (`/teamwork`)](/docs/teamwork) |
+| :-- | :-- | :-- | :-- | :-- |
+| **Best for** | Delegating a focused side task, such as codebase research, browser checks, or a test run | **Hard bugs, race conditions, algorithms, and tricky refactors that need deep reasoning** | Broad tasks that split cleanly across independent files, packages, or investigation tracks | Multi-milestone projects, repository-scale migrations, simulations, and deep research |
+| **How agents coordinate** | Each subagent runs in the background and reports back to the agent that started it | **An orchestrator runs an iterative pipeline where workers implement, challenge, fix, and re-verify solutions** | A coordinator splits the task across named workers and a verifier that talk on one shared message board | A `Sentinel` and `Project Orchestrator` run specialized roles through a milestone plan with review gates |
+| **How you start** | Automatic delegation or `@subagent` mention | **`/boost <task>` (starts immediately)** | `/swarm <task>` (starts immediately) | `/teamwork <goal>`, followed by a scoping interview |
+| **Workspace** | Current workspace (or an isolated branch or working copy when requested) | **Current workspace across isolated subagent contexts** | Current workspace by default, or per-worker working copies for overlapping edits | Dedicated project directory (`~/teamwork_projects/{PROJECT_NAME}`) with exclusive file ownership |
+| **Verification** | Parent agent checks the subagent’s reply | **Improvement workers try to break prior attempts and run real tests before the orchestrator spot-checks** | A dedicated `@verifier` worker reviews diffs and runs tests before sign-off | Independent `Critic`, `Challenger`, `Auditor`, and `Success Auditor` gates verify each milestone |
+| **Typical horizon** | Seconds to minutes | **Seconds to hours** | Minutes to hours | Hours to days |
+| **Plan tier** | All plans | **Paid plans** | Google AI Pro and Ultra | Paid plans |
+
+Use the following guidelines to choose the right approach:
+
+*   **Use [subagents](/docs/subagents) for focused background delegation**: Let your agent delegate a self-contained side task—such as codebase research, browser validation, or a test run—while you keep working in the main thread.
+*   **Use `/boost` when the problem is hard rather than broad**: Choose `/boost` for root-cause debugging, race conditions, algorithmic optimization, or tightly coupled refactors where an initial attempt should be challenged, fixed, and verified across multiple rounds.
+*   **Use [`/swarm`](/docs/swarm) when the task is broad and divides cleanly**: Choose `/swarm` when work splits into independent pieces across separate files, packages, test suites, or research questions, and you want named workers and a verifier to coordinate on a live message board you can monitor and steer.
+*   **Use [`/teamwork`](/docs/teamwork) for long-horizon, multi-milestone projects**: Choose `/teamwork` when a project spans hours or days—such as a repository-wide migration, system simulation, or formal proof—and needs an upfront scoping interview, dedicated project directory, and milestone audit gates.
 
 * * *
 
@@ -138,6 +143,7 @@ Boost respects all standard Antigravity security policies:
 Explore related documentation and guides:
 
 *   **[Slash commands catalog](/docs/slash-commands)**: Review all available slash commands across Antigravity surfaces.
+*   **[Swarm (`/swarm`)](/docs/swarm)**: Coordinate named workers and a verifier on a shared message board for parallel tasks.
 *   **[Teamwork agent teams (`/teamwork`)](/docs/teamwork)**: Learn how collaborative agent teams tackle large-scale migrations.
 *   **[Subagents overview](/docs/subagents)**: Learn how asynchronous subagent workers operate in parallel.
 *   **[Antigravity CLI reference](/docs/cli/reference)**: Explore terminal keybindings and the command reference for the CLI.

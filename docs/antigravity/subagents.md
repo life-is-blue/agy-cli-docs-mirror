@@ -136,23 +136,23 @@ Subagents inherit safety configurations from their parent agent to maintain secu
 
 ### Multi-agent orchestrators
 
-Antigravity provides advanced multi-agent orchestrators designed for different task scales and execution horizons.
+When a task calls for structured coordination beyond single-task subagent delegation, Antigravity provides three multi-agent orchestrators:
+
+*   **Boost ([`/boost`](/docs/boost))**: Best when the problem is **hard rather than broad** (tough bugs, race conditions, algorithms). Runs an iterative pipeline where workers implement, challenge, fix, and re-verify solutions.
+*   **Swarm ([`/swarm`](/docs/swarm))**: Best when the task is **broad and divides cleanly** across independent files, packages, or investigation tracks. Splits work across named workers and a verifier on a shared live message board.
+*   **Teamwork ([`/teamwork`](/docs/teamwork))**: Best for **long-horizon, multi-milestone projects** (repository migrations, simulations, formal proofs). Starts with a scoping interview and runs specialized roles with milestone audit gates in a dedicated project directory.
+
+Tip
+
+To run the same task across many files or packages, or to chain staged steps, use [Dynamic Workflows (`/run-workflow`)](/docs/dynamic-workflows). The agent writes a short Python script that starts agents in parallel or in sequence and collects a structured result from each one.
 
 #### Boost deep reasoning (`/boost`)
 
 Note
 
-**Plan availability**: Available on **Google One AI Premium** (Pro and Ultra tiers) and **Enterprise** plans across the Antigravity App and the Antigravity CLI.
+**Plan availability**: The `/boost` command is available on **paid plans** across the Google Antigravity App and the Antigravity CLI.
 
-Invoking [`/boost`](/docs/boost) launches a three-tier multi-agent reasoning hierarchy (`Orchestrator` -> `DeepCoder` / `DeepInvestigator` coordinators -> isolated execution workers). It tackles tough concurrency bugs, algorithmic challenges, and non-trivial refactoring within interactive coding sessions (seconds to hours) with independent verification loops. Learn more in the [Boost documentation](/docs/boost).
-
-#### Multi-agent teamwork (`/teamwork`)
-
-Note
-
-**Plan availability**: The `/teamwork` command is available on **paid plans** across the Google Antigravity App and the Antigravity CLI.
-
-Using [`/teamwork`](/docs/teamwork) coordinates a team of specialized AI agents designed for large software projects, multi-file refactoring, and complex research. The team handles milestone decomposition, parallel implementation, and independent verification checks, allowing you to define the high-level goals while the platform manages agent coordination. Learn more in the [Teamwork documentation](/docs/teamwork).
+Invoking [`/boost`](/docs/boost) launches a multi-agent reasoning pipeline (`Orchestrator` -> `DeepCoder` or `DeepInvestigator` coordinator -> initial and improvement workers). An initial worker tackles the problem and runs tests, improvement workers challenge and fix the prior attempt, and the orchestrator independently verifies the result across rounds. Learn more in the [Boost documentation](/docs/boost).
 
 #### Swarm (`/swarm`)
 
@@ -161,6 +161,14 @@ Note
 **Plan availability**: The `/swarm` command is available on **Google AI Pro** and **Google AI Ultra** plans across the Antigravity App and the Antigravity CLI.
 
 Running [`/swarm`](/docs/swarm) turns your conversation into a coordinator that splits a task across named workers, usually with a verifier that reviews and tests their changes. Unlike subagents, which report privately to the agent that started them, swarm workers coordinate on one shared message board with `@mentions`, and idle workers wait without using tokens until someone mentions them. Learn more in the [Swarm documentation](/docs/swarm).
+
+#### Multi-agent teamwork (`/teamwork`)
+
+Note
+
+**Plan availability**: The `/teamwork` command is available on **paid plans** across the Google Antigravity App and the Antigravity CLI.
+
+Using [`/teamwork`](/docs/teamwork) coordinates a team of specialized AI agents designed for large software projects, multi-file refactoring, and complex research. After a short scoping interview, the team handles milestone decomposition, parallel implementation in a dedicated project directory, and independent verification checks (`Critic`, `Challenger`, `Auditor`, and `Success Auditor`). Learn more in the [Teamwork documentation](/docs/teamwork).
 
 ## Antigravity CLI
 
@@ -252,6 +260,7 @@ To authorize an agent action immediately without leaving your active workspace:
 Explore related documentation and guides:
 
 *   **[Boost deep reasoning (`/boost`)](/docs/boost)**: Explore on-demand multi-agent reasoning.
+*   **[Swarm (`/swarm`)](/docs/swarm)**: Coordinate named workers and a verifier on a shared message board for parallel tasks.
 *   **[Teamwork agent teams (`/teamwork`)](/docs/teamwork)**: Launch collaborative multi-agent teams for long-horizon projects.
 *   **[Settings, rendering, and keybindings](/docs/settings)**: Customize key maps, buffering, and JSON rules.
 *   **[Permissions and sandbox](/docs/sandbox)**: Enforce security containment rings on background processes.

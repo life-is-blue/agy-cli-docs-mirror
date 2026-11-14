@@ -8,7 +8,7 @@ Plugins package reusable [skills](/docs/skills), [Model Context Protocol (MCP) s
 | :-- | :-- |
 | **Browse the Marketplace catalog** | **[Marketplace](/docs/marketplace)** — discover, install, and configure Google and partner plugins in the App and CLI. |
 | **Use and manage installed plugins** | **This page** — learn [what plugins bundle](#what-a-plugin-bundles), [how to use installed plugins](#using-installed-plugins), and [how to manage plugins by surface](#managing-plugins-by-surface). |
-| **Build, validate, and publish a plugin** | **[Build plugins](/docs/build-plugins)** — follow the 3-step quickstart, `plugin.json` manifest schema, component authoring guides, `agy plugin validate --strict`, and Marketplace submission. |
+| **Build, validate, and publish a plugin** | **[Build plugins](/docs/build-plugins)** — follow the 3-step quickstart, `plugin.json` manifest schema, component authoring guides, `agy plugin validate`, and Marketplace submission. |
 
 ## What a plugin bundles
 
@@ -221,13 +221,15 @@ Outside an interactive TUI session, the Antigravity CLI exposes the `agy plugin`
     agy plugin uninstall <plugin_name>
     ```
     
-*   **Validate a plugin directory**: Validate `plugin.json`, component frontmatter, MCP server and hook configurations, and logo paths (`--strict` treats warnings as errors):
+*   **Validate a plugin directory**: Validate `plugin.json`, component frontmatter, MCP server and hook configurations, and logo paths (`--strict` treats warnings as errors; `--json` outputs machine-readable findings for CI):
     
     ```bash
     agy plugin validate ./my-plugin
     agy plugin validate --strict ./my-plugin
+    agy plugin validate --json ./my-plugin
     ```
     
+    If your repository includes files meant for other tools that Antigravity ignores or shadows (such as `.mcp.json`, `mcp.json`, a root `plugin.json`, or a root `AGENTS.md`), see [Warnings in multi-tool repositories](/docs/build-plugins#warnings-in-multi-tool-repositories).
 
 #### CLI filesystem location
 
@@ -272,4 +274,4 @@ Ready to create a custom plugin for your team or publish a partner integration t
 *   **[Quickstart: create your first plugin](/docs/build-plugins#quickstart-create-your-first-plugin)**
 *   **[`plugin.json` manifest reference and full JSON schema](/docs/build-plugins#manifest-file-pluginjson)**
 *   **[Authoring skills, MCP servers, custom agents, rules, and hooks](/docs/build-plugins#authoring-plugin-components)**
-*   **[Validating locally (`agy plugin validate --strict`) and submitting to the Marketplace](/docs/build-plugins#validating-and-publishing-plugins)**
+*   **[Validating locally (`agy plugin validate`) and submitting to the Marketplace](/docs/build-plugins#validating-and-publishing-plugins)**

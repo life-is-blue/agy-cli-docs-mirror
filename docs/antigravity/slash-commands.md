@@ -12,12 +12,12 @@ Note
 
 ## Overview
 
-Modern software development requires different modes of agent interaction depending on the complexity and scope of the task:
+Modern software development calls for different agent workflows depending on the complexity and scope of the task:
 
 1.  **Everyday engineering**: Standard prompts for interactive feature development, navigation, and refactoring.
-2.  **Deep reasoning**: Multi-agent exploration and independent verification.
+2.  **Agent orchestrators**: Multi-agent coordination for hard reasoning problems ([`/boost`](/docs/boost)), parallel tasks on a shared message board ([`/swarm`](/docs/swarm)), and multi-milestone campaigns ([`/teamwork`](/docs/teamwork)).
 3.  **Structured planning**: Interactive requirement interviews and reviewable plans before modifying code.
-4.  **Long-horizon campaigns**: Collaborative multi-agent teams for repository-scale migrations.
+4.  **Continuous autonomy**: Uninterrupted execution until every requirement and verification check passes ([`/goal`](/docs/commands/goal)).
 5.  **Background tools**: Sandboxed browser research, scheduled automations, and side queries.
 
 Slash commands give you precise, instantaneous control over these capabilities.
@@ -32,6 +32,7 @@ The following table provides a complete reference for all public slash commands:
 | :-- | :-- | :-- | :-- | :-- |
 | [`/boost`](/docs/boost) | Reasoning | Multi-agent deep reasoning for complex bugs, race conditions, and algorithms. | Paid plans | Seconds to hours |
 | [`/teamwork`](/docs/teamwork) | Reasoning | Collaborative agent teams for repo-scale migrations, simulation, and research. | Paid plans | Hours to days |
+| [`/run-workflow`](/docs/dynamic-workflows) | Reasoning | Writes and runs a Python script that orchestrates many agents across parallel and sequential phases. | Google AI Pro and Ultra | Minutes to hours |
 | [`/swarm`](/docs/swarm) | Reasoning | Named workers and a verifier split a task and coordinate on a shared message board. | Google AI Pro and Ultra | Minutes to hours |
 | [`/goal`](/docs/commands/goal) | Reasoning | Autonomous execution until the goal is achieved without intermediate pauses. | All plans | Minutes to hours |
 | [`/plan`](/docs/plan) | Planning | Researches code, conducts requirement interviews, and drafts a reviewable plan artifact. | All plans | Minutes |
@@ -73,6 +74,18 @@ To launch a multi-agent migration, run the following command:
 ```
 
 For complete multi-agent lifecycle documentation and engineering patterns, refer to the [Teamwork agent teams guide](/docs/teamwork).
+
+### /run-workflow
+
+Launches [Dynamic Workflows](/docs/dynamic-workflows): the agent writes a short Python script that orchestrates many agents, shows it to you for approval, and runs it in the background. The script fans out the same task across a list of items with `parallel()`, runs staged steps with `pipeline()`, and collects a structured result from each agent, while you follow phases and agents live in the workflow step.
+
+To review every changed file in parallel, run the following command:
+
+```prompt
+/run-workflow List the Python files changed since main, review each file in parallel for unhandled exceptions, and log a one-line verdict per file.
+```
+
+For script building blocks, agent options, and permissions, refer to the [Dynamic Workflows guide](/docs/dynamic-workflows).
 
 ### /swarm
 
@@ -289,6 +302,7 @@ The following decision guide outlines when to use each command based on your tas
 | :-- | :-- | :-- |
 | **Complex bug, race condition, or algorithmic puzzle** | [`/boost`](/docs/boost) | Multi-agent deep reasoning with isolated verification loops. |
 | **Multi-day project, repository migration, or research** | [`/teamwork`](/docs/teamwork) | Collaborative agent teams with scoping interviews and milestone roadmaps. |
+| **Same task across many files or packages, or staged steps** | [`/run-workflow`](/docs/dynamic-workflows) | A reviewable Python script that runs agents in parallel or in sequence and collects structured results. |
 | **Large task that splits across independent files or packages** | [`/swarm`](/docs/swarm) | Parallel named workers and a verifier coordinating on a shared message board. |
 | **Feature requiring review before making code edits** | [`/plan`](/docs/plan) | Researches code, interviews requirements, and generates a reviewable plan. |
 | **Vague requirements needing architectural alignment** | [`/grill-me`](/docs/commands/grill-me) | Conducts a step-by-step interview to clarify edge cases and constraints. |
@@ -321,8 +335,10 @@ Public slash commands are supported across Antigravity developer surfaces:
 Explore related documentation and guides:
 
 *   [Boost deep reasoning (`/boost`)](/docs/boost): Dive deep into the three-tier multi-agent reasoning hierarchy.
+*   [Swarm (`/swarm`)](/docs/swarm): Coordinate named workers and a verifier on a shared message board for parallel tasks.
 *   [Plan slash command (`/plan`)](/docs/plan): Conduct structured planning, requirement discovery, and interactive interviews.
 *   [Teamwork agent teams (`/teamwork`)](/docs/teamwork): Learn how collaborative agent teams tackle large-scale migrations.
+*   [Dynamic Workflows (`/run-workflow`)](/docs/dynamic-workflows): Orchestrate many agents with a reviewable Python script.
 *   [Side question command (`/btw`)](/docs/cli/commands/btw): Ask quick background questions without adding to your conversation history.
 *   [Antigravity guide command (`/antigravity-guide`)](/docs/commands/antigravity-guide): Ask how to use or configure Antigravity and get answers from the official documentation.
 *   [Goal command (`/goal`)](/docs/commands/goal): Run long-horizon tasks autonomously until every deliverable is verified.
