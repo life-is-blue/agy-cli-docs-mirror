@@ -12,6 +12,7 @@
   - [Antigravity guide command (/antigravity-guide)](antigravity/commands/antigravity-guide.md)
   - [Automation command (/automation)](antigravity/commands/automation.md)
   - [Browser command (/browser)](antigravity/commands/browser.md)
+  - [Side question command (/btw)](antigravity/commands/btw.md)
   - [Generative UI command (/generative_ui)](antigravity/commands/generative-ui.md)
   - [Goal command (/goal)](antigravity/commands/goal.md)
   - [Grill me command (/grill-me)](antigravity/commands/grill-me.md)
@@ -59,7 +60,6 @@
   - [Reviewing artifacts](antigravity/cli/artifacts.md)
   - [CLI best practices](antigravity/cli/best-practices.md)
   - [Agents command (/agents)](antigravity/cli/commands/agents.md)
-  - [Side question command (/btw)](antigravity/cli/commands/btw.md)
   - [Changelog command (/changelog)](antigravity/cli/commands/changelog.md)
   - [Code search command (/codesearch)](antigravity/cli/commands/codesearch.md)
   - [Context command (/context)](antigravity/cli/commands/context.md)
@@ -111,3 +111,5 @@
   - [Structured output](antigravity/sdk/structured-output.md)
   - [Subagents](antigravity/sdk/subagents.md)
   - [Tools and skills](antigravity/sdk/tools.md)
+- Workspace
+  - [Google Workspace accounts](antigravity/workspace.md)

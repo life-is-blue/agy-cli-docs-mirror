@@ -43,7 +43,7 @@ The following table provides a complete reference for all public slash commands:
 | [`/automation`](/docs/commands/automation) | Automation | Has the agent set up a scheduled background automation managed in the **Automations** tab. Antigravity App only. | All plans | Scheduled |
 | [`/schedule`](/docs/commands/schedule) | Automation | Schedules an instruction as a one-time timer or recurring cron job. | All plans | Scheduled |
 | [`/browser`](/docs/commands/browser) | Tools | Launches a [browser subagent](/docs/browser) for live UI testing, screenshots, and web inspection (built-in browser on personal App accounts `v2.30.0+`, or Chrome DevTools MCP). | All plans | Minutes |
-| [`/btw`](/docs/cli/commands/btw) | Tools | Asks a quick contextual question in the background without pausing work. | All plans | Immediate |
+| [`/btw`](/docs/commands/btw) | Tools | Asks a side question in a read-only fork of the conversation without pausing work. | All plans | Immediate |
 | [`/generative_ui`](/docs/commands/generative-ui) | Tools | Builds interactive widgets, such as diagrams, charts, and explainers, as HTML artifacts or inline in the conversation. Antigravity App only. | All plans | Minutes |
 | [`/antigravity-guide`](/docs/commands/antigravity-guide) | Tools | Answers questions about using Antigravity from the official documentation. | All plans | Immediate |
 
@@ -258,7 +258,7 @@ For built-in browser workflows, parallel tabs, and sign-in handoff, refer to [Br
 
 ### /btw
 
-Submits an out-of-band query that runs in a lightweight background thread without interrupting or pausing the primary agent’s active execution.
+Asks a side question in a fork of the conversation without interrupting or pausing the primary agent’s active execution. The side question can call read-only tools, such as reading files or searching your workspace, to check its answer, and neither the question nor the answer is added to your main conversation.
 
 To ask an aside while an implementation is running, run the following command:
 
@@ -266,7 +266,7 @@ To ask an aside while an implementation is running, run the following command:
 /btw Which file did you say defines the UserSession interface?
 ```
 
-For CLI card navigation, history browsing, and `/copy btw` clipboard support, refer to the [Side question (`/btw`) command guide](/docs/cli/commands/btw).
+For how side questions use tools and permissions, the Antigravity App’s **Side Question** tab, and CLI card navigation, refer to the [Side question (`/btw`) command guide](/docs/commands/btw).
 
 ### /generative\_ui
 
@@ -313,7 +313,7 @@ The following decision guide outlines when to use each command based on your tas
 | **Web research, UI validation, and layout inspection** | [`/browser`](/docs/commands/browser) | [Built-in browser](/docs/browser) (`v2.30.0+` App personal accounts) or Chrome DevTools MCP browser subagent for live page interactions. |
 | **Persistent scheduled background automation** | [`/automation`](/docs/commands/automation) | Creates a scheduled automation managed in the Automations tab. Antigravity App only. |
 | **One-shot countdown timer or recurring background schedule** | [`/schedule`](/docs/commands/schedule) | Runs instructions in the background on cron schedules. |
-| **Quick side query without pausing primary agent work** | [`/btw`](/docs/cli/commands/btw) | Lightweight out-of-band query executed in the background. |
+| **Quick side query without pausing primary agent work** | [`/btw`](/docs/commands/btw) | Read-only fork of the conversation that can check files without interrupting the agent. |
 | **Visual explanation, diagram, chart, or clickable prototype** | [`/generative_ui`](/docs/commands/generative-ui) | Interactive HTML widgets in the side panel or inline in the conversation (Antigravity App only). |
 | **Question about how to use or configure Antigravity** | [`/antigravity-guide`](/docs/commands/antigravity-guide) | Answers from the official documentation for every Antigravity surface. |
 
@@ -339,7 +339,7 @@ Explore related documentation and guides:
 *   [Plan slash command (`/plan`)](/docs/plan): Conduct structured planning, requirement discovery, and interactive interviews.
 *   [Teamwork agent teams (`/teamwork`)](/docs/teamwork): Learn how collaborative agent teams tackle large-scale migrations.
 *   [Dynamic Workflows (`/run-workflow`)](/docs/dynamic-workflows): Orchestrate many agents with a reviewable Python script.
-*   [Side question command (`/btw`)](/docs/cli/commands/btw): Ask quick background questions without adding to your conversation history.
+*   [Side question command (`/btw`)](/docs/commands/btw): Ask quick background questions without adding to your conversation history.
 *   [Antigravity guide command (`/antigravity-guide`)](/docs/commands/antigravity-guide): Ask how to use or configure Antigravity and get answers from the official documentation.
 *   [Goal command (`/goal`)](/docs/commands/goal): Run long-horizon tasks autonomously until every deliverable is verified.
 *   [Learn command (`/learn`)](/docs/commands/learn): Persist session corrections as rules and skills through a reviewable proposal.

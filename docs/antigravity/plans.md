@@ -2,13 +2,15 @@
 
 Google Antigravity is available to individual accounts under [terms](/terms) derived from Google’s Terms of Service, and to teams under Google Cloud terms in Gemini Enterprise. To learn more, refer to [Antigravity in Gemini Enterprise](/docs/enterprise).
 
+The plans on this page apply to personal Google Accounts. Google Workspace plans don’t include Antigravity plans or higher rate limits. If you use a Google Workspace account, refer to [Google Workspace accounts](/docs/workspace) for your options.
+
 Rate limits and model availability differ based on your [Google AI](https://one.google.com/about/google-ai-plans/) plan. Refer to [Models](/docs/models) for a breakdown of model availability.
 
 ## Baseline quota
 
 All plans receive the following baseline features:
 
-*   Use of Gemini models, including Gemini 4 Hydrogen, Gemini 3.8 Flash, and other offered Gemini Enterprise models as the core agent model
+*   Use of Gemini models, including Gemini 3.8 Flash and other offered Gemini Enterprise models as the core agent model
 *   Unlimited Tab completions
 *   Access to all product features, such as scheduled tasks and the CLI
 

@@ -15,13 +15,13 @@ Type `/` inside the prompt box to open the typeahead command selection menu.
 | **`/artifact`** | Tools & Tasks | — | Open the Artifact Review panel. |
 | **[`/boost`](/docs/boost)** `<task>` | Reasoning | — | Run on-demand multi-agent deep reasoning loops. |
 | **[`/browser`](/docs/commands/browser)** `<task>` | Tools & Tasks | — | Delegate web browsing, UI verification, and in-browser debugging to the [browser subagent](/docs/commands/browser). |
-| **[`/btw`](/docs/cli/commands/btw) `<query>`** | Utilities | — | Ask a [side question in the background](/docs/cli/commands/btw) without interrupting the main conversation. |
+| **[`/btw`](/docs/commands/btw) `<query>`** | Utilities | — | Ask a [side question in the background](/docs/commands/btw) without interrupting the main conversation. |
 | **[`/changelog`](/docs/cli/commands/changelog)** | Utilities | — | Open the [interactive release notes viewer](/docs/cli/commands/changelog) or print CLI changes in headless mode. |
 | **`/clear`** | Utilities | `/new` | Clear the terminal and reset active conversation contexts. |
 | **[`/codesearch`](/docs/cli/commands/codesearch) `<query>`** | Utilities | `/cs`, `/search` | Open the [interactive Code Search panel](/docs/cli/commands/codesearch) to search code across the workspace. |
 | **`/config`** | Configurations | `/settings` | Open the interactive Settings Editor overlay. |
 | **[`/context`](/docs/cli/commands/context)** | Utilities | — | Open the [context usage visualization panel](/docs/cli/commands/context). |
-| **`/copy [n|btw]`** | Utilities | — | Copy the last agent response, the n-th most recent response, or the latest [`/btw`](/docs/cli/commands/btw) answer. |
+| **`/copy [n|btw]`** | Utilities | — | Copy the last agent response, the n-th most recent response, or the latest [`/btw`](/docs/commands/btw) answer. |
 | **[`/credits`](/docs/cli/commands/credits)** | Account | — | View remaining AI credits and purchase links. |
 | **[`/diff`](/docs/cli/commands/diff)** | Utilities | — | Open the [interactive diff viewer](/docs/cli/commands/diff) to view changes, turns, and commits. |
 | **[`/effort`](/docs/cli/commands/effort) `[level]`** | Configurations | — | Set or inspect the active model’s [reasoning effort level](/docs/cli/commands/effort) (`low` through `max`, depending on the model). |

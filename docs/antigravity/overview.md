@@ -343,7 +343,7 @@ SDK
 | [VPC Service Controls (VPC-SC)](/docs/enterprise/) |  |  |  |  |
 | [Request, response & telemetry logging](/docs/enterprise/) |  |  |  |  |
 
-Capabilities are tailored to each surface's execution target. Enterprise features under IDE Ext. apply to Antigravity IDE extensions (GA in VS Code & Visual Studio; Preview in JetBrains, Zed, and Xcode).
+Capabilities are tailored to each surface's execution target. Enterprise features under IDE Ext. apply to Antigravity IDE extensions (GA in VS Code, Visual Studio, JetBrains, Zed, and Xcode; Preview in Eclipse).
 
 [Features guide](/docs/features/)
 

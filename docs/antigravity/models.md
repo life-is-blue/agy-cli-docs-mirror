@@ -22,7 +22,7 @@ For the core reasoning model, Antigravity offers leading frontier models. Availa
 | --- | --- | --- | --- | --- |
 | [Gemini 4 Carbon](/blog/gemini-4-carbon-in-google-antigravity) | ❌ | ❌ | ✅ | ✅ |
 | [Gemini 4 Argon](/blog/gemini-4-argon-in-google-antigravity) | ❌ | ✅† | ✅ | ✅ |
-| [Gemini 4 Hydrogen](/blog/gemini-4-hydrogen-in-google-antigravity) | ✅ | ✅ | ✅ | ✅ |
+| [Gemini 4 Hydrogen](/blog/gemini-4-hydrogen-in-google-antigravity) | ❌ | ✅\*\* | ✅ | ✅ |
 | [Orchestrator (Carbon)](/docs/models#orchestrator) | ❌ | ❌ | ✅ | ❌ |
 | [Orchestrator (Argon)](/docs/models#orchestrator) | ❌ | ✅† | ✅ | ❌ |
 | [Gemini 3.8 Flash](/blog/gemini-3-8-flash-in-google-antigravity) | ✅ | ✅ | ✅ | ✅ |

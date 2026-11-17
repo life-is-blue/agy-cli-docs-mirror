@@ -48,6 +48,10 @@
         "slug": "antigravity/commands/browser"
       },
       {
+        "label": "Side question command (/btw)",
+        "slug": "antigravity/commands/btw"
+      },
+      {
         "label": "Generative UI command (/generative_ui)",
         "slug": "antigravity/commands/generative-ui"
       },
@@ -240,10 +244,6 @@
       {
         "label": "Agents command (/agents)",
         "slug": "antigravity/cli/commands/agents"
-      },
-      {
-        "label": "Side question command (/btw)",
-        "slug": "antigravity/cli/commands/btw"
       },
       {
         "label": "Changelog command (/changelog)",
@@ -460,6 +460,16 @@
       {
         "label": "Tools and skills",
         "slug": "antigravity/sdk/tools"
+      }
+    ]
+  },
+  {
+    "label": "Workspace",
+    "collapsed": true,
+    "items": [
+      {
+        "label": "Google Workspace accounts",
+        "slug": "antigravity/workspace"
       }
     ]
   }

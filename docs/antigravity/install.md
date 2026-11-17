@@ -23,16 +23,20 @@ Select your surface below to authenticate your account, switch credentials, or c
 3.  Complete the browser-based OAuth flow using your personal Google Account (Free, Pro, or Ultra plan).
 4.  Once authenticated, the browser redirects back to Antigravity App. On first launch (`v2.30.0+`), select what best describes your work (or click **Skip** for the default **Software Engineering** setup) and confirm **Terms & Data Use** to configure your initial [interface layout](/docs/settings#interface-layout) and starter prompts on **Home** (refer to [Get started](/docs/getting-started)).
 
+Signing in with a Google Workspace account?
+
+Google Workspace plans don’t include Antigravity plans. To compare your options, including paying as you go with your own Google Cloud project, refer to [Google Workspace accounts](/docs/workspace).
+
 #### Gemini Enterprise & Google Cloud Account
 
-Google Antigravity uses a single sign-on (SSO) flow for corporate business accounts and automatically detects your assigned Gemini Enterprise license tier:
+Google Antigravity uses a single sign-on (SSO) flow for business accounts. You can use a Gemini Enterprise license or pay as you go with your own Google Cloud project:
 
-1.  Start **Antigravity App** and select **Sign in** to open the browser authentication flow.
-2.  Choose **Business account** _(subject to the Google Cloud Terms of Service)_.
-3.  Select **Continue with Google Cloud** (or select **Advanced WIF Configuration** and enter your organization’s **WIF Configuration String** for Bring Your Own Identity / Workforce Identity Federation).
-4.  Complete authentication in your browser.
-5.  Once authenticated, the **License Selector** displays your assigned licenses.
-6.  Confirm the project linked to your license and select it. Alternatively, select **Other** to self-assign a license by entering your Google Cloud Project ID and selecting a location (`global`, `us`, or `eu`).
+1.  Start **Antigravity App** and select **Use Business Account** _(subject to the Google Cloud Terms of Service)_.
+2.  Select **Continue with Google Cloud** (or select **Use Advanced SSO Config** and enter your organization’s **WIF Configuration String** for Bring Your Own Identity / Workforce Identity Federation).
+3.  Complete authentication in your browser.
+4.  In **Select Billing Model**, choose how you pay:
+    *   **Subscription**: Select the Gemini Enterprise license linked to your project. If it isn’t listed, select **Other License** to self-assign a license by entering your Google Cloud Project ID and selecting a location (`global`, `us`, or `eu`).
+    *   **Pay As You Go**: Enter your Google Cloud Project ID and choose a region to pay per token without a Gemini Enterprise license (refer to [Connect a Google Cloud project](/docs/workspace#option-2-connect-a-google-cloud-project)).
 
 Note
 
@@ -71,7 +75,7 @@ When launching `agy` on your local machine, the CLI attempts to access your oper
 If no saved session is found:
 
 1.  The CLI automatically launches your local default web browser.
-2.  Sign in using your approved account credentials (personal Google Account, or choose **Business account** → **Continue with Google Cloud** / **Advanced WIF Configuration** for [Gemini Enterprise](/docs/enterprise)).
+2.  Sign in using your approved account credentials: select **Google OAuth** for a personal Google Account, or **Use a Google Cloud project** → **Continue with Google Cloud** / **Use advanced SSO config** for [Gemini Enterprise](/docs/enterprise) or pay-as-you-go billing. If you use a Google Workspace account without Gemini Enterprise, refer to [Google Workspace accounts](/docs/workspace).
 
 #### Remote SSH OAuth flow
 
@@ -187,7 +191,7 @@ When executing the CLI installation scripts (see [Quickstart](/docs/getting-star
 Antigravity uses a unified authentication system across all [IDE extensions](/docs/ide/extensions) ([Visual Studio Code](/docs/ide/extensions/vscode), [IntelliJ-based IDEs](/docs/ide/extensions/jetbrains), [Visual Studio](/docs/ide/extensions/visual-studio), [Zed](/docs/ide/extensions/zed), [Xcode](/docs/ide/extensions/xcode), and [Eclipse](/docs/ide/extensions/eclipse)), the Antigravity CLI, and Antigravity App.
 
 *   **Individual developers**: Click the Antigravity icon in your editor’s activity bar or tool window (or select **Antigravity** and use the **…** button under **Xcode** > **Settings** > **Intelligence** in Xcode) and click **Sign In** to complete authentication in your default web browser.
-*   **Enterprise teams & organizations**: Click **Sign In** and select **Sign in with Gemini Enterprise** (or choose **Business account** → **Continue with Google Cloud** / BYOID), then select your target **Google Cloud Project** and **Region** (`global`, `us`, or `eu`). Gemini Enterprise authentication for JetBrains IDEs, Zed, Xcode, and Eclipse is currently in **Preview**.
+*   **Enterprise teams & organizations**: Click **Sign In** and select **Sign in with Gemini Enterprise** (or choose **Business account** → **Continue with Google Cloud** / BYOID), then select your target **Google Cloud Project** and **Region** (`global`, `us`, or `eu`). Gemini Enterprise authentication for Eclipse is currently in **Preview**.
 
 #### Agent configuration (`auth.type`)
 
@@ -207,7 +211,7 @@ For individual Google AI subscription plans (including Free, Pro, and Ultra):
 
 ### Gemini Enterprise
 
-Reach out to your cloud administrator for your GCP Project ID and Region (Enterprise support for JetBrains, Zed, Xcode, and Eclipse is currently in Preview):
+Reach out to your cloud administrator for your GCP Project ID and Region (Enterprise support for Eclipse is currently in Preview):
 
 ```json
 {
