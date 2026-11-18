@@ -31,12 +31,12 @@ Google Workspace plans don’t include Antigravity plans. To compare your option
 
 Google Antigravity uses a single sign-on (SSO) flow for business accounts. You can use a Gemini Enterprise license or pay as you go with your own Google Cloud project:
 
-1.  Start **Antigravity App** and select **Use Business Account** _(subject to the Google Cloud Terms of Service)_.
+1.  Start **Antigravity App** and select **Use Business Account** _(subject to the Google Cloud Terms of Service)_. If you’ve signed in before, select **Other sign-in options** first.
 2.  Select **Continue with Google Cloud** (or select **Use Advanced SSO Config** and enter your organization’s **WIF Configuration String** for Bring Your Own Identity / Workforce Identity Federation).
 3.  Complete authentication in your browser.
 4.  In **Select Billing Model**, choose how you pay:
     *   **Subscription**: Select the Gemini Enterprise license linked to your project. If it isn’t listed, select **Other License** to self-assign a license by entering your Google Cloud Project ID and selecting a location (`global`, `us`, or `eu`).
-    *   **Pay As You Go**: Enter your Google Cloud Project ID and choose a region to pay per token without a Gemini Enterprise license (refer to [Connect a Google Cloud project](/docs/workspace#option-2-connect-a-google-cloud-project)).
+    *   **Pay As You Go**: Enter your Google Cloud Project ID and choose a region to pay per token without a Gemini Enterprise license (refer to [Pay As You Go](/docs/pay-as-you-go)).
 
 Note
 

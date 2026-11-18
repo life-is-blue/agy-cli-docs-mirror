@@ -322,7 +322,7 @@ Refer to the [Terms of Service](/terms). You can opt out of data collection at a
 
 ## How do I sign in with a Google Cloud project?
 
-To pay per token with your own Google Cloud project, follow [Connect a Google Cloud project](/docs/workspace#option-2-connect-a-google-cloud-project). To sign in with a Gemini Enterprise license, follow [Antigravity in Gemini Enterprise](/docs/enterprise).
+To pay per token with your own Google Cloud project, follow [Pay As You Go](/docs/pay-as-you-go). To sign in with a Gemini Enterprise license, follow [Antigravity in Gemini Enterprise](/docs/enterprise).
 
 ## How do I get support?
 

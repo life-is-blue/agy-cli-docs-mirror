@@ -6,9 +6,80 @@ New versions roll out gradually and may take a few days to reach all users.
 
 ## Antigravity App
 
-### [v2.32.1](/releases?tab=hub&version=2.32.1 "View release 2.32.1")
+### [v2.33.0](/releases?tab=hub&version=2.33.0 "View release 2.33.0")
 
 Latest
+
+November 17, 2026
+
+### Connect over SSH and GitHub pull request integration
+
+This release adds SSH host connections for running projects and agents on remote Linux machines, along with live GitHub pull request status pills, hover cards, and an Overview Pull Requests section. It also brings in-page Cmd/Ctrl+F search to the built-in browser and opens /swarm and UI plugin panels to business and enterprise accounts. It includes 16 improvements and 21 fixes.
+
+**Improvements:**
+
+*   You can now connect the Antigravity App to a remote 64-bit Linux machine over SSH from the sidebar, the project menu (SSH Host...), or the command palette (Connect to SSH Host...). Antigravity installs its remote server automatically over OpenSSH using your ~/.ssh/config so projects, Git worktrees, agents, and terminals run on the host and keep working even after you close the window.
+*   GitHub pull request links in chat and URL artifact cards now render as live status pills with hover cards, alongside a new Pull Requests section in the Overview panel and an optional conversation sidebar indicator.
+*   Finished /btw side-question answers now include an Insert into main conversation action, and you can start a side question from selected subagent text or promote a subagent tab to Full View when running /btw.
+*   You can now search within pages in the built-in browser with Cmd/Ctrl+F from either the browser toolbar or the page itself, while web apps with their own search keep handling the shortcut.
+*   You can now choose the Nord dark theme and matching syntax palette in Settings > Appearance.
+*   Added syntax highlighting for R and R Markdown (.R, .Rmd, .Rprofile, .Renviron, and NAMESPACE), including YAML frontmatter and inline or fenced R code chunks.
+*   Business and enterprise accounts can now use /swarm and open UI plugin panels from the side panel, Overview, New Tab, and title bar when allowed by organization admin settings.
+*   Added Cloudflare, Grafana Cloud, SonarQube, incident.io, Better Stack, Tavily, and Levels.fyi to the partner plugin marketplace, and updated the Gemini API plugin and 15 partner plugins.
+*   You can now open and play audio and video files up to 200 MB in the side panel instead of hitting a 20 MB limit, and attach .amr voice recordings in Gemini conversations.
+*   Text-heavy and dense PDFs now open and scroll faster in the side panel by deferring text-layer rendering, with a toolbar toggle to turn text selection on for very large documents.
+*   Settings > Shortcuts now lists additional navigation, conversation, and layout shortcuts for customization and stops showing false conflict warnings for inactive bindings.
+*   Messages sent immediately while the agent is working now appear as sent without pulsing and keep the turn above them steady on delivery. Agent response actions are now left-aligned below the status line, and a single running subagent opens from the status line in one step.
+*   Improved performance when switching conversations, typing in long chats, scrolling large file diffs in Review, reverting turns, and playing the welcome intro.
+*   Selected conversations now have stronger contrast in light themes, disabled Download and Export actions stay visible with a reason when a file cannot load, and shell commands run in the first listed project folder.
+*   Device management policies in admin\_settings.json can now lock sign-in and project settings, enforce permission ceilings, disable remote control, and restrict plugins or marketplace access.
+*   If you use remote agents, editing env-setup.sh now shows Saved setup routine with an Open in settings link, project setup scripts are labeled Environment, and multiple open windows share a single cloud polling loop.
+
+**Fixes:**
+
+*   Fixed an issue where the Continue button on the Terms of Service dialog could be pushed off screen in shorter windows and where the Creating a Project tip overlapped the welcome dialog on first launch.
+*   Fixed an issue where opening Antigravity offline or hitting a temporary network failure signed you out instead of keeping your saved session.
+*   Fixed an issue where macOS could repeatedly show Keychain Not Found dialogs every hour after a keychain write failed.
+*   Fixed an issue where Workforce Identity Federation (SSO) accounts had to re-enter their sign-in configuration after token expiry or an app restart.
+*   Fixed an issue where refreshing models or restarting after an enterprise license was revoked left the model selector empty instead of reopening subscription selection, and where top-tier Google AI plans still showed Upgrade links.
+*   Fixed an issue where, on Windows, timed-out Git status checks could leave background git.exe processes running and consuming gigabytes of memory.
+*   Fixed an issue where, on Windows, custom agent, rule, and hooks.json files saved with a UTF-8 byte order mark were ignored, command hooks with quoted paths failed, and multi-line scheduled automation prompts were truncated to the first line.
+*   Fixed an issue where attaching an empty text, Markdown, JSON, or HTML file caused that turn and every later message in the conversation to fail.
+*   Fixed an issue where sent voice memos and audio attachments showed 0:00 without playing, and where removing an audio attachment in the composer transferred its playback state to the next recording.
+*   Fixed an issue where dragging a file onto the edge padding of the message box failed with an editor error, and where moving up to another choice in a single-select question card erased your custom Other answer.
+*   Fixed an issue where @ and / menus in a split-view new-conversation pane were cut off at the top edge, and where pressing Ctrl+D on Windows or Linux split the pane instead of canceling an active turn or prompt.
+*   Fixed an issue where switching between View File and View Diff could leave the diff pane blank, where files over 500 KB showed a false trailing change, and where resizing the side panel briefly shifted Markdown scroll position.
+*   Fixed an issue where custom file viewers from plugins and MCP apps still showed non-working Preview, Raw, Word Wrap, and Export as PDF controls in the side panel.
+*   Fixed an issue where built-in browser approval prompts from the browser agent timed out after 60 seconds while you were away, where Comment and Quote missed text in same-origin iframes, and where the desktop app opened a local debug port on startup.
+*   Fixed an issue where remote MCP servers using OAuth signed you out after an hour when tokens refreshed, where configured MCP headers were sent across cross-origin redirects, and where OAuth sign-in callbacks failed on IPv6-only machines.
+*   Fixed an issue where empty internal plugin projects appeared in project pickers, where Create with Prompt on the Automations page could target a remote project instead of This Computer, and where /learn appended past rule file size limits.
+*   Fixed an issue where Mark all as read failed if an older conversation file was missing on disk, where files opened in the side panel were missing from Recent Files, and where renaming a conversation in the sidebar lost keyboard focus.
+*   Fixed an issue where long reasoning turns timed out after five minutes of thinking, where stale pooled network connections failed retries, and where a corrupt queued message file could block later messages in a conversation.
+*   Fixed an issue where unanswered microphone permission prompts in Voice mode waited indefinitely instead of timing out with a retryable error.
+*   Fixed an issue where organization file-access policies reset Always Proceed terminal settings on admin-managed accounts, and where hooks or wildcard rules could bypass enforced command or outside-project file review.
+*   Fixed an issue where, in remote conversations, post-clone setup scripts left the status stuck on Cloning repositories or Copying files instead of showing Setting up environment.
+
+---
+
+### [v2.32.2](/releases?tab=hub&version=2.32.2 "View release 2.32.2")
+
+November 16, 2026
+
+### Multi-turn /btw side-question tabs and diagnostic logging fix
+
+This release brings multi-turn /btw side-question tabs with read-only tool access to the Antigravity App and fixes an issue that could truncate diagnostic logs. It includes 1 improvement and 1 fix.
+
+**Improvements:**
+
+*   Side questions (/btw) now open in a dedicated Side Question tab in the side panel where you can ask multi-turn follow-up questions and let the agent read files, search your workspace, and run read-only commands without interrupting the main conversation.
+
+**Fixes:**
+
+*   Fixed an issue that could truncate diagnostic logs.
+
+---
+
+### [v2.32.1](/releases?tab=hub&version=2.32.1 "View release 2.32.1")
 
 November 13, 2026
 

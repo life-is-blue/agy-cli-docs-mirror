@@ -85,7 +85,7 @@ Let the `browser` subagent open pages, click through flows, inspect console and 
 ### Antigravity CLI
 
 *   **On-demand via `/browser`**: Run [`/browser`](/docs/commands/browser) to drive local Google Chrome (`v144+`) through Chrome DevTools MCP in an isolated subagent context.
-*   **DevTools profiling and recordings**: Capture screenshots, console and network logs, performance traces, Lighthouse audits, and optional WebM session recordings.
+*   **DevTools profiling and recordings**: Capture screenshots, console and network logs, performance traces, Lighthouse audits, and optional MP4 session recordings.
 
 [Learn more about browser use](/docs/browser).
 

@@ -395,16 +395,16 @@ When an action isn’t explicitly listed in your `allow`, `deny`, or `ask` lists
 
 Your fine-grained `allow`, `ask`, and `deny` rules always take precedence (`Deny > Ask > Allow`). For operations not covered by an explicit rule, Antigravity CLI evaluates your active [execution mode](/docs/cli/modes) (`--mode` or `agentMode` in `settings.json`) and `toolPermission` policy:
 
-*   **`auto` mode (`--mode=auto` or `"agentMode": "auto"`)**: Automatically approves workspace file edits and runs terminal commands inside the [Terminal sandbox](/docs/sandbox) by default. When a command needs to run outside the sandbox, Antigravity CLI automatically evaluates it so safe, reversible commands run without prompting, while risky or irreversible commands still pause for your approval. When active, the bottom-right status bar displays `auto` and the prompt placeholder reads `Auto mode: edits & safe commands auto-approved (shift+tab to cycle)`.
+*   **`auto` mode (`--mode=auto` or `"agentMode": "auto"`, default where available in `v1.5.7+`)**: Automatically approves workspace file edits and runs terminal commands inside the [Terminal sandbox](/docs/sandbox) by default. When a command needs to run outside the sandbox, Antigravity CLI automatically evaluates it so safe, reversible commands run without prompting, while risky or irreversible commands still pause for your approval. When active, the bottom-right status bar displays `auto` and the prompt placeholder reads `Auto mode: edits & safe commands auto-approved (shift+tab to cycle)`.
 *   **`accept-edits` mode (`--mode=accept-edits`)**: Automatically approves workspace file edits and creations while continuing to evaluate shell commands against your `toolPermission` policy and fine-grained rules.
-*   **`default` mode (default; select `default` in `/config`)**: Prompts for interactive diff review before modifying or creating files, and evaluates shell commands against your `toolPermission` policy (`request-review` by default).
+*   **`default` mode (select `default` in `/config`, or set `agentMode` to `""`)**: Prompts for interactive diff review before modifying or creating files, and evaluates shell commands against your `toolPermission` policy (`request-review` by default).
 *   **`toolPermission` overrides**: `strict` and `always-proceed` (`--dangerously-skip-permissions`) take precedence over `auto` mode. Outside `auto` mode, `proceed-in-sandbox` runs sandboxed commands without prompting and asks before commands outside the sandbox. Starting in `v1.4.4`, if the sandbox isn’t available on your machine, `proceed-in-sandbox` behaves like `request-review` (refer to [Terminal sandbox](/docs/sandbox)).
 
 Refer to **[Choose an execution mode](/docs/cli/modes)** for details on switching modes with Shift + Tab, `--mode`, or `/config`.
 
 Note
 
-The CLI starts in `default` mode (`request-review`) unless you choose another mode. `auto` mode is available in `v1.3.5+` on **macOS and Linux** and `v1.4.4+` on **Windows** when the terminal sandbox is available. It isn’t available for business or enterprise accounts.
+Since `v1.5.7`, the CLI starts in `auto` mode where Auto mode is available, and in `default` mode (`request-review`) otherwise, unless you choose another mode. `auto` mode is available in `v1.3.5+` on **macOS and Linux** and `v1.4.4+` on **Windows** when the terminal sandbox is available. It isn’t available for business or enterprise accounts.
 
 * * *
 

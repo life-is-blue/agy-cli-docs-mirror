@@ -2,9 +2,9 @@
 
 This page is for Google Workspace accounts: email addresses on your own domain, such as `you@yourcompany.com`, that are managed through Google Workspace or Cloud Identity. This includes companies with only one person. It explains how to get access to Google Antigravity and what each option costs.
 
-Workspace subscriptions don’t include Antigravity
+Workspace subscriptions don’t include Antigravity plans
 
-Google Workspace plans don’t currently include Antigravity plans, higher rate limits, or AI credits. We’re working to improve this. Until then, choose one of the options below.
+You can sign in with a Workspace account and use a limited starter quota, but Google Workspace plans don’t currently include Antigravity plans, higher rate limits, or AI credits. We’re working to improve this. Until then, for more usage, choose one of the options below.
 
 ## Check whether you have a Google Workspace account
 
@@ -36,46 +36,13 @@ To switch accounts, sign out of Antigravity (run `/logout` in the Antigravity CL
 
 ## Option 2: Connect a Google Cloud project
 
-Connect Antigravity to a Google Cloud project and pay only for the tokens you use. Requests go to Gemini Enterprise Agent Platform (formerly Vertex AI) in your project and are billed to the project’s Cloud Billing account at [Agent Platform generative AI pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing). You don’t need a Gemini Enterprise subscription.
+Sign in with your Workspace account, choose the **Pay As You Go** billing model, and connect Antigravity to a Google Cloud project. Requests go to Gemini Enterprise Agent Platform in your project, and you pay only for the tokens you use. You don’t need a Gemini Enterprise subscription.
 
 *   **Tradeoffs**: You pay API pricing for every request instead of a flat subscription, and there are no included quotas.
 *   **Terms**: Usage is covered by the Google Cloud Terms of Service, and Antigravity doesn’t collect telemetry.
+*   **Setup**: You need a Google Cloud project with billing and the Gemini Enterprise API (`aiplatform.googleapis.com`) turned on. If you’re the only person in your company, you’re usually also the administrator, and you can set this up in the [Google Cloud console](https://console.cloud.google.com) with your Workspace account.
 
-### Set up your Google Cloud project
-
-A project owner or administrator completes these steps once. You can sign in to the [Google Cloud console](https://console.cloud.google.com) with the same Workspace account you use for Antigravity. If you’re the only person in your company, you’re usually also the administrator.
-
-1.  **Select or create a project**: Choose an existing Google Cloud project or [create a new one](https://console.cloud.google.com/projectselector2).
-2.  **Turn on billing**: Make sure the project is linked to an active [Cloud Billing account](https://console.cloud.google.com/billing).
-3.  **Enable the API**: Enable the [Agent Platform API](https://console.cloud.google.com/apis/library/aiplatform.googleapis.com) (`aiplatform.googleapis.com`) in the project.
-4.  **Grant access**: Grant each developer the **Agent Platform User** (`roles/aiplatform.user`) IAM role on the project, or another role that includes the `aiplatform.endpoints.predict` permission.
-5.  **Enable partner models (optional)**: To use Anthropic Claude models, [enable them in Model Garden](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/use-partner-models) for your project. Antigravity hides partner models that your project can’t access.
-
-### Sign in with your project
-
-Use Antigravity App `v2.31.0` or later, or Antigravity CLI `v1.4.11` or later.
-
-### Antigravity App
-
-1.  Launch the Antigravity App and select **Use Business Account**.
-2.  Select **Continue with Google Cloud** and sign in with your Workspace account in the browser.
-3.  In **Select Billing Model**, select **Pay As You Go**.
-4.  In **Provide Google Cloud Project**, enter your project ID.
-5.  In **Choose Region**, select **Global**, **United States**, or **Europe**.
-
-### Antigravity CLI
-
-1.  Run `agy`. If you’re already signed in, run `/logout` first.
-2.  In **Select login method**, select **Use a Google Cloud project**.
-3.  Select **Continue with Google Cloud** and sign in with your Workspace account in the browser.
-4.  In **Select billing model**, select **Pay As You Go**.
-5.  Enter your project ID, then choose a region: `global`, `us`, or `eu`.
-
-To switch to a different project or region later, sign out and sign in again. For headless environments, you can authenticate with [Application Default Credentials](/docs/enterprise#application-default-credentials-adc) instead.
-
-Using the Antigravity CLI only?
-
-The Antigravity CLI can also run with a [Gemini API key](/docs/install?tab=cli#using-a-gemini-api-key) from Google AI Studio, billed at Gemini API pricing.
+For project setup and sign-in steps, refer to [Pay As You Go](/docs/pay-as-you-go).
 
 ## Option 3: Use Gemini Enterprise
 
@@ -89,7 +56,7 @@ If your organization wants seat-based licensing, included quotas, and centralize
 
 ### What happens if I sign in with my Workspace account using Continue with Google?
 
-By default, Antigravity gives your Workspace account a limited starter quota. If your Workspace administrator has turned off access for individuals, Antigravity shows **Sorry, this account is ineligible to use Antigravity** instead. The starter quota doesn’t support higher rate limits or AI credits, and you can’t upgrade it with a Workspace subscription. For more usage, choose one of the [options above](#choose-an-option).
+By default, Antigravity gives your Workspace account a limited starter quota, shown as **Antigravity Starter Quota**. If your Workspace administrator has turned off access for individuals, Antigravity shows that your account is ineligible instead. The starter quota doesn’t support higher rate limits or AI credits, and you can’t upgrade it with a Workspace subscription. For more usage, choose one of the [options above](#choose-an-option).
 
 ### Which Antigravity products does this page cover?
 

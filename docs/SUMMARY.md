@@ -99,6 +99,8 @@
   - [Chrome profile](antigravity/ide/separate-chrome-profile.md)
   - [Tab](antigravity/ide/tab.md)
   - [Workflows](antigravity/ide/workflows.md)
+- Pay As You Go
+  - [Pay As You Go](antigravity/pay-as-you-go.md)
 - Plans
   - [Plans](antigravity/plans.md)
 - Antigravity SDK

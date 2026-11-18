@@ -144,7 +144,7 @@ The sandbox is built on native operating system primitives, so there are no virt
 
 The configuration supports the following settings:
 
-*   **`agentMode`** (string, default: `""`, which is `default` mode): Setting `"agentMode": "auto"` enables the terminal sandbox automatically so commands run inside the sandbox by default, and automatically evaluates commands that need to run outside the sandbox so safe, reversible commands run without prompting while risky or irreversible commands pause for approval. Refer to [Choose an execution mode](/docs/cli/modes).
+*   **`agentMode`** (string, default: `"auto"` where available in `v1.5.7+`, otherwise `""` for `default` mode): Setting `"agentMode": "auto"` enables the terminal sandbox automatically so commands run inside the sandbox by default, and automatically evaluates commands that need to run outside the sandbox so safe, reversible commands run without prompting while risky or irreversible commands pause for approval. Refer to [Choose an execution mode](/docs/cli/modes).
 *   **`enableTerminalSandbox`** (boolean, default: `false`): Runs agent commands inside the sandbox. `auto` mode turns it on automatically.
 *   **`toolPermission`** (string, default: `"request-review"`): Outside `auto` mode, setting this to `"proceed-in-sandbox"` lets sandboxed commands run automatically, while commands that need to run outside the sandbox still prompt for review. Refer to [Settings](/docs/settings) for the other modes.
 

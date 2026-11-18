@@ -12,19 +12,19 @@ Welcome to Google Antigravity! Follow the instructions in this guide to get star
     
     macOSmacOS 13 (Ventura) or later (Apple Silicon or 64-bit Intel)
     
-    [Download for Apple Silicon](https://storage.googleapis.com/antigravity-public/antigravity-hub/2.32.1-6001966350991360/darwin-arm/Antigravity.dmg)[Download for Intel](https://storage.googleapis.com/antigravity-public/antigravity-hub/2.32.1-6001966350991360/darwin-x64/Antigravity.dmg)
+    [Download for Apple Silicon](https://storage.googleapis.com/antigravity-public/antigravity-hub/2.33.0-4731201358004224/darwin-arm/Antigravity.dmg)[Download for Intel](https://storage.googleapis.com/antigravity-public/antigravity-hub/2.33.0-4731201358004224/darwin-x64/Antigravity.dmg)
     
     Open the downloaded `Antigravity.dmg` disk image and drag **Antigravity** into your **Applications** folder. If you are upgrading an existing installation, select **Replace** when prompted instead of **Keep Both**.
     
     WindowsWindows 10 (64-bit) or Windows 11
     
-    [Download for x64](https://storage.googleapis.com/antigravity-public/antigravity-hub/2.32.1-6001966350991360/windows-x64/Antigravity-x64.exe)[Download for ARM64](https://storage.googleapis.com/antigravity-public/antigravity-hub/2.32.1-6001966350991360/windows-arm/Antigravity-arm64.exe)
+    [Download for x64](https://storage.googleapis.com/antigravity-public/antigravity-hub/2.33.0-4731201358004224/windows-x64/Antigravity-x64.exe)[Download for ARM64](https://storage.googleapis.com/antigravity-public/antigravity-hub/2.33.0-4731201358004224/windows-arm/Antigravity-arm64.exe)
     
     Run the downloaded `.exe` installer and follow the guided setup wizard.
     
     Linuxglibc >= 2.28, glibcxx >= 3.4.25 (Ubuntu 20+, Debian 10+, Fedora 36+, RHEL 8+)
     
-    [Download for x64](https://storage.googleapis.com/antigravity-public/antigravity-hub/2.32.1-6001966350991360/linux-x64/Antigravity.tar.gz)[Download for ARM64](https://storage.googleapis.com/antigravity-public/antigravity-hub/2.32.1-6001966350991360/linux-arm/Antigravity.tar.gz)
+    [Download for x64](https://storage.googleapis.com/antigravity-public/antigravity-hub/2.33.0-4731201358004224/linux-x64/Antigravity.tar.gz)[Download for ARM64](https://storage.googleapis.com/antigravity-public/antigravity-hub/2.33.0-4731201358004224/linux-arm/Antigravity.tar.gz)
     
     Extract the archive with `tar -xzf Antigravity.tar.gz` and launch `./Antigravity`.
     
@@ -112,6 +112,12 @@ For authentication options or enterprise configurations, consult the **[Authenti
     
     Open **JetBrains AI** > **Settings** > **Agents**, search for **Antigravity**, and click **Install**. See the [IntelliJ-based IDEs guide](/docs/ide/extensions/jetbrains).
     
+    **Android Studio:**
+    
+    **Requirements:** An Android Studio release with [Bring Your Own Agent](https://developer.android.com/studio/releases#bring-your-own-agent) (ACP) support.
+    
+    Open the **Agent** tool window, click the agent picker at the top of the panel, and choose **Google Antigravity** (or install it from **Settings** > **Tools** > **AI** > **Agents** on the **Marketplace** tab). See the [Android Studio guide](/docs/ide/extensions/android-studio).
+    
     **Visual Studio:**
     
     [Download from Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=Google.GoogleAntigravity)
@@ -154,7 +160,7 @@ For authentication options or enterprise configurations, consult the **[Authenti
     
     ![The Antigravity IDE editor with the Agent side panel open on the right, showing a new conversation with Gemini 4 Argon Medium selected in the model picker](/assets/image/docs/editor-open-agent-manager.png)
     
-2.  Sign in with your personal Google Account or **Gemini Enterprise** credentials (Enterprise support is available in IDE extensions—GA in VS Code, Visual Studio, JetBrains, Zed, and Xcode, and in **Preview** for Eclipse) when prompted in the Antigravity panel or settings.
+2.  Sign in with your personal Google Account or **Gemini Enterprise** credentials (Enterprise support is available in IDE extensions—GA in VS Code, Visual Studio, JetBrains, Zed, and Xcode, and in **Preview** for Android Studio and Eclipse) when prompted in the Antigravity panel or settings.
 
 ### Antigravity SDK
 

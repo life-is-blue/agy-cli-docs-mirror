@@ -4,7 +4,7 @@ To deploy Google Antigravity using models hosted directly within your organizati
 
 Using a Google Workspace account without Gemini Enterprise?
 
-You don’t need Gemini Enterprise to use Antigravity with a Workspace account. To compare simpler options, such as a personal Google Account or paying as you go with your own Google Cloud project, refer to [Google Workspace accounts](/docs/workspace).
+You don’t need Gemini Enterprise to use Antigravity with a Workspace account. To compare other options, such as a personal Google Account or paying as you go with your own Google Cloud project, refer to [Google Workspace accounts](/docs/workspace).
 
 Supported products: [Antigravity App](/product/antigravity-2) [Antigravity CLI](/product/antigravity-cli) [Visual Studio Code](/docs/ide/extensions/vscode) [Visual Studio](/docs/ide/extensions/visual-studio) [JetBrains](/docs/ide/extensions/jetbrains) [Zed](/docs/ide/extensions/zed) [Xcode](/docs/ide/extensions/xcode) [Eclipse (Preview)](/docs/ide/extensions/eclipse)
 
@@ -18,10 +18,10 @@ Enterprise integration is supported for the Antigravity App, Antigravity CLI, an
 
 ## Overview and key benefits
 
-You can connect Antigravity to Google Cloud in two ways:
+You can connect Antigravity to Gemini Enterprise in two ways:
 
-*   **Pay as you go with your Google Cloud project**: Select **Pay As You Go** when you sign in to send requests to Gemini Enterprise Agent Platform in your own Google Cloud project, billed per token. You don’t need a Gemini Enterprise license. Refer to [Connect a Google Cloud project](/docs/workspace#option-2-connect-a-google-cloud-project).
-*   **Gemini Enterprise license**: Connect with your **Gemini Enterprise Standard** or **Gemini Enterprise Plus** seat license to get access to included first-party quotas, managed overages, and centralized administrative controls across the Antigravity App, Antigravity CLI (`agy`), and Antigravity IDE extensions. No separate per-user Antigravity license is required.
+*   **Gemini Enterprise Pay-as-you-go**: No seat license. Usage is billed to an eligible Cloud Billing account linked to your Google Cloud project (an invoiced account, or a self-serve account with prepaid credits), and each user needs the `roles/discoveryengine.agentspaceUser` Identity and Access Management (IAM) role. When you sign in, select it as your license under **Subscription**. It’s separate from the **Pay As You Go** billing model, which doesn’t need a Gemini Enterprise license.
+*   **Gemini Enterprise Standard or Plus license**: Connect with your **Gemini Enterprise Standard** or **Gemini Enterprise Plus** seat license to get access to included first-party quotas, managed overages, and centralized administrative controls across the Antigravity App, Antigravity CLI (`agy`), and Antigravity IDE extensions. No separate per-user Antigravity license is required.
 
 By connecting Google Antigravity to your Google Cloud project, your organization gains:
 
@@ -44,14 +44,14 @@ After installing the [Antigravity App](/docs/getting-started), the [Antigravity 
 Google Antigravity uses a single sign-on (SSO) flow that automatically detects your assigned license tier:
 
 1.  Launch the **Antigravity App**, run `agy` (or run `/logout` inside `agy` to switch accounts) in the **Antigravity CLI**, or open your **[IDE extension](/docs/ide/extensions)**.
-2.  Start a business sign-in _(subject to the Google Cloud Terms of Service)_: select **Use Business Account** in the App, or **Use a Google Cloud project** in the CLI.
+2.  Start a business sign-in _(subject to the Google Cloud Terms of Service)_: select **Use Business Account** in the App, or **Use a Google Cloud project** in the CLI. In an IDE extension, use its Gemini Enterprise sign-in option instead, as described in [IDE extensions](/docs/ide/extensions#enterprise-teams-and-organizations).
 3.  Select **Continue with Google Cloud** and complete authentication in your browser.
 4.  In **Select Billing Model**, select **Subscription** (**Subscriptions** in the CLI).
 5.  Select the license linked to your Google Cloud project. If your license isn’t listed, select **Other License** in the App, or **Can’t find your subscription? Enter a Google Cloud project** in the CLI, to self-assign a license by entering your project ID and selecting a location (`global`, `us`, or `eu`). In the CLI, your project and location are saved under [`gcp`](/docs/settings?tab=cli#custommodelsconfig-and-gcp) in `~/.gemini/antigravity-cli/settings.json` to pre-fill future sign-ins.
 
 No Gemini Enterprise license?
 
-To pay per token with your own Google Cloud project instead, select **Pay As You Go** in step 4. Refer to [Connect a Google Cloud project](/docs/workspace#option-2-connect-a-google-cloud-project).
+To pay per token with your own Google Cloud project instead, select **Pay As You Go** in step 4. Refer to [Pay As You Go](/docs/pay-as-you-go).
 
 Note
 

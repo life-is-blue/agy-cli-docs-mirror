@@ -412,6 +412,16 @@
     ]
   },
   {
+    "label": "Pay As You Go",
+    "collapsed": true,
+    "items": [
+      {
+        "label": "Pay As You Go",
+        "slug": "antigravity/pay-as-you-go"
+      }
+    ]
+  },
+  {
     "label": "Plans",
     "collapsed": true,
     "items": [
