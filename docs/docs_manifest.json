@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-18T06:19:06Z",
+  "generated_at": "2026-11-19T06:21:10Z",
   "tool": "scripts/fetch_agy_docs.py",
   "strict_fetch": false,
   "is_degraded": true,
@@ -15,8 +15,8 @@
   "sidebar_file": "docs/starlight_sidebar.json",
   "summary_file": "docs/SUMMARY.md",
   "stats": {
-    "total_pages": 103,
-    "successful_pages": 103,
+    "total_pages": 104,
+    "successful_pages": 104,
     "failed_pages": 0,
     "removed_files": 0,
     "invariants_passed": true
@@ -144,9 +144,9 @@
       "slug": "changelog",
       "label": "Changelog",
       "url": "https://antigravity.google/docs/changelog.md",
-      "sha256": "b8954f59f47f9b6d6a5108bbd0718b692a6e2d0496fc4a907355e646201d9be0",
-      "bytes": 602435,
-      "fetched_at": "2026-11-18T06:18:56Z",
+      "sha256": "74279a88c2882b598b554b0653361c9e28021436cd91e32a94be1e56efe81b5b",
+      "bytes": 621679,
+      "fetched_at": "2026-11-19T06:21:04Z",
       "sidebar_label": "Changelog"
     },
     "antigravity/cli/acp.md": {
@@ -466,9 +466,9 @@
       "slug": "cli/headless",
       "label": "Headless mode",
       "url": "https://antigravity.google/docs/cli/headless.md",
-      "sha256": "73b24a97b5f84c4b1c18e11c5393e434d74f5893e9e673551af598f7840cb5b6",
-      "bytes": 28504,
-      "fetched_at": "2026-11-13T05:29:39Z",
+      "sha256": "feb74ab68c1b9d3176d8622b5b1e303363704de53a6d8cff65b4750e0d3c469d",
+      "bytes": 28765,
+      "fetched_at": "2026-11-19T06:21:04Z",
       "sidebar_label": "Headless mode"
     },
     "antigravity/cli/install.md": {
@@ -782,9 +782,9 @@
       "slug": "commands/browser",
       "label": "Browser command (/browser)",
       "url": "https://antigravity.google/docs/commands/browser.md",
-      "sha256": "03297817ab508086965cadb69fcb296617e5bee348360d05d1453ce40f12b1a8",
-      "bytes": 9842,
-      "fetched_at": "2026-11-18T06:18:56Z",
+      "sha256": "b20003e67ce72e21d9a0452f0300a220cba93f1fbef9ccee25a314161aa0dc10",
+      "bytes": 9970,
+      "fetched_at": "2026-11-19T06:21:04Z",
       "sidebar_label": "Browser command (/browser)"
     },
     "antigravity/commands/btw.md": {
@@ -894,9 +894,9 @@
       "slug": "dynamic-workflows",
       "label": "Dynamic Workflows (/run-workflow)",
       "url": "https://antigravity.google/docs/dynamic-workflows.md",
-      "sha256": "87146d77043e1cca30c4e40edccf918ac7248f36d380c6fe9216f9956beecb59",
-      "bytes": 18306,
-      "fetched_at": "2026-11-14T05:20:43Z",
+      "sha256": "addf39ddaa8a6fa7ee7fef74f37e8919207056d01a7b10a4e9088b029f7b7777",
+      "bytes": 18324,
+      "fetched_at": "2026-11-19T06:21:04Z",
       "sidebar_label": "Dynamic Workflows (/run-workflow)"
     },
     "antigravity/enterprise.md": {
@@ -908,9 +908,9 @@
       "slug": "enterprise",
       "label": "Enterprise",
       "url": "https://antigravity.google/docs/enterprise.md",
-      "sha256": "788856e704796d74f8fb95d1d398bd1e1e58964626ae47895a589c296deb038a",
-      "bytes": 24324,
-      "fetched_at": "2026-11-18T06:18:56Z",
+      "sha256": "fc6dc786a72a80a31d8876a6fe8a97531240936b56151c369784ef586bf8302d",
+      "bytes": 24476,
+      "fetched_at": "2026-11-19T06:21:04Z",
       "sidebar_label": "Enterprise"
     },
     "antigravity/faq.md": {
@@ -936,9 +936,9 @@
       "slug": "features",
       "label": "Feature overview",
       "url": "https://antigravity.google/docs/features.md",
-      "sha256": "93e1b11399f45df89fc9dd805b8267bd2cd7902895806d2e2aa0dc7c36abfacd",
-      "bytes": 24007,
-      "fetched_at": "2026-11-18T06:18:56Z",
+      "sha256": "1f34f1cc90da84f12ed152ec06b515f40634899af6a339528b491c8310e6a83f",
+      "bytes": 24828,
+      "fetched_at": "2026-11-19T06:21:04Z",
       "sidebar_label": "Feature overview"
     },
     "antigravity/firebase-studio-migration.md": {
@@ -1384,9 +1384,9 @@
       "slug": "install",
       "label": "Authenticate",
       "url": "https://antigravity.google/docs/install.md",
-      "sha256": "850d24530fd45e63e8f78ae1b2e8e9b2349c013a39aef2e5f6b0f0aa2ebd9086",
-      "bytes": 14331,
-      "fetched_at": "2026-11-18T06:18:56Z",
+      "sha256": "4f6df7260bbc05041e64f005a6a06993c3fa00ff8981089a2aa46c53dfa997be",
+      "bytes": 14346,
+      "fetched_at": "2026-11-19T06:21:04Z",
       "sidebar_label": "Authenticate"
     },
     "antigravity/jupyter-notebooks.md": {
@@ -1440,9 +1440,9 @@
       "slug": "models",
       "label": "Choose a model",
       "url": "https://antigravity.google/docs/models.md",
-      "sha256": "b1ea203160ee45c8b362fc0b26205f1cad5e536b7bbc789b9cc3749c72208de5",
-      "bytes": 10506,
-      "fetched_at": "2026-11-17T06:57:00Z",
+      "sha256": "98ebc346a652e66a30ea2b5b16c26d0c1fda5e7a30e22bfe520a792ddaf847f2",
+      "bytes": 11939,
+      "fetched_at": "2026-11-19T06:21:04Z",
       "sidebar_label": "Choose a model"
     },
     "antigravity/overview.md": {
@@ -1454,9 +1454,9 @@
       "slug": "overview",
       "label": "Choose your Antigravity",
       "url": "https://antigravity.google/docs/overview.md",
-      "sha256": "53b7f450c5a9bcdf289efcb5eb87433566718a77cc9b9def0a3863280d9a1aaa",
-      "bytes": 14447,
-      "fetched_at": "2026-11-17T06:57:00Z",
+      "sha256": "108ffa0775f1f1bf2c04dbc0b6b7da226b874571affc3849795d61884722302c",
+      "bytes": 14574,
+      "fetched_at": "2026-11-19T06:21:04Z",
       "sidebar_label": "Choose your Antigravity"
     },
     "antigravity/pay-as-you-go.md": {
@@ -1538,9 +1538,9 @@
       "slug": "projects",
       "label": "Projects",
       "url": "https://antigravity.google/docs/projects.md",
-      "sha256": "cc7770f36e42c1dd1f4ff74b9b56c64fe7962b285d9c4aa6bc4626acacf0e640",
-      "bytes": 5831,
-      "fetched_at": "2026-11-10T06:19:10Z",
+      "sha256": "4fdc08b7b59763d840acb1a64395952edf5bbc270e742f15fc384f8ee3e1bce0",
+      "bytes": 6012,
+      "fetched_at": "2026-11-19T06:21:04Z",
       "sidebar_label": "Projects"
     },
     "antigravity/remote-agents.md": {
@@ -1552,9 +1552,9 @@
       "slug": "remote-agents",
       "label": "Remote Agents",
       "url": "https://antigravity.google/docs/remote-agents.md",
-      "sha256": "80ea59049d1d81bb60aec648898a411b55c56cd3c752f5176c05cd8b881c8b03",
-      "bytes": 14397,
-      "fetched_at": "2026-11-12T06:07:41Z",
+      "sha256": "93841187ce164988e737384d9ab27075980f8a0e72bf7ee9eb36561c3b4f36f1",
+      "bytes": 14640,
+      "fetched_at": "2026-11-19T06:21:04Z",
       "sidebar_label": "Remote Agents"
     },
     "antigravity/remote-control.md": {
@@ -1566,9 +1566,9 @@
       "slug": "remote-control",
       "label": "Remote Control",
       "url": "https://antigravity.google/docs/remote-control.md",
-      "sha256": "760bf1d3e8efeeda9f87e5f9a8f40d43ea29573db43f9858fb7f5629cba20d5e",
-      "bytes": 13004,
-      "fetched_at": "2026-11-12T06:07:41Z",
+      "sha256": "dd221d3bba6f4c10e05a0042f1487eda25daaf326c8c629710c5c5d926676632",
+      "bytes": 13119,
+      "fetched_at": "2026-11-19T06:21:04Z",
       "sidebar_label": "Remote Control"
     },
     "antigravity/review-changes.md": {
@@ -1850,6 +1850,20 @@
       "bytes": 23853,
       "fetched_at": "2026-11-17T06:57:00Z",
       "sidebar_label": "Slash commands overview"
+    },
+    "antigravity/ssh.md": {
+      "source": "antigravity",
+      "section": "Antigravity App",
+      "category_path": [
+        "Antigravity App"
+      ],
+      "slug": "ssh",
+      "label": "Connect over SSH",
+      "url": "https://antigravity.google/docs/ssh.md",
+      "sha256": "d7a2c2fe1d04e5369b936679bd0a21e9e772ac8c9c7c8e221b60a55de913e4b7",
+      "bytes": 9991,
+      "fetched_at": "2026-11-19T06:21:04Z",
+      "sidebar_label": "Connect over SSH"
     },
     "antigravity/subagents.md": {
       "source": "antigravity",

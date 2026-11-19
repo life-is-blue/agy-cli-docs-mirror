@@ -46,7 +46,7 @@ By default, agents ask before sensitive actions and limit their file access to y
 
 ### Orchestrator
 
-Select **Orchestrator (Carbon)** or **Orchestrator (Argon)** in the model selector (or with `/model` in the CLI) to get the quality of a larger planner model with faster turnaround and fewer tokens used. The planner (Gemini 4 Carbon or Gemini 4 Argon) explores the codebase, plans the work, and reviews progress, while Gemini 4 Hydrogen carries out the edits, builds, and test runs, handing control back to the planner whenever the plan needs repair. Google AI Ultra includes both options, and Google AI Pro (paid plans, or trials with eligible premium devices) includes **Orchestrator (Argon)**.
+Select **Orchestrator (Neon)**, **Orchestrator (Carbon)**, or **Orchestrator (Argon)** in the model selector (or with `/model` in the CLI) to get the quality of a larger planner model with faster turnaround. The planner (Gemini 4 Neon, Gemini 4 Carbon, or Gemini 4 Argon) explores the codebase, plans the work, and reviews progress, while Gemini 4 Hydrogen carries out the edits, builds, and test runs, handing control back to the planner whenever the plan needs repair. Google AI Ultra includes all three options, and Google AI Pro (paid plans, or trials with eligible premium devices) includes **Orchestrator (Neon)** and **Orchestrator (Argon)**.
 
 [Learn more about Orchestrator](/docs/models#orchestrator).
 
@@ -214,6 +214,16 @@ With a personal Google Account, switch between the **Knowledge Work** layout (fo
 ### Conversations outside of projects
 
 Start quick, one-off conversations outside of any project. These sessions run in a local scratch folder. They have their own settings and permissions in addition to inheriting from global permissions.
+
+### Connect over SSH
+
+Open a remote 64-bit Linux machine in a dedicated **`(SSH: <host>)`** window over OpenSSH (`v2.33.0+`):
+
+*   **Automatic setup**: Click **Create New Project** (**+**) next to **Projects** and select **SSH Host…**, or run **Connect to SSH Host…** from the command palette. Antigravity installs its remote server automatically using your `~/.ssh/config`, keys, and `ProxyJump` hosts.
+*   **Remote execution**: Projects, Git worktrees, agents, terminals, the [terminal sandbox](/docs/sandbox), and `~/.gemini/` customizations run on the host.
+*   **Persistent agents**: Closing the window disconnects SSH while keeping running agents active until you reconnect or run **Stop SSH Server…**.
+
+[Learn more about connecting over SSH](/docs/ssh).
 
 ### Search and command palette
 

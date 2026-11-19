@@ -122,9 +122,11 @@ Antigravity in Gemini Enterprise supports included first-party Gemini models and
 
 | Model | CLI / API Identifier | Enterprise |
 | --- | --- | --- |
+| [Gemini 4 Neon](/blog/gemini-4-neon-in-google-antigravity) | `gemini-4-neon` | ✅ |
 | [Gemini 4 Carbon](/blog/gemini-4-carbon-in-google-antigravity) | `gemini-4-carbon` | ✅ |
 | [Gemini 4 Argon](/blog/gemini-4-argon-in-google-antigravity) | `gemini-4-argon` | ✅ |
 | [Gemini 4 Hydrogen](/blog/gemini-4-hydrogen-in-google-antigravity) | `gemini-4-hydrogen` | ✅ |
+| [Orchestrator (Neon)](/docs/models#orchestrator) | — | ❌ |
 | [Orchestrator (Carbon)](/docs/models#orchestrator) | — | ❌ |
 | [Orchestrator (Argon)](/docs/models#orchestrator) | — | ❌ |
 | [Gemini 3.8 Flash](/blog/gemini-3-8-flash-in-google-antigravity) | `gemini-3.8-flash` | ✅ |

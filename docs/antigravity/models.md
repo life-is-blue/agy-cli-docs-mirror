@@ -2,7 +2,7 @@
 
 Available on: Antigravity App, Antigravity CLI, Antigravity IDE
 
-Antigravity gives you access to leading frontier reasoning models from Google DeepMind and partner providers. You can switch models at any time and choose a thinking level (`Low`, `Medium`, `High`, or `Extra` on supported models) to balance response speed for quick edits against deeper multi-step reasoning for complex architecture and debugging tasks. To combine planning on Gemini 4 Carbon or Gemini 4 Argon with fast Gemini 4 Hydrogen execution and use fewer tokens, select [Orchestrator](#orchestrator).
+Antigravity gives you access to leading frontier reasoning models from Google DeepMind and partner providers. You can switch models at any time and choose a thinking level (`Low`, `Medium`, `High`, or `Extra` on supported models) to balance response speed for quick edits against deeper multi-step reasoning for complex architecture and debugging tasks. To combine planning on Gemini 4 Neon, Gemini 4 Carbon, or Gemini 4 Argon with fast Gemini 4 Hydrogen execution, select [Orchestrator](#orchestrator).
 
 ## Select a model
 
@@ -10,7 +10,7 @@ You can select which reasoning model you want to use from the model selector men
 
 † Available with paid Google AI Pro plans or on trial with eligible premium devices. To switch to a paid Google AI Pro plan, [submit a request](https://one.google.com/support).
 
-Most adjustable Gemini models offer `Low`, `Medium`, and `High` thinking levels. **Gemini 4 Hydrogen** defaults to `High` and adds a fourth level labeled **`Extra`** in the model selector, which sets the **Extra High** reasoning budget (`xhigh` in the [Antigravity CLI](/docs/cli/commands/effort), such as `--model gemini-4-hydrogen-xhigh` or `--effort xhigh`) when a task needs maximum reasoning depth.
+Most adjustable Gemini models offer `Low`, `Medium`, and `High` thinking levels. **Gemini 4 Neon** and **Gemini 4 Hydrogen** default to `High` and add a fourth level labeled **`Extra`** in the model selector, which sets the **Extra High** reasoning budget (`xhigh` in the [Antigravity CLI](/docs/cli/commands/effort), such as `--model gemini-4-neon-xhigh` or `--effort xhigh`) when a task needs maximum reasoning depth.
 
 Your choice of reasoning model persists between messages within a conversation. If you change the reasoning model while the agent is running, it continues to use the previously selected reasoning model until it completes its steps for that turn (or until you cancel the current execution).
 
@@ -20,9 +20,11 @@ For the core reasoning model, Antigravity offers leading frontier models. Availa
 
 | Model | Free & Google AI Plus | Google AI Pro | Google AI Ultra | Enterprise |
 | --- | --- | --- | --- | --- |
+| [Gemini 4 Neon](/blog/gemini-4-neon-in-google-antigravity) | ❌ | ✅† | ✅ | ✅ |
 | [Gemini 4 Carbon](/blog/gemini-4-carbon-in-google-antigravity) | ❌ | ❌ | ✅ | ✅ |
 | [Gemini 4 Argon](/blog/gemini-4-argon-in-google-antigravity) | ❌ | ✅† | ✅ | ✅ |
 | [Gemini 4 Hydrogen](/blog/gemini-4-hydrogen-in-google-antigravity) | ❌ | ✅\*\* | ✅ | ✅ |
+| [Orchestrator (Neon)](/docs/models#orchestrator) | ❌ | ✅† | ✅ | ❌ |
 | [Orchestrator (Carbon)](/docs/models#orchestrator) | ❌ | ❌ | ✅ | ❌ |
 | [Orchestrator (Argon)](/docs/models#orchestrator) | ❌ | ✅† | ✅ | ❌ |
 | [Gemini 3.8 Flash](/blog/gemini-3-8-flash-in-google-antigravity) | ✅ | ✅ | ✅ | ✅ |
@@ -43,18 +45,28 @@ For the core reasoning model, Antigravity offers leading frontier models. Availa
 
 To learn more about reasoning model rate limits, refer to the [plans page](/docs/plans). If you are using Antigravity with Gemini Enterprise, see [Supported models in Gemini Enterprise](/docs/enterprise#supported-models-in-gemini-enterprise).
 
+### Gemini 4 Neon
+
+**Gemini 4 Neon** appears at the top of the model selector on every plan that includes it. It’s the default model for new conversations if you haven’t chosen a model; if you’ve already selected one, Antigravity keeps your selection. You can switch to any other model at any time.
+
+*   **Thinking levels**: `Low`, `Medium`, `High` (default), and `Extra`. In the [Antigravity CLI](/docs/cli/commands/effort), these are `low`, `medium`, `high`, and `xhigh` (for example, `--model gemini-4-neon-xhigh`).
+*   **Context window**: Up to 512K tokens.
+*   **Availability**: Google AI Ultra, Google AI Pro (paid plans, or trials with eligible premium devices), and [Gemini Enterprise](/docs/enterprise#supported-models-in-gemini-enterprise). Gemini 4 Neon isn’t available on Free and Plus plans.
+*   **Orchestrator (Neon)**: To plan with Gemini 4 Neon and hand implementation work to Gemini 4 Hydrogen, select [Orchestrator (Neon)](#orchestrator).
+
 ## Orchestrator
 
-**Orchestrator** is a model selector option that pairs two Gemini 4 models in a single conversation: a larger planner model does the planning and reviews, and the fast, lightweight **Gemini 4 Hydrogen** does the implementation work. There are two Orchestrator options, and the one you select sets the planner:
+**Orchestrator** is a model selector option that pairs two Gemini 4 models in a single conversation: a larger planner model does the planning and reviews, and the fast, lightweight **Gemini 4 Hydrogen** does the implementation work. There are three Orchestrator options, and the one you select sets the planner:
 
 | Model selector option | Planner | Implementation | Available on |
 | :-- | :-- | :-- | :-- |
+| **Orchestrator (Neon)** | [**Gemini 4 Neon**](#gemini-4-neon) | Gemini 4 Hydrogen | Google AI Ultra, Google AI Pro (paid plans, or trials with eligible premium devices) |
 | **Orchestrator (Carbon)** | [**Gemini 4 Carbon**](/blog/gemini-4-carbon-in-google-antigravity) | Gemini 4 Hydrogen | Google AI Ultra |
 | **Orchestrator (Argon)** | [**Gemini 4 Argon**](/blog/gemini-4-argon-in-google-antigravity) | Gemini 4 Hydrogen | Google AI Ultra, Google AI Pro (paid plans, or trials with eligible premium devices) |
 
-**Orchestrator (Carbon)** always plans with Gemini 4 Carbon, and **Orchestrator (Argon)** always plans with Gemini 4 Argon. Google AI Ultra includes both **Orchestrator (Carbon)** and **Orchestrator (Argon)** in the model selector, while Google AI Pro (paid plans, or trials with eligible premium devices) includes **Orchestrator (Argon)**. Hover over the **New** badge next to either option to see which planner it uses.
+Each option always plans with the model in its name: **Orchestrator (Neon)** plans with Gemini 4 Neon, **Orchestrator (Carbon)** with Gemini 4 Carbon, and **Orchestrator (Argon)** with Gemini 4 Argon. Google AI Ultra includes all three options in the model selector, while Google AI Pro (paid plans, or trials with eligible premium devices) includes **Orchestrator (Neon)** and **Orchestrator (Argon)**. Hover over the **New** badge next to any option to see which planner it uses.
 
-The planner and Gemini 4 Hydrogen are also available as standalone models in the model selector, depending on your plan. Orchestrator coordinates them automatically, so you get the planner’s quality while finishing faster and using fewer tokens than running the planner alone.
+The planner and Gemini 4 Hydrogen are also available as standalone models in the model selector, depending on your plan. Orchestrator coordinates them automatically, so you get the planner’s quality while finishing faster than running the planner alone.
 
 Orchestrator isn’t a router that classifies your prompt upfront and sends the whole request to a single model. Instead, both models collaborate within the same task and hand control back and forth as the work unfolds:
 
@@ -65,7 +77,7 @@ Orchestrator isn’t a router that classifies your prompt upfront and sends the 
 
 These hand-offs happen automatically within a single response, so you don’t need to switch models manually between planning and execution.
 
-Orchestrator runs with a fixed configuration, so you can’t choose a thinking level for it. To run every step on a single model or set a specific thinking level, select **Gemini 4 Carbon**, **Gemini 4 Argon**, or **Gemini 4 Hydrogen** directly in the model selector. Availability depends on your plan; refer to the [reasoning model table](#reasoning-model).
+Orchestrator runs with a fixed configuration, so you can’t choose a thinking level for it. To run every step on a single model or set a specific thinking level, select **Gemini 4 Neon**, **Gemini 4 Carbon**, **Gemini 4 Argon**, or **Gemini 4 Hydrogen** directly in the model selector. Availability depends on your plan; refer to the [reasoning model table](#reasoning-model).
 
 ### Select Orchestrator
 
@@ -73,7 +85,7 @@ Orchestrator runs with a fixed configuration, so you can’t choose a thinking l
 
 1.  Click the model selector under the conversation prompt box.
     
-2.  Select **Orchestrator (Carbon)** or **Orchestrator (Argon)**.
+2.  Select **Orchestrator (Neon)**, **Orchestrator (Carbon)**, or **Orchestrator (Argon)**.
     
 
 Selecting Orchestrator (Carbon) in the Antigravity App: open the model selector under the prompt box, which lists Orchestrator (Carbon) and Orchestrator (Argon), hover the New badge next to Orchestrator (Carbon) to see what it does, choose it, and type a task.
@@ -86,12 +98,12 @@ Selecting Orchestrator (Carbon) in the Antigravity CLI: complete /model with Tab
 
 You can select Orchestrator in any of the following ways:
 
-*   **Interactive picker**: Run `/model`, select **Orchestrator (Carbon)** or **Orchestrator (Argon)**, and press Enter. Your choice persists across sessions.
+*   **Interactive picker**: Run `/model`, select **Orchestrator (Neon)**, **Orchestrator (Carbon)**, or **Orchestrator (Argon)**, and press Enter. Your choice persists across sessions.
     
 *   **At startup**: Pass the model’s name in quotes when you launch the CLI or run it in [headless mode](/docs/cli/headless):
     
     ```bash
-    agy --model "Orchestrator (Carbon)"
+    agy --model "Orchestrator (Neon)"
     agy -p "Add input validation to the signup form and run the tests." --model "Orchestrator (Argon)"
     ```
     
@@ -100,8 +112,8 @@ Run `agy models` to list every model identifier available to your account. Becau
 
 ### When to use Orchestrator
 
-*   **Orchestrator (recommended default)**: Most day-to-day development, such as feature work, bug fixes, refactoring, and multi-file debugging, where you want Gemini 4 Carbon or Gemini 4 Argon to plan and review the work and Gemini 4 Hydrogen to carry out the implementation faster and with fewer tokens used.
-*   **Gemini 4 Carbon or Gemini 4 Argon**: Work where every intermediate step needs maximum reasoning depth, such as designing complex distributed systems from scratch, untangling subtle concurrency race conditions, or running multi-repository migrations. Selecting the model directly also lets you choose its thinking level.
+*   **Orchestrator (recommended default)**: Most day-to-day development, such as feature work, bug fixes, refactoring, and multi-file debugging, where you want Gemini 4 Neon, Gemini 4 Carbon, or Gemini 4 Argon to plan and review the work and Gemini 4 Hydrogen to carry out the implementation faster.
+*   **Gemini 4 Neon, Gemini 4 Carbon, or Gemini 4 Argon**: Work where every intermediate step needs maximum reasoning depth, such as designing complex distributed systems from scratch, untangling subtle concurrency race conditions, or running multi-repository migrations. Selecting the model directly also lets you choose its thinking level.
 *   **Gemini 4 Hydrogen**: Fast, everyday coding and maintenance tasks where you don’t need a separate planning phase, such as package upgrades, code deduplication, scaffolding boilerplate, writing unit tests for well-defined functions, updating documentation, or generating quick scripts. Selecting Gemini 4 Hydrogen directly also lets you choose its thinking level.
 
 Orchestrator keeps a single agent in your conversation and hands off between planning and execution within each turn. To have multiple agents work in parallel or check each other’s work, use [subagents](/docs/subagents), [Swarm](/docs/swarm), [Boost](/docs/boost), or [Teamwork](/docs/teamwork).

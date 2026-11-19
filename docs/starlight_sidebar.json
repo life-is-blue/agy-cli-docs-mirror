@@ -168,6 +168,10 @@
         "slug": "antigravity/slash-commands"
       },
       {
+        "label": "Connect over SSH",
+        "slug": "antigravity/ssh"
+      },
+      {
         "label": "Custom subagents",
         "slug": "antigravity/subagents"
       },

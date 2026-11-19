@@ -56,7 +56,7 @@ When running `/browser` in the Antigravity CLI, in the Antigravity IDE (`v2.6.0+
 3.  Go to `chrome://inspect/#remote-debugging`.
 4.  Turn on **Allow remote debugging for this browser instance**.
 
-If remote debugging is off, Antigravity displays **Remote Debugging Required** with these steps. When the subagent connects, Chrome asks you to allow remote debugging—click **Allow** within 60 seconds so the subagent can attach to the browser.
+If remote debugging is off, Antigravity displays **Remote Debugging Required** with these steps. When the subagent connects, Chrome asks you to allow remote debugging—click **Allow** within 60 seconds so the subagent can attach to the browser. In an [SSH window](/docs/ssh), `/browser` connects to Chrome running on the remote SSH host rather than on your local computer.
 
 ## What the browser subagent can do
 

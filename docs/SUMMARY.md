@@ -42,6 +42,7 @@
   - [Sidecars](antigravity/sidecars.md)
   - [Agent skills](antigravity/skills.md)
   - [Slash commands overview](antigravity/slash-commands.md)
+  - [Connect over SSH](antigravity/ssh.md)
   - [Custom subagents](antigravity/subagents.md)
   - [Swarm (/swarm)](antigravity/swarm.md)
   - [Teamwork agent teams (/teamwork)](antigravity/teamwork.md)

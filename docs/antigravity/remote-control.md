@@ -220,6 +220,7 @@ Review the following solutions for common headless daemon issues:
 
 Explore related documentation and guides:
 
+*   [Connect over SSH](/docs/ssh): Open a remote Linux machine directly in an Antigravity App window over OpenSSH.
 *   [Remote Agents](/docs/remote-agents): Run agent sessions in an isolated remote environment without keeping a local machine online.
 *   [Settings overview](/docs/settings): Explore configuration options across Antigravity.
 *   [Permissions and security](/docs/permissions): Configure permission presets and tool access rules.

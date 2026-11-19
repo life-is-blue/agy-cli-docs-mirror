@@ -12,7 +12,7 @@ Remote Agents is available to **Google AI Pro** and **Google AI Ultra** subscrib
 
 ## Remote Agents vs. Remote Control
 
-Antigravity provides two ways to work with agents remotely depending on where your code and tools live. Use the following table to compare **Remote Agents** and **[Remote Control](/docs/remote-control)**:
+Antigravity provides multiple ways to work with agents remotely depending on where your code and tools live. Use the following table to compare **Remote Agents** and **[Remote Control](/docs/remote-control)**:
 
 | Feature | Remote Agents | [Remote Control](/docs/remote-control) |
 | :-- | :-- | :-- |
@@ -20,6 +20,8 @@ Antigravity provides two ways to work with agents remotely depending on where yo
 | **Host machine requirement** | Runs independently; no local machine needs to stay on | Requires your host machine to remain powered on and online |
 | **Workspace and files** | Remote **Resources** (GitHub repositories, Google Drive files, and uploaded files) | Local filesystem folders, local toolchains, and Git worktrees |
 | **Best for** | Repository tasks, mobile workflows, and background execution while away | Tasks that require local hardware, local dev servers, or uncommitted local checkouts |
+
+To connect the Antigravity App directly to your own remote Linux machine over OpenSSH, see [Connect over SSH](/docs/ssh).
 
 ## Getting started
 
@@ -200,6 +202,7 @@ Your OAuth credentials are encrypted at rest and tokens are securely injected wh
 
 Explore related documentation and guides:
 
+*   [Connect over SSH](/docs/ssh): Open a remote Linux machine directly in an Antigravity App window over OpenSSH.
 *   [Remote Control](/docs/remote-control): Connect to and control local Antigravity App and CLI sessions running on your own machines.
 *   [Projects](/docs/projects): Learn how projects organize workspaces, scoped settings, and conversations.
 *   [Plugins](/docs/plugins): Configure plugins and external integrations across Antigravity surfaces.

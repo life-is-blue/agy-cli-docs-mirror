@@ -29,6 +29,8 @@ A project is composed of **folders**, which define the directories and repositor
 *   **Local folders**: A folder that doesn’t have Git configured.
 *   **Local Git checkout**: A folder that is a Git repository checkout.
 
+To create projects whose folders and Git worktrees live on a remote Linux machine, click **+** next to **Projects** and choose **SSH Host…** (see [Connect over SSH](/docs/ssh)).
+
 #### Worktree selection (local vs. new worktree)
 
 When starting a new conversation in a project, you choose how the agent interacts with your folders using the worktree selector:

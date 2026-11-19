@@ -222,7 +222,7 @@ Antigravity offers several ways to split work across agents:
 
 | Use | When you want |
 | :-- | :-- |
-| **[Orchestrator](/docs/models#orchestrator)** | A single conversation where a frontier planner model (`Gemini 4 Carbon` or `Gemini 4 Argon`) plans and reviews while routing routine tool execution to `Gemini 4 Hydrogen`. |
+| **[Orchestrator](/docs/models#orchestrator)** | A single conversation where a frontier planner model (`Gemini 4 Neon`, `Gemini 4 Carbon`, or `Gemini 4 Argon`) plans and reviews while routing routine tool execution to `Gemini 4 Hydrogen`. |
 | **[Subagents](/docs/subagents)** | To delegate one task, such as a research question or a build, while you keep working. |
 | **Dynamic Workflows (`/run-workflow`)** | Predictable, scripted control flow: the same check across a list of files or packages, staged steps in sequence, or a reviewer-and-fixer loop where agents return structured results to a script instead of talking to each other. |
 | **[`/swarm`](/docs/swarm)** | Peers collaborating on a shared message board to split a feature, bug bash, or investigation and coordinate directly (`@name`). |
