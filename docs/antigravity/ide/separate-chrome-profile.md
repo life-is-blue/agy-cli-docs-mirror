@@ -1,6 +1,6 @@
 # Chrome profile
 
-Available on: Antigravity App, Antigravity IDE
+Available on: Antigravity App, IDE extensions, Antigravity IDE
 
 Which browser profile the browser subagent uses depends on where it runs:
 

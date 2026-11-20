@@ -1,15 +1,21 @@
+# IntelliJ-based IDEs
+
 Antigravity supports the full suite of **IntelliJ-based IDEs**—including IntelliJ IDEA, PyCharm, WebStorm, GoLand, CLion, Rider, and more—starting with version **2026.2.1+**.
 
 * * *
 
 ## Prerequisites
 
+Ensure that you meet the following prerequisites before installing the extension:
+
 *   **IntelliJ-based IDE**: Any IntelliJ-based IDE version 2026.2.1 or later on macOS, Linux, or Windows.
-*   **Antigravity Entitlement**: A Google Account with any Antigravity plan (including the free tier) or **Gemini Enterprise** (Enterprise support in Preview).
+*   **Antigravity entitlement**: A Google Account with any Antigravity plan (including the free tier) or **Gemini Enterprise**.
 
 * * *
 
-## Installation & Setup
+## Installation and setup
+
+Complete the following steps to install the Antigravity extension:
 
 1.  Open your IntelliJ-based IDE.
 2.  Open **JetBrains AI** > **Settings** > **Agents**.
@@ -20,19 +26,13 @@ Antigravity supports the full suite of **IntelliJ-based IDEs**—including Intel
 
 * * *
 
-## Authentication & Licensing
+## Authentication and licensing
 
-Note
-
-Gemini Enterprise authentication for JetBrains IDEs is currently in **Preview**.
-
-Google AccountsGemini EnterpriseGemini APIAgent Platform
-
-Google Accounts (Individual)Gemini Enterprise (OAuth - Preview)Gemini API (API Key)Gemini Enterprise Agent Platform (Preview)expand\_more
+### Google Accounts
 
 For individual Google AI subscription plans (including Free, Pro, and Ultra):
 
-```
+```json
 {
   "auth": {
     "type": "oauth-personal"
@@ -40,9 +40,11 @@ For individual Google AI subscription plans (including Free, Pro, and Ultra):
 }
 ```
 
-Reach out to your cloud administrator for your GCP Project ID and Region (Enterprise support for JetBrains, Zed, and Xcode is currently in Preview):
+### Gemini Enterprise
 
-```
+Reach out to your cloud administrator for your GCP Project ID and Region:
+
+```json
 {
   "auth": {
     "type": "oauth-business"
@@ -54,9 +56,11 @@ Reach out to your cloud administrator for your GCP Project ID and Region (Enterp
 }
 ```
 
+### Gemini API
+
 Authenticate using a Gemini API key:
 
-```
+```json
 {
   "auth": {
     "type": "gemini-api-key"
@@ -64,9 +68,11 @@ Authenticate using a Gemini API key:
 }
 ```
 
-Authenticate with Gemini Enterprise Agent Platform using a Google API Key or Application Default Credentials (ADC) (Preview). When using ADC, specify your GCP Project ID and Region:
+### API / ADC
 
-```
+Authenticate with Gemini Enterprise using an API Key or Application Default Credentials (ADC) (Preview). When using ADC, specify your GCP Project ID and Region:
+
+```json
 {
   "auth": {
     "type": "agent-platform"

@@ -1,6 +1,6 @@
 # Grill me command (/grill-me)
 
-Available on: Antigravity App, Antigravity CLI
+Available on: Antigravity App, Antigravity CLI, IDE extensions (VS Code, Visual Studio, Eclipse), Antigravity IDE
 
 Have the agent interview you about a task before it starts work. With `/grill-me`, the agent asks one question at a time and recommends an answer for each. It explores your codebase instead of asking you anything the code can answer, and keeps going until you both share the same understanding of the task.
 

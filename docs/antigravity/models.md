@@ -1,6 +1,6 @@
 # Choose a model
 
-Available on: Antigravity App, Antigravity CLI, Antigravity IDE
+Available on: Antigravity App, Antigravity CLI, IDE extensions (VS Code, Visual Studio, Eclipse, JetBrains, Android Studio, Zed, Xcode), Antigravity IDE
 
 Antigravity gives you access to leading frontier reasoning models from Google DeepMind and partner providers. You can switch models at any time and choose a thinking level (`Low`, `Medium`, `High`, or `Extra` on supported models) to balance response speed for quick edits against deeper multi-step reasoning for complex architecture and debugging tasks. To combine planning on Gemini 4 Neon, Gemini 4 Carbon, or Gemini 4 Argon with fast Gemini 4 Hydrogen execution, select [Orchestrator](#orchestrator).
 

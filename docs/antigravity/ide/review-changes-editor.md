@@ -1,6 +1,6 @@
 # Review changes in the editor
 
-Available on: Antigravity IDE
+Available on: IDE extensions (VS Code, Visual Studio, Eclipse), Antigravity IDE
 
 When the agent edits files in a conversation, its changes appear inline in your editor: new and changed lines are highlighted, and each change has **Accept** and **Reject** above it. Press `Alt+Enter` (`Option+Enter` on macOS) to accept the focused change, or `Alt+Shift+Enter` (`Option+Shift+Enter` on macOS) to reject it. In the [Agent side panel](/docs/ide/agent-side-panel), the bar above the prompt input lists the files with pending changes, with **Reject all** and **Accept all** buttons, and **Review** on a turn’s summary of changed files takes you to its changes in the editor.
 

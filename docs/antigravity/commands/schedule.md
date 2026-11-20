@@ -1,6 +1,6 @@
 # Schedule command (/schedule)
 
-Available on: Antigravity App, Antigravity CLI, Antigravity IDE
+Available on: Antigravity App, Antigravity CLI, IDE extensions (VS Code, Visual Studio, Eclipse), Antigravity IDE
 
 Set a one-time timer or a recurring cron schedule that wakes the agent with an instruction, without blocking the conversation while it waits.
 

@@ -1,6 +1,6 @@
 # Browser command (/browser)
 
-Available on: Antigravity App, Antigravity CLI
+Available on: Antigravity App, Antigravity CLI, IDE extensions, Antigravity IDE
 
 Hand a web task directly to the **`browser` subagent** to open pages, interact with your running app, inspect console and network activity, capture screenshots, and verify visual fixes.
 
@@ -9,7 +9,7 @@ Hand a web task directly to the **`browser` subagent** to open pages, interact w
 Many development tasks end in a browser: confirming that a layout fix rendered, reproducing a console error, filling in a form end to end, or verifying a signed-in flow. Typing `/browser` instructs the main agent to delegate your request to the specialized `browser` subagent in its own isolated context window:
 
 *   **Antigravity App (built-in browser, personal Google Accounts `v2.30.0+`)**: Runs directly inside the App’s built-in side-panel browser with zero external browser setup, parallel tabs across concurrent subagents, an animated live cursor, a one-click **Stop** takeover button, and pause-and-resume sign-in handoff. On these accounts, the main agent also starts `browser` subagents automatically from plain-language prompts—you don’t have to type `/browser` unless you want to force a browser subagent run. For the complete App walkthrough and demos, refer to [Browser use](/docs/browser).
-*   **Antigravity CLI, Antigravity IDE (`v2.6.0+`), and business/enterprise accounts in the Antigravity App (Chrome DevTools MCP)**: Controls your running local Google Chrome (`v144+`) through the Chrome DevTools MCP server, which Antigravity starts automatically when `/browser` is invoked (using `npx` in the CLI and IDE, or the App’s bundled Node.js runtime). Supports Chrome DevTools performance traces, Lighthouse audits, heap snapshots, device/network throttling, custom script evaluation (`evaluate_script`), and optional session recordings when interacting with a page (MP4 in Antigravity CLI `v1.5.9+`; earlier versions save WebM). Chrome must already be running on the same machine with remote debugging enabled; refer to [Set up Chrome](#set-up-chrome).
+*   **Antigravity CLI, Antigravity IDE (`v2.6.0+`), and business/enterprise accounts in the Antigravity App (Chrome DevTools MCP)**: Controls your running local Google Chrome (`v144+`) through the Chrome DevTools MCP server, which Antigravity starts automatically when `/browser` is invoked (using `npx` in the CLI and IDE, or the App’s bundled Node.js runtime). Supports Chrome DevTools performance traces, Lighthouse audits, heap snapshots, device/network throttling, custom script evaluation (`evaluate_script`), and optional session recordings when interacting with a page (MP4 in Antigravity CLI `v1.5.9+`; WebM in earlier CLI versions and other surfaces). Chrome must already be running on the same machine with remote debugging enabled; refer to [Set up Chrome](#set-up-chrome).
 
 Note
 

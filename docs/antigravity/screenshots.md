@@ -1,6 +1,6 @@
 # Screenshots
 
-Available on: Antigravity App, Antigravity IDE
+Available on: Antigravity App, IDE extensions, Antigravity IDE
 
 The [browser subagent](/docs/browser) can take a screenshot of the visible page or of a single element on it, for example to check how a page rendered. Ask for a screenshot in your prompt, or the subagent may take one on its own when the task calls for it. You can also click **Add screenshot to conversation** (the camera icon) in the Antigravity App’s built-in browser toolbar to attach a snapshot of the page you’re viewing directly to your prompt.
 

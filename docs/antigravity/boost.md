@@ -1,6 +1,6 @@
 # Boost deep reasoning (/boost)
 
-Available on: Antigravity App, Antigravity CLI
+Available on: Antigravity App, Antigravity CLI, IDE extensions (VS Code, Visual Studio, Eclipse), Antigravity IDE
 
 The `/boost` slash command activates an on-demand multi-agent reasoning pipeline designed for challenging software engineering tasks. When standard single-turn coding assistance falls short on complex bugs, race conditions, or intricate refactoring, `/boost` breaks down the problem, delegates focused workstreams to specialized subagents, and independently verifies solutions across iterative rounds.
 

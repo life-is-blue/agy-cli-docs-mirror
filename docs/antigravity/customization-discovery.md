@@ -1,6 +1,6 @@
 # Customization discovery
 
-Available on: Antigravity App, Antigravity CLI
+Available on: Antigravity App, Antigravity CLI, IDE extensions (VS Code, Visual Studio, Eclipse), Antigravity IDE
 
 Antigravity loads your rules, skills, custom agents, plugins, hooks, and MCP servers from standard folders in your project and your home directory. Use this page to decide where a customization belongs, to load customizations that live in other folders, and to check what Antigravity found.
 

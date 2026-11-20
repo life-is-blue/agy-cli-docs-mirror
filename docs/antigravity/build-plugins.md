@@ -1,6 +1,6 @@
 # Build plugins
 
-Available on: Antigravity App, Antigravity CLI, Antigravity IDE
+Available on: Antigravity App, Antigravity CLI, IDE extensions (VS Code, Visual Studio, Eclipse), Antigravity IDE
 
 You can package [skills](/docs/skills), [Model Context Protocol (MCP) servers](/docs/mcp), [custom agents and subagents](/docs/subagents), [rules](/docs/rules), and [lifecycle hooks](/docs/hooks) into a single versioned plugin directory. Once validated locally with `agy plugin validate`, you can share your plugin across workspaces, distribute it from a GitHub repository, or submit it to the [Antigravity Marketplace](/docs/marketplace).
 

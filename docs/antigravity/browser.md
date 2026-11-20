@@ -1,6 +1,6 @@
 # Browser use
 
-Available on: Antigravity App, Antigravity CLI
+Available on: Antigravity App, Antigravity CLI, IDE extensions, Antigravity IDE
 
 In Google Antigravity, the agent can open web pages, interact with your running application, inspect console errors and failed network requests, take screenshots, and verify visual fixes before finishing a task.
 
@@ -161,7 +161,7 @@ In the Antigravity App (`v2.30.0+`), open **Settings** > **Browser** to manage b
 | **How to start** | Plain-language prompts (auto-invoked) or `/browser <task>` | `/browser <task>` | `/browser <task>` |
 | **Parallel browser subagents** | Yes, each in its own isolated built-in browser tab | Single active Chrome debugging connection per instance | Single active Chrome debugging connection per instance |
 | **Cookie and sign-in profile** | Isolated persistent profile per Antigravity account, with pause-and-resume login handoff | Your running Google Chrome profile | Your running Google Chrome profile |
-| **Visual playback and artifacts** | Watch live in the side panel with animated cursor and **Stop** button; ask the agent to save screenshots as artifacts | Screenshots in subagent steps and optional WebM session recordings | Screenshots and optional [WebM browser recordings](/docs/ide/browser-recordings) |
+| **Visual playback and artifacts** | Watch live in the side panel with animated cursor and **Stop** button; ask the agent to save screenshots as artifacts | Screenshots in subagent steps and optional session recordings (MP4 in Antigravity CLI `v1.5.9+`) | Screenshots and optional [WebM browser recordings](/docs/ide/browser-recordings) |
 | **DevTools profiling & Lighthouse** | Console errors and sanitized failed/recent network requests | Full DevTools performance traces, Lighthouse audits, heap snapshots, network/CPU throttling, and `evaluate_script` | Full DevTools performance traces, Lighthouse audits, console/network logs, throttling, and `evaluate_script` (per JS policy) |
 
 ## Next steps

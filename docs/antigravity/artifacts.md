@@ -1,6 +1,6 @@
 # Artifacts
 
-Available on: Antigravity App, Antigravity CLI
+Available on: Antigravity App, Antigravity CLI, IDE extensions (VS Code, Visual Studio, Eclipse), Antigravity IDE
 
 An **artifact** is a structured deliverable created by the agent to accomplish its task and communicate its progress and thinking to you. Artifacts include rich Markdown plans (implementation plans), code diffs, architecture diagrams, images, and browser recordings.
 

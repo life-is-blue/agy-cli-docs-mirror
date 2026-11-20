@@ -1,6 +1,6 @@
 # Agent side panel
 
-Available on: Antigravity IDE
+Available on: IDE extensions (VS Code, Visual Studio, Eclipse), Antigravity IDE
 
 Use the **Agent** side panel in the editor to work directly with the agent. From the panel header, you can start a new conversation, open the sidebar to switch between your conversations, and search across conversations. In the prompt input, type `@` to mention files and other context, type `/` to run actions, click **+** to add files, folders, and other context, and select between [different models](/docs/models).
 

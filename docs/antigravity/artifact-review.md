@@ -1,6 +1,6 @@
 # Artifact review
 
-Available on: Antigravity App
+Available on: Antigravity App, IDE extensions (VS Code, Visual Studio, Eclipse), Antigravity IDE
 
 When starting a new agent conversation, you can choose between two primary execution modes that determine how changes are proposed and reviewed:
 

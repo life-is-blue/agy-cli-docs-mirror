@@ -1,6 +1,6 @@
 # Mentions and quoting
 
-Available on: Antigravity App, Antigravity CLI
+Available on: Antigravity App, Antigravity CLI, IDE extensions (VS Code, Visual Studio, Eclipse), Antigravity IDE
 
 Type `@` to point the agent at specific files, folders, rules, or past conversations, or quote text that you select, so the agent starts from the right context instead of searching for it. You can also send a message straight to a subagent.
 

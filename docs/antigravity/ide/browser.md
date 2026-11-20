@@ -1,6 +1,6 @@
 # IDE browser overview
 
-Available on: Antigravity IDE
+Available on: IDE extensions, Antigravity IDE
 
 In the Antigravity IDE (`v2.6.0+`) and the Google Antigravity VS Code extension (`v1.9.0+`), the agent can open, read, and actuate a local Google Chrome browser through [`/browser`](/docs/commands/browser) to test local development sites, read documentation, and verify visual changes.
 

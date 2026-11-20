@@ -142,7 +142,7 @@ For authentication options or enterprise configurations, consult the **[Authenti
     
     [Install from Eclipse Marketplace](https://marketplace.eclipse.org/content/google-antigravity)
     
-    **Requirements:** Eclipse 2026-06 or later on macOS, Linux, or Windows (Public Preview).
+    **Requirements:** Eclipse 2026-06 or later on macOS, Linux, or Windows.
     
     Select **Help** > **Eclipse Marketplace…**, search for **Google Antigravity**, click **Install**, and restart Eclipse when prompted. Check out the [Eclipse guide](/docs/ide/extensions/eclipse).
     
@@ -160,7 +160,7 @@ For authentication options or enterprise configurations, consult the **[Authenti
     
     ![The Antigravity IDE editor with the Agent side panel open on the right, showing a new conversation with Gemini 4 Argon Medium selected in the model picker](/assets/image/docs/editor-open-agent-manager.png)
     
-2.  Sign in with your personal Google Account or **Gemini Enterprise** credentials (Enterprise support is available in IDE extensions—GA in VS Code, Visual Studio, JetBrains, Zed, and Xcode, and in **Preview** for Android Studio and Eclipse) when prompted in the Antigravity panel or settings.
+2.  Sign in with your personal Google Account or **Gemini Enterprise** credentials (Enterprise support is available in IDE extensions—GA in VS Code, Visual Studio, JetBrains, Zed, Xcode, and Eclipse, and in **Preview** for Android Studio) when prompted in the Antigravity panel or settings.
 
 ### Antigravity SDK
 

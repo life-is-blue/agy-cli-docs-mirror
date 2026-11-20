@@ -1,8 +1,78 @@
 [
   {
+    "label": "Overview",
+    "slug": "antigravity/overview"
+  },
+  {
+    "label": "Get Started",
+    "collapsed": true,
+    "items": [
+      {
+        "label": "Get started",
+        "slug": "antigravity/getting-started"
+      },
+      {
+        "label": "Authenticate",
+        "slug": "antigravity/install"
+      },
+      {
+        "label": "Choose a model",
+        "slug": "antigravity/models"
+      },
+      {
+        "label": "Build with Google",
+        "slug": "antigravity/build-with-google"
+      }
+    ]
+  },
+  {
     "label": "Antigravity App",
     "collapsed": true,
     "items": [
+      {
+        "label": "Feature overview",
+        "slug": "antigravity/features"
+      },
+      {
+        "label": "Mentions and quoting",
+        "slug": "antigravity/at-mentions"
+      },
+      {
+        "label": "Voice mode",
+        "slug": "antigravity/voice-mode"
+      },
+      {
+        "label": "Browser use",
+        "slug": "antigravity/browser"
+      },
+      {
+        "label": "Projects",
+        "slug": "antigravity/projects"
+      },
+      {
+        "label": "Search and command palette",
+        "slug": "antigravity/search"
+      },
+      {
+        "label": "Side panel and Overview panel",
+        "slug": "antigravity/side-panel"
+      },
+      {
+        "label": "Remote Agents",
+        "slug": "antigravity/remote-agents"
+      },
+      {
+        "label": "Remote Control",
+        "slug": "antigravity/remote-control"
+      },
+      {
+        "label": "Connect over SSH",
+        "slug": "antigravity/ssh"
+      },
+      {
+        "label": "Settings",
+        "slug": "antigravity/settings"
+      },
       {
         "label": "Agent settings",
         "slug": "antigravity/agent-settings"
@@ -12,24 +82,60 @@
         "slug": "antigravity/artifact-review"
       },
       {
-        "label": "Artifacts",
-        "slug": "antigravity/artifacts"
+        "label": "Customization discovery",
+        "slug": "antigravity/customization-discovery"
       },
       {
-        "label": "Mentions and quoting",
-        "slug": "antigravity/at-mentions"
+        "label": "MCP",
+        "slug": "antigravity/mcp"
       },
       {
-        "label": "Boost deep reasoning (/boost)",
-        "slug": "antigravity/boost"
+        "label": "Agent skills",
+        "slug": "antigravity/skills"
       },
       {
-        "label": "Browser use",
-        "slug": "antigravity/browser"
+        "label": "Rules",
+        "slug": "antigravity/rules"
       },
       {
-        "label": "Build plugins",
-        "slug": "antigravity/build-plugins"
+        "label": "Slash commands overview",
+        "slug": "antigravity/slash-commands"
+      },
+      {
+        "label": "Marketplace",
+        "slug": "antigravity/marketplace"
+      },
+      {
+        "label": "Plugins",
+        "slug": "antigravity/plugins"
+      },
+      {
+        "label": "Hooks",
+        "slug": "antigravity/hooks"
+      },
+      {
+        "label": "Sidecars",
+        "slug": "antigravity/sidecars"
+      },
+      {
+        "label": "Permissions",
+        "slug": "antigravity/permissions"
+      },
+      {
+        "label": "Terminal sandbox",
+        "slug": "antigravity/sandbox"
+      },
+      {
+        "label": "Review changes",
+        "slug": "antigravity/review-changes"
+      },
+      {
+        "label": "Jupyter notebooks",
+        "slug": "antigravity/jupyter-notebooks"
+      },
+      {
+        "label": "Custom subagents",
+        "slug": "antigravity/subagents"
       },
       {
         "label": "Customizations command (/agy-customizations)",
@@ -42,6 +148,10 @@
       {
         "label": "Automation command (/automation)",
         "slug": "antigravity/commands/automation"
+      },
+      {
+        "label": "Boost deep reasoning (/boost)",
+        "slug": "antigravity/boost"
       },
       {
         "label": "Browser command (/browser)",
@@ -68,112 +178,16 @@
         "slug": "antigravity/commands/learn"
       },
       {
-        "label": "Schedule command (/schedule)",
-        "slug": "antigravity/commands/schedule"
-      },
-      {
-        "label": "Customization discovery",
-        "slug": "antigravity/customization-discovery"
+        "label": "Plan (/plan)",
+        "slug": "antigravity/plan"
       },
       {
         "label": "Dynamic Workflows (/run-workflow)",
         "slug": "antigravity/dynamic-workflows"
       },
       {
-        "label": "Feature overview",
-        "slug": "antigravity/features"
-      },
-      {
-        "label": "Hooks",
-        "slug": "antigravity/hooks"
-      },
-      {
-        "label": "Plan",
-        "slug": "antigravity/implementation-plan"
-      },
-      {
-        "label": "Jupyter notebooks",
-        "slug": "antigravity/jupyter-notebooks"
-      },
-      {
-        "label": "Marketplace",
-        "slug": "antigravity/marketplace"
-      },
-      {
-        "label": "MCP",
-        "slug": "antigravity/mcp"
-      },
-      {
-        "label": "Permissions",
-        "slug": "antigravity/permissions"
-      },
-      {
-        "label": "Plan (/plan)",
-        "slug": "antigravity/plan"
-      },
-      {
-        "label": "Plugins",
-        "slug": "antigravity/plugins"
-      },
-      {
-        "label": "Projects",
-        "slug": "antigravity/projects"
-      },
-      {
-        "label": "Remote Agents",
-        "slug": "antigravity/remote-agents"
-      },
-      {
-        "label": "Remote Control",
-        "slug": "antigravity/remote-control"
-      },
-      {
-        "label": "Review changes",
-        "slug": "antigravity/review-changes"
-      },
-      {
-        "label": "Rules",
-        "slug": "antigravity/rules"
-      },
-      {
-        "label": "Terminal sandbox",
-        "slug": "antigravity/sandbox"
-      },
-      {
-        "label": "Screenshots",
-        "slug": "antigravity/screenshots"
-      },
-      {
-        "label": "Search and command palette",
-        "slug": "antigravity/search"
-      },
-      {
-        "label": "Settings",
-        "slug": "antigravity/settings"
-      },
-      {
-        "label": "Side panel and Overview panel",
-        "slug": "antigravity/side-panel"
-      },
-      {
-        "label": "Sidecars",
-        "slug": "antigravity/sidecars"
-      },
-      {
-        "label": "Agent skills",
-        "slug": "antigravity/skills"
-      },
-      {
-        "label": "Slash commands overview",
-        "slug": "antigravity/slash-commands"
-      },
-      {
-        "label": "Connect over SSH",
-        "slug": "antigravity/ssh"
-      },
-      {
-        "label": "Custom subagents",
-        "slug": "antigravity/subagents"
+        "label": "Schedule command (/schedule)",
+        "slug": "antigravity/commands/schedule"
       },
       {
         "label": "Swarm (/swarm)",
@@ -184,48 +198,24 @@
         "slug": "antigravity/teamwork"
       },
       {
-        "label": "Voice mode",
-        "slug": "antigravity/voice-mode"
+        "label": "Artifacts",
+        "slug": "antigravity/artifacts"
+      },
+      {
+        "label": "Plan",
+        "slug": "antigravity/implementation-plan"
       },
       {
         "label": "Walkthrough",
         "slug": "antigravity/walkthrough"
-      }
-    ]
-  },
-  {
-    "label": "Get Started",
-    "collapsed": true,
-    "items": [
-      {
-        "label": "Build with Google",
-        "slug": "antigravity/build-with-google"
       },
       {
-        "label": "Get started",
-        "slug": "antigravity/getting-started"
+        "label": "Screenshots",
+        "slug": "antigravity/screenshots"
       },
       {
-        "label": "Authenticate",
-        "slug": "antigravity/install"
-      },
-      {
-        "label": "Choose a model",
-        "slug": "antigravity/models"
-      },
-      {
-        "label": "Choose your Antigravity",
-        "slug": "antigravity/overview"
-      }
-    ]
-  },
-  {
-    "label": "Changelog",
-    "collapsed": true,
-    "items": [
-      {
-        "label": "Changelog",
-        "slug": "antigravity/changelog"
+        "label": "Build plugins",
+        "slug": "antigravity/build-plugins"
       }
     ]
   },
@@ -233,6 +223,22 @@
     "label": "Antigravity CLI",
     "collapsed": true,
     "items": [
+      {
+        "label": "CLI settings and tips",
+        "slug": "antigravity/cli/using"
+      },
+      {
+        "label": "Migration",
+        "slug": "antigravity/cli/gcli-migration"
+      },
+      {
+        "label": "Prompting and interaction",
+        "slug": "antigravity/cli/prompting"
+      },
+      {
+        "label": "Headless mode",
+        "slug": "antigravity/cli/headless"
+      },
       {
         "label": "Agent Client Protocol (ACP)",
         "slug": "antigravity/cli/acp"
@@ -242,8 +248,28 @@
         "slug": "antigravity/cli/artifacts"
       },
       {
-        "label": "CLI best practices",
-        "slug": "antigravity/cli/best-practices"
+        "label": "Managing conversations",
+        "slug": "antigravity/cli/conversations"
+      },
+      {
+        "label": "Choose an execution mode",
+        "slug": "antigravity/cli/modes"
+      },
+      {
+        "label": "Vim editor mode",
+        "slug": "antigravity/cli/vim-editor-mode"
+      },
+      {
+        "label": "CLI AI credits",
+        "slug": "antigravity/cli/credits"
+      },
+      {
+        "label": "Status line customization",
+        "slug": "antigravity/cli/statusline"
+      },
+      {
+        "label": "Terminal title customization",
+        "slug": "antigravity/cli/title"
       },
       {
         "label": "Agents command (/agents)",
@@ -298,52 +324,146 @@
         "slug": "antigravity/cli/commands/voice"
       },
       {
-        "label": "Managing conversations",
-        "slug": "antigravity/cli/conversations"
-      },
-      {
-        "label": "CLI AI credits",
-        "slug": "antigravity/cli/credits"
-      },
-      {
-        "label": "Migration",
-        "slug": "antigravity/cli/gcli-migration"
-      },
-      {
-        "label": "Headless mode",
-        "slug": "antigravity/cli/headless"
-      },
-      {
-        "label": "Choose an execution mode",
-        "slug": "antigravity/cli/modes"
-      },
-      {
-        "label": "Prompting and interaction",
-        "slug": "antigravity/cli/prompting"
-      },
-      {
-        "label": "CLI commands",
-        "slug": "antigravity/cli/reference"
-      },
-      {
-        "label": "Status line customization",
-        "slug": "antigravity/cli/statusline"
-      },
-      {
-        "label": "Terminal title customization",
-        "slug": "antigravity/cli/title"
+        "label": "CLI best practices",
+        "slug": "antigravity/cli/best-practices"
       },
       {
         "label": "CLI troubleshooting",
         "slug": "antigravity/cli/troubleshooting"
       },
       {
-        "label": "CLI settings and tips",
-        "slug": "antigravity/cli/using"
+        "label": "CLI commands",
+        "slug": "antigravity/cli/reference"
+      }
+    ]
+  },
+  {
+    "label": "Antigravity SDK",
+    "collapsed": true,
+    "items": [
+      {
+        "label": "Antigravity SDK overview",
+        "slug": "antigravity/sdk/overview"
       },
       {
-        "label": "Vim editor mode",
-        "slug": "antigravity/cli/vim-editor-mode"
+        "label": "Local models",
+        "slug": "antigravity/sdk/local-models"
+      },
+      {
+        "label": "Personas",
+        "slug": "antigravity/sdk/personas"
+      },
+      {
+        "label": "Tools and skills",
+        "slug": "antigravity/sdk/tools"
+      },
+      {
+        "label": "MCP",
+        "slug": "antigravity/sdk/mcp"
+      },
+      {
+        "label": "Policies",
+        "slug": "antigravity/sdk/policies"
+      },
+      {
+        "label": "Subagents",
+        "slug": "antigravity/sdk/subagents"
+      },
+      {
+        "label": "Structured output",
+        "slug": "antigravity/sdk/structured-output"
+      },
+      {
+        "label": "Lifecycle and hooks",
+        "slug": "antigravity/sdk/lifecycle"
+      }
+    ]
+  },
+  {
+    "label": "Antigravity for IDEs",
+    "collapsed": true,
+    "items": [
+      {
+        "label": "IDE extensions",
+        "slug": "antigravity/ide/extensions"
+      },
+      {
+        "label": "Visual Studio Code",
+        "slug": "antigravity/ide/extensions/vscode"
+      },
+      {
+        "label": "Visual Studio",
+        "slug": "antigravity/ide/extensions/visual-studio"
+      },
+      {
+        "label": "Eclipse",
+        "slug": "antigravity/ide/extensions/eclipse"
+      },
+      {
+        "label": "IntelliJ-based IDEs",
+        "slug": "antigravity/ide/extensions/jetbrains"
+      },
+      {
+        "label": "Android Studio",
+        "slug": "antigravity/ide/extensions/android-studio"
+      },
+      {
+        "label": "Zed",
+        "slug": "antigravity/ide/extensions/zed"
+      },
+      {
+        "label": "Xcode",
+        "slug": "antigravity/ide/extensions/xcode"
+      },
+      {
+        "label": "Other editors (ACP)",
+        "slug": "antigravity/ide/extensions/acp"
+      },
+      {
+        "label": "Tab",
+        "slug": "antigravity/ide/tab"
+      },
+      {
+        "label": "Side panel",
+        "slug": "antigravity/ide/agent-side-panel"
+      },
+      {
+        "label": "Review changes in the editor",
+        "slug": "antigravity/ide/review-changes-editor"
+      },
+      {
+        "label": "Browser recordings",
+        "slug": "antigravity/ide/browser-recordings"
+      },
+      {
+        "label": "Overview",
+        "slug": "antigravity/ide/browser"
+      },
+      {
+        "label": "Allowlist and denylist",
+        "slug": "antigravity/ide/allowlist-denylist"
+      },
+      {
+        "label": "Chrome profile",
+        "slug": "antigravity/ide/separate-chrome-profile"
+      },
+      {
+        "label": "Workflows",
+        "slug": "antigravity/ide/workflows"
+      }
+    ]
+  },
+  {
+    "label": "Migration",
+    "collapsed": true,
+    "items": [
+      {
+        "label": "Firebase Studio migration",
+        "slug": "antigravity/firebase-studio-migration"
+      },
+      {
+        "label": "Workflows to skills migration",
+        "slug": "antigravity/migration/workflows-to-skills"
       }
     ]
   },
@@ -358,60 +478,12 @@
     ]
   },
   {
-    "label": "FAQ",
+    "label": "Workspace",
     "collapsed": true,
     "items": [
       {
-        "label": "FAQ",
-        "slug": "antigravity/faq"
-      }
-    ]
-  },
-  {
-    "label": "Migration",
-    "collapsed": true,
-    "items": [
-      {
-        "label": "Firebase Studio migration",
-        "slug": "antigravity/firebase-studio-migration"
-      }
-    ]
-  },
-  {
-    "label": "Antigravity for IDEs",
-    "collapsed": true,
-    "items": [
-      {
-        "label": "Side panel",
-        "slug": "antigravity/ide/agent-side-panel"
-      },
-      {
-        "label": "Allowlist and denylist",
-        "slug": "antigravity/ide/allowlist-denylist"
-      },
-      {
-        "label": "Overview",
-        "slug": "antigravity/ide/browser"
-      },
-      {
-        "label": "Browser recordings",
-        "slug": "antigravity/ide/browser-recordings"
-      },
-      {
-        "label": "Review changes in the editor",
-        "slug": "antigravity/ide/review-changes-editor"
-      },
-      {
-        "label": "Chrome profile",
-        "slug": "antigravity/ide/separate-chrome-profile"
-      },
-      {
-        "label": "Tab",
-        "slug": "antigravity/ide/tab"
-      },
-      {
-        "label": "Workflows",
-        "slug": "antigravity/ide/workflows"
+        "label": "Google Workspace accounts",
+        "slug": "antigravity/workspace"
       }
     ]
   },
@@ -436,54 +508,22 @@
     ]
   },
   {
-    "label": "Antigravity SDK",
+    "label": "FAQ",
     "collapsed": true,
     "items": [
       {
-        "label": "Lifecycle and hooks",
-        "slug": "antigravity/sdk/lifecycle"
-      },
-      {
-        "label": "Local models",
-        "slug": "antigravity/sdk/local-models"
-      },
-      {
-        "label": "MCP",
-        "slug": "antigravity/sdk/mcp"
-      },
-      {
-        "label": "Antigravity SDK overview",
-        "slug": "antigravity/sdk/overview"
-      },
-      {
-        "label": "Personas",
-        "slug": "antigravity/sdk/personas"
-      },
-      {
-        "label": "Policies",
-        "slug": "antigravity/sdk/policies"
-      },
-      {
-        "label": "Structured output",
-        "slug": "antigravity/sdk/structured-output"
-      },
-      {
-        "label": "Subagents",
-        "slug": "antigravity/sdk/subagents"
-      },
-      {
-        "label": "Tools and skills",
-        "slug": "antigravity/sdk/tools"
+        "label": "FAQ",
+        "slug": "antigravity/faq"
       }
     ]
   },
   {
-    "label": "Workspace",
+    "label": "Changelog",
     "collapsed": true,
     "items": [
       {
-        "label": "Google Workspace accounts",
-        "slug": "antigravity/workspace"
+        "label": "Changelog",
+        "slug": "antigravity/changelog"
       }
     ]
   }

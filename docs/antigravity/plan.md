@@ -1,6 +1,6 @@
 # Plan (/plan)
 
-Available on: Antigravity App, Antigravity CLI
+Available on: Antigravity App, Antigravity CLI, IDE extensions (VS Code, Visual Studio, Eclipse, JetBrains, Android Studio, Zed, Xcode), Antigravity IDE
 
 The `/plan` command facilitates structured planning, codebase exploration, and requirements discovery before jumping directly into code execution. For non-trivial tasks, `/plan` ensures complex changes are well-understood, properly scoped, and organized before files are modified.
 

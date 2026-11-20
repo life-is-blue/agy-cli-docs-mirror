@@ -1,6 +1,6 @@
 # Agent permissions
 
-Available on: Antigravity App, Antigravity CLI
+Available on: Antigravity App, Antigravity CLI, IDE extensions (VS Code, Visual Studio, Eclipse), Antigravity IDE
 
 Antigravity uses a unified fine-grained permission engine to evaluate sensitive tool operations across Deny, Ask, and Allow access lists. If you are using Antigravity with Gemini Enterprise, see [Antigravity in Gemini Enterprise](/docs/enterprise#autonomous-tool-permissions-and-human-in-the-loop-controls).
 
@@ -404,7 +404,7 @@ Refer to **[Choose an execution mode](/docs/cli/modes)** for details on switchin
 
 Note
 
-Since `v1.5.7`, the CLI starts in `auto` mode where Auto mode is available, and in `default` mode (`request-review`) otherwise, unless you choose another mode. `auto` mode is available in `v1.3.5+` on **macOS and Linux** and `v1.4.4+` on **Windows** when the terminal sandbox is available. It isn’t available for business or enterprise accounts.
+Since `v1.5.7`, the CLI starts in `auto` mode where `auto` mode is available, and in `default` mode (`request-review`) otherwise, unless you choose another mode. `auto` mode is available in `v1.3.5+` on **macOS and Linux** and `v1.4.4+` on **Windows** when the terminal sandbox is available. It isn’t available for business or enterprise accounts.
 
 * * *
 

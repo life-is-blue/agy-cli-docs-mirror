@@ -115,17 +115,77 @@ if __name__ == "__main__":
     asyncio.run(main())
 ```
 
+### Vision support
+
+Use `LiteRTAgentConfig` to analyze images on-device with vision-capable `.litertlm` checkpoints (such as Gemma 4 26B A4B). This supports offline and hybrid visual workflows such as UI verification, screenshot debugging, and diagram analysis.
+
+At startup, `LiteRTAgentConfig` inspects your checkpoint with `litert_lm.ModelInfo` to detect vision support and select the default hardware backend (`"gpu"` or `"cpu"`). You can also pass an explicit `vision_backend` override. Pass images alongside text prompts in `agent.chat()` using `from_file()` or `Image` (see [Multimodal attachments](/docs/sdk/structured-output#multimodal-attachments)):
+
+```python
+import asyncio
+import os
+
+from google.antigravity import Agent, LiteRTAgentConfig, from_file
+
+MODEL_PATH = os.path.expanduser(
+    "~/.litert-lm/models/gemma4-26b/model.litertlm"
+)
+
+
+async def main():
+    config = LiteRTAgentConfig(
+        model_path=MODEL_PATH,
+        # Optional: override the auto-detected vision backend ("gpu" or "cpu")
+        # vision_backend="gpu",
+    )
+
+    async with Agent(config) as agent:
+        response = await agent.chat([
+            "Inspect this UI screenshot and check for layout issues:",
+            from_file("screenshot.png"),
+        ])
+        async for token in response:
+            print(token, end="", flush=True)
+        print()
+
+
+if __name__ == "__main__":
+    asyncio.run(main())
+```
+
+Note
+
+On-device vision requires `google-antigravity >= 0.1.24` (`pip install -U google-antigravity litert-lm`) and a vision-capable `.litertlm` checkpoint. If you imported `gemma4-26b` before vision support was added, re-run the `litert-lm import` command above (with `gemma-4-26B-A4B-it-gpu.litertlm`) to fetch the vision-capable weights.
+
+### Prefix caching
+
+`LiteRTAgentConfig` automatically caches conversation prefixes across sequential agent turns with zero configuration changes. When the conversation prefix and tool schemas match the previous turn, the managed LiteRT-LM session reuses its in-memory KV cache instead of recomputing static system instructions, tool schemas, and prior history. LiteRT-LM prefills only newly added prompts and tool outputs, which reduces latency during multi-step tool calling.
+
+To also persist compiled model graphs on disk for faster startup across separate runs, set `cache_dir` on `LiteRTAgentConfig`:
+
+```python
+config = LiteRTAgentConfig(
+    model_path=MODEL_PATH,
+    cache_dir=os.path.expanduser("~/.litert-lm/cache"),
+)
+```
+
 ### LiteRT configuration options
 
 `LiteRTAgentConfig` automatically applies the `.lightweight()` preset when initialized. This preset restricts built-in tools to core coding operations, trims system instructions for smaller context windows, and sets a default context compaction threshold sized for the 64k LiteRT KV-cache.
 
 In addition to standard [`AgentConfig`](https://github.com/google-antigravity/antigravity-sdk-python/blob/main/google/antigravity/connections/README.md#agentconfig) fields (`tools`, `policies`, `hooks`, `mcp_servers`, `subagents`, `workspaces`, and `system_instructions`), [`LiteRTAgentConfig`](https://github.com/google-antigravity/antigravity-sdk-python/blob/main/google/antigravity/connections/local/litert_connection_config.py) supports the following options:
 
-*   `model_path` (string, required): Absolute path to a `.litertlm` model file.
-*   `backend` (`LiteRTBackend` or string, optional): Hardware backend for inference (`'gpu'`, `'npu'`, or `'cpu'`). Defaults to `LiteRTBackend.GPU`.
-*   `enable_speculative_decoding` (boolean, optional): Enables multi-token prediction for faster generation. Defaults to `False`.
-*   `cache_dir` (string, optional): Directory path for caching compiled model graphs across launches.
-*   `compaction_config` (`CompactionConfig`, optional): Overrides the default context compaction threshold.
+| Key | Type | Default | Allowed values | Description |
+| :-- | :-- | :-- | :-- | :-- |
+| **`model_path`** | `str` | _Required_ | Absolute `.litertlm` file path | Path to the local `.litertlm` model checkpoint file. |
+| **`backend`** | `LiteRTBackend` or `str` | `LiteRTBackend.GPU` | `'gpu'`, `'npu'`, `'cpu'` | Hardware backend used for model inference. |
+| **`vision_backend`** | `LiteRTBackend`, `str`, or `None` | `None` (auto-detected) | `'gpu'`, `'npu'`, `'cpu'`, `None` | Hardware backend override for vision processing. When `None`, `LiteRTAgentConfig` inspects `litert_lm.ModelInfo` and selects `'gpu'` or `'cpu'`. |
+| **`audio_backend`** | `LiteRTBackend`, `str`, or `None` | `None` | `'gpu'`, `'npu'`, `'cpu'`, `None` | Hardware backend override for audio processing. |
+| **`enable_speculative_decoding`** | `bool` | `False` | `True`, `False` | Enables multi-token prediction for faster generation. |
+| **`cache_dir`** | `str` or `None` | `None` | Directory path or `None` | Writable directory path for caching compiled model graphs across launches. |
+| **`port`** | `int` | `0` | `0` or TCP port | Local loopback port for the managed LiteRT server (`0` selects an available port automatically). |
+| **`compaction_config`** | `CompactionConfig` or `None` | `token_threshold=40960` | `CompactionConfig` or `None` | Overrides the default context compaction threshold derived from the 64k LiteRT KV-cache. |
 
 ## External OpenAI-compatible servers
 
@@ -167,4 +227,5 @@ if __name__ == "__main__":
 To explore full working code examples, check out the following resources:
 
 *   [`local_models.py`](https://github.com/google-antigravity/antigravity-sdk-python/blob/main/examples/getting_started/local_models.py): Getting-started script for `LiteRTAgentConfig` and `LocalOpenAIAgentConfig`.
+*   [`multimodal.py`](https://github.com/google-antigravity/antigravity-sdk-python/blob/main/examples/getting_started/multimodal.py): Attaching images, documents, and audio with `Image.from_file()`, `Document.from_file()`, and `Audio.from_file()`.
 *   [Antigravity Hybrid Gauntlet](https://goo.gle/47cKYyV): Hybrid workflow that pairs a cloud Gemini planner with local Gemma 4 26B agents for on-device code auditing and patching.

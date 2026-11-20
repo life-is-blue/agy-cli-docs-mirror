@@ -1,6 +1,6 @@
 # Plugins
 
-Available on: Antigravity App, Antigravity CLI, Antigravity IDE
+Available on: Antigravity App, Antigravity CLI, IDE extensions (VS Code, Visual Studio, Eclipse), Antigravity IDE
 
 Plugins package reusable [skills](/docs/skills), [Model Context Protocol (MCP) servers](/docs/mcp), [custom agents and subagents](/docs/subagents), [rules](/docs/rules), and [lifecycle hooks](/docs/hooks) into a single versioned unit. You can install curated plugins from the [Antigravity Marketplace](/docs/marketplace), install plugins from a GitHub repository or local directory, or [build and publish your own plugins](/docs/build-plugins).
 

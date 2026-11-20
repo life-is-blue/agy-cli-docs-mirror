@@ -1,6 +1,6 @@
 # Settings
 
-Available on: Antigravity App, Antigravity CLI, Antigravity IDE
+Available on: Antigravity App, Antigravity CLI, IDE extensions (VS Code, Visual Studio, Eclipse), Antigravity IDE
 
 Configure preferences, execution boundaries, command permissions, and tool telemetry across Antigravity surfaces.
 
@@ -219,7 +219,7 @@ The interactive settings panel (`/config`) and `settings.json` allow you to cust
 Manage how the agent interacts with your system and codebase:
 
 *   **Agent Mode (`agentMode`)**: Controls the session execution mode for file edits, command evaluation, and planning (can also be set per session with `--mode` or cycled with Shift + Tab; refer to [Choose an execution mode](/docs/cli/modes)):
-    *   `auto` (the default since `v1.5.7` where Auto mode is available): Automatically approves workspace file edits, runs terminal commands inside the [terminal sandbox](/docs/sandbox) by default, and automatically evaluates commands that need to run outside the sandbox so safe, reversible commands run without prompting while risky or irreversible commands pause for approval (shown as `auto` in the bottom-right status bar and `Auto mode: edits & safe commands auto-approved (shift+tab to cycle)` in the prompt input box).
+    *   `auto` (the default since `v1.5.7` where `auto` mode is available): Automatically approves workspace file edits, runs terminal commands inside the [terminal sandbox](/docs/sandbox) by default, and automatically evaluates commands that need to run outside the sandbox so safe, reversible commands run without prompting while risky or irreversible commands pause for approval (shown as `auto` in the bottom-right status bar and `Auto mode: edits & safe commands auto-approved (shift+tab to cycle)` in the prompt input box).
     *   `default` (select `default` in `/config`, or set `agentMode` to `""`): Prompts for interactive diff review before modifying or creating files, and follows `toolPermission` for commands.
     *   `accept-edits`: Automatically approves workspace file edits and creations while continuing to follow `toolPermission` for commands.
     *   `plan`: Prepends `/plan` so the agent analyzes the codebase and outlines a plan before making edits.

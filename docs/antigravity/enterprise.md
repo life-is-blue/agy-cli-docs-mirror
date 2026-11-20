@@ -6,7 +6,7 @@ Using a Google Workspace account without Gemini Enterprise?
 
 You don’t need Gemini Enterprise to use Antigravity with a Workspace account. To compare other options, such as a personal Google Account or paying as you go with your own Google Cloud project, refer to [Google Workspace accounts](/docs/workspace).
 
-Supported products: [Antigravity App](/product/antigravity-2) [Antigravity CLI](/product/antigravity-cli) [Visual Studio Code](/docs/ide/extensions/vscode) [Visual Studio](/docs/ide/extensions/visual-studio) [JetBrains](/docs/ide/extensions/jetbrains) [Zed](/docs/ide/extensions/zed) [Xcode](/docs/ide/extensions/xcode) [Eclipse (Preview)](/docs/ide/extensions/eclipse)
+Supported products: [Antigravity App](/product/antigravity-2) [Antigravity CLI](/product/antigravity-cli) [Visual Studio Code](/docs/ide/extensions/vscode) [Visual Studio](/docs/ide/extensions/visual-studio) [JetBrains](/docs/ide/extensions/jetbrains) [Zed](/docs/ide/extensions/zed) [Xcode](/docs/ide/extensions/xcode) [Eclipse](/docs/ide/extensions/eclipse)
 
 Note
 

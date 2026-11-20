@@ -1,19 +1,25 @@
-Antigravity integrates directly into **The Zed editor** for high-performance, agentic editing within your native Rust-powered workflow.
+# Zed
+
+Antigravity integrates directly into the **Zed** editor for high-performance, agentic editing within your native Rust-powered workflow.
 
 * * *
 
 ## Prerequisites
 
+Ensure that you meet the following prerequisites before installing the extension:
+
 *   **Zed**: Version 0.140.0 or later on macOS or Linux.
-*   **Antigravity Entitlement**: A Google Account with any Antigravity plan (including the free tier) or **Gemini Enterprise** (Enterprise support in Preview).
+*   **Antigravity entitlement**: A Google Account with any Antigravity plan (including the free tier) or **Gemini Enterprise**.
 
 * * *
 
-## Installation & Setup
+## Installation and setup
+
+Complete the following steps to install Antigravity in Zed:
 
 1.  Open Zed.
-2.  Open the Command Palette (`Cmd+Shift+P` on macOS, `Ctrl+Shift+P` on Linux/Windows).
-3.  Type `agent: open settings` and press **Enter**.
+2.  Open the Command Palette (Cmd + Shift + P on macOS, Ctrl + Shift + P on Linux and Windows).
+3.  Enter `agent: open settings` and press Enter.
 4.  Navigate to **External Agents** > **Add** > **Install from Registry**.
 5.  Search for **Antigravity**.
 6.  Click **Install**.
@@ -22,19 +28,13 @@ Antigravity integrates directly into **The Zed editor** for high-performance, ag
 
 * * *
 
-## Authentication & Licensing
+## Authentication and licensing
 
-Note
-
-Gemini Enterprise authentication for Zed is currently in **Preview**.
-
-Google AccountsGemini EnterpriseGemini APIAgent Platform
-
-Google Accounts (Individual)Gemini Enterprise (OAuth - Preview)Gemini API (API Key)Gemini Enterprise Agent Platform (Preview)expand\_more
+### Google Accounts
 
 For individual Google AI subscription plans (including Free, Pro, and Ultra):
 
-```
+```json
 {
   "auth": {
     "type": "oauth-personal"
@@ -42,9 +42,11 @@ For individual Google AI subscription plans (including Free, Pro, and Ultra):
 }
 ```
 
-Reach out to your cloud administrator for your GCP Project ID and Region (Enterprise support for JetBrains, Zed, and Xcode is currently in Preview):
+### Gemini Enterprise
 
-```
+Reach out to your cloud administrator for your GCP Project ID and Region:
+
+```json
 {
   "auth": {
     "type": "oauth-business"
@@ -56,9 +58,11 @@ Reach out to your cloud administrator for your GCP Project ID and Region (Enterp
 }
 ```
 
+### Gemini API
+
 Authenticate using a Gemini API key:
 
-```
+```json
 {
   "auth": {
     "type": "gemini-api-key"
@@ -66,9 +70,11 @@ Authenticate using a Gemini API key:
 }
 ```
 
-Authenticate with Gemini Enterprise Agent Platform using a Google API Key or Application Default Credentials (ADC) (Preview). When using ADC, specify your GCP Project ID and Region:
+### API / ADC
 
-```
+Authenticate with Gemini Enterprise using an API Key or Application Default Credentials (ADC) (Preview). When using ADC, specify your GCP Project ID and Region:
+
+```json
 {
   "auth": {
     "type": "agent-platform"

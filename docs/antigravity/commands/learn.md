@@ -1,6 +1,6 @@
 # Learn command (/learn)
 
-Available on: Antigravity App, Antigravity CLI, Antigravity IDE
+Available on: Antigravity App, Antigravity CLI, IDE extensions (VS Code, Visual Studio, Eclipse), Antigravity IDE
 
 Capture what the agent learned in this session, such as a correction you made, a constraint it kept missing, or a multi-step setup that finally worked, and persist it as a [rule](/docs/rules) or [skill](/docs/skills) so future sessions benefit automatically.
 

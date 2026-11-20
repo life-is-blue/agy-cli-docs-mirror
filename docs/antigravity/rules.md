@@ -1,6 +1,6 @@
 # Rules
 
-Available on: Antigravity App, Antigravity CLI, Antigravity IDE
+Available on: Antigravity App, Antigravity CLI, IDE extensions (VS Code, Visual Studio, Eclipse), Antigravity IDE
 
 Rules are persistent instructions, coding standards, and architectural constraints that shape how Antigravity behaves in your codebase. Unlike chat prompts that apply to a single conversation, Antigravity automatically discovers rules from your filesystem and injects them into the agent’s context.
 

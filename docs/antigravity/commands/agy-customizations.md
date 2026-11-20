@@ -1,6 +1,6 @@
 # Customizations command (/agy-customizations)
 
-Available on: Antigravity App, Antigravity CLI, Antigravity IDE
+Available on: Antigravity App, Antigravity CLI, IDE extensions, Antigravity IDE
 
 Load the Antigravity customization reference into the agent’s context before you ask it to create, change, or explain a [rule](/docs/rules), [skill](/docs/skills), [plugin](/docs/plugins), [hook](/docs/hooks), or [MCP server](/docs/mcp) configuration.
 

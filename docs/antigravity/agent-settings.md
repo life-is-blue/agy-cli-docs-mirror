@@ -1,6 +1,6 @@
 # Agent settings
 
-Available on: Antigravity App, Antigravity CLI
+Available on: Antigravity App, Antigravity CLI, IDE extensions (VS Code, Visual Studio, Eclipse), Antigravity IDE
 
 Configure how the Antigravity agent executes terminal commands, modifies files, and uses the terminal sandbox across the desktop application and CLI.
 
@@ -70,7 +70,7 @@ Antigravity CLI lets you configure how the agent edits files, runs shell command
 
 *   **Agent Mode (`agentMode` / `--mode`)**: Controls the session execution mode (cycle during a session with Shift + Tab):
     *   `default` (select `default` in `/config`, or set `agentMode` to `""` in `settings.json`): Prompts for interactive diff review before modifying or creating files, and follows `toolPermission` for commands.
-    *   `auto` (the default since `v1.5.7` where Auto mode is available): Automatically approves workspace file edits, runs terminal commands inside the [Terminal sandbox](/docs/sandbox) by default, and automatically evaluates commands that need to run outside the sandbox so safe, reversible commands run without prompting while risky or irreversible commands pause for approval. When active, the bottom-right status bar shows `auto` and the prompt input displays `Auto mode: edits & safe commands auto-approved (shift+tab to cycle)`.
+    *   `auto` (the default since `v1.5.7` where `auto` mode is available): Automatically approves workspace file edits, runs terminal commands inside the [Terminal sandbox](/docs/sandbox) by default, and automatically evaluates commands that need to run outside the sandbox so safe, reversible commands run without prompting while risky or irreversible commands pause for approval. When active, the bottom-right status bar shows `auto` and the prompt input displays `Auto mode: edits & safe commands auto-approved (shift+tab to cycle)`.
     *   `accept-edits`: Automatically approves workspace file edits and creations while continuing to follow `toolPermission` for commands.
     *   `plan`: Analyzes the codebase and outlines a plan before making edits.
 *   **Tool Permission (`toolPermission`)**: Controls the baseline authorization policy for tools outside `auto` mode (and for `strict` and `always-proceed` overrides):

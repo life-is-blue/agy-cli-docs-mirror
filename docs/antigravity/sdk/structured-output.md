@@ -54,6 +54,8 @@ async with Agent(config) as agent:
     print(await response.text())
 ```
 
+To analyze image attachments on-device with local models, see [Vision support in Local models](/docs/sdk/local-models#vision-support).
+
 ## Structured output with Pydantic
 
 In some cases, you may want your agentic application to always output its response in a specific format.

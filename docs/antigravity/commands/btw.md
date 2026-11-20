@@ -1,6 +1,6 @@
 # Side question command (/btw)
 
-Available on: Antigravity App, Antigravity CLI
+Available on: Antigravity App, Antigravity CLI, IDE extensions (VS Code, Visual Studio, Eclipse), Antigravity IDE
 
 Use `/btw` to ask a quick question while the agent keeps working. The side question can read files and search your workspace to check its answer, and nothing it does is added to your main conversation.
 

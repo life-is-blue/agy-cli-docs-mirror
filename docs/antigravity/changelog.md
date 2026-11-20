@@ -1639,6 +1639,38 @@ Antigravity 2.0 Launch bug fixes.
 
 ## Antigravity CLI
 
+### [v1.5.12](/releases?tab=cli&version=1.5.12 "View release 1.5.12")
+
+Latest
+
+November 19, 2026
+
+### Remote Control split view, Gemini 4 Neon API key support, and faster conversation forking.
+
+Antigravity CLI 1.5.12 introduces split view in the Remote Control browser view, adds Gemini 4 Neon support when connecting with a `GEMINI_API_KEY`, improves `/fork` speed for large conversations, and resolves several network retry, rendering, and Remote Control bugs.
+
+**Improvements:**
+
+*   Added split view to the Remote Control browser view, so you can keep several conversations open side by side: choose `Split Right` or `Split Down` from the `Split` submenu of a conversation's menu in the sidebar or of the ⋮ menu in its title bar (not available on phones).
+*   Added Gemini 4 Neon (Low, Medium, High, and XHigh) to `/model` and `--model` when you connect with a `GEMINI_API_KEY`.
+*   Added a scroll position indicator to the `full screen (altscreen)` rendering mode: while you're scrolled up, the line above the prompt shows how much of the conversation is below what you're reading, such as `↓ 25 lines · 2 turns`.
+*   Improved Markdown headings in agent responses and artifacts, which now show only their text, set apart by bold, italic, or underline, instead of starting with `##` to `######` markers that looked like Markdown that failed to render.
+*   Improved `/fork` for conversations whose artifact folder has grown large, for example after the agent cloned a repository or kept build output in `scratch/`: the fork now leaves those files with the original conversation and points the forked agent to them instead of copying every file, so forking takes seconds instead of up to an hour, and deleting the original conversation also deletes those files.
+*   Improved scrolling back through a long conversation in the Remote Control browser view: `Loading older messages…` now shows while earlier messages load, and if they fail to load, `Couldn't load older messages · Retry` lets you try again instead of the view retrying silently every time you scroll up.
+*   Improved Auto mode's review of commands that would leave the terminal sandbox so it decides faster, times out less often, and asks you to approve safe commands less often: when the review runs on Gemini 4 Hydrogen, it now uses medium instead of high thinking.
+
+**Fixes:**
+
+*   Fixed agent turns stopping with an error after a brief connection problem, such as a connection the server reset, a model response that broke off partway through, or the network not being ready yet right after your computer wakes from sleep; the CLI now retries these requests automatically.
+*   Fixed Remote Control, `--remote-agent`, and voice dictation being offered when you connect with a `GEMINI_API_KEY`, where they could only fail, for example with a Remote Control link that never connected: `--remote-control` and `--remote-agent` now exit with code 2 at launch, and `/remote-control`, `/voice`, and `/record` are left out of autocomplete and `/help` and explain that they aren't available with a Gemini API key.
+*   Fixed the status line showing a red `AI: Out of credits` when you connect with a `GEMINI_API_KEY` and AI credits are turned on in your settings; API keys don't use AI credits, so that status and the `Use AI Credits` setting in `/config` no longer appear.
+*   Fixed copying a long prompt with the mouse in the `full screen (altscreen)` rendering mode putting a line break wherever the prompt wrapped on screen; a prompt you sent, or the text in the prompt box, now copies as you typed it.
+*   Fixed bold text next to Chinese, Japanese, or Korean text showing its `**` markers when the bold part starts or ends with punctuation, such as `**注意：**这里`.
+*   Fixed the Remote Control browser view crashing on a conversation that contains `@` mentions pasted back from a Markdown export, such as Google Docs' Copy as Markdown; such mentions now paste as plain text, and affected conversations open normally again.
+*   Fixed pressing `Enter` in the Remote Control browser view sending your message while the send button was disabled, such as before an attachment finished uploading or while the conversation was still loading; `Enter` now waits until you can send, and your draft stays in the message box.
+
+---
+
 Model launch·November 18, 2026
 
 ### Gemini 4 Neon
@@ -1650,8 +1682,6 @@ Gemini 4 Neon is now available on Google AI Ultra, Google AI Pro, and Gemini Ent
 ---
 
 ### [v1.5.11](/releases?tab=cli&version=1.5.11 "View release 1.5.11")
-
-Latest
 
 November 18, 2026
 
@@ -5954,6 +5984,27 @@ Introduces the Google Antigravity Agent Client Protocol (ACP) server (`antigravi
 
 ---
 
+### [v1.2.0](/docs/ide/extensions/eclipse "View Eclipse extension docs")
+
+Latest
+
+November 19, 2026
+
+### In-IDE issue reporting and retry actions, improved mid-session crash recovery, and sign-in flow reliability improvements
+
+Introduces in-IDE issue reporting and recovery actions on error panels alongside reliability fixes for browser authentication and session stability.
+
+**Improvements:**
+
+*   In-IDE Feedback Reporting: Added direct issue reporting and retry actions to error views across chat, settings, and artifact panels.
+
+**Fixes:**
+
+*   Service Crash Recovery: Fixed an issue where unexpected service terminations were not detected and displayed across open tool views.
+*   Sign-In Experience: Fixed an issue where completing sign-in prompted to launch an external desktop application instead of returning to the editor.
+
+---
+
 Model launch·November 18, 2026
 
 ### Gemini 4 Neon
@@ -5985,8 +6036,6 @@ Gemini 4 Carbon is our strongest model for long-horizon software engineering, kn
 ---
 
 ### [v1.1.0](/docs/ide/extensions/eclipse "View Eclipse extension docs")
-
-Latest
 
 November 10, 2026
 
@@ -6063,9 +6112,38 @@ Gemini 3.8 Flash builds on 3.7 Flash as an everyday model for agentic developmen
 
 ## Antigravity SDK
 
-### [v0.1.23](/download#antigravity-sdk "View release 0.1.23")
+### [v0.1.24](/download#antigravity-sdk "View release 0.1.24")
 
 Latest
+
+November 16, 2026
+
+### Default model gemini-4-hydrogen, LiteRT vision and prefix caching, and cancellation cleanup.
+
+Antigravity SDK v0.1.24 updates the default model to gemini-4-hydrogen and maps ThinkingLevel.EXTRA\_HIGH to xhigh, expands LiteRTAgentConfig with on-device vision support, multi-turn KV prefix caching, and thought-channel streaming, and strengthens runtime reliability with deterministic subprocess and transport cleanup on cancellation, structured LocalOpenAIConnection error and usage reporting, and multi-turn state isolation.
+
+**Improvements:**
+
+*   **Default Model (`gemini-4-hydrogen`) & `ThinkingLevel.EXTRA_HIGH` Mapping**: Updated the SDK default model (`DEFAULT_MODEL`) from `"gemini-3.8-flash"` to `"gemini-4-hydrogen"` and mapped `ThinkingLevel.EXTRA_HIGH` to `"xhigh"` across Gemini API, Vertex AI, and Interactions API surfaces (normalizing per-request `"extra_high"` overrides in `localharness`). Override the default anytime via `model` or `ModelTarget` on `LocalAgentConfig`.<pre><code>from google.antigravity import (
+*   **On-Device Vision Support (`LiteRTAgentConfig`)**: Added automatic vision capability and hardware backend detection (`"gpu"` / `"cpu"`) via `litert_lm.ModelInfo` (with optional `vision_backend` override) and OpenAI-to-LiteRT multimodal image translation (`from_file`, `Image`) for vision-capable `.litertlm` checkpoints such as Gemma 4 26B (requires `litert-lm >= 0.19.1`).<pre><code>from google.antigravity import Agent, LiteRTAgentConfig, from\_file
+*   **LiteRT Multi-Turn Prefix Caching**: Reuses the active `LiteRT-LM` conversation KV cache across sequential loopback turns when message prefixes and tool schemas match, prefilling only newly added prompts and tool responses.
+*   **`LocalOpenAIConnection` Usage, Latency, and Retry Metadata**: Populates token usage (`Usage`) and latency metadata on streaming SSE chunks for OpenAI Chat Completions and Responses APIs, and parses HTTP `Retry-After` headers to support automatic retries on transient 429 and 5xx responses.
+*   **Tool Media Return Values (`struct_converter`)**: Added support for returning SDK media primitives (`Image`, `Audio`, `Video`, `Document`) and Pydantic models directly from custom tools, serializing them as `Content` protos while summarizing inline binary media cleanly in JSON step content.
+*   **Callable Tool Wrapping (`ToolRunner`)**: Preserved underlying function names, docstrings, and deferred stringified type hints (`from __future__ import annotations`) when wrapping `functools.partial` callables and callable class instances as tools.
+
+**Fixes:**
+
+*   **Reliable Subprocess and Transport Cleanup on Cancellation**: Session startup, cancellation via `asyncio.CancelledError`, and disconnection now reliably terminate and reap local runtime subprocesses and close stdio pipes and WebSocket or loopback transports without blocking on non-UTF-8 `stderr` or child file descriptors. Non-zero runtime exits during teardown now surface `AntigravityExecutionError` directly (resolving GitHub issue #279).<pre><code>import asyncio
+*   **LiteRT Thought Channel Streaming**: Resolved an issue where model thought tokens were omitted from LiteRT responses by emitting the thought channel as `reasoning` and `reasoning_content` fields in streaming SSE deltas and synchronous payloads (GitHub issue #267).
+*   **`LocalOpenAIConnection` Error Classification**: Non-200 HTTP responses now surface as `AntigravityConnectionError` (consistent with Gemini local connections) rather than generic execution errors, marking transient 429 and 5xx errors as retryable.
+*   **`ToolCall.canonical_path` Path Traversal Normalization**: Wire path normalization now resolves `.` and `..` segments for `file://` URIs and plain paths so traversal paths cannot bypass prefix-based workspace checks in user hooks.
+*   **Conversation Compaction Tracking**: `Conversation.compaction_indices` now records only root-level (`depth == 0`) `StepType.COMPACTION` steps once they reach `StepStatus.DONE`, ignoring in-progress `ACTIVE` updates and subagent compactions (`depth > 0`).
+*   **Multi-Turn `ChatResponse` & `Conversation` State Isolation**: Isolated per-turn response state by snapshotting `structured_output()`, `usage_metadata`, and `stop_reason` on turn completion, scoping `Conversation.get_last_structured_output()` to root (`depth == 0`) steps of the current turn, re-raising stream errors on repeat `structured_output()` calls, and draining any active unconsumed `ChatResponse` before starting a new turn.
+*   **Documentation & Examples**: Fixed the `types.AntigravityCancelledError` import in the cancellation guide, updated prioritized inference documentation to pass `GeminiAPIEndpoint` via `ModelTarget`, clarified default tool permissions (`confirm_run_command` gating `run_command`) in `README.md`, and updated Gemini documentation URLs to `aistudio.google.com`.
+
+---
+
+### [v0.1.23](/download#antigravity-sdk "View release 0.1.23")
 
 October 26, 2026
 
@@ -6628,6 +6706,36 @@ This release focuses on significant enhancements to the Model Context Protocol (
 
 ## Antigravity IDE
 
+### [v2.8.0](/releases?tab=ide&version=2.8.0 "View release 2.8.0")
+
+Latest
+
+November 19, 2026
+
+### Background update checks, instant startup, remote sign-in port forwarding, and Windows recovery fixes
+
+This release adds recurring background update checks with instant backend startup, automatic port forwarding for remote sign-in, keyboard shortcuts to search within conversations, and custom certificate and proxy support during sign-in. It also fixes Windows logoff recovery loops, multi-window task notification routing, and unintended backend binary downgrades or re-downloads.
+
+**Improvements:**
+
+*   Increased the default backend startup readiness timeout from 30 to 60 seconds to improve startup reliability on Windows.
+*   Added automatic port forwarding and authorization code fallback for sign-in across remote development environments.
+*   Enabled immediate startup on installed backend binaries without blocking editor activation on release checks.
+*   Added recurring background release checks and a notification prompt to restart when an update is ready.
+*   Added keyboard shortcuts to search within conversations when the Agent panel is focused.
+*   Added visually hidden semantic headings to conversation messages to improve turn-by-turn navigation for screen readers.
+*   Added support for custom root certificate authorities and proxy configurations during sign-in.
+
+**Fixes:**
+
+*   Fixed background recovery loops attempting doomed restarts during Windows desktop logoff or system shutdown.
+*   Fixed an issue where opening multiple editor windows on shared release channels could cause unintended backend binary downgrades.
+*   Fixed an issue where transient recovery timeouts could wipe local metadata and trigger unnecessary binary re-downloads.
+*   Fixed task completion notifications on Windows focusing the incorrect window across multi-window workspaces.
+*   Addressed other minor user interface issues.
+
+---
+
 Model launch·November 18, 2026
 
 ### Gemini 4 Neon
@@ -6649,8 +6757,6 @@ Gemini 4 Hydrogen brings fast, dependable coding and agentic execution across fo
 ---
 
 ### [v2.7.0](/releases?tab=ide&version=2.7.0 "View release 2.7.0")
-
-Latest
 
 November 12, 2026
 

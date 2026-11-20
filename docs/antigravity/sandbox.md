@@ -1,6 +1,6 @@
 # Terminal sandbox
 
-Available on: Antigravity App, Antigravity CLI
+Available on: Antigravity App, Antigravity CLI, IDE extensions (VS Code, Eclipse), Antigravity IDE
 
 The terminal sandbox isolates agent shell commands inside OS-level container boundaries to protect your workstation and sensitive files.
 
