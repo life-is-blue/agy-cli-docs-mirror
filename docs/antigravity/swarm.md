@@ -6,7 +6,7 @@ The `/swarm` command runs a team of named agents that split your task, work on t
 
 Note
 
-**Plan availability**: The `/swarm` command is available on **Google AI Pro** and **Google AI Ultra** plans across the Google Antigravity App and the Antigravity CLI.
+**Plan availability**: The `/swarm` command is available on **all plans** across the Google Antigravity App and the Antigravity CLI (on business and enterprise accounts, when allowed by organization admin settings).
 
 **Preview**: Swarm is in preview. Every worker is its own agent, so a swarm uses quota much faster than a single conversation.
 
@@ -214,7 +214,7 @@ For everyday coding and quick questions, prompt the default agent directly. When
 | **Workspace** | Current workspace (or an isolated branch or working copy when requested) | Current workspace across isolated subagent contexts | **Current workspace by default, or per-worker working copies for overlapping edits** | Dedicated project directory (`~/teamwork_projects/{PROJECT_NAME}`) with exclusive file ownership |
 | **Verification** | Parent agent checks the subagent’s reply | Improvement workers try to break prior attempts and run real tests before the orchestrator spot-checks | **A dedicated `@verifier` worker reviews diffs and runs tests before sign-off** | Independent `Critic`, `Challenger`, `Auditor`, and `Success Auditor` gates verify each milestone |
 | **Typical horizon** | Seconds to minutes | Seconds to hours | **Minutes to hours** | Hours to days |
-| **Plan tier** | All plans | Paid plans | **Google AI Pro and Ultra** | Paid plans |
+| **Plan tier** | All plans | Paid plans | **All plans** | Paid plans |
 
 Use the following guidelines to choose the right approach:
 

@@ -46,7 +46,7 @@ By default, agents ask before sensitive actions and limit their file access to y
 
 ### Orchestrator
 
-Select **Orchestrator (Neon)**, **Orchestrator (Carbon)**, or **Orchestrator (Argon)** in the model selector (or with `/model` in the CLI) to get the quality of a larger planner model with faster turnaround. The planner (Gemini 4 Neon, Gemini 4 Carbon, or Gemini 4 Argon) explores the codebase, plans the work, and reviews progress, while Gemini 4 Hydrogen carries out the edits, builds, and test runs, handing control back to the planner whenever the plan needs repair. Google AI Ultra includes all three options, and Google AI Pro (paid plans, or trials with eligible premium devices) includes **Orchestrator (Neon)** and **Orchestrator (Argon)**.
+Select **Orchestrator** in the model selector (or with `/model` in the CLI) to get the quality of a larger planner model with faster turnaround and fewer tokens used. The planner explores the codebase, plans the work, and reviews progress, while a faster executor model (such as Gemini 4 Hydrogen) carries out the searches, edits, builds, and test runs, handing control back to the planner whenever the plan needs repair. On Google AI Ultra and Google AI Pro, you can customize your default **Orchestrator Model** and **Executor Model** in the Antigravity App under **Settings** > **Models** > **Orchestrator Settings** or pick a planner for a single conversation from the **Orchestrator** submenu, and step the **Planner** bar on the **Orchestrator** row in `/model` in the CLI; in Gemini Enterprise, Orchestrator only runs Gemini 4 Carbon paired with Gemini 4 Hydrogen (custom role selection isn’t available). Orchestrator is available on Google AI Ultra, Google AI Pro (paid plans, or trials with eligible premium devices), and [Gemini Enterprise](/docs/enterprise#supported-models-in-gemini-enterprise).
 
 [Learn more about Orchestrator](/docs/models#orchestrator).
 
@@ -68,7 +68,7 @@ In the side panel’s **Overview**, open **Subagents** and select a subagent to 
 
 ### Dynamic Workflows
 
-Run `/run-workflow <task>` to have the agent write a short Python script that orchestrates many agents, such as one reviewer per changed file or a test-then-fix pipeline. You approve the script, follow its phases and agents live, and can save the script to run it again later. Available on Google AI Pro and Google AI Ultra plans.
+Run `/run-workflow <task>` to have the agent write a short Python script that orchestrates many agents, such as one reviewer per changed file or a test-then-fix pipeline. You approve the script, follow its phases and agents live, and can save the script to run it again later.
 
 [Learn more about Dynamic Workflows](/docs/dynamic-workflows).
 
@@ -91,7 +91,7 @@ Let the `browser` subagent open pages, click through flows, inspect console and 
 
 ### Slash commands
 
-Type `/` in the App’s message box or the CLI’s prompt box to run commands such as [`/plan`](/docs/plan), [`/grill-me`](/docs/commands/grill-me), [`/goal`](/docs/commands/goal), [`/boost`](/docs/boost), [`/schedule`](/docs/commands/schedule), [`/swarm`](/docs/swarm), and [`/teamwork`](/docs/teamwork). Some commands are available on only one surface, and `/boost`, `/swarm`, and `/teamwork` require a paid plan.
+Type `/` in the App’s message box or the CLI’s prompt box to run commands such as [`/plan`](/docs/plan), [`/grill-me`](/docs/commands/grill-me), [`/goal`](/docs/commands/goal), [`/boost`](/docs/boost), [`/schedule`](/docs/commands/schedule), [`/swarm`](/docs/swarm), and [`/teamwork`](/docs/teamwork). Some commands are available on only one surface, and `/boost` and `/teamwork` require a paid plan.
 
 [Browse all slash commands](/docs/slash-commands).
 
@@ -179,6 +179,7 @@ Extend what the agent knows and can do. These customizations work in both the Ap
 *   **[Skills](/docs/skills)**: Give the agent folders of instructions, each with a `SKILL.md` file, that it follows when working on specific tasks.
 *   **[Rules](/docs/rules)**: Set persistent instructions, coding standards, and architectural constraints that apply to every conversation.
 *   **[MCP servers](/docs/mcp)**: Connect the agent to local developer tools, databases, and remote APIs through the Model Context Protocol.
+*   **[MCP Apps](/docs/mcp-apps)**: Extend MCP tools with interactive HTML views in the Antigravity App while running the same tools as plain-text MCP tools in the Antigravity CLI.
 
 ### JSON hooks
 
@@ -236,6 +237,12 @@ Press Cmd + K (macOS) or Ctrl + K (Windows and Linux) to search past conversatio
 Open artifacts, files, diffs, terminals, subagent conversations, and web pages as tabs in the side panel, next to your conversation. The **Overview** panel at the top right of each conversation lists the changes, artifacts, subagents, and links that the conversation produced, so you can open any of them in one click. To work in two conversations at once, split the window.
 
 [Learn more about the side panel and the Overview panel](/docs/side-panel).
+
+### MCP Apps
+
+Plugins and MCP servers can attach interactive HTML views to MCP tools using the open MCP Apps extension (SEP-1865). Views render inline in chat, in the side panel beside your conversation, full-page from the left sidebar, or as custom file viewers and editors for specific file extensions, while running inside an isolated iframe with a strict Content Security Policy.
+
+[Learn more about MCP Apps](/docs/mcp-apps).
 
 ### Voice mode
 

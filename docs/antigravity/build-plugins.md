@@ -367,6 +367,8 @@ Bundled MCP servers appear in the **MCP** tab on the plugin detail page:
 
 ![The MCP tab of the Dart and Flutter plugin detail view in the Antigravity App, listing the bundled dart-mcp-server](/assets/image/docs/plugins/plugin-mcp-tab.png)
 
+To attach interactive HTML views (inline cards, side panel boards, full-page sidebar views, or custom file viewers) to your plugin’s MCP tools, refer to the **[MCP Apps guide](/docs/mcp-apps)**.
+
 ### Subagents
 
 Define specialized [custom agents and subagents](/docs/subagents) as Markdown files under `agents/<agent-name>.md` (or `agents/<agent-name>/agent.md`). A bundled agent can run as a background **subagent** delegated tasks by the main agent (`subagent: true`) and/or be selected directly by the user as the **primary session agent** (`mainAgent: true`):
@@ -582,4 +584,4 @@ Once your plugin passes `agy plugin validate` (with zero errors and no unresolve
 
 *   **[Plugins](/docs/plugins)**: Learn how to install, configure, and use plugins across the Antigravity App, Antigravity CLI, and Antigravity IDE.
 *   **[Marketplace](/docs/marketplace)**: Browse and install curated Google and partner plugins from the Antigravity Marketplace.
-*   **[Skills](/docs/skills)**, **[MCP](/docs/mcp)**, **[Custom subagents](/docs/subagents)**, **[Rules](/docs/rules)**, and **[Lifecycle hooks](/docs/hooks)**: Dive deeper into each individual customization component.
+*   **[Skills](/docs/skills)**, **[MCP](/docs/mcp)**, **[MCP Apps](/docs/mcp-apps)**, **[Custom subagents](/docs/subagents)**, **[Rules](/docs/rules)**, and **[Lifecycle hooks](/docs/hooks)**: Dive deeper into each individual customization component.

@@ -6,6 +6,63 @@ New versions roll out gradually and may take a few days to reach all users.
 
 ## Antigravity App
 
+### [v2.34.0](/releases?tab=hub&version=2.34.0 "View release 2.34.0")
+
+Latest
+
+November 20, 2026
+
+### Gemini 4 Neon, MCP Apps, and more
+
+This release brings MCP App support and Gemini 4 Neon to eligible paid consumer plans. It includes 15 improvements and 24 fixes.
+
+**Improvements:**
+
+*   Gemini 4 Neon and Orchestrator (Neon) are now available for eligible paid consumer plans, and Gemini 4 Neon is available with Gemini API keys and Application Default Credentials. Enterprise and Application Default Credentials accounts also now support the Orchestrator.
+*   You can now choose whether Enter or Ctrl+Enter (Cmd+Enter on macOS) sends messages under Settings > General > Input Box.
+*   You can now start a side question directly from selected output in the integrated terminal using Cmd+E (Ctrl+E on Windows and Linux) or the selection popup.
+*   Diff views now use a single-column line-number gutter with color-coded change strips, giving code more horizontal room before wrapping.
+*   You can now drag conversation tabs from the side panel directly into the message box to reference them in a prompt.
+*   URLs typed or pasted into the message box are now automatically formatted as interactive links.
+*   Selecting a skill pill in a conversation now opens its skill definition file in the side panel.
+*   The Antigravity Dock icon now adapts to Dark Mode and tinted icon styles on macOS 26 and later.
+*   Added Clerk, Docusign, and TestMu AI partner plugins to the Marketplace.
+*   The Installed tab in Customizations now shows the first two bundles above a See more toggle so your plugins stay near the top.
+*   Sign out buttons for plugin accounts and plugin MCP servers now show a loading indicator while sign-out finishes.
+*   The model selector effort submenu now includes a Thinking effort header with a tooltip explaining latency and quota tradeoffs.
+*   Improved Git status refresh speed in large repositories by reusing recent status checks and limiting diffs to changed files.
+*   Notifications now skip the banner and sound when you are already viewing the conversation that finished or asked for input.
+*   Your reading position now stays anchored after approving a command prompt instead of jumping when the approval card collapses.
+
+**Fixes:**
+
+*   Fixed an issue where closing Antigravity on Windows while an update was staged could corrupt the installation, and ensured background processes shut down before installing updates.
+*   Fixed an issue where maximizing, restoring, or entering full screen on Linux could leave window content sized incorrectly and cut off the bottom of the sidebar.
+*   Fixed an issue where overflowing tabs in the side panel on macOS could make the window title bar undraggable.
+*   Fixed an issue where desktop Antigravity sessions missing a required authentication scope were not signed out when idle so you could sign back in with the required permissions.
+*   Fixed an issue where a transient background status poll error could clear your loaded account state and display No Model Selected.
+*   Fixed an issue where scrolling up past the top of a long agent response could bounce the view back down.
+*   Fixed an issue where a failed step update or subagent wakeup could cause the turn step checklist to flash or disappear.
+*   Fixed an issue where canceled agent responses kept animating indefinitely and retried stream errors could show discarded partial text.
+*   Fixed an issue where streamed Chinese, Japanese, and other spaceless-script text appeared in abrupt chunks instead of fading in word by word.
+*   Fixed an issue where plugins whose manifest file started with a UTF-8 byte order mark installed without error but failed to load.
+*   Fixed an issue where skills without a name field in their frontmatter could collide with each other instead of taking their folder name.
+*   Fixed an issue where number or arrow keys could select disabled options in permission and question prompts.
+*   Fixed an issue where exiting an IME composition without a standard end event could cause follow-up keystrokes in the message box to be ignored.
+*   Fixed an issue where selecting a quote chip did not scroll to the quoted message in longer paginated conversations.
+*   Fixed an issue where a fade gradient in the title bar painted over the overview button even when the side panel was closed.
+*   Fixed an issue where the focus outline around the search bar in Settings > Shortcuts was cut off on the sides.
+*   Fixed an issue where the Learn more link in the Google Cloud project picker pointed to a broken page.
+*   Fixed an issue where newly opened file and artifact tabs showed their inner sidebar expanded by default.
+*   Fixed an issue where Settings > General could show an empty Advanced Settings toggle when no nested options were visible.
+*   Fixed an issue where stopping voice dictation immediately after starting it could leave the microphone active.
+*   Fixed an issue where network paths in project customization files on Windows could be probed instead of rejected immediately.
+*   Fixed an issue where loading older messages in long conversations showed no loading indicator or error feedback.
+*   Fixed an issue where Trello and Zoho Books plugin icons appeared tiny or low-contrast in dark themes.
+*   Fixed an issue where window minimize, maximize, and close icons on Windows and Linux rendered brighter than adjacent header icons.
+
+---
+
 Model launch·November 18, 2026
 
 ### Gemini 4 Neon
@@ -17,8 +74,6 @@ Gemini 4 Neon is now available on Google AI Ultra, Google AI Pro, and Gemini Ent
 ---
 
 ### [v2.33.0](/releases?tab=hub&version=2.33.0 "View release 2.33.0")
-
-Latest
 
 November 17, 2026
 

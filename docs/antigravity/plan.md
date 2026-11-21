@@ -101,7 +101,7 @@ Antigravity provides complementary planning commands and multi-agent orchestrato
 | **`/plan`** | **Requirements discovery and reviewable plans** | Scoping complex tasks, refactors, and multi-file changes before modifying code | All plans |
 | **[`/grill-me`](/docs/commands/grill-me)** | **Socratic design interviews** | Deep requirement alignment and edge-case probing before drafting designs | All plans |
 | **[`/boost`](/docs/boost)** | **Multi-agent deep reasoning** | Hard concurrency bugs, race conditions, and algorithmic optimizations | Paid plans |
-| **[`/swarm`](/docs/swarm)** | **Parallel board coordination** | Broad tasks that split cleanly across independent files, packages, or investigation tracks | Google AI Pro and Ultra |
+| **[`/swarm`](/docs/swarm)** | **Parallel board coordination** | Broad tasks that split cleanly across independent files, packages, or investigation tracks | All plans |
 | **[`/teamwork`](/docs/teamwork)** | **Collaborative agent teams** | Long-horizon campaigns, repository migrations, and open-ended research | Paid plans |
 
 * * *

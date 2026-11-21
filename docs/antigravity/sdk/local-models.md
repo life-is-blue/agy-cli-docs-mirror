@@ -155,18 +155,21 @@ if __name__ == "__main__":
 
 Note
 
-On-device vision requires `google-antigravity >= 0.1.24` (`pip install -U google-antigravity litert-lm`) and a vision-capable `.litertlm` checkpoint. If you imported `gemma4-26b` before vision support was added, re-run the `litert-lm import` command above (with `gemma-4-26B-A4B-it-gpu.litertlm`) to fetch the vision-capable weights.
+On-device vision requires `google-antigravity >= 0.1.24`, `litert-lm >= 0.19.1` (`pip install -U google-antigravity litert-lm`), and a vision-capable `.litertlm` checkpoint. If you imported `gemma4-26b` before vision support was added, re-run the `litert-lm import` command above (with `gemma-4-26B-A4B-it-gpu.litertlm`) to fetch the vision-capable weights.
 
 ### Prefix caching
 
 `LiteRTAgentConfig` automatically caches conversation prefixes across sequential agent turns with zero configuration changes. When the conversation prefix and tool schemas match the previous turn, the managed LiteRT-LM session reuses its in-memory KV cache instead of recomputing static system instructions, tool schemas, and prior history. LiteRT-LM prefills only newly added prompts and tool outputs, which reduces latency during multi-step tool calling.
 
-To also persist compiled model graphs on disk for faster startup across separate runs, set `cache_dir` on `LiteRTAgentConfig`:
+LiteRT-LM persists compiled model graphs next to `model_path` by default. To override the on-disk compilation cache directory, create the directory first and pass its expanded path via `cache_dir`. LiteRT-LM does not expand tilde (`~`) automatically, and `litert_lm.Engine` requires the directory to already exist:
 
 ```python
+cache_dir = os.path.expanduser("~/.litert-lm/cache")
+os.makedirs(cache_dir, exist_ok=True)
+
 config = LiteRTAgentConfig(
     model_path=MODEL_PATH,
-    cache_dir=os.path.expanduser("~/.litert-lm/cache"),
+    cache_dir=cache_dir,
 )
 ```
 
@@ -183,7 +186,7 @@ In addition to standard [`AgentConfig`](https://github.com/google-antigravity/an
 | **`vision_backend`** | `LiteRTBackend`, `str`, or `None` | `None` (auto-detected) | `'gpu'`, `'npu'`, `'cpu'`, `None` | Hardware backend override for vision processing. When `None`, `LiteRTAgentConfig` inspects `litert_lm.ModelInfo` and selects `'gpu'` or `'cpu'`. |
 | **`audio_backend`** | `LiteRTBackend`, `str`, or `None` | `None` | `'gpu'`, `'npu'`, `'cpu'`, `None` | Hardware backend override for audio processing. |
 | **`enable_speculative_decoding`** | `bool` | `False` | `True`, `False` | Enables multi-token prediction for faster generation. |
-| **`cache_dir`** | `str` or `None` | `None` | Directory path or `None` | Writable directory path for caching compiled model graphs across launches. |
+| **`cache_dir`** | `str` or `None` | `None` | Existing expanded directory path or `None` | Overrides the default on-disk compilation cache location (when `None`, LiteRT-LM persists compiled artifacts next to `model_path`). Tilde (`~`) is not expanded automatically, and the directory must already exist on disk (use `os.path.expanduser()` and `os.makedirs(..., exist_ok=True)`). |
 | **`port`** | `int` | `0` | `0` or TCP port | Local loopback port for the managed LiteRT server (`0` selects an available port automatically). |
 | **`compaction_config`** | `CompactionConfig` or `None` | `token_threshold=40960` | `CompactionConfig` or `None` | Overrides the default context compaction threshold derived from the 64k LiteRT KV-cache. |
 

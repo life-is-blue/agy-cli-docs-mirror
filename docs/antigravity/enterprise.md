@@ -126,9 +126,7 @@ Antigravity in Gemini Enterprise supports included first-party Gemini models and
 | [Gemini 4 Carbon](/blog/gemini-4-carbon-in-google-antigravity) | `gemini-4-carbon` | ✅ |
 | [Gemini 4 Argon](/blog/gemini-4-argon-in-google-antigravity) | `gemini-4-argon` | ✅ |
 | [Gemini 4 Hydrogen](/blog/gemini-4-hydrogen-in-google-antigravity) | `gemini-4-hydrogen` | ✅ |
-| [Orchestrator (Neon)](/docs/models#orchestrator) | — | ❌ |
-| [Orchestrator (Carbon)](/docs/models#orchestrator) | — | ❌ |
-| [Orchestrator (Argon)](/docs/models#orchestrator) | — | ❌ |
+| [Orchestrator](/docs/models#orchestrator) | `gemini-pro-orchestrator` | ✅† |
 | [Gemini 3.8 Flash](/blog/gemini-3-8-flash-in-google-antigravity) | `gemini-3.8-flash` | ✅ |
 | [Gemini 3.7 Flash](/blog/gemini-3-7-flash-in-google-antigravity) | `gemini-3.7-flash` | ✅ |
 | [Gemini 3.6 Flash](/blog/gemini-3-6-flash-in-google-antigravity) | `gemini-3.6-flash` | ✅ |
@@ -142,6 +140,8 @@ Antigravity in Gemini Enterprise supports included first-party Gemini models and
 \* Available at four thinking levels (<level>): low, medium (default), high, and max (for example, claude-opus-5-5-high or claude-sonnet-5-5-max).
 
 \*\* Third-party partner models require [administrator opt-in](https://cloud.google.com/gemini/enterprise/docs/ai-developer-tools-settings#enable-third-party-models) in the Google Cloud Console and are billed by token consumption. First-party Gemini models are enabled by default and draw from pooled edition seat credits ($10/month Standard, $15/month Plus).
+
+† In Gemini Enterprise, Orchestrator only runs Gemini 4 Carbon (High) as the planner paired with Gemini 4 Hydrogen (High) as the executor (requires both models to be available); custom planner and executor selection (such as Gemini 4 Neon, Gemini 4 Argon, or Claude models) is available on Google AI Pro and Google AI Ultra only.
 
 ### Selecting models and thinking levels
 
@@ -162,6 +162,7 @@ Once enabled for your project, models appear in your client shortly after your a
     agy --model claude-sonnet-5-5 --effort high
     ```
     
+*   **[Orchestrator](/docs/models#orchestrator) (`gemini-pro-orchestrator`, Carbon + Hydrogen only)**: When both **Gemini 4 Carbon** and **Gemini 4 Hydrogen** are available to your account (including with [Application Default Credentials](#application-default-credentials-adc)), **Orchestrator** appears as a single option in the model picker (or run `agy --model gemini-pro-orchestrator` in the CLI). In Gemini Enterprise, Orchestrator only runs **Gemini 4 Carbon** (`High`) for planning and review paired with **Gemini 4 Hydrogen** (`High`) for implementation—custom planner and executor selection (such as Gemini 4 Neon, Gemini 4 Argon, or Claude models), **Orchestrator Settings**, and `--effort` aren’t available in Gemini Enterprise.
 
 ### Architectural transparency: Hybrid execution
 

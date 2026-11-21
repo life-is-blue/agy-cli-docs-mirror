@@ -25,7 +25,7 @@ In the **Knowledge Work** [interface layout](/docs/settings#interface-layout) (`
 | **Review** | Opens the **Review** tab with the changes in your project’s Git repository. The row shows the total lines added and deleted. For details, refer to [Review changes](/docs/review-changes). |
 | **Files** | Opens an **Open File** tab with your project’s file tree. Click a file to open it, or click **Open File** to search for one. |
 | **Terminal** | Opens a new terminal tab. Each click starts another terminal. |
-| **Extensions** | Lists the views that your installed [plugins](/docs/plugins) add to the side panel. Point to the row to see them. |
+| **Plugins** | Lists the views that your installed [plugins](/docs/plugins) and [MCP Apps](/docs/mcp-apps) add to the side panel. Point to the row to see them. |
 
 ### Sections
 
@@ -108,3 +108,4 @@ To see all shortcuts, go to **Settings** > **Shortcuts**.
 *   [Review changes](/docs/review-changes): Review the agent’s diffs in the **Review** tab.
 *   [Artifacts](/docs/artifacts): Read and comment on the plans and walkthroughs that open in the side panel.
 *   [Search and command palette](/docs/search): Find conversations, files, and commands.
+*   [MCP Apps](/docs/mcp-apps): Add interactive HTML views, side panel tabs, and custom file viewers from MCP servers.

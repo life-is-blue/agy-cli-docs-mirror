@@ -59,11 +59,11 @@ Shall I run the checkout test suite to verify?
 
 Ask anything, @ to mention, / for actions
 
-Gemini 4 NeonHigh
+Gemini 4 NeonMedium
 
 Model
 
-Gemini 4 Neon _High_NewGemini 4 Carbon _High_NewGemini 4 Argon _High_NewGemini 4 Hydrogen _High_NewOrchestrator (Neon) NewOrchestrator (Carbon) NewOrchestrator (Argon) NewGemini 3.8 Flash _Medium_Claude Sonnet 5.5 _Thinking_NewClaude Opus 5.5 _Thinking_NewGPT-OSS 120B _Medium_
+Gemini 4 Neon _Medium_NewGemini 4 Carbon _Medium_NewGemini 4 Argon _Medium_NewGemini 4 Hydrogen _Medium_NewOrchestrator _Gemini 4 Neon Medium_NewGemini 3.8 Flash _Medium_Claude Sonnet 5.5 _Thinking_NewClaude Opus 5.5 _Thinking_NewGPT-OSS 120B _Medium_
 
 TerminalsProject
 
@@ -121,7 +121,7 @@ Antigravity CLI 1.2.14
 
 developer@example.com (Google AI Pro)
 
-Gemini 4 Neon (High)
+Gemini 4 Neon (Medium)
 
 ~/projects/checkout-service
 
@@ -141,7 +141,7 @@ Edit(src/pricing/discounts.ts)(ctrl+o to expand)
 
 \>
 
-? for shortcutsGemini 4 Neon · high
+? for shortcutsGemini 4 Neon · medium
 
 A keyboard-first terminal client that runs Antigravity workflows in local shells, remote cloud environments, and SSH sessions.
 
@@ -168,11 +168,11 @@ Project ReviewComprehensive review report for Spring PetClinic application detai
 
 Ask anything, @ to mention, / for actions
 
-Gemini 4 Neon High
+Gemini 4 Neon Medium
 
 Model
 
-Gemini 4 NeonHighNewGemini 4 CarbonHighNewGemini 4 ArgonHighNewGemini 4 HydrogenHighNewOrchestrator (Neon)NewOrchestrator (Carbon)NewOrchestrator (Argon)NewGemini 3.8 FlashMediumClaude Sonnet 5.5 (Thinking)NewClaude Opus 5.5 (Thinking)NewGPT-OSS 120B (Medium)
+Gemini 4 NeonMediumNewGemini 4 CarbonMediumNewGemini 4 ArgonMediumNewGemini 4 HydrogenMediumNewOrchestratorGemini 4 Neon MediumNewGemini 3.8 FlashMediumClaude Sonnet 5.5 (Thinking)NewClaude Opus 5.5 (Thinking)NewGPT-OSS 120B (Medium)
 
 Preview README.mdproject\_review.md
 
@@ -299,6 +299,8 @@ Experience the model selector directly below. Antigravity lets you adjust reason
 [Model specs and limits](/docs/models/)
 
 † Available with paid Google AI Pro plans or on trial with eligible premium devices. To switch to a paid Google AI Pro plan, [submit a request](https://one.google.com/support).
+
+‡ In [Gemini Enterprise](/docs/enterprise#supported-models-in-gemini-enterprise), Orchestrator only runs Gemini 4 Carbon (High) as the planner paired with Gemini 4 Hydrogen (High) as the executor; custom planner and executor selection is available on Google AI Pro and Google AI Ultra only.
 
 * * *
 

@@ -90,6 +90,10 @@
         "slug": "antigravity/mcp"
       },
       {
+        "label": "MCP Apps",
+        "slug": "antigravity/mcp-apps"
+      },
+      {
         "label": "Agent skills",
         "slug": "antigravity/skills"
       },
@@ -162,6 +166,10 @@
         "slug": "antigravity/commands/btw"
       },
       {
+        "label": "Compact command (/compact)",
+        "slug": "antigravity/commands/compact"
+      },
+      {
         "label": "Generative UI command (/generative_ui)",
         "slug": "antigravity/commands/generative-ui"
       },
@@ -176,6 +184,10 @@
       {
         "label": "Learn command (/learn)",
         "slug": "antigravity/commands/learn"
+      },
+      {
+        "label": "MCP Apps development command (/mcp-app-development)",
+        "slug": "antigravity/commands/mcp-app-development"
       },
       {
         "label": "Plan (/plan)",

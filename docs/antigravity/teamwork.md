@@ -129,7 +129,7 @@ For everyday coding and quick questions, prompt the default agent directly. When
 | **Workspace** | Current workspace (or an isolated branch or working copy when requested) | Current workspace across isolated subagent contexts | Current workspace by default, or per-worker working copies for overlapping edits | **Dedicated project directory (`~/teamwork_projects/{PROJECT_NAME}`) with exclusive file ownership** |
 | **Verification** | Parent agent checks the subagent’s reply | Improvement workers try to break prior attempts and run real tests before the orchestrator spot-checks | A dedicated `@verifier` worker reviews diffs and runs tests before sign-off | **Independent `Critic`, `Challenger`, `Auditor`, and `Success Auditor` gates verify each milestone** |
 | **Typical horizon** | Seconds to minutes | Seconds to hours | Minutes to hours | **Hours to days** |
-| **Plan tier** | All plans | Paid plans | Google AI Pro and Ultra | **Paid plans** |
+| **Plan tier** | All plans | Paid plans | All plans | **Paid plans** |
 
 Use the following guidelines to choose the right approach:
 

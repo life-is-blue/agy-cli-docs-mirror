@@ -37,7 +37,7 @@ Global settings apply across all workspaces:
     *   Fine-grained allow, ask, and deny rules (refer to **[Agent permissions](/docs/permissions)**).
 *   **Appearance**: Customize visual themes and panel layouts.
 *   **Browser** (`v2.30.0+`): Configure **Open Links In**, **Download Location**, **Browsing History**, and **Browser Actuation Rules** under **Settings** > **Browser** (refer to **[Browser use](/docs/browser#configure-browser-settings)**).
-*   **Model usage**: Choose and configure default reasoning models.
+*   **Models**: View model quota, toggle AI credit overages, and (on Google AI Pro and Ultra) configure default **Orchestrator Model** and **Executor Model** choices, including their thinking levels, under **Settings** > **Models** > **Orchestrator Settings** (refer to **[Choose a model](/docs/models#orchestrator)**).
 *   **Customizations**: Manage Model Context Protocol (MCP) servers, custom skills, and plugins.
 
 Note

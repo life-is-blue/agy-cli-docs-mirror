@@ -105,5 +105,6 @@ Widgets have the following behavior and limits:
 Explore related documentation:
 
 *   [Artifacts](/docs/artifacts): Learn how the agent shares plans, diffs, and other deliverables for you to review.
+*   [MCP Apps](/docs/mcp-apps): Attach reusable interactive HTML views to MCP tools inside a plugin or MCP server.
 *   [Agent skills](/docs/skills): See how skills extend the agent and how to invoke them.
 *   [Slash commands overview](/docs/slash-commands): Browse every available slash command.

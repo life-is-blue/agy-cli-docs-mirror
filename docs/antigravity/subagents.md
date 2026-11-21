@@ -158,7 +158,7 @@ Invoking [`/boost`](/docs/boost) launches a multi-agent reasoning pipeline (`Orc
 
 Note
 
-**Plan availability**: The `/swarm` command is available on **Google AI Pro** and **Google AI Ultra** plans across the Antigravity App and the Antigravity CLI.
+**Plan availability**: The `/swarm` command is available on **all plans** across the Antigravity App and the Antigravity CLI (on business and enterprise accounts, when allowed by organization admin settings).
 
 Running [`/swarm`](/docs/swarm) turns your conversation into a coordinator that splits a task across named workers, usually with a verifier that reviews and tests their changes. Unlike subagents, which report privately to the agent that started them, swarm workers coordinate on one shared message board with `@mentions`, and idle workers wait without using tokens until someone mentions them. Learn more in the [Swarm documentation](/docs/swarm).
 

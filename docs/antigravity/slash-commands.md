@@ -33,9 +33,9 @@ Give the agent more autonomy, deeper reasoning, more agents, a browser, or a sch
 | :-- | :-- | :-- |
 | [`/goal`](/docs/commands/goal) | Keeps working, without pausing for confirmation, until the goal is verified complete. | App, CLI, IDE extensions |
 | [`/boost`](/docs/boost) | Runs multi-agent deep reasoning on hard bugs, race conditions, and algorithms. Paid plans only. | App, CLI, IDE extensions |
-| [`/swarm`](/docs/swarm) | Splits a task between named agents and a verifier that coordinate on a shared message board. Google AI Pro and Ultra. | App, CLI |
+| [`/swarm`](/docs/swarm) | Splits a task between named agents and a verifier that coordinate on a shared message board. All plans. | App, CLI |
 | [`/teamwork`](/docs/teamwork) | Starts a team of agents for multi-day projects, migrations, and research. Paid plans only. | App, CLI, IDE extensions |
-| [`/run-workflow`](/docs/dynamic-workflows) | Writes and runs a script that orchestrates many agents in parallel and sequential phases. Google AI Pro and Ultra. | App, CLI |
+| [`/run-workflow`](/docs/dynamic-workflows) | Writes and runs a script that orchestrates many agents in parallel and sequential phases. All plans. | App, CLI |
 | [`/browser`](/docs/commands/browser) | Hands UI testing, screenshots, and web checks to a browser subagent, in the App’s built-in browser or in Chrome. | App, CLI, IDE extensions |
 | [`/automation`](/docs/commands/automation) | Sets up a recurring background task that you manage in the Automations tab. | App |
 | [`/schedule`](/docs/commands/schedule) | Wakes the agent later in the same conversation, once or on a recurring schedule. | App, CLI, IDE extensions |
@@ -72,14 +72,21 @@ For example:
 
 ## Review and manage sessions
 
-Check changes, context use, past conversations, and running agents.
+Check changes, compact or inspect context use, reopen past conversations, and monitor running agents.
 
 | Command | What it does | Available on |
 | :-- | :-- | :-- |
 | [`/diff`](/docs/cli/commands/diff) | Shows workspace changes, commit history, and the agent’s turns in an interactive diff viewer. | CLI |
+| [`/compact`](/docs/commands/compact) | Summarizes the conversation so far into a checkpoint to free up space in the model’s context window. | App, CLI |
 | [`/context`](/docs/cli/commands/context) | Shows how much of the model’s context window the conversation uses. | CLI |
 | [`/resume`](/docs/cli/commands/resume) | Finds and reopens a past conversation. | CLI |
 | [`/agents`](/docs/cli/commands/agents) | Switches between custom agents and monitors background subagents. | CLI |
+
+For example:
+
+```prompt
+/compact Keep the API schema findings, and now add integration tests for the handler.
+```
 
 ## Customize the agent
 
@@ -89,6 +96,7 @@ Teach the agent how you work and add new capabilities.
 | :-- | :-- | :-- |
 | [`/learn`](/docs/commands/learn) | Turns corrections from the session into rules or skills, through a proposal you approve. | App, CLI, IDE extensions |
 | [`/agy-customizations`](/docs/commands/agy-customizations) | Loads the customization reference so the agent can create, fix, or explain rules, skills, plugins, hooks, and MCP servers. | App, CLI, IDE extensions |
+| [`/mcp-app-development`](/docs/commands/mcp-app-development) | Loads the MCP Apps development guide so the agent can build, theme, package, or debug interactive MCP App plugins. | App |
 | [`/plugin`](/docs/plugins) | Manages your plugins and browses the Marketplace. | App, CLI, IDE extensions |
 
 ## Configure the CLI

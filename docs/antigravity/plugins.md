@@ -274,4 +274,5 @@ Ready to create a custom plugin for your team or publish a partner integration t
 *   **[Quickstart: create your first plugin](/docs/build-plugins#quickstart-create-your-first-plugin)**
 *   **[`plugin.json` manifest reference and full JSON schema](/docs/build-plugins#manifest-file-pluginjson)**
 *   **[Authoring skills, MCP servers, custom agents, rules, and hooks](/docs/build-plugins#authoring-plugin-components)**
+*   **[Adding interactive HTML views to MCP tools with MCP Apps](/docs/mcp-apps)**
 *   **[Validating locally (`agy plugin validate`) and submitting to the Marketplace](/docs/build-plugins#validating-and-publishing-plugins)**

@@ -24,6 +24,10 @@ With MCP, Antigravity can execute specific, safe actions defined by your connect
 *   Create a Linear issue for a `TODO` item.
 *   Search Notion or GitHub for authentication patterns.
 
+### Add interactive UIs (MCP Apps)
+
+With [MCP Apps](/docs/mcp-apps), an MCP tool can point to a `ui://` HTML resource on the same server so the Antigravity App renders an interactive view inline in chat, in the side panel, full-page from the left sidebar, or as a custom file viewer. Non-UI surfaces such as the Antigravity CLI run the same tools using their plain-text `content` results.
+
 ## Getting started by surface
 
 ### Antigravity App
