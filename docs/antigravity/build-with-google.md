@@ -6,10 +6,10 @@ Instead of searching for individual tools, you can enable these bundles to insta
 
 ## How to enable
 
-You can enable Build with Google integrations at two points:
+You can install and manage Build with Google plugins from the [Marketplace](/docs/marketplace) in the Antigravity App:
 
-*   **During onboarding**: Select the checkboxes for the stacks you plan to use.
-*   **In settings**: Navigate to **Settings** > **Customizations** > **Build with Google Plugins** to add or remove integrations at any time.
+*   **Browse and install**: Click **Customizations** in the left sidebar, open the **Marketplace** tab, and install the plugins for the Google platforms you use.
+*   **Manage installed plugins**: Open **Customizations** > **Installed** to enable, disable, configure, or uninstall them at any time.
 
 * * *
 

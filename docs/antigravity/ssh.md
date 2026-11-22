@@ -13,7 +13,7 @@ To use Antigravity inside your own `ssh` session, install the **Antigravity CLI*
 Use this table to compare Antigravity’s remote options:
 
 | Option | Where agents run | Client | Host setup |
-| :-- | :-- | :-- | :-- |
+| --- | --- | --- | --- |
 | **Connect over SSH** | Your remote Linux machine | Antigravity App | None (automatic over OpenSSH) |
 | **[Remote Control](/docs/remote-control)** | Your own desktop or server | Web browser ([antigravity.google.com](https://antigravity.google.com)) | Install and sign in to the App or CLI |
 | **[Remote Agents](/docs/remote-agents)** _(Pro / Ultra)_ | Google-managed environment | App, CLI, or web browser | None (attach repos or files) |
@@ -70,7 +70,7 @@ To open a local window without disconnecting, click **`SSH: <host>`** in the sid
 Closing the window leaves the remote server and agents running:
 
 | Action | Window and SSH tunnel | Remote server and agents |
-| :-- | :-- | :-- |
+| --- | --- | --- |
 | **Close window** | Closes and disconnects SSH. | Keep running on `<host>`; reconnect anytime. |
 | **Restart or update App** | Reopens open SSH windows and reconnects; prompts **Restart** or **Later** before updating a busy server. | Keep running unless restarted for an update. |
 | **Sleep or network drop** | Retries automatically (**Reconnecting to `<host>`…**), or click **Reconnect**. | Keep running and reattach when back online. |
@@ -102,7 +102,7 @@ If a background connection fails, click **Show Details** on the **`Couldn't conn
 Use this table to resolve error codes:
 
 | Error code | Cause and fix |
-| :-- | :-- |
+| --- | --- |
 | `INVALID_DESTINATION` | Invalid host format or unbracketed IPv6 port. Use `[user@]host[:port]`, `user@[ipv6]:port`, `ssh://...` (`%40` for `@` in usernames), or a `Host` alias. |
 | `SSH_CONFIG_INVALID` | `ssh` rejected the config file (invalid option, unsafe permissions, UTF-8 BOM/UTF-16 encoding, or a non-config file like `known_hosts`). Fix the reported line or choose another file. |
 | `AUTH_FAILED` | SSH authentication failed. Test `ssh <host>` in a terminal and check `IdentityFile` or `ssh-add -l`. |

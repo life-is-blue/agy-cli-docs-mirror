@@ -111,7 +111,7 @@ Use the **Installed** tab to inspect and manage the plugins you have installed:
 The following keyboard shortcuts are available in the plugin manager:
 
 | Key | Tab | Action |
-| :-- | :-- | :-- |
+| --- | --- | --- |
 | Tab | Both | Switch between the **Installed** tab and **Discover** tab. |
 | Any key | Both | Search and filter plugins in the active tab. |
 | Enter | Both | Expand plugin details (or select **Install from local directory** in **Discover**). |
@@ -200,7 +200,7 @@ Outside an interactive TUI session, you can install and manage plugins directly 
 Once a plugin is installed and enabled, its bundled capabilities are available in your workspace automatically:
 
 | Component | How to use it in your workflow |
-| :-- | :-- |
+| --- | --- |
 | **Starter prompts** | In the Antigravity App (**Customizations > Installed**), open a plugin’s detail view and click any **suggested prompt chip** to start a guided task immediately. |
 | **[Skills](/docs/skills)** | Ask for a task in natural language—Antigravity loads relevant plugin skills on demand using progressive disclosure—or invoke a skill explicitly in chat with `/<skill-name>`. |
 | **[MCP servers](/docs/mcp)** | Ask the agent to query or act on the connected service (such as Jira, Figma, Datadog, Stripe, or Firebase). Bundled MCP tools (namespaced as `<plugin-name>_<server-name>`) are available automatically while the plugin is enabled. |

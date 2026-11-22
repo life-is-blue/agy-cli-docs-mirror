@@ -25,7 +25,7 @@ Note
 The **permission preset** controls how agent actions are approved. Your configured allow, deny, and ask rules are layered on top of the preset and always take precedence:
 
 | Preset | [Terminal sandbox](/docs/sandbox) | Terminal Commands | File Access | MCP & Web |
-| :-- | :-- | :-- | :-- | :-- |
+| --- | --- | --- | --- | --- |
 | **Request Review** | Disabled | Always ask | Workspace only | Ask |
 | **Default** _(default)_ | Enabled | Allowed in sandbox; ask outside | Workspace + temp dirs | Ask |
 | **Auto** | Enabled | Allowed in sandbox; checked automatically outside | Workspace + temp dirs | Ask |
@@ -71,7 +71,7 @@ The picker changes your global preset, or the project’s preset if the project 
 The following table lists the supported permission actions, their target formats, and their default behavior:
 
 | Action | Target Format | Default Fallback |
-| :-- | :-- | :-- |
+| --- | --- | --- |
 | `read_file` | `read_file(/path)`, `read_file(dir)`, or `read_file(*)` | **Ask** (Allowed in workspace) |
 | `write_file` | `write_file(/path)` or `write_file(*)` | **Ask** (Allowed in workspace) |
 | `read_url` | `read_url(domain)` or `read_url(*)` | **Ask** |
@@ -204,7 +204,7 @@ Note
 The following table lists the supported permission actions in the previous permission settings, their target formats, and their default behavior:
 
 | Action | Target Format | Default Fallback |
-| :-- | :-- | :-- |
+| --- | --- | --- |
 | `read_file` | `read_file(/path)`, `read_file(dir)`, or `read_file(*)` | **Ask** (Allowed in workspace) |
 | `write_file` | `write_file(/path)` or `write_file(*)` | **Ask** (Allowed in workspace) |
 | `read_url` | `read_url(domain)` or `read_url(*)` | **Ask** |
@@ -342,7 +342,7 @@ action(target)
 The supported actions, target format specifications, and default fallbacks are listed in the following table:
 
 | Action | Target Format | Default Fallback |
-| :-- | :-- | :-- |
+| --- | --- | --- |
 | **`read_file`** | `read_file(/path)`, `read_file(dir)`, or `read_file(*)` | **Ask** (Auto-allowed in workspace) |
 | **`write_file`** | `write_file(/path)` or `write_file(*)` | **Ask** (Auto-allowed in workspace) |
 | **`read_url`** | `read_url(domain)` or `read_url(*)` | **Ask** |

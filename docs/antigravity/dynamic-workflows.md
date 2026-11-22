@@ -187,7 +187,7 @@ for r in reviews:
 Every workflow script can use the following functions and values:
 
 | Building block | What it does |
-| :-- | :-- |
+| --- | --- |
 | `phase(name)` | Starts a named phase. Later logs, tool calls, and agent cards are grouped under it. |
 | `log(*args)` | Adds a line to the current phase in the workflow step and to the result that the main agent receives. |
 | `agent(prompt, schema, role, type_name, workspace, model)` | Defines an agent. `await agent(prompt, schema)` runs it once and returns its result. `a = agent(...)` followed by `await a(prompt, schema)` runs one turn of a conversation that lasts across calls. |
@@ -221,7 +221,7 @@ Dynamic Workflows follow your [permission settings](/docs/permissions):
 Antigravity offers several ways to split work across agents:
 
 | Use | When you want |
-| :-- | :-- |
+| --- | --- |
 | **[Orchestrator](/docs/models#orchestrator)** | A single conversation where a top-tier planner model (such as `Gemini 4 Neon`, `Gemini 4 Carbon`, `Gemini 4 Argon`, or `Claude Opus 5.5`) plans and reviews while routing routine tool execution to a faster executor model (such as `Gemini 4 Hydrogen`). |
 | **[Subagents](/docs/subagents)** | To delegate one task, such as a research question or a build, while you keep working. |
 | **Dynamic Workflows (`/run-workflow`)** | Predictable, scripted control flow: the same check across a list of files or packages, staged steps in sequence, or a reviewer-and-fixer loop where agents return structured results to a script instead of talking to each other. |

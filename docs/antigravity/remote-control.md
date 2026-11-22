@@ -168,7 +168,7 @@ Note
 #### How the daemon runs
 
 | Behavior | Linux | macOS | Windows |
-| :-- | :-- | :-- | :-- |
+| --- | --- | --- | --- |
 | Starts | At boot, nobody needs to log in | When you log in | At boot (Administrator install); at login otherwise |
 | Keeps running after you sign out | Yes | No, back at next login. | Yes, with a boot install |
 | Comes back by itself after a crash | Yes | Yes | Yes, up to three restart attempts, then at the next boot or by running `agy remote-control start` again |
@@ -180,7 +180,7 @@ Note
 Use the table below to choose between interactive Remote Control and the persistent background daemon:
 
 | Feature | Interactive mode (`/remote-control` / `agy --remote-control`) | Headless background daemon (`agy remote-control start`) |
-| :-- | :-- | :-- |
+| --- | --- | --- |
 | **Scope** | Single interactive terminal session | Entire machine (background OS service) |
 | **Lifecycle** | Active only while the terminal session is open and toggled on | Persistent across logouts and system reboots |
 | **Instance naming** | Fresh per-session name (for example, `host-swift-falcon`) | Single persistent machine name (`--name` or `cliRemoteControlHostname`) |

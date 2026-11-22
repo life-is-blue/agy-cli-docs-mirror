@@ -94,7 +94,7 @@ Earlier messages stay visible in your conversation scrollback and saved session 
 Use `/compact` alongside Antigravity’s other session and context tools depending on what you want to keep:
 
 | Goal | Command or action | What happens to context |
-| :-- | :-- | :-- |
+| --- | --- | --- |
 | Keep working on the same task with a smaller context window | `/compact [message]` | Summarizes earlier turns into a checkpoint and continues in the same conversation. |
 | Ask a quick tangential question without adding to history | [`/btw <question>`](/docs/commands/btw) | Answers in a read-only fork so neither the question nor its tool calls enter the main conversation. |
 | Inspect current token usage by category (CLI) | [`/context`](/docs/cli/commands/context) | Opens the Context Usage grid, token breakdown, and checkpoint count without modifying history. |

@@ -33,7 +33,7 @@ When you send `/btw`, Antigravity does the following:
 Side questions differ by surface:
 
 | Behavior | Antigravity App | Antigravity CLI |
-| :-- | :-- | :-- |
+| --- | --- | --- |
 | Where the answer appears | A **Side Question** tab in the side panel. | A `/btw` card above the prompt box. |
 | Tool calls | Appear as steps in the tab, like in a conversation. | Appear as live lines on the card, then one summary line. |
 | Tool calls that need approval | The approval request appears in the tab. | Denied automatically, because the card can’t show approval prompts. |
@@ -129,7 +129,7 @@ If you haven’t asked any `/btw` questions in the current session yet, running 
 When a `/btw` card is visible in the CLI, use the following keyboard shortcuts:
 
 | Key | Action |
-| :-- | :-- |
+| --- | --- |
 | Tab | Expand a truncated answer or collapse an expanded card. |
 | ↑ / ↓ | Scroll up or down by one line inside an expanded card when the answer exceeds the viewport height. Otherwise, these keys keep their usual prompt-history behavior. |
 | PgUp / PgDn | Scroll up or down by one page inside an expanded card. |

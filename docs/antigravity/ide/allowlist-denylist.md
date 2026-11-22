@@ -9,7 +9,7 @@ Antigravity asks before the [browser subagent](/docs/browser) opens a site or do
 When the subagent tries to open a page on a site that has no rule, Antigravity prompts **Allow executing actions on this URL?** and asks you to choose one of the following:
 
 | Option | What it does |
-| :-- | :-- |
+| --- | --- |
 | **Yes, allow this time** | Allows the site for the rest of the subagent’s current task. |
 | **Yes, allow** _domain_ **in this conversation** | Allows the site until the conversation ends. |
 | **Yes, always allow** _domain_ | Adds an allow rule for the site to your Browser Actuation Rules. |

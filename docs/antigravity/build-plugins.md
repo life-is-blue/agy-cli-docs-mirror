@@ -133,7 +133,7 @@ Every plugin requires a `plugin.json` file to identify the directory as a plugin
 #### Field reference
 
 | Field | Type | Required | Description |
-| :-- | :-- | :-- | :-- |
+| --- | --- | --- | --- |
 | `name` | String | **Yes** (CLI and Marketplace) / Optional (local folders) | The unique, machine-readable lowercase `kebab-case` identifier of the plugin (`^[a-z0-9]+(-[a-z0-9]+)*$`). Required by `agy plugin validate --strict`, `agy plugin install`, and the Marketplace; defaults to the folder name when loaded from a local directory without a `name`. Namespaces bundled MCP servers (`<name>_<server>`). |
 | `displayName` | String | **Yes** (Marketplace) / Optional (local) | Human-readable product or brand title shown in Marketplace cards and plugin lists instead of `name` (for example, `"Acme Cloud"`). Omit suffixes like `"Plugin"` or `"MCP"`, and do not prefix with `"Antigravity"`, `"Gemini"`, `"Claude"`, or `"Cursor"`. |
 | `description` | String | **Yes** (Marketplace) / Optional (local) | A concise 1–2 sentence summary of the plugin’s purpose and capabilities, displayed on Marketplace cards and plugin listings (120–160 characters recommended). |
@@ -232,7 +232,7 @@ The official JSON schema is hosted at `https://antigravity.google/schemas/v1/plu
 A plugin can bundle any combination of the following components relative to `<plugin-root>`:
 
 | Component | Default path | Purpose |
-| :-- | :-- | :-- |
+| --- | --- | --- |
 | **[Skills](#agent-skills)** | `skills/<skill-name>/SKILL.md` | Task-specific procedural instructions, scripts, and reference docs loaded on demand or via `/<skill-name>`. |
 | **[MCP servers](#mcp-servers)** | `mcp_config.json` | Remote HTTPS or local `stdio` Model Context Protocol tool servers, including OAuth and user-prompted credential variables. |
 | **[Subagents](#subagents)** | `agents/<agent-name>.md` | Specialized custom agents and subagents with dedicated system prompts, model tiers, and tool allowlists. |
@@ -244,7 +244,7 @@ A plugin can bundle any combination of the following components relative to `<pl
 Installed plugins are unpacked into a read-only plugin directory (`~/.gemini/config/plugins/<plugin-name>`) that is replaced when the plugin updates. To keep your plugin self-contained across machines and operating systems, reference these variables in your plugin’s MCP server configuration instead of hardcoding absolute paths:
 
 | Variable | Resolves to |
-| :-- | :-- |
+| --- | --- |
 | `${PLUGIN_ROOT}` | The absolute path of the read-only plugin root directory (`~/.gemini/config/plugins/<plugin-name>`). Expanded in `args`, `cwd`, and custom `env` values in MCP server definitions, and automatically exported as `PLUGIN_ROOT` in every plugin MCP server environment. |
 | `${PLUGIN_DATA}` | The absolute path of a persistent, writable data directory created for the plugin outside your workspace. Expanded in `args`, `cwd`, and custom `env` values in MCP server definitions, and automatically exported as `PLUGIN_DATA` in every plugin MCP server environment. |
 | `${VARIABLE_NAME}` | A user-supplied credential or configuration value declared in `mcpServers.<server>.variables` (expanded in `command`, `args`, `env`, `url`, `headers`, and `oauth`). |
@@ -304,7 +304,7 @@ description: >-
 ```
 
 | Frontmatter field | Required | Description |
-| :-- | :-- | :-- |
+| --- | --- | --- |
 | `name` | **Yes** | Lowercase `kebab-case` identifier (`1–64` characters) that **must match the parent directory name** (`skills/<name>/SKILL.md`). Exposed as `/<name>` in chat. |
 | `description` | **Yes** | Explains both **what** the skill does and **when** the agent should trigger it (`1–1,024` characters). |
 | `disable-model-invocation` | No | When `true`, prevents automatic model invocation so the skill runs only when invoked explicitly via `/<name>`. Defaults to `false`. |
@@ -353,7 +353,7 @@ Plugins can bundle [MCP server](/docs/mcp) definitions using the standard `mcpSe
 ```
 
 | Variable field | Type | Required | Description |
-| :-- | :-- | :-- | :-- |
+| --- | --- | --- | --- |
 | `name` | String | **Yes** | Variable identifier (for example, `"ACME_API_TOKEN"`), interpolated as `${ACME_API_TOKEN}` in `command`, `args`, `env`, `url`, or `headers`. |
 | `title` | String | No | Human-readable label shown in the credential setup prompt (defaults to `name`). |
 | `description` | String | No | Help text explaining what value to provide and any required token scopes. |
@@ -397,7 +397,7 @@ Return a prioritized findings table with file paths and line numbers.
 ```
 
 | Frontmatter field | Default | Description |
-| :-- | :-- | :-- |
+| --- | --- | --- |
 | `name` | _(Required)_ | Unique agent identifier (`kebab-case`). |
 | `description` | _(Required)_ | Explains when and why the parent agent should delegate work to this agent (or what the agent does when selected in the UI/CLI). |
 | `mainAgent` | `true` | When `true`, users can select this agent as their primary session agent in the App, via `/agents` in the CLI, or via `agy --agent <name>` from the terminal. |
@@ -436,7 +436,7 @@ description: Terraform and infrastructure naming conventions
 ```
 
 | `trigger` value | Required fields | Behavior |
-| :-- | :-- | :-- |
+| --- | --- | --- |
 | `always_on` | _(none)_ | Injected into every conversation session while the plugin is enabled. |
 | `model_decision` | `description` | Loaded dynamically when the agent determines the rule’s `description` matches the current task. |
 | `glob` | `globs` (String) | Activated automatically when files matching the comma-separated glob patterns are in context. |
@@ -480,7 +480,7 @@ Command hooks run with their working directory (`cwd`) set to `<plugin-root>`, r
 ```
 
 | Event | Fires when | `"matcher"` target | Common `stdout` JSON response (exit `0`) |
-| :-- | :-- | :-- | :-- |
+| --- | --- | --- | --- |
 | `SessionStart` | A new conversation is initialized | _(none — flat handler array)_ | Return `{"injectSteps": [{"userMessage": "..."}]}` to inject startup context. |
 | `PreInvocation` | Before the model processes a user turn | _(none — flat handler array)_ | Return `{"injectSteps": [...]}` to attach dynamic context before model generation. |
 | `PostInvocation` | After the model finishes its response turn | _(none — flat handler array)_ | Return `{"injectSteps": [...], "terminationBehavior": "force_continue"}` for post-turn checks. |
@@ -526,7 +526,7 @@ agy plugin list --json
 In a multi-tool repository that supports other AI coding tools or contributor documentation alongside Antigravity, having Antigravity ignore files meant for other tools is the intended behavior:
 
 | File | Behavior in Antigravity |
-| :-- | :-- |
+| --- | --- |
 | `.mcp.json` and `mcp.json` | Safely ignored by Antigravity because MCP servers load from `mcp_config.json`. `.mcp.json` is also automatically excluded when packaging the Marketplace bundle. |
 | `plugin.json` (repository root) | Safely shadowed when `.antigravity-plugin/plugin.json` is present. `.antigravity-plugin/plugin.json` takes precedence at runtime and is promoted to the root `plugin.json` when the Marketplace bundle is built. |
 | `AGENTS.md` (repository root) | Safely ignored at the repository root because Antigravity loads plugin rules only from `rules/` (such as `rules/AGENTS.md`). This keeps contributor documentation from being injected into end-user sessions as an active rule. |
@@ -565,7 +565,7 @@ Neither `agy plugin install` nor the Antigravity Marketplace packaging pipeline 
 Verify the following requirements before sharing or submitting your plugin:
 
 | Check | Requirement and fix |
-| :-- | :-- |
+| --- | --- |
 | **CLI validation** | `agy plugin validate ./my-plugin` exits with `0` errors. Pass `--strict` for standalone plugins, or filter expected other-tool warnings in [multi-tool repositories](#warnings-in-multi-tool-repositories). |
 | **Plugin naming & branding** | `name` is lowercase `kebab-case` (`^[a-z0-9]+(-[a-z0-9]+)*$`), and `name` / `displayName` represent your product or service without leading with `"Antigravity"`, `"Gemini"`, `"Claude"`, or `"Cursor"`. |
 | **Skill folder names** | Each `SKILL.md` frontmatter `name` matches its parent directory name (`skills/<name>/SKILL.md`). |

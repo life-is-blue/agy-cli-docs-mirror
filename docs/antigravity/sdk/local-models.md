@@ -180,7 +180,7 @@ config = LiteRTAgentConfig(
 In addition to standard [`AgentConfig`](https://github.com/google-antigravity/antigravity-sdk-python/blob/main/google/antigravity/connections/README.md#agentconfig) fields (`tools`, `policies`, `hooks`, `mcp_servers`, `subagents`, `workspaces`, and `system_instructions`), [`LiteRTAgentConfig`](https://github.com/google-antigravity/antigravity-sdk-python/blob/main/google/antigravity/connections/local/litert_connection_config.py) supports the following options:
 
 | Key | Type | Default | Allowed values | Description |
-| :-- | :-- | :-- | :-- | :-- |
+| --- | --- | --- | --- | --- |
 | **`model_path`** | `str` | _Required_ | Absolute `.litertlm` file path | Path to the local `.litertlm` model checkpoint file. |
 | **`backend`** | `LiteRTBackend` or `str` | `LiteRTBackend.GPU` | `'gpu'`, `'npu'`, `'cpu'` | Hardware backend used for model inference. |
 | **`vision_backend`** | `LiteRTBackend`, `str`, or `None` | `None` (auto-detected) | `'gpu'`, `'npu'`, `'cpu'`, `None` | Hardware backend override for vision processing. When `None`, `LiteRTAgentConfig` inspects `litert_lm.ModelInfo` and selects `'gpu'` or `'cpu'`. |

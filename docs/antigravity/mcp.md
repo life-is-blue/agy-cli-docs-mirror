@@ -141,7 +141,7 @@ Whether configuring custom servers for the Antigravity App, Antigravity IDE, Ant
 Each server entry under `mcpServers` must specify **one transport property** (`command` for a local `stdio` server, or `serverUrl` for a remote Streamable HTTP server) and can include any of the optional properties below:
 
 | Property | Type | Default | Description |
-| :-- | :-- | :-- | :-- |
+| --- | --- | --- | --- |
 | **`command`** | `string` | _Required for `stdio`_ | Executable path or command name used to launch a local `stdio` MCP server process. |
 | **`serverUrl`** | `string` | _Required for remote_ | Endpoint URL of a remote MCP server that uses the Streamable HTTP transport. You can also use `url`. |
 | **`args`** | `string[]` | `[]` | Command-line arguments passed to the `command` executable (`stdio` transport only). |

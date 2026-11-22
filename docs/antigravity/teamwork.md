@@ -54,7 +54,7 @@ To catch bugs early and ensure code actually works, candidate changes must pass 
 Teamwork automatically adjusts team composition, verification depth, and agent roles based on the task and your prompt:
 
 | Execution Path | Best For | Trigger / Opt-in Signal |
-| :-- | :-- | :-- |
+| --- | --- | --- |
 | **General (Distributed coding)** | Multi-file SWE, large-scale refactoring, systems simulation, and research. | _Default_ (automatically selected). |
 | **Iterative coding (lighter SWE tasks)** | One self-contained change—a bug fix, a small feature, or a contained refactor. This path cannot decompose the task. | Explicit prompt signal (for example, _“keep it small”_, _“keep it focused”_). |
 | **Document Review** | Multi-angle critique and synthesis of papers, RFCs, and design docs. | Review requests (for example, _“review this paper”_, _“critique this design doc”_). |
@@ -96,7 +96,7 @@ Agents coordinate and share progress using structured artifacts in the workspace
 Teamwork uses three internal integrity modes to align verification depth with project requirements. During the Phase 1 interview, your agent asks which shortcuts should be off-limits and maps your answers to a mode, which is recorded in the prompt artifact:
 
 | Mode | Purpose | Verification Behavior |
-| :-- | :-- | :-- |
+| --- | --- | --- |
 | `development` | Rapid iteration | Lenient. Flags only fabricated outputs and facade implementations; code reuse, libraries, and pre-built frameworks are all permitted. (Default.) |
 | `demo` | Reproducible presentation | Moderate. Adds: no copying core logic from open source, no delegating core work to external tools, and no reading test source to reverse-engineer expected behavior. |
 | `benchmark` | Thorough evaluation | Maximum strictness. Fully independent, from-scratch implementation; language standard library only. |
@@ -122,7 +122,7 @@ Teamwork includes built-in safeguards to ensure parallel agent work remains safe
 For everyday coding and quick questions, prompt the default agent directly. When a task benefits from multiple agents, compare Antigravity’s agent orchestrators and background subagents:
 
 |  | [Subagents](/docs/subagents) | [Boost (`/boost`)](/docs/boost) | [Swarm (`/swarm`)](/docs/swarm) | Teamwork (`/teamwork`) |
-| :-- | :-- | :-- | :-- | :-- |
+| --- | --- | --- | --- | --- |
 | **Best for** | Delegating a focused side task, such as codebase research, browser checks, or a test run | Hard bugs, race conditions, algorithms, and tricky refactors that need deep reasoning | Broad tasks that split cleanly across independent files, packages, or investigation tracks | **Multi-milestone projects, repository-scale migrations, simulations, and deep research** |
 | **How agents coordinate** | Each subagent runs in the background and reports back to the agent that started it | An orchestrator runs an iterative pipeline where workers implement, challenge, fix, and re-verify solutions | A coordinator splits the task across named workers and a verifier that talk on one shared message board | **A `Sentinel` and `Project Orchestrator` run specialized roles through a milestone plan with review gates** |
 | **How you start** | Automatic delegation or `@subagent` mention | `/boost <task>` (starts immediately) | `/swarm <task>` (starts immediately) | **`/teamwork <goal>`, followed by a scoping interview** |

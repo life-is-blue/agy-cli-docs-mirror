@@ -97,7 +97,7 @@ For detailed instructions on artifact navigation and commenting workflows, refer
 Antigravity provides complementary planning commands and multi-agent orchestrators depending on task scope and complexity:
 
 | Command | Primary Focus | Best For | Plan Tier |
-| :-- | :-- | :-- | :-- |
+| --- | --- | --- | --- |
 | **`/plan`** | **Requirements discovery and reviewable plans** | Scoping complex tasks, refactors, and multi-file changes before modifying code | All plans |
 | **[`/grill-me`](/docs/commands/grill-me)** | **Socratic design interviews** | Deep requirement alignment and edge-case probing before drafting designs | All plans |
 | **[`/boost`](/docs/boost)** | **Multi-agent deep reasoning** | Hard concurrency bugs, race conditions, and algorithmic optimizations | Paid plans |

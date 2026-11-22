@@ -63,7 +63,7 @@ If remote debugging is off, Antigravity displays **Remote Debugging Required** w
 Both browser engines navigate pages, click, hover, drag, type, upload approved files, capture screenshots and page snapshots, resize viewports, and inspect console errors and network requests. When connected to Chrome through Chrome DevTools MCP, the subagent additionally exposes DevTools profiling and auditing tools:
 
 | Capability | Built-in browser (App `v2.30.0+`, personal accounts) | Chrome DevTools MCP (CLI, IDE, and App business/enterprise) |
-| :-- | :-- | :-- |
+| --- | --- | --- |
 | **Navigate and manage tabs** | Open URLs, wait for pages, and run multiple `browser` subagents in parallel isolated tabs. | Open a URL, create or close pages, switch tabs, and wait for elements or text. |
 | **Interact with the page** | Click, double-click, right-click, hover, drag, scroll, press keys, type text, select options, and upload or download approved files, with live cursor visualization and **Stop** takeover. | Click, hover, drag, press keys, type text, fill fields or forms, upload files, and handle dialogs. |
 | **Inspect state** | Capture page snapshots and screenshots, and read console messages and sanitized network requests. | Capture accessibility snapshots and screenshots, list console messages and network requests, and record optional interaction videos (MP4 in Antigravity CLI `v1.5.9+`). |

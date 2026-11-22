@@ -57,7 +57,7 @@ globs: "*.ts, *.tsx"          # Required for glob (singular `glob:` is also acce
 ```
 
 | Field | Type | Required | Description |
-| :-- | :-- | :-- | :-- |
+| --- | --- | --- | --- |
 | `trigger` | `string` | **Yes** | Controls how and when the rule activates: `model_decision`, `always_on`, `glob`, or `manual`. |
 | `description` | `string` | **Required** for `model_decision` | Concise summary of when the rule applies. Antigravity injects this summary into the prompt index for `model_decision` rules, and uses it as fallback context if an `always_on` rule exceeds the token budget. |
 | `globs` _(or `glob`)_ | `string` | **Required** for `glob` | Comma-separated file glob patterns (for example, `"*.py, *_test.py"`). Wrap patterns starting with `*` in quotes so YAML does not treat `*` as an alias anchor. |
@@ -154,11 +154,11 @@ Select your surface below to configure global or workspace-specific rules:
 
 #### Managing rules in the Antigravity App
 
-Follow these steps to create or manage rules in the Antigravity App:
+Create and edit rule files directly in the locations listed below, or inspect loaded rules in the Antigravity App:
 
-1.  Open the **Customizations** panel from the application menu or project settings.
-2.  Select the **Rules** tab.
-3.  Click **\+ Global** to create global rules, or **\+ Workspace** to create rules scoped to the active project.
+1.  Click **Customizations** in the left sidebar and open the **Installed** tab.
+2.  Expand **Skills & Rules**, then use the filter menu to narrow the list to **Rules**.
+3.  To view rules scoped to a specific project, open **Settings**, select the project under **Projects**, and scroll to **Customizations**.
 
 #### Antigravity App file locations
 

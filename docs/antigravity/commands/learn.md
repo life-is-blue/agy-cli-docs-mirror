@@ -59,7 +59,7 @@ The agent still classifies and scopes the lesson, but skips the discovery step.
 `/learn` writes to the same locations that Antigravity discovers customizations from. The agent chooses the scope, workspace or global, based on whether the lesson is specific to this project or applies everywhere, and confirms the location in the proposal.
 
 | Type | Workspace scope | Global scope |
-| :-- | :-- | :-- |
+| --- | --- | --- |
 | **Rule** | `AGENTS.md` or `GEMINI.md` in the workspace folder or `.agents/`, or `.agents/rules/<name>.md` | `~/.gemini/AGENTS.md`, `~/.gemini/GEMINI.md`, `~/.gemini/config/AGENTS.md`, `~/.gemini/config/GEMINI.md`, or `~/.gemini/config/rules/<name>.md` |
 | **Skill** | `.agents/skills/<name>/SKILL.md` | `~/.gemini/config/skills/<name>/SKILL.md` |
 

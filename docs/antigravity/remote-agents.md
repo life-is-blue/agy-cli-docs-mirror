@@ -15,7 +15,7 @@ Remote Agents is available to **Google AI Pro** and **Google AI Ultra** subscrib
 Antigravity provides multiple ways to work with agents remotely depending on where your code and tools live. Use the following table to compare **Remote Agents** and **[Remote Control](/docs/remote-control)**:
 
 | Feature | Remote Agents | [Remote Control](/docs/remote-control) |
-| :-- | :-- | :-- |
+| --- | --- | --- |
 | **Execution environment** | Isolated, Google-managed remote environment | Your own desktop workstation or server |
 | **Host machine requirement** | Runs independently; no local machine needs to stay on | Requires your host machine to remain powered on and online |
 | **Workspace and files** | Remote **Resources** (GitHub repositories, Google Drive files, and uploaded files) | Local filesystem folders, local toolchains, and Git worktrees |

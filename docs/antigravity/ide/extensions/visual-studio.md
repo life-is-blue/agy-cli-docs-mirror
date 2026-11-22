@@ -58,7 +58,7 @@ The extension integrates with Visual Studio’s native windows and solution mode
 Antigravity shortcuts in Visual Studio are chords that start with Ctrl + \\. Press Ctrl + \\, release both keys, then press the second key combination.
 
 | Action | Shortcut |
-| :-- | :-- |
+| --- | --- |
 | Open or close the Antigravity tool window, adding the active file or selection as context | Ctrl + \\, Ctrl + Alt + L |
 | Start a new conversation | Ctrl + \\, Ctrl + Shift + L |
 | Approve a pending agent step | Ctrl + \\, Alt + Enter |

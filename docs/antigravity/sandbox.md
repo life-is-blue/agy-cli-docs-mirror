@@ -15,7 +15,7 @@ Antigravity includes a **terminal sandbox**, enabled by default, that isolates s
 The sandbox is built on native operating system primitives, so there are no virtual machines or Docker images to manage and no startup delay:
 
 | Operating System | Technology | Details |
-| :-- | :-- | :-- |
+| --- | --- | --- |
 | **Linux** | Namespaces | Kernel namespaces isolate the filesystem, hide host processes, and cut off networking. |
 | **macOS** | `sandbox-exec` | Seatbelt profiles (SBPL) restrict filesystem access and socket connections. |
 
@@ -24,7 +24,7 @@ The sandbox is built on native operating system primitives, so there are no virt
 Your **permission preset** controls whether the sandbox is used:
 
 | Preset | Sandbox | Commands |
-| :-- | :-- | :-- |
+| --- | --- | --- |
 | **Request Review** | Off | Always ask |
 | **Default** _(default)_ | On | Allowed in sandbox; ask outside |
 | **Auto** | On | Allowed in sandbox; safe, reversible commands allowed outside |
@@ -93,7 +93,7 @@ Select a project under **Settings** > **Projects** to override these settings fo
 The **Security Preset** dropdown in the same settings section bundles the terminal and file access policies:
 
 | Preset | Terminal Command Auto Execution | Outside-of-folders file access |
-| :-- | :-- | :-- |
+| --- | --- | --- |
 | **Default** | Require Review | Always Ask |
 | **Full machine** | Require Review | Allow |
 | **Turbo mode** | Always Proceed | Allow |
@@ -126,7 +126,7 @@ With the terminal sandbox enabled, Antigravity CLI executes commands inside an O
 The sandbox is built on native operating system primitives, so there are no virtual machines or Docker images to manage and no startup delay:
 
 | Operating System | Technology | Details |
-| :-- | :-- | :-- |
+| --- | --- | --- |
 | **Linux** | Namespaces | Kernel namespaces isolate the filesystem, hide host processes, and cut off networking. |
 | **macOS** | `sandbox-exec` | Seatbelt profiles (SBPL) restrict filesystem access and socket connections. |
 | **Windows** | Process security environments | Commands run in an AppContainer inside a process security environment, which restricts filesystem and network access. Requires Windows 11 24H2 or later with the August 2026 update or later. |

@@ -47,7 +47,7 @@ The `schedule` tool supports two mutually exclusive modes. The agent picks the m
 A timer waits for a fixed duration and then fires once:
 
 | Parameter | Description |
-| :-- | :-- |
+| --- | --- |
 | `DurationSeconds` | Seconds to wait before firing. |
 | `Prompt` | Instruction delivered to the agent when the timer fires. |
 | `TimerCondition` | Optional early-cancel condition: `never` (default), `any` (any incoming message), or the ID of a specific subagent or background task. |
@@ -63,7 +63,7 @@ Timers are useful for “check back in N minutes” workflows. With a `TimerCond
 A cron schedule fires repeatedly on a standard five-field cron expression:
 
 | Parameter | Description |
-| :-- | :-- |
+| --- | --- |
 | `CronExpression` | Standard five-field cron expression, such as `*/5 * * * *` for every five minutes. |
 | `Prompt` | Instruction delivered on each trigger, suffixed with the iteration number. |
 | `MaxIterations` | Optional cap on the number of triggers. Defaults to unlimited. |

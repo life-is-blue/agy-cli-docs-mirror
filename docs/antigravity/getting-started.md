@@ -306,7 +306,7 @@ Navigate to any codebase directory in your terminal and start a session:
 #### Navigation shortcuts
 
 | Action | macOS | Windows / Linux | Description |
-| :-- | :-- | :-- | :-- |
+| --- | --- | --- | --- |
 | **Conversation picker** | Cmd + K | Ctrl + K | Search past conversations by title or full text and switch to one |
 | **File search** | Cmd + P | Ctrl + P | Search files in the current project by name and open one |
 | **Commands** | Cmd + Shift + P | Ctrl + Shift + P | Search and run app commands |
@@ -320,7 +320,7 @@ For more about searching conversations, files, and commands, see [Search and com
 #### Core slash commands
 
 | Command | Description |
-| :-- | :-- |
+| --- | --- |
 | [`/goal`](/docs/commands/goal) | Runs the task autonomously until completion without pausing for intermediate input. |
 | [`/grill-me`](/docs/commands/grill-me) | Prompts the agent to interview you about requirements before beginning implementation. |
 | [`/schedule`](/docs/commands/schedule) | Runs an instruction as a one-time delayed task or recurring cron schedule. |
@@ -332,7 +332,7 @@ For more about searching conversations, files, and commands, see [Search and com
 #### Common CLI commands
 
 | Command | Description |
-| :-- | :-- |
+| --- | --- |
 | `agy` | Launches the interactive TUI in the current directory. |
 | `agy -i "prompt"` | Launches an interactive session with an initial prompt. |
 | `agy -p "prompt"` | Runs a single prompt non-interactively and prints the response. |
@@ -344,7 +344,7 @@ For more about searching conversations, files, and commands, see [Search and com
 #### Keyboard shortcuts
 
 | Shortcut | Action |
-| :-- | :-- |
+| --- | --- |
 | Ctrl + R | Open the **Artifact Review** screen to inspect plans and diffs |
 | Tab | Inspect file diffs and tool execution details |
 | Ctrl + C | Interrupt current agent generation |
@@ -357,7 +357,7 @@ For more about searching conversations, files, and commands, see [Search and com
 #### Editor commands and shortcuts
 
 | IDE | Shortcut / Command | Action |
-| :-- | :-- | :-- |
+| --- | --- | --- |
 | **VS Code** | Cmd + Shift + X / Ctrl + Shift + X | Open Extensions sidebar to install or manage **Google Antigravity** |
 | **Visual Studio** | Ctrl + \\, Ctrl + Alt + L | Open the Antigravity tool window |
 | **Zed** | Cmd + Shift + P / Ctrl + Shift + P → `agent: open settings` | Open Agent settings to configure **External Agents** |
@@ -368,7 +368,7 @@ For more about searching conversations, files, and commands, see [Search and com
 #### Authentication configuration
 
 | Auth type (`auth.type`) | Account tier | Description |
-| :-- | :-- | :-- |
+| --- | --- | --- |
 | `"oauth-personal"` | Individual Google Accounts | Authenticates personal Free, Pro, and Ultra plans. |
 | `"oauth-business"` | Gemini Enterprise (Preview) | Authenticates corporate identity with `gcp.project` and `gcp.location`. |
 | `"gemini-api-key"` | Gemini API | Authenticates using a Gemini API key. |
@@ -379,7 +379,7 @@ For more about searching conversations, files, and commands, see [Search and com
 #### Common SDK methods and configuration
 
 | Method / Command | Description |
-| :-- | :-- |
+| --- | --- |
 | `await agent.chat(prompt)` | Sends a user prompt to the agent and returns the turn response. |
 | `LocalAgentConfig(policies=...)` | Configures declarative tool execution policies (`allow`, `deny`, `ask_user`). |
 | `LocalAgentConfig(system_instructions=...)` | Customizes the agent persona and system instructions. |

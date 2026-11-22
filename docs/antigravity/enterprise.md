@@ -224,7 +224,7 @@ Complete the following steps to provision your Google Cloud project and enable A
 Antigravity CLI, the Antigravity App, and IDE extensions support multi-region deployment endpoints to satisfy regional data residency requirements:
 
 | Region | Location ID | Supported capabilities |
-| :-- | :-- | :-- |
+| --- | --- | --- |
 | **Global** | `global` | Text generation, code inference, multimodal, image generation |
 | **US** (Multi-region) | `us` | Text generation, code inference, multimodal |
 | **EU** (Multi-region) | `eu` | Text generation, code inference, multimodal |
@@ -240,7 +240,7 @@ For full endpoint specifications, consult the [Deployment endpoints documentatio
 If your organization restricts outbound developer traffic using corporate firewalls, proxies, or context-aware access rules, allowlist the following endpoints over TCP port `443` for the Antigravity App, Antigravity CLI (`agy`), and Antigravity for IDEs:
 
 | Service and protocol | Allowed hostnames (TCP port 443) |
-| :-- | :-- |
+| --- | --- |
 | **AI Developer Tools Orchestration — Global, US, EU** (Standard HTTPS) | `businessaicode.googleapis.com`  
 `businessaicode.us.rep.googleapis.com`  
 `businessaicode.eu.rep.googleapis.com` |

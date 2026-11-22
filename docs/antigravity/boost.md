@@ -52,7 +52,7 @@ Before presenting the final outcome, the primary orchestrator independently veri
 For everyday coding and quick questions, prompt the default agent directly. When a task benefits from multiple agents, compare Antigravity’s agent orchestrators and background subagents:
 
 |  | [Subagents](/docs/subagents) | Boost (`/boost`) | [Swarm (`/swarm`)](/docs/swarm) | [Teamwork (`/teamwork`)](/docs/teamwork) |
-| :-- | :-- | :-- | :-- | :-- |
+| --- | --- | --- | --- | --- |
 | **Best for** | Delegating a focused side task, such as codebase research, browser checks, or a test run | **Hard bugs, race conditions, algorithms, and tricky refactors that need deep reasoning** | Broad tasks that split cleanly across independent files, packages, or investigation tracks | Multi-milestone projects, repository-scale migrations, simulations, and deep research |
 | **How agents coordinate** | Each subagent runs in the background and reports back to the agent that started it | **An orchestrator runs an iterative pipeline where workers implement, challenge, fix, and re-verify solutions** | A coordinator splits the task across named workers and a verifier that talk on one shared message board | A `Sentinel` and `Project Orchestrator` run specialized roles through a milestone plan with review gates |
 | **How you start** | Automatic delegation or `@subagent` mention | **`/boost <task>` (starts immediately)** | `/swarm <task>` (starts immediately) | `/teamwork <goal>`, followed by a scoping interview |

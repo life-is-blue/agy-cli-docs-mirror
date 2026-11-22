@@ -33,7 +33,7 @@ Every MCP App comes from a [plugin](/docs/plugins) or MCP server that you instal
 ![A custom prod-cluster.acmetopo file viewer MCP App tab open beside a conversation in the Antigravity App, showing an interactive service topology graph, Read and Write badge, selected node details, and Save Changes button](/assets/image/docs/mcp-apps/mcp-apps-file-viewer.png)
 
 | Surface | Declared with | How it opens and behaves |
-| :-- | :-- | :-- |
+| --- | --- | --- |
 | **Inline in chat** | `_meta.ui.resourceUri` | Replaces the collapsed MCP tool step card directly in the conversation stream. Auto-resizes up to `800 px` (`150 px` fallback). Tools with `aux_pane` or `global` entrypoints do not render inline. |
 | **Side panel**  
 `aux_pane` | `aux_pane` entrypoint | Opens beside the conversation when the agent finishes calling the tool, from **Open in side pane**, or from **Overview** > **Plugins**, the side panel **`+`** menu, or **More actions** (`⋯`) > **Plugins**. One tab per `(server, tool)`. Manual launches pass `{}`; repeat agent calls update the open tab in place. |
@@ -96,7 +96,7 @@ Add `_meta["com.google.antigravity/ui"].entrypoints` on a tool that also declare
 ```
 
 | Type | Extra fields | Host behavior |
-| :-- | :-- | :-- |
+| --- | --- | --- |
 | `aux_pane` | `title` (optional `string`) | Auto-opens beside the active conversation when called by the agent; manual menu launches pass `{}`. Does not render inline. One tab per `(server, tool)`. |
 | `global` | `title` (optional `string`) | Opens full-width from **Plugins** in the left sidebar with `{}`. Does not render inline. |
 | `file` | `title` (optional `string`)  
@@ -117,7 +117,7 @@ When a user opens a file matching a `file` entrypoint extension, Antigravity inv
 ## Antigravity host limits and notes
 
 | Limit | Value | Notes |
-| :-- | :-- | :-- |
+| --- | --- | --- |
 | **HTML and file size** | `10 MiB` | Applies to `ui://` HTML documents and `antigravity-file://` reads and writes. |
 | **Persisted tool result** | `1 MiB` | `CallToolResult` payloads stored on trajectory steps; load larger datasets through an app-only tool. |
 | **Concurrent `tools/call`** | `4` per view | Scoped strictly to the view’s owning MCP server; in-flight calls abort on close. |

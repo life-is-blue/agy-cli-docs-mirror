@@ -145,7 +145,7 @@ If you want to revert back to using the default account based authentication:
 ##### Troubleshooting API key authentication
 
 | Symptom | Cause | Resolution |
-| :-- | :-- | :-- |
+| --- | --- | --- |
 | The CLI exits at startup reporting that `GEMINI_API_KEY` is not set | `modelProvider` is `gemini` but the key is missing from the environment | Export `GEMINI_API_KEY`, or remove `modelProvider` to use the default authentication |
 | The CLI signs in normally and ignores the setting | `modelProvider` holds an unrecognized value | `gemini` is the only accepted value. Check the spelling and restart the CLI |
 | A key set through `GOOGLE_API_KEY` or a `.env` file has no effect | The CLI reads the credential only from `GEMINI_API_KEY` in the environment, and does not load `.env` files | Export `GEMINI_API_KEY` in your shell or shell profile |

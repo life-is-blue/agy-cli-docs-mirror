@@ -11,7 +11,7 @@ Find a past conversation, a file, or a command without leaving the keyboard. In 
 The command palette searches your past conversations, project files, projects, and app commands. Each of these categories has its own keyboard shortcut:
 
 | Category | macOS | Windows and Linux |
-| :-- | :-- | :-- |
+| --- | --- | --- |
 | **Conversations** | Cmd + K | Ctrl + K |
 | **Files** | Cmd + P | Ctrl + P |
 | **Projects** | Cmd + Shift + K | Ctrl + Shift + K |
@@ -57,7 +57,7 @@ Select a result to open that conversation.
 In version 2.26.0 and later, you can sort and filter the list. Click the filter icon at the right of the search box, and then choose one of these options:
 
 | Option | What it does |
-| :-- | :-- |
+| --- | --- |
 | **Sort Conversations** > **Last Updated** | Lists conversations by their most recent activity. This is the default. |
 | **Sort Conversations** > **Last Prompt** | Lists conversations by when you last sent a prompt. |
 | **Filter** > **Only Unread** | Shows only conversations with updates that you haven’t viewed. |
@@ -97,7 +97,7 @@ Press Cmd + F (macOS) or Ctrl + F (Windows and Linux) to open the **Find** bar f
 To narrow the matches, turn on any of these options:
 
 | Option | What it does |
-| :-- | :-- |
+| --- | --- |
 | **Match Case (Aa)** | Matches only text with the same uppercase and lowercase letters. |
 | **Match Whole Word (ab)** | Matches only whole words. |
 | **Use Regular Expression (.\*)** | Treats your search text as a regular expression. |

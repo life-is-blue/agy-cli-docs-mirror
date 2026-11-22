@@ -9,7 +9,7 @@ Type `@` to point the agent at specific files, folders, rules, or past conversat
 This table compares the Antigravity App and the Antigravity CLI:
 
 | Context | Antigravity App | Antigravity CLI |
-| :-- | :-- | :-- |
+| --- | --- | --- |
 | Files and folders | Type `@` and part of the name | Type `@` and part of the path |
 | Rules | Type `@`, then choose **Rules** | Not available |
 | Past conversations | Type `@`, then choose **Conversation** | Not available |
@@ -80,7 +80,7 @@ Type `@` in the prompt box to open path suggestions, and keep typing to filter t
 Use these keys in the suggestions list:
 
 | Key | Action |
-| :-- | :-- |
+| --- | --- |
 | ↑ | Move to the previous suggestion. |
 | ↓ | Move to the next suggestion. |
 | Enter | Insert the highlighted path, followed by a space. |
@@ -110,7 +110,7 @@ To monitor subagents and open their full conversations, use the [`/agents` panel
 Mentioning a file or folder doesn’t paste its contents into your prompt. This table shows what the agent gets for each kind of context. In the Antigravity CLI, you can add only files and directories.
 
 | You add | The agent receives |
-| :-- | :-- |
+| --- | --- |
 | A file or folder | Its full path. The agent reads it when it needs to. |
 | A line range | The file path and line numbers, not the selected text. The agent reads those lines when it needs to. |
 | A rule | The rule’s full text. |

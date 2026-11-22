@@ -135,7 +135,7 @@ Type `/diff` in the prompt box and press Enter. The viewer opens in the **All Ch
 Press ←/→ to switch between these views:
 
 | View | Shows |
-| :-- | :-- |
+| --- | --- |
 | **All Changes** | Uncommitted changes in your workspace. This is the default. |
 | **Per Turn** | The changes from each turn of the conversation. |
 | **Commit Tree** | Your repository’s commit history. Press Enter on a commit to list the files that it changed. |

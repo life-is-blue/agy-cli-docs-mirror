@@ -38,7 +38,8 @@ Global settings apply across all workspaces:
 *   **Appearance**: Customize visual themes and panel layouts.
 *   **Browser** (`v2.30.0+`): Configure **Open Links In**, **Download Location**, **Browsing History**, and **Browser Actuation Rules** under **Settings** > **Browser** (refer to **[Browser use](/docs/browser#configure-browser-settings)**).
 *   **Models**: View model quota, toggle AI credit overages, and (on Google AI Pro and Ultra) configure default **Orchestrator Model** and **Executor Model** choices, including their thinking levels, under **Settings** > **Models** > **Orchestrator Settings** (refer to **[Choose a model](/docs/models#orchestrator)**).
-*   **Customizations**: Manage Model Context Protocol (MCP) servers, custom skills, and plugins.
+
+To install or manage plugins, MCP servers, skills, rules, and custom agents across workspaces, open **Customizations** in the left sidebar instead of **Settings**.
 
 Note
 
@@ -87,10 +88,10 @@ During [first-launch setup](/docs/getting-started) with a personal Google Accoun
 Switching layouts updates open and new conversations immediately without restarting the app. Both layouts run the exact same agent and support the same [models](/docs/models), [permission presets](/docs/permissions), [skills](/docs/skills), [rules](/docs/rules), [MCP servers](/docs/mcp), and [plugins](/docs/plugins)—switching only changes which controls are shown in the interface:
 
 | Area | Software Engineering | Knowledge Work |
-| :-- | :-- | :-- |
+| --- | --- | --- |
 | **Projects and folders** | Prompts for **Local** or **New worktree** mode on Git repos; shows Git branch pickers, GitHub controls, and **Open in IDE**; forks can target a new worktree. | Runs directly in your project’s folders without worktree or Git branch prompts; hides GitHub and **Open in IDE** controls; forks stay in the current folder (_Fork conversation in this folder_). |
 | **Conversation and approvals** | Keeps expandable `Worked for` tool groups, inline code diffs, line counts, and subagent cards in the thread; permission prompts include raw command-rule editors. | Shows a live progress line while the agent works that clears once the response finishes, keeping focus on replies and artifacts; permission prompts present plain-language summaries. |
-| **Side panel and Overview panel** | **Overview** includes **Review**, **Files**, **Terminal**, and **Extensions** rows, a **Customize Sections** menu, and sections for **Subagents**, **Background Tasks**, **Goals**, **Documents**, **Artifacts**, **Links**, **Modified Files**, and **Uploads**. | **Overview** stays hidden until the conversation produces output, omits **Review**, **Terminal**, and **Customize Sections**, labels the **Files** sidebar tree **Folders**, and focuses on **Documents**, **Artifacts**, **Links**, **Uploads**, and **Background Tasks**. |
+| **Side panel and Overview panel** | **Overview** includes **Review**, **Files**, **Terminal**, and **Plugins** rows, a **Customize Sections** menu, and sections for **Subagents**, **Background Tasks**, **Goals**, **Documents**, **Artifacts**, **Links**, **Modified Files**, and **Uploads**. | **Overview** stays hidden until the conversation produces output, omits **Review**, **Terminal**, and **Customize Sections**, labels the **Files** sidebar tree **Folders**, and focuses on **Documents**, **Artifacts**, **Links**, **Uploads**, and **Background Tasks**. |
 | **Customizations (`Installed` tab)** | Lists installed **Plugins**, **Skills & Rules**, **Custom Agents**, and **MCP Servers**. | Lists installed **Plugins** only (installed skills, rules, custom agents, and MCP tools remain active in the background). |
 | **Settings** | Displays developer subsections (**Terminal**, **Workspaces**, and **Labs**) and detailed permission rules directly. | Tucks advanced permission rules and developer subsections behind **Advanced Settings** in **Settings** > **General** and project settings, and hides the **Appearance** > **Conversation Steps** toggle and code syntax preview. |
 

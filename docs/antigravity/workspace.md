@@ -19,7 +19,7 @@ If you created a personal Google Account with an existing non-Gmail address, and
 ## Choose an option
 
 | Option | How you pay | Terms and controls | Setup |
-| :-- | :-- | :-- | :-- |
+| --- | --- | --- | --- |
 | **[Use a personal Google Account](#option-1-use-a-personal-google-account)** | Free, or a Google AI Pro or Google AI Ultra subscription | [Antigravity Terms of Service](/terms). No organization admin controls. You can turn off telemetry yourself. | A few minutes |
 | **[Connect a Google Cloud project](#option-2-connect-a-google-cloud-project)** | Pay as you go, per token, at Google Cloud API pricing | Google Cloud Terms of Service. Telemetry is always off. | A Google Cloud project with billing |
 | **[Use Gemini Enterprise](#option-3-use-gemini-enterprise)** | Gemini Enterprise seat licenses or the pay-as-you-go edition | Google Cloud Terms of Service with centralized admin controls | An administrator sets up Gemini Enterprise |

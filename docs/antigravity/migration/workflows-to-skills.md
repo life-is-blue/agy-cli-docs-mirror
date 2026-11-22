@@ -37,7 +37,7 @@ Skills can define specialized system prompts, specify tool requirements, and del
 ## Comparison: Workflows and skills
 
 | Feature | Legacy Workflows (`.md`) | Agent Skills (`SKILL.md`) |
-| :-- | :-- | :-- |
+| --- | --- | --- |
 | **Specification** | Proprietary Antigravity format | Open Agent Skills Standard ([agentskills.io](https://agentskills.io/home)) |
 | **Structure** | Single standalone `.md` file | Directory bundle (`<skill-name>/SKILL.md` + assets) |
 | **Workspace Path** | `.agents/workflows/<name>.md` | `.agents/skills/<name>/SKILL.md` |

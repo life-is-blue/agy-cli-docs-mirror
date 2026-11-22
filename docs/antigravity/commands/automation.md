@@ -100,7 +100,7 @@ The following prompts show common ways to use `/automation`:
 Both `/automation` and [`/schedule`](/docs/commands/schedule) run agent work on a schedule, but at different scopes:
 
 |  | `/automation` | [`/schedule`](/docs/commands/schedule) |
-| :-- | :-- | :-- |
+| --- | --- | --- |
 | **Best for** | Recurring jobs such as daily reports, nightly maintenance, and triage | Timers, CI polling, and check-ins during a task |
 | **Surfaces** | Antigravity App | Antigravity App, Antigravity CLI, and Antigravity IDE |
 | **Schedule** | Cron expression pinned with `CRON_TZ=<IANA zone>` | One-time timer or cron loop |

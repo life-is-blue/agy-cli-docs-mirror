@@ -156,7 +156,7 @@ In the Antigravity App (`v2.30.0+`), open **Settings** > **Browser** to manage b
 ## Compare browser modes across surfaces
 
 | Capability | Antigravity App (built-in browser, personal accounts `v2.30.0+`) | Antigravity CLI & App business/enterprise ([`/browser`](/docs/commands/browser)) | Antigravity IDE `v2.6.0+` & VS Code `v1.9.0+` ([IDE browser](/docs/ide/browser)) |
-| :-- | :-- | :-- | :-- |
+| --- | --- | --- | --- |
 | **Browser engine & setup** | Built-in side-panel browser (zero external browser or Node.js setup) | Local Google Chrome (`v144+`) via Chrome DevTools MCP (`npx` / Node.js in CLI; bundled runtime in App) | Local Google Chrome (`v144+`) via Chrome DevTools MCP (`npx` / Node.js; local workspaces) |
 | **How to start** | Plain-language prompts (auto-invoked) or `/browser <task>` | `/browser <task>` | `/browser <task>` |
 | **Parallel browser subagents** | Yes, each in its own isolated built-in browser tab | Single active Chrome debugging connection per instance | Single active Chrome debugging connection per instance |

@@ -70,7 +70,7 @@ By default, sending a new chat message accepts pending changes in background fil
 ## Keyboard shortcuts
 
 | Action | macOS | Windows and Linux |
-| :-- | :-- | :-- |
+| --- | --- | --- |
 | Toggle chat focus, or add the editor selection to chat | Cmd + L | Ctrl + L |
 | Add terminal selection or output to chat (terminal focused) | Cmd + L | — |
 | Start a new conversation | Cmd + Shift + L | Ctrl + Shift + L |
@@ -95,7 +95,7 @@ To change a shortcut, open **Preferences: Open Keyboard Shortcuts** and search f
 Configure the extension in VS Code’s **Settings** editor (search for `antigravity`) or in your `settings.json` file:
 
 | Setting | Type | Default | Description |
-| :-- | :-- | :-- | :-- |
+| --- | --- | --- | --- |
 | `antigravity.enableInlineDiff` | Boolean | `true` | Shows agent changes as inline diffs with **Accept** and **Reject** CodeLens actions. When `false`, changes open in a side-by-side diff tab with **Accept All** and **Reject All** buttons in the tab title bar. |
 | `antigravity.autoAcceptOnChat` | Boolean | `true` | When you send a new chat message, accepts pending changes in background files while keeping the active file’s inline diff open. When `false`, pending reviews stay open across turns. |
 | `antigravity.autoOpenFiles` | Boolean | `false` | Opens files in the editor automatically when the agent proposes edits. |

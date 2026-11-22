@@ -63,7 +63,7 @@ To learn more about reasoning model rate limits, refer to the [plans page](/docs
 On **Google AI Ultra** and **Google AI Pro** in the **Antigravity App**, you can choose the model and thinking level for each role under **Settings** > **Models** > **Orchestrator Settings**, or hover **Orchestrator** in the model selector to override the planner for a single conversation:
 
 | Role | Responsibilities | Supported models |
-| :-- | :-- | :-- |
+| --- | --- | --- |
 | **Orchestrator Model** (planner) | Explores the codebase, writes the plan, and reviews progress | [**Gemini 4 Neon**](#gemini-4-neon) (default), [**Gemini 4 Carbon**](/blog/gemini-4-carbon-in-google-antigravity), [**Gemini 4 Argon**](/blog/gemini-4-argon-in-google-antigravity), **Claude Opus 5.5** |
 | **Executor Model** | Searches, edits files, runs builds and tests | [**Gemini 4 Hydrogen**](/blog/gemini-4-hydrogen-in-google-antigravity) (default), **Claude Sonnet 5.5** |
 

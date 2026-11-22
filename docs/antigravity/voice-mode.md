@@ -31,7 +31,7 @@ Voice mode turns a conversation into a spoken, two-way conversation with the age
 The Antigravity App has two ways to use your voice:
 
 |  | Voice mode | Voice dictation |
-| :-- | :-- | :-- |
+| --- | --- | --- |
 | **What it does** | Holds a spoken conversation with the agent. | Types what you say into the message box. |
 | **How to start** | Click **Start Voice mode** in the message box. | Click the microphone in the message box, or press Ctrl + M. |
 | **How the agent answers** | Out loud, while its work appears in the conversation. | In writing, after you send the message. |
@@ -44,7 +44,7 @@ To learn more about dictation, see [Voice transcription](/docs/features#voice-tr
 The Antigravity CLI has two ways to use your voice:
 
 |  | Voice mode | Voice dictation |
-| :-- | :-- | :-- |
+| --- | --- | --- |
 | **What it does** | Holds a spoken conversation with the agent. | Types what you say into the prompt box. |
 | **How to start** | Run `/voice live`, or press F6. | Run `/voice dictate` or `/record`, or press F5. |
 | **How the agent answers** | Out loud, while its work appears in the conversation. | In writing, after you send the prompt. |
@@ -143,7 +143,7 @@ By default, the agent works quietly and speaks only when it has an answer or nee
 To change how often you hear progress updates, say something like the following at any time:
 
 | To | Say, for example |
-| :-- | :-- |
+| --- | --- |
 | Turn on updates | ”Keep me posted” or “Update me.” |
 | Hear more updates | ”Update me more often” or “Tell me every step.” |
 | Hear fewer updates | ”Update me less often” or “That’s a bit much.” |
@@ -159,7 +159,7 @@ Spoken updates turn off when voice mode ends, so voice mode always starts quietl
 While voice mode is on, the call bar at the top of the voice mode panel shows the following:
 
 | Control | What it does |
-| :-- | :-- |
+| --- | --- |
 | Speaker | Shows whose turn it is: **You** with a microphone while you talk, and **Antigravity** with sound bars the rest of the time. |
 | Elapsed time | Shows how long voice mode has been on. |
 | **Mute mic** | Mutes your microphone. The button turns red while you’re muted. To unmute, click **Unmute mic**. |
@@ -216,7 +216,7 @@ The transcript is saved on your computer, and it’s deleted when you delete the
 While voice mode is on, use these commands and keys:
 
 | To | Do this |
-| :-- | :-- |
+| --- | --- |
 | Mute or unmute your microphone | Press F6 or Shift + F6, or run `/voice mute`. |
 | End voice mode | Press Esc with an empty prompt while the agent is idle, press F7, or run `/voice stop`. |
 | Change the voice | Run `/voice speaker` followed by a voice name, such as `/voice speaker Arlo`. |
@@ -260,7 +260,7 @@ If you haven’t chosen a voice or volume in the CLI, it uses the ones that you 
 ### Antigravity App
 
 | Action | macOS | Windows and Linux |
-| :-- | :-- | :-- |
+| --- | --- | --- |
 | Mute or unmute your microphone in voice mode | Option + M | Alt + M |
 | Mute or unmute the agent’s voice in voice mode | Shift + Option + M | Alt + Shift + M |
 | Hear the previous or next voice in the voice dialog | ← or → | ← or → |
@@ -273,7 +273,7 @@ In **Settings** > **Shortcuts**, the mute shortcuts are listed as **Mute Voice M
 ### Antigravity CLI
 
 | Action | Key |
-| :-- | :-- |
+| --- | --- |
 | Start voice mode, or mute or unmute your microphone | F6 |
 | Mute or unmute your microphone | Shift + F6 |
 | End voice mode | F7, or Esc with an empty prompt while the agent is idle |
