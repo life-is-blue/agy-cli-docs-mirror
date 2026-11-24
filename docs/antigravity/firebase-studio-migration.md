@@ -58,7 +58,7 @@ This workflow uses the Antigravity agent to autonomously handle project transfor
     
 4.  In the Agent pane within Antigravity, enter the following prompt. To optimize your workflow and conserve tokens, we recommend selecting the **Gemini Flash** model, which is designed for speed and efficiency in high-volume transformation tasks like file conversion:
     
-    ```text
+    ```prompt
     @fbs-to-agy-export
     ```
     
@@ -101,7 +101,7 @@ Antigravity uses agent skills to publish your app using Firebase best practices:
 
 1.  In the chat panel, enter the following prompt:
     
-    ```text
+    ```prompt
     Publish my app
     ```
     

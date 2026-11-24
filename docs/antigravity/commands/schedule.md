@@ -54,7 +54,7 @@ A timer waits for a fixed duration and then fires once:
 
 Timers are useful for “check back in N minutes” workflows. With a `TimerCondition`, the timer is cancelled early when a matching message arrives, such as a subagent finishing, and that message itself wakes the agent, so it doesn’t wait the full duration unnecessarily.
 
-```text
+```prompt
 /schedule wait up to 5 minutes for the test subagent to report back, then check its results either way
 ```
 

@@ -23,11 +23,11 @@ Type `/agy-customizations` followed by a request. The agent loads the guide, rea
 /agy-customizations create a PreToolUse hook that blocks git push --force
 ```
 
-```text
+```prompt
 /agy-customizations my deploy skill never shows up as /deploy, figure out why
 ```
 
-```text
+```prompt
 /agy-customizations should this be a rule or a skill?
 ```
 

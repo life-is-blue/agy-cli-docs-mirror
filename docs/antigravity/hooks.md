@@ -419,10 +419,14 @@ Fires before the model is called.
 
 Each object in the `injectSteps` array can have one of the following fields:
 
-*   **`systemMessage`** (object): An out-of-band system instruction for the agent (for example, `{"systemMessage": "Remember to lint", "metadata": {"source": "policy"}}`).
+*   **`systemMessage`** (object): An out-of-band system instruction for the agent. The value is an object with its own `systemMessage` string and optional `metadata` (for example, `{"systemMessage": {"systemMessage": "Remember to lint", "metadata": {"source": "policy"}}}`).
 *   **`userMessage`** (string): A message from you.
-*   **`ephemeralMessage`** (string): A transient system message.
+*   **`ephemeralMessage`** (string): **Deprecated.** Use `systemMessage` instead.
 *   **`errorMessage`** (object): Displays an error message without sending it to the model (for example, `{"userMessage": "Prompt blocked by policy."}`). Marks the turn as errored with a non-zero exit code in non-interactive `-p` mode, and does not stop execution on its own unless paired with `"terminationBehavior": "terminate"`.
+
+Note
+
+**Injected steps stay in the conversation.** Injected `systemMessage` and `userMessage` steps remain in the conversation history for later turns. If your hook runs on every `PreInvocation`, inject a message only when its content changes, instead of repeating the same text each turn. Repeated injections add up and fill the context window faster.
 
 **Example**:
 
@@ -441,11 +445,17 @@ Each object in the `injectSteps` array can have one of the following fields:
 }
 ```
 
-*   **Output (stdout)** (injecting transient context):
+*   **Output (stdout)** (injecting a reminder for the agent):
 
 ```json
 {
-  "injectSteps": [{"ephemeralMessage": "Remember to lint"}]
+  "injectSteps": [
+    {
+      "systemMessage": {
+        "systemMessage": "Remember to lint"
+      }
+    }
+  ]
 }
 ```
 

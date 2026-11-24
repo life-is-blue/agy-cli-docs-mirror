@@ -55,7 +55,7 @@ Type `/plan` followed by your goal in the prompt input:
 
 To start an interactive discovery session for the current workspace context without a predefined prompt:
 
-```text
+```prompt
 /plan
 ```
 

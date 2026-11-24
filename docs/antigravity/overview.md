@@ -63,7 +63,7 @@ Gemini 4 NeonMedium
 
 Model
 
-Gemini 4 Neon _Medium_NewGemini 4 Carbon _Medium_NewGemini 4 Argon _Medium_NewGemini 4 Hydrogen _Medium_NewOrchestrator _Gemini 4 Neon Medium_NewGemini 3.8 Flash _Medium_Claude Sonnet 5.5 _Thinking_NewClaude Opus 5.5 _Thinking_NewGPT-OSS 120B _Medium_
+Gemini 4 Neon _Medium_NewGemini 4 Carbon _Medium_NewGemini 4 Argon _Medium_Leaving SoonGemini 4 Hydrogen _Medium_NewOrchestrator _Gemini 4 Neon Medium_NewGemini 3.8 Flash _Medium_Leaving SoonClaude Sonnet 5.5 _Thinking_NewClaude Opus 5.5 _Thinking_NewGPT-OSS 120B _Medium_
 
 TerminalsProject
 
@@ -172,7 +172,7 @@ Gemini 4 Neon Medium
 
 Model
 
-Gemini 4 NeonMediumNewGemini 4 CarbonMediumNewGemini 4 ArgonMediumNewGemini 4 HydrogenMediumNewOrchestratorGemini 4 Neon MediumNewGemini 3.8 FlashMediumClaude Sonnet 5.5 (Thinking)NewClaude Opus 5.5 (Thinking)NewGPT-OSS 120B (Medium)
+Gemini 4 NeonMediumNewGemini 4 CarbonMediumNewGemini 4 ArgonMediumLeaving SoonGemini 4 HydrogenMediumNewOrchestratorGemini 4 Neon MediumNewGemini 3.8 FlashMediumLeaving SoonClaude Sonnet 5.5 (Thinking)NewClaude Opus 5.5 (Thinking)NewGPT-OSS 120B (Medium)
 
 Preview README.mdproject\_review.md
 

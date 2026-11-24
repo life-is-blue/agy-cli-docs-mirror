@@ -39,7 +39,7 @@ To point the agent at exactly what to capture, add an instruction:
 /learn always run vitest with --pool=forks in this repo
 ```
 
-```text
+```prompt
 /learn save the database transaction retry pattern we just used as a project rule
 ```
 

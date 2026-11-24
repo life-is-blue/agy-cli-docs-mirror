@@ -138,7 +138,7 @@ If you prefer to migrate your workflows manually or want to refactor monolithic 
     
     Invoke the skill directly in the Antigravity App:
     
-    ```text
+    ```prompt
     /deploy-staging
     ```
     

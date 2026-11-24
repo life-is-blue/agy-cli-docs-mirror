@@ -23,11 +23,11 @@ For the core reasoning model, Antigravity offers leading frontier models. Availa
 | Model | Free & Google AI Plus | Google AI Pro | Google AI Ultra | Enterprise |
 | --- | --- | --- | --- | --- |
 | [Gemini 4 Neon](/blog/gemini-4-neon-in-google-antigravity) | ❌ | ✅† | ✅ | ✅ |
-| [Gemini 4 Carbon](/blog/gemini-4-carbon-in-google-antigravity) | ❌ | ❌ | ✅ | ✅ |
-| [Gemini 4 Argon](/blog/gemini-4-argon-in-google-antigravity) | ❌ | ✅† | ✅ | ✅ |
-| [Gemini 4 Hydrogen](/blog/gemini-4-hydrogen-in-google-antigravity) | ❌ | ✅\*\* | ✅ | ✅ |
+| [Gemini 4 Carbon](/blog/gemini-4-carbon-in-google-antigravity) | ❌ | ✅† | ✅ | ✅ |
+| [Gemini 4 Argon](/blog/gemini-4-argon-in-google-antigravity)\* | ❌ | ✅† | ✅ | ✅ |
+| [Gemini 4 Hydrogen](/blog/gemini-4-hydrogen-in-google-antigravity) | ✅ | ✅ | ✅ | ✅ |
 | [Orchestrator](/docs/models#orchestrator) | ❌ | ✅† | ✅ | ✅‡ |
-| [Gemini 3.8 Flash](/blog/gemini-3-8-flash-in-google-antigravity) | ✅ | ✅ | ✅ | ✅ |
+| [Gemini 3.8 Flash](/blog/gemini-3-8-flash-in-google-antigravity)\* | ✅ | ✅ | ✅ | ✅ |
 | [Gemini 3.7 Flash](/blog/gemini-3-7-flash-in-google-antigravity) | ❌ | ❌ | ❌ | ✅ |
 | [Gemini 3.6 Flash](/blog/gemini-3-6-flash-in-google-antigravity) | ❌ | ❌ | ❌ | ✅ |
 | [Gemini 3.1 Pro](/blog/gemini-3-1-pro-in-google-antigravity) | ❌ | ❌ | ❌ | ✅ |
@@ -45,7 +45,9 @@ For the core reasoning model, Antigravity offers leading frontier models. Availa
 
 ‡ In [Gemini Enterprise](/docs/enterprise#supported-models-in-gemini-enterprise), Orchestrator only runs Gemini 4 Carbon (High) as the planner paired with Gemini 4 Hydrogen (High) as the executor; custom planner and executor selection is available on Google AI Pro and Google AI Ultra only.
 
-To learn more about reasoning model rate limits, refer to the [plans page](/docs/plans). If you are using Antigravity with Gemini Enterprise, see [Supported models in Gemini Enterprise](/docs/enterprise#supported-models-in-gemini-enterprise).
+To learn more about reasoning model rate limits—including differences between paid Google AI Pro plans and Google AI Pro trials—refer to the [plans page](/docs/plans). If you are using Antigravity with Gemini Enterprise, see [Supported models in Gemini Enterprise](/docs/enterprise#supported-models-in-gemini-enterprise).
+
+**Gemini 4 Hydrogen** is available on all plans and is the default model for Free, Google AI Plus, and standard Google AI Pro trial accounts. **Gemini 4 Carbon** is included on paid Google AI Pro plans (and trials with eligible premium devices), Google AI Ultra, and Gemini Enterprise within the shared Gemini quota. **Gemini 4 Argon**, **Gemini 3.8 Flash**, **GPT-OSS-120b**, and **Claude 4.6** models are leaving on November 30, 2026.
 
 ### Gemini 4 Neon
 
@@ -67,7 +69,7 @@ On **Google AI Ultra** and **Google AI Pro** in the **Antigravity App**, you can
 | **Orchestrator Model** (planner) | Explores the codebase, writes the plan, and reviews progress | [**Gemini 4 Neon**](#gemini-4-neon) (default), [**Gemini 4 Carbon**](/blog/gemini-4-carbon-in-google-antigravity), [**Gemini 4 Argon**](/blog/gemini-4-argon-in-google-antigravity), **Claude Opus 5.5** |
 | **Executor Model** | Searches, edits files, runs builds and tests | [**Gemini 4 Hydrogen**](/blog/gemini-4-hydrogen-in-google-antigravity) (default), **Claude Sonnet 5.5** |
 
-Available models and thinking levels match your plan (refer to the [reasoning model table](#reasoning-model)). In the **Antigravity CLI** on Google AI Ultra and Google AI Pro, `/model` offers a single **Orchestrator** row with a **Planner** selector (`Neon`, `Carbon` on Google AI Ultra, or `Argon`) paired with **Gemini 4 Hydrogen**.
+Available models and thinking levels match your plan (refer to the [reasoning model table](#reasoning-model)). In the **Antigravity CLI** on Google AI Ultra and Google AI Pro, `/model` offers a single **Orchestrator** row with a **Planner** selector (`Neon`, `Carbon`, or `Argon`) paired with **Gemini 4 Hydrogen**.
 
 Gemini Enterprise
 
@@ -107,7 +109,7 @@ Selecting Orchestrator in the Antigravity CLI: complete /model with Tab, highlig
 
 You can select Orchestrator in any of the following ways:
 
-*   **Interactive picker**: Run `/model`, highlight **Orchestrator** (on Google AI Ultra and Google AI Pro, use ← / → or Tab to choose a **Planner**: `Neon`, `Carbon` on Google AI Ultra, or `Argon`), and press Enter. Your choice persists across sessions.
+*   **Interactive picker**: Run `/model`, highlight **Orchestrator** (on Google AI Ultra and Google AI Pro, use ← / → or Tab to choose a **Planner**: `Neon`, `Carbon`, or `Argon`), and press Enter. Your choice persists across sessions.
     
 *   **At startup**: Pass the model’s name or identifier when you launch the CLI or run it in [headless mode](/docs/cli/headless) (use `--model gemini-pro-orchestrator` in [Gemini Enterprise](/docs/enterprise#selecting-models-and-thinking-levels)):
     

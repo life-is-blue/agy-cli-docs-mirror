@@ -10,25 +10,33 @@ Rate limits and model availability differ based on your [Google AI](https://one.
 
 All plans receive the following baseline features:
 
-*   Use of Gemini models, including Gemini 3.8 Flash and other offered Gemini Enterprise models as the core agent model
+*   Use of Gemini models, including Gemini 4 Hydrogen, as the core agent model
 *   Unlimited Tab completions
 *   Access to all product features, such as scheduled tasks and the CLI
 
-Users on Google AI Ultra receive the following benefits:
+**Google AI Ultra** subscribers receive the following benefits:
 
 *   The highest, most generous quota, refreshed every five hours
 *   The highest weekly rate limits
-*   Access to third-party models
+*   Full access to frontier Gemini models and third-party partner models
 
-Users on Google AI Pro receive the following benefits:
+**Paid Google AI Pro** subscribers (and trials bundled with eligible premium devices) receive the following benefits:
 
 *   A high, generous quota, refreshed every five hours until the weekly limit is reached
 *   A higher weekly rate limit
+*   Access to frontier Gemini models—including Gemini 4 Neon, Gemini 4 Carbon, Gemini 4 Argon, and Gemini 4 Hydrogen—within your shared Gemini quota, plus paid-tier third-party models (refer to [Models](/docs/models) for availability)
 
-Users not on Google AI Pro or Ultra plans receive the following benefits:
+**Google AI Pro trial** subscribers (standard free and promotional trials) receive different entitlements from paid Google AI Pro plans:
+
+*   A lower quota entitlement and a more limited set of models (including Gemini 4 Hydrogen) than paid Google AI Pro subscriptions, subject to available capacity
+*   Trial and promotional benefits and usage limits may differ from paid subscriptions under the [Google One Terms of Service](https://one.google.com/terms-of-service)
+*   To get paid Google AI Pro quotas and full model availability right away, [submit a request](https://one.google.com/support) to cancel your trial and switch to a paid plan (see [How do I upgrade to a paid Google AI plan?](/docs/faq#how-do-i-upgrade-to-a-paid-google-ai-plan))
+
+**Free and Google AI Plus** users (not on Google AI Pro or Ultra plans) receive the following benefits:
 
 *   A meaningful quota, refreshed weekly
 *   A weekly rate limit
+*   Access to Gemini 4 Hydrogen (and Gemini 3.8 Flash until November 30, 2026)
 
 The baseline rate limits are primarily determined by available capacity and exist to prevent abuse. Under the hood, the rate limits correlate with the amount of work done by the agent, which can differ from prompt to prompt. As a result, you receive more prompts when your tasks are straightforward and the agent can complete the work quickly, while more complex tasks consume more quota.
 

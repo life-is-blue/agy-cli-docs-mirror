@@ -6,9 +6,64 @@ New versions roll out gradually and may take a few days to reach all users.
 
 ## Antigravity App
 
-### [v2.34.0](/releases?tab=hub&version=2.34.0 "View release 2.34.0")
+### [v2.35.0](/releases?tab=hub&version=2.35.0 "View release 2.35.0")
 
 Latest
+
+November 23, 2026
+
+### Unlimited conversation history, Conversation Management API, and HTML artifact search
+
+This release keeps your local conversation history unlimited by default, offers a conversation management API for agents to create and manage Antigravity conversations, and adds Cmd+F search inside full-page HTML artifacts. It includes 20 improvements and 19 fixes.
+
+**Improvements:**
+
+*   Antigravity now keeps your local conversation history unlimited by default instead of pruning older conversations after 500.
+*   Agents, scripts, plugins, and automations can now use the built-in Conversation Management API and conversations skill to create, list, inspect, rename, pin, star, archive, tag, group, and delete local Antigravity conversations.
+*   The message box now places the Environment selector ahead of Project and Branch, putting SSH Host directly in the environment menu and scoping project lists with cloning submenus when remote agents are enabled.
+*   Auto permission mode now approves file reads outside your current project automatically while keeping sensitive configuration directories protected.
+*   Permission prompts for writing files outside your project now suggest directory scopes instead of single files, and bold target paths and patterns for faster scanning.
+*   You can now search inside full-page HTML artifacts with Cmd+F (Ctrl+F on Windows and Linux), complete with match highlighting and navigation.
+*   Markdown and plain-text file tabs now include a per-tab RTL text direction toggle in the header for reading RTL prose without flipping code blocks or other open tabs.
+*   Opening large swarms in the Swarm board is now much faster with on-demand message paging, incremental board updates, and reduced background polling while hidden.
+*   ClickUp, Midpage Legal Research, and Descrybe Legal Engine partner plugins are now available in the Marketplace.
+*   Updated the official Gemini API Marketplace plugin to v2.8.0 with Gemini 4 Neon usage and migration guidance.
+*   The queued messages card now names any active background tasks or subagents holding delivery after a turn ends, so you can see why a message is waiting or choose Send Now.
+*   Consecutive parallel subagent launches now collapse into a single expandable row, and adjacent Worked for sections with no intervening output merge automatically.
+*   The model and permissions selectors in the message box now lock with explanatory tooltips while a turn is running so changes are not mistaken as taking effect mid-turn.
+*   Default Orchestrator and Executor models in Settings > Models now start at High thinking effort when available instead of the highest available effort level.
+*   Selecting a side-question match in conversation search now opens both the parent conversation and its side-question tab directly.
+*   The Installed tab in Customizations now starts non-plugin sections collapsed until you search, plugin detail pages show an Added badge once installed, and chat plugin cards display install errors inline.
+*   Running conversations now include Archive right below Stop in sidebar and history menus.
+*   The Open IDE header button is now borderless to match adjacent controls, and on Windows and Linux the menu bar uses a slimmer layout with muted labels and a muted app icon.
+*   The Other License auto-assign screen now suggests your discoverable Google Cloud projects in a searchable dropdown during onboarding and in Settings.
+*   Unbound the default Cmd+U (Ctrl+U on Windows and Linux) shortcut for Automations; you can still assign a custom shortcut in Settings > Shortcuts.
+
+**Fixes:**
+
+*   Fixed an issue where comments added on code artifacts did not appear in the Review button counter, sidebar badges, or combined review submissions.
+*   Fixed an issue where pressing Stop right after sending a follow-up could drop the message instead of returning it to the message box.
+*   Fixed an issue where using Send Now on a queued message could overwrite draft text in the message box or lose keyboard focus, and kept queue collapse state scoped per conversation.
+*   Fixed an issue where sending a follow-up to an idle conversation could briefly flash a pending send card, and where a message waiting to send during a running turn could appear below the working indicator.
+*   Fixed an issue where splitting a terminal in the side panel reloaded the pane and lost its scroll position and keyboard focus.
+*   Fixed an issue where selecting a quote pill inside a side-question tab did not scroll the parent conversation to the quoted passage, and where closed side-question tabs were not restored when navigating back to them.
+*   Fixed an issue where reconnecting to a conversation wiped edits made inside an open permission prompt.
+*   Fixed an issue where approving a permission or question prompt could cause the conversation to jump.
+*   Fixed an issue where shell commands containing dollar signs inside agent question cards rendered as math formulas.
+*   Fixed an issue where single-line command and file pills could misalign their first letter by one pixel at fractional display zoom levels.
+*   Fixed an issue where Fill conversation width left extra left padding in single-turn conversations and narrow views where the navigator rail is hidden.
+*   Fixed an issue where focus rings around the Google Cloud project field and license cards were cut off during license selection.
+*   Fixed an issue where closing media previews or the voice picker could move keyboard focus to the wrong control instead of returning to the button that opened it.
+*   Fixed an issue where installed plugins disappeared from Customizations when disabled by an organization policy instead of showing as blocked and removable.
+*   Fixed an issue where failed skill, rule, or agent loads in Project Customizations appeared as an empty list instead of displaying an error.
+*   Fixed an issue where a Marketplace plugin card could briefly revert from a spinner back to the Add button after installation before showing the installed menu.
+*   Fixed an issue where file tools or sandboxed commands could access internal session connection files, and where Auto mode safety checks inspected commands from the wrong working directory.
+*   Fixed an issue where enterprise sign-in could save a token with stale project or license metadata, and where cached account status did not refresh right away after access was revoked.
+*   Fixed an issue where the desktop app repeatedly polled unavailable remote Git status and retried permanent permission or request errors instead of stopping or backing off.
+
+---
+
+### [v2.34.0](/releases?tab=hub&version=2.34.0 "View release 2.34.0")
 
 November 20, 2026
 
@@ -1694,9 +1749,42 @@ Antigravity 2.0 Launch bug fixes.
 
 ## Antigravity CLI
 
-### [v1.5.12](/releases?tab=cli&version=1.5.12 "View release 1.5.12")
+### [v1.5.13](/releases?tab=cli&version=1.5.13 "View release 1.5.13")
 
 Latest
+
+November 19, 2026
+
+### Gemini 4 Neon support, column-aware table selection, faster multi-step tasks, and ACP fixes.
+
+Antigravity CLI 1.5.13 adds support for Gemini 4 Neon via ADC and enterprise model gateways, introduces column-aware mouse selection for Markdown tables, and speeds up multi-step agent tasks by batching independent operations. This release also resolves several issues across custom model configurations, non-QWERTY keyboard shortcuts, ACP editor integrations, and the Remote Control browser view.
+
+**Improvements:**
+
+*   Added Gemini 4 Neon (Low, Medium, High, and XHigh) to `/model` and `--model` when you sign in with Application Default Credentials (`AGY_ADC_AUTH`), and added support for Gemini 4 Neon through an enterprise model gateway.
+*   Improved mouse selection in Markdown tables in the `full screen (altscreen)` rendering mode and the artifact viewer: a drag that starts in a table now follows its columns, so you copy only the text of the column you drag in, or whole cells separated by tabs when you drag across columns, instead of the borders and the text of neighboring columns.
+*   Improved how the agent works through multi-step tasks: it now runs independent searches, file reads, and edits together in one step and chains related shell commands into a single command, so tasks take fewer turns.
+
+**Fixes:**
+
+*   Fixed custom models in `settings.json` ignoring `modelFeatures` flags set to `false`, such as `supportsThinking` and `supportsToolCalls`, so the CLI no longer requests thinking or tool calls from a model you've marked as not supporting them.
+*   Fixed agents starting a swarm on their own when you hadn't typed `/swarm`, which can use far more of your quota than a single agent; the swarm skill is no longer offered to the agent, and `/swarm` works as before.
+*   Fixed `Ctrl` and `Alt` shortcuts, such as `Ctrl+C` and `Ctrl+D`, acting as a different key on non-QWERTY keyboard layouts like Neo2, Dvorak, AZERTY, or German QWERTZ in terminals such as Ghostty; shortcuts now follow your keyboard layout.
+*   Fixed `Enter` adding a new line instead of running the command in `!` shell mode when Vim mode is on.
+*   Fixed `agy update` on Android (Termux) failing with a `directory /apex/com.android.runtime/bin is not fully accessible` error.
+*   Fixed the `/config` hint for the `Send Immediately` option of `Queued Messages`, which said it interrupts the agent; it now says your message joins the current turn and the agent reads it after its current step.
+*   Fixed the `status` of `--output-format json` and `stream-json` results reading `ERROR`, with the error of a failed attempt, for runs that succeeded after the CLI retried a model request; they now report `SUCCESS`.
+*   Fixed `agy acp` running the agent's shell commands in the directory the editor launched it from, such as your home directory, instead of the session's project folder.
+*   Fixed `agy acp` ignoring the file contents an editor attaches to a prompt, such as a file with unsaved changes in Zed; the agent now sees the editor's copy instead of the last saved version on disk.
+*   Fixed model pickers in editors connected through `agy acp`, such as Zed and JetBrains AI Chat, showing internal `MODEL_PLACEHOLDER_...` IDs and several rows with the same name when you use an enterprise model gateway; each model is now listed once under its model ID, and models that share a name show their ID next to it.
+*   Fixed `agy acp` showing an `API error (attempt N)` message in the editor's chat each time the CLI retried a model request, even when the retry succeeded; retries are now silent, as in the terminal, and the chat shows an error only when every retry fails.
+*   Fixed the built-in `/antigravity-guide` skill reading a redirect notice instead of the page when the agent looked up the Antigravity docs or changelog to answer your questions, such as what's new in the latest release.
+*   Fixed the Remote Control browser view jumping when you answer a permission prompt; the conversation now stays where you were reading instead of sliding down as the prompt closes.
+*   Fixed permission prompts in the Remote Control browser view resetting after a brief connection drop, which lost the option you had picked, your edits to the command or path, and anything you had typed for the `No` option.
+
+---
+
+### [v1.5.12](/releases?tab=cli&version=1.5.12 "View release 1.5.12")
 
 November 19, 2026
 
