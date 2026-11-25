@@ -120,6 +120,7 @@ Mentioning a file or folder doesn’t paste its contents into your prompt. This 
 
 ## Next steps
 
+*   [Context windows and tokens](/docs/learn/context-and-tokens): Learn why pointing to an active working set beats pasting entire folders.
 *   [Rules](/docs/rules): Write rules, including `manual` rules that you attach with `@`.
 *   [Custom subagents](/docs/subagents): Learn how subagents run and how to monitor them.
 *   [Prompting and interaction](/docs/cli/prompting): Compose multiline prompts and attach media in the Antigravity CLI.

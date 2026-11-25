@@ -12,19 +12,19 @@ Welcome to Google Antigravity! Follow the instructions in this guide to get star
     
     macOSmacOS 13 (Ventura) or later (Apple Silicon or 64-bit Intel)
     
-    [Download for Apple Silicon](https://storage.googleapis.com/antigravity-public/antigravity-hub/2.35.0-6394266482769920/darwin-arm/Antigravity.dmg)[Download for Intel](https://storage.googleapis.com/antigravity-public/antigravity-hub/2.35.0-6394266482769920/darwin-x64/Antigravity.dmg)
+    [Download for Apple Silicon](https://storage.googleapis.com/antigravity-public/antigravity-hub/2.35.1-4615540875067392/darwin-arm/Antigravity.dmg)[Download for Intel](https://storage.googleapis.com/antigravity-public/antigravity-hub/2.35.1-4615540875067392/darwin-x64/Antigravity.dmg)
     
     Open the downloaded `Antigravity.dmg` disk image and drag **Antigravity** into your **Applications** folder. If you are upgrading an existing installation, select **Replace** when prompted instead of **Keep Both**.
     
     WindowsWindows 10 (64-bit) or Windows 11
     
-    [Download for x64](https://storage.googleapis.com/antigravity-public/antigravity-hub/2.35.0-6394266482769920/windows-x64/Antigravity-x64.exe)[Download for ARM64](https://storage.googleapis.com/antigravity-public/antigravity-hub/2.35.0-6394266482769920/windows-arm/Antigravity-arm64.exe)
+    [Download for x64](https://storage.googleapis.com/antigravity-public/antigravity-hub/2.35.1-4615540875067392/windows-x64/Antigravity-x64.exe)[Download for ARM64](https://storage.googleapis.com/antigravity-public/antigravity-hub/2.35.1-4615540875067392/windows-arm/Antigravity-arm64.exe)
     
     Run the downloaded `.exe` installer and follow the guided setup wizard.
     
     Linuxglibc >= 2.28, glibcxx >= 3.4.25 (Ubuntu 20+, Debian 10+, Fedora 36+, RHEL 8+)
     
-    [Download for x64](https://storage.googleapis.com/antigravity-public/antigravity-hub/2.35.0-6394266482769920/linux-x64/Antigravity.tar.gz)[Download for ARM64](https://storage.googleapis.com/antigravity-public/antigravity-hub/2.35.0-6394266482769920/linux-arm/Antigravity.tar.gz)
+    [Download for x64](https://storage.googleapis.com/antigravity-public/antigravity-hub/2.35.1-4615540875067392/linux-x64/Antigravity.tar.gz)[Download for ARM64](https://storage.googleapis.com/antigravity-public/antigravity-hub/2.35.1-4615540875067392/linux-arm/Antigravity.tar.gz)
     
     Extract the archive with `tar -xzf Antigravity.tar.gz` and launch `./Antigravity`.
     
@@ -391,6 +391,14 @@ For more about searching conversations, files, and commands, see [Search and com
 
 [
 
+Learn
+
+Learn with Antigravity
+
+AI engineering fundamentals and hands-on build guides with runnable prompts.
+
+](/docs/learn/)[
+
 Core
 
 Features guide
@@ -407,14 +415,6 @@ Local security boundaries, sandboxing, and execution gates.
 
 ](/docs/permissions/)[
 
-Config
-
-Settings
-
-Configuration options for projects, models, and agent behavior.
-
-](/docs/settings/)[
-
 Models
 
 Choose a model
@@ -426,6 +426,14 @@ Reasoning effort levels, thinking budgets, and supported frontier models.
 ### Antigravity CLI
 
 [
+
+Learn
+
+Learn with Antigravity
+
+Prompting, context hygiene, and hands-on build guides you can run in the CLI.
+
+](/docs/learn/)[
 
 Workflow
 
@@ -449,15 +457,7 @@ CLI reference
 
 Catalog of commands, keybindings, and JSON schemas.
 
-](/docs/cli/reference/)[
-
-Navigation
-
-Vim editor mode
-
-Modal navigation and keybindings within the terminal user interface.
-
-](/docs/cli/vim-editor-mode/)
+](/docs/cli/reference/)
 
 ### For IDEs
 

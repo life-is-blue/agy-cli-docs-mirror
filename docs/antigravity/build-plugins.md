@@ -363,6 +363,14 @@ Note
 
 When a plugin declares MCP `variables`, installing it via `agy plugin install` leaves the plugin in a disabled state (`It is disabled until its MCP servers are configured: open /plugin and turn it on to fill them in.`) and `agy plugin enable <name>` prompts you to configure the variables interactively via `/plugin` in the CLI or the **Customizations** panel in the Antigravity App. Plugins that declare only `oauth` (without `variables`) install in an enabled state and prompt for browser sign-in when the MCP server connects.
 
+If your remote plugin uses OAuth, allowlist the following redirect URI in your OAuth provider so browser sign-in redirects succeed:
+
+```text
+https://antigravity.google.com/oauth/callback
+```
+
+For local desktop and CLI MCP OAuth configuration (including Client ID Metadata Documents, Dynamic Client Registration, and `https://antigravity.google/oauth-callback`), see [OAuth in the MCP guide](/docs/mcp#oauth).
+
 Bundled MCP servers appear in the **MCP** tab on the plugin detail page:
 
 ![The MCP tab of the Dart and Flutter plugin detail view in the Antigravity App, listing the bundled dart-mcp-server](/assets/image/docs/plugins/plugin-mcp-tab.png)
@@ -573,10 +581,43 @@ Verify the following requirements before sharing or submitting your plugin:
 | **MCP `variables` scope** | `variables` is declared inside `mcpServers.<server>.variables` in `mcp_config.json` (not at the root of `mcp_config.json`), and `PLUGIN_ROOT` / `PLUGIN_DATA` are not duplicated in `"env"`. |
 | **Hooks structure & paths** | `<plugin-root>/hooks.json` wraps event arrays in a named hook object, uses relative script paths (`./scripts/...`) rather than `${PLUGIN_ROOT}`, and uses a flat handler array for `Stop`, `SessionStart`, `PreInvocation`, and `PostInvocation`. |
 | **Bundled local logo & executables** | `logo` in `plugin.json` points to a bundled 1:1 square file inside the plugin (such as `"assets/logo.svg"`), and helper executables are placed under `scripts/` so they retain `0755` permissions in Marketplace bundles. |
+| **Remote OAuth redirect URI** | Remote plugins using OAuth allowlist `https://antigravity.google.com/oauth/callback` as a redirect URI in their OAuth provider. |
 
 ### Publish to the Antigravity Marketplace
 
 Once your plugin passes `agy plugin validate` (with zero errors and no unresolved warnings on Antigravity files) and includes a complete `plugin.json` (`name`, `displayName`, `description`, `version`, `logo`, `suggestedPrompts`, and `author`), `README.md`, and bundled logo asset, submit it through the [Antigravity Marketplace partner intake form](https://forms.gle/2EX5RFYPoJe1UgxR9).
+
+### Share deep links to your plugin
+
+Once your plugin is published in the Antigravity Marketplace, you can embed `antigravity://` deep links in your documentation, release notes, or GitHub `README.md` so signed-in users can jump directly to your plugin’s detail page in the Antigravity App:
+
+| Destination | Deep link URL |
+| --- | --- |
+| **Partner plugin detail page** | `antigravity://customizations/marketplaces/antigravity-plugins-partners/plugins/<plugin-name>` |
+| **Partner plugin (short link)** | `antigravity://plugin/<plugin-name>?marketplace=antigravity-plugins-partners` |
+| **Google plugin detail page** | `antigravity://customizations/marketplaces/antigravity-plugins-official/plugins/<plugin-name>` |
+| **Google plugin (short link)** | `antigravity://plugin/<plugin-name>` |
+| **Marketplace skill detail page** | `antigravity://customizations/marketplaces/<marketplace>/skills/<skill-name>` |
+| **Marketplace browse tab** | `antigravity://customizations/marketplaces` |
+
+Replace `<plugin-name>` with the `name` field from your published `plugin.json` manifest. If a link names an unknown catalog entry, the Antigravity App safely falls back to the **Customizations > Marketplace** browse tab. Pair your deep link with a link to [Download Antigravity](/download) for new users and the matching CLI install command for terminal users:
+
+```html
+<!-- HTML link for partner documentation -->
+<a href="antigravity://customizations/marketplaces/antigravity-plugins-partners/plugins/my-plugin">
+  Open in Antigravity
+</a>
+```
+
+```bash
+# Install a published partner plugin from the Antigravity CLI
+agy plugin install my-plugin@antigravity-plugins-partners
+
+# Install a published Google plugin from the Antigravity CLI
+agy plugin install my-plugin
+```
+
+You can also link to your plugin’s web card on the [Marketplace catalog](/docs/marketplace/?plugin=stripe#browse-marketplace-plugins) using `https://antigravity.google/docs/marketplace/?plugin=<plugin-name>#browse-marketplace-plugins`.
 
 * * *
 

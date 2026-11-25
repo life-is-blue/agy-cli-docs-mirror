@@ -350,6 +350,36 @@
     ]
   },
   {
+    "label": "Learn",
+    "collapsed": true,
+    "items": [
+      {
+        "label": "Learn overview",
+        "slug": "antigravity/learn"
+      },
+      {
+        "label": "Prompting and instructions",
+        "slug": "antigravity/learn/prompting"
+      },
+      {
+        "label": "Context windows and tokens",
+        "slug": "antigravity/learn/context-and-tokens"
+      },
+      {
+        "label": "How AI agents work",
+        "slug": "antigravity/learn/how-agents-work"
+      },
+      {
+        "label": "Verification and guardrails",
+        "slug": "antigravity/learn/verification-and-guardrails"
+      },
+      {
+        "label": "Build a playable 3D browser world",
+        "slug": "antigravity/learn/build-3d-browser-world"
+      }
+    ]
+  },
+  {
     "label": "Antigravity SDK",
     "collapsed": true,
     "items": [

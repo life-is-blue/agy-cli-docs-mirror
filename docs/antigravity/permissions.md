@@ -447,6 +447,7 @@ Add these rules to your `~/.gemini/antigravity-cli/settings.json` file:
 
 Explore related documentation and guides:
 
+*   **[Verification and guardrails](/docs/learn/verification-and-guardrails)**: Combine permission rules, sandboxing, unit tests, and live browser checks.
 *   **[Permissions command](/docs/cli/commands/permissions)**: Manage rules interactively in the TUI.
 *   **[Sandbox customization](/docs/sandbox)**: Enforce OS-level container isolation boundaries.
 *   **[Plugins and skills](/docs/plugins)**: Create your own custom skills and slash commands.

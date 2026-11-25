@@ -109,8 +109,11 @@ For large-scale sweeps or multi-file refactoring, direct the primary agent to sp
 
 ## Related resources
 
-Learn how to configure settings and customize visual layouts:
+Learn how to build durable agent habits, configure settings, and customize visual layouts:
 
+*   **[Prompting and instructions](/docs/learn/prompting)**: Structure goals, constraints, rules, and skills across any Antigravity surface.
+*   **[Context windows and tokens](/docs/learn/context-and-tokens)**: Keep active context focused and compact long sessions cleanly.
+*   **[Verification and guardrails](/docs/learn/verification-and-guardrails)**: Combine unit tests, browser checks, permissions, and sandboxing.
 *   **[Settings, rendering, and keybindings](/docs/cli/settings)**: Customize keyboard hotkeys and buffers.
 *   **[Permissions and sandbox](/docs/cli/sandbox)**: Enforce filesystem containment.
 *   **[Plugins and skills](/docs/cli/plugins)**: Create your own custom slash commands.

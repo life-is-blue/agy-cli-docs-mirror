@@ -104,6 +104,7 @@ Use `/compact` alongside Antigravity’s other session and context tools dependi
 
 ## Next steps
 
+*   **[Context windows and tokens](/docs/learn/context-and-tokens)**: learn how tokens work, why focused context outperforms dumping full repos, and when to compact.
 *   **[Context command (`/context`)](/docs/cli/commands/context)**: visualize how your conversation consumes the model’s context window in the Antigravity CLI.
 *   **[Side question command (`/btw`)](/docs/commands/btw)**: ask quick questions without adding turns to your active conversation.
 *   **[Managing conversations](/docs/cli/conversations)**: resume, fork, and organize CLI sessions.

@@ -166,6 +166,8 @@ In the Antigravity App (`v2.30.0+`), open **Settings** > **Browser** to manage b
 
 ## Next steps
 
+*   [Verification and guardrails](/docs/learn/verification-and-guardrails): Learn how live browser checks fit into a layered agent verification loop.
+*   [Build a playable 3D browser world](/docs/learn/build-3d-browser-world): See `/browser` inspect lighting presets, console logs, and camera framing on a live Three.js app.
 *   [Browser command (`/browser`)](/docs/commands/browser): Set up Chrome remote debugging and explore Chrome DevTools MCP capabilities and example prompts.
 *   [Allowlist and denylist](/docs/ide/allowlist-denylist): Pre-configure site and file-download rules in **Browser Actuation Rules**.
 *   [Agent permissions](/docs/permissions): Learn how permission presets, `read_url`, `execute_url`, and `download_url` work together.

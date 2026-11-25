@@ -249,6 +249,7 @@ For other accounts, these requests use the standard command prompt, and “alway
 
 Explore related documentation and guides:
 
+*   **[Verification and guardrails](/docs/learn/verification-and-guardrails)**: Pair OS-level sandboxing with permissions, tests, and diff review.
 *   **[Agent permissions](/docs/permissions)**: Configure allow, deny, and ask rules.
 *   **[Agent settings](/docs/agent-settings)**: Command execution policies and file access controls.
 *   **[Settings](/docs/settings)**: Global application and CLI preferences.

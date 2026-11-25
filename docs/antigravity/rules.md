@@ -193,3 +193,9 @@ Antigravity IDE and extensions load rules from the following locations:
 
 *   **Workspace rules**: `AGENTS.md`, `GEMINI.md`, or `.agents/rules/*.md` in your project folder or any parent folder up to the repository root.
 *   **Global rules**: `~/.gemini/AGENTS.md`, `~/.gemini/GEMINI.md`, or `~/.gemini/config/rules/*.md`.
+
+## Next steps
+
+*   [Prompting and instructions](/docs/learn/prompting): Learn how workspace rules, reusable skills, and turn prompts layer together.
+*   [Agent skills](/docs/skills): Package multi-step procedures that load on demand.
+*   [Learn command (`/learn`)](/docs/commands/learn): Turn session corrections into persistent rules and skills.

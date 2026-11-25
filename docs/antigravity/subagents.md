@@ -259,6 +259,7 @@ To authorize an agent action immediately without leaving your active workspace:
 
 Explore related documentation and guides:
 
+*   **[How AI agents work](/docs/learn/how-agents-work)**: Compare single agents, custom subagents, parallel swarms, and Teamwork.
 *   **[Boost deep reasoning (`/boost`)](/docs/boost)**: Explore on-demand multi-agent reasoning.
 *   **[Swarm (`/swarm`)](/docs/swarm)**: Coordinate named workers and a verifier on a shared message board for parallel tasks.
 *   **[Teamwork agent teams (`/teamwork`)](/docs/teamwork)**: Launch collaborative multi-agent teams for long-horizon projects.

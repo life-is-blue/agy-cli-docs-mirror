@@ -152,6 +152,7 @@ For every key, see [Diff command (`/diff`)](/docs/cli/commands/diff).
 
 Explore related documentation:
 
+*   [Verification and guardrails](/docs/learn/verification-and-guardrails): Combine diff review with automated tests, live browser checks, and sandboxing.
 *   [Diff command (`/diff`)](/docs/cli/commands/diff): Review changes, turns, and commits in the Antigravity CLI.
 *   [Artifacts](/docs/artifacts): Review and comment on plans, walkthroughs, and other deliverables from the agent.
 *   [Projects](/docs/projects): Choose whether the agent works in your local checkout or in a new Git worktree.

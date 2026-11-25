@@ -78,6 +78,7 @@ The agent uses the same guidance you’d use when writing customizations by hand
 
 Explore related documentation:
 
+*   [Prompting and instructions](/docs/learn/prompting): Understand how turn prompts, rules, and skills work together in the Learn guide.
 *   [Rules](/docs/rules): Learn how rules are discovered, scoped, and activated.
 *   [Agent skills](/docs/skills): Learn the `SKILL.md` format and how skills become slash commands.
 *   [Plugins](/docs/plugins): Package rules and skills to share across projects and teams.

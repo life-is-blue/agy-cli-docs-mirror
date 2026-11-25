@@ -170,6 +170,7 @@ You can monitor active subagents, jump directly to subagents waiting for approva
 
 Explore related documentation and guides:
 
+*   [How AI agents work](/docs/learn/how-agents-work): Understand the agent loop, tool calling, and when to choose Teamwork, Swarm, or subagents.
 *   [Swarm (`/swarm`)](/docs/swarm): Coordinate named workers and a verifier on a shared message board for parallel tasks.
 *   [Boost deep reasoning (`/boost`)](/docs/boost): Explore on-demand deep reasoning for tough debugging and algorithmic challenges.
 *   [Subagents architecture](/docs/subagents): Learn how background subagents execute parallel workstreams.

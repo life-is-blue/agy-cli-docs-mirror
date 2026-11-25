@@ -284,7 +284,7 @@ Google platform integrations
 
 Curated bundles of skills, MCP servers, and extensions engineered with product teams across Google—including Firebase, Android, Modern Web, Chrome DevTools, Flutter, Google Cloud Data, Maps, Science, and the Antigravity SDK.
 
-[View all bundles](/docs/build-with-google/)
+[View all bundles](/docs/build-with-google/)[Plugin Marketplace](/docs/marketplace/#browse-marketplace-plugins)
 
 * * *
 
@@ -457,13 +457,13 @@ Install the Antigravity App, set up the CLI, integrate the SDK, and configure ID
 
 ](/docs/getting-started/)[
 
-Concepts
+Concepts & Guides
 
 Learn
 
-Master foundational concepts including Workspaces, Git Worktrees, and Sessions.
+Build AI engineering fundamentals (prompting, context, and agents), then follow step-by-step build guides.
 
-](/docs/features/)[
+](/docs/learn/)[
 
 Extensibility
 

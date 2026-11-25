@@ -6,9 +6,28 @@ New versions roll out gradually and may take a few days to reach all users.
 
 ## Antigravity App
 
-### [v2.35.0](/releases?tab=hub&version=2.35.0 "View release 2.35.0")
+### [v2.35.1](/releases?tab=hub&version=2.35.1 "View release 2.35.1")
 
 Latest
+
+November 24, 2026
+
+### Resume conversations after restart, auto-opening plugin panels, and compressed diagnostic uploads
+
+This release automatically resumes active conversations after an app restart or update, opens plugin panel links directly in the side panel, and compresses background diagnostic uploads to reduce upload bandwidth while capping upload batch sizes. It includes 2 improvements and 1 fix.
+
+**Improvements:**
+
+*   Added automatic resumption on startup for active conversations interrupted by an app restart or update.
+*   Updated plugin panel links in live agent replies to open their view automatically in the side panel.
+
+**Fixes:**
+
+*   Fixed an issue where background diagnostic uploads were sent uncompressed and without a batch size limit, using more upload bandwidth than necessary and causing oversized batches to fail.
+
+---
+
+### [v2.35.0](/releases?tab=hub&version=2.35.0 "View release 2.35.0")
 
 November 23, 2026
 
@@ -1749,9 +1768,116 @@ Antigravity 2.0 Launch bug fixes.
 
 ## Antigravity CLI
 
-### [v1.5.13](/releases?tab=cli&version=1.5.13 "View release 1.5.13")
+### [v1.5.16](/releases?tab=cli&version=1.5.16 "View release 1.5.16")
 
 Latest
+
+November 24, 2026
+
+### Live step checklist, `-r` resume alias, `~/.agents/skills` discovery, and Auto mode updates.
+
+Version 1.5.16 introduces a live step checklist during multi-step turns, `-r` and `--resume` CLI flags, discovery of user-global skills in `~/.agents/skills`, and refined Auto mode permissions, alongside several fixes for macOS SSH keychain sign-in, `agy acp` subagent prompts, and Remote Control voice dictation.
+
+**Improvements:**
+
+*   Added `-r` and `--resume` command-line flag aliases for `--conversation` so you can resume a specific conversation by ID with `agy -r <id>` or `agy --resume <id>`.
+*   Added a live step checklist under the status line above the prompt during multi-step interactive turns: when the agent tracks its steps with `update_steps`, the status line shows `N/M steps` (plus any skipped or failed count) and an open checklist of up to seven steps (`⋮ N earlier` and `⋮ N more` on longer lists) that hides automatically once all steps finish.
+*   Added discovery of user-global skills in `~/.agents/skills`, so cross-tool Agent Skills appear in `/skills`, `/` autocomplete, and agent turns, with skills in `~/.gemini` taking precedence on name collisions.
+*   Improved elapsed timers while the agent is working: the status line above the prompt now times thinking (`Thinking... 12s`) and each running tool (`Running command... 18s`) separately, resetting between phases and tools, and `Thought for <duration>` headers in the transcript now count only thinking time instead of including tool runs and response streaming.
+*   Improved model quota tracking during turns lasting a minute or longer by refreshing your quota periodically while the agent streams, so `/usage`, `/quota`, and custom `statusLine` commands stay current before the turn finishes.
+*   Improved the `full screen (altscreen)` rendering mode to keep the prompt bar anchored at the bottom of the terminal on new, short, or `Ctrl+L`\-cleared conversations instead of starting near the top and sliding down as messages arrive.
+*   Changed Auto mode (the default `Agent Mode`) to allow creating or editing files outside the workspace without asking when the file is inside a version-controlled repository (such as Git, Jujutsu, or Mercurial) or when the change only adds new content (creating a new file, appending, or inserting text without replacing existing lines); previously Auto mode asked before every outside-workspace file write or edit. Overwriting or replacing lines outside a repository, hidden paths, VCS and hook metadata such as `.git` and `hooks.json`, and system and startup folders still ask for approval, and your `ask` and `deny` permission rules and organization policies still apply.
+*   Changed `pluginControls.pluginsDisabled` in managed admin settings and Gemini Enterprise plugin controls to keep built-in plugins enabled while still blocking installed, workspace, and marketplace plugins and plugin commands; previously it disabled built-in plugins as well.
+
+**Fixes:**
+
+*   Fixed failed and timed-out shell commands showing a green status dot instead of a red one in `low` and `high` verbosity, `/thinking`, and expanded (`Ctrl+O`) transcript views, while keeping canceled commands gray.
+*   Fixed typing a custom write-in answer to an agent or subagent question hiding the terminal cursor at the bottom of the screen and misplacing IME composition text (such as Korean, Japanese, or Chinese); the hardware cursor now tracks your editing position.
+*   Fixed running `agy` over SSH on macOS always bypassing your existing macOS Keychain sign-in and asking you to sign in again; when your login Keychain is unlocked, `agy` now reuses it and falls back to file-based token storage when locked.
+*   Fixed `agy acp` stalling for 60 seconds when a subagent or workflow agent requested tool approval or asked a question in `default` or `accept-edits` mode; subagent permission requests, form prompts, and questions now forward to the editor and route your answers back to the subagent.
+*   Fixed `/swarm` board wakeup notifications being attributed to whichever swarm member last opened the swarm instead of `"system"`, which could cancel member-scoped timers early and crowd out coordinator instructions when a worker's conversation compacted.
+*   Fixed voice dictation in the Remote Control browser view recording an audio file attachment instead of transcribing speech into the message box (and hiding the microphone button in comment boxes), or failing to start microphone capture under the browser's content security policy.
+*   Fixed voice dictation failing or timing out when starting in long conversations with large file reads or command outputs, and stalling when stopping a recording in the Remote Control browser view after out-of-order audio chunks.
+*   Fixed opening, playing, or downloading audio and video files larger than 20 MB (up to 200 MB) in remote conversations in the Remote Control browser view failing with `File exceeds the 20MB display limit`.
+*   Fixed navigating back from a conversation to the mobile home screen in the Remote Control browser view resetting the projects and conversations list to the top instead of restoring your scroll position.
+
+---
+
+### [v1.5.15](/releases?tab=cli&version=1.5.15 "View release 1.5.15")
+
+November 23, 2026
+
+### Auto-compaction threshold controls, Remote Control UI refinements, and ACP session fixes.
+
+Antigravity CLI 1.5.15 adds customizable auto-compaction thresholds across eligible models, updates default Orchestrator thinking effort and conversation retention policies, refines the Remote Control browser view and Tokyo Night color scheme, and resolves multiple issues with ACP session handling, `/config` rendering warnings, and `/btw` side questions.
+
+**Improvements:**
+
+*   Added an auto-compaction threshold row under the capacity header in `/context`, and updated `AGY_CLI_AUTO_COMPACT_OVERRIDE` to support all eligible models: pass a token count (`700000`), a `K` or `M` shorthand (`800K`, `0.5M`), or a percentage (`80%`) up to the model's context window to set when conversations compact, and see the active override in `/context` and `/model`.
+*   Improved text contrast in the `tokyo night` color scheme so expanded thoughts, tool output, and dimmed hints stand apart from agent responses while staying easy to read.
+*   Improved the project picker on the home screen and new-conversation panes of the Remote Control browser view: it now shows a flat, scrollable list of projects sorted by recency instead of a three-item `Recent` group and nested submenus, and when remote environments are available, places the `This Computer` / `Remote` picker ahead of the project picker to filter projects by environment, remember your last-used project in each one, and open local GitHub projects remotely from `Clone from This Computer`.
+*   Improved the queued-messages card in the Remote Control browser view when the agent's main turn has finished but background work is still holding the queue: instead of `Sends after agent finishes working`, the header now shows `Waiting on ...` with the active subagent count and up to two non-daemon background task or timer titles, while daemon tasks such as dev servers don't hold the queue and `Send Now` still sends right away.
+*   Improved permission prompts in the Remote Control browser view by bolding the target folder path, command pattern, or domain in "always allow" option labels, updating live when you edit the target, so the scope a rule grants stands out at a glance.
+*   Changed the default thinking `Effort` for the `Orchestrator` row's `Planner` and `Executor` roles in `/model` to `high` when available (falling back to the model family's highest offered level otherwise); previously unset roles and newly selected model families defaulted to the family's highest level, such as `xhigh` or `max`. Your saved `"orchestrator"` choices in `settings.json` are unchanged.
+*   Changed local conversation storage to keep all saved conversations in `~/.gemini/antigravity-cli/conversations` by default; previously the CLI pruned older saved conversations beyond the `500` most recent at startup.
+
+**Fixes:**
+
+*   Fixed `/btw` side questions in conversations using `Orchestrator` dropping plan-and-execute instead of inheriting your configured `Planner` and `Executor` models and thinking `Effort`.
+*   Fixed `/config` showing a false `⚠ terminal does not support alt screen` warning under `Rendering Mode` in Windows PowerShell and Command Prompt consoles when `TERM` is unset.
+*   Fixed `/config` running `Rendering Mode` warnings (such as `⚠ alt screen unavailable - run ssh -t`) into the setting description in dim text, saying `terminal "unknown"` when the terminal name is unavailable, and cutting off multi-line setting descriptions past three lines.
+*   Fixed `agy acp` replying to `session/load` before finishing history replay (or cutting off replay after 2 seconds on long conversations), dropping active permission or question prompts when attaching to a running session, and returning JSON-RPC error `-32603` instead of `-32002` when a session ID does not exist.
+*   Fixed `agy acp` skipping leading slash commands or skills (such as `/plan` or `/compact`) when the editor attached files, selections, images, or links ahead of the prompt text, dropping empty (`0`\-byte) attached files, and treating web URLs or line-range resource links as local file paths.
+*   Fixed `agy acp` ending a `session/prompt` turn as soon as the agent's initial reply finished while non-daemon background tasks or subagents were still running; the turn now stays open across background wake-ups until that work finishes and reports the combined token usage, while daemon tasks such as dev servers still let the turn end right away.
+*   Fixed `agy acp` leaving in-progress tool calls stuck open in the editor when a turn is interrupted or canceled with `session/cancel`, and omitting error messages on failed tool calls that produced no command or diff output.
+*   Fixed splitting a terminal tab in the side panel of the Remote Control browser view reloading the terminal and losing its scroll position and focus, kept the oldest pane as the group's lead pane and tab title when new split panes are added, and moved off an exited terminal tab when another terminal opened at the same time.
+*   Fixed the keyboard- and screen-reader-focusable `Load older messages` pill at the top of long conversations in the Remote Control browser view clipping against the mobile title bar, scrolling back to the bottom of the chat when focused or clicked, and letting `Esc` close an enclosing mobile drawer instead of dismissing the pill.
+
+---
+
+### [v1.5.14](/releases?tab=cli&version=1.5.14 "View release 1.5.14")
+
+November 21, 2026
+
+### Live thinking stream, swarm board overview, remote plan mode, and Orchestrator model controls
+
+Antigravity CLI 1.5.14 adds `/thinking` for live thinking streaming, a live `Overview` section in `/swarm board`, `plan` mode for `--remote-agent` sessions, and configurable `Planner` and `Executor` models for the Orchestrator, alongside security and stability fixes.
+
+**Improvements:**
+
+*   Added `/thinking` (`/thinking [on|off]`, saved as `"showThinking"` in `settings.json` and off by default) to stream the model's full thinking live in the transcript while it thinks and keep finished thoughts expanded without pressing `Ctrl+O`.
+*   Added a live `Overview` section to `/swarm board` on terminals at least 28 rows tall, showing the swarm's goal, overall task progress (`Overview · N of M tasks done` and any blocked count), and up to six workstream threads with status indicators for which workers are working, in review, waiting on a peer, failed, or done.
+*   Added `plan` mode to `--remote-agent` sessions, so a remote agent can research and write a plan for your review before editing files or running commands: switch to it with `Shift+Tab`, start in it with `--mode plan`, or choose `plan` under `Agent Mode` on the `Remote Agent` tab of `/config`.
+*   Added an `Agent Mode` setting (`default`, `accept-edits`, and `plan`) to the `Remote Agent` tab of `/config` in `--remote-agent` sessions: choosing a mode saves it as your default for new remote sessions and updates the current conversation, while `Shift+Tab` switches modes for the session without changing your saved default and `--mode` overrides a resumed conversation's saved mode.
+*   Added a `Switch to RTL text direction` button to the header of Markdown (`.md`, `.markdown`) and `.txt` file tabs in the side panel of the Remote Control browser view, so right-to-left prose renders cleanly without paragraphs that start with English words snapping left, while code blocks and line numbers stay left-to-right.
+*   Improved the `Orchestrator` row in `/model` on consumer plans in local sessions so you can pick both its `Planner` and `Executor` models and each one's thinking `Effort` (saved under `"orchestrator"` in `settings.json` and `--settings`): press `Tab` or `Shift+Tab` to move between `Planner`, `Executor`, and their `Effort` sliders, use `←` and `→` to change the focused choice, and see the active planner next to `Orchestrator` in the status line.
+*   Improved expanded tool groups in `medium` verbosity: expanding a group with `Ctrl+O` or by clicking now keeps the summary header's colors, including red status markers on failed runs, instead of dimming it to gray, and indents the expanded tool calls behind a `│` gutter.
+*   Improved permission prompts for creating or editing a file outside the workspace in the Remote Control browser view: the "always allow" options now suggest the enclosing repository or project folder (or the parent folder when there is none) instead of only that single file, while sensitive files such as `.env` or SSH keys and broad folders such as your home directory or `/tmp` stay limited to the exact file, and editing the target path in the prompt overrides the suggestion.
+*   Improved turns that launch several subagents in a row in the Remote Control browser view: consecutive subagent launches now collapse into a single `Started N subagents` row (`Starting N subagents` while launching) that you can expand to see and open each subagent.
+*   Changed Auto mode (the default `Agent Mode`) to allow reading files outside the workspace without asking for approval; previously Auto mode prompted before reading outside the workspace unless `Non-Workspace Access` was turned on in `/config`. Writing or editing files outside the workspace still asks for approval, and your `ask` and `deny` permission rules, protected configuration files such as `mcp_config.json`, other projects' conversations, and organization policies requiring outside-workspace file review still apply.
+
+**Fixes:**
+
+*   Fixed a security issue on Windows where network (UNC), device, and NT object paths in workspace permission rules, `@` file mentions, plugins, `sidecars.json`, and custom agents could trigger a lookup that sent Windows credentials to a remote host; those paths are now rejected without being accessed.
+*   Fixed model responses that error out, are canceled, or are cut off partway through running partial tool calls from the incomplete response or resending that broken attempt on retry, which could make later turns fail with thinking-signature validation errors.
+*   Fixed wide Markdown tables in agent responses cutting off column headers with `…` and squeezing text columns until words broke mid-word on narrow terminals; headers now wrap and columns are sized to keep words intact while breaking long paths and URLs.
+*   Fixed `/plugin`, `agy plugin list`, `agy plugin enable`, and `agy plugin install` listing the wrong skills, subagents, MCP servers, and hooks for plugins whose `plugin.json` declares an Agent Plugins `$schema` (such as reading `mcp_config.json` instead of `mcp.json` or reporting `hooks.json` as hooks named `$schema` and `hooks`), and fixed the `agy plugin install` summary cutting off subagent names at a `.`.
+*   Fixed `agy plugin install <plugin>@<marketplace>` failing with `unknown marketplace` when you connect with a `GEMINI_API_KEY` instead of a saved sign-in.
+*   Fixed plugin suggestions in agent responses telling you `The <id> plugin needs you to sign in. Open /plugin to sign in.` with a raw marketplace catalog ID even when the plugin was not installed; they now say `Open /plugin to install or sign in to this plugin.`
+*   Fixed the status line permanently showing a red `AI: Out of credits` warning when AI credits are enabled and your credit balance is `0`, even while normal model quota is still available; the status line now shows AI credits only when you have a positive balance.
+*   Fixed `--remote-agent` sessions offering local-only and custom models that remote agents cannot run, and showing an unexplained error when a model is unavailable remotely: `/model` now marks models that remote agents don't support as `not available for remote agents` and omits local custom models, and requests with an unsupported model report `<model> isn't available for remote conversations yet. Choose another model and try again.`
+*   Fixed pressing `Esc` right after submitting a message, while the CLI already showed `esc to cancel` during pre-send checks, failing to stop the message from being sent and running a full agent turn; canceling in that window now aborts the send and shows `Message not sent: canceled before it was sent`.
+*   Fixed pressing `Esc` to cancel a turn while it is still tearing down clearing the `Interrupted` status hint and rejecting an immediate follow-up message with `executor has not processed the previous input yet`; the `Interrupted` hint now stays visible and follow-up messages queue until cancellation finishes.
+*   Fixed command hooks in `hooks.json` on Linux and macOS leaving child processes running in the background after a hook times out or is canceled; stopping a hook now terminates its entire process group.
+*   Fixed `run_workflow` failing with `workflow syntax error: 'return' outside function` when a Python workflow script ends with a top-level `return` statement; a trailing `return` is now evaluated as the workflow's result.
+*   Fixed pressing `Stop` right after submitting a follow-up message in the Remote Control browser view, before the message finished sending, dropping your message; it is now put back in the message box with its `@` mentions, attachments, and review comments, after anything new you've started typing.
+*   Fixed clicking `Send Now` on a queued message in the Remote Control browser view clearing or overwriting a draft, attachments, or review comments you were typing in the message box, and kept multiple `Send Now` clicks in order.
+*   Fixed inline comments added to code and other non-Markdown artifacts in the side panel of the Remote Control browser view leaving the `Review` button at zero comments, missing comment-count badges in the sidebar and Overview Panel, and splitting into separate pills when you click `Proceed`.
+*   Fixed the message box in the Remote Control browser view on iPhone either sliding behind the on-screen keyboard or floating with a blank gap above it in conversations, on the home screen, and in side-panel drawers such as subagent tabs.
+
+---
+
+### [v1.5.13](/releases?tab=cli&version=1.5.13 "View release 1.5.13")
 
 November 19, 2026
 

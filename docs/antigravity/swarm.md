@@ -227,6 +227,8 @@ Use the following guidelines to choose the right approach:
 
 ## Next steps
 
+*   [Build a playable 3D browser world](/docs/learn/build-3d-browser-world): Follow a hands-on walkthrough that pairs four parallel `/swarm` workers with `/browser` verification.
+*   [How AI agents work](/docs/learn/how-agents-work): Compare single agents, subagents, swarms, and Teamwork in the Learn guide.
 *   [Custom subagents](/docs/subagents): Learn how subagents run and how to define your own.
 *   [Teamwork agent teams (`/teamwork`)](/docs/teamwork): Run long-horizon multi-agent projects.
 *   [Boost deep reasoning (`/boost`)](/docs/boost): Apply multi-agent reasoning to hard problems.

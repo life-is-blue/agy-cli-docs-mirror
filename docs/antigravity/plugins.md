@@ -75,6 +75,8 @@ Follow the instructions below to install, configure, enable, disable, or uninsta
 
 #### Browse and manage plugins in the App
 
+[Open Marketplace in Antigravity](antigravity://customizations/marketplaces "Open Customizations > Marketplace in the Antigravity App")[Browse all plugins](/docs/marketplace/#browse-marketplace-plugins)
+
 1.  Open the **Customizations** tab, located below **Automations** in the left sidebar.
     
 2.  Use the top segmented toggle to switch between **Marketplace** (all available plugins) and **Installed** (your installed plugins, skills, rules, and custom agents):
@@ -105,10 +107,11 @@ You can also install custom or local plugins by placing their directories in eit
 
 In an interactive TUI session, run `/plugin` (or its alias `/plugins`) to open the **Plugins Manager**, where you can browse the marketplace in the **Discover** tab, install plugins from a local directory, or enable, disable, and uninstall plugins in the **Installed** tab.
 
-You can also manage and install plugins directly from the prompt using inline subcommands (`install`, `uninstall`, `enable`, `disable`, and `list`). For marketplace installs, `<marketplace-name>` supports the official marketplace (`antigravity-plugins-official`):
+You can also manage and install plugins directly from the prompt using inline subcommands (`install`, `uninstall`, `enable`, `disable`, and `list`). For Marketplace installs, specify `antigravity-plugins-official` for Google plugins or `antigravity-plugins-partners` for partner plugins:
 
 ```text
 /plugin install <plugin-name>@antigravity-plugins-official
+/plugin install <plugin-name>@antigravity-plugins-partners
 /plugin install <local-path>
 /plugin enable <plugin-name>
 /plugin disable <plugin-name>
@@ -126,14 +129,15 @@ Note
 
 Outside an interactive TUI session, the Antigravity CLI exposes the `agy plugin` subcommand pipeline to install, inspect, validate, and manage plugins from your shell:
 
-*   **Install a plugin**: Install from the official marketplace (`antigravity-plugins-official`, requires an active `agy` sign-in session), a GitHub repository URL, or a local directory:
+*   **Install a plugin**: Install from the official Google Marketplace (`antigravity-plugins-official`), the partner Marketplace (`antigravity-plugins-partners`), a GitHub repository URL, or a local directory (Marketplace installs require an active `agy` sign-in session):
     
     ```bash
-    # Install from the official marketplace (<marketplace-name> only supports antigravity-plugins-official)
+    # Install a Google plugin (bare name defaults to antigravity-plugins-official)
+    agy plugin install <plugin-name>
     agy plugin install <plugin-name>@antigravity-plugins-official
     
-    # Or install by plugin name (defaults to <plugin-name>@antigravity-plugins-official)
-    agy plugin install <plugin-name>
+    # Install a partner plugin
+    agy plugin install <plugin-name>@antigravity-plugins-partners
     
     # Install from a GitHub repository link
     agy plugin install https://github.com/<owner>/<repo>

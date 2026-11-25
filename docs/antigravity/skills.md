@@ -167,3 +167,9 @@ In the standalone Antigravity IDE, skills are discovered from the following loca
 | `~/.gemini/config/skills/<skill-folder>/` | Global (all workspaces; legacy `~/.gemini/antigravity/skills/` is also supported) |
 
 You can inspect all active skills from the **Customizations** menu in the agent side panel.
+
+## Next steps
+
+*   [Prompting and instructions](/docs/learn/prompting): See how to layer rules, reusable skills, and focused turn prompts.
+*   [Rules](/docs/rules): Set persistent workspace constraints and coding standards.
+*   [Learn command (`/learn`)](/docs/commands/learn): Turn hard-won fixes from a session into reusable skills and rules.

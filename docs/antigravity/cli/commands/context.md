@@ -76,6 +76,7 @@ To keep your context window lean and responsive during long sessions, consider t
 
 Explore related commands for managing conversation history and workspace state:
 
+*   **[Context windows and tokens](/docs/learn/context-and-tokens)**: understand token budgets, active working sets, and context hygiene across surfaces.
 *   **[Compact command (`/compact`)](/docs/commands/compact)**: summarize earlier turns into a checkpoint to free up space in the context window.
 *   **[Side question command (`/btw`)](/docs/commands/btw)**: ask background questions without adding tokens to your active trajectory.
 *   **[Resume command (`/resume`)](/docs/cli/commands/resume)**: switch between saved conversation threads.

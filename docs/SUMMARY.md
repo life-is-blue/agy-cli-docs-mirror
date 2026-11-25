@@ -86,6 +86,13 @@
   - [CLI best practices](antigravity/cli/best-practices.md)
   - [CLI troubleshooting](antigravity/cli/troubleshooting.md)
   - [CLI commands](antigravity/cli/reference.md)
+- Learn
+  - [Learn overview](antigravity/learn.md)
+  - [Prompting and instructions](antigravity/learn/prompting.md)
+  - [Context windows and tokens](antigravity/learn/context-and-tokens.md)
+  - [How AI agents work](antigravity/learn/how-agents-work.md)
+  - [Verification and guardrails](antigravity/learn/verification-and-guardrails.md)
+  - [Build a playable 3D browser world](antigravity/learn/build-3d-browser-world.md)
 - Antigravity SDK
   - [Antigravity SDK overview](antigravity/sdk/overview.md)
   - [Local models](antigravity/sdk/local-models.md)

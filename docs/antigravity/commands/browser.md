@@ -109,6 +109,8 @@ The following prompts show typical `/browser` workflows:
 
 Explore related documentation:
 
+*   [Verification and guardrails](/docs/learn/verification-and-guardrails): Pair unit tests, live browser checks, and permission rules to ship reliable code.
+*   [Build a playable 3D browser world](/docs/learn/build-3d-browser-world): Try a step-by-step build guide that verifies a live WebGL scene with `/browser`.
 *   [Browser use](/docs/browser): Watch live built-in browser workflows, parallel browser tabs, sign-in handoff, and browser settings in the Antigravity App.
 *   [Subagents](/docs/subagents): Learn how built-in and custom subagents run in isolated contexts.
 *   [Permissions](/docs/permissions): Control which browser tools run automatically and which ask first.
