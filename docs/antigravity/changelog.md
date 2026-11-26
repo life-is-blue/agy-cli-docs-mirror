@@ -6,9 +6,23 @@ New versions roll out gradually and may take a few days to reach all users.
 
 ## Antigravity App
 
-### [v2.35.1](/releases?tab=hub&version=2.35.1 "View release 2.35.1")
+### [v2.35.2](/releases?tab=hub&version=2.35.2 "View release 2.35.2")
 
 Latest
+
+November 25, 2026
+
+### Switch models while a turn is running
+
+This release lets you change the selected model while a conversation turn is running, with a tooltip clarifying when the change takes effect. It includes 1 fix.
+
+**Fixes:**
+
+*   Fixed an issue where the model selector was locked while a turn was running, preventing you from switching models before sending a /btw side question or follow-up message. The selector now stays interactive with a tooltip noting when the change takes effect.
+
+---
+
+### [v2.35.1](/releases?tab=hub&version=2.35.1 "View release 2.35.1")
 
 November 24, 2026
 

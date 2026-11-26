@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-25T07:24:23Z",
+  "generated_at": "2026-11-26T07:13:38Z",
   "tool": "scripts/fetch_agy_docs.py",
   "strict_fetch": false,
   "is_degraded": false,
@@ -144,9 +144,9 @@
       "slug": "changelog",
       "label": "Changelog",
       "url": "https://antigravity.google/docs/changelog.md",
-      "sha256": "f0bfcac6085100aebee39c3a1dbb8dca0bdb2f5d1642dfbd5b6db662f81ec99a",
-      "bytes": 670457,
-      "fetched_at": "2026-11-25T07:24:14Z",
+      "sha256": "4d07e7682f73966e6376015a32da87f39ee8763ce5da97de60b8e6914b0bd8fe",
+      "bytes": 671033,
+      "fetched_at": "2026-11-26T07:13:28Z",
       "sidebar_label": "Changelog"
     },
     "antigravity/cli/acp.md": {
@@ -802,9 +802,9 @@
       "slug": "getting-started",
       "label": "Get started",
       "url": "https://antigravity.google/docs/getting-started.md",
-      "sha256": "e79705af1c8403207b071063427a0412e086f5ab467ebf68213751a8ce5be481",
+      "sha256": "b6a5fc6d7478ea6f7123879e1bc17275cd560689cdeb1936d80bd3ea1fbe0920",
       "bytes": 22885,
-      "fetched_at": "2026-11-25T07:24:14Z",
+      "fetched_at": "2026-11-26T07:13:28Z",
       "sidebar_label": "Get started"
     },
     "antigravity/hooks.md": {
@@ -1194,9 +1194,9 @@
       "slug": "marketplace",
       "label": "Marketplace",
       "url": "https://antigravity.google/docs/marketplace.md",
-      "sha256": "47d25e9671d285e7cad654a750457eedd61738eda191c07040be076c6c3e406d",
-      "bytes": 56336,
-      "fetched_at": "2026-11-25T07:24:14Z",
+      "sha256": "050b7d1bbfa80b05009843b9e9b7c93a88a007a5259caabbc1060398adc88ec2",
+      "bytes": 57159,
+      "fetched_at": "2026-11-26T07:13:28Z",
       "sidebar_label": "Marketplace"
     },
     "antigravity/mcp-apps.md": {

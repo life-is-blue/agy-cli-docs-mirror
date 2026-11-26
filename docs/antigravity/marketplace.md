@@ -578,6 +578,16 @@ Connect to your managed Looker MCP server to explore data, run saved Looks, buil
 
 [Guide](/docs/build-with-google/#looker "View in Build with Google")
 
+### Mass Spectrometry
+
+Google
+
+Build with Google
+
+Collection of tools for tandem mass spectrometry (MS/MS) analysis, including spectrum preprocessing, GNPS and MoNA spectral library search, SIRIUS formula prediction, and MetFrag and MAGMa fragment…
+
+[Open in Antigravity](antigravity://customizations/marketplaces/antigravity-plugins-official/plugins/mass-spectrometry "Open Mass Spectrometry in the Antigravity App")
+
 ### Modern Web Guidance
 
 Google
@@ -637,6 +647,18 @@ Read-only marketing analytics: report spend, conversions, CPA and ROAS across ad
 [Open in Antigravity](antigravity://customizations/marketplaces/antigravity-plugins-partners/plugins/adspirer-analytics "Open Adspirer Marketing Analytics in the Antigravity App")
 
 [Docs](https://www.adspirer.com/ "Docs / repository")
+
+### Any.do
+
+Partner
+
+Developer Tools
+
+Manage Any.do personal tasks, workspace boards and sections, subtasks, reminders, and connected calendar events from your agent.
+
+[Open in Antigravity](antigravity://customizations/marketplaces/antigravity-plugins-partners/plugins/anydo "Open Any.do in the Antigravity App")
+
+[Docs](https://www.any.do/ "Docs / repository")
 
 ### Arize AX
 
@@ -1002,7 +1024,7 @@ Partner
 
 Design, Creative & Media
 
-Generate images and V4 videos with Kling AI. Supports multimodal references, reusable subjects, motion control, and task tracking through secure OAuth.
+Create and edit images with Kling Image 4.0, generate Kling 4.0 and Flash videos with supported HDR settings, reuse Elements, and track tasks.
 
 [Open in Antigravity](antigravity://customizations/marketplaces/antigravity-plugins-partners/plugins/kling-ai "Open Kling AI in the Antigravity App")
 
@@ -1096,7 +1118,7 @@ Partner
 
 Design, Creative & Media
 
-Multi-model deliberation panel. Diverse AI voices + claim-level reactions on contested decisions.
+Bring Claude, GPT, Muse, Kimi & more into Antigravity. Run a multi-model panel with cross-model reactions, or ask one model for a second opinion.
 
 [Open in Antigravity](antigravity://customizations/marketplaces/antigravity-plugins-partners/plugins/mumo "Open mumo in the Antigravity App")
 
