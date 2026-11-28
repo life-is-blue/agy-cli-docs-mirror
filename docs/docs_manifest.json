@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-27T07:09:47Z",
+  "generated_at": "2026-11-28T06:42:59Z",
   "tool": "scripts/fetch_agy_docs.py",
   "strict_fetch": false,
   "is_degraded": false,
@@ -144,9 +144,9 @@
       "slug": "changelog",
       "label": "Changelog",
       "url": "https://antigravity.google/docs/changelog.md",
-      "sha256": "4d07e7682f73966e6376015a32da87f39ee8763ce5da97de60b8e6914b0bd8fe",
-      "bytes": 671033,
-      "fetched_at": "2026-11-26T07:13:28Z",
+      "sha256": "aea9b675f19ac0f3914de332674f22081ee2152f64e5c80a550c25f42bb6c49b",
+      "bytes": 677301,
+      "fetched_at": "2026-11-28T06:42:45Z",
       "sidebar_label": "Changelog"
     },
     "antigravity/cli/acp.md": {
@@ -802,9 +802,9 @@
       "slug": "getting-started",
       "label": "Get started",
       "url": "https://antigravity.google/docs/getting-started.md",
-      "sha256": "b6a5fc6d7478ea6f7123879e1bc17275cd560689cdeb1936d80bd3ea1fbe0920",
+      "sha256": "e8d39a9e6304d1236ba7dc679b529cacbcfcbda9d0ac7dced9e5e6a73bebe8bc",
       "bytes": 22885,
-      "fetched_at": "2026-11-26T07:13:28Z",
+      "fetched_at": "2026-11-28T06:42:45Z",
       "sidebar_label": "Get started"
     },
     "antigravity/hooks.md": {
